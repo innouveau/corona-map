@@ -47,6 +47,15 @@
             containerRegions() {
                 return this.$store.getters['ui/regions'];
             },
+            filteredRegions() {
+                if (this.view.parent) {
+                    return this.containerRegions.filter(region => {
+                        return region.parent_code === this.view.parent.code;
+                    })
+                } else {
+                    return this.containerRegions;
+                }
+            },
             currentMap() {
                 return this.$store.state.maps.current;
             },
@@ -171,9 +180,10 @@
                     shiftX: 0,
                     shiftY: 0,
                     zoom: this.$store.state.settings.zoom,
+                    //zoom: this.view.parent ? this.view.parent.map.zoom : this.$store.state.maps.current.settings.map.zoom,
                     fill: true
                 };
-                canvasTools.draw(this.ctx, this.containerRegions, settings, this.view.offset);
+                canvasTools.draw(this.ctx, this.filteredRegions, settings, this.view);
             },
             clear() {
                 this.ctx.clearRect(0, 0, this.width, this.height);

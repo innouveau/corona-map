@@ -13,10 +13,10 @@ class Point {
         return [this.x, this.y];
     }
 
-    getTranslated(settings) {
+    getTranslated(settings, view) {
         return [
-            coordinatesTool.getLeft(this.x, settings),
-            coordinatesTool.getTop(this.y, settings),
+            coordinatesTool.getLeft(this.x, settings, view),
+            coordinatesTool.getTop(this.y, settings, view),
         ]
     }
 }

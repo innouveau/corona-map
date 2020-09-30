@@ -6,10 +6,10 @@ class Path {
         this.storedPaths = {};
     }
 
-    create(settings) {
+    create(settings, view) {
         let path, pathWithoutStart, translatedPath;
         path = new Path2D();
-        translatedPath = this.getTranslatedPath(settings);
+        translatedPath = this.getTranslatedPath(settings, view);
         path.moveTo(...translatedPath[0]);
         pathWithoutStart = translatedPath.slice(1);
         for (let point of pathWithoutStart) {
@@ -18,8 +18,8 @@ class Path {
         this.storedPaths[settings.key] = path;
     }
 
-    getTranslatedPath(settings) {
-        return this.path.map(point => point.getTranslated(settings));
+    getTranslatedPath(settings, view) {
+        return this.path.map(point => point.getTranslated(settings, view));
     }
 
     export() {

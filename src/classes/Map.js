@@ -5,7 +5,8 @@ class Map {
         module = '',
         regionLabel = '',
         settings = {},
-        url = {}
+        url = {},
+        parents = []
     }) {
         this.id = id;
         this.title = title;
@@ -13,6 +14,7 @@ class Map {
         this.regionLabel = regionLabel;
         this.settings = settings;
         this.url = url;
+        this.parents = parents;
     }
 }
 

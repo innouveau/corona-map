@@ -50,7 +50,7 @@
                     offset: offset1
                 }));
                 this.views.push(new View ({
-                    id: 1,
+                    id: 2,
                     offset: offset2
                 }));
             },

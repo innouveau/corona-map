@@ -59,7 +59,7 @@
                     this.addDate(ctx);
                     this.addLegend(ctx);
                     this.addRedCities(ctx);
-                    canvasTools.draw(ctx, this.regions, settings, this.view.offset);
+                    canvasTools.draw(ctx, this.regions, settings, this.view);
                     this.addCreator(ctx, width, height);
 
                     downloadLink.setAttribute('download', 'corona-status-' + this.dateStringdashes + 'png');

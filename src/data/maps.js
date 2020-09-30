@@ -102,7 +102,7 @@ const maps = [
         id: 4,
         regionType: 'District',
         module: 'districts',
-        title: 'NL DE',
+        title: 'Duitsland',
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
@@ -132,7 +132,30 @@ const maps = [
             regions: 'data/maps/nl-de/nl-de.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
-        }
+        },
+        parents: [
+            {
+                id: 1,
+                code: 'nl',
+                title: 'Nederland',
+                map: {
+                    latitude: 52.15,
+                    longitude: 5.34,
+                    stretch: 0.62,
+                    zoom: 0.25
+                }
+            }, {
+                id: 2,
+                code: 'de',
+                title: 'Duitsland',
+                map: {
+                    latitude: 51.29,
+                    longitude: 10.16,
+                    stretch: 0.62,
+                    zoom: 0.1
+                }
+            }
+        ]
     }, {
         id: 5,
         regionType: 'District',

@@ -6,22 +6,22 @@ const addBackground = function(ctx, width, height) {
     ctx.fill();
 };
 
-const draw = function(ctx, regionContainers, settings, offset) {
+const draw = function(ctx, regionContainers, settings, view) {
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = 'rgba(0,0,0,0.3)';
 
     for (let regionContainer of regionContainers) {
-        drawRegionContainer(ctx, regionContainer, settings, offset, offset);
+        drawRegionContainer(ctx, regionContainer, settings, view);
     }
 };
 
-const drawRegionContainer = function(ctx, parent, settings, offset) {
+const drawRegionContainer = function(ctx, parent, settings, view) {
     let currentMap, regionType, pathsOriginSetting, pathsOrigin, children;
 
     currentMap = store.state.maps.current;
     regionType = parent.regionType;
 
-    ctx.fillStyle = parent.getColor(offset);
+    ctx.fillStyle = parent.getColor(view.offset);
 
     pathsOriginSetting = currentMap.settings.pathOrigins.find(region => region.type === regionType);
     if (pathsOriginSetting) {
@@ -32,19 +32,19 @@ const drawRegionContainer = function(ctx, parent, settings, offset) {
     }
     children = parent.getRegionsForPaths(pathsOrigin);
     for (let child of children) {
-        drawRegion(ctx, child, settings);
+        drawRegion(ctx, child, settings, view);
     }
 };
 
-const drawRegion = function(ctx, region, settings) {
+const drawRegion = function(ctx, region, settings, view) {
     for (let path of region.paths) {
-        drawPath(ctx, path, settings);
+        drawPath(ctx, path, settings, view);
     }
 };
 
-const drawPath = function(ctx, path, settings) {
+const drawPath = function(ctx, path, settings, view) {
     if (!path.storedPaths[settings.key]) {
-        path.create(settings);
+        path.create(settings, view);
     }
     if (settings.fill) {
         ctx.fill(path.storedPaths[settings.key]);
