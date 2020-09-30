@@ -62,6 +62,7 @@
             },
             loadRegions() {
                 $.getJSON(this.currentMap.url.regions, (regions) => {
+                    console.log(regions);
                     let promises = [];
                     this.$store.commit(this.currentMap.module + '/init', regions);
                     if (this.currentMap.settings.hasTests) {
