@@ -13,16 +13,30 @@ class _RegionWithTestData extends _Region{
     //     return day ? day.positiveTests : 0;
     // }
 
+    getDay(offset) {
+        return this.report.history.find(day => day.offset === offset);
+    }
+
     getIncreaseDay(delta = 0, offset) {
-        return this.report.history[this.report.history.length - 1 - (offset + delta)].positiveTests;
+        let day = this.getDay(offset + delta);
+        if (day) {
+            return day.positiveTests
+        } else {
+            return null;
+        }
     }
 
     getIncreaseWeek(delta = 0, offset) {
         let total;
         if (store.state.maps.current.settings.testDataInterval === 1) {
             total = 0;
-            for (let i = (this.report.history.length - 1 - offset), l = (this.report.history.length - 8 - offset); i > l; i--) {
-                total += this.report.history[i].positiveTests;
+            for (let i = 0; i < 7; i++) {
+                let day = this.getDay(i + delta);
+                if (day) {
+                    total += day.positiveTests;
+                } else {
+                    return null;
+                }
             }
             return total;
         } else {

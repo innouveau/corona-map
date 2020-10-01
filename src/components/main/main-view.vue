@@ -79,7 +79,7 @@
                     :offset="offset"/>
             </div>
 
-            <trends v-if="showTrends"/>
+<!--            <trends v-if="showTrends"/>-->
             <region-details
                     v-if="showRegion"
                     :region="currentRegion"/>
