@@ -105,7 +105,7 @@
             measure() {
                 let height, ratio, windowWidth;
                 height = this.$el.clientHeight;
-                ratio = this.$store.state.settings.mapRatio;
+                ratio = this.currentMap.settings.map.ratio;
                 windowWidth = window.innerWidth - 20;
                 // mobile
                 if (windowWidth < 767) {

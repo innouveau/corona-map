@@ -27,6 +27,17 @@
             },
             offset() {
                 return this.view.offset;
+            },
+            disabledDates() {
+                if (this.currentMap.settings.testDataInterval === 1) {
+                    return {
+                        days: []
+                    };
+                } else {
+                    return {
+                        days: [1,2,3,4,5,6]
+                    }
+                }
             }
         },
         methods: {
