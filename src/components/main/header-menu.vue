@@ -126,7 +126,7 @@
         z-index: 1;
 
         .title {
-            height: 100%;
+            height: 64px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -182,11 +182,14 @@
         .menu {
             height: 32px;
             display: none;
+            background: #fff;
+            border-top: 1px solid #ddd;
         }
 
         @include mobile() {
 
             .title {
+                height: 48px;
 
                 .title__main {
                     font-size: 16px;

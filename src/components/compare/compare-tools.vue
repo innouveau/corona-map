@@ -77,5 +77,12 @@
         input {
             margin-right: 20px;
         }
+
+        @include mobile() {
+
+            input {
+                width: 80px;
+            }
+        }
     }
 </style>

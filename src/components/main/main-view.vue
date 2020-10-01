@@ -193,13 +193,13 @@
         @include mobile() {
 
             .header-menu {
-                height: 64px;
+                height: 80px;
             }
 
             .content {
                 display: block;
                 position: relative;
-                height: calc(100% - 64px);
+                height: calc(100% - 80px);
 
                 .region-details--mobile {
                     display: block;
