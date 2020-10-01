@@ -121,9 +121,9 @@ const maps = [
                 }
             },
             map: {
-                latitude: 45.09,
-                longitude: 6.51,
-                stretch: 0.62,
+                latitude: 45,
+                longitude: 7.5,
+                stretch: 0.65,
                 zoom: 0.04
             }
         },

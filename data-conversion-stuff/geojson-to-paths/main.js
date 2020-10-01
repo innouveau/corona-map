@@ -1,10 +1,13 @@
-let regions, RD, addPopulation, populationDict, id;
+let regions, RD, addPopulation, populationDict, id, printArrayBrackets, keys;
 
 regions = [];
 addPopulation = true;
-id = 17;
+id = 29;
 // rijksdriehoek
 RD = false;
+printArrayBrackets = false;
+//keys = ['ES', 'IT', 'AT', 'PL', 'SK', 'UK', 'SE', 'NO', 'CH', 'FI'];
+keys = ['ES', 'IT', 'AT', 'PL'];
 
 if (addPopulation) {
     populationDict = {};
@@ -25,12 +28,13 @@ if (addPopulation) {
 
 const loadRegions = function() {
     $.getJSON( "regions.json", function( data ) {
+        console.log(data);
         for (let item of data.features) {
             let region, paths;
             region = {};
             region.id = id++;
-            region.title = item.properties.statnaam;
-            region.identifier = item.properties.statnaam;
+            region.title = item.properties.NAME_LATN;
+            region.identifier = item.properties.NAME_LATN;
             if (addPopulation) {
                 region.population = getPopulation(region.title);
             }
@@ -49,7 +53,6 @@ const loadRegions = function() {
                 paths = item.geometry.coordinates;
             }
 
-
             region.paths = paths.map(path => {
                 return path.map(coordinate => {
                     if (RD) {
@@ -64,12 +67,16 @@ const loadRegions = function() {
 
                 })
             });
-            if (!doesExist(region)) {
+            if (!doesExist(region) && keys.indexOf(item.properties.CNTR_CODE) > -1) {
                 regions.push(region);
             }
         }
         console.log(regions);
-        console.log(JSON.stringify(regions));
+        let string = JSON.stringify(regions);
+        if (!printArrayBrackets) {
+            string = string.substring(1, string.length-1);
+        }
+        console.log(string);
     });
 };
 
