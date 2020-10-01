@@ -121,10 +121,10 @@ const maps = [
                 }
             },
             map: {
-                latitude: 51.29,
-                longitude: 10.16,
+                latitude: 45.09,
+                longitude: 6.51,
                 stretch: 0.62,
-                zoom: 0.1
+                zoom: 0.04
             }
         },
         url: {
