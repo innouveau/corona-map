@@ -156,10 +156,10 @@ const maps = [
                 }
             },
             map: {
-                latitude: 51.29,
-                longitude: 10.16,
-                stretch: 0.62,
-                zoom: 0.1
+                latitude: 45,
+                longitude: 7.5,
+                stretch: 0.65,
+                zoom: 0.04
             }
         },
         url: {
