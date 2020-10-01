@@ -1,18 +1,18 @@
 <script>
     import mapTests from "@/components/main/map/map";
-    import Datepicker from 'vuejs-datepicker';
-    import dateTools from '@/tools/date';
     import headerMenu from "@/components/main/header-menu";
     import View from "@/classes/View";
     import regionDetailsShort from "@/components/main/regions/region-details/region-details-short";
+    import compareTools from "./compare-tools";
 
     export default {
         name: 'compare-item',
         components: {
+            compareTools,
             regionDetailsShort,
             headerMenu,
             mapTests,
-            Datepicker
+
         },
         props: {
             view: {
@@ -24,46 +24,10 @@
                 required: true
             }
         },
-        data() {
-            return {
-                date: dateTools.getDateByOffset(this.view.offset),
-            }
-        },
         computed: {
-            historyLength() {
-                return this.$store.state.settings.historyLength;
-            },
-            isAtEnd() {
-                return this.view.offset === 0;
-            },
-            isAtStart() {
-                return this.view.offset === this.historyLength;
-            },
-            currentMap() {
-                return this.$store.state.maps.current;
-            },
-            disabledDates() {
-                if (this.currentMap.settings.testDataInterval === 1) {
-                    return {
-                        days: []
-                    };
-                } else {
-                    return {
-                        days: [1,2,3,4,5,6]
-                    }
-                }
-            }
+
         },
         methods: {
-            updateOffset(value) {
-                this.view.offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime()) / this.currentMap.settings.testDataInterval;
-                this.updateQuery();
-            },
-            move(value) {
-                this.view.offset -= value;
-                this.date = dateTools.getDateByOffset((this.view.offset * this.currentMap.settings.testDataInterval));
-                this.updateQuery();
-            },
             updateQuery() {
                 this.$parent.updateQuery();
             }
@@ -80,24 +44,8 @@
                 :editable="false"/>
         </div>
         <div class="compare__body">
-            <div class="compare__tools">
-                <datepicker
-                    :value="date"
-                    :disabled-dates="disabledDates"
-                    @input="updateOffset"/>
-                <div
-                    v-if="!isAtStart"
-                    @click="move(-1)"
-                    class="icon-button">
-                    <img src="assets/img/tools/back.svg">
-                </div>
-                <div
-                    v-if="!isAtEnd"
-                    @click="move(1)"
-                    class="icon-button">
-                    <img src="assets/img/tools/forward.svg">
-                </div>
-            </div>
+            <compare-tools
+                :view="view"/>
             <div class="compare__map">
                 <div
                     v-if="view.currentRegion"
@@ -138,23 +86,6 @@
 
         .compare__body {
             height: calc(100% - 48px);
-
-            .compare__tools {
-                height: 56px;
-                display: flex;
-                align-items: center;
-                border-bottom: 1px solid #ddd;
-                padding: 0 8px;
-
-
-                input {
-                    margin-right: 20px;
-                }
-
-                .icon-button {
-                    margin-right: 8px;
-                }
-            }
 
             .compare__map {
                 height: calc(100% - 56px);
