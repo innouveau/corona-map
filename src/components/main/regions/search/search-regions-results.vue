@@ -1,12 +1,18 @@
 <script>
     import searchRegionResult from "./search-region-result";
+    import View from "@/classes/View";
 
     export default {
         name: 'search-regions-results',
         components: {
             searchRegionResult
         },
-        props: {},
+        props: {
+            view: {
+                type: View,
+                required: true
+            }
+        },
         computed: {
             searchValue() {
                 return this.$store.state.ui.searchValue;
@@ -32,7 +38,8 @@
             class="search-regions-results__results">
             <search-region-result
                 v-for="region in regions"
-                :region="region"/>
+                :region="region"
+                :view="view"/>
         </div>
     </div>
 </template>

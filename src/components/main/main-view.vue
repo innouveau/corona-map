@@ -98,7 +98,8 @@
                     :style="{'width': width + 'px'}"
                     :class="{'panel--active': showMap}"
                     class="map-container panel">
-                <search-regions/>
+                <search-regions
+                    :view="view"/>
                 <region-type-picker
                     :view="view"/>
                 <map-tests

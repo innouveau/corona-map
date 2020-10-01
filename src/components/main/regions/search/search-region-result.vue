@@ -1,5 +1,6 @@
 <script>
     import _Region from "@/classes/_Region";
+    import View from "@/classes/View";
 
     export default {
         name: 'search-region-result',
@@ -7,6 +8,10 @@
         props: {
             region: {
                 type: _Region,
+                required: true
+            },
+            view: {
+                type: View,
                 required: true
             }
         },
@@ -17,7 +22,7 @@
         },
         methods: {
             select() {
-                this.$store.commit(this.currentMap.module + '/setCurrent', this.region);
+                this.view.currentRegion = this.region;
                 this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
                 this.$store.commit('ui/updateProperty', {key: 'menu', value: 'city'});
             }

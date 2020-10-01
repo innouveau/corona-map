@@ -1,12 +1,18 @@
 <script>
     import searchRegionsResults from "./search-regions-results";
+    import View from "@/classes/View";
 
     export default {
         name: 'search-regions',
         components: {
             searchRegionsResults
         },
-        props: {},
+        props: {
+            view: {
+                type: View,
+                required: true
+            }
+        },
         computed: {
             searchValue() {
                 return this.$store.state.ui.searchValue;
@@ -15,7 +21,7 @@
                 return this.$store.state.ui.hoverValue;
             },
             regionType() {
-                return 'Zoek gemeente of klik op de kaart';
+                return 'Zoek of klik op de kaart';
                 //return 'Zoek ' + this.$store.getters['ui/typeLabel'](false).toLowerCase() + ' of klik op de kaart';
             }
         },
@@ -37,7 +43,8 @@
         <div
             v-if="hoverValue.length > 0"
             class="hover-value">{{hoverValue}}</div>
-        <search-regions-results/>
+        <search-regions-results
+            :view="view"/>
     </div>
 </template>
 
