@@ -190,6 +190,7 @@
 
             .title {
                 height: 48px;
+                padding-right: 60px;
 
                 .title__main {
                     font-size: 16px;
@@ -203,10 +204,11 @@
                     .date-string {
                         display: block;
                         margin-top: 2px;
+                        margin-right: 0;
                         font-family: $monospace;
 
                         input {
-                            width: 120px;
+                            width: 100px;
                             background: transparent;
                             padding: 3px;
                             font-size: inherit;

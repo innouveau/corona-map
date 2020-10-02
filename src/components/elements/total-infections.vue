@@ -55,12 +55,23 @@
     @import '@/styles/variables.scss';
 
     .total-infections {
+        position: relative;
 
         .total-infections__interval {
             font-size: 12px;
             margin-top: -2px;
             margin-left: 4px;
             white-space: nowrap;
+        }
+
+        @include mobile() {
+
+            .total-infections__interval {
+                position: absolute;
+                top: calc(100% + 2px);
+                left: 0;
+                font-size: 9px;
+            }
         }
     }
 </style>

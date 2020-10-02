@@ -58,5 +58,12 @@
             padding: 16px;
             height: 100%;
         }
+
+        @include mobile() {
+
+            .language-switch__label {
+                display: none;
+            }
+        }
     }
 </style>

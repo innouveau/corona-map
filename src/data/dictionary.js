@@ -23,6 +23,14 @@ const dictionary = {
         nl: "Dagen",
         en: "Days"
     },
+    "district": {
+        nl: "Stadsdeel",
+        en: "District"
+    },
+    "districts": {
+        nl: "Stadsdelen",
+        en: "Districts"
+    },
     "ggd": {
         nl: "GGD",
         en: "GGD"
