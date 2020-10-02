@@ -4,7 +4,7 @@ import store from './store/store';
 import router from './router';
 import translateMixin from '@/mixins/translate';
 
-//Vue.mixin(translateMixin);
+Vue.mixin(translateMixin);
 
 Vue.config.productionTip = false;
 

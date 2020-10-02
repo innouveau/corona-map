@@ -1,5 +1,8 @@
 <script>
     import View from "@/classes/View";
+    import numberTools from '@/tools/number';
+
+    console.log(numberTools);
 
     export default {
         name: 'total-infections',
@@ -22,7 +25,7 @@
                 for (let region of this.regions) {
                     n += region.getIncreaseDay(0, this.view.offset);
                 }
-                return n;
+                return numberTools.format(n, true);
             },
             perWeek() {
                 return this.currentMap.settings.testDataInterval === 7;
@@ -36,7 +39,7 @@
 <template>
     <div class="total-infections">
         <div class="total-infections__n">
-            +{{n}}
+            {{n}}
         </div>
         <div
             v-if="perWeek"

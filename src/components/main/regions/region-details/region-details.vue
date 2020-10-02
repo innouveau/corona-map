@@ -103,7 +103,7 @@
                 v-if="hasAgeGroups && (regionOfFocus.regionType === 'ggd') && caseDataRequested"
                 class="region-details__section">
                 <div class="region-details__section-header">
-                    Leeftijdsverdeling (beta)
+                    {{translate('age-distribution', true)}}
                 </div>
                 <div class="age-distribution-graph__container">
                     <age-distribution-graph-normalised
@@ -122,7 +122,7 @@
 
             <div class="region-details__section">
                 <div class="region-details__section-header">
-                    Testen GGD
+                    {{translate('test-results', true)}}
                 </div>
                 <positive-tests
                     :view="view"

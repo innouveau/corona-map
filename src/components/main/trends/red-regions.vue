@@ -47,6 +47,16 @@
             },
             offset() {
                 return this.view.offset;
+            },
+            title() {
+                let title = '';
+                title += this.typeLabel + ' ';
+                title += this.translate('with-more-than').toLowerCase() + ' ';
+                title += this.n + ' ';
+                title += this.translate('positive-tests').toLowerCase() + ' ';
+                title += this.translate('per') + ' 100.000 ';
+                title += this.translate('inhabitants').toLowerCase();
+                return title;
             }
         },
         methods: {
@@ -65,8 +75,7 @@
 <template>
     <div class="section red-regions">
         <div class="section__header">
-            {{typeLabel}} met meer dan {{n}} besmettingen per 100.000 inwoners
-            in de laatste {{days}}:
+            {{title}}:
         </div>
         <div class="section__body">
             <div class="regions__list">

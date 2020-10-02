@@ -1,13 +1,11 @@
 <script>
     import _Region from "@/classes/_Region";
     import View from "@/classes/View";
-    import translate from "@/components/elements/translate";
+    import numberTools from '@/tools/number';
 
     export default {
         name: 'region-details-numbers',
-        components: {
-            translate
-        },
+        components: { },
         props: {
             view: {
                 type: View,
@@ -29,12 +27,8 @@
             },
         },
         methods: {
-            format(value) {
-                if (value > 0) {
-                    return '+' + value;
-                } else {
-                    return value;
-                }
+            format(value, addPlus) {
+                return numberTools.format(value, addPlus);
             }
         }
     }
@@ -46,10 +40,10 @@
         <div class="region-details__section">
             <div class="region-details__row">
                 <div class="region-details__label">
-                    <translate :word="'population'"/>
+                    {{translate('population', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{region.getTotalPopulation()}}
+                    {{format(region.getTotalPopulation(), false)}}
                 </div>
             </div>
         </div>
@@ -58,7 +52,7 @@
                 v-if="hasDays && !short"
                 class="region-details__row">
                 <div class="region-details__label">
-                    Toename vandaag
+                    {{translate('increase', true)}} {{translate('today')}}
                 </div>
                 <div class="region-details__value">
                     {{format(region.getTotalIncreaseDay(0, view.offset))}}
@@ -66,7 +60,7 @@
             </div>
             <div v-if="hasDays && !short" class="region-details__row">
                 <div class="region-details__label">
-                    Relatieve toename vandaag (per 100.000 inw)
+                    {{translate('relative', true)}} {{translate('increase')}} {{translate('today')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
                 </div>
                 <div class="region-details__value">
                     {{format(Math.round(region.getTotalRelativeIncreasDay(view.offset)))}}
@@ -76,7 +70,7 @@
                 v-if="!short"
                 class="region-details__row">
                 <div class="region-details__label">
-                    Toename laatste 7 dagen
+                    {{translate('increase', true)}} {{translate('last-7-days')}}
                 </div>
                 <div class="region-details__value">
                     {{format(region.getTotalIncreaseWeek(0, view.offset))}}
@@ -84,7 +78,7 @@
             </div>
             <div class="region-details__row">
                 <div class="region-details__label">
-                    Relatieve toename laatste 7 dagen (per 100.000 inw)
+                    {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
                 </div>
                 <div class="region-details__value">
                     {{format(Math.round(region.getTotalRelativeIncreaseWeek(view.offset)))}}

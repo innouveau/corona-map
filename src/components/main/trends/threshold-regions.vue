@@ -24,6 +24,14 @@
             },
             typeLabel() {
                 return this.$store.getters['ui/typeLabel'](true).toLowerCase();
+            },
+            title() {
+                let title = '';
+                title += this.translate('number') + ' ';
+                title += this.typeLabel + ' ';
+                title += this.translate('per') + ' ';
+                title += this.translate('signal-value').toLowerCase();
+                return title;
             }
         },
         methods: {
@@ -41,7 +49,7 @@
 <template>
     <div class="section threshold-regions">
         <div class="section__header">
-            Aantal {{typeLabel}} per signaalwaarde
+            {{title}}
         </div>
         <div class="section__body">
             <div

@@ -7,16 +7,16 @@
             return {
                 colorSets: [
                     {
-                        label: 'Stoplicht',
+                        label: 'traffic-light',
                         value: 'regular'
                     }, {
-                        label: 'Kleurenblind (?)',
+                        label: 'color-blindness',
                         value: 'colorblind1'
                     }, {
-                        label: 'Verloop 1',
+                        label: 'gradient-1',
                         value: 'colorblind2'
                     }, {
-                        label: 'Verloop 2',
+                        label: 'gradient-2',
                         value: 'variant3'
                     }
                 ]
@@ -45,7 +45,7 @@
             <option
                 v-for="colorSet in colorSets"
                 :value="colorSet.value">
-                {{colorSet.label}}
+                {{translate(colorSet.label)}}
             </option>
         </select>
     </div>

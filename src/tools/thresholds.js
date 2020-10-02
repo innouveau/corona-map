@@ -1,6 +1,6 @@
 import store from '@/store/store';
 import interpolate from "color-interpolate";
-
+import translateTool from '@/tools/translate';
 
 
 
@@ -22,22 +22,28 @@ const getThreshold = function(cases, population, days) {
 };
 
 const getNumber = function(threshold) {
-    let index, pre, signalingSystem;
+    let index, signalingSystem, text;
     signalingSystem = store.state.signalingSystems.current;
     index = signalingSystem.thresholds.indexOf(threshold);
     if (index === 0) {
         if (threshold.n === 0) {
-            pre = 0;
+            text = '0';
         } else {
-            pre = '0 - ' + threshold.n;
+            text = '0 - ' + threshold.n;
         }
     } else if (threshold.n !== Infinity) {
         let prev = signalingSystem.thresholds[index - 1];
-        pre = prev.n + ' - ' + threshold.n;
+        text = prev.n + ' - ' + threshold.n;
     } else {
-        pre = signalingSystem.thresholds[signalingSystem.thresholds.length - 2].n + ' of meer ';
+        text = signalingSystem.thresholds[signalingSystem.thresholds.length - 2].n + ' ' + translateTool.translate('or-mor');
     }
-    return pre + ' besm. per ' + getNiceNumberForPopulation(signalingSystem.population) +  ' inw. per ' + getNiceNumberForDays(signalingSystem.days);
+    if (index === 0) {
+        text += ' ' + translateTool.translate('positive-tests').toLowerCase() + ' ' + translateTool.translate('per') + ' ';
+        text += getNiceNumberForPopulation(signalingSystem.population) + ' ';
+        text += translateTool.translate('inhabitants') + ' ' + translateTool.translate('per') + ' ';
+        text += getNiceNumberForDays(signalingSystem.days);
+    }
+    return text;
 };
 
 const getNiceNumberForDays = function(days) {

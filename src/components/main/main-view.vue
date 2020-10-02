@@ -102,11 +102,11 @@
                     :view="view"/>
                 <region-type-picker
                     :view="view"/>
-                <map-tests
-                    :view="view"
-                    :show-tools="true"
-                    :show-legend="true"
-                    :offset="offset"/>
+<!--                <map-tests-->
+<!--                    :view="view"-->
+<!--                    :show-tools="true"-->
+<!--                    :show-legend="true"-->
+<!--                    :offset="offset"/>-->
             </div>
 
             <trends

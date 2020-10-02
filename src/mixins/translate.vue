@@ -7,8 +7,8 @@
         props: {},
         computed: {},
         methods: {
-            translate(word) {
-                return translateTool.translate(word);
+            translate(word, capitalize) {
+                return translateTool.translate(word, capitalize);
             }
         }
     }
