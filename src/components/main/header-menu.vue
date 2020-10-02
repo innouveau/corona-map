@@ -126,7 +126,7 @@
         z-index: 1;
 
         .title {
-            height: 64px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;

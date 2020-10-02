@@ -143,10 +143,6 @@
     .main-view {
         height: 100%;
 
-        .header-menu {
-            height: 48px;
-        }
-
         .content {
             display: flex;
             height: calc(100% - 48px);
