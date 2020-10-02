@@ -17,19 +17,7 @@ class Point {
     }
 
     getTranslated(settings) {
-        let map, s;
-        map = store.state.maps.current.settings.map;
-        s = store.state.settings;
-        if (map.projection && map.projection === 'robinson') {
-            let point = robinson.projectAbsolute(this.y, this.x, s.canvasWidth, 1, 0, 0);
-            return [point.x, point.y];
-        } else {
-            return [
-                coordinatesTool.getLeft(this.x, this.y, settings),
-                coordinatesTool.getTop(this.x, this.y, settings),
-            ]
-        }
-
+        return coordinatesTool.project(this, settings);
     }
 }
 

@@ -202,10 +202,11 @@ const maps = [
             },
             map: {
                 projection: 'robinson',
-                latitude: 0,
-                longitude: 0,
-                zoom: 0.007,
-                ratio: 1.6
+                shiftY: -5,
+                shiftX: -5,
+                // ratio: 1.6,
+                zoom: 1.1,
+                ratio: 2
             }
         },
         url: {
