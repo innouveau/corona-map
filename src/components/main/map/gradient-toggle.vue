@@ -1,7 +1,11 @@
 <script>
+    import translate from "@/components/elements/translate";
+
     export default {
         name: 'gradient-toggle',
-        components: {},
+        components: {
+            translate
+        },
         props: {},
         computed: {
             gradient: {
@@ -22,7 +26,9 @@
     <div class="gradient-toggle">
         <input
             type="checkbox"
-            v-model="gradient"/> Kleurverloop
+            v-model="gradient"/>
+
+        <translate :word="'gradient'"/>
     </div>
 </template>
 

@@ -1,10 +1,13 @@
 <script>
     import _Region from "@/classes/_Region";
     import View from "@/classes/View";
+    import translate from "@/components/elements/translate";
 
     export default {
         name: 'region-details-numbers',
-        components: {},
+        components: {
+            translate
+        },
         props: {
             view: {
                 type: View,
@@ -43,7 +46,7 @@
         <div class="region-details__section">
             <div class="region-details__row">
                 <div class="region-details__label">
-                    Inwoners
+                    <translate :word="'population'"/>
                 </div>
                 <div class="region-details__value">
                     {{region.getTotalPopulation()}}

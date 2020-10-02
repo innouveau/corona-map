@@ -3,6 +3,7 @@
     import $ from 'jquery';
 
     // data
+    import languages from '@/data/languages';
     import maps from '@/data/maps';
     import ggds from '@/data/ggds';
     import safetyRegions from '@/data/safety-regions';
@@ -10,6 +11,7 @@
     import countries from '@/data/countries';
     import ageGroups from '@/data/age-groups';
     import signalingSystems from '@/data/signaling-systems';
+    import LanguageSwitch from "./components/elements/language/language-switch";
 
 
 
@@ -17,6 +19,7 @@
     export default {
         name: 'app',
         components: {
+            LanguageSwitch
         },
         props: {},
         data() {
@@ -34,10 +37,13 @@
         },
         methods: {
             init() {
+                this.initLanguages();
                 this.pickMap();
             },
             pickMap() {
                 let map;
+
+
                 this.$store.commit('maps/init', maps);
                 if (this.$route.query.map) {
                     map = this.$store.getters['maps/getItemByProperty']('title', this.$route.query.map, true);
@@ -49,6 +55,12 @@
                 }
                 this.$store.commit('ui/updateProperty', {key: 'currentRegionType', value: this.currentMap.settings.regionTypes[0]});
                 this.loadData();
+            },
+            initLanguages() {
+                let language;
+                this.$store.commit('languages/init', languages);
+                language = this.$store.state.languages.all[0];
+                this.$store.commit('languages/setCurrent', language);
             },
             loadData() {
                 this.$store.commit('signalingSystems/init', signalingSystems);
@@ -270,6 +282,7 @@
 <template>
     <div class="app">
         <router-view v-if="dataLoaded"/>
+        <language-switch/>
     </div>
 </template>
 
@@ -285,5 +298,11 @@
         top: 0;
         width: 100%;
         height: 100%;
+
+        .language-switch {
+            position: fixed;
+            right: 4px;
+            top: 8px;
+        }
     }
 </style>
