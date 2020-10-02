@@ -22,6 +22,10 @@ const routes = [
         name: "vergelijk",
         component: compare,
     }, {
+        path: "/compare",
+        name: "compare",
+        component: compare,
+    }, {
         path: "/tijdlijn",
         name: "tijdlijn",
         component: timeLine,

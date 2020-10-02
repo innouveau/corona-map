@@ -104,7 +104,9 @@
 
 <template>
     <div class="positive-tests">
-        <div class="positive-tests__title">
+        <div
+            v-if="weeks > 2"
+            class="positive-tests__title">
             {{title}}
         </div>
         <canvas
