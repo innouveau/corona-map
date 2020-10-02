@@ -195,7 +195,7 @@ const maps = [
                 longitude: -100,
                 stretch: 0.7,
                 zoom: 0.03,
-                ratio: 1.6
+                ratio: 4
             }
         },
         url: {
