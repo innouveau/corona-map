@@ -29,9 +29,6 @@
             }
         },
         computed: {
-            width() {
-                return this.$store.state.settings.canvasWidth + 20;
-            },
             showEmbedPopup() {
                 return this.$store.state.ui.embedPopup;
             },
@@ -87,9 +84,8 @@
         <div class="content">
 
             <div
-                    :style="{'width': width + 'px'}"
-                    :class="{'panel--active': showMap}"
-                    class="map-container panel">
+                :class="{'panel--active': showMap}"
+                class="map-container panel">
                 <search-regions
                     :view="view"/>
                 <region-type-picker
@@ -132,6 +128,7 @@
             height: calc(100% - 48px);
 
             .map-container {
+                width: calc(100% - 750px);
 
                 .cities-panel {
                     height: 40px;
@@ -151,8 +148,8 @@
             }
 
             .region-details {
-                // 7 * 70 + 32 + scrollbar
-                width: 540px;
+                // 5 * 70 + 32 + scrollbar + 50
+                width: 450px;
             }
 
             .region-details--mobile {

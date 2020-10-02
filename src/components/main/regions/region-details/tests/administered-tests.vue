@@ -103,8 +103,9 @@
                 return (this.height - this.paddingBottom) - (value * height);
             },
             drawMaxLine() {
-                let ctx, y, normValue, normColor, normString;
-                normString = 'WHO richtlijn';
+                let ctx, y, normValue, normColor, normString1, normString2;
+                normString1 = 'WHO';
+                normString2 = 'richtlijn';
                 normValue = 5;
                 normColor = 'red';
                 ctx = this.ctx;
@@ -118,7 +119,8 @@
                 ctx.stroke();
                 ctx.closePath();
                 ctx.fillStyle = normColor;
-                ctx.fillText(normString, (this.width + 6), (y + 4));
+                ctx.fillText(normString1, (this.width + 6), (y));
+                ctx.fillText(normString2, (this.width + 6), (y + 12));
             }
         },
         mounted() {

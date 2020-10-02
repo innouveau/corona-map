@@ -103,19 +103,24 @@
                 }
             },
             measure() {
-                let height, ratio, windowWidth;
-                height = this.$el.clientHeight;
-                ratio = this.currentMap.settings.map.ratio;
-                windowWidth = window.innerWidth - 20;
-                // mobile
-                if (windowWidth < 767) {
-                    if (ratio * height > windowWidth) {
-                        height = windowWidth / ratio;
-                    }
+                let elementWidth, elementHeight, canvasWidth, canvasHeight, mapRatio, elementRatio, windowWidth;
+                elementWidth = this.$el.clientWidth;
+                elementHeight = this.$el.clientHeight;
+                elementRatio = elementWidth / elementHeight;
+                mapRatio = this.currentMap.settings.map.ratio;
+
+                if (mapRatio > elementRatio) {
+                    canvasWidth = elementWidth;
+                    canvasHeight = canvasWidth / mapRatio;
+                } else {
+                    canvasHeight = elementHeight;
+                    canvasWidth = canvasHeight * mapRatio;
                 }
-                this.$store.commit('settings/updateProperty', {key: 'canvasHeight', value: height});
-                this.$store.commit('settings/updateProperty', {key: 'canvasWidth', value: Math.round(ratio * height)});
-                this.$store.commit('settings/updateProperty', {key: 'zoom', value: (height * this.currentMap.settings.map.zoom)});
+
+
+                this.$store.commit('settings/updateProperty', {key: 'canvasWidth', value: Math.round(canvasWidth)});
+                this.$store.commit('settings/updateProperty', {key: 'canvasHeight', value: Math.round(canvasHeight)});
+                this.$store.commit('settings/updateProperty', {key: 'zoom', value: (canvasHeight * this.currentMap.settings.map.zoom)});
 
             },
             addEvents() {
@@ -251,6 +256,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
+            border: 1px solid #000;
         }
 
         #main-canvas {

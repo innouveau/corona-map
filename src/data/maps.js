@@ -24,7 +24,7 @@ const maps = [
                 longitude: 5.34,
                 stretch: 0.62,
                 zoom: 0.345,
-                ratio: 0.89
+                ratio: 0.91
             }
         },
         url: {
@@ -58,7 +58,7 @@ const maps = [
                 longitude: 4.86,
                 stretch: 0.62,
                 zoom: 3.5,
-                ratio: 0.89
+                ratio: 1.1
             }
         },
         url: {
@@ -131,8 +131,8 @@ const maps = [
                 latitude: 51.29,
                 longitude: 10.16,
                 stretch: 0.62,
-                zoom: 0.1,
-                ratio: 0.89
+                zoom: 0.12,
+                ratio: 1.15
             }
         },
         url: {
@@ -277,9 +277,9 @@ const maps = [
             map: {
                 latitude: 40,
                 longitude: -3,
-                stretch: 0.65,
-                zoom: 0.09,
-                ratio: 0.89
+                stretch: 0.7,
+                zoom: 0.11,
+                ratio: 1.18
             }
         },
         url: {
