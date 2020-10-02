@@ -4,6 +4,7 @@ import Router from "vue-router";
 import main from '@/components/main/main-view'
 import sewageTools from '@/components/sewage/sewage-tools'
 import compare from '@/components/compare/compare'
+import timeLine from '@/components/compare/time-line'
 
 Vue.use(Router);
 
@@ -20,6 +21,10 @@ const routes = [
         path: "/vergelijk",
         name: "vergelijk",
         component: compare,
+    }, {
+        path: "/tijdlijn",
+        name: "tijdlijn",
+        component: timeLine,
     }
 ];
 

@@ -94,7 +94,7 @@
 
                 .map {
                     height: 100%;
-                    width: 80%;
+                    width: 100%;
                 }
 
                 .region-details__container {

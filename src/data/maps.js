@@ -23,7 +23,8 @@ const maps = [
                 latitude: 52.15,
                 longitude: 5.34,
                 stretch: 0.62,
-                zoom: 0.345
+                zoom: 0.345,
+                ratio: 0.89
             }
         },
         url: {
@@ -56,7 +57,8 @@ const maps = [
                 latitude: 52.32,
                 longitude: 4.86,
                 stretch: 0.62,
-                zoom: 3.5
+                zoom: 3.5,
+                ratio: 0.89
             }
         },
         url: {
@@ -89,7 +91,8 @@ const maps = [
                 latitude: 52.05,
                 longitude: 4.34,
                 stretch: 0.62,
-                zoom: 3.2
+                zoom: 3.2,
+                ratio: 0.89
             }
         },
         url: {
@@ -124,11 +127,12 @@ const maps = [
                 latitude: 51.29,
                 longitude: 10.16,
                 stretch: 0.62,
-                zoom: 0.1
+                zoom: 0.1,
+                ratio: 0.89
             }
         },
         url: {
-            tests: 'data/maps/europa/cases.csv',
+            tests: 'data/maps/world/cases.csv',
             regions: 'data/maps/nl-de/nl-de.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
@@ -159,16 +163,56 @@ const maps = [
                 latitude: 45,
                 longitude: 7.5,
                 stretch: 0.65,
-                zoom: 0.04
+                zoom: 0.04,
+                ratio: 0.89
             }
         },
         url: {
-            tests: 'data/maps/europa/cases.csv',
+            tests: 'data/maps/world/cases.csv',
             regions: 'data/maps/europa/europa.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
         }
-    }, {
+    },
+    {
+        id: 6,
+        regionType: 'District',
+        module: 'districts',
+        title: 'World',
+        settings: {
+            regionTypes: ['district'],
+            pathOrigins: [],
+            hasAgeGroups: false,
+            hasTests: true,
+            hasAdministeredTests: false,
+            hasSewageTreatmentPlants: false,
+            testDataCumulative: true,
+            testDataInterval: 1,
+            generalInfoHasPopulation: true,
+            testAdapter: {
+                titleKey: 'Land/regio',
+                positiveTestsKey: '',
+                findColumn: function(column) {
+                    return column.indexOf('20') > -1;
+                }
+            },
+            map: {
+                latitude: 0,
+                longitude: 0,
+                stretch: 0.7,
+                zoom: 0.007,
+                ratio: 1.6
+
+            }
+        },
+        url: {
+            tests: 'data/maps/world/cases.csv',
+            regions: 'data/maps/world/world.json',
+            ageGroups: '',
+            sewageTreatmentPlants: ''
+        }
+    },
+    {
         id: 7,
         regionType: 'District',
         module: 'districts',
@@ -191,11 +235,12 @@ const maps = [
                 }
             },
             map: {
-                latitude: 40,
+                latitude: 38,
                 longitude: -100,
-                stretch: 0.7,
                 zoom: 0.03,
-                ratio: 4
+                ratio: 1.8,
+                stretch: 0.7,
+
             }
         },
         url: {
@@ -205,7 +250,6 @@ const maps = [
             sewageTreatmentPlants: ''
         }
     }
-
 ];
 
 export default maps;
