@@ -43,7 +43,11 @@
                 return this.signalingSystem.days + (this.signalingSystem.days > 1 ? ' dagen' : ' dag');
             },
             typeLabel() {
-                return this.translate(this.$store.getters['ui/typeLabel'](true), true);
+                if (this.currentMap.settings.customRegionLabel) {
+                    return this.currentMap.settings.customRegionLabel[this.currentLanguage.iso_code];
+                } else {
+                    return this.translate(this.$store.getters['ui/typeLabel'](true), true);
+                }
             },
             offset() {
                 return this.view.offset;
@@ -57,6 +61,12 @@
                 title += this.translate('per') + ' 100.000 ';
                 title += this.translate('inhabitants').toLowerCase();
                 return title;
+            },
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
+            currentLanguage() {
+                return this.$store.state.languages.current;
             }
         },
         methods: {

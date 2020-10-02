@@ -64,11 +64,15 @@
 
 <template>
     <div class="region-type-picker">
-        <region-type
-            v-for="type in types"
-            :view="view"
-            :type="type"
-            :n="types.length"/>
+        <div
+            v-if="types.length > 1"
+            class="region-type-picker__container">
+            <region-type
+                v-for="type in types"
+                :view="view"
+                :type="type"
+                :n="types.length"/>
+        </div>
     </div>
 </template>
 
@@ -77,12 +81,16 @@
     @import '@/styles/variables.scss';
 
     .region-type-picker {
-        display: flex;
-        flex-wrap: wrap;
-        border-bottom: 1px solid #ddd;
-        border-top: 1px solid #ddd;
-        border-left: 1px solid #ddd;
         height: 24px;
         margin-top: 6px;
+
+        .region-type-picker__container {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
+            border-bottom: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+        }
     }
 </style>

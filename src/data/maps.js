@@ -105,8 +105,12 @@ const maps = [
         id: 4,
         regionType: 'District',
         module: 'districts',
-        title: 'NL DE',
+        title: 'NL-DE',
         settings: {
+            customRegionLabel: {
+                nl: 'Gebieden',
+                en: 'Regions'
+            },
             regionTypes: ['district'],
             pathOrigins: [],
             hasAgeGroups: false,

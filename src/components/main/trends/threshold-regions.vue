@@ -16,14 +16,24 @@
             }
         },
         computed: {
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
             n() {
                 return this.thresholds[this.thresholds.length - 2].n
             },
             thresholds() {
                 return this.$store.state.signalingSystems.current.thresholds;
             },
+            currentLanguage() {
+                return this.$store.state.languages.current;
+            },
             typeLabel() {
-                return this.translate(this.$store.getters['ui/typeLabel'](true));
+                if (this.currentMap.settings.customRegionLabel) {
+                    return this.currentMap.settings.customRegionLabel[this.currentLanguage.iso_code].toLowerCase();
+                } else {
+                    return this.translate(this.$store.getters['ui/typeLabel'](true));
+                }
             },
             title() {
                 let title = '';
