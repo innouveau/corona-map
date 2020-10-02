@@ -168,7 +168,44 @@ const maps = [
             ageGroups: '',
             sewageTreatmentPlants: ''
         }
+    }, {
+        id: 7,
+        regionType: 'District',
+        module: 'districts',
+        title: 'USA',
+        settings: {
+            regionTypes: ['district'],
+            pathOrigins: [],
+            hasAgeGroups: false,
+            hasTests: true,
+            hasAdministeredTests: false,
+            hasSewageTreatmentPlants: false,
+            testDataCumulative: true,
+            testDataInterval: 1,
+            generalInfoHasPopulation: true,
+            testAdapter: {
+                titleKey: 'Land/regio',
+                positiveTestsKey: '',
+                findColumn: function(column) {
+                    return column.indexOf('20') > -1;
+                }
+            },
+            map: {
+                latitude: 40,
+                longitude: -100,
+                stretch: 0.7,
+                zoom: 0.03,
+                ratio: 1.6
+            }
+        },
+        url: {
+            tests: 'data/maps/world/cases.csv',
+            regions: 'data/maps/usa/usa.json',
+            ageGroups: '',
+            sewageTreatmentPlants: ''
+        }
     }
+
 ];
 
 export default maps;
