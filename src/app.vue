@@ -65,7 +65,12 @@
             initLanguages() {
                 let language;
                 this.$store.commit('languages/init', languages);
-                language = this.$store.state.languages.all[0];
+                if (this.$route.query.language) {
+                    language = this.$store.getters['languages/getItemByProperty']('iso_code', this.$route.query.language, true);
+                }
+                if (!language) {
+                    language = this.$store.state.languages.all[0];
+                }
                 this.$store.commit('languages/setCurrent', language);
             },
             loadData() {
