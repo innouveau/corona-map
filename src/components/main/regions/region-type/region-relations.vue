@@ -28,14 +28,12 @@
                 store = this.$store;
                 levels = [
                     {
-                        label: 'Stadsdeel',
                         showRegion: true,
                         getRegion() {
                             return region;
                         },
                         tag: 'district'
                     }, {
-                        label: 'Gemeente',
                         showRegion: true,
                         getRegion() {
                             return region;
@@ -43,7 +41,6 @@
                         tag: 'city'
                     },
                     {
-                        label: 'GGD',
                         showRegion: true,
                         getRegion() {
                             return store.getters['ggds/getItemByProperty']('ggd_code', region.ggd_code, true);
@@ -51,7 +48,6 @@
                         tag: 'ggd'
                     },
                     {
-                        label: 'Veiligheidsregio',
                         showRegion: true,
                         getRegion() {
                             return store.getters['safetyRegions/getItemByProperty']('safetyRegion_code', region.safetyRegion_code, true);
@@ -59,7 +55,6 @@
                         tag: 'safety-region'
                     },
                     {
-                        label: 'Provincie',
                         showRegion: true,
                         getRegion() {
                             return store.getters['provinces/getItemByProperty']('province_code', region.province_code, true);
@@ -67,7 +62,6 @@
                         tag: 'province'
                     },
                     {
-                        label: 'Land',
                         showRegion: true,
                         getRegion() {
                             return store.getters['countries/getItemById'](region.country_id);

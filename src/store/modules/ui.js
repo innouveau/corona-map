@@ -100,17 +100,17 @@ const getters = {
     typeLabel: (state) => (plural = true) => {
         switch(state.currentRegionType) {
             case 'district':
-                return plural ? "Stadsdelen" : "Stadsdeel";
+                return plural ? "districts" : "district";
             case 'city':
-                return plural ? "Gemeentes" : "Gemeente";
+                return plural ? "municipalities" : "municipality";
             case 'ggd':
-                return plural ? "GGD'en" : "GGD";
+                return plural ? "ggds" : "ggd";
             case 'safety-region':
-                return plural ? "Veiligheidsregio's" : "Veiligheidsregio";
+                return plural ? "safety-regions" : "safety-region";
             case 'province':
-                return plural ? "Provincies" : "Provincie";
+                return plural ? "provinces" : "province";
             case 'country':
-                return plural ? "Landen" : "Land";
+                return plural ? "countries" : "country";
         }
     }
 };

@@ -12,7 +12,14 @@
                 required: true
             }
         },
-        computed: {},
+        computed: {
+            title() {
+                let title = '';
+                title += this.translate('percentage', true) + ' ';
+                title += this.translate('positive-tests');
+                return title;
+            }
+        },
         methods: {
             redraw() {
                 this.clear();
@@ -152,7 +159,7 @@
 <template>
     <div class="administered-tests">
         <div class="administered-tests__title">
-            Percentage positieve tests
+            {{title}}
         </div>
         <canvas
                 :id="'canvas-' + id"

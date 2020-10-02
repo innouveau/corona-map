@@ -120,6 +120,9 @@
             },
             background() {
                 return this.region.color;
+            },
+            isNl() {
+                return this.$store.state.languages.current.iso_code === 'nl';
             }
         },
         methods: {}
@@ -143,7 +146,7 @@
             </div>
 
             <div
-                v-if="showVerdict"
+                v-if="showVerdict && isNl"
                 class="region-trend__verdict">
                 {{verdict.title}}
                 <div class="region-trend__note">

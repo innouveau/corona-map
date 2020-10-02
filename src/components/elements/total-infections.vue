@@ -2,8 +2,6 @@
     import View from "@/classes/View";
     import numberTools from '@/tools/number';
 
-    console.log(numberTools);
-
     export default {
         name: 'total-infections',
         components: {},
@@ -29,6 +27,9 @@
             },
             perWeek() {
                 return this.currentMap.settings.testDataInterval === 7;
+            },
+            intervalText() {
+                return this.translate('per') + ' 7 ' + this.translate('days');
             }
         },
         methods: {}
@@ -44,7 +45,7 @@
         <div
             v-if="perWeek"
             class="total-infections__interval">
-            (per 7 dagen)
+            {{intervalText}}
         </div>
     </div>
 </template>

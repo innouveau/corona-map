@@ -45,7 +45,7 @@
             <option
                 v-for="colorSet in colorSets"
                 :value="colorSet.value">
-                {{translate(colorSet.label)}}
+                {{translate(colorSet.label, true)}}
             </option>
         </select>
     </div>

@@ -43,7 +43,7 @@
                 return this.signalingSystem.days + (this.signalingSystem.days > 1 ? ' dagen' : ' dag');
             },
             typeLabel() {
-                return this.$store.getters['ui/typeLabel'](true).toLowerCase();
+                return this.translate(this.$store.getters['ui/typeLabel'](true), true);
             },
             offset() {
                 return this.view.offset;

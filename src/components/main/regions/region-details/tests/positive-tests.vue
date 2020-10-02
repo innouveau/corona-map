@@ -21,6 +21,9 @@
             },
             isColorblind() {
                 return this.colorSet === 'colorblind1';
+            },
+            title() {
+                return this.translate('positive-tests', true);
             }
         },
         methods: {
@@ -101,6 +104,9 @@
 
 <template>
     <div class="positive-tests">
+        <div class="positive-tests__title">
+            {{title}}
+        </div>
         <canvas
             :id="'canvas-' + id"
             :width="canvasWidth"
@@ -114,6 +120,10 @@
 
     .positive-tests {
         margin-bottom: 12px;
+
+        .positive-tests__title {
+            margin-bottom: 4px;
+        }
 
         canvas {
         }

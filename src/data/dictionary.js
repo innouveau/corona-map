@@ -1,91 +1,143 @@
 const dictionary = {
-    'age-distribution': {
-        nl: 'Leeftijdsverdeling',
-        en: 'Age distribution'
+    "age-distribution": {
+        nl: "Leeftijdsverdeling",
+        en: "Age distribution"
     },
-    'color-blindness': {
-        nl: 'Kleurenblind',
-        en: 'Color blind'
+    "city": {
+        nl: "Stad",
+        en: "City"
     },
-    'gradient': {
-        nl: 'Kleurverloop',
-        en: 'Gradient'
+    "country": {
+        nl: "Land",
+        en: "Country"
     },
-    'gradient-1': {
-        nl: 'Kleurverloop 1',
-        en: 'Gradient 1'
+    "countries": {
+        nl: "Landen",
+        en: "Countries"
     },
-    'gradient-2': {
-        nl: 'Kleurverloop 2',
-        en: 'Gradient 2'
+    "color-blindness": {
+        nl: "Kleurenblind",
+        en: "Color blind"
     },
-    'increase': {
-        nl: 'Toename',
-        en: 'Increase'
+    "days": {
+        nl: "Dagen",
+        en: "Days"
     },
-    'inhabitants': {
-        nl: 'inwoners',
-        en: 'inhabitants'
+    "ggd": {
+        nl: "GGD",
+        en: "GGD"
     },
-    'inhabitants-short': {
-        nl: 'inw.',
-        en: 'inh.'
+    "ggds": {
+        nl: "GGD'en",
+        en: "GGDs"
     },
-    'language': {
-        nl: 'Taal',
-        en: 'Language'
+    "gradient": {
+        nl: "Kleurverloop",
+        en: "Gradient"
     },
-    'last-7-days': {
-        nl: 'Laatste 7 dagen',
-        en: 'Last 7 days'
+    "gradient-1": {
+        nl: "Kleurverloop 1",
+        en: "Gradient 1"
     },
-    'number': {
-        nl: 'Aantal',
-        en: 'Number of'
+    "gradient-2": {
+        nl: "Kleurverloop 2",
+        en: "Gradient 2"
     },
-    'or-mor': {
-        nl: 'of meer',
-        en: 'or more'
+    "increase": {
+        nl: "Toename",
+        en: "Increase"
     },
-    'per': {
-        nl: 'per',
-        en: 'per'
+    "inhabitants": {
+        nl: "inwoners",
+        en: "inhabitants"
     },
-    'population': {
-        nl: 'Inwoners',
-        en: 'Population'
+    "inhabitants-short": {
+        nl: "inw.",
+        en: "inh."
     },
-    'positive-tests': {
-        nl: 'Positieve tests',
-        en: 'Positive tests'
+    "language": {
+        nl: "Taal",
+        en: "Language"
     },
-    'relative': {
-        nl: 'Relative',
-        en: 'Relative'
+    "last-7-days": {
+        nl: "Laatste 7 dagen",
+        en: "Last 7 days"
     },
-    'search-or-click-on-map': {
-        nl: 'Zoek of klik op de kaart',
-        en: 'Search or click on the map'
+    "municipality": {
+        nl: "Gemeente",
+        en: "Municipality"
     },
-    'signal-value': {
-        nl: 'Signaalwaarde',
-        en: 'Signal value'
+    "municipalities": {
+        nl: "Gemeentes",
+        en: "Municipalities"
     },
-    'test-results': {
-        nl: 'Test resultaten',
-        en: 'Test results'
+    "number": {
+        nl: "Aantal",
+        en: "Number of"
     },
-    'today': {
-        nl: 'Vandaag',
-        en: 'Today'
+    "or-mor": {
+        nl: "of meer",
+        en: "or more"
     },
-    'traffic-light': {
-        nl: 'Stoplicht',
-        en: 'Traffic Light'
+    "per": {
+        nl: "per",
+        en: "per"
     },
-    'with-more-than': {
-        nl: 'Met meer dan',
-        en: 'With more than'
+    "percentage": {
+        nl: "Percentage",
+        en: "Percentage"
+    },
+    "population": {
+        nl: "Inwoners",
+        en: "Population"
+    },
+    "positive-tests": {
+        nl: "Positieve tests",
+        en: "Positive tests"
+    },
+    "province": {
+        nl: "Provincie",
+        en: "Province"
+    },
+    "provinces": {
+        nl: "Provincies",
+        en: "Provinces"
+    },
+    "relative": {
+        nl: "Relative",
+        en: "Relative"
+    },
+    "safety-region": {
+        nl: "Veiligheidsregio",
+        en: "Safety region"
+    },
+    "safety-regions": {
+        nl: "Veiligheidsregio's",
+        en: "Safety regions"
+    },
+    "search-or-click-on-map": {
+        nl: "Zoek of klik op de kaart",
+        en: "Search or click on the map"
+    },
+    "signal-value": {
+        nl: "Signaalwaarde",
+        en: "Signal value"
+    },
+    "test-results": {
+        nl: "Test resultaten",
+        en: "Test results"
+    },
+    "today": {
+        nl: "Vandaag",
+        en: "Today"
+    },
+    "traffic-light": {
+        nl: "Stoplicht",
+        en: "Traffic light"
+    },
+    "with-more-than": {
+        nl: "Met meer dan",
+        en: "With more than"
     }
 };
 

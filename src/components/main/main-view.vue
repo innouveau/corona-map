@@ -1,7 +1,6 @@
 <script>
     import mapTests from "./map/map";
     import searchRegions from "./regions/search/search-regions";
-    import credits from "./credits";
     import headerMenu from "./header-menu";
     import trends from "./trends/trends";
     import regionDetails from "./regions/region-details/region-details";
@@ -18,7 +17,6 @@
             embedPopup,
             trends,
             headerMenu,
-            credits,
             searchRegions,
             mapTests,
             regionDetails
@@ -33,9 +31,6 @@
         computed: {
             width() {
                 return this.$store.state.settings.canvasWidth + 20;
-            },
-            showCredits() {
-                return this.$store.state.ui.credits;
             },
             showEmbedPopup() {
                 return this.$store.state.ui.embedPopup;
@@ -57,9 +52,6 @@
             }
         },
         methods: {
-            openCredits() {
-                this.$store.commit('ui/updateProperty', {key: 'credits', value: true});
-            },
             readQuery() {
                 let region, string, date, offset;
                 if (this.$route.query.region) {
@@ -102,11 +94,11 @@
                     :view="view"/>
                 <region-type-picker
                     :view="view"/>
-<!--                <map-tests-->
-<!--                    :view="view"-->
-<!--                    :show-tools="true"-->
-<!--                    :show-legend="true"-->
-<!--                    :offset="offset"/>-->
+                <map-tests
+                    :view="view"
+                    :show-tools="true"
+                    :show-legend="true"
+                    :offset="offset"/>
             </div>
 
             <trends
@@ -124,15 +116,7 @@
             </div>
         </div>
 
-        <credits v-if="showCredits"/>
-
         <embed-popup v-if="showEmbedPopup"/>
-
-        <div
-            @click="openCredits()"
-            class="open-credits">
-            Credits
-        </div>
     </div>
 </template>
 
@@ -175,15 +159,6 @@
                 padding: 20px;
                 display: none;
             }
-        }
-
-        .open-credits {
-            position: fixed;
-            right: 10px;
-            bottom: 6px;
-            cursor: pointer;
-            text-decoration: underline;
-            text-align: right;
         }
 
         @include mobile() {

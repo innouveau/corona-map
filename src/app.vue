@@ -1,6 +1,8 @@
 <script>
     import * as d3 from 'd3';
     import $ from 'jquery';
+    import credits from "@/components/main/credits";
+    import languageSwitch from "@/components/elements/language/language-switch";
 
     // data
     import languages from '@/data/languages';
@@ -11,7 +13,7 @@
     import countries from '@/data/countries';
     import ageGroups from '@/data/age-groups';
     import signalingSystems from '@/data/signaling-systems';
-    import LanguageSwitch from "./components/elements/language/language-switch";
+
 
 
 
@@ -19,7 +21,8 @@
     export default {
         name: 'app',
         components: {
-            LanguageSwitch
+            languageSwitch,
+            credits
         },
         props: {},
         data() {
@@ -33,7 +36,10 @@
             },
             currentMap() {
                 return this.$store.state.maps.current;
-            }
+            },
+            showCredits() {
+                return this.$store.state.ui.credits;
+            },
         },
         methods: {
             init() {
@@ -64,7 +70,7 @@
             },
             loadData() {
                 this.$store.commit('signalingSystems/init', signalingSystems);
-                this.$store.commit('signalingSystems/setCurrent', this.$store.state.signalingSystems.all[3]);
+                this.$store.commit('signalingSystems/setCurrent', this.$store.state.signalingSystems.all[0]);
                 this.$store.commit('countries/init', countries);
                 this.$store.commit('ggds/init', ggds);
                 this.$store.commit('safetyRegions/init', safetyRegions);
@@ -270,6 +276,9 @@
                 } else {
                     //console.log('not found ' + key);
                 }
+            },
+            openCredits() {
+                this.$store.commit('ui/updateProperty', {key: 'credits', value: true});
             }
         },
         mounted() {
@@ -283,6 +292,12 @@
     <div class="app">
         <router-view v-if="dataLoaded"/>
         <language-switch/>
+        <div
+            @click="openCredits()"
+            class="open-credits">
+            Credits (NL)
+        </div>
+        <credits v-if="showCredits"/>
     </div>
 </template>
 
@@ -298,6 +313,15 @@
         top: 0;
         width: 100%;
         height: 100%;
+
+        .open-credits {
+            position: fixed;
+            right: 10px;
+            bottom: 6px;
+            cursor: pointer;
+            text-decoration: underline;
+            text-align: right;
+        }
 
         .language-switch {
             position: fixed;

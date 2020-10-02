@@ -23,11 +23,11 @@
                 return this.$store.state.signalingSystems.current.thresholds;
             },
             typeLabel() {
-                return this.$store.getters['ui/typeLabel'](true).toLowerCase();
+                return this.translate(this.$store.getters['ui/typeLabel'](true));
             },
             title() {
                 let title = '';
-                title += this.translate('number') + ' ';
+                title += this.translate('number', true) + ' ';
                 title += this.typeLabel + ' ';
                 title += this.translate('per') + ' ';
                 title += this.translate('signal-value').toLowerCase();
