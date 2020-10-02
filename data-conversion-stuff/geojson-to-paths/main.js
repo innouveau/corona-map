@@ -2,14 +2,14 @@ let regions, RD, addPopulation, populationDict, id, printArrayBrackets, filter, 
 
 regions = [];
 addPopulation = true;
-id = 209;
+id = 1;
 // rijksdriehoek
 RD = false;
 printArrayBrackets = true;
-filter = false;
-titleKey = 'name';
+filter = true;
+titleKey = 'NAME_LATN';
 //keys = ['ES', 'IT', 'AT', 'PL', 'SK', 'UK', 'SE', 'NO', 'CH', 'FI'];
-keys = ['ES', 'IT', 'AT', 'PL'];
+keys = ['ES'];
 
 if (addPopulation) {
     populationDict = {};
@@ -68,7 +68,8 @@ const loadRegions = function() {
 
                 })
             });
-            if (!doesExist(region) && (!filter || keys.indexOf(item.properties.CNTR_CODE)) > -1) {
+            if (!doesExist(region) && (!filter || keys.indexOf(item.properties.CNTR_CODE) > -1) && item.properties.LEVL_CODE === 2) {
+                console.log(item);
                 if (region.title !== 'Antarctica') {
 
                     regions.push(region);
