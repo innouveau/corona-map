@@ -289,6 +289,42 @@ const maps = [
             ageGroups: '',
             sewageTreatmentPlants: ''
         }
+    }, {
+        id: 8,
+        regionType: 'District',
+        module: 'districts',
+        title: 'Belgie',
+        settings: {
+            regionTypes: ['district'],
+            pathOrigins: [],
+            hasAgeGroups: false,
+            hasTests: true,
+            hasAdministeredTests: false,
+            hasSewageTreatmentPlants: false,
+            testDataCumulative: true,
+            testDataInterval: 1,
+            generalInfoHasPopulation: true,
+            testAdapter: {
+                titleKey: 'Land/regio',
+                positiveTestsKey: '',
+                findColumn: function(column) {
+                    return column.indexOf('20') > -1;
+                }
+            },
+            map: {
+                latitude: 50.5,
+                longitude: 4.5,
+                stretch: 0.65,
+                zoom: 0.4,
+                ratio: 1.22
+            }
+        },
+        url: {
+            tests: 'data/maps/world/cases.csv',
+            regions: 'data/maps/belgium/belgium.json',
+            ageGroups: '',
+            sewageTreatmentPlants: ''
+        }
     }
 ];
 

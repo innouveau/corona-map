@@ -1,7 +1,7 @@
-let regions, RD, addPopulation, populationDict, id, printArrayBrackets, filter, keys, titleKey;
+let regions, RD, getInfoFromPopulationFile, populationDict, id, printArrayBrackets, filter, keys, titleKey;
 
 regions = [];
-addPopulation = true;
+getInfoFromPopulationFile = true;
 id = 1;
 // rijksdriehoek
 RD = false;
@@ -9,16 +9,15 @@ printArrayBrackets = true;
 filter = true;
 titleKey = 'NAME_LATN';
 //keys = ['ES', 'IT', 'AT', 'PL', 'SK', 'UK', 'SE', 'NO', 'CH', 'FI'];
-keys = ['ES'];
+keys = ['BE'];
 
-if (addPopulation) {
+if (getInfoFromPopulationFile) {
     populationDict = {};
     d3.csv('population.csv')
         .then((data) => {
             for (let item of data) {
-                populationDict[item.region] = Number(item.population)
+                populationDict[item.ISO3166_NUTS] = item
             }
-            //console.log(populationDict);
             loadRegions();
         })
         .catch((error) => {
@@ -31,47 +30,52 @@ if (addPopulation) {
 const loadRegions = function() {
     $.getJSON( "regions.json", function( data ) {
         for (let item of data.features) {
-            let region, paths;
-            region = {};
-            region.id = id++;
-            region.title = item.properties[titleKey];
-            region.identifier = item.properties[titleKey];
-            if (addPopulation) {
-                region.population = getPopulation(region.title);
-            }
+            let region, paths, found;
+            if (!filter || keys.indexOf(item.properties.CNTR_CODE) > -1) {
+                found = true;
+                region = {};
 
-            if (item.geometry.type === 'MultiPolygon') {
-                paths = [];
-                for (let set of item.geometry.coordinates) {
-                    for (let path of set) {
-                        paths.push(path);
+                // add properties
+                region.title = item.properties[titleKey];
+                region.identifier = item.properties[titleKey];
+                if (getInfoFromPopulationFile) {
+                    let dictRegion = getRegionByNuts(item.id);
+                    if (!dictRegion) {
+                        found = false;
+                    } else {
+                        region.population = Number(dictRegion.population);
+                        region.nutsCode = item.id;
+                        region.title = dictRegion.region;
+                        region.identifier = dictRegion.region;
                     }
                 }
-                // item.geometry.coordinates.map(arr => {
-                //     return arr[0];
-                // });
-            } else {
-                paths = item.geometry.coordinates;
-            }
 
-            region.paths = paths.map(path => {
-                return path.map(coordinate => {
-                    if (RD) {
-                        return RdToGws(...coordinate);
-                    } else {
-                        return {
-                            x: coordinate[0],
-                            y: coordinate[1]
+                // transform paths
+                if (item.geometry.type === 'MultiPolygon') {
+                    paths = [];
+                    for (let set of item.geometry.coordinates) {
+                        for (let path of set) {
+                            paths.push(path);
                         }
                     }
+                } else {
+                    paths = item.geometry.coordinates;
+                }
 
-
-                })
-            });
-            if (!doesExist(region) && (!filter || keys.indexOf(item.properties.CNTR_CODE) > -1) && item.properties.LEVL_CODE === 2) {
-                console.log(item);
-                if (region.title !== 'Antarctica') {
-
+                region.paths = paths.map(path => {
+                    return path.map(coordinate => {
+                        if (RD) {
+                            return RdToGws(...coordinate);
+                        } else {
+                            return {
+                                x: coordinate[0],
+                                y: coordinate[1]
+                            }
+                        }
+                    })
+                });
+                if (!doesExist(region) && found) {
+                    region.id = id++;
                     regions.push(region);
                 }
             }
@@ -86,8 +90,8 @@ const loadRegions = function() {
 };
 
 
-const getPopulation = function(title) {
-    return populationDict[title];
+const getRegionByNuts = function(nutsCode) {
+    return populationDict[nutsCode];
 };
 
 const doesExist = function (r) {
