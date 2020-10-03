@@ -113,15 +113,15 @@ South Australia,1751693,Australia,,,
 Tasmania,534281,Australia,,,
 Victoria,6594804,Australia,,,
 Western Australia,2621680,Australia,,,
-Burgenland,294466,Austria,,,
-Kärnten,561390,Austria,,,
-Niederösterreich,1684623,Austria,,,
-Oberösterreich,1490392,Austria,,,
-Salzburg,558479,Austria,,,
-Steiermark,1246576,Austria,,,
-Tirol,757852,Austria,,,
-Vorarlberg,397094,Austria,,,
-Wien,1911728,Austria,,,
+Burgenland,294466,Austria,,,AT11
+Kärnten,561390,Austria,,,AT21
+Niederösterreich,1684623,Austria,,,AT12
+Oberösterreich,1490392,Austria,,,AT31
+Salzburg,558479,Austria,,,AT32
+Steiermark,1246576,Austria,,,AT22
+Tirol,757852,Austria,,,AT33
+Vorarlberg,397094,Austria,,,AT34
+Wien,1911728,Austria,,,AT13
 Antwerp,1860470,Belgium,,Anver,BE21
 Brussels,1215290,Belgium,,Bruxelles,BE1
 East Flanders,1516283,Belgium,,Oost-Vlaanderen,BE23
@@ -219,12 +219,12 @@ South Moravian Region,1187667,Czechia,,Jihomoravský kraj,CZ064
 Ústí nad Labem Region,820789,Czechia,,Ústecký kraj,CZ042
 Vysocina Region,509274,Czechia,,Kraj Vysočina,CZ063
 Zlin Region,582921,Czechia,,Zlínský kraj,CZ072
-Faroe,48497,Denmark,,,
-Hovedstaden,1836000,Denmark,,,
-Midtjylland,1313596,Denmark,,,
-Nordjylland,589148,Denmark,,,
-Sjælland,835024,Denmark,,,
-Syddanmark,1220763,Denmark,,,
+Faroe,48497,Denmark,,,FO
+Hovedstaden,1836000,Denmark,,,DK01
+Midtjylland,1313596,Denmark,,,DK04
+Nordjylland,589148,Denmark,,,DK05
+Sjælland,835024,Denmark,,,DK02
+Syddanmark,1220763,Denmark,,,DK03
 EU27,445834883,EU,,,
 Albania,2866376,Europe,,,
 Andorra,77006,Europe,,,
@@ -281,26 +281,26 @@ Turkey,82319724,Europe,,,
 Ukraine,44622516,Europe,,,
 United Kingdom,66488991,Europe,,UK,
 Ahvenanmaa,29884,Finland,,,
-Etelä-Karjala,127757,Finland,,,
-Etelä-Pohjanmaa,188685,Finland,,,
-Etelä-Savo,142335,Finland,,,
-HUS,1689725,Finland,,,
+Etelä-Karjala,127757,Finland,,,FI1C5
+Etelä-Pohjanmaa,188685,Finland,,,FI194
+Etelä-Savo,142335,Finland,,,FI1D1
+HUS,1689725,Finland,,,FI1B1
 Itä-Savo,42221,Finland,,,
-Kainuu,72306,Finland,,,
-Kanta-Häme,170925,Finland,,,
-Keski-Pohjanmaa,68158,Finland,,,
-Keski-Suomi,275104,Finland,,,
-Kymenlaakso,171167,Finland,,,
+Kainuu,72306,Finland,,,FI1D4
+Kanta-Häme,170925,Finland,,,FI1C2
+Keski-Pohjanmaa,68158,Finland,,,FI1D5
+Keski-Suomi,275104,Finland,,,FI193
+Kymenlaakso,171167,Finland,,,FI1C4
 Länsi-Pohja,61776,Finland,,,
-Lappi,177161,Finland,,,
-Päijät-Häme,199604,Finland,,,
-Pirkanmaa,517666,Finland,,,
-Pohjois-Karjala,161211,Finland,,,
-Pohjois-Pohjanmaa,412830,Finland,,,
-Pohjois-Savo,244236,Finland,,,
-Satakunta,216752,Finland,,,
+Lappi,177161,Finland,,,FI1D7
+Päijät-Häme,199604,Finland,,,FI1C3
+Pirkanmaa,517666,Finland,,,FI197
+Pohjois-Karjala,161211,Finland,,,FI1D3
+Pohjois-Pohjanmaa,412830,Finland,,,FI1D6
+Pohjois-Savo,244236,Finland,,,FI1D2
+Satakunta,216752,Finland,,,FI196
 Vaasa,169741,Finland,,,
-Varsinais-Suomi,479341,Finland,,,
+Varsinais-Suomi,479341,Finland,,,FI1C1
 West North,1000000,Finland,Unidentified region Finland,Unidentified region Finland,
 Auvergne-Rhône-Alpes,8005882,France,,,FRK
 Bourgogne-Franche-Comté,2793333,France,,,FRC
@@ -315,63 +315,63 @@ Nouvelle-Aquitaine,5999982,France,,,FRI
 Occitanie,5924858,France,,,FRJ
 Pays de la Loire,3787400,France,,,FRG
 Provence-Alpes-Côte d'Azur,5048405,France,,,FRL
-Baden-Württemberg,11069533,Germany,,,
-Bayern,13076721,Germany,,,
-Berlin,3644826,Germany,,,
-Brandenburg,2511917,Germany,,,
-Bremen,682986,Germany,,,
-Hamburg,1841179,Germany,,,
-Hessen,6265809,Germany,,,
-Mecklenburg-Vorpommern,1609675,Germany,,,
-Niedersachsen,7982000,Germany,,,
-Nordrhein-Westfalen,17932651,Germany,,,
-Rheinland-Pfalz,4084844,Germany,,,
-Saarland,990509,Germany,,,
-Sachsen,4077937,Germany,,,
-Sachsen-Anhalt,2208321,Germany,,,
-Schleswig Holstein,2896712,Germany,,,
-Thüringen,2143145,Germany,,,
-East Iceland,11798,Iceland,,,
-Greater Reykjavík,178000,Iceland,,,
-Northeast Iceland,26618,Iceland,,,
-Northwest Iceland,9310,Iceland,,,
-South Iceland,21326,Iceland,,,
-Suðurnes Peninsula,16727,Iceland,,,
-West Fjords,8014,Iceland,,,
-West Iceland,14457,Iceland,,,
-Abruzzo,1311580,Italy,,,
-Basilicata,562869,Italy,,,
-Bolzano,106951,Italy,,,
-Calabria,1947131,Italy,,,
-Campania,5801692,Italy,,,
-Emilia-Romagna,4459477,Italy,,,
-Friuli Venezia Giulia,1215220,Italy,,,
-Lazio,5879082,Italy,,,
-Liguria,1550640,Italy,,,
-Lombardia,10060574,Italy,,,
-Marche,1525271,Italy,,,
-Molise,305617,Italy,,,
-Piemonte,4356406,Italy,,,
-Puglia,4029053,Italy,,,
-Sardegna,1639591,Italy,,,
-Sicilia,4999891,Italy,,,
-Toscana,3800000,Italy,,,
-Trento,1072276,Italy,,,
-Umbria,882015,Italy,,,
-Valle d'Aosta,125666,Italy,,,
-Veneto,4905854,Italy,,,
-Drenthe,493449,Netherlands,,,
-Flevoland,422202,Netherlands,,,
-Friesland,649988,Netherlands,,,
-Gelderland,2084478,Netherlands,,,
-Groningen,585881,Netherlands,,,
-Limburg,1118223,Netherlands,,,
-North Brabant,2562566,Netherlands,,,
-North Holland,2877909,Netherlands,,,
-Overijssel,1162215,Netherlands,,,
-South Holland,3705625,Netherlands,,,
-Utrecht,1353596,Netherlands,,,
-Zeeland,383689,Netherlands,,,
+Baden-Württemberg,11069533,Germany,,,DE1
+Bayern,13076721,Germany,,,DE2
+Berlin,3644826,Germany,,,DE3
+Brandenburg,2511917,Germany,,,DE4
+Bremen,682986,Germany,,,DE5
+Hamburg,1841179,Germany,,,DE6
+Hessen,6265809,Germany,,,DE7
+Mecklenburg-Vorpommern,1609675,Germany,,,DE8
+Niedersachsen,7982000,Germany,,,DE9
+Nordrhein-Westfalen,17932651,Germany,,,DEA
+Rheinland-Pfalz,4084844,Germany,,,DEB
+Saarland,990509,Germany,,,DEC
+Sachsen,4077937,Germany,,,DED
+Sachsen-Anhalt,2208321,Germany,,,DEE
+Schleswig Holstein,2896712,Germany,,,DEF
+Thüringen,2143145,Germany,,,DEG
+East Iceland,11798,Iceland,,,IS-6
+Greater Reykjavík,178000,Iceland,,,IS-1
+Northeast Iceland,26618,Iceland,,,IS-6
+Northwest Iceland,9310,Iceland,,,IS-5
+South Iceland,21326,Iceland,,,IS-8
+Suðurnes Peninsula,16727,Iceland,,,IS-2
+West Fjords,8014,Iceland,,,IS-4
+West Iceland,14457,Iceland,,,IS-3
+Abruzzo,1311580,Italy,,,ITF1
+Basilicata,562869,Italy,,,ITF5
+Bolzano,106951,Italy,,,ITH1
+Calabria,1947131,Italy,,,ITF6
+Campania,5801692,Italy,,,ITF3
+Emilia-Romagna,4459477,Italy,,,ITH5
+Friuli Venezia Giulia,1215220,Italy,,,ITD4
+Lazio,5879082,Italy,,,ITI4
+Liguria,1550640,Italy,,,ITC3
+Lombardia,10060574,Italy,,,ITC4
+Marche,1525271,Italy,,,ITI3
+Molise,305617,Italy,,,ITF2
+Piemonte,4356406,Italy,,,ITC1
+Puglia,4029053,Italy,,,ITF4
+Sardegna,1639591,Italy,,,ITG2
+Sicilia,4999891,Italy,,,ITG1
+Toscana,3800000,Italy,,,ITI1
+Trento,1072276,Italy,,,ITH2
+Umbria,882015,Italy,,,ITI2
+Valle d'Aosta,125666,Italy,,,ITC2
+Veneto,4905854,Italy,,,ITH3
+Drenthe,493449,Netherlands,,,NL13
+Flevoland,422202,Netherlands,,,NL23
+Friesland,649988,Netherlands,,,NL12
+Gelderland,2084478,Netherlands,,,NL22
+Groningen,585881,Netherlands,,,NL11
+Limburg,1118223,Netherlands,,,NL42
+North Brabant,2562566,Netherlands,,,NL41
+North Holland,2877909,Netherlands,,,NL32
+Overijssel,1162215,Netherlands,,,NL21
+South Holland,3705625,Netherlands,,,NL33
+Utrecht,1353596,Netherlands,,,NL31
+Zeeland,383689,Netherlands,,,NL34
 Anguilla,15003,North America,,,
 Antigua and Barbuda,96286,North America,,,
 Bahamas,385640,North America,,,
@@ -410,10 +410,10 @@ Turks and Caicos Islands,37665,North America,,,
 US,331002000,North America,,USA;United States,
 Agder,307231,Norway,,,
 Innlandet,371385,Norway,,,
-Møre og Romsdal,265238,Norway,,,
-Nordland,241236,Norway,,,
-Oslo,693494,Norway,,,
-Rogaland,479892,Norway,,,
+Møre og Romsdal,265238,Norway,,,NO053
+Nordland,241236,Norway,,,NO071
+Oslo,693494,Norway,,,NO011
+Rogaland,479892,Norway,,,NO043
 Troms og Finnmark,243311,Norway,,,
 Trøndelag,468702,Norway,,,
 Vestfold og Telemark,419396,Norway,,,
@@ -441,13 +441,13 @@ Pomorskie,2333523,Poland,,,
 Warmińsko-mazurskie,1428983,Poland,,,
 Wielkopolskie,3493969,Poland,,,
 Zachodniopomorskie,1701030,Poland,,,
-Açores,122000,Portugal,,,
-Alentejo,358000,Portugal,,,
-Algarve,227000,Portugal,,,
-Centro,1170000,Portugal,,,
-Lisbon,1383000,Portugal,,,
-Madeira,131000,Portugal,,,
-Norte,1834000,Portugal,,,
+Açores,122000,Portugal,,,PT20
+Alentejo,358000,Portugal,,,PT18
+Algarve,227000,Portugal,,,PT15
+Centro,1170000,Portugal,,,PT16
+Lisbon,1383000,Portugal,,,PT17
+Madeira,131000,Portugal,,,PT30
+Norte,1834000,Portugal,,,PT11
 Adygea,453376,Russia,,,RU_AD
 Altai Krai,2350080,Russia,,,RU_ALT
 Altai Republic,215263,Russia,,,RU_AL
@@ -547,72 +547,72 @@ Sint Maarten,42876,South America,,,
 Suriname,575991,South America,,,
 Uruguay,3449299,South America,,,
 Venezuela,28435980,South America,,,
-Andalucía,8388875,Spain,,,
-Aragón,1311301,Spain,,,
-Canarias,2114845,Spain,,,
-Cantabria,587682,Spain,,,
-Castilla y León,2495689,Spain,,,
-Castilla-La Mancha,2075197,Spain,,,
-Cataluña,7518903,Spain,,,
-Ciudad Autónoma de Ceuta,84674,Spain,,,
-Ciudad Autónoma de Melilla,83870,Spain,,,
-Comunidad de Madrid,6378297,Spain,,,
-Comunidad Foral de Navarra,636450,Spain,,,
-Comunidad Valenciana,4956427,Spain,,,
-Extremadura,1099605,Spain,,,
-Galicia,2747226,Spain,,,
-Illes Balears,1188000,Spain,,,
-La Rioja,315223,Spain,,,
-País Vasco,3155597,Spain,,,
-Principado de Asturias,1058975,Spain,,,
-Región de Murcia,1461803,Spain,,,
-Blekinge,159606,Sweden,,,
-Dalarna,1287966,Sweden,,,
-Gävleborg,287382,Sweden,,,
-Gotland,59686,Sweden,,,
-Halland,333848,Sweden,,,
-Jämtland,130810,Sweden,,,
-Jönköping,363599,Sweden,,,
-Kalmar,245446,Sweden,,,
-Kronoberg,201463,Sweden,,,
-Norrbotten,250093,Sweden,,,
-Örebro,304805,Sweden,,,
-Östergötland,465495,Sweden,,,
-Skåne,1377827,Sweden,,,
-Södermanland,297540,Sweden,,,
-Stockholm,2377081,Sweden,,,
-Uppsala,383713,Sweden,,,
-Värmland,282414,Sweden,,,
-Västerbotten,271736,Sweden,,,
-Västernorrland,245347,Sweden,,,
-Västmanland,275845,Sweden,,,
-Västra Götaland,1725881,Sweden,,,
-Aargau,685642,Switzerland,,,
-Appenzell Ausserrhoden,55432,Switzerland,,,
-Appenzell Innerrhoden,16127,Switzerland,,,
-Basel City,195783,Switzerland,,,
-Basel Country,289404,Switzerland,,,
-Bern,1039101,Switzerland,,,
-Fribourg,321717,Switzerland,,,
-Geneva,504031,Switzerland,,,
-Glarus,40582,Switzerland,,,
-Graubünden,198988,Switzerland,,,
-Jura,73563,Switzerland,,,
-Lucerne,413044,Switzerland,,,
-Neuchâtel,176467,Switzerland,,,
-Nidwalden,43076,Switzerland,,,
-Obwalden,37924,Switzerland,,,
-Schaffhausen,82337,Switzerland,,,
-Schwyz,160457,Switzerland,,,
-Solothurn,275177,Switzerland,,,
-St. Gallen,510670,Switzerland,,,
-Thurgau,279493,Switzerland,,,
-Ticino,351471,Switzerland,,,
-Uri,36694,Switzerland,,,
-Valais,345394,Switzerland,,,
-Vaud,804861,Switzerland,,,
-Zug,127612,Switzerland,,,
-Zurich,1538848,Switzerland,,,
+Andalucía,8388875,Spain,,,ES61
+Aragón,1311301,Spain,,,ES24
+Canarias,2114845,Spain,,,ES70
+Cantabria,587682,Spain,,,ES13
+Castilla y León,2495689,Spain,,,ES41
+Castilla-La Mancha,2075197,Spain,,,ES42
+Cataluña,7518903,Spain,,,ES51
+Ciudad Autónoma de Ceuta,84674,Spain,,,ES63
+Ciudad Autónoma de Melilla,83870,Spain,,,ES64
+Comunidad de Madrid,6378297,Spain,,,ES30
+Comunidad Foral de Navarra,636450,Spain,,,ES22
+Comunidad Valenciana,4956427,Spain,,,ES52
+Extremadura,1099605,Spain,,,ES43
+Galicia,2747226,Spain,,,ES11
+Illes Balears,1188000,Spain,,,ES53
+La Rioja,315223,Spain,,,ES23
+País Vasco,3155597,Spain,,,ES21
+Principado de Asturias,1058975,Spain,,,ES12
+Región de Murcia,1461803,Spain,,,ES62
+Blekinge,159606,Sweden,,,SE221
+Dalarna,1287966,Sweden,,,SE312
+Gävleborg,287382,Sweden,,,SE313
+Gotland,59686,Sweden,,,SE214
+Halland,333848,Sweden,,,SE231
+Jämtland,130810,Sweden,,,SE322
+Jönköping,363599,Sweden,,,SE211
+Kalmar,245446,Sweden,,,SE213
+Kronoberg,201463,Sweden,,,SE212
+Norrbotten,250093,Sweden,,,SE332
+Örebro,304805,Sweden,,,SE124
+Östergötland,465495,Sweden,,,SE123
+Skåne,1377827,Sweden,,,SE224
+Södermanland,297540,Sweden,,,SE122
+Stockholm,2377081,Sweden,,,SE110
+Uppsala,383713,Sweden,,,SE121
+Värmland,282414,Sweden,,,SE311
+Västerbotten,271736,Sweden,,,SE331
+Västernorrland,245347,Sweden,,,SE321
+Västmanland,275845,Sweden,,,SE125
+Västra Götaland,1725881,Sweden,,,SE232
+Aargau,685642,Switzerland,,,CH033
+Appenzell Ausserrhoden,55432,Switzerland,,,CH053
+Appenzell Innerrhoden,16127,Switzerland,,,CH054
+Basel City,195783,Switzerland,,,CH031
+Basel Country,289404,Switzerland,,,CH032
+Bern,1039101,Switzerland,,,CH021
+Fribourg,321717,Switzerland,,,CH022
+Geneva,504031,Switzerland,,,CH013
+Glarus,40582,Switzerland,,,CH051
+Graubünden,198988,Switzerland,,,CH056
+Jura,73563,Switzerland,,,CH025
+Lucerne,413044,Switzerland,,,CH061
+Neuchâtel,176467,Switzerland,,,CH024
+Nidwalden,43076,Switzerland,,,CH065
+Obwalden,37924,Switzerland,,,CH064
+Schaffhausen,82337,Switzerland,,,CH052
+Schwyz,160457,Switzerland,,,CH063
+Solothurn,275177,Switzerland,,,CH023
+St. Gallen,510670,Switzerland,,,CH055
+Thurgau,279493,Switzerland,,,CH057
+Ticino,351471,Switzerland,,,CH070
+Uri,36694,Switzerland,,,CH062
+Valais,345394,Switzerland,,,CH012
+Vaud,804861,Switzerland,,,CH011
+Zug,127612,Switzerland,,,CH066
+Zurich,1538848,Switzerland,,,CH040
 Ayrshire and Arran,5058,United Kingdom,,,
 Dumfries and Galloway,148790,United Kingdom,,,
 East of England,6201214,United Kingdom,,,

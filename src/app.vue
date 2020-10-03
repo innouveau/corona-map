@@ -107,7 +107,6 @@
                                 console.error(error)
                             });
                     }
-                    console.log(this.$store.state.districts.all);
                 });
             },
             loadSewageTreatmentPlants() {

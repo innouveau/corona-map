@@ -8,8 +8,8 @@ RD = false;
 printArrayBrackets = true;
 filter = true;
 titleKey = 'NAME_LATN';
-//keys = ['ES', 'IT', 'AT', 'PL', 'SK', 'UK', 'SE', 'NO', 'CH', 'FI'];
-keys = ['BE'];
+keys = ['BE', 'ES', 'IT', 'AT', 'PL', 'SK', 'UK', 'SE', 'NO', 'CH', 'FI', 'CZ', 'PT', 'FR', 'NL', 'DE', 'IS'];
+//keys = ['BE'];
 
 if (getInfoFromPopulationFile) {
     populationDict = {};
@@ -31,6 +31,11 @@ const loadRegions = function() {
     $.getJSON( "regions.json", function( data ) {
         for (let item of data.features) {
             let region, paths, found;
+
+            if (item.id.indexOf('ITH') > -1) {
+                console.log(item);
+            }
+
             if (!filter || keys.indexOf(item.properties.CNTR_CODE) > -1) {
                 found = true;
                 region = {};
