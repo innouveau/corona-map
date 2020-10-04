@@ -164,10 +164,10 @@ const maps = [
                 }
             },
             map: {
-                latitude: 53,
+                latitude: 53.6,
                 longitude: 7.5,
                 stretch: 0.65,
-                zoom: 0.029,
+                zoom: 0.028,
                 ratio: 0.89
             }
         },

@@ -6,9 +6,9 @@ id = 1;
 // rijksdriehoek
 RD = false;
 printArrayBrackets = true;
-filter = true;
+filter = false;
 titleKey = 'NAME_LATN';
-keys = ['BE', 'ES', 'IT', 'AT', 'PL', 'SK', 'UK', 'SE', 'NO', 'CH', 'FI', 'CZ', 'PT', 'FR', 'NL', 'DE', 'IS'];
+keys = ['RU', 'BE', 'ES', 'IT', 'AT', 'PL', 'SK', 'UK', 'SE', 'NO', 'CH', 'FI', 'CZ', 'PT', 'FR', 'NL', 'DE', 'IS', 'IS', 'DK'];
 //keys = ['BE'];
 
 if (getInfoFromPopulationFile) {
@@ -32,7 +32,7 @@ const loadRegions = function() {
         for (let item of data.features) {
             let region, paths, found;
 
-            if (item.id.indexOf('ITH') > -1) {
+            if (item.id.indexOf('RU') > -1) {
                 console.log(item);
             }
 
