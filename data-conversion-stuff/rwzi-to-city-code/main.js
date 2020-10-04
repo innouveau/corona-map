@@ -1,5 +1,5 @@
-let url, sewerageDict, sewerageAreas;
-
+let url, sewerageDict, sewerageAreas, dateReversed;
+dateReversed = true;
 url = 'https://data.rivm.nl/covid-19/COVID-19_rioolwaterdata.json';
 sewerageAreas = [];
 sewerageDict = {};
@@ -47,7 +47,7 @@ const getCapacity = function(measurementent) {
 $.getJSON(url, function(measurements) {
     //measurements = measurements.slice(0,20);
     for (let measurementent of measurements) {
-        let sewerageArea_code, postalCode, city_code, district_code, capacity;
+        let sewerageArea_code, postalCode, city_code, district_code, capacity, date;
         postalCode = measurementent.Postal_code;
         sewerageArea_code = measurementent.RWZI_AWZI_code;
 
@@ -66,8 +66,9 @@ $.getJSON(url, function(measurements) {
                 measurements: []
             }
         }
+        date = formatDate(measurementent.Date_measurement);
         sewerageDict[sewerageArea_code].measurements.push({
-            date: measurementent.Date_measurement,
+            date,
             RNA_per_ml: measurementent.RNA_per_ml,
             representative_measurement: measurementent.Representative_measurement
         });
@@ -80,5 +81,17 @@ $.getJSON(url, function(measurements) {
     //console.log(sewerageAreas);
     console.log(JSON.stringify(sewerageAreas));
 });
+
+const formatDate = function(string) {
+    if (dateReversed) {
+        let day, month, year;
+        month = Number(string.split('-')[1]);
+        year = Number(string.split('-')[2]);
+        day = Number(string.split('-')[0]);
+        return year + '-' + ((month < 10) ? '0' + month : month) + '-' + ((day < 10) ? '0' + day : day);
+    } else {
+        return string;
+    }
+};
 
 
