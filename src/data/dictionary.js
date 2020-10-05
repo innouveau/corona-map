@@ -112,7 +112,7 @@ const dictionary = {
         en: "Provinces"
     },
     "relative": {
-        nl: "Relative",
+        nl: "Relatieve",
         en: "Relative"
     },
     "safety-region": {
