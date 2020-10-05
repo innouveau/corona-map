@@ -118,6 +118,16 @@
                 })
             },
             loadTests() {
+                const addTestsForRegions = (item) => {
+                    if (this.currentMap.settings.excludeRegions) {
+                        let identifier = item[this.currentMap.settings.testAdapter.titleKey];
+                        console.log(identifier);
+                        return this.currentMap.settings.excludeRegions.indexOf(identifier) === -1;
+                    } else {
+                        return true;
+                    }
+                };
+
                 return new Promise((resolve, reject) => {
                     d3.csv(this.currentMap.url.tests)
                         .then((data) => {
@@ -137,7 +147,9 @@
 
                             this.getDate(data.columns, adapter);
                             for (let item of data) {
-                                this.addTests(item, adapter);
+                                if (addTestsForRegions(item)) {
+                                    this.addTests(item, adapter);
+                                }
                             }
 
                             resolve();

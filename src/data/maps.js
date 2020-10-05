@@ -162,7 +162,8 @@ const maps = [
                 stretch: 0.65,
                 zoom: 0.028,
                 ratio: 0.89
-            }
+            },
+            excludeRegions: ['Scotland', 'Nordjylland', 'Midtjylland', 'Syddanmark', 'Sjælland', 'Hovedstaden']
         },
         url: {
             tests: 'data/maps/world/cases.csv',
