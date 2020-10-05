@@ -24,7 +24,8 @@
         <compare-item
             v-if="view"
             :view="view"
-            :show-legend="true"/>
+            :show-legend="true"
+            :show-tools="true"/>
     </div>
 </template>
 
