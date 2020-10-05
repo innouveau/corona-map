@@ -19,6 +19,10 @@ const dictionary = {
         nl: "Kleurenblind",
         en: "Color blind"
     },
+    "color-set": {
+        nl: "Kleursysteem",
+        en: "Color system"
+    },
     "days": {
         nl: "Dagen",
         en: "Days"
@@ -130,6 +134,10 @@ const dictionary = {
     "signal-value": {
         nl: "Signaalwaarde",
         en: "Signal value"
+    },
+    'signaling-system': {
+        nl: 'Signaal systeem',
+        en: 'Signaling system'
     },
     "test-results": {
         nl: "Test resultaten",

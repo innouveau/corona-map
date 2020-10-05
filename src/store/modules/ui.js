@@ -4,6 +4,7 @@ import { nl } from 'date-fns/locale'
 
 
 const state = {
+    mapToolsPopup: false,
     isPlaying: false,
     searchValue: '',
     hoverValue: '',

@@ -75,11 +75,11 @@
         }
 
         .map {
-            height: calc(100% - 98px);
+            height: calc(100% - 106px);
         }
 
         .main-view-map__tools {
-            height: 32px;
+            height: 40px;
             display: flex;
             align-items: center;
 

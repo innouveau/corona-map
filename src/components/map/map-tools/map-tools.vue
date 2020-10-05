@@ -43,9 +43,7 @@
 <template>
     <div class="map-tools">
         <map-legend v-if="showLegend"/>
-        <color-set-picker v-if="showTools"/>
-        <signaling-system-picker v-if="showTools"/>
-        <gradient-toggle v-if="showTools"/>
+
     </div>
 </template>
 

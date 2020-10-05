@@ -1,17 +1,19 @@
 <script>
-    import mapTools from "./map-tools";
     import downloadImage from "./download-image";
     import canvasTools from '@/tools/canvas';
     import pointerCanvas from "./pointer-canvas";
-    import $ from 'jquery';
+    import mapToolsPopup from "./map-tools-popup";
+    import mapLegend from "./map-legend/map-legend";
     import View from "@/classes/View";
+    import $ from 'jquery';
 
     export default {
         name: 'map-tests',
         components: {
+            mapLegend,
+            mapToolsPopup,
             pointerCanvas,
-            downloadImage,
-            mapTools
+            downloadImage
         },
         props: {
             showTools: {
@@ -66,6 +68,9 @@
             },
             gradient() {
                 return this.$store.state.settings.gradient;
+            },
+            showMapToolsPopup() {
+                return this.$store.state.ui.mapToolsPopup;
             }
         },
         methods: {
@@ -179,6 +184,9 @@
             clear() {
                 this.ctx.clearRect(0, 0, this.width, this.height);
             },
+            openMapTools() {
+                this.$store.commit('ui/updateProperty', {key: 'mapToolsPopup', value: true});
+            }
         },
         mounted() {
             this.init();
@@ -225,13 +233,22 @@
             :width="width"
             :height="height"/>
 
-        <map-tools
-            :show-tools="showTools"
-            :show-legend="showLegend"/>
+        <map-legend
+            v-if="showLegend"/>
 
         <download-image
             v-if="showTools"
             :view="view"/>
+
+        <div
+            v-if="showTools"
+            @click="openMapTools()"
+            class="icon-button icon-button--without-border button-open-map-tools">
+            <img src="assets/img/tools/dots.svg">
+        </div>
+
+        <map-tools-popup
+            v-if="showMapToolsPopup && showTools"/>
     </div>
 </template>
 
@@ -260,17 +277,10 @@
             z-index: 1;
         }
 
-        .map-tools {
+        .map-legend {
             position: absolute;
             left: 0;
             top: 10px;
-            z-index: 1;
-        }
-
-        .time-slider {
-            position: absolute;
-            left: 10px;
-            bottom: 20px;
             z-index: 1;
         }
 
@@ -279,6 +289,20 @@
             right: 0;
             bottom: 10px;
             z-index: 1;
+        }
+
+        .button-open-map-tools {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            z-index: 1;
+        }
+
+        .map-tools-popup {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            z-index: 2;
         }
     }
 </style>
