@@ -29,10 +29,13 @@
             }
         },
         computed: {
-
+            offset() {
+                return this.view.offset;
+            }
         },
-        methods: {
-            updateQuery() {
+        methods: {},
+        watch: {
+            offset() {
                 this.$parent.updateQuery();
             }
         }

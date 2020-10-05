@@ -58,7 +58,7 @@
                 let url, date1, date2;
                 date1 = dateTools.formatDate( dateTools.getDateByOffset(this.views[0].offset * this.currentMap.settings.testDataInterval));
                 date2 = dateTools.formatDate( dateTools.getDateByOffset(this.views[1].offset * this.currentMap.settings.testDataInterval));
-                url = this.routePath + '#/vergelijk?map=' + encodeURI(this.currentMap.title) + '&date1=' + date1 + '&date2=' + date2;
+                url = this.routePath + '#/compare?map=' + encodeURI(this.currentMap.title) + '&date1=' + date1 + '&date2=' + date2;
                 history.pushState(
                     {},
                     null,

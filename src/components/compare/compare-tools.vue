@@ -43,7 +43,6 @@
         methods: {
             updateOffset(value) {
                 this.view.offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime()) / this.currentMap.settings.testDataInterval;
-                this.$parent.updateQuery();
             },
             updateDate() {
                 this.date = dateTools.getDateByOffset(this.view.offset);
