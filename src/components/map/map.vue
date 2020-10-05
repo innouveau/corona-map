@@ -1,6 +1,5 @@
 <script>
     import mapTools from "./map-tools";
-    import TimeSlider from "./time-slider";
     import downloadImage from "./download-image";
     import canvasTools from '@/tools/canvas';
     import PointerCanvas from "./pointer-canvas";
@@ -14,7 +13,6 @@
             embedButton,
             PointerCanvas,
             downloadImage,
-            TimeSlider,
             mapTools
         },
         props: {
@@ -231,10 +229,6 @@
             :show-tools="showTools"
             :show-legend="showLegend"/>
 
-        <time-slider
-            v-if="showTools"
-            :view="view"/>
-
         <embed-button v-if="showTools"/>
         <download-image
             v-if="showTools"
@@ -251,6 +245,7 @@
         align-items: center;
         position: relative;
         justify-content: center;
+        background: pink;
 
         canvas {
             position: absolute;

@@ -1,5 +1,5 @@
 <script>
-    import mapTests from "./map/map";
+    import mapTests from "@/components/map/map";
     import searchRegions from "./regions/search/search-regions";
     import headerMenu from "./header-menu";
     import trends from "./trends/trends";
@@ -9,6 +9,8 @@
     import View from "@/classes/View";
     import query from '@/components/elements/query'
     import dateTools from '@/tools/date';
+    import timeSlider from "@/components/map/time-slider";
+
 
     export default {
         name: 'main-view',
@@ -19,7 +21,8 @@
             headerMenu,
             searchRegions,
             mapTests,
-            regionDetails
+            regionDetails,
+            timeSlider
         },
         props: {},
         mixins: [query],
@@ -95,6 +98,10 @@
                     :show-tools="true"
                     :show-legend="true"
                     :offset="offset"/>
+
+                <time-slider
+                        v-if="true"
+                        :view="view"/>
             </div>
 
             <trends
