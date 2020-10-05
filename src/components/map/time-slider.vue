@@ -65,7 +65,8 @@
         display: flex;
         align-items: center;
         pointer-events: none;
-        width: calc(100% - 90px)!important;
+        width: 300px;
+        height: 32px;
 
         .vue-slider__container {
             width: calc(100% - 120px);

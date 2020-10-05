@@ -1,5 +1,5 @@
 <script>
-    import mapTests from "@/components/main/map/map";
+    import mapTests from "@/components/map/map";
     import headerMenu from "@/components/main/header-menu";
     import View from "@/classes/View";
     import regionDetailsShort from "@/components/main/regions/region-details/region-details-short";

@@ -2,7 +2,7 @@
     import Datepicker from 'vuejs-datepicker';
     import View from "@/classes/View";
     import dateTools from '@/tools/date';
-    import timeSlider from "../main/map/time-slider";
+    import timeSlider from "@/components/map/time-slider";
 
     export default {
         name: 'compare-tools',

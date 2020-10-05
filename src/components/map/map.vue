@@ -2,16 +2,14 @@
     import mapTools from "./map-tools";
     import downloadImage from "./download-image";
     import canvasTools from '@/tools/canvas';
-    import PointerCanvas from "./pointer-canvas";
-    import embedButton from "./embed-button";
+    import pointerCanvas from "./pointer-canvas";
     import $ from 'jquery';
     import View from "@/classes/View";
 
     export default {
         name: 'map-tests',
         components: {
-            embedButton,
-            PointerCanvas,
+            pointerCanvas,
             downloadImage,
             mapTools
         },
@@ -221,15 +219,16 @@
 <template>
     <div class="map">
         <canvas :id="'canvas-' + id"></canvas>
+
         <pointer-canvas
             :view="view"
             :width="width"
             :height="height"/>
+
         <map-tools
             :show-tools="showTools"
             :show-legend="showLegend"/>
 
-        <embed-button v-if="showTools"/>
         <download-image
             v-if="showTools"
             :view="view"/>
@@ -245,7 +244,6 @@
         align-items: center;
         position: relative;
         justify-content: center;
-        background: pink;
 
         canvas {
             position: absolute;
@@ -278,15 +276,8 @@
 
         .download-image {
             position: absolute;
-            right: 10px;
-            bottom: 20px;
-            z-index: 1;
-        }
-
-        .embed-button {
-            position: absolute;
-            right: 44px;
-            bottom: 20px;
+            right: 0;
+            bottom: 10px;
             z-index: 1;
         }
     }

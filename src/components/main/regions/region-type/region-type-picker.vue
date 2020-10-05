@@ -81,8 +81,6 @@
     @import '@/styles/variables.scss';
 
     .region-type-picker {
-        height: 24px;
-        margin-top: 6px;
 
         .region-type-picker__container {
             display: flex;

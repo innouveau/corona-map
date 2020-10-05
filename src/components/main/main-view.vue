@@ -1,28 +1,22 @@
 <script>
-    import mapTests from "@/components/map/map";
-    import searchRegions from "./regions/search/search-regions";
     import headerMenu from "./header-menu";
     import trends from "./trends/trends";
     import regionDetails from "./regions/region-details/region-details";
     import embedPopup from "./embed/embed-popup";
-    import regionTypePicker from "./regions/region-type/region-type-picker";
     import View from "@/classes/View";
     import query from '@/components/elements/query'
     import dateTools from '@/tools/date';
-    import timeSlider from "@/components/map/time-slider";
+    import mainViewMap from "./main-view-map";
 
 
     export default {
         name: 'main-view',
         components: {
-            regionTypePicker,
+            mainViewMap,
             embedPopup,
             trends,
             headerMenu,
-            searchRegions,
-            mapTests,
-            regionDetails,
-            timeSlider
+            regionDetails
         },
         props: {},
         mixins: [query],
@@ -35,9 +29,6 @@
             showEmbedPopup() {
                 return this.$store.state.ui.embedPopup;
             },
-            showMap() {
-                return this.$store.state.ui.menu === 'map';
-            },
             showTrends() {
                 return this.currentMap.settings.hasTests;
             },
@@ -46,9 +37,6 @@
             },
             currentMap() {
                 return this.$store.state.maps.current;
-            },
-            offset() {
-                return this.$store.state.settings.currentDateOffset;
             }
         },
         methods: {
@@ -86,23 +74,8 @@
 
         <div class="content">
 
-            <div
-                :class="{'panel--active': showMap}"
-                class="map-container panel">
-                <search-regions
-                    :view="view"/>
-                <region-type-picker
-                    :view="view"/>
-                <map-tests
-                    :view="view"
-                    :show-tools="true"
-                    :show-legend="true"
-                    :offset="offset"/>
-
-                <time-slider
-                        v-if="true"
-                        :view="view"/>
-            </div>
+            <main-view-map
+                :view="view"/>
 
             <trends
                 v-if="showTrends"
@@ -134,20 +107,8 @@
             display: flex;
             height: calc(100% - 48px);
 
-            .map-container {
+            .main-view-map {
                 width: calc(100% - 750px);
-
-                .cities-panel {
-                    height: 40px;
-                }
-
-                .region-type-picker-2 {
-                    margin-bottom: 6px;
-                }
-
-                .map {
-                    height: calc(100% - 76px);
-                }
             }
 
             .trends {
