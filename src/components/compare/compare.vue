@@ -100,5 +100,17 @@
                 height: 100%;
             }
         }
+
+        @include mobile() {
+
+            .compare__items {
+                display: block;
+
+                .compare-item {
+                    width: 100%;
+                    height: 50%;
+                }
+            }
+        }
     }
 </style>
