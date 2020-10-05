@@ -29,6 +29,10 @@ const routes = [
         path: "/tijdlijn",
         name: "tijdlijn",
         component: timeLine,
+    }, {
+        path: "/timeline",
+        name: "timeline",
+        component: timeLine,
     }
 ];
 
