@@ -22,6 +22,10 @@
             showLegend: {
                 type: Boolean,
                 required: true
+            },
+            showTools: {
+                type: Boolean,
+                required: true
             }
         },
         computed: {
@@ -56,7 +60,7 @@
                 </div>
 
                 <map-tests
-                    :show-tools="false"
+                    :show-tools="showTools"
                     :show-legend="showLegend"
                     :view="view"/>
             </div>
