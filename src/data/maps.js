@@ -1,3 +1,11 @@
+const standardTestAdapter = {
+    titleKey: 'Land/regio',
+    positiveTestsKey: '',
+    findColumn: function(column) {
+        return column.indexOf('20') > -1;
+    }
+};
+
 const maps = [
     {
         id: 1,
@@ -120,13 +128,7 @@ const maps = [
             testDataCumulative: true,
             testDataInterval: 1,
             generalInfoHasPopulation: true,
-            testAdapter: {
-                titleKey: 'Land/regio',
-                positiveTestsKey: '',
-                findColumn: function(column) {
-                    return column.indexOf('20') > -1;
-                }
-            },
+            testAdapter: standardTestAdapter,
             map: {
                 latitude: 51.29,
                 longitude: 10.16,
@@ -149,20 +151,11 @@ const maps = [
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
-            hasAgeGroups: false,
             hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: false,
             testDataCumulative: true,
             testDataInterval: 1,
             generalInfoHasPopulation: true,
-            testAdapter: {
-                titleKey: 'Land/regio',
-                positiveTestsKey: '',
-                findColumn: function(column) {
-                    return column.indexOf('20') > -1;
-                }
-            },
+            testAdapter: standardTestAdapter,
             map: {
                 latitude: 53.6,
                 longitude: 7.5,
@@ -193,13 +186,7 @@ const maps = [
             testDataCumulative: true,
             testDataInterval: 1,
             generalInfoHasPopulation: true,
-            testAdapter: {
-                titleKey: 'Land/regio',
-                positiveTestsKey: '',
-                findColumn: function(column) {
-                    return column.indexOf('20') > -1;
-                }
-            },
+            testAdapter: standardTestAdapter,
             map: {
                 projection: 'robinson',
                 shiftY: -5,
@@ -231,13 +218,7 @@ const maps = [
             testDataCumulative: true,
             testDataInterval: 1,
             generalInfoHasPopulation: true,
-            testAdapter: {
-                titleKey: 'Land/regio',
-                positiveTestsKey: '',
-                findColumn: function(column) {
-                    return column.indexOf('20') > -1;
-                }
-            },
+            testAdapter: standardTestAdapter,
             map: {
                 latitude: 38,
                 longitude: -100,
@@ -268,13 +249,7 @@ const maps = [
             testDataCumulative: true,
             testDataInterval: 1,
             generalInfoHasPopulation: true,
-            testAdapter: {
-                titleKey: 'Land/regio',
-                positiveTestsKey: '',
-                findColumn: function(column) {
-                    return column.indexOf('20') > -1;
-                }
-            },
+            testAdapter: standardTestAdapter,
             map: {
                 latitude: 40,
                 longitude: -3,
@@ -304,13 +279,7 @@ const maps = [
             testDataCumulative: true,
             testDataInterval: 1,
             generalInfoHasPopulation: true,
-            testAdapter: {
-                titleKey: 'Land/regio',
-                positiveTestsKey: '',
-                findColumn: function(column) {
-                    return column.indexOf('20') > -1;
-                }
-            },
+            testAdapter: standardTestAdapter,
             map: {
                 latitude: 50.5,
                 longitude: 4.5,

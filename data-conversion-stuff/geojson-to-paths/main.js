@@ -32,9 +32,9 @@ const loadRegions = function() {
         for (let item of data.features) {
             let region, paths, found;
 
-            if (item.id.indexOf('RU') > -1) {
-                console.log(item);
-            }
+            // if (item.id.indexOf('UKC') > -1) {
+            //     console.log(item);
+            // }
 
             if (!filter || keys.indexOf(item.properties.CNTR_CODE) > -1) {
                 found = true;
@@ -52,6 +52,7 @@ const loadRegions = function() {
                         region.nutsCode = item.id;
                         region.title = dictRegion.region;
                         region.identifier = dictRegion.region;
+                        region.extraRegion = dictRegion.extraRegion;
                     }
                 }
 
@@ -65,6 +66,10 @@ const loadRegions = function() {
                     }
                 } else {
                     paths = item.geometry.coordinates;
+                }
+
+                if (region.extraRegion) {
+                    console.log(region.id);
                 }
 
                 region.paths = paths.map(path => {
