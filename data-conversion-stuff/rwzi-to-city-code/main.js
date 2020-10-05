@@ -1,5 +1,5 @@
 let url, sewerageDict, sewerageAreas, dateReversed;
-dateReversed = true;
+dateReversed = false;
 url = 'https://data.rivm.nl/covid-19/COVID-19_rioolwaterdata.json';
 sewerageAreas = [];
 sewerageDict = {};
