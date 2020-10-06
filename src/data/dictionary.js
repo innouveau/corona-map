@@ -27,6 +27,10 @@ const dictionary = {
         nl: "Dagen",
         en: "Days"
     },
+    "description": {
+        nl: "Beschrijving",
+        en: "Description"
+    },
     "district": {
         nl: "Stadsdeel",
         en: "District"
@@ -75,6 +79,14 @@ const dictionary = {
         nl: "Laatste 7 dagen",
         en: "Last 7 days"
     },
+    "link": {
+        nl: "Link",
+        en: "URL"
+    },
+    "map": {
+        nl: "Kaart",
+        en: "Map"
+    },
     "municipality": {
         nl: "Gemeente",
         en: "Municipality"
@@ -86,6 +98,14 @@ const dictionary = {
     "number": {
         nl: "Aantal",
         en: "Number of"
+    },
+    "notes": {
+        nl: "Opmerkingen",
+        en: "Notes"
+    },
+    "organisation": {
+        nl: "Organisatie",
+        en: "Organisation"
     },
     "or-mor": {
         nl: "of meer",
@@ -138,6 +158,10 @@ const dictionary = {
     'signaling-system': {
         nl: 'Signaal systeem',
         en: 'Signaling system'
+    },
+    "sources": {
+        nl: "Bronnen",
+        en: "Sources"
     },
     "speed": {
         nl: "Snelheid",
