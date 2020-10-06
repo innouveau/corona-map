@@ -1,12 +1,12 @@
 <script>
-    import compareItem from "./compare-item";
+    import viewItem from "@/components/view/view-item";
     import View from "@/classes/View";
     import dateTools from '@/tools/date';
 
     export default {
         name: 'time-line',
         components: {
-            compareItem
+            viewItem
         },
         data() {
             return {
@@ -53,11 +53,12 @@
 
 <template>
     <div class="time-line">
-        <compare-item
+        <view-item
             v-if="view"
             :view="view"
             :show-legend="true"
-            :show-tools="true"/>
+            :show-tools="true"
+            :show-time-tools="true"/>
     </div>
 </template>
 
@@ -68,7 +69,7 @@
     .time-line {
         height: 100%;
 
-        .compare-item {
+        .view-item {
             height: 100%;
         }
     }

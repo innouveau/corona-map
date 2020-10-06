@@ -5,7 +5,7 @@
     import timeSlider from "@/components/map/time-slider";
 
     export default {
-        name: 'compare-tools',
+        name: 'view-tools',
         components: {
             timeSlider,
             Datepicker
@@ -58,7 +58,7 @@
 
 
 <template>
-    <div class="compare-tools">
+    <div class="view-tools">
         <datepicker
             :value="date"
             :disabled-dates="disabledDates"
@@ -73,7 +73,7 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .compare-tools {
+    .view-tools {
         height: 56px;
         display: flex;
         align-items: center;

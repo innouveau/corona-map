@@ -3,12 +3,12 @@
     import headerMenu from "@/components/main/header-menu";
     import View from "@/classes/View";
     import regionDetailsShort from "@/components/main/regions/region-details/region-details-short";
-    import compareTools from "./compare-tools";
+    import viewTools from "./view-tools";
 
     export default {
-        name: 'compare-item',
+        name: 'view-item',
         components: {
-            compareTools,
+            viewTools,
             regionDetailsShort,
             headerMenu,
             mapTests,
@@ -26,6 +26,11 @@
             showTools: {
                 type: Boolean,
                 required: true
+            },
+            showTimeTools: {
+                type: Boolean,
+                required: false,
+                default: false
             }
         },
         computed: {
@@ -44,16 +49,16 @@
 
 
 <template>
-    <div class="compare-item">
-        <div class="compare__header">
+    <div class="view-item">
+        <div class="view__header">
             <header-menu
                 :view="view"
                 :editable="false"/>
         </div>
-        <div class="compare__body">
-            <compare-tools
+        <div class="view__body">
+            <view-tools
                 :view="view"/>
-            <div class="compare__map">
+            <div class="view__map">
                 <div
                     v-if="view.currentRegion"
                     class="region-details__container">
@@ -76,14 +81,14 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .compare-item {
+    .view-item {
         border-right: 1px solid #ddd;
 
         &:last-child {
             border-right: 0;
         }
 
-        .compare__header {
+        .view__header {
             height: 48px;
 
             .header-menu {
@@ -91,10 +96,10 @@
             }
         }
 
-        .compare__body {
+        .view__body {
             height: calc(100% - 48px);
 
-            .compare__map {
+            .view__map {
                 height: calc(100% - 56px);
                 padding: 8px;
                 position: relative;
@@ -129,9 +134,9 @@
 
         @include mobile() {
 
-            .compare__body {
+            .view__body {
 
-                .compare__map {
+                .view__map {
 
                     .map {
                         width: 100%;

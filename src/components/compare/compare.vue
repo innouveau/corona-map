@@ -1,12 +1,12 @@
 <script>
-    import compareItem from "./compare-item";
+    import viewItem from "@/components/view/view-item";
     import dateTools from '@/tools/date';
     import View from '@/classes/View';
 
     export default {
         name: 'compare',
         components: {
-            compareItem
+            viewItem
         },
         props: {},
         data(){
@@ -75,8 +75,8 @@
 
 <template>
     <div class="compare">
-        <div class="compare__items">
-            <compare-item
+        <div class="view__items">
+            <view-item
                 v-for="(view, index) in views"
                 :view="view"
                 :show-legend="index === 0"
@@ -92,11 +92,11 @@
     .compare {
         height: 100%;
 
-        .compare__items {
+        .view__items {
             height: 100%;
             display: flex;
 
-            .compare-item {
+            .view-item {
                 width: 50%;
                 height: 100%;
             }
@@ -104,10 +104,10 @@
 
         @include mobile() {
 
-            .compare__items {
+            .view__items {
                 display: block;
 
-                .compare-item {
+                .view-item {
                     width: 100%;
                     height: 50%;
                 }
