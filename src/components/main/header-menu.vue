@@ -141,7 +141,7 @@
             .title__main {
                 font-size: 24px;
                 font-weight: 700;
-                margin-right: 6px;
+                margin-right: 12px;
             }
 
              .title__sub {
