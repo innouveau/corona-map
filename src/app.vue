@@ -40,6 +40,9 @@
             showCredits() {
                 return this.$store.state.ui.creditsPopup;
             },
+            videoMode() {
+                return this.$store.state.ui.videoMode;
+            }
         },
         methods: {
             init() {
@@ -307,8 +310,9 @@
 <template>
     <div class="app">
         <router-view v-if="dataLoaded"/>
-        <language-switch/>
+        <language-switch v-if="!videoMode"/>
         <div
+            v-if="!videoMode"
             @click="openCredits()"
             class="open-credits">
             Credits (NL)

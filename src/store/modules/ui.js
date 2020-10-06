@@ -1,6 +1,6 @@
 import _base from './_base-module';
 import {format, sub} from 'date-fns'
-import { nl } from 'date-fns/locale'
+import { nl, en } from 'date-fns/locale'
 
 
 const state = {
@@ -11,6 +11,7 @@ const state = {
     searchValue: '',
     hoverValue: '',
     menu: 'map',
+    videoMode: true,
 
     // time
     isPlaying: false,
@@ -41,15 +42,25 @@ const getters = {
             return '';
         }
     },
-    getDateByOffset: (state) => (offset, dateFormat = 'EE d MMM') => {
-        let today, dateOfFocus;
+    getDateByOffset: (state) => (offset, dateFormat = 'EE d MMM', iso_code = 'en') => {
+        let today, dateOfFocus, locale;
         today = state.today;
+
+        switch(iso_code) {
+            case 'nl':
+                locale = nl;
+                break;
+            default:
+                locale = en;
+                break;
+        }
+
         if (today) {
             dateOfFocus = sub(today, {days: offset});
             if (dateFormat === false) {
                 return dateOfFocus;
             } else {
-                return format(dateOfFocus, dateFormat, {locale: nl} );
+                return format(dateOfFocus, dateFormat, {locale: locale} );
             }
         } else {
             return '';

@@ -71,6 +71,9 @@
             },
             showMapToolsPopup() {
                 return this.$store.state.ui.mapToolsPopup;
+            },
+            videoMode() {
+                return this.$store.state.ui.videoMode;
             }
         },
         methods: {
@@ -237,7 +240,7 @@
             v-if="showLegend"/>
 
         <download-image
-            v-if="showTools"
+            v-if="showTools && !videoMode"
             :view="view"/>
 
         <div

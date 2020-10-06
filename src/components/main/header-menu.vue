@@ -51,14 +51,20 @@
             mapTitle() {
                 return this.$store.state.maps.current ? this.$store.state.maps.current.title : '';
             },
+            currentLanguage() {
+                return this.$store.state.languages.current;
+            },
             dateString() {
-                return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.settings.testDataInterval), 'EE dd MMM')
+                return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.settings.testDataInterval), 'EE dd MMM', this.currentLanguage.iso_code)
             },
             offset() {
                 return this.view.offset;
             },
             isMainPage() {
                 return this.$route.name === 'main';
+            },
+            videoMode() {
+                return this.$store.state.ui.videoMode;
             }
         },
         methods: {
@@ -99,7 +105,7 @@
                     </div>
                 </div>
                 <total-infections
-                    v-if="hasTests"
+                    v-if="hasTests && !videoMode"
                     :view="view"/>
             </div>
         </div>

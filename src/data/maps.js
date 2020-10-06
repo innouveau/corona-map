@@ -147,7 +147,7 @@ const maps = [
         id: 5,
         regionType: 'District',
         module: 'districts',
-        title: 'Europa',
+        title: 'Europe',
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
