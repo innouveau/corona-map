@@ -1,0 +1,33 @@
+$slider-color: #000;
+
+.vue-slider {
+
+    .vue-slider-rail {
+        border-radius: 0;
+        height: 2px;
+        pointer-events: all;
+
+        .vue-slider-process {
+            background: $slider-color;
+        }
+
+        .vue-slider-dot-handle {
+            background: $slider-color;
+            box-shadow: none;
+            pointer-events: all;
+        }
+
+        .vue-slider-dot-tooltip {
+
+            .vue-slider-dot-tooltip-inner {
+                background: $slider-color;
+                font-size: 11px;
+                padding: 4px 8px;
+
+                &:after {
+                    border-top-color: $slider-color;
+                }
+            }
+        }
+    }
+}

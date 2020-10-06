@@ -59,8 +59,6 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    $slider-color: #000;
-
     .time-slider {
         display: flex;
         align-items: center;
@@ -70,38 +68,9 @@
 
         .vue-slider__container {
             width: calc(100% - 120px);
-        }
 
-        .vue-slider {
-            margin-right: 20px;
-
-            .vue-slider-rail {
-                border-radius: 0;
-                height: 2px;
-                pointer-events: all;
-
-                .vue-slider-process {
-                    background: $slider-color;
-                }
-
-                .vue-slider-dot-handle {
-                    background: $slider-color;
-                    box-shadow: none;
-                    pointer-events: all;
-                }
-
-                .vue-slider-dot-tooltip {
-
-                    .vue-slider-dot-tooltip-inner {
-                        background: $slider-color;
-                        font-size: 11px;
-                        padding: 4px 8px;
-
-                        &:after {
-                            border-top-color: $slider-color;
-                        }
-                    }
-                }
+            .vue-slider {
+                margin-right: 20px;
             }
         }
     }

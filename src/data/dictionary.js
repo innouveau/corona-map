@@ -139,6 +139,10 @@ const dictionary = {
         nl: 'Signaal systeem',
         en: 'Signaling system'
     },
+    "speed": {
+        nl: "Snelheid",
+        en: "Speed"
+    },
     "test-results": {
         nl: "Test resultaten",
         en: "Test results"

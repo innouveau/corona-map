@@ -2,7 +2,7 @@
     import searchRegions from "./regions/search/search-regions";
     import regionTypePicker from "./regions/region-type/region-type-picker";
     import mapTests from "@/components/map/map";
-    import timeSlider from "@/components/map/time-slider";
+    import timeSlider from "@/components/view/time-slider";
     import embedButton from "./embed-button";
     import View from "@/classes/View";
 

@@ -17,7 +17,10 @@
         computed: {
             currentMap() {
                 return this.$store.state.maps.current;
-            }
+            },
+            routePath() {
+                return window.location.href.split('#')[0];
+            },
         },
         methods: {
             getDate() {

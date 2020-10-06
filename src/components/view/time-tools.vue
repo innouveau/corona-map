@@ -27,6 +27,9 @@
             },
             isPlaying() {
                 return this.$store.state.ui.isPlaying;
+            },
+            interval() {
+                return this.$store.state.ui.timeInterval;
             }
         },
         methods: {
@@ -41,7 +44,7 @@
                     } else {
                         this.stop();
                     }
-                }, 200)
+                }, this.interval)
             },
             move(value) {
                 this.view.offset -= value
@@ -49,6 +52,15 @@
             stop() {
                 this.$store.commit('ui/updateProperty', {key: 'isPlaying', value: false});
                 clearInterval(this.timer);
+            }
+        },
+        watch: {
+            interval: function () {
+                if (this.isPlaying) {
+                    // resets the interval
+                    this.stop();
+                    this.play();
+                }
             }
         }
     }

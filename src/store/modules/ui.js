@@ -14,6 +14,7 @@ const state = {
 
     // time
     isPlaying: false,
+    timeInterval: 500,
 
     // general
     currentRegionType: '',

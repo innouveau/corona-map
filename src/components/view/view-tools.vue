@@ -2,13 +2,13 @@
     import Datepicker from 'vuejs-datepicker';
     import View from "@/classes/View";
     import dateTools from '@/tools/date';
-    import timeSlider from "@/components/map/time-slider";
-    import TimeSpeed from "./time-speed";
+    import timeSlider from "@/components/view/time-slider";
+    import timeSpeed from "./time-speed";
 
     export default {
         name: 'view-tools',
         components: {
-            TimeSpeed,
+            timeSpeed,
             timeSlider,
             Datepicker
         },
