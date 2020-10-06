@@ -3,10 +3,12 @@
     import View from "@/classes/View";
     import dateTools from '@/tools/date';
     import timeSlider from "@/components/map/time-slider";
+    import TimeSpeed from "./time-speed";
 
     export default {
         name: 'view-tools',
         components: {
+            TimeSpeed,
             timeSlider,
             Datepicker
         },
@@ -14,6 +16,11 @@
             view: {
                 type: View,
                 required: true
+            },
+            showTimeTools: {
+                type: Boolean,
+                required: false,
+                default: false
             }
         },
         data() {
@@ -65,6 +72,10 @@
             @input="updateOffset"/>
 
         <time-slider
+            :view="view"/>
+
+        <time-speed
+            v-if="showTimeTools"
             :view="view"/>
     </div>
 </template>

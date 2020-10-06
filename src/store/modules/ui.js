@@ -4,20 +4,27 @@ import { nl } from 'date-fns/locale'
 
 
 const state = {
+    // html
     mapToolsPopup: false,
-    isPlaying: false,
+    creditsPopup: false,
+    embedPopup: false,
     searchValue: '',
     hoverValue: '',
+    menu: 'map',
+
+    // time
+    isPlaying: false,
+
+    // general
     currentRegionType: '',
     today: null,
     todayInMs: null,
-    credits: false,
-    embedPopup: false,
-    menu: 'map',
     caseDataRequested: false,
     caseDataLoaded: false,
+    admin: false,
+
+    // map tools
     color: 'regular',
-    admin: false
 };
 
 const getters = {

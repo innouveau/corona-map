@@ -38,7 +38,7 @@
                 return this.$store.state.maps.current;
             },
             showCredits() {
-                return this.$store.state.ui.credits;
+                return this.$store.state.ui.creditsPopup;
             },
         },
         methods: {
@@ -294,7 +294,7 @@
                 }
             },
             openCredits() {
-                this.$store.commit('ui/updateProperty', {key: 'credits', value: true});
+                this.$store.commit('ui/updateProperty', {key: 'creditsPopup', value: true});
             }
         },
         mounted() {

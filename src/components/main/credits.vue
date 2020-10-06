@@ -6,7 +6,7 @@
         computed: {},
         methods: {
             close() {
-                this.$store.commit('ui/updateProperty', {key: 'credits', value: false});
+                this.$store.commit('ui/updateProperty', {key: 'creditsPopup', value: false});
             }
         }
     }

@@ -57,7 +57,8 @@
         </div>
         <div class="view__body">
             <view-tools
-                :view="view"/>
+                :view="view"
+                :show-time-tools="showTimeTools"/>
             <div class="view__map">
                 <div
                     v-if="view.currentRegion"
