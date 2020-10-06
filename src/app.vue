@@ -121,7 +121,6 @@
                 const addTestsForRegions = (item) => {
                     if (this.currentMap.settings.excludeRegions) {
                         let identifier = item[this.currentMap.settings.testAdapter.titleKey];
-                        console.log(identifier);
                         return this.currentMap.settings.excludeRegions.indexOf(identifier) === -1;
                     } else {
                         return true;
