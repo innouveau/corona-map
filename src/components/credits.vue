@@ -19,12 +19,12 @@
             @click="close()"
             class="close-button"></div>
         <div class="credits__section">
-            Deze kaart is gemaakt door <a href="https://innouveau.com/" target="_blank">Innouveau</a>.<br><br>
-            Maar was niet mogelijk zonder de hulp van o.a.
+            {{translate('made-by', true)}} <a href="https://innouveau.com/" target="_blank">Innouveau</a>.<br><br>
+            {{translate('not-without', false)}}
             <a href="https://twitter.com/datagraver" target="_blank">@datagraver</a>,
-            <a href="https://twitter.com/mzelst" target="_blank">@mzelst</a> en
+            <a href="https://twitter.com/mzelst" target="_blank">@mzelst</a> {{translate('and')}}
             <a href="https://twitter.com/edwinveldhuizen" target="_blank">@edwinveldhuizen</a>
-            voor hulp en ter beschikking stellen van alle data.
+            {{translate('help-with-data', false)}}
         </div>
 
         <div class="credits__section">
@@ -32,7 +32,7 @@
             <div class="sources">
                 <div class="sources__section">
                     <div class="sources__section-head">
-                        Data positieve testen
+                        {{translate('data-positive-tests', true)}}
                     </div>
                     <div class="sources__section-body">
                         <div class="source__value-row source__value-row--head">
@@ -189,6 +189,17 @@
                         </div>
                         <div class="source__value-row">
                             <div class="source__value-map">
+                                Europa
+                            </div>
+                            <div class="source__value-who">
+                                Eurostat
+                            </div>
+                            <div class="source__value-link">
+                                https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts#nuts21
+                            </div>
+                        </div>
+                        <div class="source__value-row">
+                            <div class="source__value-map">
                                 Conversie RD coordinaten naar WGS
                             </div>
                             <div class="source__value-who">
@@ -308,16 +319,16 @@
 
 
         <div class="credits__section">
-            Bron van deze applicatie: <a href="https://github.com/innouveau/corona-map" target="_blank">github repo</a>
+            {{translate('source-of-application', true)}}: <a href="https://github.com/innouveau/corona-map" target="_blank">github repo</a>
         </div>
         <div class="credits__section">
-            Volg of feedback: <img class="twitter-icon" src="assets/img/twitter.png"> <a href="https://twitter.com/innouveau" target="_blank">@innouveau</a>
+            {{translate('follow-or-feedback', true)}}: <img class="twitter-icon" src="assets/img/twitter.png"> <a href="https://twitter.com/innouveau" target="_blank">@innouveau</a>
         </div>
         <div class="credits__section">
             <div
                 @click="close()"
                 class="close-button--small">
-                Sluiten
+                {{translate('close', true)}}
             </div>
         </div>
     </div>

@@ -3,9 +3,17 @@ const dictionary = {
         nl: "Leeftijdsverdeling",
         en: "Age distribution"
     },
+    "and": {
+        nl: "en",
+        en: "and"
+    },
     "city": {
         nl: "Stad",
         en: "City"
+    },
+    "close": {
+        nl: "Sluiten",
+        en: "Close"
     },
     "country": {
         nl: "Land",
@@ -27,6 +35,10 @@ const dictionary = {
         nl: "Dagen",
         en: "Days"
     },
+    "data-positive-tests": {
+        nl: "Data positieve testen",
+        en: "Data positive tests"
+    },
     "description": {
         nl: "Beschrijving",
         en: "Description"
@@ -38,6 +50,10 @@ const dictionary = {
     "districts": {
         nl: "Stadsdelen",
         en: "Districts"
+    },
+    "follow-or-feedback": {
+        nl: "Volg of feedback",
+        en: "Follow or feedback"
     },
     "ggd": {
         nl: "GGD",
@@ -58,6 +74,10 @@ const dictionary = {
     "gradient-2": {
         nl: "Kleurverloop 2",
         en: "Gradient 2"
+    },
+    "help-with-data": {
+        nl: "voor hulp en ter beschikking stellen van alle data.",
+        en: "for help and providing all the data."
     },
     "increase": {
         nl: "Toename",
@@ -83,6 +103,10 @@ const dictionary = {
         nl: "Link",
         en: "URL"
     },
+    "made-by": {
+        nl: "Deze kaart is gemaakt door",
+        en: "This appication is made by"
+    },
     "map": {
         nl: "Kaart",
         en: "Map"
@@ -102,6 +126,10 @@ const dictionary = {
     "notes": {
         nl: "Opmerkingen",
         en: "Notes"
+    },
+    "not-without": {
+        nl: "Maar was niet mogelijk zonder de hulp van o.a.",
+        en: "But was not possible without the help of a.o."
     },
     "organisation": {
         nl: "Organisatie",
@@ -158,6 +186,10 @@ const dictionary = {
     'signaling-system': {
         nl: 'Signaal systeem',
         en: 'Signaling system'
+    },
+    "source-of-application": {
+        nl: "Broncode van deze applicatie",
+        en: "Source code of this application"
     },
     "sources": {
         nl: "Bronnen",
