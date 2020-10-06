@@ -157,13 +157,13 @@ const maps = [
             generalInfoHasPopulation: true,
             testAdapter: standardTestAdapter,
             map: {
-                latitude: 53.6,
-                longitude: 7.5,
+                latitude: 53,
+                longitude: 5,
                 stretch: 0.65,
-                zoom: 0.028,
-                ratio: 0.89
+                zoom: 0.027,
+                ratio: 1.04
             },
-            excludeRegions: ['Scotland', 'Nordjylland', 'Midtjylland', 'Syddanmark', 'Sjælland', 'Hovedstaden']
+            excludeRegions: ['Scotland', 'Kosovo']
         },
         url: {
             tests: 'data/maps/world/cases.csv',
