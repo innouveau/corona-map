@@ -17,11 +17,11 @@
                 get() {
                     switch(this.timeInterval) {
                         case 1000:
-                            return 3;
-                        case 500:
+                            return 1;
+                        case 300:
                             return 2;
                         case 100:
-                            return 1;
+                            return 3;
                     }
 
                 },
@@ -32,7 +32,7 @@
                             i = 1000;
                             break;
                         case 2:
-                            i = 500;
+                            i = 300;
                             break;
                         case 3:
                             i = 100;
@@ -77,7 +77,7 @@
 
         .vue-slider__container {
             width: 80px;
-            margin-right: 16px;
+            margin-right: 12px;
         }
     }
 </style>
