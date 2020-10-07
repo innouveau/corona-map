@@ -104,6 +104,10 @@
             input {
                 width: 80px;
             }
+
+            .time-speed {
+                display: none;
+            }
         }
     }
 </style>

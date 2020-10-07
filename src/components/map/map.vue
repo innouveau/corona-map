@@ -91,13 +91,15 @@
                 });
             },
             resize() {
-                this.measure();
-                this.clearCache();
                 setTimeout(() => {
-                    this.canvas.width = this.width;
-                    this.canvas.height = this.height;
-                    this.draw();
-                });
+                    this.measure();
+                    this.clearCache();
+                    setTimeout(() => {
+                        this.canvas.width = this.width;
+                        this.canvas.height = this.height;
+                        this.draw();
+                    });
+                })
             },
             clearCache() {
                 for (let region of this.$store.state[this.currentMap.module].all) {
@@ -121,7 +123,7 @@
                     canvasWidth = canvasHeight * mapRatio;
                 }
 
-
+                console.log(canvasWidth, canvasHeight);
                 this.$store.commit('settings/updateProperty', {key: 'canvasWidth', value: Math.round(canvasWidth)});
                 this.$store.commit('settings/updateProperty', {key: 'canvasHeight', value: Math.round(canvasHeight)});
                 this.$store.commit('settings/updateProperty', {key: 'zoom', value: (canvasHeight * this.currentMap.settings.map.zoom)});

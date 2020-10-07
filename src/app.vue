@@ -13,6 +13,7 @@
     import countries from '@/data/countries';
     import ageGroups from '@/data/age-groups';
     import signalingSystems from '@/data/signaling-systems';
+    import HamburgerMenu from "./components/hamburger/hamburger-menu";
 
 
 
@@ -21,6 +22,7 @@
     export default {
         name: 'app',
         components: {
+            HamburgerMenu,
             languageSwitch,
             credits
         },
@@ -39,6 +41,9 @@
             },
             showCredits() {
                 return this.$store.state.ui.creditsPopup;
+            },
+            showHamburgerMenu() {
+                return this.$store.state.ui.hamburgerMenu;
             },
             videoMode() {
                 return this.$store.state.ui.videoMode;
@@ -296,8 +301,8 @@
                     //console.log('not found ' + key);
                 }
             },
-            openCredits() {
-                this.$store.commit('ui/updateProperty', {key: 'creditsPopup', value: true});
+            openHamburgerMenu() {
+                this.$store.commit('ui/updateProperty', {key: 'hamburgerMenu', value: true});
             }
         },
         mounted() {
@@ -310,13 +315,14 @@
 <template>
     <div class="app">
         <router-view v-if="dataLoaded"/>
-        <language-switch v-if="!videoMode"/>
+
         <div
-            v-if="!videoMode"
-            @click="openCredits()"
-            class="open-credits">
-            Credits (NL)
+            @click="openHamburgerMenu()"
+            class="icon-button icon-button--without-border hamburger">
+            <img src="assets/img/tools/hamburger.svg">
         </div>
+
+        <hamburger-menu v-if="showHamburgerMenu"/>
         <credits v-if="showCredits"/>
     </div>
 </template>
@@ -343,10 +349,11 @@
             text-align: right;
         }
 
-        .language-switch {
+        .hamburger {
             position: fixed;
-            right: 4px;
-            top: 8px;
+            right: 8px;
+            top: 12px;
+            z-index: 10;
         }
     }
 </style>

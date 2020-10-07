@@ -15,6 +15,10 @@ const dictionary = {
         nl: "Sluiten",
         en: "Close"
     },
+    "compare": {
+        nl: "Vergelijken",
+        en: "Compare"
+    },
     "country": {
         nl: "Land",
         en: "Country"
@@ -78,6 +82,10 @@ const dictionary = {
     "help-with-data": {
         nl: "voor hulp en ter beschikking stellen van alle data.",
         en: "for help and providing all the data."
+    },
+    "info": {
+        nl: "Info",
+        en: "Info"
     },
     "increase": {
         nl: "Toename",
@@ -202,6 +210,10 @@ const dictionary = {
     "test-results": {
         nl: "Test resultaten",
         en: "Test results"
+    },
+    "timeline": {
+        nl: "Tijdlijn",
+        en: "Timeline"
     },
     "today": {
         nl: "Vandaag",

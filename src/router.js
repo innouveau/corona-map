@@ -14,21 +14,17 @@ const routes = [
         name: "main",
         component: main
     }, {
+        path: "/main",
+        name: "main",
+        redirect: {name: "main"},
+    }, {
         path: "/riool",
         name: "riool",
         component: sewageTools,
     }, {
-        path: "/vergelijk",
-        name: "vergelijk",
-        component: compare,
-    }, {
         path: "/compare",
         name: "compare",
         component: compare,
-    }, {
-        path: "/tijdlijn",
-        name: "tijdlijn",
-        component: timeLine,
     }, {
         path: "/timeline",
         name: "timeline",
