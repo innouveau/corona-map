@@ -230,6 +230,7 @@
 
                 .hamburger-menu__footer-text {
                     padding: 12px;
+                    height: 60px;
                 }
 
                 .hamburger-menu__footer-button {
