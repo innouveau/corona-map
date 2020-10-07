@@ -1,4 +1,4 @@
-let regions, RD, getInfoFromPopulationFile, populationDict, id, printArrayBrackets, filter, keys, titleKey, addExtra, extraPathsDict, regionsWithExtraPaths;
+let regions, RD, getInfoFromPopulationFile, populationDict, id, printArrayBrackets, filter, countries, titleKey, addExtra, extraPathsDict, regionsWithExtraPaths;
 
 regions = [];
 regionsWithExtraPaths = [];
@@ -7,10 +7,12 @@ id = 1;
 // rijksdriehoek
 RD = false;
 printArrayBrackets = true;
-filter = false;
-addExtra = true;
+filter = true;
+addExtra = false;
 titleKey = 'NAME_LATN';
-keys = ['RU', 'BE', 'ES', 'IT', 'AT', 'PL', 'SK', 'UK', 'SE', 'NO', 'CH', 'FI', 'CZ', 'PT', 'FR', 'NL', 'DE', 'IS', 'IS', 'DK'];
+// North-West Europe
+countries = ['NL', 'BE', 'DE', 'FR', 'LU', 'CH', 'AT', 'AD', 'LI', 'CZ'];
+specificRegions = ['ES51', 'ES24', 'ES22', 'ES21', 'ITC1', 'ITC4', 'ITH3', 'ITH2', 'ITH1', 'ITC2', 'ITH5', 'ITI1', 'ITI3', 'ITI2', 'ITG2', 'ITI4', 'ITF1', 'ITF2', 'ITF3', 'ITF4', 'ITF5'];
 //keys = ['BE'];
 
 if (getInfoFromPopulationFile) {
@@ -38,12 +40,12 @@ const loadRegions = function() {
         for (let item of data.features) {
             let region, paths, found;
 
-            if (item.id.indexOf('UK') > -1) {
+            if (item.id.indexOf('ES') > -1) {
                 console.log(item.id + ' ' + item.properties.NAME_LATN);
             }
 
 
-            if (!filter || keys.indexOf(item.properties.CNTR_CODE) > -1) {
+            if (!filter || countries.indexOf(item.properties.CNTR_CODE) > -1 || specificRegions.indexOf(item.id) > -1) {
                 found = true;
                 region = {};
 

@@ -39,7 +39,8 @@ const maps = [
             tests: (window.config.dataUrl + 'data/municipality-totals.csv'),
             regions: 'data/maps/nederland/cities.json',
             ageGroups: 'data/maps/nederland/cities-population-agegroup.csv',
-            sewageTreatmentPlants: (window.config.sewageDataUrl + 'sewage-measurements-connected-to-city-codes.json')
+            sewageTreatmentPlants: 'data/sewage/sewage-measurements-connected-to-city-codes.json'
+            //sewageTreatmentPlants: (window.config.sewageDataUrl + 'sewage-measurements-connected-to-city-codes.json')
         }
     }, {
         id: 2,
@@ -292,6 +293,36 @@ const maps = [
         url: {
             tests: 'data/maps/world/cases.csv',
             regions: 'data/maps/belgium/belgium.json',
+            ageGroups: '',
+            sewageTreatmentPlants: ''
+        }
+    }, {
+        id: 9,
+        regionType: 'District',
+        module: 'districts',
+        title: 'Central Europe',
+        settings: {
+            regionTypes: ['district'],
+            pathOrigins: [],
+            hasAgeGroups: false,
+            hasTests: true,
+            hasAdministeredTests: false,
+            hasSewageTreatmentPlants: false,
+            testDataCumulative: true,
+            testDataInterval: 1,
+            generalInfoHasPopulation: true,
+            testAdapter: standardTestAdapter,
+            map: {
+                latitude: 47,
+                longitude: 6,
+                stretch: 0.62,
+                zoom: 0.062,
+                ratio: 1.15
+            }
+        },
+        url: {
+            tests: 'data/maps/world/cases.csv',
+            regions: 'data/maps/central-europe/central-europe.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
         }

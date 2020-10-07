@@ -11,7 +11,7 @@ const state = {
     searchValue: '',
     hoverValue: '',
     menu: 'map',
-    videoMode: true,
+    videoMode: false,
 
     // time
     isPlaying: false,

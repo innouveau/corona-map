@@ -5,6 +5,7 @@ class District extends _RegionWithTestData {
     constructor({
         id = null,
         identifier = '',
+        nutsCode = '',
         ggd_code = '',
         title = '',
         population = 0,
@@ -18,6 +19,7 @@ class District extends _RegionWithTestData {
         this.regionType = 'district';
         this.id = id;
         this.identifier = identifier;
+        this.nutsCode = nutsCode;
         this.ggd_code = ggd_code;
         this.title = title;
         this.population = population;
