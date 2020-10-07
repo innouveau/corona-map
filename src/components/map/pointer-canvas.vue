@@ -45,7 +45,7 @@
         methods: {
             showCurrentRegion() {
                 let settings = {
-                    key: 'map',
+                    key: 'map-' + this.$store.state.settings.canvasWidth,
                     width: this.$store.state.settings.canvasWidth,
                     height: this.$store.state.settings.canvasHeight,
                     shiftX: 0,

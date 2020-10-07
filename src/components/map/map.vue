@@ -91,15 +91,13 @@
                 });
             },
             resize() {
+                this.measure();
                 setTimeout(() => {
-                    this.measure();
                     this.clearCache();
-                    setTimeout(() => {
-                        this.canvas.width = this.width;
-                        this.canvas.height = this.height;
-                        this.draw();
-                    });
-                })
+                    this.canvas.width = this.width;
+                    this.canvas.height = this.height;
+                    this.draw();
+                });
             },
             clearCache() {
                 for (let region of this.$store.state[this.currentMap.module].all) {
@@ -123,7 +121,7 @@
                     canvasWidth = canvasHeight * mapRatio;
                 }
 
-                console.log(canvasWidth, canvasHeight);
+
                 this.$store.commit('settings/updateProperty', {key: 'canvasWidth', value: Math.round(canvasWidth)});
                 this.$store.commit('settings/updateProperty', {key: 'canvasHeight', value: Math.round(canvasHeight)});
                 this.$store.commit('settings/updateProperty', {key: 'zoom', value: (canvasHeight * this.currentMap.settings.map.zoom)});
@@ -166,7 +164,7 @@
                 let reversed = this.regions.slice().reverse();
                 for (let region of reversed) {
                     for (let path of region.paths) {
-                        if (this.ctx.isPointInPath(path.storedPaths['map'], x, y)) {
+                        if (this.ctx.isPointInPath(path.storedPaths['map-' + this.$store.state.settings.canvasWidth], x, y)) {
                             return region;
                         }
                     }
@@ -176,7 +174,7 @@
             draw() {
                 this.clear();
                 let settings = {
-                    key: 'map',
+                    key: 'map-' + this.$store.state.settings.canvasWidth,
                     width: this.$store.state.settings.canvasWidth,
                     height: this.$store.state.settings.canvasHeight,
                     shiftX: 0,
@@ -291,7 +289,7 @@
 
         .download-image {
             position: absolute;
-            right: 0;
+            left: 0;
             bottom: 10px;
             z-index: 1;
         }

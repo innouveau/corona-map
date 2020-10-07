@@ -322,6 +322,12 @@
             <img src="assets/img/tools/hamburger.svg">
         </div>
 
+        <div class="author">
+            <a href="https://twitter.com/innouveau" target="_blank">
+                @innouveau
+            </a>
+        </div>
+
         <hamburger-menu v-if="showHamburgerMenu"/>
         <credits v-if="showCredits"/>
     </div>
@@ -340,13 +346,15 @@
         width: 100%;
         height: 100%;
 
-        .open-credits {
+        .author {
             position: fixed;
-            right: 10px;
-            bottom: 6px;
-            cursor: pointer;
-            text-decoration: underline;
-            text-align: right;
+            right: 8px;
+            bottom: 12px;
+            z-index: 10;
+
+            a {
+                color: #000;
+            }
         }
 
         .hamburger {

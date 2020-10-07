@@ -43,7 +43,6 @@
                 return this.$store.state.languages.current === language;
             },
             selectPage(page) {
-                console.log(page);
                 this.$router.push(page.route);
                 this.close();
             },
@@ -51,7 +50,6 @@
                 return this.currentPage === page.route;
             },
             selectMap(map) {
-                console.log(map);
                 let url = this.routePath + '/#/timeline/?map=' + map.title;
                 window.open(url);
                 this.close();

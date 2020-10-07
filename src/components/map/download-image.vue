@@ -62,7 +62,7 @@
                     canvasTools.draw(ctx, this.regions, settings, this.view.offset);
                     this.addCreator(ctx, width, height);
 
-                    downloadLink.setAttribute('download', 'corona-status-' + this.dateStringdashes + 'png');
+                    downloadLink.setAttribute('download', 'corona-status-' + this.dateStringdashes.toLowerCase() + '');
                     canvas.toBlob(function(blob) {
                         let url = URL.createObjectURL(blob);
                         downloadLink.setAttribute('href', url);
