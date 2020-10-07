@@ -39,8 +39,8 @@ const maps = [
             tests: (window.config.dataUrl + 'data/municipality-totals.csv'),
             regions: 'data/maps/nederland/cities.json',
             ageGroups: 'data/maps/nederland/cities-population-agegroup.csv',
-            sewageTreatmentPlants: 'data/sewage/sewage-measurements-connected-to-city-codes.json'
-            //sewageTreatmentPlants: 'data/sewage/sewage-measurements-connected-to-city-codes.json'
+            sewageTreatmentPlants: window.config.sewageDataUrl + 'sewage-measurements-connected-to-city-codes.json'
+            //sewageTreatmentPlants: window.config.sewageDataUrl + 'sewage-measurements-connected-to-city-codes.json'
         }
     }, {
         id: 2,
@@ -74,7 +74,7 @@ const maps = [
             tests: 'data/maps/amsterdam/amsterdam-tests.csv',
             regions: 'data/maps/amsterdam/amsterdam.json',
             ageGroups: '',
-            sewageTreatmentPlants: 'data/sewage/sewage-measurements-connected-to-city-codes.json'
+            sewageTreatmentPlants: window.config.sewageDataUrl + 'sewage-measurements-connected-to-city-codes.json'
         }
     }, {
         id: 3,
@@ -108,7 +108,7 @@ const maps = [
             tests: 'data/maps/den-haag/tests-den-haag.csv',
             regions: 'data/maps/den-haag/den-haag.json',
             ageGroups: '',
-            sewageTreatmentPlants: 'data/sewage/sewage-measurements-connected-to-city-codes.json'
+            sewageTreatmentPlants: window.config.sewageDataUrl + 'sewage/sewage-measurements-connected-to-city-codes.json'
         }
     }, {
         id: 4,
