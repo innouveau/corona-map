@@ -26,8 +26,10 @@
         <div
             :style="{'background': region.getColor(this.view.offset)}"
             class="dot"></div>
-        <div class="region-details__title">
-            {{region.title}} {{region.nutsCode}}
+        <div
+            :title="region.nutsCode"
+            class="region-details__title">
+            {{region.title}}
         </div>
     </div>
 </template>
