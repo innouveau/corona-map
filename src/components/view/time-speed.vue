@@ -18,7 +18,7 @@
                     switch(this.timeInterval) {
                         case 1000:
                             return 1;
-                        case 300:
+                        case 200:
                             return 2;
                         case 100:
                             return 3;
@@ -32,7 +32,7 @@
                             i = 1000;
                             break;
                         case 2:
-                            i = 300;
+                            i = 200;
                             break;
                         case 3:
                             i = 100;
