@@ -39,16 +39,16 @@
     .language-switch {
         display: flex;
         align-items: center;
-        position: relative;
-        z-index: 1;
-        height: 24px;
+        height: 40px;
+        background: #FFD400;
 
         .language-switch__label {
-            border-right: 1px solid #ddd;
+            border-right: 1px solid #fff;
             padding: 0 16px;
             height: 100%;
             display: flex;
             align-items: center;
+            width: 50%;
         }
 
         .language-switch__buttons {
@@ -57,6 +57,7 @@
             margin-bottom: -2px;
             padding: 16px;
             height: 100%;
+            width: 50%;
         }
 
         @include mobile() {

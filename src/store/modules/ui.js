@@ -8,7 +8,7 @@ const state = {
     mapToolsPopup: false,
     creditsPopup: false,
     embedPopup: false,
-    hamburgerMenu: false,
+    hamburgerMenu: true,
     searchValue: '',
     hoverValue: '',
     menu: 'map',

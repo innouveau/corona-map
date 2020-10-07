@@ -42,9 +42,6 @@
             showCredits() {
                 return this.$store.state.ui.creditsPopup;
             },
-            showHamburgerMenu() {
-                return this.$store.state.ui.hamburgerMenu;
-            },
             videoMode() {
                 return this.$store.state.ui.videoMode;
             }
@@ -328,7 +325,7 @@
             </a>
         </div>
 
-        <hamburger-menu v-if="showHamburgerMenu"/>
+        <hamburger-menu/>
         <credits v-if="showCredits"/>
     </div>
 </template>

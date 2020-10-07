@@ -59,6 +59,10 @@ const dictionary = {
         nl: "Volg of feedback",
         en: "Follow or feedback"
     },
+    "footer-text": {
+        nl: "Wilt u gebruik maken van onze kaarten voor print of web; of voor andere vragen, neem dan contact op met: info@innouveau.nl",
+        en: "Would you like to use our maps for print or web; or for other questions, please contact: info@innouveau.nl"
+    },
     "ggd": {
         nl: "GGD",
         en: "GGD"
@@ -146,6 +150,14 @@ const dictionary = {
     "or-mor": {
         nl: "of meer",
         en: "or more"
+    },
+    "other-maps": {
+        nl: "Andere kaarten",
+        en: "Other maps"
+    },
+    "pages": {
+        nl: "Pagina's",
+        en: "Pages"
     },
     "per": {
         nl: "per",
