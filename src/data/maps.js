@@ -6,6 +6,8 @@ const standardTestAdapter = {
     }
 };
 
+const sewageDataUrl = 'https://raw.githubusercontent.com/innouveau/corona-map/master/public/data/sewage/sewage-measurements-netherlands.json';
+
 const maps = [
     {
         id: 1,
@@ -39,8 +41,7 @@ const maps = [
             tests: (window.config.dataUrl + 'data/municipality-totals.csv'),
             regions: 'data/maps/nederland/cities.json',
             ageGroups: 'data/maps/nederland/cities-population-agegroup.csv',
-            sewageTreatmentPlants: window.config.sewageDataUrl + 'sewage-measurements-connected-to-city-codes.json'
-            //sewageTreatmentPlants: window.config.sewageDataUrl + 'sewage-measurements-connected-to-city-codes.json'
+            sewageTreatmentPlants: sewageDataUrl
         }
     }, {
         id: 2,
@@ -74,7 +75,7 @@ const maps = [
             tests: 'data/maps/amsterdam/amsterdam-tests.csv',
             regions: 'data/maps/amsterdam/amsterdam.json',
             ageGroups: '',
-            sewageTreatmentPlants: window.config.sewageDataUrl + 'sewage-measurements-connected-to-city-codes.json'
+            sewageTreatmentPlants: sewageDataUrl
         }
     }, {
         id: 3,
@@ -108,7 +109,7 @@ const maps = [
             tests: 'data/maps/den-haag/tests-den-haag.csv',
             regions: 'data/maps/den-haag/den-haag.json',
             ageGroups: '',
-            sewageTreatmentPlants: window.config.sewageDataUrl + 'sewage/sewage-measurements-connected-to-city-codes.json'
+            sewageTreatmentPlants: sewageDataUrl
         }
     }, {
         id: 4,
