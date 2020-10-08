@@ -31,6 +31,11 @@
                 type: Boolean,
                 required: false,
                 default: false
+            },
+            showDownload: {
+                type: Boolean,
+                required: false,
+                default: true
             }
         },
         computed: {
@@ -71,6 +76,7 @@
                 <map-tests
                     :show-tools="showTools"
                     :show-legend="showLegend"
+                    :show-download="showDownload"
                     :view="view"/>
             </div>
 

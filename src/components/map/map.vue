@@ -1,5 +1,5 @@
 <script>
-    import downloadImage from "./download-image";
+    import downloadImage from "./download/download-image";
     import canvasTools from '@/tools/canvas';
     import pointerCanvas from "./pointer-canvas";
     import mapToolsPopup from "./map-tools-popup";
@@ -27,6 +27,11 @@
             view: {
                 type: View,
                 required: true
+            },
+            showDownload: {
+                type: Boolean,
+                required: false,
+                default: true
             }
         },
         data() {
@@ -240,7 +245,7 @@
             v-if="showLegend"/>
 
         <download-image
-            v-if="showTools && !videoMode"
+            v-if="showDownload && !videoMode"
             :view="view"/>
 
         <div

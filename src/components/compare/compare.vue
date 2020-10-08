@@ -2,10 +2,12 @@
     import viewItem from "@/components/view/view-item";
     import dateTools from '@/tools/date';
     import View from '@/classes/View';
+    import DownloadImageDouble from "../map/download/download-image-double";
 
     export default {
         name: 'compare',
         components: {
+            DownloadImageDouble,
             viewItem
         },
         props: {},
@@ -80,7 +82,13 @@
                 v-for="(view, index) in views"
                 :view="view"
                 :show-legend="index === 0"
-                :show-tools="index === 0"/>
+                :show-tools="index === 0"
+                :show-download="false"/>
+
+            <download-image-double
+                v-if="views.length === 2"
+                :view1="views[0]"
+                :view2="views[1]"/>
         </div>
     </div>
 </template>
@@ -100,6 +108,13 @@
                 width: 50%;
                 height: 100%;
             }
+        }
+
+        .download-image {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            z-index: 1;
         }
 
         @include mobile() {
