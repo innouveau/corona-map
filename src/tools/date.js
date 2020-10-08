@@ -25,8 +25,13 @@ const formatDate = function(date, dateFormat = 'yyyy-MM-dd') {
     }
 };
 
+const getTimestamp = function() {
+    return '?time=' + new Date().getTime();
+};
+
 export default {
     getDateOffset,
     getDateByOffset,
-    formatDate
+    formatDate,
+    getTimestamp
 }

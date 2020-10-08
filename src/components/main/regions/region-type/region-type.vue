@@ -2,6 +2,7 @@
     import swatch from "@/components/elements/swatch";
     import * as d3 from "d3";
     import View from "@/classes/View";
+    import dateTool from "@/tools/date";
 
     export default {
         name: 'region-type',
@@ -49,7 +50,7 @@
                 }
             },
             loadCaseData() {
-                let url = window.config.dataUrl + 'data-dashboards/cases_ggd_agegroups.csv';
+                let url = window.config.dataUrl + 'data-dashboards/cases_ggd_agegroups.csv' + dateTool.getTimestamp();
                 this.$store.commit('ui/updateProperty', {key: 'caseDataRequested', value: true});
                 d3.csv(url)
                     .then((data) => {

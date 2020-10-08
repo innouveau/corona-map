@@ -3,6 +3,7 @@
     import $ from 'jquery';
     import credits from "@/components/credits";
     import languageSwitch from "@/components/elements/language/language-switch";
+    import dateTool from "@/tools/date";
 
     // data
     import languages from '@/data/languages';
@@ -53,8 +54,6 @@
             },
             pickMap() {
                 let map;
-
-
                 this.$store.commit('maps/init', maps);
                 if (this.$route.query.map) {
                     map = this.$store.getters['maps/getItemByProperty']('title', this.$route.query.map, true);
@@ -133,7 +132,7 @@
                 };
 
                 return new Promise((resolve, reject) => {
-                    d3.csv(this.currentMap.url.tests)
+                    d3.csv(this.currentMap.url.tests + dateTool.getTimestamp())
                         .then((data) => {
                             let adapter;
                             if (this.currentMap.settings.testAdapter) {
@@ -165,7 +164,7 @@
             },
             loadAgeGroupsForCities() {
                 return new Promise((resolve, reject) => {
-                    d3.csv(this.currentMap.url.ageGroups)
+                    d3.csv(this.currentMap.url.ageGroups + dateTool.getTimestamp())
                         .then((result) => {
                             for (let item of result) {
                                 let city = this.$store.getters['cities/getItemByProperty']('identifier', item.Gemeentecode, true);
