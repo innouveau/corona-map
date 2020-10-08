@@ -7,6 +7,7 @@ const standardTestAdapter = {
 };
 
 const sewageDataUrl = 'https://raw.githubusercontent.com/innouveau/corona-map/master/public/data/sewage/sewage-measurements-netherlands.json';
+const casesUrl = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv';
 
 const maps = [
     {
@@ -140,7 +141,7 @@ const maps = [
             }
         },
         url: {
-            tests: 'data/maps/world/cases.csv',
+            tests: casesUrl,
             regions: 'data/maps/nl-de/nl-de.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
@@ -168,7 +169,7 @@ const maps = [
             excludeRegions: ['Scotland', 'Kosovo']
         },
         url: {
-            tests: 'data/maps/world/cases.csv',
+            tests: casesUrl,
             regions: 'data/maps/europa/europa.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
@@ -200,7 +201,7 @@ const maps = [
             }
         },
         url: {
-            tests: 'data/maps/world/cases.csv',
+            tests: casesUrl,
             regions: 'data/maps/world/world.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
@@ -232,7 +233,7 @@ const maps = [
             }
         },
         url: {
-            tests: 'data/maps/world/cases.csv',
+            tests: casesUrl,
             regions: 'data/maps/usa/usa.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
@@ -262,7 +263,7 @@ const maps = [
             }
         },
         url: {
-            tests: 'data/maps/world/cases.csv',
+            tests: casesUrl,
             regions: 'data/maps/spain/spain.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
@@ -292,7 +293,7 @@ const maps = [
             }
         },
         url: {
-            tests: 'data/maps/world/cases.csv',
+            tests: casesUrl,
             regions: 'data/maps/belgium/belgium.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
@@ -322,7 +323,7 @@ const maps = [
             }
         },
         url: {
-            tests: 'data/maps/world/cases.csv',
+            tests: casesUrl,
             regions: 'data/maps/central-europe/central-europe.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
