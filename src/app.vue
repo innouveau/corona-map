@@ -97,15 +97,20 @@
                     if (this.currentMap.settings.hasAgeGroups) {
                         promises.push(this.loadAgeGroupsForCities);
                     }
-                    if (this.currentMap.settings.hasSewageTreatmentPlants) {
-                        promises.push(this.loadSewageTreatmentPlants);
-                    }
                     if (promises.length === 0) {
                         this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
                     } else {
                         Promise.all(promises.map(p => p()))
                             .then((result) => {
-                                this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
+                                // always do sewage after the tests, otherwise
+                                // date offset can come too late
+                                if (this.currentMap.settings.hasSewageTreatmentPlants) {
+                                    this.loadSewageTreatmentPlants().then(() => {
+                                        this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
+                                    });
+                                } else {
+                                    this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
+                                }
                             })
                             .catch(error => {
                                 console.error(error)
@@ -115,7 +120,7 @@
             },
             loadSewageTreatmentPlants() {
                 return new Promise((resolve, reject) => {
-                    $.getJSON(this.currentMap.url.sewageTreatmentPlants, (sewageTreatmentPlants) => {
+                    $.getJSON(this.currentMap.url.sewageTreatmentPlants + dateTool.getTimestamp(), (sewageTreatmentPlants) => {
                         this.$store.commit('sewageTreatmentPlants/init', sewageTreatmentPlants);
                         resolve();
                     });
