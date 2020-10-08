@@ -7,7 +7,7 @@ id = 1;
 // rijksdriehoek
 RD = false;
 printArrayBrackets = true;
-filter = true;
+filter = false;
 addExtra = false;
 titleKey = 'NAME_LATN';
 // North-West Europe
