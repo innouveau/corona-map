@@ -43,7 +43,6 @@
 <template>
     <div class="map-tools">
         <map-legend v-if="showLegend"/>
-
     </div>
 </template>
 

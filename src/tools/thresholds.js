@@ -95,8 +95,13 @@ const thresholdToColor = function(threshold, cases) {
             if (!prev || !next) {
                 return threshold.color[store.state.ui.color];
             } else {
-                let colormap, maxOfNextColor, ratio;
+                let colormap, maxOfNextColor, ratio, signalingSystem;
                 maxOfNextColor = 0.65;
+                signalingSystem = store.state.signalingSystems.current;
+                // the free signaling system has no 'jump'
+                if (signalingSystem.id === 4) {
+                    maxOfNextColor = 1;
+                }
                 ratio = maxOfNextColor * (cases - prev.n) / (threshold.n - prev.n);
                 colormap = interpolate([threshold.color[store.state.ui.color], next.color[store.state.ui.color]]);
                 return colormap(ratio);

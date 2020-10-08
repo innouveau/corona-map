@@ -15,7 +15,11 @@
             clickOutside: vClickOutside.directive
         },
         props: {},
-        computed: {},
+        computed: {
+            isFreeSignalingSystem() {
+                return this.$store.state.signalingSystems.current.id === 4;
+            }
+        },
         methods: {
             close() {
                 this.$store.commit('ui/updateProperty', {key: 'mapToolsPopup', value: false});
@@ -32,7 +36,9 @@
         <div class="map-tools-popup__section">
             <signaling-system-picker/>
         </div>
-        <div class="map-tools-popup__section">
+        <div
+            v-if="!isFreeSignalingSystem"
+            class="map-tools-popup__section">
             <color-set-picker/>
         </div>
         <div class="map-tools-popup__section">
@@ -94,8 +100,7 @@
                     padding: 0 6px;
                 }
 
-                &:hover,
-                &.map-tools-popup__button--active {
+                &:hover {
                     background: #ddd;
                 }
 
