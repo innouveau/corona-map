@@ -24,7 +24,7 @@
         },
         data() {
             return {
-                date: dateTools.getDateByOffset(this.view.offset)
+                date: dateTools.getDateByOffset(this.view.offset * this.$store.state.maps.current.settings.testDataInterval)
             }
         },
         computed: {
@@ -65,14 +65,25 @@
             },
             videoMode() {
                 return this.$store.state.ui.videoMode;
+            },
+            disabledDates() {
+                if (this.currentMap.settings.testDataInterval === 1) {
+                    return {
+                        days: []
+                    };
+                } else {
+                    return {
+                        days: [1,2,3,4,5,6]
+                    }
+                }
             }
         },
         methods: {
             updateOffset(value) {
-                this.view.offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime());
+                this.view.offset = (dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime())) / this.currentMap.settings.testDataInterval;
             },
             updateDatePicker() {
-                this.date = dateTools.getDateByOffset(this.view.offset);
+                this.date = dateTools.getDateByOffset(this.view.offset * this.currentMap.settings.testDataInterval);
             }
         },
         watch: {
@@ -98,9 +109,10 @@
                 <div class="date-string">
                     <datepicker
                         v-if="editable"
+                        :disabled-dates="disabledDates"
                         :value="date"
                         @input="updateOffset"/>
-                    <div v-else>
+                    <div v-else class="date-string__string">
                         {{dateString}}
                     </div>
                 </div>
@@ -152,8 +164,11 @@
                     display: block;
                     margin-top: 2px;
                     font-family: $monospace;
-                    white-space: nowrap;
                     margin-right: 4px;
+
+                    .date-string__string {
+                        white-space: nowrap;
+                    }
 
                     input {
                         width: 120px;
@@ -176,7 +191,6 @@
                         padding: 2px 8px;
                         border-radius: 2px;
                         font-family: $monospace;
-                        display: inline-block;
                         transition: all 0.1s ease;
                         background: rgb(252, 203, 3);
                         display: flex;

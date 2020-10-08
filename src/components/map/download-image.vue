@@ -17,7 +17,7 @@
                 return this.$store.getters['ui/regions'];
             },
             dateString() {
-                return this.$store.getters['ui/getDateByOffset'](this.view.offset);
+                return this.$store.getters['ui/getDateByOffset'](this.view.offset * this.currentMap.settings.testDataInterval);
             },
             dateStringdashes() {
                 return this.dateString.replace(/\s/g , "-");
