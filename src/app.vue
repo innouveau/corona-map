@@ -224,7 +224,7 @@
                 first = dates[0];
                 last = dates[dates.length - 1];
                 today = new Date(last.dateString);
-                totalLengthOfTestHistory = first.offset * this.currentMap.settings.testDataInterval;
+                totalLengthOfTestHistory = first.offset;
                 // when cumulative the first day has to be ignored, because we
                 // dont know the value of the day before that to calculate the absolute value
                 if (this.currentMap.settings.testDataCumulative) {
@@ -234,7 +234,7 @@
                 if (this.currentMap.settings.testDataInterval === 1) {
                     totalLengthOfTestHistory -= 7;
                 }
-                totalLengthOfTestHistory /= this.currentMap.settings.testDataInterval;
+
                 this.$store.commit('ui/updateProperty', {key: 'todayInMs', value: today.getTime()});
                 this.$store.commit('ui/updateProperty', {key: 'today', value: today});
                 this.$store.commit('settings/updateProperty', {key: 'historyLength', value: totalLengthOfTestHistory});

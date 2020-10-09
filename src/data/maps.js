@@ -328,6 +328,40 @@ const maps = [
             ageGroups: '',
             sewageTreatmentPlants: ''
         }
+    }, {
+        id: 10,
+        regionType: 'District',
+        module: 'districts',
+        title: 'Rotterdam',
+        settings: {
+            regionTypes: ['district'],
+            pathOrigins: [
+                {
+                    type: 'ggd',
+                    paths: 'district'
+                }
+            ],
+            hasAgeGroups: false,
+            hasTests: true,
+            hasAdministeredTests: false,
+            hasSewageTreatmentPlants: true,
+            testDataCumulative: true,
+            testDataInterval: 7,
+            generalInfoHasPopulation: false,
+            map: {
+                latitude: 51.92,
+                longitude: 4.32,
+                stretch: 0.62,
+                zoom: 5.1,
+                ratio: 2
+            }
+        },
+        url: {
+            tests: 'data/maps/rotterdam/tests-rotterdam.csv',
+            regions: 'data/maps/rotterdam/rotterdam.json',
+            ageGroups: '',
+            sewageTreatmentPlants: sewageDataUrl
+        }
     }
 ];
 
