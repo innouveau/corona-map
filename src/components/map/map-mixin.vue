@@ -1,20 +1,11 @@
 <script>
-    import downloadImage from "./download/download-image";
-    import canvasTools from '@/tools/canvas';
-    import pointerCanvas from "./pointer-canvas";
     import mapToolsPopup from "./map-tools-popup";
-    import mapLegend from "./map-legend/map-legend";
     import View from "@/classes/View";
     import $ from 'jquery';
 
     export default {
-        name: 'map-tests',
-        components: {
-            mapLegend,
-            mapToolsPopup,
-            pointerCanvas,
-            downloadImage
-        },
+        name: 'map-mixin',
+        components: {},
         props: {
             showTools: {
                 type: Boolean,
@@ -34,12 +25,7 @@
                 default: true
             }
         },
-        data() {
-            let id = Math.round(Math.random() * 1000000);
-            return {
-                id
-            }
-        },
+
         computed: {
             width() {
                 return this.$store.state.settings.canvasWidth;
@@ -176,19 +162,6 @@
                 }
                 return null;
             },
-            draw() {
-                this.clear();
-                let settings = {
-                    key: 'map-' + this.$store.state.settings.canvasWidth,
-                    width: this.$store.state.settings.canvasWidth,
-                    height: this.$store.state.settings.canvasHeight,
-                    shiftX: 0,
-                    shiftY: 0,
-                    zoom: this.$store.state.settings.zoom,
-                    fill: true
-                };
-                canvasTools.draw(this.ctx, this.containerRegions, settings, this.view.offset);
-            },
             clear() {
                 this.ctx.clearRect(0, 0, this.width, this.height);
             },
@@ -217,11 +190,6 @@
                     this.draw();
                 }
             },
-            signalingSystem: {
-                handler: function() {
-                    this.draw();
-                }
-            },
             gradient: {
                 handler: function() {
                     this.draw();
@@ -232,85 +200,5 @@
 </script>
 
 
-<template>
-    <div class="map">
-        <canvas :id="'canvas-' + id"></canvas>
-
-        <pointer-canvas
-            :view="view"
-            :width="width"
-            :height="height"/>
-
-        <map-legend
-            v-if="showLegend"/>
-
-        <download-image
-            v-if="showDownload && !videoMode"
-            :view="view"/>
-
-        <div
-            v-if="showTools"
-            @click="openMapTools()"
-            class="icon-button icon-button--without-border button-open-map-tools">
-            <img src="assets/img/tools/dots.svg">
-        </div>
-
-        <map-tools-popup
-            v-if="showMapToolsPopup && showTools"/>
-    </div>
-</template>
-
-
-<style lang="scss">
-    @import '@/styles/variables.scss';
-
-    .map {
-        display: flex;
-        align-items: center;
-        position: relative;
-        justify-content: center;
-
-        canvas {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            //border: 1px solid #000;
-        }
-
-        #main-canvas {
-            z-index: 0;
-        }
-
-        #pointer-canvas {
-            z-index: 1;
-        }
-
-        .map-legend {
-            position: absolute;
-            left: 0;
-            top: 10px;
-            z-index: 1;
-        }
-
-        .download-image {
-            position: absolute;
-            left: 0;
-            bottom: 10px;
-            z-index: 1;
-        }
-
-        .button-open-map-tools {
-            position: absolute;
-            right: 0;
-            top: 10px;
-            z-index: 1;
-        }
-
-        .map-tools-popup {
-            position: absolute;
-            right: 0;
-            top: 10px;
-            z-index: 2;
-        }
-    }
-</style>
+<template></template>
+<style lang="scss"></style>

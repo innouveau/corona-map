@@ -1,5 +1,6 @@
 import store from '@/store/store';
 import thresholdTools from "@/tools/thresholds";
+import interpolate from "color-interpolate";
 
 class _Region {
     constructor(_region) {
@@ -190,7 +191,34 @@ class _Region {
         }
     }
 
+    getChange(offset, daysBefore) {
+        let before, after;
+        before = this.getTotalRelativeIncreaseWeek((offset + daysBefore));
+        after = this.getTotalRelativeIncreaseWeek(offset);
+        return after - before;
+    }
 
+    getColorForChange(offset, daysBefore) {
+        let change, margin, upColor, downColor, neutralColor, ratio, max, colormap;
+        change = this.getChange(offset, daysBefore);
+        max = 150;
+        margin = 5;
+        upColor = '#FF0000';
+        downColor = '#00FF00';
+        neutralColor = '#fff';
+        if (change > margin) {
+            ratio = Math.min(((change - margin) / (max - margin)), 1);
+            colormap = interpolate([neutralColor, upColor]);
+            return colormap(ratio);
+        } else if (change < -margin) {
+            ratio = Math.min(((change + margin) / (-max + margin)), 1);
+            colormap = interpolate([neutralColor, downColor]);
+            return colormap(ratio);
+        } else {
+            return neutralColor;
+        }
+
+    }
 }
 
 export default _Region;

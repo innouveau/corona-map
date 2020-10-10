@@ -10,7 +10,7 @@
 
 
     export default {
-        name: 'main-view',
+        name: 'standard-view',
         components: {
             mainViewMap,
             embedPopup,
@@ -67,7 +67,7 @@
 
 
 <template>
-    <div class="main-view">
+    <div class="standard-view">
         <header-menu
             :view="view"
             :editable="true"/>
@@ -100,14 +100,14 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .main-view {
+    .standard-view {
         height: 100%;
 
         .content {
             display: flex;
             height: calc(100% - 48px);
 
-            .main-view-map {
+            .standard-view-map {
                 width: calc(100% - 750px);
             }
 

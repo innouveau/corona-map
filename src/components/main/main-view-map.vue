@@ -1,7 +1,7 @@
 <script>
     import searchRegions from "./regions/search/search-regions";
     import regionTypePicker from "./regions/region-type/region-type-picker";
-    import mapTests from "@/components/map/map";
+    import mapSignaling from "@/components/map/map-signaling";
     import timeSlider from "@/components/view/time-slider";
     import embedButton from "./embed-button";
     import View from "@/classes/View";
@@ -9,9 +9,9 @@
     export default {
         name: 'main-view-map',
         components: {
+            mapSignaling,
             searchRegions,
             regionTypePicker,
-            mapTests,
             timeSlider,
             embedButton
         },
@@ -42,7 +42,7 @@
         <region-type-picker
             :view="view"/>
 
-        <map-tests
+        <map-signaling
             :view="view"
             :show-tools="true"
             :show-legend="true"

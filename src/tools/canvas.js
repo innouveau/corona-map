@@ -6,22 +6,25 @@ const addBackground = function(ctx, width, height) {
     ctx.fill();
 };
 
-const draw = function(ctx, regionContainers, settings, offset) {
+const draw = function(ctx, regionContainers, settings, offset, mapType = 'signaling') {
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = 'rgba(0,0,0,0.3)';
 
     for (let regionContainer of regionContainers) {
-        drawRegionContainer(ctx, regionContainer, settings, offset, offset);
+        drawRegionContainer(ctx, regionContainer, settings, offset, mapType);
     }
 };
 
-const drawRegionContainer = function(ctx, parent, settings, offset) {
+const drawRegionContainer = function(ctx, parent, settings, offset, mapType) {
     let currentMap, regionType, pathsOriginSetting, pathsOrigin, children;
-
     currentMap = store.state.maps.current;
     regionType = parent.regionType;
 
-    ctx.fillStyle = parent.getColor(offset);
+    if (mapType === 'change') {
+        ctx.fillStyle = parent.getColorForChange(offset, 7);
+    } else {
+        ctx.fillStyle = parent.getColor(offset);
+    }
 
     pathsOriginSetting = currentMap.settings.pathOrigins.find(region => region.type === regionType);
     if (pathsOriginSetting) {

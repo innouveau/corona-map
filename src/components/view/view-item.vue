@@ -1,5 +1,5 @@
 <script>
-    import mapTests from "@/components/map/map";
+    import mapSignaling from "@/components/map/map-signaling";
     import headerMenu from "@/components/main/header-menu";
     import View from "@/classes/View";
     import regionDetailsShort from "@/components/main/regions/region-details/region-details-short";
@@ -11,8 +11,7 @@
             viewTools,
             regionDetailsShort,
             headerMenu,
-            mapTests,
-
+            mapSignaling,
         },
         props: {
             view: {
@@ -73,7 +72,7 @@
                         :region="view.currentRegion"/>
                 </div>
 
-                <map-tests
+                <map-signaling
                     :show-tools="showTools"
                     :show-legend="showLegend"
                     :show-download="showDownload"
