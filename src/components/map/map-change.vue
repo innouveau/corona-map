@@ -36,7 +36,7 @@
 
 
 <template>
-    <div class="map">
+    <div class="map-change">
         <canvas :id="'canvas-' + id"></canvas>
     </div>
 </template>
@@ -45,7 +45,7 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .map {
+    .map-change {
         width: 100%;
         height: 100%;
         display: flex;
