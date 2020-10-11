@@ -1,10 +1,13 @@
 <script>
     import mapMixin from './map-mixin'
     import canvasTools from '@/tools/canvas';
+    import pointerCanvas from "./pointer-canvas";
 
     export default {
         name: 'map-change',
-        components: {},
+        components: {
+            pointerCanvas
+        },
         mixins: [mapMixin],
         props: {},
         data() {
@@ -38,6 +41,10 @@
 <template>
     <div class="map-change">
         <canvas :id="'canvas-' + id"></canvas>
+        <pointer-canvas
+            :view="view"
+            :width="width"
+            :height="height"/>
     </div>
 </template>
 

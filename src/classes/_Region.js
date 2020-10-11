@@ -195,24 +195,32 @@ class _Region {
         let before, after;
         before = this.getTotalRelativeIncreaseWeek((offset + daysBefore));
         after = this.getTotalRelativeIncreaseWeek(offset);
-        return after - before;
+        if (before === 0) {
+            //if (after === 0) {
+                return 1;
+            //}
+        } else {
+            return after / before;
+        }
     }
 
     getColorForChange(offset, daysBefore) {
-        let change, margin, upColor, downColor, neutralColor, ratio, max, colormap;
+        let change, margin, upColor, downColor, neutralColor, ratio, max, colormap, baseColor, factor;
         change = this.getChange(offset, daysBefore);
-        max = 150;
-        margin = 5;
+        max = 2;
+        margin = 0.05;
         upColor = '#FF0000';
         downColor = '#00FF00';
-        neutralColor = '#fff';
-        if (change > margin) {
-            ratio = Math.min(((change - margin) / (max - margin)), 1);
-            colormap = interpolate([neutralColor, upColor]);
+        baseColor = '#fff';
+        neutralColor = '#0084ff';
+        factor = Math.log(change)/Math.log(2);
+        if (factor > margin) {
+            ratio = Math.min(((factor - margin) / (max - margin)), 1);
+            colormap = interpolate([baseColor, upColor]);
             return colormap(ratio);
-        } else if (change < -margin) {
-            ratio = Math.min(((change + margin) / (-max + margin)), 1);
-            colormap = interpolate([neutralColor, downColor]);
+        } else if (factor < -margin) {
+            ratio = Math.min(((factor + margin) / (-max + margin)), 1);
+            colormap = interpolate([baseColor, downColor]);
             return colormap(ratio);
         } else {
             return neutralColor;

@@ -107,7 +107,7 @@
             display: flex;
             height: calc(100% - 48px);
 
-            .main-view-map {
+            .standard-view-map {
                 width: calc(100% - 750px);
             }
 

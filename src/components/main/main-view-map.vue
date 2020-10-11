@@ -34,7 +34,7 @@
 <template>
     <div
         :class="{'panel--active': showMap}"
-        class="panel main-view-map">
+        class="panel main-view-map standard-view-map">
 
         <search-regions
             :view="view"/>
@@ -62,7 +62,7 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .main-view-map {
+    .standard-view-map {
         padding-bottom: 0;
 
         .search-regions {
@@ -74,11 +74,12 @@
             height: 24px;
         }
 
-        .map {
+        .map,
+        .map-change {
             height: calc(100% - 106px);
         }
 
-        .main-view-map__tools {
+        .standard-view-map__tools {
             height: 40px;
             display: flex;
             align-items: center;
