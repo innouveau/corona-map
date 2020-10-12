@@ -10,17 +10,18 @@
             sections() {
                 return [
                     {
-                        range: [1 * changeTools.max, 1 + changeTools.margin]
+                        range: [changeTools.max, changeTools.margin]
                     }, {
-                        range: [1 + changeTools.margin, 1 - changeTools.margin],
+                        range: [changeTools.margin, -changeTools.margin],
                     }, {
-                        range: [1 - changeTools.margin, 1 / changeTools.max],
+                        range: [-changeTools.margin, -changeTools.max],
                     }
                 ]
             }
         },
         methods: {
-            getValue(change) {
+            getValue(factor) {
+                let change = changeTools.getChangeForFactor(factor);
                 return numberTools.formatChange(change);
             },
             getBackground(index) {

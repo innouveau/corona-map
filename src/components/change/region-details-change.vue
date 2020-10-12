@@ -29,9 +29,17 @@
             weeks() {
                 return this.$store.state.settings.weeks;
             },
+            change() {
+                return this.regionOfFocus.getChange(this.view.offset, changeTools.daysBack);
+            },
             formatChange() {
-                let change = this.regionOfFocus.getChange(this.view.offset, changeTools.daysBack)
-                return numberTools.formatChange(change);
+                return numberTools.formatChange(this.change);
+            },
+            factor() {
+                return changeTools.getFactorForChange(this.change);
+            },
+            changeColor() {
+                return changeTools.getColorForChange(this.change);
             }
         },
         methods: {
@@ -107,5 +115,10 @@
 
     .region-details-change {
 
+        .change-color {
+            width: 20px;
+            height: 20px;
+            margin-left: 4px;
+        }
     }
 </style>
