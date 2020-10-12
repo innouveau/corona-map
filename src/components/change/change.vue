@@ -6,10 +6,12 @@
     import searchRegions from "../main/regions/search/search-regions";
     import timeSlider from "../view/time-slider";
     import regionTypePicker from "@/components/main/regions/region-type/region-type-picker";
+    import changeTrends from "./trends/change-trends";
 
     export default {
         name: 'change',
         components: {
+            changeTrends,
             timeSlider,
             searchRegions,
             regionDetailsChange,
@@ -57,7 +59,8 @@
             </div>
 
 
-            <div class="trends"></div>
+            <change-trends
+                :view="view"/>
 
             <region-details-change
                 v-if="view.currentRegion"

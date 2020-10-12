@@ -1,4 +1,5 @@
 import store from '@/store/store';
+import changeTools from '@/tools/change';
 
 const addBackground = function(ctx, width, height) {
     ctx.rect(0, 0, width, height);
@@ -21,7 +22,8 @@ const drawRegionContainer = function(ctx, parent, settings, offset, mapType) {
     regionType = parent.regionType;
 
     if (mapType === 'change') {
-        ctx.fillStyle = parent.getColorForChange(offset, 7);
+        let change = parent.getChange(offset, changeTools.daysBack);
+        ctx.fillStyle = changeTools.getColorForChange(change);
     } else {
         ctx.fillStyle = parent.getColor(offset);
     }

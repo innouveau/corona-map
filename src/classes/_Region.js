@@ -203,30 +203,6 @@ class _Region {
             return after / before;
         }
     }
-
-    getColorForChange(offset, daysBefore) {
-        let change, margin, upColor, downColor, neutralColor, ratio, max, colormap, baseColor, factor;
-        change = this.getChange(offset, daysBefore);
-        max = 2;
-        margin = 0.05;
-        upColor = '#FF0000';
-        downColor = '#00FF00';
-        baseColor = '#fff';
-        neutralColor = '#0084ff';
-        factor = Math.log(change)/Math.log(2);
-        if (factor > margin) {
-            ratio = Math.min(((factor - margin) / (max - margin)), 1);
-            colormap = interpolate([baseColor, upColor]);
-            return colormap(ratio);
-        } else if (factor < -margin) {
-            ratio = Math.min(((factor + margin) / (-max + margin)), 1);
-            colormap = interpolate([baseColor, downColor]);
-            return colormap(ratio);
-        } else {
-            return neutralColor;
-        }
-
-    }
 }
 
 export default _Region;

@@ -7,6 +7,10 @@ const dictionary = {
         nl: "en",
         en: "and"
     },
+    "change": {
+        nl: "Verandering",
+        en: "Change"
+    },
     "city": {
         nl: "Stad",
         en: "City"
@@ -62,6 +66,10 @@ const dictionary = {
     "footer-text": {
         nl: "Wilt u gebruik maken van onze kaarten voor print of web; of voor andere vragen, neem dan contact op met: info@innouveau.nl",
         en: "Would you like to use our maps for print or web; or for other questions, please contact: info@innouveau.nl"
+    },
+    "for-7-days": {
+        nl: "over 7 dagen",
+        en: "for 7 days"
     },
     "ggd": {
         nl: "GGD",
@@ -199,6 +207,10 @@ const dictionary = {
         nl: "Zoek of klik op de kaart",
         en: "Search or click on the map"
     },
+    "seven-days-back": {
+        nl: "7 dagen geleden",
+        en: "7 days back"
+    },
     "signal-value": {
         nl: "Signaalwaarde",
         en: "Signal value"
@@ -238,6 +250,10 @@ const dictionary = {
     "with-more-than": {
         nl: "Met meer dan",
         en: "With more than"
+    },
+    "with-shrinkage": {
+        nl: "Met krimp",
+        en: "With shrinkage"
     }
 };
 

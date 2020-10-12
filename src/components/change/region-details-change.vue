@@ -3,10 +3,13 @@
     import View from "@/classes/View";
     import regionDetailsHead from "../main/regions/region-details/region-details-head";
     import numberTools from '@/tools/number';
+    import positiveTests from "@/components/main/regions/region-details/tests/positive-tests";
+    import changeTools from '@/tools/change';
 
     export default {
         name: 'region-details-change',
         components: {
+            positiveTests,
             regionDetailsHead
         },
         props: {
@@ -23,6 +26,13 @@
             regionOfFocus() {
                 return this.$store.getters['ui/getRegionOfFocus'](this.region);
             },
+            weeks() {
+                return this.$store.state.settings.weeks;
+            },
+            formatChange() {
+                let change = this.regionOfFocus.getChange(this.view.offset, changeTools.daysBack)
+                return numberTools.formatChange(change);
+            }
         },
         methods: {
             format(value, addPlus) {
@@ -52,17 +62,7 @@
             <div class="region-details__section">
                 <div class="region-details__row">
                     <div class="region-details__label">
-                        {{translate('relative', true)}} {{translate('increase')}} {{translate('today')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
-                    </div>
-                    <div class="region-details__value">
-                        {{format(Math.round(regionOfFocus.getTotalRelativeIncreaseWeek(view.offset)))}}
-                    </div>
-                </div>
-            </div>
-            <div class="region-details__section">
-                <div class="region-details__row">
-                    <div class="region-details__label">
-                        Increase 7 dagen terug
+                        {{translate('relative', true)}} {{translate('increase')}} {{translate('for-7-days')}} {{translate('seven-days-back')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
                     </div>
                     <div class="region-details__value">
                         {{format(Math.round(regionOfFocus.getTotalRelativeIncreaseWeek((view.offset + 7))))}}
@@ -70,12 +70,32 @@
                 </div>
                 <div class="region-details__row">
                     <div class="region-details__label">
-                        Change
+                        {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}}
                     </div>
                     <div class="region-details__value">
-                        × {{regionOfFocus.getChange(view.offset, 7).toFixed(2)}}
+                        {{format(Math.round(regionOfFocus.getTotalRelativeIncreaseWeek(view.offset)))}}
                     </div>
                 </div>
+
+            </div>
+            <div class="region-details__section">
+                <div class="region-details__row">
+                    <div class="region-details__label">
+                        {{translate('change', true)}}
+                    </div>
+                    <div class="region-details__value">
+                        {{formatChange}}
+                    </div>
+                </div>
+            </div>
+            <div class="region-details__section">
+                <div class="region-details__section-header">
+                    {{translate('test-results', true)}}
+                </div>
+                <positive-tests
+                    :view="view"
+                    :region="regionOfFocus"
+                    :weeks="2"/>
             </div>
         </div>
     </div>
