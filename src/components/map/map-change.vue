@@ -2,10 +2,12 @@
     import mapMixin from './map-mixin'
     import canvasTools from '@/tools/canvas';
     import pointerCanvas from "./pointer-canvas";
+    import ChangeLegend from "./map-legend/change-legend";
 
     export default {
         name: 'map-change',
         components: {
+            ChangeLegend,
             pointerCanvas
         },
         mixins: [mapMixin],
@@ -39,12 +41,14 @@
 
 
 <template>
-    <div class="map-change">
+    <div class="map-change map">
         <canvas :id="'canvas-' + id"></canvas>
         <pointer-canvas
             :view="view"
             :width="width"
             :height="height"/>
+
+        <change-legend/>
     </div>
 </template>
 
@@ -53,18 +57,6 @@
     @import '@/styles/variables.scss';
 
     .map-change {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        position: relative;
-        justify-content: center;
 
-        canvas {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            //border: 1px solid #000;
-        }
     }
 </style>
