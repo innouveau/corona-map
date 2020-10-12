@@ -10,8 +10,14 @@
             }
         },
         computed: {
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
+            src() {
+                return 'https://covid19.innouveau.com/#/?map=' + this.currentMap.title;
+            },
             embedString() {
-                return '<iframe src="https://innouveau.com/projecten/corona/kaart/#/" style="border: 1px solid #888; width:' + this.width + 'px; height:' + this.height + 'px;"></iframe>';
+                return '<iframe src="' + this.src + '" style="border: 1px solid #888; width:' + this.width + 'px; height:' + this.height + 'px;"></iframe>';
             }
         },
         methods: {
@@ -36,7 +42,7 @@
                         width: width + 'px',
                         height: height + 'px'
                     }"
-                    src="https://innouveau.com/projecten/corona/kaart/#/"></iframe>
+                    :src="src"></iframe>
             </div>
             <p>
                 Aenean volutpat erat at justo sodales accumsan. Etiam ultricies metus vel maximus molestie. Fusce tortor quam, tempus aliquet urna et, luctus tempus odio. Aliquam erat volutpat. Vestibulum feugiat lacinia laoreet. Etiam bibendum urna nec sodales accumsan. Suspendisse id lacus ac odio consequat egestas. Vestibulum hendrerit vitae libero congue imperdiet. Pellentesque porttitor sed massa congue auctor. Quisque mattis nisl quis semper sagittis. In dui dui, euismod ac feugiat ac, imperdiet vel metus.

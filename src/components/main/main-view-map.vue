@@ -48,7 +48,7 @@
             :show-legend="true"
             :offset="view.offset"/>
 
-        <div class="main-view-map__tools">
+        <div class="standard-view-map__tools">
             <time-slider
                 v-if="true"
                 :view="view"/>
