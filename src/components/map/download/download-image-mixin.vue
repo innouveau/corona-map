@@ -39,17 +39,6 @@
             }
         },
         methods: {
-            getSettings(i) {
-                return {
-                    width: 0.5 * this.width,
-                    height: 0.8 * this.height,
-                    shiftX: (i - 1) * 0.5 * this.width + (20 * this.imageScale),
-                    shiftY: 0.2 * this.height,
-                    zoom: this.currentMap.settings.map.zoom * 400 * this.imageScale,
-                    key: 'download-compare-' + i,
-                    fill: true
-                }
-            },
             getDateString(view) {
                 return this.$store.getters['ui/getDateByOffset'](view.offset * this.currentMap.settings.testDataInterval);
             },
@@ -116,7 +105,7 @@
                 ctx.fillText('Created by: @innouveau', (30 * this.imageScale),  (545 * this.imageScale));
             },
             finish() {
-                this.downloadLink.setAttribute('download', 'corona-status-compare');
+                this.downloadLink.setAttribute('download', 'corona-status' + this.typeLabel);
                 this.canvas.toBlob((blob) => {
                     let url = URL.createObjectURL(blob);
                     this.downloadLink.setAttribute('href', url);

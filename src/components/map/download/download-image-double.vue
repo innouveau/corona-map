@@ -17,8 +17,24 @@
             }
         },
         mixins: [downloadImageMixin],
+        data() {
+            return {
+                typeLabel: '-compare'
+            }
+        },
         computed: {},
         methods: {
+            getSettings(i) {
+                return {
+                    width: 0.5 * this.width,
+                    height: 0.8 * this.height,
+                    shiftX: (i - 1) * 0.5 * this.width + (20 * this.imageScale),
+                    shiftY: 0.2 * this.height,
+                    zoom: this.currentMap.settings.map.zoom * 400 * this.imageScale,
+                    key: 'download-compare-' + i,
+                    fill: true
+                }
+            },
             download() {
                 this.prepair();
                 this.addHead().then(() => {
