@@ -136,6 +136,7 @@ let signalingSystems = [
         thresholds: [
             {
                 n: 0,
+                label: 'Geen',
                 color: {
                     regular: 'rgb(144,250,5)',
                     colorblind1: '#333',
@@ -144,6 +145,7 @@ let signalingSystems = [
                 }
             }, {
                 n: 50,
+                label: 'Waakzaam',
                 color: {
                     regular: 'rgb(255,255,0)',
                     colorblind1: '#66c2a5',
@@ -152,6 +154,7 @@ let signalingSystems = [
                 }
             }, {
                 n: 150,
+                label: 'Zorgelijk',
                 color: {
                     regular: 'rgb(250,172,5)',
                     colorblind1: '#8da0cb',
@@ -160,6 +163,7 @@ let signalingSystems = [
                 }
             }, {
                 n: 250,
+                label: 'Ernstig',
                 color: {
                     regular: 'rgb(255,0,0)',
                     colorblind1: '#fc8d62',
@@ -168,6 +172,7 @@ let signalingSystems = [
                 }
             }, {
                 n: Infinity,
+                label: 'Zeer ernstig',
                 color: {
                     regular: 'rgb(40,40,40)',
                     colorblind1: 'rgb(40,40,40)',

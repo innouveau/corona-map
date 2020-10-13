@@ -17,6 +17,13 @@
             getNumber(threshold) {
                 return thresholdTools.getNumber(threshold);
             },
+            getValue(threshold) {
+                if (threshold.label) {
+                    return threshold.label;
+                } else {
+                    return this.getNumber(threshold);
+                }
+            },
             getBackground(threshold) {
                 let index, color1, color2;
                 index = this.thresholds.indexOf(threshold);
@@ -42,7 +49,7 @@
                 :style="{'background': getBackground(threshold)}"
                 class="threshold__swatch"></div>
             <div class="threshold__cases">
-                {{getNumber(threshold)}}
+                {{getValue(threshold)}}
             </div>
         </div>
     </div>

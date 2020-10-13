@@ -94,7 +94,7 @@
                 ctx.stroke();
             },
             addLegend(ctx) {
-                let baseY, baseX;
+                let baseY, baseX, value;
                 baseY = 160 * this.imageScale;
                 baseX = 38 * this.imageScale;
                 ctx.strokeStyle = '#555';
@@ -106,7 +106,12 @@
                     ctx.stroke();
                     ctx.fill();
                     ctx.fillStyle = 'black';
-                    ctx.fillText(thresholdTools.getNumber(threshold), baseX + (24 * this.imageScale), (baseY + (7 * this.imageScale)));
+                    if (threshold.label) {
+                        value = threshold.label;
+                    } else {
+                        value = thresholdTools.getNumber(threshold);
+                    }
+                    ctx.fillText(value, baseX + (24 * this.imageScale), (baseY + (7 * this.imageScale)));
                     baseY += (33 * this.imageScale);
                 }
                 ctx.beginPath();
