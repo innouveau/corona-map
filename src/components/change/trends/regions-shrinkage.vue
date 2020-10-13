@@ -19,6 +19,9 @@
             currentMap() {
                 return this.$store.state.maps.current;
             },
+            currentLanguage() {
+                return this.$store.state.languages.current;
+            },
             regions() {
                 let regions = this.$store.getters['ui/regions'];
                 return regions.filter(region => {

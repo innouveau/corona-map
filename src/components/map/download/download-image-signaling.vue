@@ -4,14 +4,10 @@
     import downloadImageMixin from './download-image-mixin';
 
     export default {
-        name: 'download-image-double',
+        name: 'download-image',
         components: {},
         props: {
-            view1: {
-                type: View,
-                required: true
-            },
-            view2: {
+            view: {
                 type: View,
                 required: true
             }
@@ -19,19 +15,22 @@
         mixins: [downloadImageMixin],
         data() {
             return {
-                mapType: 'signaling',
-                typeLabel: '-compare'
+                mapType: 'signaling'
             }
         },
-        computed: {},
+        computed: {
+            typeLabel() {
+                return '-' + this.getDateStringdashes(this.view);
+            }
+        },
         methods: {
             getSettings(i) {
                 return {
-                    width: 0.5 * this.width,
-                    height: 0.8 * this.height,
-                    shiftX: (i - 1) * 0.5 * this.width + (20 * this.imageScale),
-                    shiftY: 0.2 * this.height,
-                    zoom: this.currentMap.settings.map.zoom * 400 * this.imageScale,
+                    width: this.width,
+                    height: this.height,
+                    shiftX: (220 * this.imageScale),
+                    shiftY: 0,
+                    zoom: this.currentMap.settings.map.zoom * 550 * this.imageScale,
                     key: 'download-compare-' + i,
                     fill: true
                 }
@@ -39,17 +38,13 @@
             download() {
                 this.prepair();
                 this.addHead().then(() => {
-
-                    this.addDate(this.view1, 0.03, 0.22);
-                    this.addDate(this.view2, 0.53, 0.22);
-                    //this.addLegend();
-                    canvasTools.draw(this.ctx, this.regions, this.getSettings(1), this.view1.offset, this.mapType);
-                    canvasTools.draw(this.ctx, this.regions, this.getSettings(2), this.view2.offset, this.mapType);
+                    this.addDate(this.view, 0.03, 0.195);
+                    canvasTools.draw(this.ctx, this.regions, this.getSettings(1), this.view.offset, this.mapType);
                     this.addCreator();
+                    this.addLegend();
                     this.finish();
                 });
-            },
-
+            }
         }
     }
 </script>

@@ -5,6 +5,27 @@ const max = 1;
 const daysBack = 7;
 const colors = ['#FF0000', '#fff', '#00FF00'];
 
+const sections = [
+    {
+        range: [max, margin]
+    }, {
+        range: [margin, -margin],
+    }, {
+        range: [-margin, -max],
+    }
+];
+
+const getBackgroundForSection = function(index) {
+    switch (index) {
+        case 0:
+            return [colors[0], colors[1]];
+        case 1:
+            return [colors[1], colors[1]];
+        case 2:
+            return [colors[1], colors[2]];
+    }
+};
+
 const getFactorForChange = function(change) {
     return Math.log(change)/Math.log(2);
 };
@@ -35,8 +56,10 @@ const getColorForChange = function(change) {
 export default {
     margin,
     max,
+    sections,
     daysBack,
     colors,
+    getBackgroundForSection,
     getFactorForChange,
     getChangeForFactor,
     getColorForChange

@@ -8,15 +8,7 @@
         props: {},
         computed: {
             sections() {
-                return [
-                    {
-                        range: [changeTools.max, changeTools.margin]
-                    }, {
-                        range: [changeTools.margin, -changeTools.margin],
-                    }, {
-                        range: [-changeTools.margin, -changeTools.max],
-                    }
-                ]
+                return changeTools.sections;
             }
         },
         methods: {
@@ -25,22 +17,8 @@
                 return numberTools.formatChange(change);
             },
             getBackground(index) {
-                let color1, color2;
-                switch (index) {
-                    case 0:
-                        color1 = changeTools.colors[0];
-                        color2 = changeTools.colors[1];
-                    break;
-                    case 1:
-                        color1 = changeTools.colors[1];
-                        color2 = changeTools.colors[1];
-                        break;
-                    case 2:
-                        color1 = changeTools.colors[1];
-                        color2 = changeTools.colors[2];
-                        break;
-                }
-                return 'linear-gradient(180deg, ' + color1 + ' 0%, ' + color2 + ' 120%)';
+                let colors = changeTools.getBackgroundForSection(index);
+                return 'linear-gradient(180deg, ' + colors[0] + ' 0%, ' + colors[1] + ' 120%)';
             }
         }
     }
@@ -89,7 +67,7 @@
             .change-legend__label {
                 font-size: 9px;
                 position: absolute;
-                left: 14px;
+                left: 16px;
                 margin-top: -5px;
 
                 &.change-legend__label--top {
