@@ -24,21 +24,32 @@
             }
         },
         methods: {
-            getSettings(i) {
+            getSettings(mapType) {
                 return {
-                    width: this.width,
-                    height: this.height,
-                    shiftX: (220 * this.imageScale),
-                    shiftY: 0,
-                    zoom: this.currentMap.settings.map.zoom * 550 * this.imageScale,
-                    key: 'download-compare-' + i,
+                    width: 0.5 * this.width,
+                    height: 0.8 * this.height,
+                    shiftX: mapType === 'signaling' ? 0 : 0.5 * this.width,
+                    shiftY: 0.2 * this.height,
+                    zoom: this.currentMap.settings.map.zoom * 400 * this.imageScale,
+                    key: 'download-' + mapType,
                     fill: true
                 }
             },
             download() {
                 this.prepair();
                 this.addHead().then(() => {
-
+                    this.addDate(this.view, 0.51, 0.12, false);
+                    canvasTools.draw(this.ctx, this.regions, this.getSettings('signaling'), this.view.offset, 'signaling');
+                    canvasTools.draw(this.ctx, this.regions, this.getSettings('change'), this.view.offset, 'change');
+                    this.addCreator();
+                    this.addLegend('signaling', true, 0.03, 0.18);
+                    this.addLegend('change', null, 0.57, 0.18);
+                    this.finish();
+                });
+            },
+            download2() {
+                this.prepair();
+                this.addHead().then(() => {
                     this.addDate(this.view, 0.03, 0.195);
                     canvasTools.draw(this.ctx, this.regions, this.getSettings(1), this.view.offset, this.mapType);
                     this.addCreator();

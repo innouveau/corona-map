@@ -74,7 +74,7 @@
                     }
                 });
             },
-            addDate(view, x, y) {
+            addDate(view, x, y, addLine = true) {
                 let ctx, xAbs, yAbs;
                 ctx = this.ctx;
                 xAbs = x * this.width;
@@ -83,22 +83,24 @@
                 ctx.fillStyle = 'black';
                 ctx.textAlign = 'left';
                 ctx.fillText(this.getDateString(view), xAbs, yAbs);
-                ctx.beginPath();
-                ctx.moveTo(xAbs, yAbs + (24 * this.imageScale));
-                ctx.lineTo( (xAbs + 0.44 * this.width), yAbs + (24 * this.imageScale));
-                ctx.stroke();
+                if (addLine) {
+                    ctx.beginPath();
+                    ctx.moveTo(xAbs, yAbs + (24 * this.imageScale));
+                    ctx.lineTo( (xAbs + 0.44 * this.width), yAbs + (24 * this.imageScale));
+                    ctx.stroke();
+                }
             },
-            addLegend() {
-                let baseY, baseX, ctx;
+            addLegend(mapType, gradient, x, y) {
+                let baseX, baseY, ctx;
                 ctx = this.ctx;
-                baseX = 32 * this.imageScale;
-                baseY = 160 * this.imageScale;
+                baseX = x * this.width;
+                baseY = y * this.height;
                 ctx.strokeStyle = '#555';
-                if (this.mapType === 'change') {
+                if (mapType === 'change') {
                     this.addLegendChange(baseX, baseY);
                 } else {
                     ctx.font = (14 * this.imageScale) + 'px Arial';
-                    if (this.gradient) {
+                    if (gradient) {
                         this.addLegendSignalingGradient(baseX, baseY);
                     } else {
                         this.addLegendSignaling(baseX, baseY);

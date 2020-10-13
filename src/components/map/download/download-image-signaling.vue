@@ -41,7 +41,7 @@
                     this.addDate(this.view, 0.03, 0.195);
                     canvasTools.draw(this.ctx, this.regions, this.getSettings(1), this.view.offset, this.mapType);
                     this.addCreator();
-                    this.addLegend();
+                    this.addLegend('signaling', this.gradient, 0.03, 0.28);
                     this.finish();
                 });
             }
