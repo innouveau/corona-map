@@ -175,7 +175,7 @@
                     ctx.fillStyle = 'black';
                     ctx.fillText(value, baseX + (24 * this.imageScale), y + (6 * this.imageScale));
                     if (index === changeTools.sections.length - 1) {
-                        change = changeTools.getChangeForFactor(section.range[0]);
+                        change = changeTools.getChangeForFactor(section.range[1]);
                         value = numberTools.formatChange(change);
                         ctx.fillStyle = 'black';
                         ctx.fillText(value, baseX + (24 * this.imageScale), y + height + (2 * this.imageScale));
