@@ -38,7 +38,6 @@
             download() {
                 this.prepair();
                 this.addHead().then(() => {
-
                     this.addDate(this.view, 0.03, 0.195);
                     canvasTools.draw(this.ctx, this.regions, this.getSettings(1), this.view.offset, this.mapType);
                     this.addCreator();

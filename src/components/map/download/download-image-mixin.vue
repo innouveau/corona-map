@@ -38,6 +38,9 @@
             },
             currentLanguage() {
                 return this.$store.state.languages.current;
+            },
+            gradient() {
+                return this.$store.state.settings.gradient;
             }
         },
         methods: {
@@ -81,25 +84,59 @@
                 ctx.textAlign = 'left';
                 ctx.fillText(this.getDateString(view), xAbs, yAbs);
                 ctx.beginPath();
-                ctx.moveTo(xAbs, yAbs + (8 * this.imageScale));
-                ctx.lineTo( (xAbs + 0.44 * this.width), yAbs + (8 * this.imageScale));
+                ctx.moveTo(xAbs, yAbs + (24 * this.imageScale));
+                ctx.lineTo( (xAbs + 0.44 * this.width), yAbs + (24 * this.imageScale));
                 ctx.stroke();
             },
             addLegend() {
                 let baseY, baseX, ctx;
                 ctx = this.ctx;
-                baseX = 38 * this.imageScale;
+                baseX = 32 * this.imageScale;
                 baseY = 160 * this.imageScale;
                 ctx.strokeStyle = '#555';
                 if (this.mapType === 'change') {
                     this.addLegendChange(baseX, baseY);
                 } else {
-                    this.addLegendSignaling(baseX, baseY);
+                    ctx.font = (14 * this.imageScale) + 'px Arial';
+                    if (this.gradient) {
+                        this.addLegendSignalingGradient(baseX, baseY);
+                    } else {
+                        this.addLegendSignaling(baseX, baseY);
+                    }
+                }
+            },
+            addLegendSignalingGradient(baseX, baseY) {
+                let ctx, index, thresholds, y, width, height, margin;
+                height = 20 *  this.imageScale;
+                margin = this.imageScale;
+                width = 16 *  this.imageScale;
+                y = baseY;
+                ctx = this.ctx;
+                index = 0;
+                thresholds = thresholdTools.getThresholds();
+                for (let threshold of thresholds) {
+                    let color1, color2, grd;
+                    color1 = threshold.color[this.$store.state.ui.color];
+                    if (index === 0 || index === thresholds.length - 1) {
+                        ctx.fillStyle = color1;
+                    } else {
+                        color2 = thresholds[index + 1].color[this.$store.state.ui.color];
+                        grd = ctx.createLinearGradient(0, y, 0, (y + height));
+                        grd.addColorStop(0, color1);
+                        grd.addColorStop(1, color2);
+                        ctx.fillStyle = grd;
+                    }
+                    ctx.fillRect(baseX, y, width, height);
+
+                    ctx.fillStyle = 'black';
+                    ctx.fillText(thresholdTools.getNumber(threshold), baseX + width + (8 * this.imageScale), (y + (18 * this.imageScale)));
+                    y += (height + margin);
+                    index++;
                 }
             },
             addLegendSignaling(baseX, baseY) {
                 let ctx = this.ctx;
-                ctx.font = (20 * this.imageScale) + 'px Arial';
+                baseX += 8;
                 for (let threshold of thresholdTools.getThresholds()) {
                     ctx.fillStyle = threshold.color[this.$store.state.ui.color];
                     ctx.beginPath();
@@ -108,12 +145,9 @@
                     ctx.fill();
                     ctx.fillStyle = 'black';
                     ctx.fillText(thresholdTools.getNumber(threshold), baseX + (24 * this.imageScale), (baseY + (7 * this.imageScale)));
-                    baseY += (33 * this.imageScale);
+                    baseY += (24 * this.imageScale);
                 }
-                ctx.beginPath();
-                ctx.moveTo(30 * this.imageScale, 330 * this.imageScale);
-                ctx.lineTo(465 * this.imageScale, 330 * this.imageScale);
-                ctx.stroke();
+
             },
             addLegendChange(baseX, baseY) {
                 let ctx, index, y;
