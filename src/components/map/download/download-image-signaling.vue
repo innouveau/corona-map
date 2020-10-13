@@ -15,7 +15,7 @@
         mixins: [downloadImageMixin],
         computed: {
             typeLabel() {
-                return this.getDateString(this.view);
+                return this.getDateStringdashes(this.view);
             }
         },
         methods: {

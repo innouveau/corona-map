@@ -10,9 +10,6 @@
             regions() {
                 return this.$store.getters['ui/regions'];
             },
-            dateStringdashes() {
-                return this.dateString.replace(/\s/g , "-");
-            },
             imageScale() {
                 return 1;
             },
@@ -39,6 +36,9 @@
             }
         },
         methods: {
+            getDateStringdashes(view) {
+                return this.getDateString(view).replace(/\s/g , "-");
+            },
             getDateString(view) {
                 return this.$store.getters['ui/getDateByOffset'](this.view.offset * this.currentMap.settings.testDataInterval);
             },
