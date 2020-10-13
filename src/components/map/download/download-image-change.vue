@@ -1,7 +1,7 @@
 <script>
     import canvasTools from '@/tools/canvas';
-    import thresholdTools from '@/tools/thresholds';
     import View from "@/classes/View";
+    import downloadImageMixin from './download-image-mixin';
 
     export default {
         name: 'download-image-change',
@@ -12,12 +12,17 @@
                 required: true
             }
         },
+        mixins: [downloadImageMixin],
         data() {
             return {
-                typeLabel: ''
+                mapType: 'change'
             }
         },
-        computed: {},
+        computed: {
+            typeLabel() {
+                return '-change' + this.getDateStringdashes(this.view);
+            }
+        },
         methods: {
             getSettings(i) {
                 return {
@@ -35,7 +40,7 @@
                 this.addHead().then(() => {
 
                     this.addDate(this.view, 0.03, 0.195);
-                    canvasTools.draw(this.ctx, this.regions, this.getSettings(1), this.view.offset);
+                    canvasTools.draw(this.ctx, this.regions, this.getSettings(1), this.view.offset, this.mapType);
                     this.addCreator();
                     this.addLegend();
                     this.finish();

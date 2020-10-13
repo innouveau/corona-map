@@ -33,14 +33,17 @@
             },
             ctx() {
                 return this.canvas.getContext("2d");
+            },
+            currentLanguage() {
+                return this.$store.state.languages.current;
             }
         },
         methods: {
             getDateStringdashes(view) {
-                return this.getDateString(view).replace(/\s/g , "-");
+                return this.getDateString(view).replace(/\s/g , "-").toLowerCase();
             },
             getDateString(view) {
-                return this.$store.getters['ui/getDateByOffset'](this.view.offset * this.currentMap.settings.testDataInterval);
+                return this.$store.getters['ui/getDateByOffset'](view.offset * this.currentMap.settings.testDataInterval, 'EE d MMM', this.currentLanguage.iso_code);
             },
             prepair() {
                 this.canvas.id = 'image-for-download';
@@ -51,11 +54,15 @@
             },
             addHead() {
                 let width, height;
-                width = 430 * this.imageScale;
-                height = 42 * this.imageScale;
+                width = 559 * this.imageScale;
+                height = 57 * this.imageScale;
                 return new Promise((resolve, reject) => {
                     let img = new Image();
-                    img.src = 'assets/img/corona-status-new.png';
+                    if (this.mapType === 'change') {
+                        img.src = 'assets/img/corona-change.png';
+                    } else {
+                        img.src = 'assets/img/corona-signaling.png';
+                    }
                     img.onload = () => {
                         this.ctx.drawImage(img, (30 * this.imageScale), (36 * this.imageScale), width, height);
                         resolve();
