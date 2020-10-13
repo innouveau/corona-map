@@ -3,10 +3,12 @@
     import canvasTools from '@/tools/canvas';
     import pointerCanvas from "./pointer-canvas";
     import ChangeLegend from "./map-legend/change-legend";
+    import downloadImageChange from "./download/download-image-change";
 
     export default {
         name: 'map-change',
         components: {
+            downloadImageChange,
             ChangeLegend,
             pointerCanvas
         },
@@ -47,6 +49,9 @@
             :view="view"
             :width="width"
             :height="height"/>
+
+        <download-image-change
+            :view="view"/>
 
         <change-legend/>
     </div>

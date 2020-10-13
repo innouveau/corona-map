@@ -1,5 +1,5 @@
 <script>
-    import downloadImage from "./download/download-image";
+    import downloadImageSignaling from "./download/download-image-signaling";
     import canvasTools from '@/tools/canvas';
     import pointerCanvas from "./pointer-canvas";
     import mapToolsPopup from "./map-tools-popup";
@@ -13,7 +13,7 @@
             mapLegend,
             mapToolsPopup,
             pointerCanvas,
-            downloadImage
+            downloadImageSignaling
         },
         props: {
             showTools: {
@@ -244,7 +244,7 @@
         <map-legend
             v-if="showLegend"/>
 
-        <download-image
+        <download-image-signaling
             v-if="showDownload && !videoMode"
             :view="view"/>
 

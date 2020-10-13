@@ -4,7 +4,7 @@
     import View from "@/classes/View";
 
     export default {
-        name: 'download-image',
+        name: 'download-image-change',
         components: {},
         props: {
             view: {
@@ -135,7 +135,7 @@
 <template>
     <div
         @click="download()"
-        class="download-image icon-button">
+        class="download-image download-image-change icon-button">
         <img src="assets/img/tools/download.svg">
     </div>
 </template>
@@ -144,7 +144,7 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .download-image {
+    .download-image-change {
 
     }
 </style>
