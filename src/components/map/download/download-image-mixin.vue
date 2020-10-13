@@ -40,7 +40,7 @@
         },
         methods: {
             getDateString(view) {
-                return this.$store.getters['ui/getDateByOffset'](view.offset * this.currentMap.settings.testDataInterval);
+                return this.$store.getters['ui/getDateByOffset'](this.view.offset * this.currentMap.settings.testDataInterval);
             },
             prepair() {
                 this.canvas.id = 'image-for-download';
