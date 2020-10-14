@@ -103,7 +103,8 @@
                 <positive-tests
                     :view="view"
                     :region="regionOfFocus"
-                    :weeks="2"/>
+                    :weeks="2"
+                    :map-type="'change'"/>
             </div>
         </div>
     </div>

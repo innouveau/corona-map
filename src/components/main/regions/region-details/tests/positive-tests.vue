@@ -10,6 +10,11 @@
             region: {
                 type: _Region,
                 required: true
+            },
+            mapType: {
+                type: String,
+                required: false,
+                default: 'signaling'
             }
         },
         computed: {
@@ -29,17 +34,68 @@
         methods: {
             redraw() {
                 this.clear();
-                if (this.thresholds) {
-                    this.drawThresholds();
-                    this.drawGrid();
+                setTimeout(() =>{
+                    if (this.thresholds) {
+                        if (this.mapType === 'signaling') {
+                            this.drawThresholds();
+                        } else {
+                            this.drawBackground();
+                            this.drawWeekAverageLines();
+                            this.drawDoublinkLines();
+                        }
+                        this.drawGrid();
+                    }
+
+                    if (this.getDays().length > 0) {
+                        this.drawTrendLine();
+                    }
+                    if (this.thresholds) {
+                        this.drawDates();
+                    }
+                }, 10)
+
+            },
+            drawWeekAverageLines() {
+                let weeks, ctx;
+                ctx = this.ctx;
+                ctx.strokeStyle = 'black';
+                weeks = [0,1];
+                for (let week of weeks) {
+                    let cases, y, offset;
+                    offset = (this.weeks - week - 1) * 7;
+                    cases = this.region.getTotalRelativeIncreaseWeek(offset, this.view.offset);
+                    y = this.valueToY(cases / 7);
+                    ctx.beginPath();
+                    ctx.moveTo(week * (this.width / 2), y);
+                    ctx.lineTo((week + 1) * (this.width / 2), y);
+                    ctx.stroke();
+                    ctx.closePath();
                 }
 
-                if (this.getDays().length > 0) {
-                    this.drawTrendLine();
+            },
+            drawDoublinkLines() {
+                let baseY, ctx, doublings, baseOffset, heightGraph, cases;
+                heightGraph = this.height - this.paddingBottom;
+                doublings = [0.25, 0.5, 1, 2, 4];
+                ctx = this.ctx;
+                cases = this.region.getTotalRelativeIncreaseWeek(7, this.view.offset);
+                baseY = this.valueToY(cases / 7);
+                baseOffset = heightGraph - baseY;
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = 'red';
+                for (let doubling of doublings) {
+                    let y = heightGraph -  (doubling * baseOffset);
+                    ctx.beginPath();
+                    ctx.moveTo((this.width / 2), y);
+                    ctx.lineTo(this.width, y);
+                    ctx.stroke();
+                    ctx.closePath();
+                    ctx.textAlign = 'left';
+                    ctx.fillStyle = 'red';
+                    ctx.fillText('× ' + doubling, this.width + 6, y + 4);
                 }
-                if (this.thresholds) {
-                    this.drawDates();
-                }
+
+
             },
             drawThresholds() {
                 let lastY, ctx, thresholds;
@@ -69,30 +125,37 @@
                 }
                 ctx.globalAlpha = 1;
             },
+            getY(day) {
+                // for the graph we always use 100000, independent from the signaling system
+                let relativeValue = 100000 * (day.positiveTests / this.currentMap.settings.testDataInterval) / this.region.getTotalPopulation();
+                return this.valueToY(relativeValue)
+            },
+            valueToY(value) {
+                return (this.height - this.paddingBottom) - (value * this.zoom);
+            },
             drawTrendLine() {
                 let ctx, step, start, report, days;
                 ctx = this.ctx;
                 step = this.step;
 
-                const getY = (day) => {
-                    // for the graph we always use 100000, independent from the signaling system
-                    let relativeValue = 100000 * (day.positiveTests / this.currentMap.settings.testDataInterval) / this.region.getTotalPopulation();
-                    return (this.height - this.paddingBottom) - (relativeValue * this.zoom);
-                };
-
                 ctx.beginPath();
                 ctx.lineWidth = 1;
-                ctx.strokeStyle = 'black';
+                if (this.mapType === 'signaling') {
+                    ctx.strokeStyle = 'black';
+                } else {
+                    ctx.strokeStyle = '#888';
+                }
+
                 // draw 1 point extra, this point is out of the graph on the leftside
                 start = 1;
 
 
                 days = this.getDays();
 
-                ctx.moveTo(this.getX(days[0]), getY(days[0]));
+                ctx.moveTo(this.getX(days[0]), this.getY(days[0]));
                 days = days.slice(1);
                 for (let day of days) {
-                    ctx.lineTo(this.getX(day), getY(day));
+                    ctx.lineTo(this.getX(day), this.getY(day));
                 }
                 ctx.stroke();
                 ctx.closePath();

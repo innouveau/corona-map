@@ -7,6 +7,8 @@
     import timeSlider from "../view/time-slider";
     import regionTypePicker from "@/components/main/regions/region-type/region-type-picker";
     import changeTrends from "./trends/change-trends";
+    import dateTools from '@/tools/date';
+    import query from '@/components/elements/query'
 
     export default {
         name: 'change',
@@ -19,14 +21,38 @@
             headerMenu,
             regionTypePicker
         },
+        mixins: [query],
         props: {},
         data() {
             return {
                 view: new View({id: 1})
             }
         },
-        computed: {},
-        methods: {}
+        computed: {
+            currentMap() {
+                return this.$store.state.maps.current;
+            }
+        },
+        methods: {
+            readQuery() {
+                let region, string, date, offset;
+                if (this.$route.query.region) {
+                    string = decodeURI(this.$route.query.region);
+                    region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', string, true);
+                    if (region) {
+                        this.view.currentRegion = region;
+                    }
+                }
+                if (this.$route.query.date) {
+                    date = new Date(this.$route.query.date);
+                    offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, date.getTime());
+                    this.view.offset = offset;
+                }
+            }
+        },
+        mounted() {
+            this.readQuery();
+        }
     }
 </script>
 

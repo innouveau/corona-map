@@ -61,7 +61,11 @@
             },
             // dimensions
             step() {
-                return this.$store.state.settings.step;
+                if (this.mapType === 'signaling') {
+                    return this.$store.state.settings.step;
+                } else {
+                    return 2.5 * this.$store.state.settings.step;
+                }
             },
             width() {
                 return this.length * this.step;
@@ -94,9 +98,12 @@
             clear() {
                 let ctx = this.ctx;
                 ctx.clearRect(0, 0, this.canvasWidth, this.height);
-                // ctx.rect(0, (this.height - this.paddingBottom), this.width, (this.height - this.paddingBottom));
-                // ctx.fillStyle = '#fff';
-                // ctx.fill();
+            },
+            drawBackground() {
+                let ctx = this.ctx;
+                ctx.rect(0, 0, this.width, (this.height - this.paddingBottom));
+                ctx.fillStyle = '#ddd';
+                ctx.fill();
             },
             drawDates() {
                 let ctx, weeks, index;
