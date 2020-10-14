@@ -1,6 +1,7 @@
 <script>
     import _Region from "@/classes/_Region";
     import testGraphMixin from "./test-graph-mixin";
+    import changeTools from '@/tools/change';
 
     export default {
         name: 'positive-tests',
@@ -40,8 +41,11 @@
                             this.drawThresholds();
                         } else {
                             this.drawBackground();
-                            this.drawWeekAverageLines();
-                            this.drawDoublinkLines();
+                            setTimeout(() => {
+                                this.drawWeekAverageLines();
+                                this.drawDoublingLines();
+                            }, 1)
+
                         }
                         this.drawGrid();
                     }
@@ -58,7 +62,7 @@
             drawWeekAverageLines() {
                 let weeks, ctx;
                 ctx = this.ctx;
-                ctx.strokeStyle = 'black';
+                ctx.strokeStyle = 'blue';
                 weeks = [0,1];
                 for (let week of weeks) {
                     let cases, y, offset;
@@ -68,21 +72,33 @@
                     ctx.beginPath();
                     ctx.moveTo(week * (this.width / 2), y);
                     ctx.lineTo((week + 1) * (this.width / 2), y);
+                    //ctx.lineWidth = 2;
                     ctx.stroke();
                     ctx.closePath();
                 }
 
             },
-            drawDoublinkLines() {
+            drawDoublingLines() {
                 let baseY, ctx, doublings, baseOffset, heightGraph, cases;
                 heightGraph = this.height - this.paddingBottom;
                 doublings = [0.25, 0.5, 1, 2, 4];
                 ctx = this.ctx;
                 cases = this.region.getTotalRelativeIncreaseWeek(7, this.view.offset);
                 baseY = this.valueToY(cases / 7);
+
+                if (baseY > 0.75 * heightGraph) {
+                    doublings = doublings.slice(1);
+                }
+                if (baseY > 0.9 * heightGraph) {
+                    doublings = doublings.slice(1);
+                }
+                if (baseY > 0.97 * heightGraph) {
+                    doublings = doublings.slice(1);
+                }
                 baseOffset = heightGraph - baseY;
                 ctx.lineWidth = 1;
-                ctx.strokeStyle = 'red';
+                ctx.fillStyle = '#000';
+                ctx.strokeStyle = '#888';
                 for (let doubling of doublings) {
                     let y = heightGraph -  (doubling * baseOffset);
                     ctx.beginPath();
@@ -91,7 +107,7 @@
                     ctx.stroke();
                     ctx.closePath();
                     ctx.textAlign = 'left';
-                    ctx.fillStyle = 'red';
+
                     ctx.fillText('× ' + doubling, this.width + 6, y + 4);
                 }
 
@@ -144,6 +160,7 @@
                     ctx.strokeStyle = 'black';
                 } else {
                     ctx.strokeStyle = '#888';
+                    ctx.setLineDash([3,3]);
                 }
 
                 // draw 1 point extra, this point is out of the graph on the leftside
@@ -159,6 +176,7 @@
                 }
                 ctx.stroke();
                 ctx.closePath();
+                ctx.setLineDash([])
             }
         }
     }

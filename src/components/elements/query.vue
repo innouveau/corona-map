@@ -13,7 +13,7 @@
                 return this.view.currentRegion;
             },
             routePath() {
-                return window.location.href.split('#')[0];
+                return window.location.href.split('?')[0];
             },
             date() {
                 let date = dateTools.getDateByOffset(this.view.offset);
@@ -34,7 +34,7 @@
                 return query;
             },
             url() {
-                return this.routePath + '#/' + this.query;
+                return this.routePath + this.query;
             }
         },
         methods: {

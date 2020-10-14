@@ -5,7 +5,7 @@
     import numberTools from '@/tools/number';
 
     export default {
-        name: 'regions-shrinkage',
+        name: 'regions-growth',
         components: {
             region
         },
@@ -23,15 +23,21 @@
                 return this.$store.state.languages.current;
             },
             regions() {
-                let regions = this.$store.getters['ui/regions'];
-                return regions.filter(region => {
-                    return region.getChange(this.view.offset, changeTools.daysBack) < (1 - changeTools.margin);
+                let regions, filtered;
+                regions = this.$store.getters['ui/regions'];
+                filtered = regions.filter(region => {
+                    return region.getChange(this.view.offset, changeTools.daysBack) > (1 + changeTools.margin);
                 }).sort((a,b) => {
                     let ac, bc;
                     ac = a.getChange(this.view.offset, changeTools.daysBack);
                     bc = b.getChange(this.view.offset, changeTools.daysBack);
-                    return (ac < bc) ? -1 : ((bc < ac) ? 1 : 0);
+                    return (ac < bc) ? 1 : ((bc < ac) ? -1 : 0);
                 });
+                if (filtered.length > 10) {
+                    return filtered.slice(0,10);
+                } else {
+                    return filtered;
+                }
             },
             typeLabel() {
                 if (this.currentMap.settings.customRegionLabel) {
@@ -39,14 +45,7 @@
                 } else {
                     return this.translate(this.$store.getters['ui/typeLabel'](true), true);
                 }
-            },
-            title() {
-                let title = '';
-                title += this.typeLabel + ' ';
-                title += this.translate('with-shrinkage').toLowerCase() + ' ';
-
-                return title;
-            },
+            }
         },
         methods: {
             formatChange(region) {
@@ -63,9 +62,9 @@
 
 
 <template>
-    <div class="regions-shrinkage section">
+    <div class="regions-growth section">
         <div class="section__header">
-            Bring Sally Down:
+            Bring Sally Up:
         </div>
         <div class="section__body">
             <div class="regions__list">
@@ -90,7 +89,7 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .regions-shrinkage {
+    .regions-growth {
 
         .region__info {
             padding: 2px;
