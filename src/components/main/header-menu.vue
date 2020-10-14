@@ -49,7 +49,11 @@
                 return this.currentMap && this.currentMap.settings.hasTests;
             },
             mapTitle() {
-                return this.$store.state.maps.current ? this.$store.state.maps.current.title : '';
+                let title = this.currentMap.title;
+                if (!this.currentMap.ready) {
+                    title += ' (' + this.translate('work-in-progress') + ')';
+                }
+                return title;
             },
             currentLanguage() {
                 return this.$store.state.languages.current;

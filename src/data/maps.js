@@ -12,6 +12,7 @@ const casesUrl = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/mai
 const maps = [
     {
         id: 1,
+        ready: true,
         title: 'Nederland',
         module: 'cities',
         regionLabel: 'gemeentes',
@@ -46,6 +47,7 @@ const maps = [
         }
     }, {
         id: 2,
+        ready: true,
         regionType: 'District',
         module: 'districts',
         title: 'Amsterdam',
@@ -80,6 +82,7 @@ const maps = [
         }
     }, {
         id: 3,
+        ready: true,
         regionType: 'District',
         module: 'districts',
         title: 'Den Haag',
@@ -114,6 +117,7 @@ const maps = [
         }
     }, {
         id: 4,
+        ready: true,
         regionType: 'District',
         module: 'districts',
         title: 'NL-DE',
@@ -148,6 +152,7 @@ const maps = [
         }
     }, {
         id: 5,
+        ready: true,
         regionType: 'District',
         module: 'districts',
         title: 'Europe',
@@ -180,6 +185,7 @@ const maps = [
         regionType: 'District',
         module: 'districts',
         title: 'World',
+        ready: false,
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
@@ -209,6 +215,7 @@ const maps = [
     },
     {
         id: 7,
+        ready: true,
         regionType: 'District',
         module: 'districts',
         title: 'USA',
@@ -240,6 +247,7 @@ const maps = [
         }
     }, {
         id: 7,
+        ready: true,
         regionType: 'District',
         module: 'districts',
         title: 'Spain',
@@ -270,6 +278,7 @@ const maps = [
         }
     }, {
         id: 8,
+        ready: true,
         regionType: 'District',
         module: 'districts',
         title: 'Belgie',
@@ -300,6 +309,7 @@ const maps = [
         }
     }, {
         id: 9,
+        ready: true,
         regionType: 'District',
         module: 'districts',
         title: 'Central Europe',
@@ -330,6 +340,7 @@ const maps = [
         }
     }, {
         id: 10,
+        ready: true,
         regionType: 'District',
         module: 'districts',
         title: 'Rotterdam',
@@ -362,7 +373,38 @@ const maps = [
             ageGroups: '',
             sewageTreatmentPlants: sewageDataUrl
         }
-    }
+    }, {
+        id: 11,
+        ready: false,
+        regionType: 'District',
+        module: 'districts',
+        title: 'South Korea',
+        settings: {
+            regionTypes: ['district'],
+            pathOrigins: [],
+            hasAgeGroups: false,
+            hasTests: true,
+            hasAdministeredTests: false,
+            hasSewageTreatmentPlants: false,
+            testDataCumulative: true,
+            testDataInterval: 1,
+            generalInfoHasPopulation: true,
+            testAdapter: standardTestAdapter,
+            map: {
+                latitude: 36.6,
+                longitude: 127.7,
+                stretch: 0.62,
+                zoom: 0.24,
+                ratio: 0.7
+            }
+        },
+        url: {
+            tests: casesUrl,
+            regions: 'data/maps/south-korea/south-korea.json',
+            ageGroups: '',
+            sewageTreatmentPlants: ''
+        }
+    },
 ];
 
 export default maps;

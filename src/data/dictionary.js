@@ -254,6 +254,10 @@ const dictionary = {
     "with-shrinkage": {
         nl: "Met krimp",
         en: "With shrinkage"
+    },
+    "work-in-progress": {
+        nl: "Not niet klaar",
+        en: "Work in progress"
     }
 };
 

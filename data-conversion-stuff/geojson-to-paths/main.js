@@ -1,24 +1,53 @@
-let regions, id, printArrayBrackets, keys, titleKey;
+let regions, id, printArrayBrackets, keys, titleKey, populationDict;
 
 regions = [];
 getInfoFromPopulationFile = true;
 id = 1;
 printArrayBrackets = true;
-titleKey = 'name';
+titleKey = 'NAME_1';
 
-const fb = ['Botlek', 'Rozenburg', 'Vondelingenplaat', 'Waalhaven', 'Spaanse Polder', 'Bedrijventerrein Schieveen', 'Bedrijvenpark Noord-West', 'Rivium', 'Nieuw Mathenesse'];
 
+
+if (getInfoFromPopulationFile) {
+    populationDict = {};
+    d3.csv('population.csv')
+        .then((data) => {
+            for (let item of data) {
+                populationDict[item.region] = item;
+            }
+            loadRegions();
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+} else {
+    loadRegions();
+}
 
 const loadRegions = function() {
     $.getJSON( "regions.json", function( data ) {
         for (let item of data.features) {
-            let region, paths;
-            console.log(item);
+            let region, paths, found;
+            found = true;
             region = {};
 
             // add properties
             region.title = item.properties[titleKey];
             region.identifier = item.properties[titleKey];
+
+            if (getInfoFromPopulationFile) {
+                let dictRegion = getRegionByNuts(item.properties[titleKey]);
+                if (!dictRegion) {
+                    found = false;
+                } else {
+                    region.population = Number(dictRegion.population);
+                    region.nutsCode = item.id;
+                    region.title = dictRegion.region;
+                    region.identifier = dictRegion.region;
+                    region.extraRegion = dictRegion.extraRegion;
+                }
+            }
+
 
             // transform paths
             if (item.geometry.type === 'MultiPolygon') {
@@ -32,9 +61,6 @@ const loadRegions = function() {
                 paths = item.geometry.coordinates;
             }
 
-            if (region.extraRegion) {
-                console.log(region.id);
-            }
 
             region.paths = paths.map(path => {
                 return path.map(coordinate => {
@@ -44,12 +70,10 @@ const loadRegions = function() {
                     }
                 })
             });
-            if (!doesExist(region) && fb.indexOf(region.title) === -1) {
+            if (found) {
                 region.id = id++;
                 regions.push(region);
             }
-
-
         }
 
         console.log(regions);
@@ -61,15 +85,31 @@ const loadRegions = function() {
     });
 };
 
+const getRegionByNuts = function(title) {
+    let connection = {
+        'Busan': 'Busan',
+        'Chungcheongbuk-do': 'Chungbuk',
+        'Chungcheongnam-do': 'Chungnam',
+        'Daegu': 'Daegu',
+        'Daejeon': 'Daejeon',
+        'Gangwon-do': 'Gangwon',
+        'Gwangju': 'Gwangju',
+        'Gyeonggi-do': 'Gyeonggi',
+        'Gyeongsangbuk-do': 'Gyeongbuk',
+        'Gyeongsangnam-do': 'Gyeongnam',
+        'Incheon': 'Incheon',
+        'Jeju': 'Jeju',
+        'Jeollabuk-do': '',
+        'Jeollanam-do': '',
+        'Seoul': 'Seoul',
+        'Ulsan': 'Ulsan'
+
+        // Jeonbuk
+        // Sejong
+    };
 
 
-const doesExist = function (r) {
-    for (let region of regions) {
-        if (region.title === r.title) {
-            return true;
-        }
-    }
-    return false;
+    //console.log(populationDict[connection[title]]);
+    return populationDict[connection[title]];
+
 };
-
-loadRegions();

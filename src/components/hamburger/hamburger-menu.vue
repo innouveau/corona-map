@@ -113,7 +113,7 @@
                             @click="selectMap(map)"
                             :class="{'hamburger-menu__button--active': isCurrentMap(map)}"
                             class="hamburger-menu__button">
-                            {{map.title}}
+                            {{map.title}} <span v-if="!map.ready">({{translate('work-in-progress')}})</span>
                         </div>
                     </div>
                 </div>
