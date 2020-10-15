@@ -5,10 +5,12 @@
     import numberTools from '@/tools/number';
     import positiveTests from "@/components/main/regions/region-details/tests/positive-tests";
     import changeTools from '@/tools/change';
+    import administeredTests from "@/components/main/regions/region-details/tests/administered-tests";
 
     export default {
         name: 'region-details-change',
         components: {
+            administeredTests,
             positiveTests,
             regionDetailsHead
         },
@@ -40,6 +42,12 @@
             },
             changeColor() {
                 return changeTools.getColorForChange(this.change);
+            },
+            showDetails() {
+                return this.$store.state.ui.menu === 'city';
+            },
+            currentMap() {
+                return this.$store.state.maps.current;
             }
         },
         methods: {
@@ -52,7 +60,9 @@
 
 
 <template>
-    <div class="region-details-change region-details panel">
+    <div
+        :class="{'panel--active': showDetails}"
+        class="region-details-change region-details panel">
         <region-details-head
                 :view="view"
                 :region="regionOfFocus"/>
@@ -105,6 +115,13 @@
                     :region="regionOfFocus"
                     :weeks="2"
                     :map-type="'change'"/>
+
+                <administered-tests
+                    v-if="currentMap.settings.hasAdministeredTests"
+                    :view="view"
+                    :region="regionOfFocus"
+                    :weeks="2"
+                    :step-wide="true"/>
             </div>
         </div>
     </div>

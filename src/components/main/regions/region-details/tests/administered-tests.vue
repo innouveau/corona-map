@@ -1,6 +1,7 @@
 <script>
     import _Region from "@/classes/_Region";
     import testGraphMixin from './test-graph-mixin';
+    import * as d3 from "d3";
 
     export default {
         name: 'administered-tests',
@@ -10,6 +11,16 @@
             region: {
                 type: _Region,
                 required: true
+            },
+            stepWide: {
+                type: Boolean,
+                required: false,
+                default: false
+            }
+        },
+        data() {
+            return {
+                mapType: 'administered-tests'
             }
         },
         computed: {
@@ -23,7 +34,7 @@
         methods: {
             redraw() {
                 this.clear();
-                this.drawBackground();
+                this.drawBackground('#ddd');
                 this.drawGrid();
                 this.drawMaxLine();
                 if (this.getDays().length > 0) {
@@ -32,64 +43,59 @@
                 }
                 this.drawDates();
             },
-            drawBackground() {
-                let ctx = this.ctx;
-                ctx.beginPath();
-                ctx.rect(0, 0, this.width, (this.height - this.paddingBottom));
-                ctx.fillStyle = '#ddd';
-                ctx.fill();
-            },
             drawLine() {
-                let ctx, step, history, start, days;
-                ctx = this.ctx;
-                step = this.step;
-                history = this.region.getTotalReport().history;
+                let points, days, lineFunction;
 
                 const getY = (day) => {
                     return this.getY(this.getPercentage(day));
                 };
 
-                ctx.beginPath();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = 'black';
-                // draw 1 point extra, this point is out of the graph on the leftside
-                start = 1;
-                days = this.getDays();
 
-                ctx.moveTo(this.getX(days[0]), getY(days[0]));
-                days = days.slice(1);
-                for (let day of days) {
-                    ctx.lineTo(this.getX(day), getY(day));
-                }
-                ctx.stroke();
-                ctx.closePath();
+                days = this.getDays();
+                points = days.map(day => {
+                    return {
+                        x: this.getX(day),
+                        y: getY(day)
+                    }
+                });
+
+                lineFunction = d3.line()
+                    .x(function(d) { return d.x; })
+                    .y(function(d) { return d.y; });
+
+                this.lineContainer.append('path')
+                    .attr('d', lineFunction(points))
+                    .attr('stroke', '#000')
+                    .attr('stroke-width', 1)
+                    .attr('fill', 'none');
+
             },
             drawValues() {
-                let days, ctx, index;
+                let days, index;
                 index = 0;
                 days = this.getDays();
-                ctx = this.ctx;
 
-                ctx.font = '10px Arial';
                 for (let day of days) {
                     let percentage, x, y, string;
                     percentage = this.getPercentage(day);
                     x = this.getX(day);
                     y = this.getY(percentage);
                     string = percentage.toFixed(1) + '%';
-                    if (index === 0) {
-                        ctx.textAlign = 'left';
-                    } else {
-                        ctx.textAlign = 'center';
-                    }
-                    ctx.fillStyle = '#000';
-                    ctx.fillText(string, x, (y - 10));
-                    ctx.fillStyle = '#fff';
-                    ctx.beginPath();
-                    ctx.arc(x, y, 2, 0, (Math.PI * 2), false);
-                    ctx.stroke();
-                    ctx.fill();
+                    this.datesContainer.append('text')
+                        .attr('x', x)
+                        .attr('y', y - 12)
+                        .attr('text-anchor', function(){
+                            return index === 0 ? 'start' : 'middle';
+                        })
+                        .text(string)
+                        .attr('font-size', '9px');
+                    this.datesContainer.append('circle')
+                        .attr('cx', x)
+                        .attr('cy', y)
+                        .attr('r', 2)
+                        .attr('fill', '#000');
                     index++;
+
                 }
             },
             getPercentage(day) {
@@ -103,24 +109,30 @@
                 return (this.height - this.paddingBottom) - (value * height);
             },
             drawMaxLine() {
-                let ctx, y, normValue, normColor, normString1, normString2;
+                let y, normValue, normColor, normString1, normString2;
                 normString1 = 'WHO';
                 normString2 = 'richtlijn';
                 normValue = 5;
                 normColor = 'red';
-                ctx = this.ctx;
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = normColor;
-                ctx.textAlign = 'left';
                 y = this.getY(normValue);
-                ctx.beginPath();
-                ctx.moveTo(0, y);
-                ctx.lineTo(this.width, y);
-                ctx.stroke();
-                ctx.closePath();
-                ctx.fillStyle = normColor;
-                ctx.fillText(normString1, (this.width + 6), (y));
-                ctx.fillText(normString2, (this.width + 6), (y + 12));
+
+                this.contentContainer.append('line')
+                    .attr('x1', 0)
+                    .attr('y1', y)
+                    .attr('x2', this.width)
+                    .attr('y2', y)
+                    .attr('stroke', 'red')
+                    .attr('stroke-dasharray', [2,2]);
+                this.contentContainer.append('text')
+                    .attr('x', this.width + 6)
+                    .attr('y', y)
+                    .text(normString1)
+                    .attr('font-size', '9px');
+                this.contentContainer.append('text')
+                    .attr('x', this.width + 6)
+                    .attr('y', y + 12)
+                    .text(normString2)
+                    .attr('font-size', '9px');
             }
         },
         mounted() {
@@ -163,10 +175,11 @@
         <div class="administered-tests__title">
             {{title}}
         </div>
-        <canvas
-                :id="'canvas-' + id"
-                :width="canvasWidth"
-                :height="height"></canvas>
+        <div
+            ref="container"
+            class="administered-tests__container">
+            <svg :style="{width: canvasWidth + 'px', height: canvashHeight + 'px'}"></svg>
+        </div>
     </div>
 </template>
 
@@ -178,9 +191,6 @@
 
         .administered-tests__title {
             margin-bottom: 4px;
-        }
-
-        canvas {
         }
     }
 </style>

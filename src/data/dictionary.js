@@ -251,6 +251,10 @@ const dictionary = {
         nl: "Met meer dan",
         en: "With more than"
     },
+    "with-growth": {
+        nl: "Met groei",
+        en: "With growth"
+    },
     "with-shrinkage": {
         nl: "Met krimp",
         en: "With shrinkage"

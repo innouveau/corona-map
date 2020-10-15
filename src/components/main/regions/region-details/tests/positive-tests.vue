@@ -2,6 +2,7 @@
     import _Region from "@/classes/_Region";
     import testGraphMixin from "./test-graph-mixin";
     import changeTools from '@/tools/change';
+    import * as d3 from "d3";
 
     export default {
         name: 'positive-tests',
@@ -35,54 +36,46 @@
         methods: {
             redraw() {
                 this.clear();
-                setTimeout(() =>{
+                if (this.mapType === 'change') {
+                    this.drawBackground('pink');
+                }
+                if (this.mapType === 'signaling') {
                     if (this.thresholds) {
-                        if (this.mapType === 'signaling') {
-                            this.drawThresholds();
-                        } else {
-                            this.drawBackground();
-                            setTimeout(() => {
-                                this.drawWeekAverageLines();
-                                this.drawDoublingLines();
-                            }, 1)
-
-                        }
-                        this.drawGrid();
+                        this.drawThresholds();
+                    } else {
+                        this.drawBackground('#ddd');
                     }
-
-                    if (this.getDays().length > 0) {
-                        this.drawTrendLine();
-                    }
-                    if (this.thresholds) {
-                        this.drawDates();
-                    }
-                }, 10)
-
+                } else {
+                    this.drawWeekAverageLines();
+                    this.drawDoublingLines();
+                }
+                this.drawGrid();
+                if (this.getDays().length > 0) {
+                    this.drawTrendLine();
+                }
+                if (this.thresholds) {
+                    this.drawDates();
+                }
             },
             drawWeekAverageLines() {
-                let weeks, ctx;
-                ctx = this.ctx;
-                ctx.strokeStyle = 'blue';
-                weeks = [0,1];
+                let weeks = [0,1];
                 for (let week of weeks) {
                     let cases, y, offset;
                     offset = (this.weeks - week - 1) * 7;
                     cases = this.region.getTotalRelativeIncreaseWeek(offset, this.view.offset);
                     y = this.valueToY(cases / 7);
-                    ctx.beginPath();
-                    ctx.moveTo(week * (this.width / 2), y);
-                    ctx.lineTo((week + 1) * (this.width / 2), y);
-                    //ctx.lineWidth = 2;
-                    ctx.stroke();
-                    ctx.closePath();
+                    this.contentContainer.append('rect')
+                        .attr('x', week * (this.width / 2))
+                        .attr('y', y)
+                        .attr('width', this.width / 2)
+                        .attr('height', this.height - y)
+                        .attr('fill', 'rgba(0,0,0,0.2)');
                 }
-
             },
             drawDoublingLines() {
-                let baseY, ctx, doublings, baseOffset, heightGraph, cases;
-                heightGraph = this.height - this.paddingBottom;
+                let baseY, doublings, baseOffset, heightGraph, cases;
+                heightGraph = this.height;
                 doublings = [0.25, 0.5, 1, 2, 4];
-                ctx = this.ctx;
                 cases = this.region.getTotalRelativeIncreaseWeek(7, this.view.offset);
                 baseY = this.valueToY(cases / 7);
 
@@ -96,50 +89,48 @@
                     doublings = doublings.slice(1);
                 }
                 baseOffset = heightGraph - baseY;
-                ctx.lineWidth = 1;
-                ctx.fillStyle = '#000';
-                ctx.strokeStyle = '#888';
+
                 for (let doubling of doublings) {
                     let y = heightGraph -  (doubling * baseOffset);
-                    ctx.beginPath();
-                    ctx.moveTo((this.width / 2), y);
-                    ctx.lineTo(this.width, y);
-                    ctx.stroke();
-                    ctx.closePath();
-                    ctx.textAlign = 'left';
 
-                    ctx.fillText('× ' + doubling, this.width + 6, y + 4);
+                    this.contentContainer.append('line')
+                        .attr('x1', this.width / 2)
+                        .attr('y1', y)
+                        .attr('x2', this.width)
+                        .attr('y2', y)
+                        .attr('stroke', '#000')
+                        .attr('stroke-dasharray', [2,2]);
+                    this.contentContainer.append('text')
+                        .attr('x', this.width + 6)
+                        .attr('y', y + 4)
+                        .text('× ' + doubling)
                 }
-
-
             },
             drawThresholds() {
-                let lastY, ctx, thresholds;
+                let lastY, thresholds;
                 lastY = 0;
-                ctx = this.ctx;
                 thresholds = this.signalingSystem.thresholds;
-                if (!this.isColorblind) {
-                    ctx.globalAlpha = 0.5;
-                }
+
                 for (let threshold of thresholds) {
                     if (threshold.n > 0) {
                         let height, x, y;
-                        ctx.beginPath();
                         if (threshold.n !== Infinity) {
                             height = (this.zoom * threshold.n / this.signalingSystem.days) - lastY;
-                            y = (this.height - this.paddingBottom) - lastY - height;
+                            y = this.height  - lastY - height;
                         } else {
-                            height = (this.height - this.paddingBottom) - lastY;
+                            height = this.height - lastY;
                             y = 0;
                         }
-                        ctx.rect(0, y, this.width, height);
-                        ctx.fillStyle = threshold.color[this.$store.state.ui.color];
-                        ctx.closePath();
-                        ctx.fill();
+                        this.contentContainer.append('rect')
+                            .attr('x', 0)
+                            .attr('y', y)
+                            .attr('width', this.width)
+                            .attr('height', height)
+                            .attr('fill', threshold.color[this.$store.state.ui.color])
+                            .attr('opacity', 0.5);
                         lastY += height;
                     }
                 }
-                ctx.globalAlpha = 1;
             },
             getY(day) {
                 // for the graph we always use 100000, independent from the signaling system
@@ -147,36 +138,26 @@
                 return this.valueToY(relativeValue)
             },
             valueToY(value) {
-                return (this.height - this.paddingBottom) - (value * this.zoom);
+                return this.height - (value * this.zoom);
             },
             drawTrendLine() {
-                let ctx, step, start, report, days;
-                ctx = this.ctx;
-                step = this.step;
-
-                ctx.beginPath();
-                ctx.lineWidth = 1;
-                if (this.mapType === 'signaling') {
-                    ctx.strokeStyle = 'black';
-                } else {
-                    ctx.strokeStyle = '#888';
-                    ctx.setLineDash([3,3]);
-                }
-
-                // draw 1 point extra, this point is out of the graph on the leftside
-                start = 1;
-
-
+                let points, days, lineFunction;
                 days = this.getDays();
-
-                ctx.moveTo(this.getX(days[0]), this.getY(days[0]));
-                days = days.slice(1);
-                for (let day of days) {
-                    ctx.lineTo(this.getX(day), this.getY(day));
+                points = days.map(day => {
+                    return {
+                        x: this.getX(day),
+                        y: this.getY(day)
                 }
-                ctx.stroke();
-                ctx.closePath();
-                ctx.setLineDash([])
+                });
+                lineFunction = d3.line()
+                    .x(function(d) { return d.x; })
+                    .y(function(d) { return d.y; });
+
+                this.lineContainer.append('path')
+                    .attr('d', lineFunction(points))
+                    .attr('stroke', '#000')
+                    .attr('stroke-width', 1)
+                    .attr('fill', 'none');
             }
         }
     }
@@ -190,10 +171,11 @@
             class="positive-tests__title">
             {{title}}
         </div>
-        <canvas
-            :id="'canvas-' + id"
-            :width="canvasWidth"
-            :height="height"></canvas>
+        <div
+            ref="container"
+            class="positive-tests__container">
+            <svg :style="{width: canvasWidth + 'px', height: canvashHeight + 'px'}"></svg>
+        </div>
     </div>
 </template>
 
@@ -208,7 +190,8 @@
             margin-bottom: 4px;
         }
 
-        canvas {
+        svg {
+            font-size: 11px;
         }
     }
 </style>

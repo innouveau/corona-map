@@ -31,6 +31,9 @@
         computed: {
             currentMap() {
                 return this.$store.state.maps.current;
+            },
+            showMap() {
+                return this.$store.state.ui.menu === 'map';
             }
         },
         methods: {
@@ -64,7 +67,9 @@
             :editable="true"/>
 
         <div class="content">
-            <div class="panel standard-view-map">
+            <div
+                :class="{'panel--active': showMap}"
+                class="panel standard-view-map">
                 <search-regions
                     :view="view"/>
 

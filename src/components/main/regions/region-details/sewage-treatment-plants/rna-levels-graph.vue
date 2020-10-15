@@ -121,6 +121,7 @@
                 this.drawBars();
                 this.drawTexts();
             },
+            // todo move stuff to d3-graph-mixin
             drawGrid() {
                 let set = Array.from(Array(7 * this.weeks).keys());
                 this.gridContainer.selectAll('line')
@@ -141,7 +142,7 @@
                     .attr('stroke-width', 1);
             },
             drawLine() {
-                let  lineFunction = d3.line()
+                let lineFunction = d3.line()
                     .x(function(d) { return d.x; })
                     .y(function(d) { return d.y; });
 

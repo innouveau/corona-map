@@ -16,7 +16,12 @@
             }
         },
         computed: {
-
+            showTrends() {
+                return this.$store.state.ui.menu === 'trends';
+            },
+            show() {
+                return this.view.offset < 2;
+            }
         },
         methods: {}
     }
@@ -24,11 +29,15 @@
 
 
 <template>
-    <div class="change-trends trends panel">
-        <regions-growth
-            :view="view"/>
-        <regions-shrinkage
-            :view="view"/>
+    <div
+        :class="{'panel--active': showTrends}"
+        class="change-trends trends panel">
+        <div v-if="show">
+            <regions-growth
+                :view="view"/>
+            <regions-shrinkage
+                :view="view"/>
+        </div>
     </div>
 </template>
 

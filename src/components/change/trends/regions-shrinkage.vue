@@ -25,11 +25,11 @@
             regions() {
                 let regions = this.$store.getters['ui/regions'];
                 return regions.filter(region => {
-                    return region.getChange(this.view.offset, changeTools.daysBack) < (1 - changeTools.margin);
+                    return region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.settings.testDataInterval) < (1 - changeTools.margin);
                 }).sort((a,b) => {
                     let ac, bc;
-                    ac = a.getChange(this.view.offset, changeTools.daysBack);
-                    bc = b.getChange(this.view.offset, changeTools.daysBack);
+                    ac = a.getChange(this.view.offset, changeTools.daysBack / this.currentMap.settings.testDataInterval);
+                    bc = b.getChange(this.view.offset, changeTools.daysBack / this.currentMap.settings.testDataInterval);
                     return (ac < bc) ? -1 : ((bc < ac) ? 1 : 0);
                 });
             },
@@ -44,17 +44,16 @@
                 let title = '';
                 title += this.typeLabel + ' ';
                 title += this.translate('with-shrinkage').toLowerCase() + ' ';
-
                 return title;
-            },
+            }
         },
         methods: {
             formatChange(region) {
-                let change = region.getChange(this.view.offset, changeTools.daysBack);
+                let change = region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.settings.testDataInterval);
                 return numberTools.formatChange(change);
             },
             getColor(region) {
-                let change = region.getChange(this.view.offset, changeTools.daysBack);
+                let change = region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.settings.testDataInterval);
                 return changeTools.getColorForChange(change);
             }
         }
@@ -65,7 +64,7 @@
 <template>
     <div class="regions-shrinkage section">
         <div class="section__header">
-            Bring Sally Down:
+            {{title}}:
         </div>
         <div class="section__body">
             <div class="regions__list">

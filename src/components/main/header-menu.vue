@@ -65,7 +65,7 @@
                 return this.view.offset;
             },
             isMainPage() {
-                return this.$route.name === 'main';
+                return this.$route.name === 'main' || this.$route.name === 'change';
             },
             videoMode() {
                 return this.$store.state.ui.videoMode;

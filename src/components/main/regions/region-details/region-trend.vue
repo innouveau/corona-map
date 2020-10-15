@@ -167,7 +167,6 @@
             display: flex;
 
             .region-trend__positive-tests {
-                background: #ddd;
                 margin-bottom: 8px;
                 margin-right: 12px;
 
