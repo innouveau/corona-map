@@ -310,7 +310,7 @@
             position: absolute;
             right: 0;
             top: 10px;
-            z-index: 2;
+            z-index: 6;
         }
     }
 </style>

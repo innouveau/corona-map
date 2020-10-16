@@ -117,7 +117,7 @@
                 index = 0;
                 thresholds = thresholdTools.getThresholds();
                 for (let threshold of thresholds) {
-                    let color1, color2, grd;
+                    let color1, color2, grd, label;
                     color1 = threshold.color[this.$store.state.ui.color];
                     if (index === 0 || index === thresholds.length - 1) {
                         ctx.fillStyle = color1;
@@ -131,7 +131,12 @@
                     ctx.fillRect(baseX, y, width, height);
 
                     ctx.fillStyle = 'black';
-                    ctx.fillText(thresholdTools.getNumber(threshold), baseX + width + (8 * this.imageScale), (y + (18 * this.imageScale)));
+                    if (threshold.label) {
+                        label = threshold.label;
+                    } else {
+                        label = thresholdTools.getNumber(threshold);
+                    }
+                    ctx.fillText(label, baseX + width + (8 * this.imageScale), (y + (18 * this.imageScale)));
                     y += (height + margin);
                     index++;
                 }
@@ -140,16 +145,21 @@
                 let ctx = this.ctx;
                 baseX += 8;
                 for (let threshold of thresholdTools.getThresholds()) {
+                    let label;
                     ctx.fillStyle = threshold.color[this.$store.state.ui.color];
                     ctx.beginPath();
                     ctx.arc(baseX, baseY, (9 * this.imageScale), 0, (Math.PI * 2), false);
                     ctx.stroke();
                     ctx.fill();
                     ctx.fillStyle = 'black';
-                    ctx.fillText(thresholdTools.getNumber(threshold), baseX + (24 * this.imageScale), (baseY + (7 * this.imageScale)));
+                    if (threshold.label) {
+                        label = threshold.label;
+                    } else {
+                        label = thresholdTools.getNumber(threshold);
+                    }
+                    ctx.fillText(label, baseX + (24 * this.imageScale), (baseY + (7 * this.imageScale)));
                     baseY += (24 * this.imageScale);
                 }
-
             },
             addLegendChange(baseX, baseY) {
                 let ctx, index, y;
