@@ -6,6 +6,10 @@ const standardTestAdapter = {
     }
 };
 
+const caseSettings = {
+    lateReporting: 'FR'
+};
+
 const sewageDataUrl = 'https://raw.githubusercontent.com/innouveau/corona-map/master/public/data/sewage/sewage-measurements-netherlands.json';
 const casesUrl = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv';
 
@@ -171,7 +175,8 @@ const maps = [
                 zoom: 0.027,
                 ratio: 1.04
             },
-            excludeRegions: ['Scotland', 'Kosovo']
+            excludeRegions: ['Scotland', 'Kosovo'],
+            caseSettings: caseSettings
         },
         url: {
             tests: casesUrl,
@@ -330,7 +335,8 @@ const maps = [
                 stretch: 0.62,
                 zoom: 0.062,
                 ratio: 1.15
-            }
+            },
+            caseSettings: caseSettings
         },
         url: {
             tests: casesUrl,

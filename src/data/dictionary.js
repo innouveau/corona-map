@@ -119,6 +119,10 @@ const dictionary = {
         nl: "Laatste 7 dagen",
         en: "Last 7 days"
     },
+    "late-reporting-warning": {
+        nl: "Deze regio heeft last van vertraagde rapportage. Cijfers kunnen vertekend zijn.",
+        en: "This region is suffering from late reporting. Numbers could be distorted by it.",
+    },
     "link": {
         nl: "Link",
         en: "URL"

@@ -34,7 +34,7 @@
                     } else {
                         return (a.getTotalRelativeIncreaseWeek(this.offset) < b.getTotalRelativeIncreaseWeek(this.offset)) ? 1 : ((b.getTotalRelativeIncreaseWeek(this.offset) < a.getTotalRelativeIncreaseWeek(this.offset)) ? -1 : 0)
                     }
-                });
+                }).slice(0, 10);
             },
             n() {
                 return this.thresholds[this.thresholds.length - 2].n
@@ -60,6 +60,7 @@
                 title += this.translate('positive-tests').toLowerCase() + ' ';
                 title += this.translate('per') + ' 100.000 ';
                 title += this.translate('inhabitants').toLowerCase();
+                title += ' (max 10)';
                 return title;
             },
             currentMap() {

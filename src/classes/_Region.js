@@ -183,8 +183,35 @@ class _Region {
         return thresholdTools.getThreshold(cases, this.getTotalPopulation(), signalingSystem.days);
     }
 
+    get hasLateReporting() {
+        let map = store.state.maps.current;
+        if (map.settings.caseSettings) {
+            for (let code of map.settings.caseSettings.lateReporting) {
+                if (this.nutsCode.indexOf(code) > -1) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+    getLatestReporting(offset) {
+        let value = 0;
+        while (value === 0) {
+            value = this.getTotalIncreaseDay(0, offset);
+            offset++;
+        }
+        return offset - 1;
+    }
+
     getColor(offset) {
-        if (store.state.maps.current.settings.hasTests) {
+        let map = store.state.maps.current;
+        if (map.settings.hasTests) {
+            if (this.hasLateReporting) {
+                offset = this.getLatestReporting(offset);
+            }
             return thresholdTools.thresholdToColor(this.getThreshold(0, offset), this.getTotalRelativeIncreaseWeek(offset));
         } else {
             return '#ddd';
