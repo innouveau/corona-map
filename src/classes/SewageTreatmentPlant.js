@@ -18,7 +18,7 @@ class SewageTreatmentPlant {
         this.securityRegion_code = securityRegion_code;
         this.securityRegion_name = securityRegion_name;
         this.capacity = capacity;
-        this.measurements = measurements.map(m => new Measurement(m));
+        this.measurements = measurements.map(m => new Measurement(m, this));
     }
 }
 

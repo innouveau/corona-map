@@ -20,7 +20,8 @@
                     end: 0,
                     calibration: 30,
                     population: 0,
-                    search: 'Goeree'
+                    search: '',
+                    ignoreOutliers: true
                 }
             }
         },

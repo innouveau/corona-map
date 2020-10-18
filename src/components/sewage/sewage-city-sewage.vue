@@ -23,34 +23,32 @@
             width() {
                 return (this.settings.start - this.settings.end + 1) * (this.settings.width + this.settings.margin);
             },
-            measurements() {
+            measurementsObjects() {
                 return this.sewage.measurements.filter(measurement => {
                     return measurement.dateOffset <= this.settings.start && measurement.dateOffset >= this.settings.end;
                 }).map(measurement => {
                     return {
-                        value: measurement.RNA_per_ml,
-                        offset: this.settings.start - measurement.dateOffset,
-                        date: measurement.date,
-                        representative_measurement: measurement.representative_measurement
+                        measurement: measurement,
+                        offset: this.settings.start - measurement.dateOffset
                     };
                 })
             },
             maxHeight() {
-                return Math.max(...this.measurements.map(m => this.getHeight(m))) + 30;
+                return Math.max(...this.measurementsObjects.map(m => m.measurement).map(m => this.getHeight(m))) + 30;
             },
             average() {
                 if (this.measurements.length === 0) {
                     return 0;
                 }
-                return Math.round(this.measurements.reduce((a, b) => a + b.value, 0) / this.measurements.length);
+                return Math.round(this.measurements.reduce((a, b) => a + b.RNA_per_ml, 0) / this.measurements.length);
             }
         },
         methods: {
             getHeight(measurement) {
-                return measurement.value / this.settings.calibration;
+                return measurement.RNA_per_ml / this.settings.calibration;
             },
-            getLeft(measurement) {
-                return measurement.offset * (this.settings.width + this.settings.margin);
+            getLeft(measurementsObject) {
+                return measurementsObject.offset * (this.settings.width + this.settings.margin);
             }
         }
     }
@@ -66,18 +64,20 @@
             }"
             class="sewage-city-sewage__graph">
             <div
-                v-for="measurement in measurements"
+                v-for="measurementsObject in measurementsObjects"
                 :style="{
-                    'height': getHeight(measurement) + 'px',
-                    'left': getLeft(measurement) + 'px',
+                    'height': getHeight(measurementsObject.measurement) + 'px',
+                    'left': getLeft(measurementsObject) + 'px',
                     'width': settings.width + 'px',
                     'margin-right': settings.margin + 'px'
                 }"
-                :title="measurement.value"
-                :class="{'sewage-city-sewage__bar--representative': measurement.representative_measurement}"
+                :class="{
+                    'sewage-city-sewage__bar--representative': measurementsObject.measurement.representative_measurement,
+                    'sewage-city-sewage__bar--outlier': measurementsObject.measurement.isOutlier,
+                }"
                 class="sewage-city-sewage__bar">
                 <div class="sewage-city-sewage__measurement">
-                    {{measurement.value}}
+                    {{measurementsObject.measurement.RNA_per_ml}}
                 </div>
             </div>
         </div>
@@ -109,6 +109,10 @@
 
                 &.sewage-city-sewage__bar--representative {
                     background: #000;
+                }
+
+                &.sewage-city-sewage__bar--outlier {
+                    background: yellow;
                 }
 
                 .sewage-city-sewage__measurement {

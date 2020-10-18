@@ -61,6 +61,9 @@
         <div class="sewage-date__section">
             <input type="number" v-model.number="settings.population"> min. inwoners
         </div>
+        <div class="sewage-date__section">
+            <input type="checkbox" v-model="settings.ignoreOutliers"> Negeer outschieters
+        </div>
     </div>
 </template>
 
