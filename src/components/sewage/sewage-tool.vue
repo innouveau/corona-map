@@ -16,11 +16,11 @@
                 settings: {
                     width: 8,
                     margin: 2,
-                    start: 14,
+                    start: 70,
                     end: 0,
                     calibration: 30,
                     population: 0,
-                    search: ''
+                    search: 'Goeree'
                 }
             }
         },

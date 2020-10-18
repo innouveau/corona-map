@@ -30,12 +30,13 @@
                     return {
                         value: measurement.RNA_per_ml,
                         offset: this.settings.start - measurement.dateOffset,
-                        date: measurement.date
+                        date: measurement.date,
+                        representative_measurement: measurement.representative_measurement
                     };
                 })
             },
             maxHeight() {
-                return Math.max(...this.measurements.map(m => this.getHeight(m))) + 10;
+                return Math.max(...this.measurements.map(m => this.getHeight(m))) + 30;
             },
             average() {
                 if (this.measurements.length === 0) {
@@ -73,7 +74,11 @@
                     'margin-right': settings.margin + 'px'
                 }"
                 :title="measurement.value"
+                :class="{'sewage-city-sewage__bar--representative': measurement.representative_measurement}"
                 class="sewage-city-sewage__bar">
+                <div class="sewage-city-sewage__measurement">
+                    {{measurement.value}}
+                </div>
             </div>
         </div>
         <div class="sewage-city-sewage__title">
@@ -98,9 +103,22 @@
             background: #ddd;
 
             .sewage-city-sewage__bar {
-                background: #000;
+                background: #888;
                 position: absolute;
                 bottom: 0;
+
+                &.sewage-city-sewage__bar--representative {
+                    background: #000;
+                }
+
+                .sewage-city-sewage__measurement {
+                    position: absolute;
+                    left: 4px;
+                    top: -14px;
+                    transform: translate(-50%);
+                    font-size: 9px;
+                    color: #888;
+                }
             }
         }
 
