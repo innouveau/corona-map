@@ -1,3 +1,5 @@
+import Chapter from '@/classes/story/Chapter';
+
 class Story {
     constructor({
         id = null,
@@ -6,7 +8,7 @@ class Story {
     }) {
         this.id = id;
         this.title = title;
-        this.chapters = chapters;
+        this.chapters = chapters.map(c => new Chapter(c));
     }
 }
 

@@ -3,13 +3,13 @@ class Chapter {
         title = '',
         date = '',
         dateTitle = '',
-        city_title = '',
+        selection = {},
         content = ''
     }) {
         this.title = title;
         this.date = date;
         this.dateTitle = dateTitle;
-        this.city_title = city_title;
+        this.selection = selection;
         this.content = content;
     }
 }

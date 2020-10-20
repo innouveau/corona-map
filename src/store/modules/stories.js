@@ -1,5 +1,5 @@
 import _base from './_base-module';
-import Story from '@/classes/Language';
+import Story from '@/classes/story/Story';
 
 const Model = Story;
 
