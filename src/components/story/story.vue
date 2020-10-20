@@ -21,9 +21,19 @@
         computed: {
             region() {
                 return this.$store.getters['cities/getItemByProperty']('title', 'Amsterdam', true);
+            },
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
+            story() {
+                return this.$store.getters['stories/getItemById'](this.currentMap.story_id);
             }
         },
-        methods: {}
+        methods: {
+            getTranslatedItem(item) {
+                return item[this.isoCode];
+            }
+        }
     }
 </script>
 
@@ -57,7 +67,7 @@
         </div>
         <div class="story__body">
             <div class="story__content">
-                <h3>How the Netherlands ended up in its second Corona wave</h3>
+                <h3>{{getTranslatedItem(story.title)}}</h3>
             </div>
         </div>
     </div>

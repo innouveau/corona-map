@@ -8,6 +8,7 @@
     // data
     import languages from '@/data/languages';
     import maps from '@/data/maps';
+    import stories from '@/data/stories';
     import ggds from '@/data/ggds';
     import safetyRegions from '@/data/safety-regions';
     import provinces from '@/data/provinces';
@@ -78,6 +79,7 @@
                 this.$store.commit('languages/setCurrent', language);
             },
             loadData() {
+                this.$store.commit('stories/init', stories);
                 this.$store.commit('signalingSystems/init', signalingSystems);
                 this.$store.commit('signalingSystems/setCurrent', this.$store.state.signalingSystems.all[0]);
                 this.$store.commit('countries/init', countries);

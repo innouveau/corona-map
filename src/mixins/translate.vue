@@ -5,7 +5,11 @@
         name: 'translate-mixin',
         components: {},
         props: {},
-        computed: {},
+        computed: {
+            isoCode() {
+                return this.$store.getters['languages/getCurrentIsoCode'];
+            }
+        },
         methods: {
             translate(word, capitalize) {
                 return translateTool.translate(word, capitalize);
