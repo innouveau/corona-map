@@ -45,23 +45,25 @@
 
         .story__label {
             position: absolute;
-            right: 100%;
+            right: calc(100% + 20px);
             top: -2px;
-            padding-right: 20px;
             text-align: right;
-            color: #fff;
-            width: 120px;
-            text-decoration: underline;
+            white-space: nowrap;
+            background: #fff;
+            border-radius: 3px;
+            padding: 4px 8px;
+            box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 
             &:after {
-                width: 9px;
-                height: 9px;
+                width: 10px;
+                height: 10px;
                 border-radius: 50%;
                 content: '';
                 background: #fff;
                 position: absolute;
-                right: -4px;
-                top: 2px;
+                right: -26px;
+                top: 6px;
+                border: 2px solid #D6E2EA;
             }
         }
 

@@ -4,6 +4,7 @@ const stories = [
         title: {
             nl: 'Hoe Nederland in een tweede golf belandde'
         },
+        hasAgeGroups: true,
         chapters: [
             {
                 title: {
@@ -16,8 +17,10 @@ const stories = [
                     nl: 'Eind februari, begin maart'
                 },
                 selection: {
-                    module: 'cities',
-                    title: 'Uden'
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
                 },
                 content: {
                     nl: `
@@ -65,8 +68,10 @@ const stories = [
                     nl: 'Maart/april'
                 },
                 selection: {
-                    module: 'cities',
-                    title: 'Amsterdam'
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
                 },
                 content: {
                     nl: `
@@ -101,8 +106,10 @@ const stories = [
                     nl: 'Mei'
                 },
                 selection: {
-                    module: 'cities',
-                    title: 'Amsterdam'
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
                 },
                 content: {
                     nl: `
@@ -122,8 +129,10 @@ const stories = [
                     nl: 'Juni/juli'
                 },
                 selection: {
-                    module: 'cities',
-                    title: 'Amsterdam'
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
                 },
                 content: {
                     nl: `
@@ -151,8 +160,10 @@ const stories = [
                     nl: 'Zomervakantie'
                 },
                 selection: {
-                    module: 'cities',
-                    title: 'Amsterdam'
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
                 },
                 content: {
                     nl: `
@@ -172,8 +183,10 @@ const stories = [
                     nl: 'August'
                 },
                 selection: {
-                    module: 'cities',
-                    title: 'Amsterdam'
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
                 },
                 content: {
                     nl: `
@@ -201,8 +214,10 @@ const stories = [
                     nl: 'August'
                 },
                 selection: {
-                    module: 'cities',
-                    title: 'Amsterdam'
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
                 },
                 content: {
                     nl: `
@@ -235,8 +250,10 @@ const stories = [
                     nl: 'Eind augustus'
                 },
                 selection: {
-                    module: 'cities',
-                    title: 'Amsterdam'
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
                 },
                 content: {
                     nl: `
@@ -265,8 +282,14 @@ const stories = [
                     nl: 'Begin september'
                 },
                 selection: {
-                    module: 'cities',
-                    title: 'Amsterdam'
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    },
+                    ageGroups: {
+                        module: 'ggds',
+                        title: 'GGD Amsterdam'
+                    }
                 },
                 content: {
                     nl: `
@@ -303,8 +326,10 @@ const stories = [
                     nl: 'Oktober 2020'
                 },
                 selection: {
-                    module: 'cities',
-                    title: 'Amsterdam'
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
                 },
                 content: {
                     nl: `

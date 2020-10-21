@@ -6,10 +6,13 @@
     import storyChapter from "./story-chapter";
     import $ from 'jquery';
     import dateTools from '@/tools/date';
+    import ageDistributionGraphNormalised from "../main/regions/region-details/case-characteristics/age-distribution-graph-normalised/age-distribution-graph-normalised";
+    import ageGroupTool from "@/tools/age-group";
 
     export default {
         name: 'story',
         components: {
+            ageDistributionGraphNormalised,
             storyChapter,
             positiveTests,
             timeSlider,
@@ -23,7 +26,8 @@
                 interval: null,
                 scroll: 0,
                 currentChapter: null,
-                currentRegion: null
+                currentRegion: null,
+                currentRegionForAgeGroups: null
             }
         },
         computed: {
@@ -36,6 +40,9 @@
             },
             chapters() {
                 return this.story.chapters;
+            },
+            caseDataLoaded() {
+                return this.$store.state.ui.caseDataLoaded;
             }
         },
         methods: {
@@ -102,15 +109,30 @@
                     this.currentChapter = chapterItem.chapter;
                     chapter = chapterItem.chapter;
                     this.selectRegion(chapter);
+                    this.selectAgeGroup(chapter);
                     dateInMs = new Date(chapter.date).getTime();
                     offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, dateInMs);
                     this.setOffset(offset);
                 }
             },
             selectRegion(chapter) {
-                let region = this.$store.getters[chapter.selection.module + '/getItemByProperty']('title', chapter.selection.title, true);
-                if (region) {
-                    this.currentRegion = region;
+                if (chapter.selection.tests) {
+                    let region = this.$store.getters[chapter.selection.tests.module + '/getItemByProperty']('title', chapter.selection.tests.title, true);
+                    if (region) {
+                        this.currentRegion = region;
+                    }
+                } else {
+                    this.currentRegion = null;
+                }
+            },
+            selectAgeGroup(chapter) {
+                if (chapter.selection.ageGroups) {
+                    let region = this.$store.getters[chapter.selection.ageGroups.module + '/getItemByProperty']('title', chapter.selection.ageGroups.title, true);
+                    if (region) {
+                        this.currentRegionForAgeGroups = region;
+                    }
+                } else {
+                    this.currentRegionForAgeGroups = null;
                 }
             },
             setOffset(offset) {
@@ -159,10 +181,16 @@
                 } else {
                     return string;
                 }
+            },
+            loadAgeGroupData() {
+                ageGroupTool.load();
             }
         },
         mounted() {
             this.rewind();
+            if (this.story.hasAgeGroups) {
+                this.loadAgeGroupData();
+            }
             // wait for embed stuff to be finished rendered
             setTimeout(()=> {
                 this.initScrolly();
@@ -196,13 +224,21 @@
             </div>
 
             <div class="story__head-right">
-                <div class="story__tests">
-                    <positive-tests
-                        v-if="currentRegion"
-                        :view="view"
-                        :region="currentRegion"
-                        :weeks="4"
-                        :height="190"/>
+                <div class="story__graphs">
+                    <div class="story__tests">
+                        <positive-tests
+                            v-if="currentRegion"
+                            :view="view"
+                            :region="currentRegion"
+                            :weeks="4"
+                            :height="190"/>
+                    </div>
+                    <div class="story__age-groups">
+                        <age-distribution-graph-normalised
+                            v-if="story.hasAgeGroups && currentRegionForAgeGroups && caseDataLoaded"
+                            :view="view"
+                            :region="currentRegionForAgeGroups"/>
+                    </div>
                 </div>
                 <div
                         v-if="currentRegion"
@@ -274,14 +310,38 @@
                 height: 100%;
                 width: 50%;
 
-                .story__tests {
+                .story__graphs {
+                    display: flex;
                     height: calc(100% - 88px);
-                    padding: 8px;
 
-                    .positive-tests__title {
-                        display: none;
+                    .story__tests {
+                        padding: 8px;
+
+                        .positive-tests__title {
+                            display: none;
+                        }
+                    }
+
+                    .story__age-groups {
+                        padding: 8px;
+                        font-size: 9px;
+                        width: 300px;
+
+                        .age-distribution-header, .age-group {
+                            height: 17px;
+
+                            .age-distribution-header__week {
+                                font-size: inherit;
+                            }
+                        }
+
+                        .age-distribution-header__week, .age-group-week {
+                            width: 60px!important;
+                        }
                     }
                 }
+
+
 
                 .story__region {
                     height: 36px;
