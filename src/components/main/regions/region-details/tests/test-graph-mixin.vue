@@ -53,6 +53,13 @@
         },
         computed: {
             // settings
+            appliedZoom() {
+                if (this.currentMap.settings.positiveTestGraph && this.currentMap.settings.positiveTestGraph.zoomFactor) {
+                    return this.zoom * this.currentMap.settings.positiveTestGraph.zoomFactor;
+                } else {
+                    return this.zoom;
+                }
+            },
             offset() {
                 return this.view.offset;
             },

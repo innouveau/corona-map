@@ -115,7 +115,7 @@
                     if (threshold.n > 0) {
                         let height, x, y;
                         if (threshold.n !== Infinity) {
-                            height = (this.zoom * threshold.n / this.signalingSystem.days) - lastY;
+                            height = (this.appliedZoom * threshold.n / this.signalingSystem.days) - lastY;
                             y = this.height  - lastY - height;
                         } else {
                             height = this.height - lastY;
@@ -138,7 +138,7 @@
                 return this.valueToY(relativeValue)
             },
             valueToY(value) {
-                return this.height - (value * this.zoom);
+                return this.height - (value * this.appliedZoom);
             },
             drawTrendLine() {
                 let points, days, lineFunction;

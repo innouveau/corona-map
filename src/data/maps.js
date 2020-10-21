@@ -41,6 +41,9 @@ const maps = [
                 stretch: 0.62,
                 zoom: 0.345,
                 ratio: 0.91
+            },
+            positiveTestGraph: {
+                zoomFactor: 0.66
             }
         },
         url: {
@@ -76,6 +79,9 @@ const maps = [
                 stretch: 0.62,
                 zoom: 3.5,
                 ratio: 1.1
+            },
+            positiveTestGraph: {
+                zoomFactor: 0.66
             }
         },
         url: {
