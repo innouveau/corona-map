@@ -55,9 +55,13 @@
                 _this = this;
                 base = $(this.$refs.body).offset().top;
                 $('.story-chapter').each(function(i) {
-                    let position = $(this).offset().top - base;
+                    let top, height;
+                    top = $(this).offset().top - base;
+                    height = $(this).outerHeight();
                     _this.chapterData.push({
-                        position,
+                        position: top,
+                        top: top,
+                        bottom: (top + height),
                         chapter: _this.chapters[i]
                     });
                 });
@@ -71,49 +75,55 @@
                     let scroll, direction;
                     direction = '';
                     scroll = $(body).scrollTop();
-                    if (scroll > _this.scroll) {
-                        direction = 'down';
-                    } else if (scroll < _this.scroll) {
-                        direction = 'up';
-                    }
-                    _this.scroll = scroll;
-                    if (direction.length > 0) {
-                        _this.checkChapter(direction);
-                    }
+                    _this.setScrol(scroll);
+                    // if (scroll > _this.scroll) {
+                    //     direction = 'down';
+                    // } else if (scroll < _this.scroll) {
+                    //     direction = 'up';
+                    // }
+                    // _this.scroll = scroll;
+                    // if (direction.length > 0) {
+                    //     _this.checkChapter(direction);
+                    // }
                 })
             },
-            checkChapter(direction) {
-                let margin = 80;
-                for (let chapterItem of this.chapterData) {
-                    if (direction === 'down') {
-                        if (this.scroll > chapterItem.position - margin) {
-                            this.activeChapter(chapterItem);
+            setScrol(scroll) {
+                let chapterItem;
+                const getChapterItem = (scroll) => {
+                    for (let chapterItem of this.chapterData) {
+                        if (scroll >= chapterItem.top && scroll < chapterItem.bottom) {
+                            return chapterItem;
                         }
+                    }
+                };
+
+                chapterItem = getChapterItem(scroll);
+                if (chapterItem) {
+                    let percentage, dateInMs, chapter, chapterIndex, nextChapter, offsetChapter, offsetNextChapter, offset;
+                    percentage = (scroll - chapterItem.top) / (chapterItem.bottom - chapterItem.top);
+                    chapter = chapterItem.chapter;
+                    chapterIndex = this.chapterData.indexOf(chapterItem);
+                    offsetChapter = dateTools.getDateOffset(this.$store.state.ui.todayInMs,  new Date(chapter.date).getTime());
+                    if (chapterIndex < this.chapterData.length - 1) {
+                        nextChapter = this.chapterData[chapterIndex + 1].chapter;
+                        offsetNextChapter = dateTools.getDateOffset(this.$store.state.ui.todayInMs,  new Date(nextChapter.date).getTime());
+                        offset = offsetChapter - Math.round(percentage * (offsetChapter - offsetNextChapter ));
+                        this.view.offset = offset;
                     } else {
-                        let index, previous;
-                        index = this.chapterData.indexOf(chapterItem);
-                        if (index > 0) {
-                            previous = this.chapterData[index - 1];
-                            if (this.scroll < (chapterItem.position - margin) && this.scroll > (previous.position - margin)) {
-                                if (index > 0) {
-                                    this.activeChapter(previous);
-                                }
-                            }
-                        }
+                        this.view.offset = offsetChapter;
+                    }
+
+                    if (chapterItem.chapter !== this.currentChapter) {
+                        this.activeChapter(chapterItem.chapter)
                     }
                 }
             },
-            activeChapter(chapterItem) {
-                let chapter, dateInMs, offset;
-                if (chapterItem.chapter !== this.currentChapter) {
-                    this.currentChapter = chapterItem.chapter;
-                    chapter = chapterItem.chapter;
-                    this.selectRegion(chapter);
-                    this.selectAgeGroup(chapter);
-                    dateInMs = new Date(chapter.date).getTime();
-                    offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, dateInMs);
-                    this.setOffset(offset);
-                }
+
+            activeChapter(chapter) {
+                let dateInMs, offset;
+                this.currentChapter = chapter;
+                this.selectRegion(chapter);
+                this.selectAgeGroup(chapter);
             },
             selectRegion(chapter) {
                 if (chapter.selection.tests) {
@@ -135,41 +145,10 @@
                     this.currentRegionForAgeGroups = null;
                 }
             },
-            setOffset(offset) {
-                let difference, time, steps, frequency, step, currentOffset, endOffset;
-                clearInterval(this.interval);
-                endOffset = offset;
-                currentOffset = this.view.offset;
-                frequency = 50;
-                time = 1500;
-                steps = time / frequency;
-                difference = endOffset - currentOffset;
-
-                if (difference > 0) {
-                    step = Math.ceil(difference / steps);
-                } else {
-                    step = Math.floor(difference / steps);
-                }
-                this.interval = setInterval(() => {
-                    currentOffset += step;
-                    if (step > 0) {
-                        if (currentOffset >= endOffset - step) {
-                            this.view.offset = endOffset;
-                            clearInterval(this.interval);
-                        }
-                    }
-                    if (step < 0) {
-                        if (currentOffset <= endOffset + step) {
-                            this.view.offset = endOffset;
-                            clearInterval(this.interval);
-                        }
-                    }
-                    this.view.offset = currentOffset;
-                }, frequency);
-            },
             rewind() {
                 let chapter, dateInMs, offset;
                 chapter = this.chapters[0];
+                this.activeChapter(chapter);
                 dateInMs = new Date(chapter.date).getTime();
                 offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, dateInMs);
                 this.view.offset = offset;
@@ -211,7 +190,8 @@
                 <div class="story__navigation">
                     <b>{{getTranslatedItem(story.title)}}</b>
                     <span v-if="currentChapter">
-                        &nbsp;{{limitLength(getTranslatedItem(currentChapter.title))}}
+                        &nbsp;{{limitLength(getTranslatedItem(currentChapter.title))}} -
+                        {{currentChapter.date}}
                     </span>
                 </div>
                 <div class="story__map">
@@ -341,8 +321,6 @@
                     }
                 }
 
-
-
                 .story__region {
                     height: 36px;
                     padding: 10px 8px;
@@ -351,7 +329,7 @@
 
                 .time-slider {
                     height: 52px;
-                    padding: 10px 8px;
+                    padding: 10px 16px;
                     border-top: 1px solid #ddd;
                     width: 100%;
                 }

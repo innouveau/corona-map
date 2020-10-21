@@ -122,6 +122,30 @@ const stories = [
             },
             {
                 title: {
+                    nl: "Nederlands standpunt over kinderen"
+                },
+                date: '2020-06-03',
+                dateTitle: {
+                    nl: 'Juni'
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                            Lorem ipsum. <br>
+                            https://www.rivm.nl/nieuws/eerste-resultaten-verspreiding-covid-19-in-nederlandse-gezinnen
+                        </p>
+                       
+                    `
+                }
+            },
+            {
+                title: {
                     nl: 'Nederland gaat weer open'
                 },
                 date: '2020-07-17',
@@ -211,7 +235,7 @@ const stories = [
                 },
                 date: '2020-08-10',
                 dateTitle: {
-                    nl: 'August'
+                    nl: '10 Augustus'
                 },
                 selection: {
                     tests: {
@@ -243,9 +267,39 @@ const stories = [
                 }
             }, {
                 title: {
+                    nl: 'Bron en contactonderzoek werkt nog wel lokaal'
+                },
+                date: '2020-08-20',
+                dateTitle: {
+                    nl: 'Augustus'
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Bergen op Zoom'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                            In kleine regio's weten de GGD'en pieken nog wel de 
+                            kop in te drukken. We kijken bijv. naar Bergen op Zoom,
+                            afgeleeld in de tests-grafiek.
+                        </p>
+                        <p>
+                            We zien rond 9 augustus een hele stijle piek, als 
+                            gevolg van samenkomsten rondom het offerfeest. De
+                            GGD weet de bronnen snel te vinden, hun contacten te
+                            isoleren en zodoende een grotere uitbraak in de kiem
+                            te smoren: de piek zakt weer snel naar beneden.
+                        </p
+                    `
+                }
+            }, {
+                title: {
                     nl: 'Grapperhaus overtreedt eigen coronaregels'
                 },
-                date: '2020-08-10',
+                date: '2020-08-20',
                 dateTitle: {
                     nl: 'Eind augustus'
                 },

@@ -53,6 +53,18 @@
             border-radius: 3px;
             padding: 4px 8px;
             box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+            z-index: 2;
+
+            &:before {
+                width: 18px;
+                height: 1px;
+                background: #fff;
+                content: '';
+                position: absolute;
+                right: -20px;
+                top: 10px;
+                z-index: 1;
+            }
 
             &:after {
                 width: 10px;
@@ -62,7 +74,7 @@
                 background: #fff;
                 position: absolute;
                 right: -26px;
-                top: 6px;
+                top: 4px;
                 border: 2px solid #D6E2EA;
             }
         }
