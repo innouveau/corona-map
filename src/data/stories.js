@@ -4,100 +4,51 @@ const stories = [
         title: {
             nl: 'Hoe Nederland in een tweede golf belandde'
         },
+        subtitle: {
+            nl: 'De puzzelstukjes tot chaos en besluiteloosheid'
+        },
+        image: 'assets/img/stories/netherlands/persconferentie-31-maart.jpg',
         hasAgeGroups: true,
         chapters: [
-            // {
-            //     title: {
-            //         en: 'The Netherlands choses Herd Immunity',
-            //         nl: 'Nederland kiest voor Groepsimmuniteit'
-            //     },
-            //     date: '2020-03-21',
-            //     dateTitle: {
-            //         en: 'March 2020',
-            //         nl: 'Eind februari, begin maart'
-            //     },
-            //     selection: {
-            //         tests: {
-            //             module: 'cities',
-            //             title: 'Amsterdam'
-            //         }
-            //     },
-            //     content: {
-            //         nl: `
-            //            <p>
-            //             Nederland wordt eind februari met de eerste gevallen van Corona geconfronteerd.
-            //             Teruggekeerde wintersporters uit Oostenrijk lijken het meegenomen
-            //             te hebben en het carnaval in de provincies Brabant
-            //             en Limburg, zorgen ervoor dat de ziekenhuizen gebombardeerd
-            //             worden met een grote stroom aan patiënten.
-            //            </p>
-            //            <p>
-            //             Na een enigszins weifelende houding van de regering, houdt
-            //             minister-president Mark Rutte op 16 maart (voor het eerst sinds 1973
-            //             dat een Nederlandse minister-president zo'n toespraak houdt) zijn
-            //             befaamde toespraak, waarin hij Groepsimmuniteit een centrale
-            //             rol geeft.
-            //            </p>
-            //             <iframe width="560" height="315" src="https://www.youtube.com/embed/G9z0xEuxt4I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            //             <p>
-            //                 Optredens van die dag en die erna van Outbreak Management Team (OMT) voorzitter
-            //                 Jaap van Dissel en Marion Koopmans bevestigen de
-            //                 keuze voor groepsimmuniteit. Nederland wil dat een
-            //                 hoog percentage van de bevolking het virus ondergaat,
-            //                 met het idee dat de ouderen zicht tijdelijk afzonderen,
-            //                 zodat intussen onder de jongeren immuniteit ontstaat
-            //                 die de ouderen zal beschermen.
-            //             </p>
-            //             <p>
-            //                 De woorden van Rutte worden door de pers en op tv lovend ontvangen.
-            //                 Maar nadat enkele dagen later het besef doordringt
-            //                 dat de keuze voor groepsimmuniteit internationaal
-            //                 ernstig omstreden is, wordt het idee wat genuanceerd,
-            //                 maar is tot op de dag van vandaag nooit officieel
-            //                 teruggetrokken.
-            //             </p>
-            //         `
-            //     }
-            // },
-            // {
-            //     title: {
-            //         nl: "'Intelligente' lockdown"
-            //     },
-            //     date: '2020-04-20',
-            //     dateTitle: {
-            //         nl: 'Maart/april'
-            //     },
-            //     selection: {
-            //         tests: {
-            //             module: 'cities',
-            //             title: 'Amsterdam'
-            //         }
-            //     },
-            //     content: {
-            //         nl: `
-            //             <p>
-            //                 Nadat al snel blijkt dat de modellen voor groepsimmuniteit
-            //                 totaal onhoudbaar zijn, de ziekenhuizen en IC's overstromen,
-            //                 gaat Nederland dan toch in lockdown.
-            //             </p>
-            //             <p>
-            //                 De lockdown wordt de 'intelligente lockdown' genoemd
-            //                 door de regering. Dit omdat in tegenstelling tot bijv.
-            //                 landen als Spanje, de verantwoordelijkheid bij de burger
-            //                 zelf wordt gelegd. De burger mag gewoon de straat op,
-            //                 naar supermarkten, etc, maar wordt opgeroepen om
-            //                 verantwoordelijk te handelen. De horeca sluit wel
-            //                 en thuiswerken is voor iedereen die dat kan de norm.
-            //             </p>
-            //             <p>
-            //                 De tactiek werkt, de besmettingen dalen en de ziekenhuizen
-            //                 lopen langzamerhand weer leeg. In juni gaan de eerste
-            //                 scholen weer voorzichtig open en ook dat lijkt goed te gaan.
-            //             </p>
-            //         `
-            //     }
-            // },
             {
+                title: {
+                    nl: 'Onduidelijkheid over tactiek'
+                },
+                date: '2020-04-21',
+                dateTitle: {
+                    nl: 'April'
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                            Na een heftige eerste golf, met ongeveer 10.000 overledenen, 
+                            waaronder veel mensen in de verpleeghuizen, een 
+                            ziekenhuiszorg die net - met de hulp van Duitsland - 
+                            overeind bleef, beginnen er meer en meer vragen te
+                            komen over het gevoerde en geplande beleid. En vooral:
+                            hoe voorkomen we een Tweede Golf?
+                        </p>
+                        <p>
+                            Nederland koos voor een eigenzinnige tactiek, onder de
+                            naam <i>Maximaal Controleren</i> - met op de achtergrond
+                            nog steeds het op 16 maart uitgesproken 'groepsimmuniteit'.
+                        </p>
+                        <p>
+                            Het plan voor groepsimmuniteit is nooit officieel
+                            teruggetrokken en ook in de media blijven verwarrende
+                            signalen opduiken, zo hier OMT-lid Ann Vossen bij Jinek
+                            op 21 april.
+                        </p>
+                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Een betere video. <br><br>OMT-lid Ann Vossen verklaart gisteravond bij Jinek onomwonden: het virus wordt toegelaten tot de hele bevolking met de hoop op groepsimmuniteit. Stoppen is niet het doel. <br><br>Kijk zelf dan. <a href="https://t.co/ERzLSOik56">pic.twitter.com/ERzLSOik56</a></p>&mdash; Jaap Stronks (@jaapstronks) <a href="https://twitter.com/jaapstronks/status/1253050826496577537?ref_src=twsrc%5Etfw">April 22, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        `
+                }
+            }, {
                 title: {
                     nl: 'Oppositie vraagt om helderheid tactiek'
                 },
@@ -114,56 +65,37 @@ const stories = [
                 content: {
                     nl: `
                         <p>
-                            Lorem ipsum maximaal controleren / indammen, zoeken naar beste fragment over termen.
+                            Als in de maanden mei en juni de coronagevallen flink
+                            minder worden en de kaart steeds groener wordt, 
+                            komen er in de politiek ook meer en meer vragen. Nadat
+                            de partijen tijdens de eerste golf de rijen sloten, is 
+                            er nu bezorgdheid: wat ís nou precies de tactiek? Hebben
+                            we echt afscheid genomen van groepsimmuniteit, willen
+                            we echt het virus indammen?
                         </p>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/47xmJLr98W4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        `
-                }
-            },
-            {
-                title: {
-                    nl: 'Kabinet wil zich niet commiteren aan grenswaarden'
-                },
-                date: '2020-05-20',
-                dateTitle: {
-                    nl: 'Mei'
-                },
-                selection: {
-                    tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
-                },
-                content: {
-                    nl: `
                         <p>
-                            Debat met Dijkhoff opzoeken
+                            Het plan van Rutte is om corona niet hard aan te pakken,
+                            omdat men overtuigd is dat dat niet kan, maar slechts
+                            bij te sturen als de zorg overbelast dreigt te raken.
+                        </p>
+                        <p>
+                            Ook wordt er - ondanks dat experts dit afraden - uitgegaan
+                            van het idee dat het virus rond kan gaan onder de ene
+                            leeftijdsgroep, terwijl de ouderen zich zouden kunnen
+                            afzonderen (<i>shielden</i>). Op het fragment VVD-fractievoorzitter
+                            Dijkhoff over dit shielden.
+                        </p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/47xmJLr98W4?start=11324" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <p>
+                            Er wordt intussen nagedacht over een corona-dashboard,
+                            maar ook hier wil het kabinet zich niet commiteren
+                            aan grenswaardes (zoals Duitsland al vroeg uitspreekt
+                            dat het sterke maatregelen wil invoeren bij meer dan
+                            50 besmettingen per 100.000 inwoners per 7 dagen. Dat 
+                            is de rode grenswaarde op de kaart en in de grafiek.
+                            Zwart staat voor 100).
                         </p>
                         `
-                }
-            },
-            {
-                title: {
-                    nl: "Nederlands standpunt over kinderen"
-                },
-                date: '2020-06-03',
-                dateTitle: {
-                    nl: 'Juni'
-                },
-                selection: {
-                    tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
-                },
-                content: {
-                    nl: `
-                        <p>
-                            Lorem ipsum. <br>
-                            https://www.rivm.nl/nieuws/eerste-resultaten-verspreiding-covid-19-in-nederlandse-gezinnen
-                        </p>
-                       
-                    `
                 }
             },
             {
@@ -183,9 +115,20 @@ const stories = [
                 content: {
                     nl: `
                         <p>
-                            Lorem ipsum. <br>
+                            Nederland verzet zich tot op het laatst tot
+                            het gebruik van mondkapjes. Het originele standpunt
+                            van het RIVM is de hele tijd dat het een schijnzekerheid
+                            zou geven.
                         </p>
-                       
+                        <p>
+                            Hieronder enkele fragmenten die het verloop van de discussie
+                            weergeven. Behoudens een raar politiek compromis voor in
+                            het OV (mondkapjes verplicht, maar ze mogen juist niet
+                            'medisch' van aard zijn), draait het kabinet pas
+                            in oktober - als ongeveer allerlaatste land - van 
+                            standpunt over het inzetten van de mondkapjes.
+                        </p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/u3D9OrTYTrA?start=25" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `
                 }
             },
@@ -206,7 +149,9 @@ const stories = [
                 content: {
                     nl: `
                         <p>
-                            Nederland voelt zich zelfverzekerd. Vrijwel alle openbare restricties worden 
+                            Nederland voelt zich zelfverzekerd.<br>
+                            De kaart is groen en de besmettingslijn bijna aan de grond.<br>
+                            Vrijwel alle openbare restricties worden 
                             in juli opgeheven. Wel blijft het advies: handen wassen, 1.5 meter afstand houden
                             en bij klachten thuisblijven.
                         </p>
@@ -236,11 +181,22 @@ const stories = [
                 },
                 content: {
                     nl: `
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit ut diam vel feugiat. Phasellus accumsan orci risus. Curabitur volutpat sem diam, nec lobortis neque condimentum vitae. Ut euismod cursus varius. Donec in mauris tellus. Aenean semper, enim ac fermentum varius, velit nisl commodo massa, et gravida nulla sem vel leo. In consequat lacus nec tincidunt posuere. Ut turpis leo, lobortis sed felis eget, varius molestie nulla. Duis sed metus nisl. Proin sit amet justo cursus est tincidunt sollicitudin.
-                        </p><p>
-                        Schiphol teststraat
+                        <p>
+                            In augustus lijkt de kaart nog steeds heel gunstig
+                            en de grafiek nog plat. Toch heeft het Red Team al  
+                            door dat het virus gevaarlijk aan het groeien is.
+                            Eind juli sturen ze <a href="https://nos.nl/nieuwsuur/artikel/2341651-experts-waarschuwen-kabinet-neem-binnen-drie-dagen-nieuwe-maatregelen.html" target="_blank">
+                            open brief</a> aan het kabinet, waarin
+                            ze waarschuwen voor het onvolledige bron en contactonderzoek, 
+                            het niet in de gaten houden van terugkerende reizigers en
+                            duidelijker overheidscommunicatie. Ze adviseren meer 
+                            aandacht voor het BCO en mondkapjesplicht in de horeca.
                         </p>
-
+                        <p>
+                            Het advies wordt in de wind geslagen, extern OMT-lid 
+                            Jan Kluytmans noemt het advies 'paniekvoetbal'.
+                        </p>
+                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Jan Kluytmans, de eigenwijze microbioloog die in Brabant alarm sloeg, vindt dat adviseurs van het kabinet nu aan &#39;paniekvoetbal&#39; doen. <a href="https://t.co/s15XWbs2VV">https://t.co/s15XWbs2VV</a> via <a href="https://twitter.com/martenvdw?ref_src=twsrc%5Etfw">@martenvdw</a> En vertelt over zijn ervaringen. <a href="https://twitter.com/hashtag/coronamaatregelen?src=hash&amp;ref_src=twsrc%5Etfw">#coronamaatregelen</a></p>&mdash; Wilma Kieskamp (@wilmakieskamp) <a href="https://twitter.com/wilmakieskamp/status/1288045609698701312?ref_src=twsrc%5Etfw">July 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     `
                 }
             }, {
@@ -259,18 +215,18 @@ const stories = [
                 },
                 content: {
                     nl: `
+                       <img height="400" src="assets/img/stories/netherlands/duimen-draaien.jpeg">
+
                         <p>
-                           Lorem ipsum, stukje over duimen draaien in juli en afschalen.
-                           Verwijzing naar grafiek Amsterdam
-                           GGD Amsterdam meldt dat het  
-                           <a href="https://www.parool.nl/amsterdam/ggd-amsterdam-beperkt-bron-en-contactonderzoek-door-tekort-personeel~bbc2385d/" target="_blank">bron- en contactonderzoek wordt beperkt</a>
-                        </p>
-                        <p>
-                            Aenean auctor in lectus nec sodales. 
-                            Nunc pellentesque sollicitudin euismod. Donec sit amet urna condimentum, 
-                            fringilla est et, egestas dui. Proin porttitor egestas est, in 
-                            consequat ante facilisis non. Etiam vitae mauris vel nisl 
-                            bibendum viverra eget in nisl.
+                           Amper een maand nadat GGD-directeur Sjaak de Gouw
+                           deel van het BCO-personeel naar huis heeft gestuurd,
+                           omdat ze in juni 'duimen zaten te draaien', schiet Amsterdam
+                           al door de rode grens (de waarde waarop Duitsland een
+                           regio in lockdown zou doen) en meldt de GGD Amsterdam dat het 
+                           contactonderzoek 
+                           <a href="https://www.parool.nl/amsterdam/ggd-amsterdam-beperkt-bron-en-contactonderzoek-door-tekort-personeel~bbc2385d/" target="_blank">tijdelijk moet beperken</a>, vanwege
+                           teveel gemelde cases.
+                           
                         </p>
                     `
                 }
@@ -290,54 +246,11 @@ const stories = [
                 },
                 content: {
                     nl: `
+                        <img height="300" src="assets/img/stories/netherlands/brandbrief-red-team.png">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Donec venenatis massa lorem, at molestie odio scelerisque a. 
-                            Sed maximus sapien a ex efficitur hendrerit ac a arcu. 
-                            Aenean auctor in lectus nec sodales. 
-                            Nunc pellentesque sollicitudin euismod. Donec sit amet urna condimentum, 
-                            fringilla est et, egestas dui. Proin porttitor egestas est, in 
-                            consequat ante facilisis non. Etiam vitae mauris vel nisl 
-                            bibendum viverra eget in nisl.
-                            Zie https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/
+                            Een tweede oproep van het Red Team om in te grijpen.
+                            Zie <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">https://www.volkskrant.nl/nieuws-achtergrond/experts-i...</a>
                         </p>
-                        <p>
-                            Aenean auctor in lectus nec sodales. 
-                            Nunc pellentesque sollicitudin euismod. Donec sit amet urna condimentum, 
-                            fringilla est et, egestas dui. Proin porttitor egestas est, in 
-                            consequat ante facilisis non. Etiam vitae mauris vel nisl 
-                            bibendum viverra eget in nisl.
-                        </p>
-                    `
-                }
-            }, {
-                title: {
-                    nl: 'Bron en contactonderzoek werkt nog wel lokaal'
-                },
-                date: '2020-08-20',
-                dateTitle: {
-                    nl: 'Augustus'
-                },
-                selection: {
-                    tests: {
-                        module: 'cities',
-                        title: 'Bergen op Zoom'
-                    }
-                },
-                content: {
-                    nl: `
-                        <p>
-                            In kleine regio's weten de GGD'en pieken nog wel de 
-                            kop in te drukken. We kijken bijv. naar Bergen op Zoom,
-                            afgeleeld in de tests-grafiek.
-                        </p>
-                        <p>
-                            We zien rond 9 augustus een hele stijle piek, als 
-                            gevolg van samenkomsten rondom het offerfeest. De
-                            GGD weet de bronnen snel te vinden, hun contacten te
-                            isoleren en zodoende een grotere uitbraak in de kiem
-                            te smoren: de piek zakt weer snel naar beneden.
-                        </p
                     `
                 }
             }, {
@@ -362,38 +275,14 @@ const stories = [
                             tijdens zijn bruiloft in augustus vastgelegd, waarbij 
                             hij meermaals zijn eigen coronaregels overtreedt.
                         </p>
-                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ai ai... meer foto’s van bruiloft Grapperhaus laten minister handenschuddend en knuffelend zien <a href="https://twitter.com/hashtag/exit?src=hash&amp;ref_src=twsrc%5Etfw">#exit</a> <a href="https://t.co/hHjUEmMUVJ">https://t.co/hHjUEmMUVJ</a> <a href="https://t.co/Sx5IQ7dQhg">pic.twitter.com/Sx5IQ7dQhg</a></p>&mdash; Lammert de Bruin (@lammert) <a href="https://twitter.com/lammert/status/1301035182628184065?ref_src=twsrc%5Etfw">September 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         <p>
                             In tegenstelling tot bijv. Engeland besluit de tweede kamer
                             Grapperhaus aan te laten blijven. Nederland zal hier 
                             nog maandenlang mee worstelen, doordat dit incident
                             het handhavingsbeleid telkens boven het hoofd blijft 
-                            hangen.
+                            hangen.<br>
                         </p>
-                    `
-                }
-            }, {
-                title: {
-                    nl: 'Prettesters'
-                },
-                date: '2020-09-01',
-                dateTitle: {
-                    nl: 'Begin september'
-                },
-                selection: {
-                    tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
-                },
-                content: {
-                    nl: `
-                        <p>
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit ut diam vel feugiat. Phasellus accumsan orci risus. Curabitur volutpat sem diam, nec lobortis neque condimentum vitae. Ut euismod cursus varius. Donec in mauris tellus. Aenean semper, enim ac fermentum varius, velit nisl commodo massa, et gravida nulla sem vel leo. In consequat lacus nec tincidunt posuere. Ut turpis leo, lobortis sed felis eget, varius molestie nulla. Duis sed metus nisl. Proin sit amet justo cursus est tincidunt sollicitudin.
-                            <br><br>
-                          https://www.trouw.nl/binnenland/geen-klachten-toch-testen-een-grote-groep-prettesters-veroorzaakt-tekorten-bij-de-ggd~b83fe887/
-                        </p>
-                       
+                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ai ai... meer foto’s van bruiloft Grapperhaus laten minister handenschuddend en knuffelend zien <a href="https://twitter.com/hashtag/exit?src=hash&amp;ref_src=twsrc%5Etfw">#exit</a> <a href="https://t.co/hHjUEmMUVJ">https://t.co/hHjUEmMUVJ</a> <a href="https://t.co/Sx5IQ7dQhg">pic.twitter.com/Sx5IQ7dQhg</a></p>&mdash; Lammert de Bruin (@lammert) <a href="https://twitter.com/lammert/status/1301035182628184065?ref_src=twsrc%5Etfw">September 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     `
                 }
             }, {
@@ -408,21 +297,22 @@ const stories = [
                     tests: {
                         module: 'cities',
                         title: 'Amsterdam'
-                    },
-                    ageGroups: {
-                        module: 'ggds',
-                        title: 'GGD Amsterdam'
                     }
                 },
                 content: {
                     nl: `
+                        
+
                         <p>
                           De besmettingscijfers lopen schrikbarend op. Amsterdam
                           schiet door de 100 gevallen per 100.000 inwoners per 7 dagen.
                           Nadat het in juli vooral de jongeren waren, raken nu ook
                           steeds meer ouderen besmet.   
                         </p>
-                        <img src="assets/img/stories/netherlands/ernst-kuipers.jpg">
+                        <img height="300" src="assets/img/stories/netherlands/perleeftijdsgroepperweek.gif">
+                        <br><i>
+                            Credits animatie: @jannotr
+                        </i>
                         <p>
                             Nederland dat vanuit een 'sturen op het ziekenhuis' 
                             beredeneert grijpt nog steeds niet in. Tekenend zijn de 
@@ -433,11 +323,8 @@ const stories = [
                             (bron <a href="https://m.limburger.nl/cnt/dmf20200908_00174924" target="_blank">De Limburger</a>).
                         </p>
                         <p>
-                            Blijkbaar heerst nog steeds het idee van <i>shielden</i>. 
-                            De alom afgeraden aanname dat ouderen zich zouden kunnen
-                            afzonderen van de jongeren.
+                            Blijkbaar heerst nog steeds het idee van <i>shielden</i>.
                         </p>
-                       
                     `
                 }
             }, {
@@ -457,7 +344,21 @@ const stories = [
                 content: {
                     nl: `
                         <p>
-                          Willem II Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit ut diam vel feugiat. Phasellus accumsan orci risus  
+                          Terwijl de grote steden in het zwart schieten en de hele
+                          Randstad al diep rood gekleurd is, staat de burgemeester
+                          doodleuk een massaal feest van voetbalsupporters toe.  
+                        </p>
+                        <p>
+                            Op andere plaatsen vinden kermissen nog steeds doorgang
+                            en in Staphorst vindt men het geen probleem om met
+                            600 mensen een kerkdienst te houden.
+                        </p>
+                        <p>
+                            Deze vele incidenten zijn tekenend voor het onduidelijke
+                            beleid en ook de onduidelijkheid wie nou de regie
+                            om in te grijpen heeft: de centrale of de lokale
+                            besturen? In dit gat knallen de corona-cijfers naar
+                            ongekende waarden.
                         </p>
                        <iframe width="560" height="315" src="https://www.youtube.com/embed/r171tx44NZw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                        
@@ -479,11 +380,23 @@ const stories = [
                 },
                 content: {
                     nl: `
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit ut diam vel feugiat. Phasellus accumsan orci risus. Curabitur volutpat sem diam, nec lobortis neque condimentum vitae. Ut euismod cursus varius. Donec in mauris tellus. Aenean semper, enim ac fermentum varius, velit nisl commodo massa, et gravida nulla sem vel leo. In consequat lacus nec tincidunt posuere. Ut turpis leo, lobortis sed felis eget, varius molestie nulla. Duis sed metus nisl. Proin sit amet justo cursus est tincidunt sollicitudin.
-</p><p>
-Fusce scelerisque mauris posuere diam efficitur consequat. Phasellus et congue lorem. Curabitur ultrices arcu ut massa mollis, posuere aliquet risus iaculis. Nunc justo quam, molestie ac bibendum et, hendrerit et mauris. Aenean consectetur ante justo, eget hendrerit lorem blandit at. Vivamus porta accumsan erat, et semper dui rutrum non. Sed elementum nunc sed fermentum luctus. Duis ut egestas ante. Ut volutpat, mi nec feugiat sodales, justo quam porttitor nisi, sed convallis ex mauris efficitur risus. Suspendisse non rhoncus elit. In hac habitasse platea dictumst. Morbi sollicitudin quam eu quam dictum vehicula vel quis felis. Aenean augue elit, tristique in dapibus vel, consequat nec mauris. Fusce massa justo, auctor sed venenatis vitae, dignissim a est. Aliquam imperdiet ipsum non magna scelerisque, at cursus nulla porta.
-</p>
-
+                        <p>
+                            Begin oktober wordt duidelijk dat alle drie de doelen
+                            van het kabinet gefaald hebben:<br>
+                            1. De zorg overeind houden<br>
+                            2. De ouderen beschermen<br>
+                            3. Zicht hebben op het virus.
+                        </p>
+                        <p>
+                            De zorg moet weer afgeschaald worden, het virus raast
+                            weer door de verpleeghuizen en de GGD'en zijn zo overspoeld
+                            dat bron en contactonderzoek niet meer goed lukt.
+                        </p>
+                        <p>
+                            13 oktober houdt Rutte weer een persconferentie, waarin
+                            hij een 'gedeeltelijke' lockdown afkondigt.
+                        </p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/vx9Fd5b7gr0?start=140" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `
                 }
             }

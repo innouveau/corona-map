@@ -100,6 +100,13 @@
         .story-chapter__content {
             font-size: 16px;
             line-height: 1.6;
+
+            p {
+
+                &:first-child {
+                    font-weight: 700;
+                }
+            }
         }
     }
 </style>

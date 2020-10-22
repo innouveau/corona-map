@@ -71,7 +71,6 @@
                 _this = this;
                 $(body).scroll(function() {
                     let scroll = $(body).scrollTop();
-                    console.log(scroll);
                     _this.setScrol(scroll);
                 })
             },
@@ -222,6 +221,10 @@
             class="story__body">
             <div class="story__content">
                 <h3>{{getTranslatedItem(story.title)}}</h3>
+                <h4>{{getTranslatedItem(story.subtitle)}}</h4>
+                <div
+                    :style="{'background-image': 'url(' + story.image + ')'}"
+                    class="story__main-image"></div>
                 <div class="story__chapters">
                     <story-chapter
                         v-for="chapter in chapters"
@@ -338,7 +341,24 @@
                     font-family: $serif;
                     font-size: 36px;
                     line-height: 1.15;
-                    margin-bottom: 200px;
+                    margin-bottom: 6px;
+                }
+
+                h4 {
+                    font-family: $serif;
+                    font-size: 24px;
+                    line-height: 1.15;
+                    margin-top: 0;
+                    margin-bottom: 12px;
+                    font-weight: 400;
+                }
+
+                .story__main-image {
+                    height: 400px;
+                    background-position: 50% 50%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    margin-bottom: 150px;
                 }
 
                 a {
@@ -346,7 +366,6 @@
                 }
 
                 img {
-                    width: 300px;
                     margin-bottom: 12px;
                 }
 
