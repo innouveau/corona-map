@@ -6,97 +6,97 @@ const stories = [
         },
         hasAgeGroups: true,
         chapters: [
-            {
-                title: {
-                    en: 'The Netherlands choses Herd Immunity',
-                    nl: 'Nederland kiest voor Groepsimmuniteit'
-                },
-                date: '2020-03-21',
-                dateTitle: {
-                    en: 'March 2020',
-                    nl: 'Eind februari, begin maart'
-                },
-                selection: {
-                    tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
-                },
-                content: {
-                    nl: `
-                       <p>
-                        Nederland wordt eind februari met de eerste gevallen van Corona geconfronteerd. 
-                        Teruggekeerde wintersporters uit Oostenrijk lijken het meegenomen
-                        te hebben en het carnaval in de provincies Brabant
-                        en Limburg, zorgen ervoor dat de ziekenhuizen gebombardeerd
-                        worden met een grote stroom aan patiënten.
-                       </p> 
-                       <p>
-                        Na een enigszins weifelende houding van de regering, houdt 
-                        minister-president Mark Rutte op 16 maart (voor het eerst sinds 1973 
-                        dat een Nederlandse minister-president zo'n toespraak houdt) zijn
-                        befaamde toespraak, waarin hij Groepsimmuniteit een centrale
-                        rol geeft.
-                       </p>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/G9z0xEuxt4I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <p>
-                            Optredens van die dag en die erna van Outbreak Management Team (OMT) voorzitter
-                            Jaap van Dissel en Marion Koopmans bevestigen de
-                            keuze voor groepsimmuniteit. Nederland wil dat een
-                            hoog percentage van de bevolking het virus ondergaat,
-                            met het idee dat de ouderen zicht tijdelijk afzonderen,
-                            zodat intussen onder de jongeren immuniteit ontstaat
-                            die de ouderen zal beschermen.
-                        </p>
-                        <p>
-                            De woorden van Rutte worden door de pers en op tv lovend ontvangen.
-                            Maar nadat enkele dagen later het besef doordringt
-                            dat de keuze voor groepsimmuniteit internationaal 
-                            ernstig omstreden is, wordt het idee wat genuanceerd,
-                            maar is tot op de dag van vandaag nooit officieel 
-                            teruggetrokken.
-                        </p>
-                    `
-                }
-            },
-            {
-                title: {
-                    nl: "'Intelligente' lockdown"
-                },
-                date: '2020-04-20',
-                dateTitle: {
-                    nl: 'Maart/april'
-                },
-                selection: {
-                    tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
-                },
-                content: {
-                    nl: `
-                        <p>
-                            Nadat al snel blijkt dat de modellen voor groepsimmuniteit 
-                            totaal onhoudbaar zijn, de ziekenhuizen en IC's overstromen, 
-                            gaat Nederland dan toch in lockdown.
-                        </p>
-                        <p>
-                            De lockdown wordt de 'intelligente lockdown' genoemd
-                            door de regering. Dit omdat in tegenstelling tot bijv.
-                            landen als Spanje, de verantwoordelijkheid bij de burger
-                            zelf wordt gelegd. De burger mag gewoon de straat op,
-                            naar supermarkten, etc, maar wordt opgeroepen om 
-                            verantwoordelijk te handelen. De horeca sluit wel
-                            en thuiswerken is voor iedereen die dat kan de norm.
-                        </p>
-                        <p>
-                            De tactiek werkt, de besmettingen dalen en de ziekenhuizen
-                            lopen langzamerhand weer leeg. In juni gaan de eerste
-                            scholen weer voorzichtig open en ook dat lijkt goed te gaan.
-                        </p>
-                    `
-                }
-            },
+            // {
+            //     title: {
+            //         en: 'The Netherlands choses Herd Immunity',
+            //         nl: 'Nederland kiest voor Groepsimmuniteit'
+            //     },
+            //     date: '2020-03-21',
+            //     dateTitle: {
+            //         en: 'March 2020',
+            //         nl: 'Eind februari, begin maart'
+            //     },
+            //     selection: {
+            //         tests: {
+            //             module: 'cities',
+            //             title: 'Amsterdam'
+            //         }
+            //     },
+            //     content: {
+            //         nl: `
+            //            <p>
+            //             Nederland wordt eind februari met de eerste gevallen van Corona geconfronteerd.
+            //             Teruggekeerde wintersporters uit Oostenrijk lijken het meegenomen
+            //             te hebben en het carnaval in de provincies Brabant
+            //             en Limburg, zorgen ervoor dat de ziekenhuizen gebombardeerd
+            //             worden met een grote stroom aan patiënten.
+            //            </p>
+            //            <p>
+            //             Na een enigszins weifelende houding van de regering, houdt
+            //             minister-president Mark Rutte op 16 maart (voor het eerst sinds 1973
+            //             dat een Nederlandse minister-president zo'n toespraak houdt) zijn
+            //             befaamde toespraak, waarin hij Groepsimmuniteit een centrale
+            //             rol geeft.
+            //            </p>
+            //             <iframe width="560" height="315" src="https://www.youtube.com/embed/G9z0xEuxt4I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            //             <p>
+            //                 Optredens van die dag en die erna van Outbreak Management Team (OMT) voorzitter
+            //                 Jaap van Dissel en Marion Koopmans bevestigen de
+            //                 keuze voor groepsimmuniteit. Nederland wil dat een
+            //                 hoog percentage van de bevolking het virus ondergaat,
+            //                 met het idee dat de ouderen zicht tijdelijk afzonderen,
+            //                 zodat intussen onder de jongeren immuniteit ontstaat
+            //                 die de ouderen zal beschermen.
+            //             </p>
+            //             <p>
+            //                 De woorden van Rutte worden door de pers en op tv lovend ontvangen.
+            //                 Maar nadat enkele dagen later het besef doordringt
+            //                 dat de keuze voor groepsimmuniteit internationaal
+            //                 ernstig omstreden is, wordt het idee wat genuanceerd,
+            //                 maar is tot op de dag van vandaag nooit officieel
+            //                 teruggetrokken.
+            //             </p>
+            //         `
+            //     }
+            // },
+            // {
+            //     title: {
+            //         nl: "'Intelligente' lockdown"
+            //     },
+            //     date: '2020-04-20',
+            //     dateTitle: {
+            //         nl: 'Maart/april'
+            //     },
+            //     selection: {
+            //         tests: {
+            //             module: 'cities',
+            //             title: 'Amsterdam'
+            //         }
+            //     },
+            //     content: {
+            //         nl: `
+            //             <p>
+            //                 Nadat al snel blijkt dat de modellen voor groepsimmuniteit
+            //                 totaal onhoudbaar zijn, de ziekenhuizen en IC's overstromen,
+            //                 gaat Nederland dan toch in lockdown.
+            //             </p>
+            //             <p>
+            //                 De lockdown wordt de 'intelligente lockdown' genoemd
+            //                 door de regering. Dit omdat in tegenstelling tot bijv.
+            //                 landen als Spanje, de verantwoordelijkheid bij de burger
+            //                 zelf wordt gelegd. De burger mag gewoon de straat op,
+            //                 naar supermarkten, etc, maar wordt opgeroepen om
+            //                 verantwoordelijk te handelen. De horeca sluit wel
+            //                 en thuiswerken is voor iedereen die dat kan de norm.
+            //             </p>
+            //             <p>
+            //                 De tactiek werkt, de besmettingen dalen en de ziekenhuizen
+            //                 lopen langzamerhand weer leeg. In juni gaan de eerste
+            //                 scholen weer voorzichtig open en ook dat lijkt goed te gaan.
+            //             </p>
+            //         `
+            //     }
+            // },
             {
                 title: {
                     nl: 'Oppositie vraagt om helderheid tactiek'
@@ -122,6 +122,28 @@ const stories = [
             },
             {
                 title: {
+                    nl: 'Kabinet wil zich niet commiteren aan grenswaarden'
+                },
+                date: '2020-05-20',
+                dateTitle: {
+                    nl: 'Mei'
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                            Debat met Dijkhoff opzoeken
+                        </p>
+                        `
+                }
+            },
+            {
+                title: {
                     nl: "Nederlands standpunt over kinderen"
                 },
                 date: '2020-06-03',
@@ -139,6 +161,29 @@ const stories = [
                         <p>
                             Lorem ipsum. <br>
                             https://www.rivm.nl/nieuws/eerste-resultaten-verspreiding-covid-19-in-nederlandse-gezinnen
+                        </p>
+                       
+                    `
+                }
+            },
+            {
+                title: {
+                    nl: "Nederlands standpunt over mondkapjes"
+                },
+                date: '2020-06-25',
+                dateTitle: {
+                    nl: 'Juni'
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                            Lorem ipsum. <br>
                         </p>
                        
                     `
@@ -329,6 +374,30 @@ const stories = [
                 }
             }, {
                 title: {
+                    nl: 'Prettesters'
+                },
+                date: '2020-09-01',
+                dateTitle: {
+                    nl: 'Begin september'
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit ut diam vel feugiat. Phasellus accumsan orci risus. Curabitur volutpat sem diam, nec lobortis neque condimentum vitae. Ut euismod cursus varius. Donec in mauris tellus. Aenean semper, enim ac fermentum varius, velit nisl commodo massa, et gravida nulla sem vel leo. In consequat lacus nec tincidunt posuere. Ut turpis leo, lobortis sed felis eget, varius molestie nulla. Duis sed metus nisl. Proin sit amet justo cursus est tincidunt sollicitudin.
+                            <br><br>
+                          https://www.trouw.nl/binnenland/geen-klachten-toch-testen-een-grote-groep-prettesters-veroorzaakt-tekorten-bij-de-ggd~b83fe887/
+                        </p>
+                       
+                    `
+                }
+            }, {
+                title: {
                     nl: 'Sleutelfiguren zien nog geen reden om in te grijpen'
                 },
                 date: '2020-09-08',
@@ -368,6 +437,29 @@ const stories = [
                             De alom afgeraden aanname dat ouderen zich zouden kunnen
                             afzonderen van de jongeren.
                         </p>
+                       
+                    `
+                }
+            }, {
+                title: {
+                    nl: 'Den Haag en regio kijken naar elkaar, niemand grijpt in '
+                },
+                date: '2020-09-24',
+                dateTitle: {
+                    nl: 'Eind september'
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                          Willem II Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit ut diam vel feugiat. Phasellus accumsan orci risus  
+                        </p>
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/r171tx44NZw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                        
                     `
                 }

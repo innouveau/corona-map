@@ -56,10 +56,9 @@
                 base = $(this.$refs.body).offset().top;
                 $('.story-chapter').each(function(i) {
                     let top, height;
-                    top = $(this).offset().top - base;
-                    height = $(this).outerHeight();
+                    top = Math.round($(this).offset().top - base);
+                    height = Math.round($(this).outerHeight());
                     _this.chapterData.push({
-                        position: top,
                         top: top,
                         bottom: (top + height),
                         chapter: _this.chapters[i]
@@ -69,22 +68,11 @@
             initScrolly() {
                 let body, _this;
                 body = this.$refs.body;
-                this.measureChapters();
                 _this = this;
                 $(body).scroll(function() {
-                    let scroll, direction;
-                    direction = '';
-                    scroll = $(body).scrollTop();
+                    let scroll = $(body).scrollTop();
+                    console.log(scroll);
                     _this.setScrol(scroll);
-                    // if (scroll > _this.scroll) {
-                    //     direction = 'down';
-                    // } else if (scroll < _this.scroll) {
-                    //     direction = 'up';
-                    // }
-                    // _this.scroll = scroll;
-                    // if (direction.length > 0) {
-                    //     _this.checkChapter(direction);
-                    // }
                 })
             },
             setScrol(scroll) {
@@ -171,9 +159,10 @@
                 this.loadAgeGroupData();
             }
             // wait for embed stuff to be finished rendered
+            this.initScrolly();
             setTimeout(()=> {
-                this.initScrolly();
-            }, 2000);
+                this.measureChapters();
+            }, 500);
             setTimeout(()=> {
                 twttr.widgets.load();
             }, 200)
@@ -190,8 +179,7 @@
                 <div class="story__navigation">
                     <b>{{getTranslatedItem(story.title)}}</b>
                     <span v-if="currentChapter">
-                        &nbsp;{{limitLength(getTranslatedItem(currentChapter.title))}} -
-                        {{currentChapter.date}}
+                        &nbsp;{{limitLength(getTranslatedItem(currentChapter.title))}}
                     </span>
                 </div>
                 <div class="story__map">
@@ -362,8 +350,10 @@
                     margin-bottom: 12px;
                 }
 
-                .twitter-tweet {
+                .twitter-tweet, blockquote {
                     width: 300px!important;
+                    // reserve height for measuring
+                    height: 550px;
                 }
             }
         }
