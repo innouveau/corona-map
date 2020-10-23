@@ -201,13 +201,22 @@
                 ctx.fillStyle = 'black';
                 ctx.fillText('Created by: @innouveau', (30 * this.imageScale),  (545 * this.imageScale));
             },
-            finish() {
-                this.downloadLink.setAttribute('download', 'corona-status' + this.typeLabel);
-                this.canvas.toBlob((blob) => {
-                    let url = URL.createObjectURL(blob);
-                    this.downloadLink.setAttribute('href', url);
-                    this.downloadLink.click();
-                });
+            finish(name) {
+                return new Promise((resolve, reject) => {
+                    let fileName;
+                    if (name.length > 0) {
+                        fileName = name;
+                    } else {
+                        fileName = 'corona-status' + this.typeLabel;
+                    }
+                    this.downloadLink.setAttribute('download', fileName);
+                    this.canvas.toBlob((blob) => {
+                        let url = URL.createObjectURL(blob);
+                        this.downloadLink.setAttribute('href', url);
+                        this.downloadLink.click();
+                        resolve();
+                    });
+                })
             }
         }
     }

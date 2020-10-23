@@ -7,7 +7,7 @@ const addBackground = function(ctx, width, height) {
     ctx.fill();
 };
 
-const draw = function(ctx, regionContainers, settings, offset, mapType = 'signaling') {
+const draw = function(ctx, regionContainers, settings, offset, mapType = 'signaling', border = true) {
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = 'rgba(0,0,0,0.3)';
 
