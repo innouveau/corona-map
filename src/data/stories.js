@@ -2,21 +2,25 @@ const stories = [
     {
         id: 1,
         title: {
-            nl: 'Nederlands Tweede Golf'
+            nl: 'Hoe Nederland in de Tweede Golf belandde',
+            en: 'How the Netherlands ended up in its Second Wave'
         },
         subtitle: {
-            nl: 'De puzzelstukjes tot chaos en besluiteloosheid'
+            nl: 'De puzzelstukjes: chaos en besluiteloosheid',
+            en: 'Pieces of the puzzle: chaos and lack of leadership'
         },
         image: 'assets/img/stories/netherlands/persconferentie-31-maart.jpg',
         hasAgeGroups: true,
         chapters: [
             {
                 title: {
-                    nl: 'Onduidelijkheid over tactiek'
+                    nl: 'Onduidelijkheid over tactiek',
+                    en: 'Uncertainty about tactics'
                 },
                 date: '2020-04-21',
                 dateTitle: {
-                    nl: 'April'
+                    nl: 'April',
+                    en: 'April'
                 },
                 selection: {
                     tests: {
@@ -42,22 +46,43 @@ const stories = [
                         <p>
                             Het plan voor groepsimmuniteit is nooit officieel
                             teruggetrokken en ook in de media blijven verwarrende
-                            signalen opduiken, zo hier OMT-lid Ann Vossen bij Jinek
+                            signalen opduiken, zoals hier OMT-lid Ann Vossen bij Jinek
                             op 21 april.
                         </p>
                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ah Ann Vossen weer bij Jinek <a href="https://t.co/ERzLSOik56">pic.twitter.com/ERzLSOik56</a></p>&mdash; Jaap Stronks (@jaapstronks) <a href="https://twitter.com/jaapstronks/status/1316111502823378946?ref_src=twsrc%5Etfw">October 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         `,
                     en: `
+                    <p>
+                            After a fierce first wave, with about 10,000 deceased, 
+                            including many people in nursing homes, hospital care 
+                            that just - with the help of Germany - survived, more 
+                            and more questions are beginning to arise about the 
+                            policies pursued and planned. And above all: 
+                            how do we prevent a Second Wave?
+                        </p>
+                        <p>
+                            The Netherlands opted for an idiosyncratic tactic, among the
+                            name <i>Maximum Control</i> - with in the background
+                            still the 'herd immunity' pronounced on March 16.
+                        </p>
+                        <p>
+                            The plan for herd immunity is never official
+                            withdrawn and also in the media confusing
+                            signals appear, such as OMT member Ann Vossen at Jinek
+                            April 21st (bottom tweet).
+                        </p>
                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Beste <a href="https://twitter.com/MarcBonten?ref_src=twsrc%5Etfw">@MarcBonten</a> neemt u dan afstand de uitspraak van Ann Vossen bij Jinek op 21-4, dat het de bedoeling is dat kinderen elkaar en hun ouders infecteren? En bent u het eens dat het strijdig is met wet op medische experimenten? <a href="https://t.co/QUqanRtwZ8">pic.twitter.com/QUqanRtwZ8</a></p>&mdash; Compier MD #ZeroCovid (@Compier_MD) <a href="https://twitter.com/Compier_MD/status/1269657450438889473?ref_src=twsrc%5Etfw">June 7, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     `
                 }
             }, {
                 title: {
-                    nl: 'Oppositie vraagt om helderheid tactiek'
+                    nl: 'Oppositie vraagt om helderheid tactiek',
+                    en: 'Opposition demands clarity tactics'
                 },
                 date: '2020-05-07',
                 dateTitle: {
-                    nl: 'Mei'
+                    nl: 'Mei',
+                    en: 'May'
                 },
                 selection: {
                     tests: {
@@ -78,8 +103,8 @@ const stories = [
                         </p>
                         <p>
                             Het plan van Rutte is om corona niet hard aan te pakken,
-                            omdat men overtuigd is dat dat niet kan, maar slechts
-                            bij te sturen als de zorg overbelast dreigt te raken.
+                            omdat men overtuigd is dat dat niet mogelijk is. Het plan
+                            is om pas bij te sturen als de zorg overbelast dreigt te raken.
                         </p>
                         <p>
                             Ook wordt er - ondanks dat experts dit afraden - uitgegaan
@@ -98,16 +123,50 @@ const stories = [
                             is de rode grenswaarde op de kaart en in de grafiek.
                             Zwart staat voor 100).
                         </p>
-                        `
+                        `,
+                    en: `
+                        <p>
+                            When during May and June the corona cases drop heavily,
+                            and the map becomes greener and greener, 
+                            there is more and more debate in the political arena.  
+                            What exactly ís the tactic? Did
+                            we really said goodbye to herd immunity, or do
+                            we want to really contain the virus?
+                        </p>
+                        <p>
+                            Rutte's plan sounds like it is not the purpose to hit corona hard,
+                            because they are convinced that this is not possible. The plan
+                            is to make adjustments only when health care is in danger of becoming overburdened.
+                        </p>
+                        <p>
+                            In spite of the fact that several experts advise against this, 
+                             assumptions are also made
+                            of the idea that the virus can safely circulate under 
+                            young people, while the elderly could
+                            separate (<i>shielding</i>). In this fragment VVD fraction chairman
+                            Dijkhoff talks about this shielding (dutch).
+                        </p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/47xmJLr98W4?start=11324" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <p>
+                            In the meantime a corona dashboard is being considered,
+                            but here as well, the government does not want to commit itself
+                            at signal values (as Germany declares at an early stage
+                            that it wants to introduce strong measures at more than
+                            50 infections per 100,000 inhabitants per 7 days. This 
+                            is the red on the map and in the chart. Black stands for >100).
+                        </p>
+                    `
                 }
             },
             {
                 title: {
-                    nl: "Nederlands standpunt over mondkapjes"
+                    nl: "Nederlands standpunt over mondkapjes",
+                    en: "Dutch position on face masks"
                 },
                 date: '2020-06-25',
                 dateTitle: {
-                    nl: 'Juni'
+                    nl: 'Juni',
+                    en: "June"
                 },
                 selection: {
                     tests: {
@@ -132,16 +191,35 @@ const stories = [
                             standpunt over het inzetten van de mondkapjes.
                         </p>
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/u3D9OrTYTrA?start=25" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    `,
+                    en: `
+                     <p>
+                            The Netherlands keep resisting against
+                            the use of face maks. The original point of view
+                            of the RIVM is, that it would 'give a false feeling
+                            of security'.
+                        </p>
+                        <p>
+                            Here are some fragments that show the course of the discussion
+                            (dutch). Except for a weird political compromise for in
+                            the public transport (face masks are mandatory, but they may not
+                            be 'medical' in nature), the government turns only as late
+                            as October - as about the very last country - from 
+                            position on use of face masks.
+                        </p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/u3D9OrTYTrA?start=25" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `
                 }
             },
             {
                 title: {
-                    nl: 'Nederland gaat weer open'
+                    nl: 'Nederland gaat weer open',
+                    en: "Netherlands is opening again"
                 },
                 date: '2020-07-17',
                 dateTitle: {
-                    nl: 'Juni/juli'
+                    nl: 'Juni/juli',
+                    en: "June/July"
                 },
                 selection: {
                     tests: {
@@ -159,22 +237,39 @@ const stories = [
                             en bij klachten thuisblijven.
                         </p>
                         <p>
-                            Nederland blijft bij het standpunt dat mondkapjes geen
-                            zin hebben en schijnveiligheid zouden doen geven. Corona-minister
-                            Hugo de Jonge belooft dat de testcapaciteit enorm wordt
+                            Corona-minister  Hugo de Jonge belooft dat de testcapaciteit enorm wordt
                             opgeschaald en lijkt met onderstaande tweet te denken 
                             dat het corona-virus ook vakantie houdt.
                         </p>
                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Zo. De laatste stapels gelezen en getekend. En dan nu even vakantie en tijd voor thuis. Iedereen een mooie zomer gewenst.☀️ <a href="https://t.co/LAzIgN5ODL">pic.twitter.com/LAzIgN5ODL</a></p>&mdash; Hugo de Jonge (@hugodejonge) <a href="https://twitter.com/hugodejonge/status/1284109468368875521?ref_src=twsrc%5Etfw">July 17, 2020</a></blockquote>
+                    `,
+                    en: `
+                        <p>
+                            The Netherlands feel self-assured.<br>
+                            The map is green and the chart with infections almost dropped to zero.<br>
+                            Almost all public restrictions are 
+                            disbanded in July. But the advice remains: wash your hands, keep your distance
+                            and stay at home in case of complaints.
+                        </p>
+                        <p>
+                            Corona Minister
+                            Hugo de Jonge promises that the test capacity will be enormous
+                            scaled up and seems to think with the tweet below 
+                            that the corona virus also keeps you on vacation.
+                        </p>
+                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Zo. De laatste stapels gelezen en getekend. En dan nu even vakantie en tijd voor thuis. Iedereen een mooie zomer gewenst.☀️ <a href="https://t.co/LAzIgN5ODL">pic.twitter.com/LAzIgN5ODL</a></p>&mdash; Hugo de Jonge (@hugodejonge) <a href="https://twitter.com/hugodejonge/status/1284109468368875521?ref_src=twsrc%5Etfw">July 17, 2020</a></blockquote>
+
                     `
                 }
             }, {
                 title: {
-                    nl: 'Geen zicht op verkeer vanuit het buitenland'
+                    nl: 'Geen zicht op verkeer vanuit het buitenland',
+                    en: "No sight on traffic from abroad"
                 },
                 date: '2020-08-01',
                 dateTitle: {
-                    nl: 'Zomervakantie'
+                    nl: 'Zomervakantie',
+                    en: "Summer vacations"
                 },
                 selection: {
                     tests: {
@@ -186,7 +281,7 @@ const stories = [
                     nl: `
                         <p>
                             In augustus lijkt de kaart nog steeds heel gunstig
-                            en de grafiek nog plat. Toch heeft het Red Team al  
+                            en de grafiek nog plat. Toch heeft Red Team al  
                             door dat het virus gevaarlijk aan het groeien is.
                             Eind juli sturen ze <a href="https://nos.nl/nieuwsuur/artikel/2341651-experts-waarschuwen-kabinet-neem-binnen-drie-dagen-nieuwe-maatregelen.html" target="_blank">
                             open brief</a> aan het kabinet, waarin
@@ -200,15 +295,36 @@ const stories = [
                             Jan Kluytmans noemt het advies 'paniekvoetbal'.
                         </p>
                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Jan Kluytmans, de eigenwijze microbioloog die in Brabant alarm sloeg, vindt dat adviseurs van het kabinet nu aan &#39;paniekvoetbal&#39; doen. <a href="https://t.co/s15XWbs2VV">https://t.co/s15XWbs2VV</a> via <a href="https://twitter.com/martenvdw?ref_src=twsrc%5Etfw">@martenvdw</a> En vertelt over zijn ervaringen. <a href="https://twitter.com/hashtag/coronamaatregelen?src=hash&amp;ref_src=twsrc%5Etfw">#coronamaatregelen</a></p>&mdash; Wilma Kieskamp (@wilmakieskamp) <a href="https://twitter.com/wilmakieskamp/status/1288045609698701312?ref_src=twsrc%5Etfw">July 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    `,
+                    en: `
+                        <p>
+                            In August, the map still seems very positive
+                            and the graph still flat. However, for Red Team 
+                            (a self-organised group providing (unasked) advice to 
+                            the government) it stands out that the virus is growing dangerously.
+                            At the end of July they send an <a href="https://nos.nl/nieuwsuur/artikel/2341651-experts-waarschuwen-kabinet-neem-binnen-drie-dagen-nieuwe-maatregelen.html" target="_blank">.
+                            open letter</a> to the government, in which
+                            they warn of the failing contact tracing, 
+                            not keeping track of returning travelers and
+                            asking for clearer government communication. .
+                        </p>
+                        <p>
+                            The advice is ignored, external OMT member 
+                            Jan Kluytmans calls the advice 'panicking'.
+                        </p>
+                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Jan Kluytmans, de eigenwijze microbioloog die in Brabant alarm sloeg, vindt dat adviseurs van het kabinet nu aan &#39;paniekvoetbal&#39; doen. <a href="https://t.co/s15XWbs2VV">https://t.co/s15XWbs2VV</a> via <a href="https://twitter.com/martenvdw?ref_src=twsrc%5Etfw">@martenvdw</a> En vertelt over zijn ervaringen. <a href="https://twitter.com/hashtag/coronamaatregelen?src=hash&amp;ref_src=twsrc%5Etfw">#coronamaatregelen</a></p>&mdash; Wilma Kieskamp (@wilmakieskamp) <a href="https://twitter.com/wilmakieskamp/status/1288045609698701312?ref_src=twsrc%5Etfw">July 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
                     `
                 }
             }, {
                 title: {
-                    nl: 'Bron en contactonderzoek kan het niet meer bijbenen.'
+                    nl: 'Bron en contactonderzoek kan het niet meer bijbenen.',
+                    en: "Contact tracing is collapsing"
                 },
                 date: '2020-08-07',
                 dateTitle: {
-                    nl: 'August'
+                    nl: 'Augustus',
+                    en: "August"
                 },
                 selection: {
                     tests: {
@@ -229,17 +345,30 @@ const stories = [
                            contactonderzoek 
                            <a href="https://www.parool.nl/amsterdam/ggd-amsterdam-beperkt-bron-en-contactonderzoek-door-tekort-personeel~bbc2385d/" target="_blank">tijdelijk moet beperken</a>, vanwege
                            teveel gemelde cases.
-                           
+                        </p>
+                    `,
+                    en: `
+                        <img height="400" src="assets/img/stories/netherlands/duimen-draaien.jpeg">
+                        <p>
+                           Barely a month after GGD (Area Health Authority) director Sjaak de Gouw
+                           sent part of the contact tracing staff home,
+                           because they were 'twiddling their thumbs' in June, Amsterdam
+                           already through breaks the red border (the value at which Germany has a
+                           regional lockdown) and reports GGD Amsterdam
+                           <a href="https://www.parool.nl/amsterdam/ggd-amsterdam-beperkt-bron-en-contactonderzoek-door-tekort-personeel~bbc2385d/" target="_blank">is temporarily limiting (dutch)</a>
+                           its contact tracing due to too many reported cases.
                         </p>
                     `
                 }
             }, {
                 title: {
-                    nl: 'Brandbrief Red Team'
+                    nl: 'Brandbrief Red Team',
+                    en: "Letter of urgence from Red Team"
                 },
                 date: '2020-08-10',
                 dateTitle: {
-                    nl: '10 Augustus'
+                    nl: '10 Augustus',
+                    en: "August 10th"
                 },
                 selection: {
                     tests: {
@@ -254,15 +383,24 @@ const stories = [
                             Een tweede oproep van het Red Team om in te grijpen.
                             Zie <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">https://www.volkskrant.nl/nieuws-achtergrond/experts-i...</a>
                         </p>
+                    `,
+                    en: `
+                        <img height="220" src="assets/img/stories/netherlands/brandbrief-red-team.png">
+                        <p>
+                            A second call from Red Team to government to intervene.
+                            See <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">https://www.volkskrant.nl/nieuws-achtergrond/experts-i... (dutch)</a>
+                        </p>
                     `
                 }
             }, {
                 title: {
-                    nl: 'Grapperhaus overtreedt eigen coronaregels'
+                    nl: 'Grapperhaus overtreedt eigen coronaregels',
+                    en: "Minister Grapperhaus violates own corona rules"
                 },
                 date: '2020-08-20',
                 dateTitle: {
-                    nl: 'Eind augustus'
+                    nl: 'Eind augustus',
+                    en: "End of august"
                 },
                 selection: {
                     tests: {
@@ -273,7 +411,7 @@ const stories = [
                 content: {
                     nl: `
                         <p>
-                            Minister van justitie die in de eerdere (lockdown)fase
+                            Minister van justitie Grapperhaus die in de eerdere (lockdown)fase
                             de harde hand van het beleid vertegenwoordigde wordt
                             tijdens zijn bruiloft in augustus vastgelegd, waarbij 
                             hij meermaals zijn eigen coronaregels overtreedt.
@@ -283,18 +421,35 @@ const stories = [
                             Grapperhaus aan te laten blijven. Nederland zal hier 
                             nog maandenlang mee worstelen, doordat dit incident
                             het handhavingsbeleid telkens boven het hoofd blijft 
-                            hangen.<br>
+                            hangen.
                         </p>
                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ai ai... meer foto’s van bruiloft Grapperhaus laten minister handenschuddend en knuffelend zien <a href="https://twitter.com/hashtag/exit?src=hash&amp;ref_src=twsrc%5Etfw">#exit</a> <a href="https://t.co/hHjUEmMUVJ">https://t.co/hHjUEmMUVJ</a> <a href="https://t.co/Sx5IQ7dQhg">pic.twitter.com/Sx5IQ7dQhg</a></p>&mdash; Lammert de Bruin (@lammert) <a href="https://twitter.com/lammert/status/1301035182628184065?ref_src=twsrc%5Etfw">September 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    `,
+                    en: `
+                        <p>
+                            Minister of Justice  Grapperhaus who in the earlier (lockdown) phase
+                            represented the 'iron fist' of the corona rules,
+                            was caught during his wedding in August, where 
+                            he violates his own corona rules several times.
+                        </p>
+                        <p>
+                            Contrary to e.g. England, the government decides
+                            Grapperhaus can stay on. The Netherlands will be 
+                            wrestling with enforcement for months to come, because of this incident. 
+                         </p>
+                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ai ai... meer foto’s van bruiloft Grapperhaus laten minister handenschuddend en knuffelend zien <a href="https://twitter.com/hashtag/exit?src=hash&amp;ref_src=twsrc%5Etfw">#exit</a> <a href="https://t.co/hHjUEmMUVJ">https://t.co/hHjUEmMUVJ</a> <a href="https://t.co/Sx5IQ7dQhg">pic.twitter.com/Sx5IQ7dQhg</a></p>&mdash; Lammert de Bruin (@lammert) <a href="https://twitter.com/lammert/status/1301035182628184065?ref_src=twsrc%5Etfw">September 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
                     `
                 }
             }, {
                 title: {
-                    nl: 'Sleutelfiguren zien nog geen reden om in te grijpen'
+                    nl: 'Sleutelfiguren zien nog geen reden om in te grijpen',
+                    en: "Key figures still see no reason to intervene"
                 },
                 date: '2020-09-08',
                 dateTitle: {
-                    nl: 'Begin september'
+                    nl: 'Begin september',
+                    en: "Beginning of september"
                 },
                 selection: {
                     tests: {
@@ -304,8 +459,6 @@ const stories = [
                 },
                 content: {
                     nl: `
-                        
-
                         <p>
                           De besmettingscijfers lopen schrikbarend op. Amsterdam
                           schiet door de 100 gevallen per 100.000 inwoners per 7 dagen.
@@ -328,15 +481,41 @@ const stories = [
                         <p>
                             Blijkbaar heerst nog steeds het idee van <i>shielden</i>.
                         </p>
+                    `,
+                    en: `
+                    <p>
+                          Infection rates are frightening. Amsterdam
+                          shoots through the 100 cases per 100,000 inhabitants per 7 days.
+                          After it was mainly the young people in July, now more 
+                          and more elderly people are infected.   
+                        </p>
+                        <img height="300" src="assets/img/stories/netherlands/perleeftijdsgroepperweek.gif">
+                        <br><i>
+                            Credits animation: @jannotr
+                        </i>
+                        <p>
+                            The Netherlands that is still operating from a 'steering on the hospital 
+                            admissions' tactic.
+                            Remarkable are the words of Ernst Kuipers (Chairman of the National Acute Care Network):
+                            "no reason for concern (...) The number recorded 
+                            COVID patients have risen very slightly in recent days". 
+                            and "numbers remain low") 
+                            (source <a href="https://m.limburger.nl/cnt/dmf20200908_00174924" target="_blank">De Limburger (dutch)</a>).
+                        </p>
+                        <p>
+                            Apparently the idea of <i>shielding</i> still prevails.
+                        </p>
                     `
                 }
             }, {
                 title: {
-                    nl: 'Den Haag en regio kijken naar elkaar, niemand grijpt in '
+                    nl: 'Den Haag en regio kijken naar elkaar, niemand grijpt in',
+                    en: "Local and central government looking at each other, none interven"
                 },
                 date: '2020-09-24',
                 dateTitle: {
-                    nl: 'Eind september'
+                    nl: 'Eind september',
+                    en: "End of september"
                 },
                 selection: {
                     tests: {
@@ -364,15 +543,36 @@ const stories = [
                             ongekende waarden.
                         </p>
                        <iframe width="560" height="315" src="https://www.youtube.com/embed/r171tx44NZw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    `,
+                    en: `
+                        <p>
+                          While the big cities turn black, the mayor
+                          van Tilburg casually organises a massive party of football supporters.
+                        </p>
+                        <p>
+                            In other places, fairs are still going on
+                            and in Staphorst there is no problem with
+                            600 people to hold a church service.
+                        </p>
+                        <p>
+                            These many incidents are indicative of the unclear
+                            policy and also the lack of clarity about who is in charge
+                            to intervene: are the central or the local governments in
+                            control? In this hole the corona numbers jump to
+                            unprecedented values.
+                        </p>
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/r171tx44NZw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `
                 }
             }, {
                 title: {
-                    nl: "Een 'Halve' lockdown"
+                    nl: "Een 'Halve' lockdown",
+                    en: "Half lockdown"
                 },
                 date: '2020-10-13',
                 dateTitle: {
-                    nl: 'Oktober 2020'
+                    nl: 'Oktober',
+                    en: "October"
                 },
                 selection: {
                     tests: {
@@ -404,6 +604,32 @@ const stories = [
                         </p>
                         <p>
                             Rutte denkt dat hij het tij nog kan keren met een halve lockdown.
+                        </p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/vx9Fd5b7gr0?start=140" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    `,
+                    en: `
+                        <p>
+                            Slowly the map turns completely black and 
+                            the graph is shooting through the roof.
+                       </p>
+                       <p>
+                            At the beginning of October it becomes clear that all three goals
+                            of the government have failed:<br>
+                            1. Keeping health care up<br>
+                            2. Protecting the elderly<br>
+                            3. Keeping sight on the virus.
+                        </p>
+                        <img height="180" src="assets/img/stories/netherlands/ic-capacity.png">
+                        <br><i>
+                            Credits: @YorickB
+                        </i>
+                        <p>
+                            Health care has to be scaled down again, the virus is raging
+                            again through the nursing homes and contact tracing
+                            is collapsing.
+                        </p>
+                        <p>
+                            Rutte still thinks he can turn the tide just half a lockdown (dutch):
                         </p>
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/vx9Fd5b7gr0?start=140" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `
