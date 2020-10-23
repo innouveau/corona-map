@@ -8,6 +8,9 @@
         computed: {
             isoCode() {
                 return this.$store.getters['languages/getCurrentIsoCode'];
+            },
+            currentLanguage() {
+                return this.$store.state.languages.current;
             }
         },
         methods: {

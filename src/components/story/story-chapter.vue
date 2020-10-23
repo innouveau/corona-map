@@ -1,5 +1,6 @@
 <script>
     import Chapter from "@/classes/story/Chapter";
+    import $ from 'jquery';
 
     export default {
         name: 'story-chapter',
@@ -8,20 +9,43 @@
             chapter: {
                 type: Chapter,
                 required: true
+            },
+            measuringData: {
+                type: Object,
+                required: true
             }
         },
         computed: {},
         methods: {
             getTranslatedItem(item) {
                 return item[this.isoCode];
+            },
+            measure() {
+                let base, top, height;
+                base = Math.round($(this.$parent.$refs.body).offset().top);
+                top = Math.round($(this.$refs.main).offset().top);
+                height = Math.round(this.$refs.main.clientHeight);
+                this.measuringData.top = top - base;
+                this.measuringData.height = height;
+                this.measuringData.bottom = top + height;
             }
+        },
+        mounted() {
+            setTimeout(()=>{
+                this.measure();
+            }, 1000)
+        },
+        updated() {
+            this.measure();
         }
     }
 </script>
 
 
 <template>
-    <div class="story-chapter">
+    <div
+        ref="main"
+        class="story-chapter">
         <div class="story__label">
             {{getTranslatedItem(chapter.dateTitle)}}
         </div>

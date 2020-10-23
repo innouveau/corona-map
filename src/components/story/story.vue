@@ -1,10 +1,10 @@
 <script>
     import View from "@/classes/View";
     import storyChapter from "./story-chapter";
-    import $ from 'jquery';
     import dateTools from '@/tools/date';
     import storyHead from "./story-head";
     import storyIntro from "./story-intro";
+    import $ from 'jquery';
 
     export default {
         name: 'story',
@@ -18,12 +18,12 @@
         data() {
             return {
                 view: new View({id: 1}),
-                chapterData: [],
                 interval: null,
                 scroll: 0,
                 currentChapter: null,
                 currentRegion: null,
-                currentRegionForAgeGroups: null
+                currentRegionForAgeGroups: null,
+                measuring: []
             }
         },
         computed: {
@@ -36,41 +36,26 @@
             },
             chapters() {
                 return this.story.chapters;
+            },
+            tops() {
+                return this.measuring.map(m => m.height);
             }
         },
         methods: {
             getTranslatedItem(item) {
                 return item[this.isoCode];
             },
-            measureChapters() {
-                let base, _this;
-                this.chapterData = [];
-                _this = this;
-                base = $(this.$refs.body).offset().top;
-                $('.story-chapter').each(function(i) {
-                    let top, height;
-                    top = Math.round($(this).offset().top - base);
-                    height = Math.round($(this).outerHeight());
-                    _this.chapterData.push({
-                        top: top,
-                        bottom: (top + height),
-                        chapter: _this.chapters[i]
-                    });
-                });
-            },
             initScrolly() {
-                let body, _this;
-                body = this.$refs.body;
-                _this = this;
-                $(body).scroll(function() {
+                let body = this.$refs.body;
+                $(body).scroll(() => {
                     let scroll = $(body).scrollTop();
-                    _this.setScrol(scroll);
+                    this.setScrol(scroll);
                 })
             },
             setScrol(scroll) {
                 let chapterItem;
                 const getChapterItem = (scroll) => {
-                    for (let chapterItem of this.chapterData) {
+                    for (let chapterItem of this.measuring) {
                         if (scroll >= chapterItem.top && scroll < chapterItem.bottom) {
                             return chapterItem;
                         }
@@ -82,10 +67,10 @@
                     let percentage, dateInMs, chapter, chapterIndex, nextChapter, offsetChapter, offsetNextChapter, offset;
                     percentage = (scroll - chapterItem.top) / (chapterItem.bottom - chapterItem.top);
                     chapter = chapterItem.chapter;
-                    chapterIndex = this.chapterData.indexOf(chapterItem);
+                    chapterIndex = this.measuring.indexOf(chapterItem);
                     offsetChapter = dateTools.getDateOffset(this.$store.state.ui.todayInMs,  new Date(chapter.date).getTime());
-                    if (chapterIndex < this.chapterData.length - 1) {
-                        nextChapter = this.chapterData[chapterIndex + 1].chapter;
+                    if (chapterIndex < this.measuring.length - 1) {
+                        nextChapter = this.measuring[chapterIndex + 1].chapter;
                         offsetNextChapter = dateTools.getDateOffset(this.$store.state.ui.todayInMs,  new Date(nextChapter.date).getTime());
                         offset = offsetChapter - Math.round(percentage * (offsetChapter - offsetNextChapter ));
                         this.view.offset = offset;
@@ -121,17 +106,32 @@
                 offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, dateInMs);
                 this.view.offset = offset;
             },
+            init() {
+                this.measuring = [];
+                for (let chapter of this.chapters) {
+                    this.measuring.push({
+                        top: 0,
+                        bottom: 0,
+                        height: 0,
+                        chapter
+                    })
+                }
+                $('.story__body').scrollTop(0);
+                this.rewind();
+                this.initScrolly();
+            }
         },
         mounted() {
-            this.rewind();
-            // wait for embed stuff to be finished rendered
-            this.initScrolly();
-            setTimeout(()=> {
-                this.measureChapters();
-            }, 500);
-            setTimeout(()=> {
-                twttr.widgets.load();
-            }, 200)
+            twttr.widgets.load();
+            this.init();
+        },
+        watch: {
+            currentLanguage: {
+                handler: function() {
+                    this.init();
+                },
+                deep: true
+            }
         }
     }
 </script>
@@ -150,10 +150,13 @@
             <div class="story__content">
                 <story-intro
                     :story="story"/>
-                <div class="story__chapters">
+                <div
+                    v-if="measuring.length === chapters.length && measuring.length > 0"
+                    class="story__chapters">
                     <story-chapter
-                        v-for="chapter in chapters"
-                        :chapter="chapter"/>
+                        v-for="(chapter, index) in chapters"
+                        :chapter="chapter"
+                        :measuring-data="measuring[index]"/>
                 </div>
             </div>
         </div>
