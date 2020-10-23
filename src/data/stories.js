@@ -45,8 +45,11 @@ const stories = [
                             signalen opduiken, zo hier OMT-lid Ann Vossen bij Jinek
                             op 21 april.
                         </p>
-                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Een betere video. <br><br>OMT-lid Ann Vossen verklaart gisteravond bij Jinek onomwonden: het virus wordt toegelaten tot de hele bevolking met de hoop op groepsimmuniteit. Stoppen is niet het doel. <br><br>Kijk zelf dan. <a href="https://t.co/ERzLSOik56">pic.twitter.com/ERzLSOik56</a></p>&mdash; Jaap Stronks (@jaapstronks) <a href="https://twitter.com/jaapstronks/status/1253050826496577537?ref_src=twsrc%5Etfw">April 22, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                        `
+                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ah Ann Vossen weer bij Jinek <a href="https://t.co/ERzLSOik56">pic.twitter.com/ERzLSOik56</a></p>&mdash; Jaap Stronks (@jaapstronks) <a href="https://twitter.com/jaapstronks/status/1316111502823378946?ref_src=twsrc%5Etfw">October 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        `,
+                    en: `
+                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Beste <a href="https://twitter.com/MarcBonten?ref_src=twsrc%5Etfw">@MarcBonten</a> neemt u dan afstand de uitspraak van Ann Vossen bij Jinek op 21-4, dat het de bedoeling is dat kinderen elkaar en hun ouders infecteren? En bent u het eens dat het strijdig is met wet op medische experimenten? <a href="https://t.co/QUqanRtwZ8">pic.twitter.com/QUqanRtwZ8</a></p>&mdash; Compier MD #ZeroCovid (@Compier_MD) <a href="https://twitter.com/Compier_MD/status/1269657450438889473?ref_src=twsrc%5Etfw">June 7, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    `
                 }
             }, {
                 title: {
@@ -346,7 +349,7 @@ const stories = [
                         <p>
                           Terwijl de grote steden in het zwart schieten en de hele
                           Randstad al diep rood gekleurd is, staat de burgemeester
-                          doodleuk een massaal feest van voetbalsupporters toe.  
+                          van Tilburg doodleuk een massaal feest van voetbalsupporters toe.  
                         </p>
                         <p>
                             Op andere plaatsen vinden kermissen nog steeds doorgang
@@ -361,7 +364,6 @@ const stories = [
                             ongekende waarden.
                         </p>
                        <iframe width="560" height="315" src="https://www.youtube.com/embed/r171tx44NZw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                       
                     `
                 }
             }, {
@@ -380,13 +382,21 @@ const stories = [
                 },
                 content: {
                     nl: `
-                        <p>
+                       <p>
+                            Langzaam kleurt de kaart helemaal zwart en schiet
+                            de grafiek door het plafond.
+                       </p>
+                       <p>
                             Begin oktober wordt duidelijk dat alle drie de doelen
-                            van het kabinet gefaald hebben:<br>
+                            van het kabinet gefaald zijn:<br>
                             1. De zorg overeind houden<br>
                             2. De ouderen beschermen<br>
                             3. Zicht hebben op het virus.
                         </p>
+                        <img height="350" src="assets/img/stories/netherlands/ic-capacity.png">
+                        <br><i>
+                            Credits: @YorickB
+                        </i>
                         <p>
                             De zorg moet weer afgeschaald worden, het virus raast
                             weer door de verpleeghuizen en de GGD'en zijn zo overspoeld
