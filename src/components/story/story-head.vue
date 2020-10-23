@@ -7,10 +7,13 @@
     import _Region from "@/classes/_Region";
     import Chapter from "@/classes/story/Chapter";
     import Story from "@/classes/story/Story";
+    import RegionDetailsShort
+        from "../main/regions/region-details/region-details-short";
 
     export default {
         name: 'story-head',
         components: {
+            RegionDetailsShort,
             positiveTests,
             timeSlider,
             mapSignaling
@@ -72,6 +75,14 @@
                     </span>
             </div>
             <div class="story__map">
+                <div
+                        v-if="view.currentRegion"
+                        class="story__region-container">
+                    <region-details-short
+                        :view="view"
+                        :region="view.currentRegion"/>
+                </div>
+
                 <map-signaling
                     :show-tools="true"
                     :show-legend="true"
@@ -139,6 +150,27 @@
                 height: calc(100% - 30px);
                 padding: 8px;
                 position: relative;
+
+                .story__region-container {
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    width: 200px;
+                    z-index: 1;
+
+                    .region-details__row {
+                        display: block;
+
+                        .region-details__label {
+                            width: 100%;
+                        }
+
+                        .region-details__value {
+                            width: 100%;
+                            text-align: left;
+                        }
+                    }
+                }
 
                 .story__date {
                     position: absolute;
