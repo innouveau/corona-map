@@ -1,22 +1,18 @@
 <script>
     import View from "@/classes/View";
-    import mapSignaling from "@/components/map/map-signaling";
-    import timeSlider from "@/components/view/time-slider";
-    import positiveTests from "../main/regions/region-details/tests/positive-tests";
     import storyChapter from "./story-chapter";
     import $ from 'jquery';
     import dateTools from '@/tools/date';
-    import ageDistributionGraphNormalised from "../main/regions/region-details/case-characteristics/age-distribution-graph-normalised/age-distribution-graph-normalised";
-    import ageGroupTool from "@/tools/age-group";
+    import storyHead from "./story-head";
+    import storyIntro from "./story-intro";
 
     export default {
         name: 'story',
         components: {
-            ageDistributionGraphNormalised,
+            storyIntro,
+            storyHead,
             storyChapter,
-            positiveTests,
-            timeSlider,
-            mapSignaling
+
         },
         props: {},
         data() {
@@ -40,9 +36,6 @@
             },
             chapters() {
                 return this.story.chapters;
-            },
-            caseDataLoaded() {
-                return this.$store.state.ui.caseDataLoaded;
             }
         },
         methods: {
@@ -107,10 +100,8 @@
             },
 
             activeChapter(chapter) {
-                let dateInMs, offset;
                 this.currentChapter = chapter;
                 this.selectRegion(chapter);
-                this.selectAgeGroup(chapter);
             },
             selectRegion(chapter) {
                 if (chapter.selection.tests) {
@@ -122,16 +113,6 @@
                     this.currentRegion = null;
                 }
             },
-            selectAgeGroup(chapter) {
-                if (chapter.selection.ageGroups) {
-                    let region = this.$store.getters[chapter.selection.ageGroups.module + '/getItemByProperty']('title', chapter.selection.ageGroups.title, true);
-                    if (region) {
-                        this.currentRegionForAgeGroups = region;
-                    }
-                } else {
-                    this.currentRegionForAgeGroups = null;
-                }
-            },
             rewind() {
                 let chapter, dateInMs, offset;
                 chapter = this.chapters[0];
@@ -140,23 +121,9 @@
                 offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, dateInMs);
                 this.view.offset = offset;
             },
-            limitLength(string) {
-                let l = 50;
-                if (string.length > l) {
-                    return string.slice(0,l) + '(...)';
-                } else {
-                    return string;
-                }
-            },
-            loadAgeGroupData() {
-                ageGroupTool.load();
-            }
         },
         mounted() {
             this.rewind();
-            if (this.story.hasAgeGroups) {
-                this.loadAgeGroupData();
-            }
             // wait for embed stuff to be finished rendered
             this.initScrolly();
             setTimeout(()=> {
@@ -172,59 +139,17 @@
 
 <template>
     <div class="story">
-        <div class="story__head">
-
-            <div class="story__head-left">
-                <div class="story__navigation">
-                    <b>{{getTranslatedItem(story.title)}}</b>
-                    <span v-if="currentChapter">
-                        &nbsp;{{limitLength(getTranslatedItem(currentChapter.title))}}
-                    </span>
-                </div>
-                <div class="story__map">
-                    <map-signaling
-                        :show-tools="true"
-                        :show-legend="true"
-                        :show-download="false"
-                        :view="view"/>
-                </div>
-            </div>
-
-            <div class="story__head-right">
-                <div class="story__graphs">
-                    <div class="story__tests">
-                        <positive-tests
-                            v-if="currentRegion"
-                            :view="view"
-                            :region="currentRegion"
-                            :weeks="4"
-                            :height="190"/>
-                    </div>
-                    <div class="story__age-groups">
-                        <age-distribution-graph-normalised
-                            v-if="story.hasAgeGroups && currentRegionForAgeGroups && caseDataLoaded"
-                            :view="view"
-                            :region="currentRegionForAgeGroups"/>
-                    </div>
-                </div>
-                <div
-                        v-if="currentRegion"
-                        class="story__region">
-                    {{currentRegion.title}}
-                </div>
-                <time-slider
-                        :view="view"/>
-            </div>
-        </div>
+        <story-head
+            :view="view"
+            :current-region="currentRegion"
+            :current-chapter="currentChapter"
+            :story="story"/>
         <div
             ref="body"
             class="story__body">
             <div class="story__content">
-                <h3>{{getTranslatedItem(story.title)}}</h3>
-                <h4>{{getTranslatedItem(story.subtitle)}}</h4>
-                <div
-                    :style="{'background-image': 'url(' + story.image + ')'}"
-                    class="story__main-image"></div>
+                <story-intro
+                    :story="story"/>
                 <div class="story__chapters">
                     <story-chapter
                         v-for="chapter in chapters"
@@ -242,91 +167,6 @@
     .story {
         height: 100%;
 
-        .story__head {
-            height: 300px;
-            border-bottom: 1px solid #ddd;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 1;
-            display: flex;
-
-            .story__head-left {
-                height: 100%;
-                width: 50%;
-                border-right: 1px solid #ddd;
-
-                .story__navigation {
-                    height: 30px;
-                    border-bottom: 1px solid #ddd;
-                    padding: 4px 8px;
-                    display: flex;
-                    align-items: center;
-
-                    span {
-                        margin-left: 4px;
-                    }
-                }
-
-                .story__map {
-                    height: calc(100% - 30px);
-                    padding: 8px;
-
-                    .map {
-                        height: 100%;
-                    }
-                }
-            }
-
-            .story__head-right {
-                height: 100%;
-                width: 50%;
-
-                .story__graphs {
-                    display: flex;
-                    height: calc(100% - 88px);
-
-                    .story__tests {
-                        padding: 8px;
-
-                        .positive-tests__title {
-                            display: none;
-                        }
-                    }
-
-                    .story__age-groups {
-                        padding: 8px;
-                        font-size: 9px;
-                        width: 300px;
-
-                        .age-distribution-header, .age-group {
-                            height: 17px;
-
-                            .age-distribution-header__week {
-                                font-size: inherit;
-                            }
-                        }
-
-                        .age-distribution-header__week, .age-group-week {
-                            width: 60px!important;
-                        }
-                    }
-                }
-
-                .story__region {
-                    height: 36px;
-                    padding: 10px 8px;
-                    font-weight: 700;
-                }
-
-                .time-slider {
-                    height: 52px;
-                    padding: 10px 16px;
-                    border-top: 1px solid #ddd;
-                    width: 100%;
-                }
-            }
-        }
-
         .story__body {
             height: calc(100% - 300px);
             overflow: auto;
@@ -337,30 +177,6 @@
                 margin: 40px auto;
                 max-width: 100%;
 
-                h3 {
-                    font-family: $serif;
-                    font-size: 36px;
-                    line-height: 1.15;
-                    margin-bottom: 6px;
-                }
-
-                h4 {
-                    font-family: $serif;
-                    font-size: 24px;
-                    line-height: 1.15;
-                    margin-top: 0;
-                    margin-bottom: 12px;
-                    font-weight: 400;
-                }
-
-                .story__main-image {
-                    height: 400px;
-                    background-position: 50% 50%;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    margin-bottom: 150px;
-                }
-
                 a {
                     color: #000;
                 }
@@ -369,10 +185,27 @@
                     margin-bottom: 12px;
                 }
 
+                iframe {
+                    max-width: 100%;
+                }
+
                 .twitter-tweet, blockquote {
                     width: 300px!important;
+                    max-width: 100%;
                     // reserve height for measuring
                     height: 550px;
+                }
+            }
+        }
+
+        @include mobile() {
+
+            .story__body {
+
+                .story__content {
+                    width: 100%;
+                    margin: 40px 0;
+                    padding: 0 12px;
                 }
             }
         }

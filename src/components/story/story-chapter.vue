@@ -108,5 +108,27 @@
                 }
             }
         }
+
+        @include mobile() {
+            padding: 0 0 100px 23px;
+
+            .story__label {
+                right: auto;
+                left: 20px;
+                top: -48px;
+
+                &:before {
+                    width: 18px;
+                    left: -20px;
+                    right: auto;
+
+                }
+
+                &:after {
+                    right: auto;
+                    left: -26px;
+                }
+            }
+        }
     }
 </style>

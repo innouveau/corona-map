@@ -2,7 +2,7 @@ const stories = [
     {
         id: 1,
         title: {
-            nl: 'Hoe Nederland in een tweede golf belandde'
+            nl: 'Nederlands Tweede Golf'
         },
         subtitle: {
             nl: 'De puzzelstukjes tot chaos en besluiteloosheid'
@@ -249,7 +249,7 @@ const stories = [
                 },
                 content: {
                     nl: `
-                        <img height="300" src="assets/img/stories/netherlands/brandbrief-red-team.png">
+                        <img height="220" src="assets/img/stories/netherlands/brandbrief-red-team.png">
                         <p>
                             Een tweede oproep van het Red Team om in te grijpen.
                             Zie <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">https://www.volkskrant.nl/nieuws-achtergrond/experts-i...</a>
@@ -368,7 +368,7 @@ const stories = [
                 }
             }, {
                 title: {
-                    nl: 'Tweede lockdown is onvermijdelijk'
+                    nl: "Een 'Halve' lockdown"
                 },
                 date: '2020-10-13',
                 dateTitle: {
@@ -393,7 +393,7 @@ const stories = [
                             2. De ouderen beschermen<br>
                             3. Zicht hebben op het virus.
                         </p>
-                        <img height="350" src="assets/img/stories/netherlands/ic-capacity.png">
+                        <img height="180" src="assets/img/stories/netherlands/ic-capacity.png">
                         <br><i>
                             Credits: @YorickB
                         </i>
@@ -403,8 +403,7 @@ const stories = [
                             dat bron en contactonderzoek niet meer goed lukt.
                         </p>
                         <p>
-                            13 oktober houdt Rutte weer een persconferentie, waarin
-                            hij een 'gedeeltelijke' lockdown afkondigt.
+                            Rutte denkt dat hij het tij nog kan keren met een halve lockdown.
                         </p>
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/vx9Fd5b7gr0?start=140" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `
