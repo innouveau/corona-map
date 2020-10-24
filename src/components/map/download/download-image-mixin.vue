@@ -204,7 +204,7 @@
             finish(name) {
                 return new Promise((resolve, reject) => {
                     let fileName;
-                    if (name.length > 0) {
+                    if (name && name.length > 0) {
                         fileName = name;
                     } else {
                         fileName = 'corona-status' + this.typeLabel;
