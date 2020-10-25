@@ -71,8 +71,7 @@ const stories = [
                             signals appear, such as OMT member Ann Vossen at Jinek
                             April 21st (bottom tweet).
                         </p>
-                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Beste <a href="https://twitter.com/MarcBonten?ref_src=twsrc%5Etfw">@MarcBonten</a> neemt u dan afstand de uitspraak van Ann Vossen bij Jinek op 21-4, dat het de bedoeling is dat kinderen elkaar en hun ouders infecteren? En bent u het eens dat het strijdig is met wet op medische experimenten? <a href="https://t.co/QUqanRtwZ8">pic.twitter.com/QUqanRtwZ8</a></p>&mdash; Compier MD #ZeroCovid (@Compier_MD) <a href="https://twitter.com/Compier_MD/status/1269657450438889473?ref_src=twsrc%5Etfw">June 7, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    `
+                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">1/ <br><br>Why are we taking the Dutch government to court on <a href="https://twitter.com/hashtag/COVID19?src=hash&amp;ref_src=twsrc%5Etfw">#COVID19</a>? Because we have among the highest circulation levels worldwide, with barely any safety measures, and this policy:<br><br> <a href="https://t.co/73cgZO09T3">pic.twitter.com/73cgZO09T3</a></p>&mdash; Jaap Stronks (@jaapstronks) <a href="https://twitter.com/jaapstronks/status/1320363681956376576?ref_src=twsrc%5Etfw">October 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>                    `
                 }
             }, {
                 title: {
