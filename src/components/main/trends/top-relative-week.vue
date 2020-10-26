@@ -51,7 +51,7 @@
                 return this.view.offset;
             },
             title() {
-                return 'Top 10 ' + this.translate('relative') + ' ' + this.translate('for-7-days');
+                return 'Top 10 ' + this.translate('relative') + ' ' + this.translate('increase') + ' ' + this.translate('for-7-days');
             },
             currentMap() {
                 return this.$store.state.maps.current;

@@ -16,7 +16,7 @@
         },
         computed: {
             title() {
-                return 'Top 10 ' + this.translate('absolute') + ' ' + this.translate('today');
+                return 'Top 10 ' + this.translate('absolute') + ' ' + this.translate('increase') + ' ' + this.translate('today');
             },
             regions() {
                 let regions = this.$store.getters['ui/regions'];
