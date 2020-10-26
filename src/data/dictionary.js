@@ -1,4 +1,8 @@
 const dictionary = {
+    "absolute": {
+        nl: "Absoluut",
+        en: "Absolute"
+    },
     "age-distribution": {
         nl: "Leeftijdsverdeling",
         en: "Age distribution"

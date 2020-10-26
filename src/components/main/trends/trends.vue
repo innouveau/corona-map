@@ -1,16 +1,20 @@
 <script>
     import View from "@/classes/View";
-    import redRegions from "./red-regions";
+    import topRelativeWeek from "./top-relative-week";
     import thresholdRegions from "./threshold-regions";
     import thresholdTools from '@/tools/thresholds';
     import citiesWithSewageTreatmentPlant from "./cities-with-sewage-treatment-plant";
+    import topAbsolute from "./top-absolute";
+    import topRelative from "./top-relative";
 
     export default {
         name: 'trends',
         components: {
+            topRelative,
+            topAbsolute,
             citiesWithSewageTreatmentPlant,
             thresholdRegions,
-            redRegions,
+            topRelativeWeek,
         },
         props: {
             view: {
@@ -28,10 +32,7 @@
                 return this.$store.state.ui.menu === 'trends';
             },
             show() {
-                return this.view.offset < 2;
-            },
-            isAdmin() {
-                return this.$store.state.ui.admin;
+                return this.view.offset === 0;
             }
         },
         methods: {}
@@ -46,12 +47,13 @@
         <div v-if="show">
             <threshold-regions
                 :view="view"/>
-            <red-regions
+            <top-relative-week
+                :view="view"/>
+<!--            <top-absolute-->
+<!--                :view="view"/>-->
+            <top-relative
                 :view="view"/>
         </div>
-        <cities-with-sewage-treatment-plant
-            v-if="isAdmin"
-            :view="view"/>
     </div>
 </template>
 

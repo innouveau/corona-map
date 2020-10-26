@@ -37,6 +37,15 @@ class _RegionWithTestData extends _Region{
         return 100000 * this.getIncreaseWeek() /  this.population;
     }
 
+    getDoublings(offset) {
+        let increase = this.getTotalRelativeIncreaseWeek(offset);
+        if (increase === 0) {
+            return 0;
+        } else {
+            return Math.floor(Math.log(increase) / Math.log(2));
+        }
+    }
+
     getRelativeIncreaseDay() {
         return 100000 * this.increaseDay /  this.population;
     }

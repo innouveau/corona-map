@@ -4,7 +4,7 @@
     import downloadRedRegions from "./download-red-regions";
 
     export default {
-        name: 'red-regions',
+        name: 'top-relative-week',
         components: {
             downloadRedRegions,
             region
@@ -53,15 +53,7 @@
                 return this.view.offset;
             },
             title() {
-                let title = '';
-                title += this.typeLabel + ' ';
-                title += this.translate('with-more-than').toLowerCase() + ' ';
-                title += this.n + ' ';
-                title += this.translate('positive-tests').toLowerCase() + ' ';
-                title += this.translate('per') + ' 100.000 ';
-                title += this.translate('inhabitants').toLowerCase();
-                title += ' (max 10)';
-                return title;
+                return 'Top 10 ' + this.translate('relative') + ' ' + this.translate('today');
             },
             currentMap() {
                 return this.$store.state.maps.current;
@@ -84,7 +76,7 @@
 
 
 <template>
-    <div class="section red-regions">
+    <div class="section top-relative-week">
         <div class="section__header">
             {{title}}:
         </div>
