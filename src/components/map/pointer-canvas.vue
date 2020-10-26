@@ -33,7 +33,7 @@
                 return this.$store.state.maps.current;
             },
             currentRegion() {
-                return this.view.currentRegion;
+                return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
             }
         },
         data() {

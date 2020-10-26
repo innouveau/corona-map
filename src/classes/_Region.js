@@ -1,10 +1,22 @@
 import store from '@/store/store';
 import thresholdTools from "@/tools/thresholds";
-import interpolate from "color-interpolate";
 
 class _Region {
     constructor(_region) {
 
+    }
+
+
+    // lastday no need of offset, therefor a getter is possible
+    // but then trends should only be shown at today
+    get relativeIncreaseLastday() {
+        let regions, increase;
+        increase = 0;
+        regions = this.getRegions();
+        for (let region of regions) {
+            increase += region.absoluteIncreaseLastDay;
+        }
+        return 100000 * increase / this.getTotalPopulation();
     }
 
     getGgds() {
@@ -228,6 +240,15 @@ class _Region {
             //}
         } else {
             return after / before;
+        }
+    }
+
+    getDoublings(offset) {
+        let increase = this.getTotalRelativeIncreaseWeek(offset);
+        if (increase === 0) {
+            return 0;
+        } else {
+            return Math.floor(Math.log(increase) / Math.log(2));
         }
     }
 }

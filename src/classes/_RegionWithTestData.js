@@ -8,6 +8,14 @@ class _RegionWithTestData extends _Region{
         super();
     }
 
+    get absoluteIncreaseLastDay() {
+        if (this.report.history[this.report.history.length - 1]) {
+            return this.report.history[this.report.history.length - 1].positiveTests;
+        } else {
+            return null;
+        }
+    }
+
     getIncreaseDay(delta = 0, offset) {
         if (this.report.history.length > 0) {
             return this.report.history[this.report.history.length - 1 - (offset + delta)].positiveTests;
@@ -35,15 +43,6 @@ class _RegionWithTestData extends _Region{
 
     getRelativeIncreaseWeek() {
         return 100000 * this.getIncreaseWeek() /  this.population;
-    }
-
-    getDoublings(offset) {
-        let increase = this.getTotalRelativeIncreaseWeek(offset);
-        if (increase === 0) {
-            return 0;
-        } else {
-            return Math.floor(Math.log(increase) / Math.log(2));
-        }
     }
 
     getRelativeIncreaseDay() {

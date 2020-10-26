@@ -33,15 +33,6 @@ class City extends _RegionWithTestData {
         this.report = report;
     }
 
-    get absoluteIncreaseLastDay() {
-        return this.report.history[this.report.history.length - 1].positiveTests;
-    }
-
-    get relativeIncreaseLastday() {
-        let increase = this.absoluteIncreaseLastDay;
-        return 100000 * increase / this.population;
-    }
-
 
     //
     // get trend() {
