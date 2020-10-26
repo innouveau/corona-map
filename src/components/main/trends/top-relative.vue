@@ -16,7 +16,7 @@
         },
         computed: {
             title() {
-                return 'Top 10 ' + this.translate('relative') + ' ' + this.translate('for-7-days');
+                return 'Top 10 ' + this.translate('relative') + ' ' + this.translate('today');
             },
             regions() {
                 let regions = this.$store.getters['ui/regions'];

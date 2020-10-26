@@ -20,7 +20,7 @@
             thresholds() {
                 return this.signalingSystem.thresholds;
             },
-            redRegions() {
+            regions() {
                 let thresholds, regions;
                 thresholds = this.signalingSystem.thresholds;
                 regions = this.$store.getters['ui/regions'];
@@ -51,7 +51,7 @@
                 return this.view.offset;
             },
             title() {
-                return 'Top 10 ' + this.translate('relative') + ' ' + this.translate('today');
+                return 'Top 10 ' + this.translate('relative') + ' ' + this.translate('for-7-days');
             },
             currentMap() {
                 return this.$store.state.maps.current;
@@ -81,7 +81,7 @@
         <div class="section__body">
             <div class="regions__list">
                 <div
-                    v-for="region in redRegions"
+                    v-for="region in regions"
                     class="region__container">
                     <region
                         :view="view"
