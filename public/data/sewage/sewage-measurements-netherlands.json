@@ -203,6 +203,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 657,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 5131,
+        "representative_measurement": true
       }
     ]
   },
@@ -295,6 +300,11 @@
         "date": "2020-10-16",
         "RNA_per_ml": 294,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 233,
+        "representative_measurement": true
       }
     ]
   },
@@ -330,6 +340,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 0,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 261,
         "representative_measurement": true
       }
     ]
@@ -377,6 +392,16 @@
         "date": "2020-10-12",
         "RNA_per_ml": 251,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 1004,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 263,
+        "representative_measurement": true
       }
     ]
   },
@@ -412,6 +437,16 @@
       {
         "date": "2020-10-10",
         "RNA_per_ml": 537,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 256,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 141,
         "representative_measurement": true
       }
     ]
@@ -459,6 +494,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 700,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 1110,
+        "representative_measurement": true
       }
     ]
   },
@@ -494,6 +534,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 38,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 766,
         "representative_measurement": true
       }
     ]
@@ -546,6 +591,16 @@
         "date": "2020-10-16",
         "RNA_per_ml": 986,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 1227,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2530,
+        "representative_measurement": true
       }
     ]
   },
@@ -581,6 +636,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 70,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 7445,
         "representative_measurement": true
       }
     ]
@@ -683,6 +743,11 @@
       {
         "date": "2020-10-16",
         "RNA_per_ml": 746,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1430,
         "representative_measurement": true
       }
     ]
@@ -850,6 +915,11 @@
         "date": "2020-10-15",
         "RNA_per_ml": 259,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 1167,
+        "representative_measurement": true
       }
     ]
   },
@@ -911,6 +981,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 0,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1060,
+        "representative_measurement": true
       }
     ]
   },
@@ -951,6 +1026,11 @@
       {
         "date": "2020-10-16",
         "RNA_per_ml": 4221,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 113,
         "representative_measurement": true
       }
     ]
@@ -1038,6 +1118,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 234,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 279,
+        "representative_measurement": true
       }
     ]
   },
@@ -1084,6 +1169,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 265,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 48,
+        "representative_measurement": true
       }
     ]
   },
@@ -1120,6 +1210,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 108,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 563,
+        "representative_measurement": true
       }
     ]
   },
@@ -1155,6 +1250,11 @@
       {
         "date": "2020-10-07",
         "RNA_per_ml": 641,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-17",
+        "RNA_per_ml": 487,
         "representative_measurement": true
       }
     ]
@@ -1207,6 +1307,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 517,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 605,
+        "representative_measurement": true
       }
     ]
   },
@@ -1253,6 +1358,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 102,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 996,
+        "representative_measurement": true
       }
     ]
   },
@@ -1298,6 +1408,16 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 802,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 357,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 215,
         "representative_measurement": true
       }
     ]
@@ -1455,6 +1575,16 @@
         "date": "2020-10-15",
         "RNA_per_ml": 687,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 354,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 542,
+        "representative_measurement": true
       }
     ]
   },
@@ -1529,12 +1659,22 @@
       },
       {
         "date": "2020-10-15",
-        "RNA_per_ml": 232,
+        "RNA_per_ml": 253,
         "representative_measurement": true
       },
       {
         "date": "2020-10-15",
         "RNA_per_ml": 263,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 504,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 203,
         "representative_measurement": true
       }
     ]
@@ -1586,6 +1726,11 @@
       {
         "date": "2020-10-19",
         "RNA_per_ml": 914,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 261,
         "representative_measurement": true
       }
     ]
@@ -1663,6 +1808,16 @@
         "date": "2020-10-15",
         "RNA_per_ml": 80,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 458,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 355,
+        "representative_measurement": true
       }
     ]
   },
@@ -1708,6 +1863,16 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 466,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 506,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 270,
         "representative_measurement": true
       }
     ]
@@ -1755,6 +1920,16 @@
         "date": "2020-10-15",
         "RNA_per_ml": 532,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 249,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 474,
+        "representative_measurement": true
       }
     ]
   },
@@ -1801,6 +1976,11 @@
         "date": "2020-10-19",
         "RNA_per_ml": 1356,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 557,
+        "representative_measurement": true
       }
     ]
   },
@@ -1846,6 +2026,16 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 272,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 181,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 207,
         "representative_measurement": true
       }
     ]
@@ -1897,6 +2087,11 @@
       {
         "date": "2020-10-19",
         "RNA_per_ml": 1121,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 902,
         "representative_measurement": true
       }
     ]
@@ -1979,6 +2174,16 @@
         "date": "2020-10-15",
         "RNA_per_ml": 148,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 222,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 84,
+        "representative_measurement": true
       }
     ]
   },
@@ -2060,6 +2265,16 @@
         "date": "2020-10-12",
         "RNA_per_ml": 37,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 107,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 0,
+        "representative_measurement": true
       }
     ]
   },
@@ -2116,6 +2331,11 @@
         "date": "2020-10-19",
         "RNA_per_ml": 1173,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 331,
+        "representative_measurement": true
       }
     ]
   },
@@ -2162,6 +2382,16 @@
         "date": "2020-10-15",
         "RNA_per_ml": 112,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 612,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 505,
+        "representative_measurement": true
       }
     ]
   },
@@ -2207,6 +2437,16 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 572,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 441,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 2713,
         "representative_measurement": true
       }
     ]
@@ -2257,7 +2497,17 @@
       },
       {
         "date": "2020-10-09",
-        "RNA_per_ml": 1096,
+        "RNA_per_ml": 867,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1063,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1052,
         "representative_measurement": true
       }
     ]
@@ -2305,6 +2555,16 @@
         "date": "2020-10-15",
         "RNA_per_ml": 348,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 507,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 324,
+        "representative_measurement": true
       }
     ]
   },
@@ -2350,6 +2610,16 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 238,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 298,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 520,
         "representative_measurement": true
       }
     ]
@@ -2402,6 +2672,11 @@
         "date": "2020-10-19",
         "RNA_per_ml": 575,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 629,
+        "representative_measurement": true
       }
     ]
   },
@@ -2442,6 +2717,16 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 241,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 133,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 61,
         "representative_measurement": true
       }
     ]
@@ -2488,6 +2773,16 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 167,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1145,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 120,
         "representative_measurement": true
       }
     ]
@@ -2640,6 +2935,16 @@
         "date": "2020-10-15",
         "RNA_per_ml": 130,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 180,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 148,
+        "representative_measurement": true
       }
     ]
   },
@@ -2685,6 +2990,16 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 219,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 463,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 161,
         "representative_measurement": true
       }
     ]
@@ -2751,6 +3066,16 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 935,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1068,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 244,
         "representative_measurement": true
       }
     ]
@@ -2836,12 +3161,22 @@
       },
       {
         "date": "2020-10-15",
-        "RNA_per_ml": 628,
+        "RNA_per_ml": 390,
         "representative_measurement": true
       },
       {
         "date": "2020-10-15",
         "RNA_per_ml": 271,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 200,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 256,
         "representative_measurement": true
       }
     ]
@@ -2889,6 +3224,16 @@
         "date": "2020-10-15",
         "RNA_per_ml": 2001,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1369,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 3111,
+        "representative_measurement": true
       }
     ]
   },
@@ -2934,6 +3279,16 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 214,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 71,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 190,
         "representative_measurement": true
       }
     ]
@@ -2995,6 +3350,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 271,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 579,
         "representative_measurement": true
       }
     ]
@@ -3162,6 +3522,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 538,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 1009,
+        "representative_measurement": true
       }
     ]
   },
@@ -3273,6 +3638,16 @@
         "date": "2020-10-13",
         "RNA_per_ml": 748,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 3166,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 3166,
+        "representative_measurement": true
       }
     ]
   },
@@ -3328,6 +3703,11 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 1154,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1723,
         "representative_measurement": true
       }
     ]
@@ -3506,6 +3886,21 @@
         "date": "2020-10-12",
         "RNA_per_ml": 51,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 108,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 159,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 315,
+        "representative_measurement": true
       }
     ]
   },
@@ -3662,6 +4057,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 11334,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 4022,
+        "representative_measurement": true
       }
     ]
   },
@@ -3697,6 +4097,11 @@
       {
         "date": "2020-10-02",
         "RNA_per_ml": 1560,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-17",
+        "RNA_per_ml": 620,
         "representative_measurement": true
       }
     ]
@@ -3743,6 +4148,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 504,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 4205,
         "representative_measurement": true
       }
     ]
@@ -3961,6 +4371,16 @@
         "date": "2020-10-15",
         "RNA_per_ml": 808,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1296,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1296,
+        "representative_measurement": true
       }
     ]
   },
@@ -4042,6 +4462,16 @@
         "date": "2020-10-13",
         "RNA_per_ml": 1771,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 2149,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 2149,
+        "representative_measurement": true
       }
     ]
   },
@@ -4087,6 +4517,11 @@
       {
         "date": "2020-10-08",
         "RNA_per_ml": 61,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2774,
         "representative_measurement": true
       }
     ]
@@ -4180,6 +4615,11 @@
         "date": "2020-10-15",
         "RNA_per_ml": 829,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 728,
+        "representative_measurement": true
       }
     ]
   },
@@ -4215,6 +4655,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 565,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2271,
         "representative_measurement": true
       }
     ]
@@ -4343,6 +4788,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 1987,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1838,
+        "representative_measurement": true
       }
     ]
   },
@@ -4393,6 +4843,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 1107,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1446,
         "representative_measurement": true
       }
     ]
@@ -4515,6 +4970,16 @@
         "date": "2020-10-13",
         "RNA_per_ml": 1327,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1506,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1506,
+        "representative_measurement": true
       }
     ]
   },
@@ -4585,6 +5050,16 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 847,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1255,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1255,
         "representative_measurement": true
       }
     ]
@@ -4667,6 +5142,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 963,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 542,
+        "representative_measurement": true
       }
     ]
   },
@@ -4746,7 +5226,12 @@
       },
       {
         "date": "2020-10-15",
-        "RNA_per_ml": 2305,
+        "RNA_per_ml": 1810,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 2290,
         "representative_measurement": true
       }
     ]
@@ -4980,6 +5465,16 @@
         "date": "2020-10-13",
         "RNA_per_ml": 506,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1179,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 691,
+        "representative_measurement": true
       }
     ]
   },
@@ -5156,6 +5651,11 @@
         "date": "2020-10-15",
         "RNA_per_ml": 1442,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1574,
+        "representative_measurement": true
       }
     ]
   },
@@ -5191,6 +5691,11 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 204,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 3306,
         "representative_measurement": true
       }
     ]
@@ -5370,6 +5875,11 @@
         "date": "2020-10-15",
         "RNA_per_ml": 1294,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 2842,
+        "representative_measurement": true
       }
     ]
   },
@@ -5405,6 +5915,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 876,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 2072,
         "representative_measurement": true
       }
     ]
@@ -5695,6 +6210,11 @@
         "date": "2020-10-15",
         "RNA_per_ml": 3773,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1245,
+        "representative_measurement": true
       }
     ]
   },
@@ -5735,6 +6255,11 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 1572,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 2745,
         "representative_measurement": true
       }
     ]
@@ -5812,6 +6337,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 502,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 570,
         "representative_measurement": true
       }
     ]
@@ -5941,6 +6471,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 1333,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1481,
+        "representative_measurement": true
       }
     ]
   },
@@ -5979,8 +6514,13 @@
         "representative_measurement": true
       },
       {
-        "date": "2020-10-13",
+        "date": "2020-10-12",
         "RNA_per_ml": 1233,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 3865,
         "representative_measurement": true
       }
     ]
@@ -6031,7 +6571,12 @@
       },
       {
         "date": "2020-10-15",
-        "RNA_per_ml": 2642,
+        "RNA_per_ml": 2433,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1207,
         "representative_measurement": true
       }
     ]
@@ -6117,12 +6662,22 @@
       },
       {
         "date": "2020-10-15",
-        "RNA_per_ml": 1542,
+        "RNA_per_ml": 1448,
         "representative_measurement": true
       },
       {
         "date": "2020-10-15",
-        "RNA_per_ml": 1542,
+        "RNA_per_ml": 1448,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 937,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 937,
         "representative_measurement": true
       }
     ]
@@ -6193,12 +6748,17 @@
       },
       {
         "date": "2020-10-15",
-        "RNA_per_ml": 5538,
+        "RNA_per_ml": 10261,
         "representative_measurement": true
       },
       {
         "date": "2020-10-15",
         "RNA_per_ml": 12622,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1412,
         "representative_measurement": true
       }
     ]
@@ -6250,6 +6810,11 @@
       {
         "date": "2020-10-09",
         "RNA_per_ml": 271,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1548,
         "representative_measurement": true
       }
     ]
@@ -6483,6 +7048,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 4586,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 3856,
+        "representative_measurement": true
       }
     ]
   },
@@ -6569,6 +7139,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 1423,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 1354,
+        "representative_measurement": true
       }
     ]
   },
@@ -6615,6 +7190,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 442,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 4379,
+        "representative_measurement": true
       }
     ]
   },
@@ -6650,6 +7230,11 @@
       {
         "date": "2020-10-19",
         "RNA_per_ml": 1690,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1806,
         "representative_measurement": true
       }
     ]
@@ -6692,6 +7277,11 @@
         "date": "2020-10-19",
         "RNA_per_ml": 1336,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1218,
+        "representative_measurement": true
       }
     ]
   },
@@ -6732,6 +7322,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 1417,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1202,
         "representative_measurement": true
       }
     ]
@@ -6812,7 +7407,12 @@
       },
       {
         "date": "2020-10-19",
-        "RNA_per_ml": 2100,
+        "RNA_per_ml": 4483,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 2618,
         "representative_measurement": true
       }
     ]
@@ -6860,6 +7460,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 376,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 485,
+        "representative_measurement": true
       }
     ]
   },
@@ -6900,6 +7505,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 975,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 639,
         "representative_measurement": true
       }
     ]
@@ -6951,6 +7561,11 @@
       {
         "date": "2020-10-19",
         "RNA_per_ml": 2413,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1789,
         "representative_measurement": true
       }
     ]
@@ -7022,6 +7637,16 @@
       {
         "date": "2020-10-19",
         "RNA_per_ml": 1227,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 922,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 922,
         "representative_measurement": true
       }
     ]
@@ -7113,6 +7738,16 @@
       {
         "date": "2020-10-19",
         "RNA_per_ml": 4407,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 2384,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 2384,
         "representative_measurement": true
       }
     ]
@@ -7270,6 +7905,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 2384,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 4730,
+        "representative_measurement": true
       }
     ]
   },
@@ -7310,6 +7950,11 @@
       {
         "date": "2020-10-07",
         "RNA_per_ml": 1577,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 3824,
         "representative_measurement": true
       }
     ]
@@ -7357,6 +8002,11 @@
         "date": "2020-10-16",
         "RNA_per_ml": 1250,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1222,
+        "representative_measurement": true
       }
     ]
   },
@@ -7392,6 +8042,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 720,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 908,
         "representative_measurement": true
       }
     ]
@@ -7499,6 +8154,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 292,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 0,
         "representative_measurement": true
       }
     ]
@@ -7632,6 +8292,16 @@
         "date": "2020-10-10",
         "RNA_per_ml": 1316,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1214,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 2321,
+        "representative_measurement": true
       }
     ]
   },
@@ -7718,6 +8388,16 @@
         "date": "2020-10-10",
         "RNA_per_ml": 690,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1164,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 2087,
+        "representative_measurement": true
       }
     ]
   },
@@ -7799,6 +8479,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 914,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 1313,
+        "representative_measurement": true
       }
     ]
   },
@@ -7840,6 +8525,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 347,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 3281,
+        "representative_measurement": true
       }
     ]
   },
@@ -7880,6 +8570,11 @@
       {
         "date": "2020-10-16",
         "RNA_per_ml": 2271,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1191,
         "representative_measurement": true
       }
     ]
@@ -8019,6 +8714,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 2088,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 3199,
+        "representative_measurement": true
       }
     ]
   },
@@ -8059,6 +8759,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 3060,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1166,
         "representative_measurement": true
       }
     ]
@@ -8130,6 +8835,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 364,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 738,
         "representative_measurement": true
       }
     ]
@@ -8518,6 +9228,16 @@
         "date": "2020-10-12",
         "RNA_per_ml": 2615,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1443,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1443,
+        "representative_measurement": true
       }
     ]
   },
@@ -8589,6 +9309,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 2899,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 746,
+        "representative_measurement": true
       }
     ]
   },
@@ -8630,6 +9355,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 2214,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1612,
+        "representative_measurement": true
       }
     ]
   },
@@ -8670,6 +9400,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 1957,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1922,
         "representative_measurement": true
       }
     ]
@@ -8742,6 +9477,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 1155,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2213,
+        "representative_measurement": true
       }
     ]
   },
@@ -8780,8 +9520,13 @@
         "representative_measurement": true
       },
       {
-        "date": "2020-10-11",
+        "date": "2020-10-10",
         "RNA_per_ml": 402,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1816,
         "representative_measurement": true
       }
     ]
@@ -8824,6 +9569,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 1323,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-17",
+        "RNA_per_ml": 2609,
+        "representative_measurement": true
       }
     ]
   },
@@ -8864,6 +9614,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 652,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 6557,
         "representative_measurement": true
       }
     ]
@@ -8932,6 +9687,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 296,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1087,
+        "representative_measurement": true
       }
     ]
   },
@@ -8972,6 +9732,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 2293,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1215,
         "representative_measurement": true
       }
     ]
@@ -9055,6 +9820,11 @@
         "date": "2020-10-15",
         "RNA_per_ml": 317,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 1017,
+        "representative_measurement": true
       }
     ]
   },
@@ -9135,6 +9905,16 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 1245,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1433,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1433,
         "representative_measurement": true
       }
     ]
@@ -9223,6 +10003,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 2018,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1129,
+        "representative_measurement": true
       }
     ]
   },
@@ -9269,6 +10054,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 1772,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1181,
+        "representative_measurement": true
       }
     ]
   },
@@ -9309,6 +10099,11 @@
       {
         "date": "2020-10-11",
         "RNA_per_ml": 416,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1024,
         "representative_measurement": true
       }
     ]
@@ -9443,6 +10238,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 3469,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 3576,
+        "representative_measurement": true
       }
     ]
   },
@@ -9483,6 +10283,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 1577,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 5879,
         "representative_measurement": true
       }
     ]
@@ -9564,6 +10369,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 1653,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 800,
         "representative_measurement": true
       }
     ]
@@ -9721,6 +10531,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 4148,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 4877,
+        "representative_measurement": true
       }
     ]
   },
@@ -9767,6 +10582,11 @@
         "date": "2020-10-16",
         "RNA_per_ml": 3095,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1129,
+        "representative_measurement": true
       }
     ]
   },
@@ -9807,6 +10627,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 1799,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 1542,
         "representative_measurement": true
       }
     ]
@@ -9959,6 +10784,16 @@
         "date": "2020-10-10",
         "RNA_per_ml": 1624,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 875,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 875,
+        "representative_measurement": true
       }
     ]
   },
@@ -10005,6 +10840,11 @@
         "date": "2020-10-16",
         "RNA_per_ml": 4137,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 2093,
+        "representative_measurement": true
       }
     ]
   },
@@ -10048,8 +10888,8 @@
         "representative_measurement": true
       },
       {
-        "date": "2020-10-18",
-        "RNA_per_ml": 891,
+        "date": "2020-10-16",
+        "RNA_per_ml": 4568,
         "representative_measurement": true
       }
     ]
@@ -10091,6 +10931,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 155,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 810,
         "representative_measurement": true
       }
     ]
@@ -10253,6 +11098,16 @@
         "date": "2020-10-10",
         "RNA_per_ml": 598,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1990,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 3141,
+        "representative_measurement": true
       }
     ]
   },
@@ -10293,6 +11148,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 989,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1285,
         "representative_measurement": true
       }
     ]
@@ -10335,6 +11195,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 1192,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1863,
+        "representative_measurement": true
       }
     ]
   },
@@ -10375,6 +11240,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 1923,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 0,
         "representative_measurement": true
       }
     ]
@@ -10419,8 +11289,8 @@
         "representative_measurement": true
       },
       {
-        "date": "2020-10-18",
-        "RNA_per_ml": 2104,
+        "date": "2020-10-16",
+        "RNA_per_ml": 2241,
         "representative_measurement": true
       }
     ]
@@ -10463,6 +11333,11 @@
         "date": "2020-10-11",
         "RNA_per_ml": 602,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-17",
+        "RNA_per_ml": 2617,
+        "representative_measurement": true
       }
     ]
   },
@@ -10504,6 +11379,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 1342,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1639,
+        "representative_measurement": true
       }
     ]
   },
@@ -10544,6 +11424,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 1354,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 2137,
         "representative_measurement": true
       }
     ]
@@ -10744,6 +11629,11 @@
         "date": "2020-10-05",
         "RNA_per_ml": 1420,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-17",
+        "RNA_per_ml": 2305,
+        "representative_measurement": true
       }
     ]
   },
@@ -10881,6 +11771,16 @@
         "date": "2020-10-04",
         "RNA_per_ml": 2081,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 13726,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 13726,
+        "representative_measurement": true
       }
     ]
   },
@@ -10921,6 +11821,11 @@
       {
         "date": "2020-10-10",
         "RNA_per_ml": 515,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-17",
+        "RNA_per_ml": 2871,
         "representative_measurement": true
       }
     ]
@@ -11175,6 +12080,16 @@
         "date": "2020-10-19",
         "RNA_per_ml": 2742,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 2327,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 2327,
+        "representative_measurement": true
       }
     ]
   },
@@ -11358,6 +12273,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 2581,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1728,
         "representative_measurement": true
       }
     ]
@@ -11583,6 +12503,11 @@
         "date": "2020-10-11",
         "RNA_per_ml": 1430,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 636,
+        "representative_measurement": true
       }
     ]
   },
@@ -11618,6 +12543,11 @@
       {
         "date": "2020-10-11",
         "RNA_per_ml": 834,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 3403,
         "representative_measurement": true
       }
     ]
@@ -12207,6 +13137,11 @@
         "date": "2020-10-19",
         "RNA_per_ml": 1376,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1372,
+        "representative_measurement": true
       }
     ]
   },
@@ -12237,6 +13172,11 @@
       {
         "date": "2020-10-11",
         "RNA_per_ml": 197,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 2366,
         "representative_measurement": true
       }
     ]
@@ -12274,6 +13214,11 @@
         "date": "2020-10-11",
         "RNA_per_ml": 76,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 882,
+        "representative_measurement": true
       }
     ]
   },
@@ -12309,6 +13254,11 @@
       {
         "date": "2020-10-11",
         "RNA_per_ml": 1344,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 3022,
         "representative_measurement": true
       }
     ]
@@ -12350,6 +13300,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 2776,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1649,
         "representative_measurement": true
       }
     ]
@@ -12437,6 +13392,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 2947,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 4146,
         "representative_measurement": true
       }
     ]
@@ -12604,6 +13564,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 2482,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 877,
+        "representative_measurement": true
       }
     ]
   },
@@ -12645,6 +13610,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 1513,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 3340,
+        "representative_measurement": true
       }
     ]
   },
@@ -12685,6 +13655,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 840,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1175,
         "representative_measurement": true
       }
     ]
@@ -12987,6 +13962,16 @@
         "date": "2020-10-13",
         "RNA_per_ml": 699,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 2744,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 2744,
+        "representative_measurement": true
       }
     ]
   },
@@ -13158,6 +14143,16 @@
         "date": "2020-10-13",
         "RNA_per_ml": 611,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1985,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1985,
+        "representative_measurement": true
       }
     ]
   },
@@ -13249,6 +14244,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 2280,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 3002,
         "representative_measurement": true
       }
     ]
@@ -13372,6 +14372,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 1569,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 3255,
+        "representative_measurement": true
       }
     ]
   },
@@ -13412,6 +14417,11 @@
       {
         "date": "2020-10-05",
         "RNA_per_ml": 823,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 4699,
         "representative_measurement": true
       }
     ]
@@ -13458,6 +14468,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 563,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 2450,
         "representative_measurement": true
       }
     ]
@@ -13560,6 +14575,21 @@
         "date": "2020-10-14",
         "RNA_per_ml": 1835,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1903,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1903,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1903,
+        "representative_measurement": true
       }
     ]
   },
@@ -13606,6 +14636,11 @@
         "date": "2020-10-15",
         "RNA_per_ml": 1206,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 4100,
+        "representative_measurement": true
       }
     ]
   },
@@ -13646,6 +14681,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 1664,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 6122,
         "representative_measurement": true
       }
     ]
@@ -13693,6 +14733,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 1075,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 3452,
+        "representative_measurement": true
       }
     ]
   },
@@ -13738,6 +14783,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 1399,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1321,
         "representative_measurement": true
       }
     ]
@@ -13810,6 +14860,16 @@
         "date": "2020-10-15",
         "RNA_per_ml": 5448,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 30486,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 30486,
+        "representative_measurement": true
       }
     ]
   },
@@ -13850,6 +14910,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 3282,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 3488,
         "representative_measurement": true
       }
     ]
@@ -13921,6 +14986,16 @@
       {
         "date": "2020-10-11",
         "RNA_per_ml": 1498,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 2961,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 2961,
         "representative_measurement": true
       }
     ]
@@ -14213,6 +15288,16 @@
       {
         "date": "2020-10-10",
         "RNA_per_ml": 2704,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 3123,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 3123,
         "representative_measurement": true
       }
     ]
@@ -14516,6 +15601,16 @@
         "date": "2020-10-14",
         "RNA_per_ml": 2430,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2345,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2345,
+        "representative_measurement": true
       }
     ]
   },
@@ -14596,6 +15691,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 1157,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2327,
         "representative_measurement": true
       }
     ]
@@ -14684,6 +15784,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 357,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 889,
+        "representative_measurement": true
       }
     ]
   },
@@ -14730,6 +15835,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 157,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 5793,
+        "representative_measurement": true
       }
     ]
   },
@@ -14775,6 +15885,11 @@
       {
         "date": "2020-10-10",
         "RNA_per_ml": 1254,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 897,
         "representative_measurement": true
       }
     ]
@@ -14944,6 +16059,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 1649,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 3516,
+        "representative_measurement": true
       }
     ]
   },
@@ -15077,6 +16197,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 212,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 1592,
+        "representative_measurement": true
       }
     ]
   },
@@ -15147,6 +16272,16 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 558,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1653,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1653,
         "representative_measurement": true
       }
     ]
@@ -15240,6 +16375,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 940,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1392,
+        "representative_measurement": true
       }
     ]
   },
@@ -15331,6 +16471,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 592,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 778,
         "representative_measurement": true
       }
     ]
@@ -15448,6 +16593,16 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 2273,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1122,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1122,
         "representative_measurement": true
       }
     ]
@@ -15576,6 +16731,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 4915,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 476,
+        "representative_measurement": true
       }
     ]
   },
@@ -15611,6 +16771,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 142,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 2638,
         "representative_measurement": true
       }
     ]
@@ -15653,6 +16818,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 295,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 4025,
+        "representative_measurement": true
       }
     ]
   },
@@ -15693,6 +16863,11 @@
       {
         "date": "2020-10-10",
         "RNA_per_ml": 4843,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 4462,
         "representative_measurement": true
       }
     ]
@@ -15735,6 +16910,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 510,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 4839,
+        "representative_measurement": true
       }
     ]
   },
@@ -15775,6 +16955,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 1526,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1072,
         "representative_measurement": true
       }
     ]
@@ -15979,6 +17164,11 @@
         "date": "2020-10-11",
         "RNA_per_ml": 1392,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 1420,
+        "representative_measurement": true
       }
     ]
   },
@@ -16019,6 +17209,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 1742,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 3018,
         "representative_measurement": true
       }
     ]
@@ -16112,6 +17307,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 117,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 882,
+        "representative_measurement": true
       }
     ]
   },
@@ -16152,6 +17352,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 48,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 332,
         "representative_measurement": true
       }
     ]
@@ -16233,6 +17438,16 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 1561,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1704,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1704,
         "representative_measurement": true
       }
     ]
@@ -16321,6 +17536,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 1477,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 4023,
+        "representative_measurement": true
       }
     ]
   },
@@ -16361,6 +17581,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 2466,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 3301,
         "representative_measurement": true
       }
     ]
@@ -16428,6 +17653,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 138,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2495,
+        "representative_measurement": true
       }
     ]
   },
@@ -16463,6 +17693,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 679,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1577,
         "representative_measurement": true
       }
     ]
@@ -16500,6 +17735,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 123,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 294,
+        "representative_measurement": true
       }
     ]
   },
@@ -16536,6 +17776,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 284,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 3557,
+        "representative_measurement": true
       }
     ]
   },
@@ -16571,6 +17816,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 594,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 774,
         "representative_measurement": true
       }
     ]
@@ -16654,6 +17904,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 430,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 703,
+        "representative_measurement": true
       }
     ]
   },
@@ -16689,6 +17944,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 90,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 209,
         "representative_measurement": true
       }
     ]
@@ -16836,6 +18096,11 @@
         "date": "2020-10-15",
         "RNA_per_ml": 333,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 343,
+        "representative_measurement": true
       }
     ]
   },
@@ -16875,7 +18140,7 @@
       },
       {
         "date": "2020-10-18",
-        "RNA_per_ml": 5146,
+        "RNA_per_ml": 2313,
         "representative_measurement": true
       }
     ]
@@ -16953,6 +18218,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 0,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 1006,
         "representative_measurement": true
       }
     ]
@@ -17340,6 +18610,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 607,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1491,
+        "representative_measurement": true
       }
     ]
   },
@@ -17400,6 +18675,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 625,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 951,
         "representative_measurement": true
       }
     ]
@@ -17485,7 +18765,7 @@
       },
       {
         "date": "2020-10-18",
-        "RNA_per_ml": 2365,
+        "RNA_per_ml": 2152,
         "representative_measurement": true
       }
     ]
@@ -17699,12 +18979,17 @@
       },
       {
         "date": "2020-10-15",
-        "RNA_per_ml": 334,
+        "RNA_per_ml": 693,
         "representative_measurement": true
       },
       {
         "date": "2020-10-15",
         "RNA_per_ml": 873,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 1255,
         "representative_measurement": true
       }
     ]
@@ -17865,7 +19150,7 @@
       },
       {
         "date": "2020-10-17",
-        "RNA_per_ml": 1942,
+        "RNA_per_ml": 2012,
         "representative_measurement": true
       }
     ]
@@ -17943,6 +19228,11 @@
         "date": "2020-10-11",
         "RNA_per_ml": 1095,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 1288,
+        "representative_measurement": true
       }
     ]
   },
@@ -17989,6 +19279,11 @@
         "date": "2020-10-12",
         "RNA_per_ml": 561,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 1735,
+        "representative_measurement": true
       }
     ]
   },
@@ -18029,6 +19324,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 2271,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 6876,
         "representative_measurement": true
       }
     ]
@@ -18075,6 +19375,11 @@
       {
         "date": "2020-10-15",
         "RNA_per_ml": 1011,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 621,
         "representative_measurement": true
       }
     ]
@@ -18365,6 +19670,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 1469,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1476,
+        "representative_measurement": true
       }
     ]
   },
@@ -18405,6 +19715,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 963,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1431,
         "representative_measurement": true
       }
     ]
@@ -18447,6 +19762,11 @@
         "date": "2020-10-10",
         "RNA_per_ml": 1032,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 3441,
+        "representative_measurement": true
       }
     ]
   },
@@ -18488,6 +19808,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 2470,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2115,
+        "representative_measurement": true
       }
     ]
   },
@@ -18523,6 +19848,11 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 1444,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1510,
         "representative_measurement": true
       }
     ]
@@ -18680,6 +20010,11 @@
         "date": "2020-10-11",
         "RNA_per_ml": 4312,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 1686,
+        "representative_measurement": true
       }
     ]
   },
@@ -18750,6 +20085,16 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 1183,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 768,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 768,
         "representative_measurement": true
       }
     ]
@@ -18892,6 +20237,16 @@
         "date": "2020-10-14",
         "RNA_per_ml": 2058,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1909,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 1909,
+        "representative_measurement": true
       }
     ]
   },
@@ -18963,6 +20318,16 @@
         "date": "2020-10-14",
         "RNA_per_ml": 832,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2425,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 2425,
+        "representative_measurement": true
       }
     ]
   },
@@ -19033,6 +20398,11 @@
       {
         "date": "2020-10-10",
         "RNA_per_ml": 282,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1420,
         "representative_measurement": true
       }
     ]
@@ -19331,6 +20701,11 @@
         "date": "2020-10-11",
         "RNA_per_ml": 418,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-16",
+        "RNA_per_ml": 635,
+        "representative_measurement": true
       }
     ]
   },
@@ -19366,6 +20741,11 @@
       {
         "date": "2020-10-10",
         "RNA_per_ml": 1152,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 3117,
         "representative_measurement": true
       }
     ]
@@ -19564,6 +20944,11 @@
         "date": "2020-10-10",
         "RNA_per_ml": 1659,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 3248,
+        "representative_measurement": true
       }
     ]
   },
@@ -19604,6 +20989,11 @@
       {
         "date": "2020-10-11",
         "RNA_per_ml": 375,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 455,
         "representative_measurement": true
       }
     ]
@@ -19807,6 +21197,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 1280,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 7052,
+        "representative_measurement": true
       }
     ]
   },
@@ -19888,6 +21283,11 @@
         "date": "2020-10-14",
         "RNA_per_ml": 90,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 275,
+        "representative_measurement": true
       }
     ]
   },
@@ -19928,6 +21328,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 604,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 402,
         "representative_measurement": true
       }
     ]
@@ -19970,6 +21375,11 @@
         "date": "2020-10-11",
         "RNA_per_ml": 528,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 1130,
+        "representative_measurement": true
       }
     ]
   },
@@ -20011,6 +21421,11 @@
         "date": "2020-10-11",
         "RNA_per_ml": 333,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 317,
+        "representative_measurement": true
       }
     ]
   },
@@ -20051,6 +21466,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 547,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 3777,
         "representative_measurement": true
       }
     ]
@@ -20127,6 +21547,11 @@
       {
         "date": "2020-10-13",
         "RNA_per_ml": 427,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 2139,
         "representative_measurement": true
       }
     ]
@@ -20214,6 +21639,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 140,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-20",
+        "RNA_per_ml": 566,
         "representative_measurement": true
       }
     ]
@@ -20366,6 +21796,11 @@
         "date": "2020-10-13",
         "RNA_per_ml": 513,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-18",
+        "RNA_per_ml": 1828,
+        "representative_measurement": true
       }
     ]
   },
@@ -20401,6 +21836,11 @@
       {
         "date": "2020-10-12",
         "RNA_per_ml": 507,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-19",
+        "RNA_per_ml": 388,
         "representative_measurement": true
       }
     ]
@@ -20542,6 +21982,16 @@
       {
         "date": "2020-10-14",
         "RNA_per_ml": 648,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 702,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 702,
         "representative_measurement": true
       }
     ]
@@ -20918,6 +22368,11 @@
         "date": "2020-10-10",
         "RNA_per_ml": 1638,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-10-21",
+        "RNA_per_ml": 3895,
+        "representative_measurement": true
       }
     ]
   },
@@ -20988,6 +22443,16 @@
       {
         "date": "2020-10-16",
         "RNA_per_ml": 712,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 346,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-10-22",
+        "RNA_per_ml": 346,
         "representative_measurement": true
       }
     ]
