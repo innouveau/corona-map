@@ -71,8 +71,7 @@ const stories = [
                             signals appear, such as OMT member Ann Vossen at Jinek
                             April 21st (bottom tweet).
                         </p>
-                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">1/ <br><br>Why are we taking the Dutch government to court on <a href="https://twitter.com/hashtag/COVID19?src=hash&amp;ref_src=twsrc%5Etfw">#COVID19</a>? Because we have among the highest circulation levels worldwide, with barely any safety measures, and this policy:<br><br> <a href="https://t.co/73cgZO09T3">pic.twitter.com/73cgZO09T3</a></p>&mdash; Jaap Stronks (@jaapstronks) <a href="https://twitter.com/jaapstronks/status/1320363681956376576?ref_src=twsrc%5Etfw">October 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>                    `
-                }
+                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Did the Netherlands try to use children to create herd immunity?<br><br>“So we want to keep people getting infected, including children who visit daycares?”<br><br>“Yes, possibly through children ... who will infect each other ... They might infect a father or mother”<a href="https://t.co/g476otObBL">pic.twitter.com/g476otObBL</a></p>&mdash; Dr Zoë Hyde (@DrZoeHyde) <a href="https://twitter.com/DrZoeHyde/status/1321017142578352129?ref_src=twsrc%5Etfw">October 27, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>                }
             }, {
                 title: {
                     nl: 'Oppositie vraagt om helderheid tactiek',
