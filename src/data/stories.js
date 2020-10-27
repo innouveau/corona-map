@@ -52,7 +52,7 @@ const stories = [
                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ah Ann Vossen weer bij Jinek <a href="https://t.co/ERzLSOik56">pic.twitter.com/ERzLSOik56</a></p>&mdash; Jaap Stronks (@jaapstronks) <a href="https://twitter.com/jaapstronks/status/1316111502823378946?ref_src=twsrc%5Etfw">October 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         `,
                     en: `
-                    <p>
+                        <p>
                             After a fierce first wave, with about 10,000 deceased, 
                             including many people in nursing homes, hospital care 
                             that just - with the help of Germany - survived, more 
@@ -71,7 +71,9 @@ const stories = [
                             signals appear, such as OMT member Ann Vossen at Jinek
                             April 21st (bottom tweet).
                         </p>
-                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Did the Netherlands try to use children to create herd immunity?<br><br>“So we want to keep people getting infected, including children who visit daycares?”<br><br>“Yes, possibly through children ... who will infect each other ... They might infect a father or mother”<a href="https://t.co/g476otObBL">pic.twitter.com/g476otObBL</a></p>&mdash; Dr Zoë Hyde (@DrZoeHyde) <a href="https://twitter.com/DrZoeHyde/status/1321017142578352129?ref_src=twsrc%5Etfw">October 27, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>                }
+                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Did the Netherlands try to use children to create herd immunity?<br><br>“So we want to keep people getting infected, including children who visit daycares?”<br><br>“Yes, possibly through children ... who will infect each other ... They might infect a father or mother”<a href="https://t.co/g476otObBL">pic.twitter.com/g476otObBL</a></p>&mdash; Dr Zoë Hyde (@DrZoeHyde) <a href="https://twitter.com/DrZoeHyde/status/1321017142578352129?ref_src=twsrc%5Etfw">October 27, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    `
+                }
             }, {
                 title: {
                     nl: 'Oppositie vraagt om helderheid tactiek',
