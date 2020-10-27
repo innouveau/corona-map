@@ -634,6 +634,34 @@ const stories = [
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/vx9Fd5b7gr0?start=140" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `
                 }
+            }, {
+                title: {
+                    nl: "Dan toch de lockdown",
+                    en: "Finally lockdown"
+                },
+                date: '2020-10-27',
+                dateTitle: {
+                    nl: 'November',
+                    en: "November"
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                       <p>
+                            Dan toch eindelijk de lockdown
+                       </p>
+                    `,
+                    en: `
+                        <p>
+                            Then finally the lockdown is there.
+                       </p>
+                    `
+                }
             }
         ]
     }

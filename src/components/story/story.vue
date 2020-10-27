@@ -83,7 +83,6 @@
                     }
                 }
             },
-
             activeChapter(chapter) {
                 this.currentChapter = chapter;
                 this.selectRegion(chapter);
@@ -106,16 +105,33 @@
                 offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, dateInMs);
                 this.view.offset = offset;
             },
-            init() {
+            measureChapters() {
+                let base, _this;
                 this.measuring = [];
-                for (let chapter of this.chapters) {
-                    this.measuring.push({
-                        top: 0,
-                        bottom: 0,
-                        height: 0,
-                        chapter
-                    })
-                }
+                _this = this;
+                base = $(this.$refs.body).offset().top;
+                $('.story-chapter').each(function(i) {
+                    let top, height;
+                    top = Math.round($(this).offset().top - base);
+                    height = Math.round($(this).outerHeight());
+                    console.log(top);
+                    _this.measuring.push({
+                        top: top,
+                        bottom: (top + height),
+                        chapter: _this.chapters[i]
+                    });
+                });
+            },
+            init() {
+                // this.measuring = [];
+                // for (let chapter of this.chapters) {
+                //     this.measuring.push({
+                //         top: 0,
+                //         bottom: 0,
+                //         height: 0,
+                //         chapter
+                //     })
+                // }
                 $('.story__body').scrollTop(0);
                 this.rewind();
                 this.initScrolly();
@@ -124,6 +140,9 @@
         mounted() {
             twttr.widgets.load();
             this.init();
+            setTimeout(() => {
+                this.measureChapters();
+            })
         },
         watch: {
             currentLanguage: {
@@ -150,13 +169,10 @@
             <div class="story__content">
                 <story-intro
                     :story="story"/>
-                <div
-                    v-if="measuring.length === chapters.length && measuring.length > 0"
-                    class="story__chapters">
+                <div class="story__chapters">
                     <story-chapter
                         v-for="(chapter, index) in chapters"
-                        :chapter="chapter"
-                        :measuring-data="measuring[index]"/>
+                        :chapter="chapter"/>
                 </div>
             </div>
         </div>

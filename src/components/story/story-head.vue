@@ -53,7 +53,7 @@
             },
             limitLength(string) {
                 let l = 24;
-                if (string.length > l) {
+                if (string && string.length > l) {
                     return string.slice(0,l) + '(...)';
                 } else {
                     return string;
