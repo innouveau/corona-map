@@ -24,18 +24,39 @@
         },
         data() {
             return {
-                thresholds: thresholdTools.getThresholds()
+                thresholds: thresholdTools.getThresholds(),
+                show: false
             }
         },
         computed: {
             showTrends() {
                 return this.$store.state.ui.menu === 'trends';
             },
-            show() {
-                return this.view.offset === 0;
+            offset() {
+                return this.view.offset;
             }
         },
-        methods: {}
+        methods: {},
+        watch: {
+            offset: {
+                handler: function () {
+                    if (this.offset === 0) {
+                        setTimeout(() => {
+                            this.show = true;
+                        }, 100)
+                    } else {
+                        this.show = false;
+                    }
+                }
+            }
+        },
+        mounted() {
+            if (this.offset === 0) {
+                setTimeout(() => {
+                    this.show = true;
+                }, 100)
+            }
+        }
     }
 </script>
 
@@ -49,8 +70,6 @@
                 :view="view"/>
             <top-relative-week
                 :view="view"/>
-<!--            <top-absolute-->
-<!--                :view="view"/>-->
             <top-relative
                 :view="view"/>
         </div>
