@@ -567,7 +567,7 @@ const stories = [
             }, {
                 title: {
                     nl: "Een 'Halve' lockdown",
-                    en: "Half lockdown"
+                    en: "The '50% Lockdown'"
                 },
                 date: '2020-10-13',
                 dateTitle: {

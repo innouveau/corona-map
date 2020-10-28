@@ -5,10 +5,12 @@
     import storyHead from "./story-head";
     import storyIntro from "./story-intro";
     import $ from 'jquery';
+    import Loader from "../elements/loader";
 
     export default {
         name: 'story',
         components: {
+            Loader,
             storyIntro,
             storyHead,
             storyChapter,
@@ -23,7 +25,8 @@
                 currentChapter: null,
                 currentRegion: null,
                 currentRegionForAgeGroups: null,
-                measuring: []
+                measuring: [],
+                ready: false
             }
         },
         computed: {
@@ -114,7 +117,6 @@
                     let top, height;
                     top = Math.round($(this).offset().top - base);
                     height = Math.round($(this).outerHeight());
-                    console.log(top);
                     _this.measuring.push({
                         top: top,
                         bottom: (top + height),
@@ -123,26 +125,27 @@
                 });
             },
             init() {
-                // this.measuring = [];
-                // for (let chapter of this.chapters) {
-                //     this.measuring.push({
-                //         top: 0,
-                //         bottom: 0,
-                //         height: 0,
-                //         chapter
-                //     })
-                // }
+                this.ready = false;
                 $('.story__body').scrollTop(0);
                 this.rewind();
                 this.initScrolly();
+                setTimeout(() => {
+                    this.prepairHtml();
+                }, 2000)
+            },
+            prepairHtml() {
+                twttr.widgets.load();
+                setTimeout(() => {
+                    this.measureChapters();
+                });
+                setTimeout(() => {
+                    this.ready = true;
+                }, 2000)
             }
         },
         mounted() {
-            twttr.widgets.load();
             this.init();
-            setTimeout(() => {
-                this.measureChapters();
-            })
+
         },
         watch: {
             currentLanguage: {
@@ -176,6 +179,11 @@
                 </div>
             </div>
         </div>
+        <div
+            v-if="!ready"
+            class="loader__container">
+            <loader/>
+        </div>
     </div>
 </template>
 
@@ -185,6 +193,14 @@
 
     .story {
         height: 100%;
+
+        .loader__container {
+            height: calc(100% - 300px);
+            position: absolute;
+            left: 0;
+            top: 300px;
+            width: 100%;
+        }
 
         .story__body {
             height: calc(100% - 300px);
