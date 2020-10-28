@@ -20,6 +20,7 @@ const maps = [
         title: 'Nederland',
         module: 'cities',
         regionLabel: 'gemeentes',
+        story_id: 1,
         settings: {
             regionTypes: ['city','ggd', 'safety-region', 'province', 'country'],
             pathOrigins: [

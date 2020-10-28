@@ -1,6 +1,6 @@
 import _base from './_base-module';
 import {format, sub} from 'date-fns'
-import { nl, en } from 'date-fns/locale'
+import { nl, enGB } from 'date-fns/locale'
 
 
 const state = {
@@ -52,7 +52,7 @@ const getters = {
                 locale = nl;
                 break;
             default:
-                locale = en;
+                locale = enGB;
                 break;
         }
 

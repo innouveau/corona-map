@@ -100,7 +100,7 @@
             </div>
 
             <div
-                v-if="hasAgeGroups && (regionOfFocus.regionType === 'ggd') && caseDataRequested"
+                v-if="hasAgeGroups && (regionOfFocus.regionType === 'ggd' || regionOfFocus.regionType === 'country') && caseDataRequested"
                 class="region-details__section">
                 <div class="region-details__section-header">
                     {{translate('age-distribution', true)}}

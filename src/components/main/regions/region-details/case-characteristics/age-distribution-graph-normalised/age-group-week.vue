@@ -34,19 +34,23 @@
                 return 7 * this.$store.state.settings.step;
             },
             cases() {
-                let cases, offset, start;
+                let cases, offset, start, ggds, firstGgd;
                 cases = 0;
+                ggds = this.region.getGgds();
+                firstGgd = ggds[0];
                 offset = (this.week * 7) + this.view.offset;
-                start = this.region.ageGroupReport.length - 1 - offset;
+                start = firstGgd.ageGroupReport.length - 1 - offset;
                 for (let i = start; i > start - 7; i--) {
                     let date, day, ageGroup;
                     date = this.$store.getters['ui/getDateByOffset'](offset, 'yyyy-MM-dd');
                     offset++;
-                    day = this.region.ageGroupReport.find(d => d.date === date);
-                    if (day) {
-                        ageGroup = day.ageGroups.find(a => a.title === this.ageGroup.title);
-                        if (ageGroup) {
-                            cases += ageGroup.cases;
+                    for (let ggd of ggds) {
+                        day = ggd.ageGroupReport.find(d => d.date === date);
+                        if (day) {
+                            ageGroup = day.ageGroups.find(a => a.title === this.ageGroup.title);
+                            if (ageGroup) {
+                                cases += ageGroup.cases;
+                            }
                         }
                     }
                 }

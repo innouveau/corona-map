@@ -18,6 +18,7 @@
         methods: {
             select() {
                 this.$store.commit('languages/setCurrent', this.language);
+                this.$store.commit('ui/updateProperty', {key: 'hamburgerMenu', value: false});
             }
         }
     }
