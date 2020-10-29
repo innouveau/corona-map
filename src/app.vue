@@ -49,6 +49,7 @@
             init() {
                 this.initLanguages();
                 this.pickMap();
+                this.readQuery();
             },
             pickMap() {
                 let map;
@@ -63,6 +64,16 @@
                 }
                 this.$store.commit('ui/updateProperty', {key: 'currentRegionType', value: this.currentMap.settings.regionTypes[0]});
                 this.loadData();
+            },
+            readQuery() {
+                let string, signalingSystem;
+                if (this.$route.query.signaling) {
+                    string = decodeURI(this.$route.query.signaling);
+                    signalingSystem = this.$store.getters['signalingSystems/getItemByProperty']('title', string, true);
+                    if (signalingSystem) {
+                        this.$store.commit('signalingSystems/setCurrent', signalingSystem);
+                    }
+                }
             },
             initLanguages() {
                 let language;
