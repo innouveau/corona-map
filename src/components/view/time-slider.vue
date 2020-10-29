@@ -59,7 +59,8 @@
                 :duration="0"/>
             <time-slider-stops
                 :stops="stops"
-                :l="historyLength"/>
+                :l="historyLength"
+                :view="view"/>
         </div>
 
         <time-tools
