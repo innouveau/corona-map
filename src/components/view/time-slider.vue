@@ -19,7 +19,10 @@
             },
             stops: {
                 type: Array,
-                required: false
+                required: false,
+                default() {
+                    return []
+                }
             }
         },
         computed: {

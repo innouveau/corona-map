@@ -509,6 +509,30 @@ const stories = [
                 }
             }, {
                 title: {
+                    nl: "Economisch belangen blijken opschaling testen in de weg te hebben gezeten",
+                    en: ""
+                },
+                date: '2020-09-08',
+                dateTitle: {
+                    nl: 'juni - september',
+                    en: "june - september"
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Het huidige tekort aan coronatesten was te voorzien. Arts-microbiologen in het Outbreak Management Team, lieten het economisch belang van hun beroepsgroep zwaarder wegen dan de volksgezondheid. Dat blijkt uit een reconstructie. <a href="https://t.co/g0Z6h7w2OA">https://t.co/g0Z6h7w2OA</a></p>&mdash; Jan-Hein Strop (@janheinstrop) <a href="https://twitter.com/janheinstrop/status/1304312103596175360?ref_src=twsrc%5Etfw">September 11, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    `,
+                    en: `
+                    <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Het huidige tekort aan coronatesten was te voorzien. Arts-microbiologen in het Outbreak Management Team, lieten het economisch belang van hun beroepsgroep zwaarder wegen dan de volksgezondheid. Dat blijkt uit een reconstructie. <a href="https://t.co/g0Z6h7w2OA">https://t.co/g0Z6h7w2OA</a></p>&mdash; Jan-Hein Strop (@janheinstrop) <a href="https://twitter.com/janheinstrop/status/1304312103596175360?ref_src=twsrc%5Etfw">September 11, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    `
+                }
+            }, {
+                title: {
                     nl: 'Den Haag en regio kijken naar elkaar, niemand grijpt in',
                     en: "Local and central government looking at each other, none interven"
                 },
