@@ -140,7 +140,7 @@
                 });
                 setTimeout(() => {
                     this.ready = true;
-                }, 2000)
+                }, 4000)
             }
         },
         mounted() {

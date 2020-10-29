@@ -593,7 +593,7 @@ const stories = [
                             2. De ouderen beschermen<br>
                             3. Zicht hebben op het virus.
                         </p>
-                        <img height="180" src="assets/img/stories/netherlands/ic-capacity.png">
+                        <img height="240" src="assets/img/stories/netherlands/ic-capacity.png">
                         <br><i>
                             Credits: @YorickB
                         </i>
@@ -619,7 +619,7 @@ const stories = [
                             2. Protecting the elderly<br>
                             3. Keeping sight on the virus.
                         </p>
-                        <img height="180" src="assets/img/stories/netherlands/ic-capacity.png">
+                        <img height="240" src="assets/img/stories/netherlands/ic-capacity.png">
                         <br><i>
                             Credits: @YorickB
                         </i>
