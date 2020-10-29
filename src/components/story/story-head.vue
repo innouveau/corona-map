@@ -45,6 +45,9 @@
             },
             dateString() {
                 return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.settings.testDataInterval), 'dd MMM', this.currentLanguage.iso_code)
+            },
+            dates() {
+                return this.story.chapters.map(chapter => chapter.date);
             }
         },
         methods: {
@@ -110,8 +113,12 @@
                 class="story__region">
                 {{currentRegion.title}}
             </div>
-            <time-slider
-                    :view="view"/>
+            <div class="story__time-slider">
+                <time-slider
+                    :view="view"
+                    :stops="dates"/>
+            </div>
+
         </div>
     </div>
 </template>
@@ -226,11 +233,16 @@
                 font-weight: 700;
             }
 
-            .time-slider {
+            .story__time-slider {
                 height: 52px;
                 padding: 10px 16px;
                 border-top: 1px solid #ddd;
                 width: 100%;
+                position: relative;
+
+                .time-slider {
+                    width: 100%;
+                }
             }
         }
 

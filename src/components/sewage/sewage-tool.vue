@@ -16,16 +16,19 @@
                 settings: {
                     width: 8,
                     margin: 2,
-                    start: 70,
+                    start: 42,
                     end: 0,
                     calibration: 30,
-                    population: 0,
+                    population: 160000,
                     search: '',
                     ignoreOutliers: true
                 }
             }
         },
         computed: {
+            dateRangeIsShort() {
+                return this.settings.start - this.settings.end <= 42;
+            },
             currentDateOffset() {
                 return this.$store.state.settings.currentDateOffset;
             },
@@ -60,7 +63,9 @@
     <div class="sewage-tool">
         <sewage-date
             :settings="settings"/>
-        <div class="sewage-tool__cities">
+        <div
+            :class="{'sewage-tool__cities--short': dateRangeIsShort}"
+            class="sewage-tool__cities">
             <sewage-city
                 v-for="city in cities"
                 :city="city"
@@ -87,6 +92,12 @@
         .sewage-tool__cities {
             height: calc(100% - 180px);
             overflow: auto;
+
+            &.sewage-tool__cities--short {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
         }
 
         .sewage-totals {

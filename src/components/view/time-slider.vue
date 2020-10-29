@@ -3,10 +3,12 @@
     import 'vue-slider-component/theme/default.css'
     import timeTools from "./time-tools";
     import View from '@/classes/View';
+    import timeSliderStops from "./time-slider-stops";
 
     export default {
         name: 'time-slider',
         components: {
+            timeSliderStops,
             timeTools,
             VueSlider
         },
@@ -14,6 +16,10 @@
             view: {
                 type: View,
                 required: true
+            },
+            stops: {
+                type: Array,
+                required: false
             }
         },
         computed: {
@@ -51,6 +57,9 @@
                 :interval="1"
                 :tooltip-formatter="date"
                 :duration="0"/>
+            <time-slider-stops
+                :stops="stops"
+                :l="historyLength"/>
         </div>
 
         <time-tools
@@ -71,9 +80,19 @@
 
         .vue-slider__container {
             width: calc(100% - 120px);
+            position: relative;
 
             .vue-slider {
                 margin-right: 20px;
+            }
+
+            .time-slider-stops {
+                pointer-events: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: calc(100% - 20px);
+                height: 100%;
             }
         }
     }
