@@ -4,10 +4,13 @@
     import timeTools from "./time-tools";
     import View from '@/classes/View';
     import timeSliderStops from "./time-slider-stops";
+    import _Region from "../../classes/_Region";
+    import TimeSliderGraph from "./time-slider-graph";
 
     export default {
         name: 'time-slider',
         components: {
+            TimeSliderGraph,
             timeSliderStops,
             timeTools,
             VueSlider
@@ -23,6 +26,11 @@
                 default() {
                     return []
                 }
+            },
+            showGraph: {
+                type: Boolean,
+                required: false,
+                default: false
             }
         },
         computed: {
@@ -61,8 +69,12 @@
                 :tooltip-formatter="date"
                 :duration="0"/>
             <time-slider-stops
+                v-if="stops.length > 0"
                 :stops="stops"
                 :l="historyLength"
+                :view="view"/>
+            <time-slider-graph
+                v-if="showGraph && view.currentRegion"
                 :view="view"/>
         </div>
 
@@ -97,6 +109,17 @@
                 top: 0;
                 width: calc(100% - 20px);
                 height: 100%;
+                z-index: 1;
+            }
+
+            .time-slider-graph {
+                pointer-events: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: calc(100% - 20px);
+                height: calc(50% - 2px);
+                z-index: 0;
             }
         }
     }

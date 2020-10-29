@@ -7,13 +7,12 @@
     import _Region from "@/classes/_Region";
     import Chapter from "@/classes/story/Chapter";
     import Story from "@/classes/story/Story";
-    import RegionDetailsShort
-        from "../main/regions/region-details/region-details-short";
+    import regionDetailsShort from "../main/regions/region-details/region-details-short";
 
     export default {
         name: 'story-head',
         components: {
-            RegionDetailsShort,
+            regionDetailsShort,
             positiveTests,
             timeSlider,
             mapSignaling
@@ -78,14 +77,6 @@
                     </span>
             </div>
             <div class="story__map">
-                <div
-                        v-if="view.currentRegion"
-                        class="story__region-container">
-                    <region-details-short
-                        :view="view"
-                        :region="view.currentRegion"/>
-                </div>
-
                 <map-signaling
                     :show-tools="true"
                     :show-legend="true"
@@ -101,11 +92,11 @@
             <div class="story__graphs">
                 <div class="story__tests">
                     <positive-tests
-                            v-if="currentRegion"
-                            :view="view"
-                            :region="currentRegion"
-                            :weeks="4"
-                            :height="190"/>
+                        v-if="currentRegion"
+                        :view="view"
+                        :region="currentRegion"
+                        :weeks="4"
+                        :height="190"/>
                 </div>
             </div>
             <div
@@ -116,7 +107,8 @@
             <div class="story__time-slider">
                 <time-slider
                     :view="view"
-                    :stops="dates"/>
+                    :stops="dates"
+                    :show-graph="true"/>
             </div>
 
         </div>

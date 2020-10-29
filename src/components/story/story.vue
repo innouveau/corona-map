@@ -23,8 +23,6 @@
                 interval: null,
                 scroll: 0,
                 currentChapter: null,
-                currentRegion: null,
-                currentRegionForAgeGroups: null,
                 measuring: [],
                 ready: false
             }
@@ -94,10 +92,10 @@
                 if (chapter.selection.tests) {
                     let region = this.$store.getters[chapter.selection.tests.module + '/getItemByProperty']('title', chapter.selection.tests.title, true);
                     if (region) {
-                        this.currentRegion = region;
+                        this.view.currentRegion = region;
                     }
                 } else {
-                    this.currentRegion = null;
+                    this.view.currentRegion = null;
                 }
             },
             rewind() {
@@ -163,7 +161,7 @@
     <div class="story">
         <story-head
             :view="view"
-            :current-region="currentRegion"
+            :current-region="view.currentRegion"
             :current-chapter="currentChapter"
             :story="story"/>
         <div
