@@ -39,7 +39,6 @@ const loadRegions = function() {
     $.getJSON( "regions.json", function( data ) {
         for (let item of data.features) {
             let region, paths, found;
-
             if (item.id.indexOf('ES') > -1) {
                 console.log(item.id + ' ' + item.properties.NAME_LATN);
             }
