@@ -1,34 +1,31 @@
 <script>
-    import sewageDate from "./sewage-date";
+    import sewageTools from "./sewage-tools";
     import sewageCity from "./sewage-city";
-    import sewageTotals from "./sewage-totals";
+    import sewageTotals from "./totals/sewage-totals";
 
     export default {
-        name: 'sewage-tool',
+        name: 'sewage',
         components: {
             sewageTotals,
             sewageCity,
-            sewageDate
+            sewageTools
         },
         props: {},
         data() {
             return {
                 settings: {
                     width: 8,
-                    margin: 2,
-                    start: 42,
+                    margin: 1,
+                    start: 56,
                     end: 0,
-                    calibration: 30,
-                    population: 160000,
+                    calibration: 50,
+                    population: 0,
                     search: '',
                     ignoreOutliers: true
                 }
             }
         },
         computed: {
-            dateRangeIsShort() {
-                return this.settings.start - this.settings.end <= 42;
-            },
             currentDateOffset() {
                 return this.$store.state.settings.currentDateOffset;
             },
@@ -60,12 +57,10 @@
 
 
 <template>
-    <div class="sewage-tool">
-        <sewage-date
+    <div class="sewage">
+        <sewage-tools
             :settings="settings"/>
-        <div
-            :class="{'sewage-tool__cities--short': dateRangeIsShort}"
-            class="sewage-tool__cities">
+        <div class="sewage__cities">
             <sewage-city
                 v-for="city in cities"
                 :city="city"
@@ -81,27 +76,21 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .sewage-tool {
+    .sewage {
         height: 100%;
 
-        .sewage-date {
+        .sewage-tools {
             height: 60px;
             border-bottom: 1px solid #ddd;
         }
 
-        .sewage-tool__cities {
-            height: calc(100% - 180px);
+        .sewage__cities {
+            height: calc(50% - 60px);
             overflow: auto;
-
-            &.sewage-tool__cities--short {
-                display: flex;
-                flex-wrap: wrap;
-            }
-
         }
 
         .sewage-totals {
-            height: 120px;
+            height: 50%;
             border-top: 1px solid #ddd;
         }
     }

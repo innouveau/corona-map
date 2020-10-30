@@ -31,7 +31,7 @@
         },
         methods: {
             getRelative(value) {
-                return 100000 * value / this.city.population;
+                return 50000 * value / this.city.population;
             }
         }
     }
@@ -54,12 +54,6 @@
                 class="sewage-city-positive-test__bar">
             </div>
         </div>
-
-        <div class="sewage-city-positive-tests__average">
-            <b>Positieve testen</b><br>
-            Gemiddeld per 7 dagen<br>
-            {{average}}
-        </div>
     </div>
 </template>
 
@@ -81,10 +75,6 @@
             .sewage-city-positive-test__bar {
                 background: red;
             }
-        }
-
-        .sewage-city-positive-tests__average {
-            padding: 4px;
         }
     }
 </style>

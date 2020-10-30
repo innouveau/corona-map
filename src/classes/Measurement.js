@@ -15,15 +15,47 @@ class Measurement {
         this.representative_measurement = representative_measurement;
     }
 
+    get value() {
+        return this.RNA_per_ml;
+    }
+
+    get unreliable() {
+        return this.value > 10000;
+    }
+
+    get previous() {
+        let index = this.sewageTreatmentPlant.measurements.indexOf(this);
+        if (index > 0) {
+            return this.sewageTreatmentPlant.measurements[index - 1];
+        } else {
+            return null;
+        }
+    }
+
+    get next() {
+        let index, next;
+        index = this.sewageTreatmentPlant.measurements.indexOf(this);
+        if (index < this.sewageTreatmentPlant.measurements.length - 1) {
+            next = this.sewageTreatmentPlant.measurements[index + 1];
+            // skip measurement on same day
+            if (next.dateOffset === this.dateOffset) {
+                return next.next;
+            } else {
+                return next;
+            }
+        } else {
+            return null;
+        }
+    }
+
     get isOutlier() {
         let index, previous, next, previousValue, nextValue, thisValue, factor, minValue;
         factor = 3;
         minValue = 1000;
         thisValue = this.RNA_per_ml;
         if (thisValue > minValue) {
-            index = this.sewageTreatmentPlant.measurements.indexOf(this);
-            previous = this.sewageTreatmentPlant.measurements[index - 1];
-            next = this.sewageTreatmentPlant.measurements[index + 1];
+            previous = this.previous;
+            next = this.next;
             if (!previous || !next) {
                 if (previous) {
                     previousValue = previous.RNA_per_ml;

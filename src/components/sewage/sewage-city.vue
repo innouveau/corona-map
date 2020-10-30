@@ -1,7 +1,7 @@
 <script>
     import City from "@/classes/City";
     import sewageCityPositiveTests from "./sewage-city-positive-tests";
-    import sewageCitySewage from "./sewage-city-sewage";
+    import sewageCitySewage from "./sewage/sewage-city-sewage";
 
     export default {
         name: 'sewage-city',
@@ -59,32 +59,16 @@
         padding: 4px 0;
         background: #fff;
         box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        position: relative;
 
         .sewage-city__title {
-            width: 100px;
-            padding: 10px;
-            font-size: 15px;
-            font-weight: 700;
-        }
-
-        .sewage-city__content {
-            //display: flex;
+            position: absolute;
+            left: 4px;
+            top: 4px;
         }
 
         &:last-child {
             border-bottom: 0;
-        }
-    }
-
-    .sewage-tool__cities--short {
-
-        .sewage-city {
-            margin-right: 16px;
-
-            .sewage-city-positive-tests__average,
-            .sewage-city-sewage__title {
-                display: none;
-            }
         }
     }
 </style>

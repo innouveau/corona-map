@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import main from '@/components/main/main-view'
-import sewageTools from '@/components/sewage/sewage-tools'
+import sewage from '@/components/sewage/sewage'
 import compare from '@/components/compare/compare'
 import timeLine from '@/components/time-line/time-line'
 import change from '@/components/change/change'
@@ -22,7 +22,7 @@ const routes = [
     }, {
         path: "/riool",
         name: "riool",
-        component: sewageTools,
+        component: sewage,
     }, {
         path: "/compare",
         name: "compare",

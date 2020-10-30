@@ -1,4 +1,5 @@
 import Measurement from "./Measurement";
+import store from '@/store/store';
 
 class SewageTreatmentPlant {
     constructor({
@@ -19,6 +20,57 @@ class SewageTreatmentPlant {
         this.securityRegion_name = securityRegion_name;
         this.capacity = capacity;
         this.measurements = measurements.map(m => new Measurement(m, this));
+    }
+
+    getMeasurementByOffset(offset) {
+        return this.measurements.find(m => m.dateOffset === offset);
+    }
+
+    get calculatedMeasurements() {
+        let length, measurements, lastMeasurement, unreliable;
+        lastMeasurement = null;
+        measurements = [];
+        length = store.state.settings.historyLength;
+        for (let i = length; i > -1; i--) {
+            let measurement, value;
+            measurement = this.getMeasurementByOffset(i);
+            if (measurement) {
+                value = measurement.value;
+                unreliable = measurement.unreliable;
+            } else {
+                if (!lastMeasurement) {
+                    // before first measurement
+                    value = null;
+                    unreliable = null;
+                } else {
+                    let range, step, nextMeasurement, share, difference;
+                    nextMeasurement = lastMeasurement.next;
+                    if (nextMeasurement) {
+                        range = lastMeasurement.dateOffset - nextMeasurement.dateOffset;
+                        step = i - nextMeasurement.dateOffset;
+                        share = step / range;
+                        difference = lastMeasurement.value - nextMeasurement.value;
+                        value = nextMeasurement.value + share * difference;
+                        unreliable = nextMeasurement.unreliable || lastMeasurement.unreliable;
+                    } else {
+                        // after last measuremtent
+                        value = null;
+                        unreliable = null;
+                    }
+                }
+            }
+
+            measurements.push({
+                offset: i,
+                value,
+                interpreted: !measurement,
+                unreliable: unreliable,
+            });
+            if (measurement) {
+                lastMeasurement = measurement;
+            }
+        }
+        return measurements;
     }
 }
 
