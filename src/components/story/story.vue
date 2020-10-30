@@ -24,7 +24,9 @@
                 scroll: 0,
                 currentChapter: null,
                 measuring: [],
-                ready: false
+                ready: false,
+                scrollTimeout: null,
+                isScrolling: false
             }
         },
         computed: {
@@ -38,8 +40,8 @@
             chapters() {
                 return this.story.chapters;
             },
-            tops() {
-                return this.measuring.map(m => m.height);
+            offset() {
+                return this.view.offset;
             }
         },
         methods: {
@@ -50,37 +52,35 @@
                 let body = this.$refs.body;
                 $(body).scroll(() => {
                     let scroll = $(body).scrollTop();
-                    this.setScrol(scroll);
+                    this.scrollStart();
+                    this.setOffsetByScrol(scroll);
                 })
             },
-            setScrol(scroll) {
-                let chapterItem;
-                const getChapterItem = (scroll) => {
-                    for (let chapterItem of this.measuring) {
-                        if (scroll >= chapterItem.top && scroll < chapterItem.bottom) {
-                            return chapterItem;
-                        }
-                    }
-                };
+            scrollStart() {
+                this.isScrolling = true;
+                clearTimeout(this.scrollTimeout);
+                this.scrollTimeout = setTimeout(() => {
+                    this.isScrolling = false;
+                }, 100)
+            },
+            setOffsetByScrol(scroll) {
+                let chapter = this.story.getChapterByScroll(scroll);
 
-                chapterItem = getChapterItem(scroll);
-                if (chapterItem) {
-                    let percentage, dateInMs, chapter, chapterIndex, nextChapter, offsetChapter, offsetNextChapter, offset;
-                    percentage = (scroll - chapterItem.top) / (chapterItem.bottom - chapterItem.top);
-                    chapter = chapterItem.chapter;
-                    chapterIndex = this.measuring.indexOf(chapterItem);
-                    offsetChapter = dateTools.getDateOffset(this.$store.state.ui.todayInMs,  new Date(chapter.date).getTime());
-                    if (chapterIndex < this.measuring.length - 1) {
-                        nextChapter = this.measuring[chapterIndex + 1].chapter;
-                        offsetNextChapter = dateTools.getDateOffset(this.$store.state.ui.todayInMs,  new Date(nextChapter.date).getTime());
-                        offset = offsetChapter - Math.round(percentage * (offsetChapter - offsetNextChapter ));
-                        this.view.offset = offset;
-                    } else {
-                        this.view.offset = offsetChapter;
+                if (chapter) {
+                    this.view.offset = chapter.getOffsetByScroll(scroll);
+                    if (chapter !== this.currentChapter) {
+                        this.activeChapter(chapter);
                     }
-
-                    if (chapterItem.chapter !== this.currentChapter) {
-                        this.activeChapter(chapterItem.chapter)
+                }
+            },
+            setScrollByOffset(offset) {
+                if (!this.isScrolling) {
+                    let chapter = this.story.getChapterByOffset(offset);
+                    if (chapter && chapter !== this.currentChapter) {
+                        //let scroll = chapter.getScrollByOffset(offset);
+                        $('.story__body').scrollTop(chapter.ui.top - 40);
+                        //$('.story__body').animate({ scrollTop: chapter.ui.top });
+                        this.activeChapter(chapter);
                     }
                 }
             },
@@ -108,18 +108,16 @@
             },
             measureChapters() {
                 let base, _this;
-                this.measuring = [];
                 _this = this;
                 base = $(this.$refs.body).offset().top;
                 $('.story-chapter').each(function(i) {
                     let top, height;
                     top = Math.round($(this).offset().top - base);
                     height = Math.round($(this).outerHeight());
-                    _this.measuring.push({
+                    _this.chapters[i].ui = {
                         top: top,
-                        bottom: (top + height),
-                        chapter: _this.chapters[i]
-                    });
+                        bottom: (top + height)
+                    };
                 });
             },
             init() {
@@ -149,6 +147,14 @@
             currentLanguage: {
                 handler: function() {
                     this.init();
+                },
+                deep: true
+            },
+            offset: {
+                handler: function() {
+                    if (this.view) {
+                        this.setScrollByOffset(this.view.offset);
+                    }
                 },
                 deep: true
             }

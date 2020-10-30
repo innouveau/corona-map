@@ -31,10 +31,10 @@
         <div class="story-chapter__header">
             {{getTranslatedItem(chapter.title)}}
         </div>
-        <div
-            v-html="getTranslatedItem(chapter.content)"
-            class="story-chapter__content"></div>
-<!--        <div class="story-chapter__content">{{getTranslatedItem(chapter.content)}}</div>-->
+<!--        <div-->
+<!--            v-html="getTranslatedItem(chapter.content)"-->
+<!--            class="story-chapter__content"></div>-->
+        <div class="story-chapter__content">{{getTranslatedItem(chapter.content)}}</div>
     </div>
 </template>
 
