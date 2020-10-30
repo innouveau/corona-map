@@ -320,38 +320,6 @@ const maps = [
             sewageTreatmentPlants: ''
         }
     }, {
-        id: 9,
-        ready: true,
-        regionType: 'District',
-        module: 'districts',
-        title: 'Central Europe',
-        settings: {
-            regionTypes: ['district'],
-            pathOrigins: [],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: false,
-            testDataCumulative: true,
-            testDataInterval: 1,
-            generalInfoHasPopulation: true,
-            testAdapter: standardTestAdapter,
-            map: {
-                latitude: 47,
-                longitude: 6,
-                stretch: 0.62,
-                zoom: 0.062,
-                ratio: 1.15
-            },
-            caseSettings: caseSettings
-        },
-        url: {
-            tests: casesUrl,
-            regions: 'data/maps/central-europe/central-europe.json',
-            ageGroups: '',
-            sewageTreatmentPlants: ''
-        }
-    }, {
         id: 10,
         ready: true,
         regionType: 'District',
