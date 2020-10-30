@@ -219,6 +219,10 @@ const dictionary = {
         nl: "7 dagen geleden",
         en: "7 days back"
     },
+    "show-trend": {
+        nl: "Toon trends",
+        en: "Show trends"
+    },
     "signal-value": {
         nl: "Signaalwaarde",
         en: "Signal value"
@@ -254,6 +258,10 @@ const dictionary = {
     "traffic-light": {
         nl: "Stoplicht",
         en: "Traffic light"
+    },
+    "show-notification": {
+        nl: "Het tonen van trends maakt de user interface wat langzaam, daarom staan ze standaard uit",
+        en: "Showing trends does make the user interface a bit slow, they are disabled by default"
     },
     "with-more-than": {
         nl: "Met meer dan",

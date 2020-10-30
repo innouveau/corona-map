@@ -16,14 +16,28 @@
             }
         },
         computed: {
-            showTrends() {
+            isTrendPanel() {
                 return this.$store.state.ui.menu === 'trends';
             },
-            show() {
-                return this.view.offset < 2;
+            offset() {
+                return this.view.offset;
+            },
+            showTrends() {
+                return this.$store.state.ui.showTrends;
             }
         },
-        methods: {}
+        methods: {
+            doShowTrends(){
+                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: true});
+            }
+        },
+        watch: {
+            offset: {
+                handler: function () {
+                    this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
+                }
+            }
+        },
     }
 </script>
 
@@ -32,11 +46,23 @@
     <div
         :class="{'panel--active': showTrends}"
         class="change-trends trends panel">
-        <div v-if="show">
+        <div v-if="showTrends">
             <regions-growth
                 :view="view"/>
             <regions-shrinkage
                 :view="view"/>
+        </div>
+        <div v-else>
+            <p>
+                {{translate('show-notification')}}
+            </p>
+            <div class="buttons">
+                <div
+                        @click="doShowTrends()"
+                        class="button">
+                    {{translate('show-trend')}}
+                </div>
+            </div>
         </div>
     </div>
 </template>

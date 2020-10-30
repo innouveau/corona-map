@@ -13,6 +13,7 @@ const state = {
     hoverValue: '',
     menu: 'map',
     videoMode: false,
+    showTrends: false,
 
     // time
     isPlaying: false,

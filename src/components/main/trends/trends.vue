@@ -24,37 +24,30 @@
         },
         data() {
             return {
-                thresholds: thresholdTools.getThresholds(),
-                show: false
+                thresholds: thresholdTools.getThresholds()
             }
         },
         computed: {
-            showTrends() {
+            isTrendPanel() {
                 return this.$store.state.ui.menu === 'trends';
             },
             offset() {
                 return this.view.offset;
+            },
+            showTrends() {
+                return this.$store.state.ui.showTrends;
             }
         },
-        methods: {},
+        methods: {
+            doShowTrends(){
+                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: true});
+            }
+        },
         watch: {
             offset: {
                 handler: function () {
-                    if (this.offset === 0) {
-                        setTimeout(() => {
-                            this.show = true;
-                        }, 100)
-                    } else {
-                        this.show = false;
-                    }
+                    this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
                 }
-            }
-        },
-        mounted() {
-            if (this.offset === 0) {
-                setTimeout(() => {
-                    this.show = true;
-                }, 100)
             }
         }
     }
@@ -63,15 +56,29 @@
 
 <template>
     <div
-        :class="{'panel--active': showTrends}"
+        :class="{'panel--active': isTrendPanel}"
         class="trends panel">
-        <div v-if="show">
-            <threshold-regions
-                :view="view"/>
+        <threshold-regions
+            v-if="offset === 0 || showTrends"
+            :view="view"/>
+        <div v-if="showTrends">
+
             <top-relative-week
                 :view="view"/>
             <top-relative
                 :view="view"/>
+        </div>
+        <div v-else>
+            <p>
+                {{translate('show-notification')}}
+            </p>
+            <div class="buttons">
+                <div
+                        @click="doShowTrends()"
+                        class="button">
+                    {{translate('show-trend')}}
+                </div>
+            </div>
         </div>
     </div>
 </template>
