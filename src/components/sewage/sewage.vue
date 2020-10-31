@@ -18,8 +18,9 @@
                     margin: 1,
                     start: 56,
                     end: 0,
-                    calibration: 50,
-                    population: 0,
+                    calibration: 100,
+                    minPopulation: 0,
+                    maxPopulation: 50000,
                     search: '',
                     ignoreOutliers: true
                 }
@@ -45,7 +46,7 @@
                                 return measurement.dateOffset <= this.settings.start && measurement.dateOffset >= this.settings.end;
                             }).length > 0;
                         });
-                        return city.population >= this.settings.population && (search.length === 0 || cityTitle.indexOf(search) > -1) && sewageTreatmentPlantsMatchingDate.length > 0;
+                        return city.population >= this.settings.minPopulation && city.population <= this.settings.maxPopulation && (search.length === 0 || cityTitle.indexOf(search) > -1) && sewageTreatmentPlantsMatchingDate.length > 0;
                     }
 
                 }).sort((a,b) => (a.getRelativeIncreaseWeek() > b.getRelativeIncreaseWeek()) ? -1 : ((b.getRelativeIncreaseWeek() > a.getRelativeIncreaseWeek()) ? 1 : 0));

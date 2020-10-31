@@ -59,7 +59,10 @@
             <input v-model="settings.search" placeholder="Zoek...">
         </div>
         <div class="sewage-tools__section">
-            <input type="number" v-model.number="settings.population"> min. inwoners
+            <input type="number" v-model.number="settings.minPopulation"> min. inwoners max
+        </div>
+        <div class="sewage-tools__section">
+            <input type="number" v-model.number="settings.maxPopulation">
         </div>
 <!--        <div class="sewage-tools__section">-->
 <!--            <input type="checkbox" v-model="settings.ignoreOutliers"> Negeer uitschieters-->
