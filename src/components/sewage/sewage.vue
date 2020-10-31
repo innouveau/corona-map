@@ -14,14 +14,14 @@
         data() {
             return {
                 settings: {
-                    width: 8,
+                    width: 4,
                     margin: 1,
                     start: 56,
                     end: 0,
                     calibration: 100,
                     minPopulation: 0,
-                    maxPopulation: 50000,
-                    search: '',
+                    maxPopulation: 1000000,
+                    search: 'Amsterdam',
                     ignoreOutliers: true
                 }
             }
@@ -79,20 +79,31 @@
 
     .sewage {
         height: 100%;
+        display: flex;
 
         .sewage-tools {
-            height: 60px;
-            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            width: 200px;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            background: #fff;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.2);
         }
 
         .sewage__cities {
-            height: calc(50% - 60px);
+            width: calc(50% - 10px);
+            border-right: 1px solid #ddd;
             overflow: auto;
+            height: 100%;
+            padding: 16px;
         }
 
         .sewage-totals {
-            height: 50%;
-            border-top: 1px solid #ddd;
+            width: calc(50% - 100px);
+            overflow: auto;
+            height: 100%;
+            padding: 16px;
         }
     }
 </style>

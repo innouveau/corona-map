@@ -42,30 +42,52 @@
 <template>
     <div class="sewage-tools">
         <div class="sewage-tools__section">
-            <datepicker
-                :value="startDate"
-                @input="updateStart"/>
-                t/m
+            <div class="sewage-tools__label">
+                Van
+            </div>
+            <div class="sewage-tools__value">
+                <datepicker
+                    :value="startDate"
+                    @input="updateStart"/>
+            </div>
         </div>
         <div class="sewage-tools__section">
-            <datepicker
-                :value="endDate"
-                @input="updateEnd"/>
+            <div class="sewage-tools__label">
+                Tot
+            </div>
+            <div class="sewage-tools__value">
+                <datepicker
+                    :value="endDate"
+                    @input="updateEnd"/>
+            </div>
+        </div>
+        <div class="sewage-tools__section">
+            <div class="sewage-tools__label">
+                Zoek
+            </div>
+            <div class="sewage-tools__value">
+                <input v-model="settings.search" placeholder="Zoek...">
+            </div>
+        </div>
+        <div class="sewage-tools__section">
+            <div class="sewage-tools__label">
+                Min. inwoners
+            </div>
+            <div class="sewage-tools__value">
+                <input type="number" v-model.number="settings.minPopulation">
+            </div>
+        </div>
+        <div class="sewage-tools__section">
+            <div class="sewage-tools__label">
+                Max. inwoners
+            </div>
+            <div class="sewage-tools__value">
+                <input type="number" v-model.number="settings.maxPopulation">
+            </div>
         </div>
 <!--        <div class="sewage-tools__section">-->
-<!--            <input type="number" v-model.number="settings.calibration"> Calibratie-->
-<!--        </div>-->
-        <div class="sewage-tools__section">
-            <input v-model="settings.search" placeholder="Zoek...">
-        </div>
-        <div class="sewage-tools__section">
-            <input type="number" v-model.number="settings.minPopulation"> min. inwoners max
-        </div>
-        <div class="sewage-tools__section">
-            <input type="number" v-model.number="settings.maxPopulation">
-        </div>
-<!--        <div class="sewage-tools__section">-->
-<!--            <input type="checkbox" v-model="settings.ignoreOutliers"> Negeer uitschieters-->
+<!--            <input type="number" v-model.number="settings.calibration">-->
+<!--            <input type="checkbox" v-model="settings.ignoreOutliers">-->
 <!--        </div>-->
     </div>
 </template>
@@ -75,31 +97,25 @@
     @import '@/styles/variables.scss';
 
     .sewage-tools {
-        display: flex;
 
         .sewage-tools__section {
             padding: 12px;
-            display: flex;
-            align-items: center;
+            border-bottom: 1px solid #ddd;
 
-            &:first-child {
-                padding-right: 0;
+            .sewage-tools__label {
+                margin-bottom: 2px;
             }
 
-            &:nth-child(2) {
-                padding-left: 4px;
-            }
+            .sewage-tools__value {
 
-            input {
-                margin-right: 4px;
+                input {
+                    width: 100%;
+                    background: #abddff;
+                }
             }
 
             .vdp-datepicker {
 
-                input {
-                    background: #abddff;
-                    width: 100px;
-                }
             }
         }
     }
