@@ -23,7 +23,8 @@
                     maxPopulation: 1000000,
                     search: 'XXXXX',
                     ignoreOutliers: true,
-                    provinces: ["PV20", "PV21", "PV22", "PV27"]
+                    provinces: ["PV20", "PV21", "PV22", "PV27"],
+                    regios: ["Noord"]
                     //provinces: ["PV20", "PV21", "PV22", "PV23", "PV24", "PV25", "PV26", "PV27", "PV28", "PV29", "PV30", "PV31"]
                 }
             }
