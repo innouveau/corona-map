@@ -1,5 +1,5 @@
 <script>
-    import sewageTools from "./sewage-tools";
+    import sewageTools from "./tools/sewage-tools";
     import sewageCity from "./sewage-city";
     import sewageTotals from "./totals/sewage-totals";
 
@@ -18,11 +18,13 @@
                     margin: 1,
                     start: 56,
                     end: 0,
-                    calibration: 100,
+                    calibration: 50,
                     minPopulation: 0,
                     maxPopulation: 1000000,
-                    search: 'Amsterdam',
-                    ignoreOutliers: true
+                    search: 'XXXXX',
+                    ignoreOutliers: true,
+                    provinces: ["PV20", "PV21", "PV22", "PV27"]
+                    //provinces: ["PV20", "PV21", "PV22", "PV23", "PV24", "PV25", "PV26", "PV27", "PV28", "PV29", "PV30", "PV31"]
                 }
             }
         },
@@ -32,27 +34,61 @@
             },
             cities() {
                 return this.$store.state.cities.all.filter(city => {
-                    let sewageTreatmentPlants, sewageTreatmentPlantsMatchingDate, cityTitle, search;
-                    cityTitle = city.title.toLowerCase();
-                    search = this.settings.search.toLowerCase();
-                    if (search.length > 0 && cityTitle.indexOf(search) === -1) {
-                        return false;
-                    } else {
-                        sewageTreatmentPlants = this.$store.state.sewageTreatmentPlants.all.filter(s => {
-                            return s.city_code === city.identifier;
-                        });
-                        sewageTreatmentPlantsMatchingDate = sewageTreatmentPlants.filter(s => {
-                            return s.measurements.filter(measurement => {
-                                return measurement.dateOffset <= this.settings.start && measurement.dateOffset >= this.settings.end;
-                            }).length > 0;
-                        });
-                        return city.population >= this.settings.minPopulation && city.population <= this.settings.maxPopulation && (search.length === 0 || cityTitle.indexOf(search) > -1) && sewageTreatmentPlantsMatchingDate.length > 0;
-                    }
-
-                }).sort((a,b) => (a.getRelativeIncreaseWeek() > b.getRelativeIncreaseWeek()) ? -1 : ((b.getRelativeIncreaseWeek() > a.getRelativeIncreaseWeek()) ? 1 : 0));
+                    return this.matchesSearch(city)
+                        && this.matchesProvinces(city)
+                        && this.matchesPopulation(city)
+                        && this.hasMeasurementsInPeriod(city);
+                })
+                //.sort((a,b) => (a.getRelativeIncreaseWeek() > b.getRelativeIncreaseWeek()) ? -1 : ((b.getRelativeIncreaseWeek() > a.getRelativeIncreaseWeek()) ? 1 : 0));
             },
         },
-        methods: {}
+        methods: {
+            matchesProvinces(city) {
+                return this.settings.provinces.indexOf(city.province_code) > -1;
+            },
+            hasMeasurementsInPeriod(city) {
+                let sewageTreatmentPlants, sewageTreatmentPlantsMatchingDate;
+                sewageTreatmentPlants = this.$store.state.sewageTreatmentPlants.all.filter(s => {
+                    return s.city_code === city.identifier;
+                });
+                sewageTreatmentPlantsMatchingDate = sewageTreatmentPlants.filter(s => {
+                    return s.measurements.filter(measurement => {
+                        return measurement.dateOffset <= this.settings.start && measurement.dateOffset >= this.settings.end;
+                    }).length > 0;
+                });
+                return sewageTreatmentPlantsMatchingDate.length > 0;
+            },
+            matchesSearch(city) {
+                let search, cityTitle;
+                search = this.settings.search.toLowerCase();
+                cityTitle = city.title.toLowerCase();
+                return search.length === 0 || cityTitle.indexOf(search) > -1
+            },
+            matchesPopulation(city) {
+                return city.population >= this.settings.minPopulation && city.population <= this.settings.maxPopulation;
+            },
+            addRegions() {
+                let cities, northProvinces, northExceptions, northCities;
+                cities = [];
+                northProvinces = ['PV22', 'PV24', 'PV21', 'PV20', 'PV27', 'PV23'];
+                northExceptions = ['Zeewolde'];
+                northCities = ['Hattem', 'Eemnes'];
+                for (let city of this.$store.state.cities.all) {
+                    let c = city.export();
+                    if ((northProvinces.indexOf(city.province_code) > -1 && northExceptions.indexOf(city.title) === -1) || northCities.indexOf(city.title) > -1) {
+                        c.regio_title = 'Noord';
+
+                    } else {
+                        c.regio_title = 'Niet-Noord';
+                    }
+                    cities.push(c);
+                }
+                console.log(JSON.stringify(cities));
+            }
+        },
+        mounted() {
+            this.addRegions();
+        }
     }
 </script>
 
@@ -89,6 +125,7 @@
             z-index: 1;
             background: #fff;
             box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+            overflow: auto;
         }
 
         .sewage__cities {

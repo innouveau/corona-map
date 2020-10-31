@@ -12,6 +12,7 @@
     import ggds from '@/data/ggds';
     import safetyRegions from '@/data/safety-regions';
     import provinces from '@/data/provinces';
+    import regios from '@/data/regios';
     import countries from '@/data/countries';
     import ageGroups from '@/data/age-groups';
     import signalingSystems from '@/data/signaling-systems';
@@ -94,6 +95,7 @@
                 this.$store.commit('ggds/init', ggds);
                 this.$store.commit('safetyRegions/init', safetyRegions);
                 this.$store.commit('provinces/init', provinces);
+                this.$store.commit('regios/init', regios);
                 this.$store.commit('ageGroups/init', ageGroups);
                 this.loadRegions();
             },

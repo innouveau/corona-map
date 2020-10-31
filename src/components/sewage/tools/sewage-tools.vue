@@ -1,16 +1,22 @@
 <script>
     import Datepicker from 'vuejs-datepicker';
     import dateTools from '@/tools/date';
+    import sewageToolsProvinces from "./sewage-tools-provinces";
 
     export default {
         name: 'sewage-tools',
         components: {
+            sewageToolsProvinces,
             Datepicker
         },
         data() {
+            let clone = {...this.settings};
+            clone.provinces = [...this.settings.provinces];
+
             return {
-                startDate: this.$store.getters['ui/getDateByOffset'](this.settings.start, false),
-                endDate: this.$store.getters['ui/getDateByOffset'](this.settings.end, false)
+                clone,
+                startDate: this.$store.getters['ui/getDateByOffset'](clone.start, false),
+                endDate: this.$store.getters['ui/getDateByOffset'](clone.end, false)
             }
         },
         props: {
@@ -22,16 +28,20 @@
         computed: {},
         methods: {
             updateStart(value) {
-                this.settings.start = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime());
+                this.clone.start = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime());
             },
             updateEnd(value) {
-                this.settings.end = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime());
-            }
-        },
-        watch: {
-            startDate: {
-                handler: function() {
-                    console.log(this.startDate);
+                this.clone.end = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime());
+            },
+            applySettings() {
+                for (let key in this.settings){
+                    if (key !== 'provinces') {
+                        this.settings[key] = this.clone[key];
+                    }
+                }
+                this.settings.provinces = [];
+                for (let province of this.clone.provinces) {
+                    this.settings.provinces.push(province);
                 }
             }
         }
@@ -66,7 +76,7 @@
                 Zoek
             </div>
             <div class="sewage-tools__value">
-                <input v-model="settings.search" placeholder="Zoek...">
+                <input v-model="clone.search" placeholder="Zoek...">
             </div>
         </div>
         <div class="sewage-tools__section">
@@ -74,7 +84,7 @@
                 Min. inwoners
             </div>
             <div class="sewage-tools__value">
-                <input type="number" v-model.number="settings.minPopulation">
+                <input type="number" v-model.number="clone.minPopulation">
             </div>
         </div>
         <div class="sewage-tools__section">
@@ -82,12 +92,28 @@
                 Max. inwoners
             </div>
             <div class="sewage-tools__value">
-                <input type="number" v-model.number="settings.maxPopulation">
+                <input type="number" v-model.number="clone.maxPopulation">
+            </div>
+        </div>
+        <div class="sewage-tools__section">
+            <div class="sewage-tools__label">
+                Provincies
+            </div>
+            <div class="sewage-tools__value">
+                <sewage-tools-provinces
+                    :settings="clone"/>
+            </div>
+        </div>
+        <div class="sewage-tools__section">
+            <div
+                @click="applySettings()"
+                class="button">
+                Toepassen
             </div>
         </div>
 <!--        <div class="sewage-tools__section">-->
-<!--            <input type="number" v-model.number="settings.calibration">-->
-<!--            <input type="checkbox" v-model="settings.ignoreOutliers">-->
+<!--            <input type="number" v-model.number="clone.calibration">-->
+<!--            <input type="checkbox" v-model="clone.ignoreOutliers">-->
 <!--        </div>-->
     </div>
 </template>
@@ -99,7 +125,7 @@
     .sewage-tools {
 
         .sewage-tools__section {
-            padding: 12px;
+            padding: 4px 12px 8px 12px;
             border-bottom: 1px solid #ddd;
 
             .sewage-tools__label {
@@ -108,9 +134,15 @@
 
             .sewage-tools__value {
 
-                input {
+                input[type=text] {
+                    height: 24px;
                     width: 100%;
+                }
+
+                input {
+
                     background: #abddff;
+
                 }
             }
 

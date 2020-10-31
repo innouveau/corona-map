@@ -8,6 +8,7 @@ class City extends _RegionWithTestData {
         ggd_code = '',
         safetyRegion_code = '',
         province_code = '',
+        regio_title = '',
         title = '',
         population = 0,
         area = 0,
@@ -25,12 +26,19 @@ class City extends _RegionWithTestData {
         this.ggd_code = ggd_code;
         this.safetyRegion_code = safetyRegion_code;
         this.province_code = province_code;
+        this.regio_title = regio_title;
         this.title = title;
         this.population = population;
         this.area = area;
         this.paths = paths.map(path => new Path(path));
         this.ageGroups = ageGroups;
         this.report = report;
+    }
+
+    export() {
+        let clone = {...this};
+        clone.path = this.paths.map(p => p.export());
+        return clone;
     }
 
 
