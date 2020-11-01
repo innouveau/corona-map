@@ -16,17 +16,17 @@
         },
         data() {
             return {
-                active: this.settings.regios.indexOf(this.regio.regio_title) > -1
+                active: this.settings.regios.indexOf(this.regio.title) > -1
             }
         },
         computed: {},
         methods: {
             toggle() {
-                let index = this.settings.regios.indexOf(this.regio.regio_title);
+                let index = this.settings.regios.indexOf(this.regio.title);
                 if (index > -1) {
                     this.settings.regios.splice(index, 1);
                 } else {
-                    this.settings.regios.push(this.regio.regio_title);
+                    this.settings.regios.push(this.regio.title);
                 }
             },
         },

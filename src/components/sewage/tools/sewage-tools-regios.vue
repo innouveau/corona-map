@@ -1,10 +1,10 @@
 <script>
-    import sewageToolsregio from "./sewage-tools-regio";
+    import sewageToolsRegio from "./sewage-tools-regio";
 
     export default {
         name: 'sewage-tools-regios',
         components: {
-            sewageToolsregio
+            sewageToolsRegio
         },
         props: {
             settings: {
@@ -17,17 +17,7 @@
                 return this.$store.state.regios.all
             }
         },
-        methods: {
-            toggle() {
-                if (this.settings.regios.length === 0) {
-                    for (let regio of this.regios) {
-                        this.settings.regios.push(regio.regio_title)
-                    }
-                } else {
-                    this.settings.regios = [];
-                }
-            }
-        }
+        methods: {}
     }
 </script>
 

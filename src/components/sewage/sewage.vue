@@ -21,11 +21,11 @@
                     calibration: 50,
                     minPopulation: 0,
                     maxPopulation: 1000000,
-                    search: 'XXXXX',
+                    search: '',
                     ignoreOutliers: true,
-                    provinces: ["PV20", "PV21", "PV22", "PV27"],
-                    regios: ["Noord"]
-                    //provinces: ["PV20", "PV21", "PV22", "PV23", "PV24", "PV25", "PV26", "PV27", "PV28", "PV29", "PV30", "PV31"]
+                    //provinces: ["PV20", "PV21", "PV22", "PV27"],
+                    regios: ["Noord"],
+                    provinces: ["PV20", "PV21", "PV22", "PV23", "PV24", "PV25", "PV26", "PV27", "PV28", "PV29", "PV30", "PV31"]
                 }
             }
         },
@@ -38,6 +38,7 @@
                     return this.matchesSearch(city)
                         && this.matchesProvinces(city)
                         && this.matchesPopulation(city)
+                        && this.matchesRegio(city)
                         && this.hasMeasurementsInPeriod(city);
                 })
                 //.sort((a,b) => (a.getRelativeIncreaseWeek() > b.getRelativeIncreaseWeek()) ? -1 : ((b.getRelativeIncreaseWeek() > a.getRelativeIncreaseWeek()) ? 1 : 0));
@@ -46,6 +47,9 @@
         methods: {
             matchesProvinces(city) {
                 return this.settings.provinces.indexOf(city.province_code) > -1;
+            },
+            matchesRegio(city) {
+                return this.settings.regios.indexOf(city.regio_title) > -1;
             },
             hasMeasurementsInPeriod(city) {
                 let sewageTreatmentPlants, sewageTreatmentPlantsMatchingDate;
@@ -88,7 +92,7 @@
             }
         },
         mounted() {
-            this.addRegions();
+            //this.addRegions();
         }
     }
 </script>

@@ -37,7 +37,7 @@ class City extends _RegionWithTestData {
 
     export() {
         let clone = {...this};
-        clone.path = this.paths.map(p => p.export());
+        clone.paths = this.paths.map(p => p.export());
         return clone;
     }
 

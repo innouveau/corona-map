@@ -2,16 +2,19 @@
     import Datepicker from 'vuejs-datepicker';
     import dateTools from '@/tools/date';
     import sewageToolsProvinces from "./sewage-tools-provinces";
+    import SewageToolsRegios from "./sewage-tools-regios";
 
     export default {
         name: 'sewage-tools',
         components: {
+            SewageToolsRegios,
             sewageToolsProvinces,
             Datepicker
         },
         data() {
             let clone = {...this.settings};
             clone.provinces = [...this.settings.provinces];
+            clone.regios = [...this.settings.regios];
 
             return {
                 clone,
@@ -35,13 +38,17 @@
             },
             applySettings() {
                 for (let key in this.settings){
-                    if (key !== 'provinces') {
+                    if (key !== 'provinces' && key !== 'regios') {
                         this.settings[key] = this.clone[key];
                     }
                 }
                 this.settings.provinces = [];
+                this.settings.regios = [];
                 for (let province of this.clone.provinces) {
                     this.settings.provinces.push(province);
+                }
+                for (let regio of this.clone.regios) {
+                    this.settings.regios.push(regio);
                 }
             }
         }
@@ -101,6 +108,15 @@
             </div>
             <div class="sewage-tools__value">
                 <sewage-tools-provinces
+                    :settings="clone"/>
+            </div>
+        </div>
+        <div class="sewage-tools__section">
+            <div class="sewage-tools__label">
+                Regio's
+            </div>
+            <div class="sewage-tools__value">
+                <sewage-tools-regios
                     :settings="clone"/>
             </div>
         </div>

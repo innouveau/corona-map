@@ -46,7 +46,7 @@
         </div>
         <div class="age-distribution-tools__text">
             <div v-if="showException">
-                * Data van aatste dagen wordt nog aangevuld, daarom wordt deze verborgen.
+                * Data van laatste dagen wordt nog aangevuld, daarom wordt deze verborgen.
             </div>
         </div>
         <div class="age-distribution-tools__tools">
