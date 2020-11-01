@@ -145,7 +145,6 @@
             width: calc(50% - 100px);
             overflow: auto;
             height: 100%;
-            padding: 16px;
         }
     }
 </style>

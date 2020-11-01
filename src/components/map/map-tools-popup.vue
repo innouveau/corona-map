@@ -29,11 +29,11 @@
             },
             getSettings() {
                 return {
-                    width: this.width,
-                    height: this.height,
-                    shiftX: 0,
-                    shiftY: 0,
-                    zoom: this.currentMap.settings.map.zoom * 550 * this.imageScale,
+                    width: this.width * 2,
+                    height: this.height * 2,
+                    shiftX: 0 - 0.5 * this.width,
+                    shiftY: 0 - 0.5 * this.height,
+                    zoom: this.currentMap.settings.map.zoom * 550 * this.imageScale * 2,
                     key: 'download-frame',
                     fill: true,
                     hideStroke: true

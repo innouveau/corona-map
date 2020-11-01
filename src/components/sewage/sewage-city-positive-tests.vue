@@ -1,9 +1,12 @@
 <script>
     import City from "@/classes/City";
+    import sewagePositiveTestsBar from "./sewage-positive-tests-bar";
 
     export default {
         name: 'sewage-city-positive-tests',
-        components: {},
+        components: {
+            sewagePositiveTestsBar
+        },
         props: {
             city: {
                 type: City,
@@ -43,16 +46,10 @@
         <div
             :style="{'height': maxHeight + 'px'}"
             class="sewage-city-positive-tests__graph">
-            <div
+            <sewage-positive-tests-bar
                 v-for="positiveTest in positiveTests"
-                :style="{
-                    'height': positiveTest + 'px',
-                    'width': settings.width + 'px',
-                    'margin-right': settings.margin + 'px'
-                }"
-                :title="Math.round(positiveTest)"
-                class="sewage-city-positive-test__bar">
-            </div>
+                :positive-test="positiveTest"
+                :settings="settings"/>
         </div>
     </div>
 </template>
@@ -71,10 +68,6 @@
             align-items: flex-end;
             min-height: 60px;
             border-bottom: 1px solid #000;
-
-            .sewage-city-positive-test__bar {
-                background: red;
-            }
         }
     }
 </style>

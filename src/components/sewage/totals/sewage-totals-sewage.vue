@@ -68,7 +68,7 @@
                     measurement.value /= capacityForDay;
                     measurement.unreliable = (capacityForDay / maxCapacity < acceptedCapacity);
                     // scale for totals
-                    measurement.value *= 5;
+                    measurement.value *= 2.5;
                 }
 
                 return measurements;
