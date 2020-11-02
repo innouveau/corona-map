@@ -58,16 +58,16 @@
                 }
             },
             drawWeekAverageLines() {
-                let weeks = [0,1];
+                let weeks = [0,1,2];
                 for (let week of weeks) {
                     let cases, y, offset;
                     offset = (this.weeks - week - 1) * 7;
                     cases = this.region.getTotalRelativeIncreaseWeek((offset +this.view.offset));
                     y = this.valueToY(cases / 7);
                     this.contentContainer.append('rect')
-                        .attr('x', week * (this.width / 2))
+                        .attr('x', week * (this.width / this.weeks))
                         .attr('y', y)
-                        .attr('width', this.width / 2)
+                        .attr('width', this.width / this.weeks)
                         .attr('height', this.height - y)
                         .attr('fill', 'rgba(0,0,0,0.2)');
                 }
@@ -94,7 +94,7 @@
                     let y = heightGraph -  (doubling * baseOffset);
 
                     this.contentContainer.append('line')
-                        .attr('x1', this.width / 2)
+                        .attr('x1', (this.weeks - 1) * this.width / this.weeks)
                         .attr('y1', y)
                         .attr('x2', this.width)
                         .attr('y2', y)

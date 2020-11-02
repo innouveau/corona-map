@@ -113,14 +113,14 @@
                 <positive-tests
                     :view="view"
                     :region="regionOfFocus"
-                    :weeks="2"
+                    :weeks="3"
                     :map-type="'change'"/>
 
                 <administered-tests
                     v-if="currentMap.settings.hasAdministeredTests"
                     :view="view"
                     :region="regionOfFocus"
-                    :weeks="2"
+                    :weeks="3"
                     :step-wide="true"/>
             </div>
         </div>

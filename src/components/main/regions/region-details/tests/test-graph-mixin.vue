@@ -69,7 +69,7 @@
             // dimensions
             step() {
                 if (this.mapType === 'change' || this.stepWide) {
-                    return 2.3 * this.$store.state.settings.step;
+                    return 1.5 * this.$store.state.settings.step;
                 } else {
                     return this.$store.state.settings.step;
                 }
