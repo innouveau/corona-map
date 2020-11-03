@@ -15,6 +15,13 @@
         computed: {
             height() {
                 return this.measurement.value / this.settings.calibration;
+            },
+            title() {
+                if (this.measurement.source) {
+                    return this.measurement.source.date + ' - flow: ' + this.measurement.source.RNA_flow_per_100000 + ' RNL per ml (uncorrected):' + this.measurement.source.RNA_per_ml;
+                } else {
+                    return '';
+                }
             }
         },
         methods: {}
@@ -33,6 +40,7 @@
             'sewage-city-measurement--interpreted': measurement.interpreted,
             'sewage-city-measurement--unreliable': measurement.unreliable,
         }"
+        :title="title"
         class="sewage-city-measurement"></div>
 </template>
 

@@ -41,11 +41,22 @@
                     :city="city"
                     :settings="settings"/>
 
-            <sewage-city-sewage
-                v-for="sewage in sewages"
-                :sewage="sewage"
-                :city="city"
-                :settings="settings"/>
+            <div>
+                <sewage-city-sewage
+                    v-for="sewage in sewages"
+                    :sewage="sewage"
+                    :city="city"
+                    :settings="settings"/>
+            </div>
+
+<!--            <div class="old-situation">-->
+<!--                <sewage-city-sewage-->
+<!--                    v-for="sewage in sewages"-->
+<!--                    :sewage="sewage"-->
+<!--                    :city="city"-->
+<!--                    :settings="settings"-->
+<!--                    :corrected-by-capacity="true"/>-->
+<!--            </div>-->
         </div>
     </div>
 </template>

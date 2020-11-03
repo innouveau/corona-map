@@ -26,7 +26,15 @@ class SewageTreatmentPlant {
         return this.measurements.find(m => m.dateOffset === offset);
     }
 
-    get calculatedMeasurements() {
+    get calculatedMeasurementsCalculatedPerCapacity() {
+        return this.getCalculatedMeasurements(true);
+    }
+
+    get calculatedMeasurementsFlowPer100000() {
+        return this.getCalculatedMeasurements(false);
+    }
+
+    getCalculatedMeasurements(calculatedPerCapacity) {
         let length, measurements, lastMeasurement, unreliable;
         lastMeasurement = null;
         measurements = [];
@@ -35,7 +43,12 @@ class SewageTreatmentPlant {
             let measurement, value;
             measurement = this.getMeasurementByOffset(i);
             if (measurement) {
-                value = measurement.value;
+                if (calculatedPerCapacity) {
+                    value = measurement.valueCalculatedPerCapacity;
+                } else {
+                    value = measurement.valueFlowPer100000;
+                }
+
                 unreliable = measurement.unreliable;
             } else {
                 if (!lastMeasurement) {
@@ -43,17 +56,25 @@ class SewageTreatmentPlant {
                     value = null;
                     unreliable = null;
                 } else {
-                    let range, step, nextMeasurement, share, difference;
+                    let range, step, nextMeasurement, share, difference, nextValue, lastMeasurementValue;
                     nextMeasurement = lastMeasurement.next;
                     if (nextMeasurement) {
+                        if (calculatedPerCapacity) {
+                            nextValue = nextMeasurement.valueCalculatedPerCapacity;
+                            lastMeasurementValue = lastMeasurement.valueCalculatedPerCapacity;
+                        } else {
+                            nextValue = nextMeasurement.valueFlowPer100000;
+                            lastMeasurementValue = lastMeasurement.valueFlowPer100000;
+                        }
+
                         range = lastMeasurement.dateOffset - nextMeasurement.dateOffset;
                         step = i - nextMeasurement.dateOffset;
                         share = step / range;
-                        difference = lastMeasurement.value - nextMeasurement.value;
-                        value = nextMeasurement.value + share * difference;
+                        difference = lastMeasurementValue - nextValue;
+                        value = nextValue + share * difference;
                         unreliable = nextMeasurement.unreliable || lastMeasurement.unreliable;
                     } else {
-                        // after last measuremtent
+                        // after last measurement
                         value = null;
                         unreliable = null;
                     }
@@ -65,6 +86,7 @@ class SewageTreatmentPlant {
                 value,
                 interpreted: !measurement,
                 unreliable: unreliable,
+                source: measurement
             });
             if (measurement) {
                 lastMeasurement = measurement;

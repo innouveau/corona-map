@@ -20,6 +20,11 @@
             settings: {
                 type: Object,
                 required: true
+            },
+            correctedByCapacity: {
+                type: Boolean,
+                required: false,
+                default: false
             }
         },
         computed: {
@@ -27,9 +32,15 @@
                 return (this.settings.start - this.settings.end + 1) * (this.settings.width + this.settings.margin);
             },
             measurements() {
-                return this.sewage.calculatedMeasurements.filter(measurement => {
-                    return measurement.offset <= this.settings.start && measurement.offset >= this.settings.end;
-                })
+                if (this.correctedByCapacity) {
+                    return this.sewage.calculatedMeasurementsCalculatedPerCapacity.filter(measurement => {
+                        return measurement.offset <= this.settings.start && measurement.offset >= this.settings.end;
+                    })
+                } else {
+                    return this.sewage.calculatedMeasurementsFlowPer100000.filter(measurement => {
+                        return measurement.offset <= this.settings.start && measurement.offset >= this.settings.end;
+                    })
+                }
             }
         },
         methods: {}
@@ -39,7 +50,9 @@
 
 <template>
     <div class="sewage-city-sewage">
-        <div class="sewage-city-sewage__graph">
+        <div
+            :class="{'sewage-city-sewage__graph--old-style':correctedByCapacity}"
+            class="sewage-city-sewage__graph">
             <div class="sewage-city-sewage__title">
                 {{sewage.name}} ({{sewage.capacity}})
             </div>
@@ -72,6 +85,10 @@
                 position: absolute;
                 left: 4px;
                 top: 4px;
+            }
+
+            &.sewage-city-sewage__graph--old-style {
+                background: pink;
             }
         }
     }
