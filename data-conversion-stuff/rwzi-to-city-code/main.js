@@ -70,7 +70,7 @@ $.getJSON(url, function(measurements) {
         sewerageDict[sewerageArea_code].measurements.push({
             date,
             RNA_per_ml: measurementent.RNA_per_ml,
-            'RNA_flow_per_100.000': measurementent['RNA_flow_per_100.000'],
+            RNA_flow_per_100000: measurementent['RNA_flow_per_100.000'],
             representative_measurement: measurementent.Representative_measurement
         });
     }
