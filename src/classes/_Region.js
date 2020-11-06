@@ -221,7 +221,7 @@ class _Region {
     getColor(offset) {
         let map = store.state.maps.current;
         if (map.settings.hasTests) {
-            if (this.hasLateReporting) {
+            if (this.hasLateReporting && offset < 10) {
                 offset = this.getLatestReporting(offset);
             }
             return thresholdTools.thresholdToColor(this.getThreshold(0, offset), this.getTotalRelativeIncreaseWeek(offset));

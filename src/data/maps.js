@@ -7,7 +7,7 @@ const standardTestAdapter = {
 };
 
 const caseSettings = {
-    lateReporting: 'FR'
+    lateReporting: ['FR']
 };
 
 const sewageDataUrl = 'https://raw.githubusercontent.com/innouveau/corona-map/master/public/data/sewage/sewage-measurements-netherlands.json';
