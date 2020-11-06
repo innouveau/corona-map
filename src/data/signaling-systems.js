@@ -72,6 +72,78 @@ let signalingSystems = [
             }
         ]
     }, {
+        id: 7,
+        title: 'Power of 2 per day',
+        days: 1,
+        population: 100000,
+        thresholds: [
+            {
+                n: 0,
+                color: {
+                    regular: '#8DC63F',
+                    colorblind1: 'rgb(255, 255, 255)',
+                    colorblind2: 'rgb(255, 255, 255)',
+                    variant3: 'rgb(255, 255, 255)'
+                }
+            }, {
+                n: 2.28,
+                color: {
+                    regular: '#CBDA2D',
+                    colorblind1: 'rgb(216, 216, 216)',
+                    colorblind2: 'rgb(216, 216, 216)',
+                    variant3: 'rgb(216, 216, 216)'
+                }
+            }, {
+                n: 4.57,
+                color: {
+                    regular: '#FFF200',
+                    colorblind1: 'rgb(180, 180, 180)',
+                    colorblind2: 'rgb(180, 180, 180)',
+                    variant3: 'rgb(180, 180, 180)'
+                }
+            }, {
+                n: 9.14,
+                color: {
+                    regular: '#FDB913',
+                    colorblind1: 'rgb(144,144,144)',
+                    colorblind2: 'rgb(144,144,144)',
+                    variant3: 'rgb(144,144,144)'
+                }
+            }, {
+                n: 18.28,
+                color: {
+                    regular: '#F48221',
+                    colorblind1: 'rgb(108,108,108)',
+                    colorblind2: 'rgb(108,108,108)',
+                    variant3: 'rgb(108,108,108)'
+                }
+            }, {
+                n: 36.57,
+                color: {
+                    regular: '#ED1C24',
+                    colorblind1: 'rgb(72,72,72)',
+                    colorblind2: 'rgb(72,72,72)',
+                    variant3: 'rgb(72,72,72)'
+                }
+            }, {
+                n: 73.14,
+                color: {
+                    regular: '#D91872',
+                    colorblind1: 'rgb(36,36,36)',
+                    colorblind2: 'rgb(36,36,36)',
+                    variant3: 'rgb(36,36,36)'
+                }
+            }, {
+                n: Infinity,
+                color: {
+                    regular: '#000',
+                    colorblind1: 'rgb(0,0,0)',
+                    colorblind2: 'rgb(0,0,0)',
+                    variant3: 'rgb(0,0,0)'
+                }
+            }
+        ]
+    }, {
         id: 1,
         title: 'WHO',
         days: 7,

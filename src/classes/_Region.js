@@ -219,12 +219,19 @@ class _Region {
     }
 
     getColor(offset) {
-        let map = store.state.maps.current;
+        let map, signalingSystem, cases;
+        map = store.state.maps.current;
+        signalingSystem = store.state.signalingSystems.current;
+        if (signalingSystem.days === 1) {
+            cases = this.getTotalRelativeIncreasDay(offset);
+        } else if (signalingSystem.days === 7) {
+            cases = this.getTotalRelativeIncreaseWeek(offset)
+        }
         if (map.settings.hasTests) {
             if (this.hasLateReporting && offset < 10) {
                 offset = this.getLatestReporting(offset);
             }
-            return thresholdTools.thresholdToColor(this.getThreshold(0, offset), this.getTotalRelativeIncreaseWeek(offset));
+            return thresholdTools.thresholdToColor(this.getThreshold(0, offset), cases);
         } else {
             return '#ddd';
         }
