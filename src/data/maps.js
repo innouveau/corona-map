@@ -182,7 +182,7 @@ const maps = [
                 zoom: 0.027,
                 ratio: 1.04
             },
-            excludeRegions: ['Scotland', 'Kosovo'],
+            excludeRegions: ['Scotland'],
             caseSettings: caseSettings
         },
         url: {
