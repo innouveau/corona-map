@@ -89,14 +89,13 @@
                 </div>
             </div>
 
-
-            <change-trends
-                :view="view"/>
-
             <region-details-change
                 v-if="view.currentRegion"
                 :view="view"
                 :region="view.currentRegion"/>
+
+            <change-trends
+                :view="view"/>
         </div>
     </div>
 </template>
