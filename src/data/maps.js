@@ -182,6 +182,9 @@ const maps = [
                 zoom: 0.027,
                 ratio: 1.04
             },
+            positiveTestGraph: {
+                zoomFactor: 0.3
+            },
             excludeRegions: [],
             caseSettings: caseSettings
         },
