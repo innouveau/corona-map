@@ -200,6 +200,17 @@
                         </div>
                         <div class="source__value-row">
                             <div class="source__value-map">
+                                Slovakia
+                            </div>
+                            <div class="source__value-who">
+                                freemap.sk
+                            </div>
+                            <div class="source__value-link">
+                                http://wiki.freemap.sk/HraniceAdministrativnychUzemi
+                            </div>
+                        </div>
+                        <div class="source__value-row">
+                            <div class="source__value-map">
                                 Conversie RD coordinaten naar WGS
                             </div>
                             <div class="source__value-who">
