@@ -1,28 +1,12 @@
 let regions, id, printArrayBrackets, keys, titleKey, populationDict;
 
 regions = [];
-getInfoFromPopulationFile = true;
+getInfoFromPopulationFile = false;
 id = 1;
 printArrayBrackets = true;
-titleKey = 'NAME_1';
+titleKey = 'TXT';
 
 
-
-if (getInfoFromPopulationFile) {
-    populationDict = {};
-    d3.csv('population.csv')
-        .then((data) => {
-            for (let item of data) {
-                populationDict[item.region] = item;
-            }
-            loadRegions();
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-} else {
-    loadRegions();
-}
 
 const loadRegions = function() {
     $.getJSON( "regions.json", function( data ) {
@@ -30,6 +14,8 @@ const loadRegions = function() {
             let region, paths, found;
             found = true;
             region = {};
+
+            console.log(item);
 
             // add properties
             region.title = item.properties[titleKey];
@@ -85,31 +71,19 @@ const loadRegions = function() {
     });
 };
 
-const getRegionByNuts = function(title) {
-    let connection = {
-        'Busan': 'Busan',
-        'Chungcheongbuk-do': 'Chungbuk',
-        'Chungcheongnam-do': 'Chungnam',
-        'Daegu': 'Daegu',
-        'Daejeon': 'Daejeon',
-        'Gangwon-do': 'Gangwon',
-        'Gwangju': 'Gwangju',
-        'Gyeonggi-do': 'Gyeonggi',
-        'Gyeongsangbuk-do': 'Gyeongbuk',
-        'Gyeongsangnam-do': 'Gyeongnam',
-        'Incheon': 'Incheon',
-        'Jeju': 'Jeju',
-        'Jeollabuk-do': '',
-        'Jeollanam-do': '',
-        'Seoul': 'Seoul',
-        'Ulsan': 'Ulsan'
 
-        // Jeonbuk
-        // Sejong
-    };
-
-
-    //console.log(populationDict[connection[title]]);
-    return populationDict[connection[title]];
-
-};
+if (getInfoFromPopulationFile) {
+    populationDict = {};
+    d3.csv('population.csv')
+        .then((data) => {
+            for (let item of data) {
+                populationDict[item.region] = item;
+            }
+            loadRegions();
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+} else {
+    loadRegions();
+}

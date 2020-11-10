@@ -182,11 +182,11 @@ const maps = [
                 zoom: 0.027,
                 ratio: 1.04
             },
-            excludeRegions: ['Scotland'],
+            excludeRegions: [],
             caseSettings: caseSettings
         },
         url: {
-            tests: casesUrl,
+            tests: 'data/maps/europa/cases.csv',
             regions: 'data/maps/europa/europa.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
@@ -385,7 +385,38 @@ const maps = [
             ageGroups: '',
             sewageTreatmentPlants: ''
         }
-    },
+    }, {
+        id: 12,
+        ready: false,
+        regionType: 'District',
+        module: 'districts',
+        title: 'Slovakia',
+        settings: {
+            regionTypes: ['district'],
+            pathOrigins: [],
+            hasAgeGroups: false,
+            hasTests: false,
+            hasAdministeredTests: false,
+            hasSewageTreatmentPlants: false,
+            testDataCumulative: true,
+            testDataInterval: 1,
+            generalInfoHasPopulation: true,
+            testAdapter: standardTestAdapter,
+            map: {
+                latitude: 48.65,
+                longitude: 19.9,
+                stretch: 0.65,
+                zoom: 0.5,
+                ratio: 2.07
+            }
+        },
+        url: {
+            tests: casesUrl,
+            regions: 'data/maps/slovakia/slovakia.json',
+            ageGroups: '',
+            sewageTreatmentPlants: ''
+        }
+    }
 ];
 
 export default maps;
