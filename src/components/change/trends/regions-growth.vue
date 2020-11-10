@@ -99,6 +99,7 @@
 
         .region__info {
             padding: 2px;
+            color: #fff;
         }
     }
 </style>

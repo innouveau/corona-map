@@ -238,9 +238,13 @@ class _Region {
     }
 
     getChange(offset, daysBefore) {
-        let before, after;
-        before = this.getTotalRelativeIncreaseWeek((offset + daysBefore));
-        after = this.getTotalRelativeIncreaseWeek(offset);
+        let before, after, extraOffset;
+        extraOffset = 0;
+        if (this.hasLateReporting && offset < 10) {
+            extraOffset = this.getLatestReporting(offset);
+        }
+        before = this.getTotalRelativeIncreaseWeek((offset + daysBefore + extraOffset));
+        after = this.getTotalRelativeIncreaseWeek((offset + extraOffset));
         if (before === 0) {
             //if (after === 0) {
                 return 1;

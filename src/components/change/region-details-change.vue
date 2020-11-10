@@ -48,6 +48,9 @@
             },
             currentMap() {
                 return this.$store.state.maps.current;
+            },
+            showLateReportingWarning() {
+                return this.region.hasLateReporting && this.region.getLatestReporting(this.view.offset) > this.view.offset;
             }
         },
         methods: {
@@ -89,12 +92,12 @@
                 <div class="region-details__row">
                     <div class="region-details__label">
                         {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}}
+                        <span v-if="showLateReportingWarning">*</span>
                     </div>
                     <div class="region-details__value">
                         {{format(Math.round(regionOfFocus.getTotalRelativeIncreaseWeek(view.offset)))}}
                     </div>
                 </div>
-
             </div>
             <div class="region-details__section">
                 <div class="region-details__row">
@@ -104,6 +107,13 @@
                     <div class="region-details__value">
                         {{formatChange}}
                     </div>
+                </div>
+            </div>
+            <div
+                    v-if="showLateReportingWarning"
+                    class="region-details__section">
+                <div class="region-details__row">
+                    * {{translate('late-reporting-warning', true)}}
                 </div>
             </div>
             <div class="region-details__section">
