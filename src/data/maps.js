@@ -186,7 +186,7 @@ const maps = [
             caseSettings: caseSettings
         },
         url: {
-            tests: 'data/maps/europa/cases.csv',
+            tests: casesUrl,
             regions: 'data/maps/europa/europa.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
