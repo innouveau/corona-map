@@ -1,12 +1,19 @@
 let regions, id, printArrayBrackets, keys, titleKey, populationDict;
 
 regions = [];
-getInfoFromPopulationFile = false;
+getInfoFromPopulationFile = true;
 id = 1;
 printArrayBrackets = true;
 titleKey = 'TXT';
 
-
+const getRegionByTitle = function(title) {
+    for (let item of populationDict) {
+        if (title.indexOf(item.region) > -1) {
+            return item;
+        }
+    }
+    return null;
+};
 
 const loadRegions = function() {
     $.getJSON( "regions.json", function( data ) {
@@ -15,18 +22,17 @@ const loadRegions = function() {
             found = true;
             region = {};
 
-            console.log(item);
 
             // add properties
             region.title = item.properties[titleKey];
             region.identifier = item.properties[titleKey];
 
             if (getInfoFromPopulationFile) {
-                let dictRegion = getRegionByNuts(item.properties[titleKey]);
+                let dictRegion = getRegionByTitle(item.properties[titleKey]);
                 if (!dictRegion) {
                     found = false;
                 } else {
-                    region.population = Number(dictRegion.population);
+                    region.population = Number(dictRegion.population.replace(/,/g, ''));
                     region.nutsCode = item.id;
                     region.title = dictRegion.region;
                     region.identifier = dictRegion.region;
@@ -73,12 +79,14 @@ const loadRegions = function() {
 
 
 if (getInfoFromPopulationFile) {
-    populationDict = {};
+    populationDict = [];
     d3.csv('population.csv')
         .then((data) => {
             for (let item of data) {
-                populationDict[item.region] = item;
+                populationDict.push(item);
+                //populationDict[item.region] = item;
             }
+            console.log(populationDict);
             loadRegions();
         })
         .catch((error) => {

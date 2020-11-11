@@ -398,7 +398,7 @@ const maps = [
             regionTypes: ['district'],
             pathOrigins: [],
             hasAgeGroups: false,
-            hasTests: false,
+            hasTests: true,
             hasAdministeredTests: false,
             hasSewageTreatmentPlants: false,
             testDataCumulative: true,
@@ -414,7 +414,7 @@ const maps = [
             }
         },
         url: {
-            tests: casesUrl,
+            tests: 'data/maps/slovakia/cases.csv',
             regions: 'data/maps/slovakia/slovakia.json',
             ageGroups: '',
             sewageTreatmentPlants: ''
