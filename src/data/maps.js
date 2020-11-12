@@ -392,11 +392,16 @@ const maps = [
         id: 12,
         ready: false,
         regionType: 'District',
-        module: 'districts',
+        module: 'cities',
         title: 'Slovakia',
         settings: {
-            regionTypes: ['district'],
-            pathOrigins: [],
+            regionTypes: ['city','country'],
+            pathOrigins: [
+                {
+                    type: 'country',
+                    paths: 'city'
+                }
+            ],
             hasAgeGroups: false,
             hasTests: true,
             hasAdministeredTests: false,
@@ -413,7 +418,7 @@ const maps = [
                 ratio: 2.07
             },
             positiveTestGraph: {
-                zoomFactor: 0.4
+                zoomFactor: 0.7
             }
         },
         url: {

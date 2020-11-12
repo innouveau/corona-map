@@ -1,4 +1,4 @@
-let regions, id, printArrayBrackets, keys, titleKey, populationDict, addPathsIfExists;
+let regions, id, printArrayBrackets, keys, titleKey, populationDict, addPathsIfExists, addCountryCode;
 
 regions = [];
 getInfoFromPopulationFile = true;
@@ -6,6 +6,8 @@ id = 1;
 printArrayBrackets = true;
 titleKey = 'TXT';
 addPathsIfExists = true;
+//addCountryCode = null;
+addCountryCode = 421;
 
 
 const getRegionByTitle = function(title) {
@@ -67,6 +69,9 @@ const loadRegions = function() {
             });
             if (found) {
                 region.id = id++;
+                if (addCountryCode) {
+                    region.country_id = addCountryCode;
+                }
 
                 if (addPathsIfExists) {
                     let exists = regions.find(r => r.title === region.title);
@@ -80,9 +85,6 @@ const loadRegions = function() {
                 } else {
                     regions.push(region);
                 }
-
-
-
             }
         }
 

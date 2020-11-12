@@ -4,6 +4,7 @@ import _RegionWithTestData from "./_RegionWithTestData";
 class City extends _RegionWithTestData {
     constructor({
         id = null,
+        country_id = 1,
         identifier = '',
         ggd_code = '',
         safetyRegion_code = '',
@@ -21,7 +22,7 @@ class City extends _RegionWithTestData {
         super();
         this.regionType = 'city';
         this.id = id;
-        this.country_id = 1;
+        this.country_id = country_id;
         this.identifier = identifier;
         this.ggd_code = ggd_code;
         this.safetyRegion_code = safetyRegion_code;
