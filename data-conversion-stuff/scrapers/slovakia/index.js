@@ -5,7 +5,7 @@ let browser, page, url, data, titlesSelector, valuesSelector,
 
 url = 'https://app.powerbi.com/view?r=eyJrIjoiNDUwMDc4YjgtYjEyYS00YzlhLWI1MzktMzhlMTczYmY0YjVjIiwidCI6IjMxMGJhNTk1LTAxM2MtNDAyZC05ZWYyLWI1N2Q1ZjFkY2Q2MyIsImMiOjl9';
 data = [];
-currentDate = new Date('2020-10-15');
+currentDate = new Date('2020-07-01');
 //currentDate = new Date('2020-11-01');
 // removes the hours and minutes
 today = new Date(getDateString(new Date(), false));
@@ -29,14 +29,14 @@ const readTimeFrame = async function() {
 
     // enter date
     await enterDateToInput(currentDate);
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(5000);
 
     // Power BI adds and removes divs with content while scrolling
     scrolls = [0, 25, 50, 75, 100];
 
     for (let scroll of scrolls) {
         await scrollPage(scroll, scrolls);
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(4000);
 
         titlesElements = await page.$$(titlesSelector);
         valuesElements = await page.$$(valuesSelector);

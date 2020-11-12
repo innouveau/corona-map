@@ -411,6 +411,9 @@ const maps = [
                 stretch: 0.65,
                 zoom: 0.5,
                 ratio: 2.07
+            },
+            positiveTestGraph: {
+                zoomFactor: 0.4
             }
         },
         url: {
