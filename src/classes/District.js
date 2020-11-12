@@ -1,5 +1,6 @@
 import Path from './Path';
 import _RegionWithTestData from "./_RegionWithTestData";
+import store from '@/store/store';
 
 class District extends _RegionWithTestData {
     constructor({
@@ -17,7 +18,7 @@ class District extends _RegionWithTestData {
     }) {
         super();
         this.regionType = 'district';
-        this.id = id;
+        this.id = store.state.districts.all.length + 1;
         this.identifier = identifier;
         this.nutsCode = nutsCode;
         this.ggd_code = ggd_code;
