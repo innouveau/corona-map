@@ -1,10 +1,12 @@
-let regions, id, printArrayBrackets, keys, titleKey, populationDict;
+let regions, id, printArrayBrackets, keys, titleKey, populationDict, addPathsIfExists;
 
 regions = [];
 getInfoFromPopulationFile = true;
 id = 1;
 printArrayBrackets = true;
 titleKey = 'TXT';
+addPathsIfExists = true;
+
 
 const getRegionByTitle = function(title) {
     for (let item of populationDict) {
@@ -30,6 +32,7 @@ const loadRegions = function() {
             if (getInfoFromPopulationFile) {
                 let dictRegion = getRegionByTitle(item.properties[titleKey]);
                 if (!dictRegion) {
+                    console.log(item.properties[titleKey]);
                     found = false;
                 } else {
                     region.population = Number(dictRegion.population.replace(/,/g, ''));
@@ -64,7 +67,22 @@ const loadRegions = function() {
             });
             if (found) {
                 region.id = id++;
-                regions.push(region);
+
+                if (addPathsIfExists) {
+                    let exists = regions.find(r => r.title === region.title);
+                    if (exists) {
+                        for (let path of region.paths) {
+                            exists.paths.push(path);
+                        }
+                    } else {
+                        regions.push(region);
+                    }
+                } else {
+                    regions.push(region);
+                }
+
+
+
             }
         }
 

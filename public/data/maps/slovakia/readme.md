@@ -1,0 +1,6 @@
+- use `geojson-to-paths`
+- rename Bratislave V to 'Bratislava I' or 'Bratislava' in regions.json to make it merge 
+- in `main.js`: flag `addPathsIfExists` for merging multiple Bratislava and multiple Košice
+- remove `I` from the two above in slovakia.json
+- rename `Topoľčany` in slovakia.json
+- put `Košice - okolie` on top to prevent overlapping in slovakia.json
