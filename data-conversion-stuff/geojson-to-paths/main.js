@@ -1,179 +1,53 @@
-let regions,  populationDict, geoSettings, settings;
+let regions, populationDict, settings, sources, currentSource;
 
 regions = [];
+
+sources = ['colombia', 'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina'];
+currentSource = sources[0];
 
 
 settings = {
     getInfoFromPopulationFile: true,
     printArrayBrackets: true,
-    scaleDownPaths: false,
-    removeSmallIslands: false,
-    addPathsIfExists: true,
-    currentMap: 'russia'
+    scaleDownPaths: true,
+    removeSmallIslands: true,
+    addPathsIfExists: true
 };
 
-geoSettings = {
-    mexico: {
-        geo: 'data/mexico/geo.json',
-        titleKey: 'state_name',
-        getNutsKey: function(item) {
-            return item.properties.STATE_NAME;
-        },
-        getRegion: function(item, nutsCode, title) {
-            for (let key in populationDict) {
-                let region = populationDict[key];
-                if (region.region.indexOf(title) > -1) {
-                    return region;
-                }
-            }
-            return null;
-        },
-        addCountryCode: null
-    },
-    india: {
-        geo: 'data/india/geo.json',
-        titleKey: 'NAME_1',
-        getNutsKey: function(item) {
-            return item.properties.STATE_NAME;
-        },
-        getRegion: function(item, nutsCode, title) {
-            for (let key in populationDict) {
-                let region = populationDict[key];
-                if (region.region.indexOf(title) > -1) {
-                    return region;
-                }
-            }
-            return null;
-        },
-        addCountryCode: null
-    },
-    australia: {
-        geo: 'data/australia/geo.json',
-        titleKey: 'STATE_NAME',
-        getNutsKey: function(item) {
-            return item.properties.STATE_NAME;
-        },
-        getRegion: function(item, nutsCode, title) {
-            for (let key in populationDict) {
-                let region = populationDict[key];
-                if (region.region.indexOf(title) > -1) {
-                    return region;
-                }
-            }
-            return null;
-        },
-        addCountryCode: null
-    },
-    china: {
-        geo: 'data/china/geo.json',
-        titleKey: 'name_1',
-        getNutsKey: function(item) {
-            return item.properties.name;
-        },
-        getRegion: function(item, nutsCode, title) {
-            for (let key in populationDict) {
-                let region = populationDict[key];
-                if (region.region.indexOf(title) > -1) {
-                    return region;
-                }
-            }
-            return null;
-        },
-        addCountryCode: null
-    },
-    canada: {
-        geo: 'data/canada/geo.json',
-        titleKey: 'name',
-        getNutsKey: function(item) {
-            return item.properties.name;
-        },
-        getRegion: function(item, nutsCode, title) {
-            for (let key in populationDict) {
-                let region = populationDict[key];
-                if (region.region.indexOf(title) > -1) {
-                    return region;
-                }
-            }
-            return null;
-        },
-        addCountryCode: null
-    },
-    brazil: {
-        geo: 'data/brazil/geo.json',
-        titleKey: 'name',
-        getNutsKey: function(item) {
-            return 'BR_' + item.properties.sigla;
-        },
-        getRegion: function(item, nutsCode, title) {
-            return populationDict[nutsCode];
-        },
-        addCountryCode: null
-    },
-    russia: {
-        geo: 'data/russia/geo.json',
-        titleKey: 'NAME_1',
-        getNutsKey: function(item) {
-            return 'BR_' + item.properties.sigla;
-        },
-        getRegion: function(item, nutsCode, title) {
-            let translateTable, theTitle;
-            translateTable = {
-                "Khanty-Mansiy": "Khanty-Mansi Avtonomnyy Okrug",
-                "Adygey": "Adygea",
-                "Altay": "Altai Krai",
-                "Arkhangel'sk": "Arkhangelsk Oblast",
-                "Astrakhan'": "Astrakhan Oblast",
-                "City of St. Petersburg": "Saint Petersburg",
-                "Gorno-Altay": "Altai Republic",
-                "Kabardin-Balkar": "Kabardino-Balkaria",
-                "Maga Buryatdan": "Buryatia",
-                "Mariy-El": "Mari El",
-                "Moscow City": "Moscow",
-                "Moskva": "Moscow Oblast",
-                "Nizhegorod": "Nizhny Novgorod Oblast",
-                "Orel": "Russia",
-                "Primor'ye": "Primorsky Krai",
-                "Ryazan'": "Ryazan Oblast",
-                "Stavropol'": "Stavropol Krai",
-                "Tver'": "Tver Oblast",
-                "Tyumen'": "Tyumen Oblast",
-                "Ul'yanovsk": "Ulyanovsk Oblast",
-                "Yamal-Nenets": "Yamalo-Nenets Avtonomnyy Okrug",
-                "Yaroslavl'": "Yaroslavl Oblast",
-                "Yevrey": "Jewish Avtonomnyy Okrug",
-                //"Sevastopol'": "",
-                "Zabaikalskiy Krai": "Zabaykalsky",
-                "Perm'": "Perm Krai"
-            };
-            if (translateTable[title]) {
-                theTitle = translateTable[title];
-            } else {
-                theTitle = title;
-            }
-            for (let key in populationDict) {
-                let region = populationDict[key];
-                if (region.region.indexOf(theTitle) > -1) {
-                    return region;
-                }
-            }
-            return null;
-        },
-        addCountryCode: null
+
+const next = function() {
+    let index;
+    index = sources.indexOf(currentSource);
+    if (index === sources.length - 1) {
+        finish();
+    } else {
+        currentSource = sources[index + 1];
+        loadRegions();
     }
 };
 
+const finish = function() {
+    console.log(regions);
+    let string = JSON.stringify(regions);
+    if (!settings.printArrayBrackets) {
+        string = string.substring(1, string.length-1);
+    }
+    console.log(string);
+};
 
 const loadRegions = function() {
-    $.getJSON(geoSettings[settings.currentMap].geo, function( data ) {
+    $.getJSON(geoSettings[currentSource].geo, function( data ) {
         for (let item of data.features) {
             let region, paths, found, titleKey, nutsKey, title, filteredPaths;
             found = true;
             region = {};
-            //console.log(item);
+            // if (currentSource === 'colombia') {
+            //     console.log(item);
+            // }
 
             // add properties
-            titleKey = geoSettings[settings.currentMap].titleKey;
-            nutsKey = geoSettings[settings.currentMap].getNutsKey(item);
+            titleKey = geoSettings[currentSource].titleKey;
+            nutsKey = geoSettings[currentSource].getNutsKey(item);
             region.title = item.properties[titleKey];
             region.identifier = item.properties[titleKey];
 
@@ -181,9 +55,9 @@ const loadRegions = function() {
 
             if (settings.getInfoFromPopulationFile) {
                 title = item.properties[titleKey];
-                let dictRegion = geoSettings[settings.currentMap].getRegion(item, nutsKey, title);
+                let dictRegion = geoSettings[currentSource].getRegion(item, nutsKey, title);
                 if (!dictRegion) {
-                    console.error('NOT FOUND ' + item.properties[titleKey]);
+                    console.error('NOT FOUND ' + item.properties[titleKey] + ' ' + currentSource);
                     found = false;
                 } else {
                     region.population = Number(dictRegion.population.replace(/,/g, ''));
@@ -239,8 +113,8 @@ const loadRegions = function() {
                 })
             });
             if (found) {
-                if (geoSettings[settings.currentMap].addCountryCode) {
-                    region.country_id = geoSettings[settings.currentMap].addCountryCode;
+                if (geoSettings[currentSource].addCountryCode) {
+                    region.country_id = geoSettings[currentSource].addCountryCode;
                 }
 
                 if (settings.addPathsIfExists) {
@@ -262,12 +136,7 @@ const loadRegions = function() {
             }
         }
 
-        console.log(regions);
-        let string = JSON.stringify(regions);
-        if (!settings.printArrayBrackets) {
-            string = string.substring(1, string.length-1);
-        }
-        console.log(string);
+        next();
     });
 };
 
@@ -323,20 +192,23 @@ const scaleDownPathRough = function(path, scaleDown) {
 };
 
 
+function init() {
+    if (settings.getInfoFromPopulationFile) {
 
-if (settings.getInfoFromPopulationFile) {
-
-    populationDict = {};
-    d3.csv('data/regions.csv')
-        .then((data) => {
-            for (let item of data) {
-                populationDict[item.region] = item;
-            }
-            loadRegions();
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-} else {
-    loadRegions();
+        populationDict = {};
+        d3.csv('data/regions.csv')
+            .then((data) => {
+                for (let item of data) {
+                    populationDict[item.region] = item;
+                }
+                loadRegions();
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    } else {
+        loadRegions();
+    }
 }
+
+init();
