@@ -121,16 +121,21 @@
             </div>
         </div>
         <div class="sewage-tools__section">
-            <div
-                @click="applySettings()"
-                class="button">
-                Toepassen
-            </div>
+            <input type="checkbox" v-model="clone.ignoreAmsterdam">
+            Negeer Amsterdam
         </div>
 <!--        <div class="sewage-tools__section">-->
 <!--            <input type="number" v-model.number="clone.calibration">-->
 <!--            <input type="checkbox" v-model="clone.ignoreOutliers">-->
 <!--        </div>-->
+
+        <div class="sewage-tools__section">
+            <div
+                    @click="applySettings()"
+                    class="button">
+                Toepassen
+            </div>
+        </div>
     </div>
 </template>
 
