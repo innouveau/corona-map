@@ -434,7 +434,40 @@ const maps = [
             ageGroups: '',
             sewageTreatmentPlants: ''
         }
-    }
+    }, {
+        id: 13,
+        ready: true,
+        regionType: 'District',
+        module: 'districts',
+        title: 'South America',
+        settings: {
+            regionTypes: ['district'],
+            pathOrigins: [],
+            hasTests: true,
+            testDataCumulative: true,
+            testDataInterval: 1,
+            generalInfoHasPopulation: true,
+            testAdapter: standardTestAdapter,
+            map: {
+                latitude: -22,
+                longitude: -60,
+                stretch: 0.8,
+                zoom: 0.014,
+                ratio: 0.65
+            },
+            positiveTestGraph: {
+                zoomFactor: 0.9
+            },
+            excludeRegions: [],
+            caseSettings: caseSettings
+        },
+        url: {
+            tests: casesUrl,
+            regions: 'data/maps/south-america/south-america.json',
+            ageGroups: '',
+            sewageTreatmentPlants: ''
+        }
+    },
 ];
 
 export default maps;

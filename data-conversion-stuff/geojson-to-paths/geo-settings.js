@@ -1,11 +1,11 @@
 window.geoSettings = {
-    colombia: {
-        geo: 'data/colombia/geo.json',
-        titleKey: 'NOMBRE_DPT',
+    southamerica: {
+        geo: 'data/south_america/geo.json',
+        titleKey: 'name',
         getNutsKey: function(item) {
             return '';
         },
-        getRegion: function(item, nutsCode, title) {
+        getRegion: function(item, title) {
             for (let key in populationDict) {
                 let region = populationDict[key];
                 if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
@@ -14,7 +14,80 @@ window.geoSettings = {
             }
             return null;
         },
-        addCountryCode: null
+        addCountryCode: null,
+        exclude: ['peru', 'colombia', 'brazil', 'mexico', 'argentina', 'chile']
+    },
+    world: {
+        geo: 'data/world/geo.json',
+        titleKey: 'ADMIN',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                    return region;
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: ['russia', 'china', 'peru', 'colombia', 'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile']
+    },
+    chile: {
+        geo: 'data/chile/geo.json',
+        titleKey: 'name',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                    return region;
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: []
+    },
+    peru: {
+        geo: 'data/peru/geo.json',
+        titleKey: 'NOMBDEP',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                    return region;
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: []
+    },
+    colombia: {
+        geo: 'data/colombia/geo.json',
+        titleKey: 'NOMBRE_DPT',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                    return region;
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: []
     },
     argentina: {
         geo: 'data/argentina/geo.json',
@@ -22,7 +95,7 @@ window.geoSettings = {
         getNutsKey: function(item) {
             return '';
         },
-        getRegion: function(item, nutsCode, title) {
+        getRegion: function(item, title) {
             for (let key in populationDict) {
                 let region = populationDict[key];
                 if (region.region.indexOf(title) > -1) {
@@ -31,7 +104,8 @@ window.geoSettings = {
             }
             return null;
         },
-        addCountryCode: null
+        addCountryCode: null,
+        exclude: []
     },
     mexico: {
         geo: 'data/mexico/geo.json',
@@ -39,7 +113,7 @@ window.geoSettings = {
         getNutsKey: function(item) {
             return '';
         },
-        getRegion: function(item, nutsCode, title) {
+        getRegion: function(item, title) {
             for (let key in populationDict) {
                 let region = populationDict[key];
                 if (region.region.indexOf(title) > -1) {
@@ -48,7 +122,8 @@ window.geoSettings = {
             }
             return null;
         },
-        addCountryCode: null
+        addCountryCode: null,
+        exclude: []
     },
     india: {
         geo: 'data/india/geo.json',
@@ -56,7 +131,7 @@ window.geoSettings = {
         getNutsKey: function(item) {
             return '';
         },
-        getRegion: function(item, nutsCode, title) {
+        getRegion: function(item, title) {
             for (let key in populationDict) {
                 let region = populationDict[key];
                 if (region.region.indexOf(title) > -1) {
@@ -65,7 +140,8 @@ window.geoSettings = {
             }
             return null;
         },
-        addCountryCode: null
+        addCountryCode: null,
+        exclude: []
     },
     australia: {
         geo: 'data/australia/geo.json',
@@ -73,7 +149,7 @@ window.geoSettings = {
         getNutsKey: function(item) {
             return '';
         },
-        getRegion: function(item, nutsCode, title) {
+        getRegion: function(item, title) {
             for (let key in populationDict) {
                 let region = populationDict[key];
                 if (region.region.indexOf(title) > -1) {
@@ -82,15 +158,16 @@ window.geoSettings = {
             }
             return null;
         },
-        addCountryCode: null
+        addCountryCode: null,
+        exclude: []
     },
     china: {
         geo: 'data/china/geo.json',
-        titleKey: 'name_1',
+        titleKey: 'name',
         getNutsKey: function(item) {
             return item.properties.name;
         },
-        getRegion: function(item, nutsCode, title) {
+        getRegion: function(item, title) {
             for (let key in populationDict) {
                 let region = populationDict[key];
                 if (region.region.indexOf(title) > -1) {
@@ -99,7 +176,8 @@ window.geoSettings = {
             }
             return null;
         },
-        addCountryCode: null
+        addCountryCode: null,
+        exclude: []
     },
     canada: {
         geo: 'data/canada/geo.json',
@@ -107,7 +185,7 @@ window.geoSettings = {
         getNutsKey: function(item) {
             return item.properties.name;
         },
-        getRegion: function(item, nutsCode, title) {
+        getRegion: function(item, title) {
             for (let key in populationDict) {
                 let region = populationDict[key];
                 if (region.region.indexOf(title) > -1) {
@@ -116,7 +194,8 @@ window.geoSettings = {
             }
             return null;
         },
-        addCountryCode: null
+        addCountryCode: null,
+        exclude: []
     },
     brazil: {
         geo: 'data/brazil/geo.json',
@@ -124,10 +203,11 @@ window.geoSettings = {
         getNutsKey: function(item) {
             return '';
         },
-        getRegion: function(item, nutsCode, title) {
+        getRegion: function(item, title) {
             return populationDict[title];
         },
-        addCountryCode: null
+        addCountryCode: null,
+        exclude: []
     },
     russia: {
         geo: 'data/russia/geo.json',
@@ -135,7 +215,7 @@ window.geoSettings = {
         getNutsKey: function(item) {
             return 'BR_' + item.properties.sigla;
         },
-        getRegion: function(item, nutsCode, title) {
+        getRegion: function(item, title) {
             let translateTable, theTitle;
             translateTable = {
                 "Khanty-Mansiy": "Khanty-Mansi Avtonomnyy Okrug",
@@ -178,6 +258,7 @@ window.geoSettings = {
             }
             return null;
         },
-        addCountryCode: null
+        addCountryCode: null,
+        exclude: []
     }
 };

@@ -2,7 +2,8 @@ let regions, populationDict, settings, sources, currentSource;
 
 regions = [];
 
-sources = ['colombia', 'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina'];
+sources = ['world', 'peru', 'colombia', 'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile'];
+//sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile'];
 currentSource = sources[0];
 
 
@@ -11,7 +12,8 @@ settings = {
     printArrayBrackets: true,
     scaleDownPaths: true,
     removeSmallIslands: true,
-    addPathsIfExists: true
+    addPathsIfExists: true,
+    threshold: 0.005 // smaller is more detail
 };
 
 
@@ -38,16 +40,15 @@ const finish = function() {
 const loadRegions = function() {
     $.getJSON(geoSettings[currentSource].geo, function( data ) {
         for (let item of data.features) {
-            let region, paths, found, titleKey, nutsKey, title, filteredPaths;
+            let region, paths, found, titleKey, title, filteredPaths;
             found = true;
             region = {};
-            // if (currentSource === 'colombia') {
+            // if (currentSource === 'southamerica') {
             //     console.log(item);
             // }
 
             // add properties
             titleKey = geoSettings[currentSource].titleKey;
-            nutsKey = geoSettings[currentSource].getNutsKey(item);
             region.title = item.properties[titleKey];
             region.identifier = item.properties[titleKey];
 
@@ -55,83 +56,82 @@ const loadRegions = function() {
 
             if (settings.getInfoFromPopulationFile) {
                 title = item.properties[titleKey];
-                let dictRegion = geoSettings[currentSource].getRegion(item, nutsKey, title);
+                let dictRegion = geoSettings[currentSource].getRegion(item, title);
                 if (!dictRegion) {
                     console.error('NOT FOUND ' + item.properties[titleKey] + ' ' + currentSource);
                     found = false;
                 } else {
                     region.population = Number(dictRegion.population.replace(/,/g, ''));
-                    region.nutsCode = nutsKey;
                     region.title = dictRegion.region;
                     region.identifier = dictRegion.region;
-                    region.extraRegion = dictRegion.extraRegion;
                 }
             }
 
-
-            // transform paths
-            if (item.geometry.type === 'MultiPolygon') {
-                paths = [];
-                for (let set of item.geometry.coordinates) {
-                    for (let path of set) {
-                        paths.push(path);
+            if (geoSettings[currentSource].exclude.indexOf(region.title.toLowerCase()) === -1) {
+                // transform paths
+                if (item.geometry.type === 'MultiPolygon') {
+                    paths = [];
+                    for (let set of item.geometry.coordinates) {
+                        for (let path of set) {
+                            paths.push(path);
+                        }
                     }
+                } else {
+                    paths = item.geometry.coordinates;
                 }
-            } else {
-                paths = item.geometry.coordinates;
-            }
 
-            if (settings.removeSmallIslands) {
-                let numberOfPaths, maxPaths;
-                maxPaths = 7;
-                numberOfPaths = paths.length;
-                if (numberOfPaths > maxPaths) {
-                    filteredPaths = paths
-                        .sort((a,b) => (a.length > b.length) ? -1 : ((b.length > a.length) ? 1 : 0)).slice(0,maxPaths);
+                if (settings.removeSmallIslands) {
+                    let numberOfPaths, maxPaths;
+                    maxPaths = 16;
+                    numberOfPaths = paths.length;
+                    if (numberOfPaths > maxPaths) {
+                        filteredPaths = paths
+                            .sort((a,b) => (a.length > b.length) ? -1 : ((b.length > a.length) ? 1 : 0)).slice(0,maxPaths);
+                    } else {
+                        filteredPaths = paths;
+                    }
                 } else {
                     filteredPaths = paths;
                 }
-            } else {
-                filteredPaths = paths;
-            }
 
 
 
-            region.paths = filteredPaths.map(path => {
-                let thePath;
-                if (settings.scaleDownPaths) {
-                    thePath = scaleDownPath(path);
-                } else {
-                    thePath = path;
-                }
-
-                return thePath.map(coordinate => {
-                    return {
-                        x: coordinate[0],
-                        y: coordinate[1]
+                region.paths = filteredPaths.map(path => {
+                    let thePath;
+                    if (settings.scaleDownPaths) {
+                        thePath = scaleDownPath(path);
+                    } else {
+                        thePath = path;
                     }
-                })
-            });
-            if (found) {
-                if (geoSettings[currentSource].addCountryCode) {
-                    region.country_id = geoSettings[currentSource].addCountryCode;
-                }
 
-                if (settings.addPathsIfExists) {
-                    let exists = regions.find(r => r.title === region.title);
-                    if (exists) {
-                        for (let path of region.paths) {
-                            exists.paths.push(path);
+                    return thePath.map(coordinate => {
+                        return {
+                            x: coordinate[0],
+                            y: coordinate[1]
+                        }
+                    })
+                });
+                if (found) {
+                    if (geoSettings[currentSource].addCountryCode) {
+                        region.country_id = geoSettings[currentSource].addCountryCode;
+                    }
+
+                    if (settings.addPathsIfExists) {
+                        let exists = regions.find(r => r.title === region.title);
+                        if (exists) {
+                            for (let path of region.paths) {
+                                exists.paths.push(path);
+                            }
+                        } else {
+                            regions.push(region);
                         }
                     } else {
+                        if (region.title === 'Nizhny Novgorod Oblast') {
+                            console.log(item);
+                            console.log(region);
+                        }
                         regions.push(region);
                     }
-                } else {
-                    if (region.title === 'Nizhny Novgorod Oblast') {
-                        console.log(item);
-                        console.log(region);
-                    }
-                    regions.push(region);
                 }
             }
         }
@@ -141,9 +141,8 @@ const loadRegions = function() {
 };
 
 const scaleDownPath = function(path) {
-    let filtered, pathLength, threshold, lastPointAdded;
+    let filtered, pathLength, lastPointAdded;
     filtered = [];
-    threshold = 0.1;
     lastPointAdded = null;
     pathLength = path.length;
     if (pathLength > 50) {
@@ -153,7 +152,7 @@ const scaleDownPath = function(path) {
             // exclude first and last point
             if (lastPointAdded && i < (l - 1)) {
                 distance = Math.pow((point[0] - lastPointAdded[0]), 2) + Math.pow((point[1] - lastPointAdded[1]), 2);
-                if (distance > threshold) {
+                if (distance > settings.threshold) {
                     filtered.push(point);
                     lastPointAdded = point;
                 }

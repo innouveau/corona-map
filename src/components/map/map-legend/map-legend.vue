@@ -31,6 +31,7 @@
     @import '@/styles/variables.scss';
 
     .map-legend {
+        pointer-events: none;
 
         .threshold {
             display: flex;
