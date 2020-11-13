@@ -79,7 +79,15 @@ $.getJSON(url, function(measurements) {
         let sewerage = sewerageDict[key];
         sewerageAreas.push(sewerage);
     }
-    //console.log(sewerageAreas);
+
+    // double check measurements for order in date
+    for (let sewerageArea of sewerageAreas) {
+        let measurements;
+        function getTime(d) {
+            return new Date(d).getTime();
+        }
+        sewerageArea.measurements.sort((a,b) => (getTime(a.date) > getTime(b.date)) ? 1 : ((getTime(b.date) > getTime(a.date)) ? -1 : 0));
+    }
     console.log(JSON.stringify(sewerageAreas));
 });
 
