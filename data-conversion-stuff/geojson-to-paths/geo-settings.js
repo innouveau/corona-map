@@ -1,4 +1,22 @@
 window.geoSettings = {
+    usa: {
+        geo: 'data/usa/geo.json',
+        titleKey: 'NAME',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                    return region;
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: ['peru', 'colombia', 'brazil', 'mexico', 'argentina', 'chile']
+    },
     southamerica: {
         geo: 'data/south_america/geo.json',
         titleKey: 'name',

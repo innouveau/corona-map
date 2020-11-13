@@ -2,7 +2,7 @@ let regions, populationDict, settings, sources, currentSource;
 
 regions = [];
 
-sources = ['world', 'peru', 'colombia', 'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile'];
+sources = ['world', 'usa', 'peru', 'colombia', 'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia'];
 //sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile'];
 currentSource = sources[0];
 
@@ -13,7 +13,8 @@ settings = {
     scaleDownPaths: true,
     removeSmallIslands: true,
     addPathsIfExists: true,
-    threshold: 0.005 // smaller is more detail
+    threshold: 0.04 // smaller is more detail
+    //threshold: 0.005 // 0.005 for south america
 };
 
 
@@ -43,7 +44,7 @@ const loadRegions = function() {
             let region, paths, found, titleKey, title, filteredPaths;
             found = true;
             region = {};
-            // if (currentSource === 'southamerica') {
+            // if (currentSource === 'usa') {
             //     console.log(item);
             // }
 
