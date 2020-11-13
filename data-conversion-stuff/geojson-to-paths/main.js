@@ -1,16 +1,21 @@
-let regions, id, printArrayBrackets, keys, titleKey, populationDict,
-    addPathsIfExists,
-    currentMap, settings;
+let regions,  populationDict, geoSettings, settings;
 
 regions = [];
-id = 373;
 
-currentMap = 'mexico';
+
 settings = {
+    getInfoFromPopulationFile: true,
+    printArrayBrackets: true,
+    scaleDownPaths: false,
+    removeSmallIslands: false,
+    addPathsIfExists: true,
+    currentMap: 'russia'
+};
+
+geoSettings = {
     mexico: {
         geo: 'data/mexico/geo.json',
         titleKey: 'state_name',
-        scaleDownPaths: true,
         getNutsKey: function(item) {
             return item.properties.STATE_NAME;
         },
@@ -28,7 +33,6 @@ settings = {
     india: {
         geo: 'data/india/geo.json',
         titleKey: 'NAME_1',
-        scaleDownPaths: true,
         getNutsKey: function(item) {
             return item.properties.STATE_NAME;
         },
@@ -46,7 +50,6 @@ settings = {
     australia: {
         geo: 'data/australia/geo.json',
         titleKey: 'STATE_NAME',
-        scaleDownPaths: false,
         getNutsKey: function(item) {
             return item.properties.STATE_NAME;
         },
@@ -64,7 +67,6 @@ settings = {
     china: {
         geo: 'data/china/geo.json',
         titleKey: 'name_1',
-        scaleDownPaths: false,
         getNutsKey: function(item) {
             return item.properties.name;
         },
@@ -82,7 +84,6 @@ settings = {
     canada: {
         geo: 'data/canada/geo.json',
         titleKey: 'name',
-        scaleDownPaths: false,
         getNutsKey: function(item) {
             return item.properties.name;
         },
@@ -100,7 +101,6 @@ settings = {
     brazil: {
         geo: 'data/brazil/geo.json',
         titleKey: 'name',
-        scaleDownPaths: false,
         getNutsKey: function(item) {
             return 'BR_' + item.properties.sigla;
         },
@@ -112,7 +112,6 @@ settings = {
     russia: {
         geo: 'data/russia/geo.json',
         titleKey: 'NAME_1',
-        scaleDownPaths: true,
         getNutsKey: function(item) {
             return 'BR_' + item.properties.sigla;
         },
@@ -163,31 +162,28 @@ settings = {
     }
 };
 
-// settings for export
-getInfoFromPopulationFile = true;
-printArrayBrackets = false;
-addPathsIfExists = true;
-
 
 const loadRegions = function() {
-    $.getJSON(settings[currentMap].geo, function( data ) {
+    $.getJSON(geoSettings[settings.currentMap].geo, function( data ) {
         for (let item of data.features) {
-            let region, paths, found, titleKey, nutsKey, title;
+            let region, paths, found, titleKey, nutsKey, title, filteredPaths;
             found = true;
             region = {};
-            console.log(item);
+            //console.log(item);
 
             // add properties
-            titleKey = settings[currentMap].titleKey;
-            nutsKey = settings[currentMap].getNutsKey(item);
+            titleKey = geoSettings[settings.currentMap].titleKey;
+            nutsKey = geoSettings[settings.currentMap].getNutsKey(item);
             region.title = item.properties[titleKey];
             region.identifier = item.properties[titleKey];
 
-            if (getInfoFromPopulationFile) {
+
+
+            if (settings.getInfoFromPopulationFile) {
                 title = item.properties[titleKey];
-                let dictRegion = settings[currentMap].getRegion(item, nutsKey, title);
+                let dictRegion = geoSettings[settings.currentMap].getRegion(item, nutsKey, title);
                 if (!dictRegion) {
-                    console.log(item.properties[titleKey]);
+                    console.error('NOT FOUND ' + item.properties[titleKey]);
                     found = false;
                 } else {
                     region.population = Number(dictRegion.population.replace(/,/g, ''));
@@ -211,25 +207,30 @@ const loadRegions = function() {
                 paths = item.geometry.coordinates;
             }
 
+            if (settings.removeSmallIslands) {
+                let numberOfPaths, maxPaths;
+                maxPaths = 7;
+                numberOfPaths = paths.length;
+                if (numberOfPaths > maxPaths) {
+                    filteredPaths = paths
+                        .sort((a,b) => (a.length > b.length) ? -1 : ((b.length > a.length) ? 1 : 0)).slice(0,maxPaths);
+                } else {
+                    filteredPaths = paths;
+                }
+            } else {
+                filteredPaths = paths;
+            }
 
 
 
-            region.paths = paths.map(path => {
+            region.paths = filteredPaths.map(path => {
                 let thePath;
-                if (settings[currentMap].scaleDownPaths) {
-                    let l = path.length;
-                    if (l > 1000) {
-                        thePath = scaleDownPath(path, 10);
-                    } else if (l > 100) {
-                        thePath = scaleDownPath(path, 4);
-                    } else if (l > 50) {
-                        thePath = scaleDownPath(path, 2);
-                    } else {
-                        thePath = path;
-                    }
+                if (settings.scaleDownPaths) {
+                    thePath = scaleDownPath(path);
                 } else {
                     thePath = path;
                 }
+
                 return thePath.map(coordinate => {
                     return {
                         x: coordinate[0],
@@ -238,12 +239,11 @@ const loadRegions = function() {
                 })
             });
             if (found) {
-                region.id = id++;
-                if (settings[currentMap].addCountryCode) {
-                    region.country_id = settings[currentMap].addCountryCode;
+                if (geoSettings[settings.currentMap].addCountryCode) {
+                    region.country_id = geoSettings[settings.currentMap].addCountryCode;
                 }
 
-                if (addPathsIfExists) {
+                if (settings.addPathsIfExists) {
                     let exists = regions.find(r => r.title === region.title);
                     if (exists) {
                         for (let path of region.paths) {
@@ -253,6 +253,10 @@ const loadRegions = function() {
                         regions.push(region);
                     }
                 } else {
+                    if (region.title === 'Nizhny Novgorod Oblast') {
+                        console.log(item);
+                        console.log(region);
+                    }
                     regions.push(region);
                 }
             }
@@ -260,27 +264,67 @@ const loadRegions = function() {
 
         console.log(regions);
         let string = JSON.stringify(regions);
-        if (!printArrayBrackets) {
+        if (!settings.printArrayBrackets) {
             string = string.substring(1, string.length-1);
         }
         console.log(string);
     });
 };
 
-const scaleDownPath = function(path, scaleDown) {
-    let filtered = [];
-    for (let i = 0, l = path.length; i < l; i++) {
-        let c = path[i];
-        if (i === 0 || i === (l - 1) || i % scaleDown === 0) {
-            filtered.push(c);
+const scaleDownPath = function(path) {
+    let filtered, pathLength, threshold, lastPointAdded;
+    filtered = [];
+    threshold = 0.1;
+    lastPointAdded = null;
+    pathLength = path.length;
+    if (pathLength > 50) {
+        for (let i = 0, l = path.length; i < l; i++) {
+            let point, distance;
+            point = path[i];
+            // exclude first and last point
+            if (lastPointAdded && i < (l - 1)) {
+                distance = Math.pow((point[0] - lastPointAdded[0]), 2) + Math.pow((point[1] - lastPointAdded[1]), 2);
+                if (distance > threshold) {
+                    filtered.push(point);
+                    lastPointAdded = point;
+                }
+            } else {
+                filtered.push(point);
+                lastPointAdded = point;
+            }
         }
+        return filtered;
+    } else {
+        return path;
     }
-    return filtered;
+};
+
+const scaleDownPathRough = function(path, scaleDown) {
+    let filtered, l;
+    l = path.length;
+    if (l > 50) {
+        scaleDown = Math.round(Math.pow(l, 0.99) / 800);
+        if (scaleDown > 0) {
+            filtered = [];
+            for (let i = 0, l = path.length; i < l; i++) {
+                let c = path[i];
+                if (i === 0 || i === (l - 1) || i % scaleDown === 0) {
+                    filtered.push(c);
+                }
+            }
+            console.log(l + ' with scaledown ' + scaleDown + '. To ' + filtered.length);
+            return filtered;
+        } else {
+            return path;
+        }
+    } else {
+        return path;
+    }
 };
 
 
 
-if (getInfoFromPopulationFile) {
+if (settings.getInfoFromPopulationFile) {
 
     populationDict = {};
     d3.csv('data/regions.csv')
