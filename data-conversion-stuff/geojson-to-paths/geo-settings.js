@@ -1,4 +1,63 @@
 window.geoSettings = {
+    poland: {
+        geo: 'data/poland/geo.json',
+        titleKey: 'name',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                    return region;
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: []
+    },
+    france: {
+        geo: 'data/france/geo.json',
+        titleKey: 'nom',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                    return region;
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: []
+    },
+    germany: {
+        geo: 'data/germany/geo.json',
+        titleKey: 'GEN',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                    return region;
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: []
+    },
+    spain: {
+        geo: 'data/spain/geo-ready.json',
+        ready: true,
+        exclude: []
+    },
     usa: {
         geo: 'data/usa/geo.json',
         titleKey: 'NAME',
@@ -15,7 +74,7 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: ['peru', 'colombia', 'brazil', 'mexico', 'argentina', 'chile']
+        exclude: []
     },
     southamerica: {
         geo: 'data/south_america/geo.json',
@@ -44,14 +103,32 @@ window.geoSettings = {
         getRegion: function(item, title) {
             for (let key in populationDict) {
                 let region = populationDict[key];
-                if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                if (title.toLowerCase() === 'iran' && region.region.toLowerCase() === 'iran') {
                     return region;
+                } else {
+                    if (title.toLowerCase() !== 'iran' && region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                        return region;
+                    }
                 }
             }
             return null;
         },
         addCountryCode: null,
-        exclude: ['russia', 'china', 'peru', 'colombia', 'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile']
+        exclude: ['germany', 'spain', 'russia', 'china', 'peru', 'colombia', 'brazil',
+            'poland',
+            'canada', 'australia', 'india', 'mexico', 'argentina', 'chile',
+            'france', 'antarctica', 'ashmore and cartier island', 'french southern and antarctic lands',
+            'Ashmore and Cartier Islands', 'Bajo Nuevo Bank (Petrel Is.)', 'Clipperton Island',
+            'Cyprus No Mans Area', 'Cook Islands', 'Comoros', 'Coral Sea Islands',
+            'Dhekelia Sovereign Base Area', 'Federated States of Micronesia', 'Guernsey',
+            'Heard Island and McDonald Islands', 'British Indian Ocean Territory', 'Baykonur Cosmodrome',
+            'Siachen Glacier', 'Kiribati', 'Lesotho', 'Macao S.A.R', 'Marshall Islands',
+            'Norfolk Island', 'Niue', 'Nauru', 'Pitcairn Islands', 'Spratly Islands',
+            'Palau', 'North Korea', 'Palestine', 'Scarborough Reef', 'Serranilla Bank',
+            'South Georgia and South Sandwich Islands', 'Saint Helena', 'Solomon Islands',
+            'Somaliland', 'Turkmenistan', 'Tonga', 'Tuvalu', 'United States Minor Outlying Islands',
+            'United States of America', 'US Naval Base Guantanamo Bay', 'United States Virgin Islands',
+            'Vanuatu', 'Wallis and Futuna', 'Akrotiri Sovereign Base Area']
     },
     chile: {
         geo: 'data/chile/geo.json',
@@ -186,16 +263,55 @@ window.geoSettings = {
             return item.properties.name;
         },
         getRegion: function(item, title) {
+            let dict, newTitle;
+            dict = {
+                '新疆维吾尔自治区': 'Xinjiang',
+                '西藏自治区': 'Tibet',
+                '内蒙古自治区': 'Inner Mongolia',
+                '青海省': 'Qinghai',
+                '四川省': 'Sichuan',
+                '黑龙江省': 'Heilongjiang',
+                '甘肃省': 'Gansu',
+                '云南省': 'Yunnan',
+                '广西壮族自治区': 'Guangxi',
+                '湖南省': 'Hunan',
+                '陕西省': 'Shanxi',
+                '广东省': 'Guangdong',
+                '吉林省': 'Jilin',
+                '河北省': 'Hebei',
+                '湖北省': 'Hubei',
+                '贵州省': 'Guizhou',
+                '山东省': 'Shandong',
+                '江西省': 'Jiangxi',
+                '河南省': 'Henan',
+                '辽宁省': 'Liaoning',
+                '山西省': 'Shaanxi',
+                '安徽省': 'Anhui',
+                '福建省': 'Fujian',
+                '浙江省': 'Zhejiang',
+                '江苏省': 'Jiangsu',
+                '重庆市': 'Chongqing',
+                '宁夏回族自治区': 'Ningxia',
+                '海南省': 'Hainan',
+                '台湾省': 'Taiwan',
+                '北京市': 'Beijing',
+                '天津市': 'Tianjin',
+                '上海市': 'Shanghai',
+                '香港特别行政区': 'Hong Kong',
+                '澳门特别行政区': 'Macau',
+            };
+            newTitle = dict[title];
+
             for (let key in populationDict) {
                 let region = populationDict[key];
-                if (region.region.indexOf(title) > -1) {
+                if (region.region.indexOf(newTitle) > -1) {
                     return region;
                 }
             }
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: ['香港特别行政区']
     },
     canada: {
         geo: 'data/canada/geo.json',

@@ -2,7 +2,8 @@ let regions, populationDict, settings, sources, currentSource;
 
 regions = [];
 
-sources = ['world', 'usa', 'peru', 'colombia', 'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia'];
+sources = ['china', 'poland', 'france', 'germany', 'spain', 'world', 'usa', 'peru', 'colombia',
+    'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia'];
 //sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile'];
 currentSource = sources[0];
 
@@ -38,100 +39,117 @@ const finish = function() {
     console.log(string);
 };
 
+const shouldExclude = function (title) {
+    return geoSettings[currentSource].exclude.indexOf(title.toLowerCase()) > -1 ||
+        geoSettings[currentSource].exclude.indexOf(title) > -1
+};
+
 const loadRegions = function() {
     $.getJSON(geoSettings[currentSource].geo, function( data ) {
-        for (let item of data.features) {
-            let region, paths, found, titleKey, title, filteredPaths;
-            found = true;
-            region = {};
-            // if (currentSource === 'usa') {
-            //     console.log(item);
-            // }
 
-            // add properties
-            titleKey = geoSettings[currentSource].titleKey;
-            region.title = item.properties[titleKey];
-            region.identifier = item.properties[titleKey];
+        if (currentSource === 'china') {
+            //console.log(data);
+        }
 
-
-
-            if (settings.getInfoFromPopulationFile) {
-                title = item.properties[titleKey];
-                let dictRegion = geoSettings[currentSource].getRegion(item, title);
-                if (!dictRegion) {
-                    console.error('NOT FOUND ' + item.properties[titleKey] + ' ' + currentSource);
-                    found = false;
-                } else {
-                    region.population = Number(dictRegion.population.replace(/,/g, ''));
-                    region.title = dictRegion.region;
-                    region.identifier = dictRegion.region;
-                }
+        if (geoSettings[currentSource].ready) {
+            for (let item of data) {
+                delete item.id;
+                regions.push(item);
             }
 
-            if (geoSettings[currentSource].exclude.indexOf(region.title.toLowerCase()) === -1) {
-                // transform paths
-                if (item.geometry.type === 'MultiPolygon') {
-                    paths = [];
-                    for (let set of item.geometry.coordinates) {
-                        for (let path of set) {
-                            paths.push(path);
+        } else {
+            for (let item of data.features) {
+                let region, paths, found, titleKey, title, filteredPaths;
+                found = true;
+                region = {};
+
+
+                // add properties
+                titleKey = geoSettings[currentSource].titleKey;
+                region.title = item.properties[titleKey];
+                region.identifier = item.properties[titleKey];
+                title = item.properties[titleKey];
+
+                if (!shouldExclude(title)) {
+
+                    if (settings.getInfoFromPopulationFile) {
+
+                        let dictRegion = geoSettings[currentSource].getRegion(item, title);
+                        if (!dictRegion) {
+                            console.error('NOT FOUND ' + item.properties[titleKey] + ' ' + currentSource);
+                            found = false;
+                        } else {
+                            region.population = Number(dictRegion.population.replace(/,/g, ''));
+                            region.title = dictRegion.region;
+                            region.identifier = dictRegion.region;
                         }
                     }
-                } else {
-                    paths = item.geometry.coordinates;
-                }
 
-                if (settings.removeSmallIslands) {
-                    let numberOfPaths, maxPaths;
-                    maxPaths = 16;
-                    numberOfPaths = paths.length;
-                    if (numberOfPaths > maxPaths) {
-                        filteredPaths = paths
-                            .sort((a,b) => (a.length > b.length) ? -1 : ((b.length > a.length) ? 1 : 0)).slice(0,maxPaths);
+
+                    // transform paths
+                    if (item.geometry.type === 'MultiPolygon') {
+                        paths = [];
+                        for (let set of item.geometry.coordinates) {
+                            for (let path of set) {
+                                paths.push(path);
+                            }
+                        }
+                    } else {
+                        paths = item.geometry.coordinates;
+                    }
+
+                    if (settings.removeSmallIslands) {
+                        let numberOfPaths, maxPaths;
+                        maxPaths = 16;
+                        numberOfPaths = paths.length;
+                        if (numberOfPaths > maxPaths) {
+                            filteredPaths = paths
+                                .sort((a,b) => (a.length > b.length) ? -1 : ((b.length > a.length) ? 1 : 0)).slice(0,maxPaths);
+                        } else {
+                            filteredPaths = paths;
+                        }
                     } else {
                         filteredPaths = paths;
                     }
-                } else {
-                    filteredPaths = paths;
-                }
 
 
 
-                region.paths = filteredPaths.map(path => {
-                    let thePath;
-                    if (settings.scaleDownPaths) {
-                        thePath = scaleDownPath(path);
-                    } else {
-                        thePath = path;
-                    }
-
-                    return thePath.map(coordinate => {
-                        return {
-                            x: coordinate[0],
-                            y: coordinate[1]
+                    region.paths = filteredPaths.map(path => {
+                        let thePath;
+                        if (settings.scaleDownPaths) {
+                            thePath = scaleDownPath(path);
+                        } else {
+                            thePath = path;
                         }
-                    })
-                });
-                if (found) {
-                    if (geoSettings[currentSource].addCountryCode) {
-                        region.country_id = geoSettings[currentSource].addCountryCode;
-                    }
 
-                    if (settings.addPathsIfExists) {
-                        let exists = regions.find(r => r.title === region.title);
-                        if (exists) {
-                            for (let path of region.paths) {
-                                exists.paths.push(path);
+                        return thePath.map(coordinate => {
+                            return {
+                                x: coordinate[0],
+                                y: coordinate[1]
+                            }
+                        })
+                    });
+                    if (found) {
+                        if (geoSettings[currentSource].addCountryCode) {
+                            region.country_id = geoSettings[currentSource].addCountryCode;
+                        }
+
+                        if (settings.addPathsIfExists) {
+                            let exists = regions.find(r => r.title === region.title);
+                            if (exists) {
+                                for (let path of region.paths) {
+                                    exists.paths.push(path);
+                                }
+                            } else {
+                                regions.push(region);
                             }
                         } else {
+                            if (region.title === 'Nizhny Novgorod Oblast') {
+                                console.log(item);
+                                console.log(region);
+                            }
                             regions.push(region);
                         }
-                    } else {
-                        if (region.title === 'Nizhny Novgorod Oblast') {
-                            console.log(item);
-                            console.log(region);
-                        }
-                        regions.push(region);
                     }
                 }
             }
