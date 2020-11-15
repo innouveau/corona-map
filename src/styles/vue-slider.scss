@@ -1,4 +1,4 @@
-$slider-color: #000;
+$slider-color: $map-color-dark;
 
 .vue-slider {
 
@@ -6,6 +6,7 @@ $slider-color: #000;
         border-radius: 0;
         height: 2px;
         pointer-events: all;
+        background: #fff;
 
         .vue-slider-process {
             background: $slider-color;
@@ -15,6 +16,7 @@ $slider-color: #000;
             background: $slider-color;
             box-shadow: none;
             pointer-events: all;
+            border: 2px solid $map-color;
         }
 
         .vue-slider-dot-tooltip {

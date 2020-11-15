@@ -3,7 +3,7 @@ import changeTools from '@/tools/change';
 
 const addBackground = function(ctx, width, height) {
     ctx.rect(0, 0, width, height);
-    ctx.fillStyle = '#fff';
+    ctx.fillStyle = '#f5eedc';
     ctx.fill();
 };
 

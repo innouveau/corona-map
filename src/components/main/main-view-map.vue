@@ -64,6 +64,7 @@
 
     .standard-view-map {
         padding-bottom: 0;
+        background: $map-color;
 
         .search-regions {
             height: 36px;

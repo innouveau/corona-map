@@ -59,7 +59,7 @@
                 height: 12px;
                 border-radius: 50%;
                 margin-right: 4px;
-                border: 1px solid #555;
+                border: 1px solid $map-color-dark;
             }
         }
     }

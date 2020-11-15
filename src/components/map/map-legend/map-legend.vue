@@ -37,6 +37,7 @@
             display: flex;
             align-items: center;
             font-size: 9px;
+            color: $map-color-super-dark;
         }
     }
 </style>

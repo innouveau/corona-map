@@ -57,6 +57,8 @@
 
         input {
             width: 100%;
+            background: #fff;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
 
         .hover-value {
@@ -65,11 +67,11 @@
             top: 0;
             width: 100%;
             height: 36px;
-            background: #ddd;
             padding: 10px;
             display: flex;
             align-items: center;
             z-index: 1;
+            background: #fff;
         }
     }
 </style>

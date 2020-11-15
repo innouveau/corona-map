@@ -116,7 +116,7 @@
 
             .region-type__label {
                 padding: 4px;
-                border-right: 1px solid #ddd;
+                border-right: 1px solid $map-color-dark;
                 height: 100%;
                 display: flex;
                 align-items: center;
@@ -128,11 +128,12 @@
         &.region-type--current {
 
             .region-type__region {
-                border-bottom: 1px solid #000;
+                border-bottom: 1px solid $map-color-dark;
             }
 
             .region-type__label {
-                background: #ddd;
+                background: $map-color-dark;
+                color: $map-color;
             }
 
         }
