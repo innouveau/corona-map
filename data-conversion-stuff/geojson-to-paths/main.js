@@ -2,9 +2,9 @@ let regions, populationDict, settings, sources, currentSource;
 
 regions = [];
 
-//sources = ['bolivia', 'china', 'poland', 'france', 'germany', 'spain', 'world', 'usa', 'peru', 'colombia',
-//    'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia'];
-sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile', 'bolivia', 'venezuela'];
+sources = ['scandinavia', 'bolivia', 'china', 'poland', 'france', 'germany', 'spain', 'world', 'usa', 'peru', 'colombia',
+    'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia', 'venezuela'];
+//sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile', 'bolivia', 'venezuela'];
 currentSource = sources[0];
 
 
@@ -13,6 +13,7 @@ settings = {
     printArrayBrackets: true,
     scaleDownPaths: true,
     removeSmallIslands: true,
+    maxIslands: 16,
     addPathsIfExists: true,
     threshold: 0.04 // smaller is more detail
     //threshold: 0.005 // 0.005 for south america
@@ -44,16 +45,56 @@ const shouldExclude = function (title) {
         geoSettings[currentSource].exclude.indexOf(title) > -1
 };
 
+const removeSmallIslands = function(paths) {
+    let numberOfPaths, maxPaths;
+    maxPaths = settings.maxIslands;
+    numberOfPaths = paths.length;
+    if (numberOfPaths > maxPaths) {
+        return paths
+            .sort((a,b) => (a.length > b.length) ? -1 : ((b.length > a.length) ? 1 : 0)).slice(0,maxPaths);
+    } else {
+        return paths;
+    }
+};
+
 const loadRegions = function() {
     $.getJSON(geoSettings[currentSource].geo, function( data ) {
 
-        if (currentSource === 'venezuela') {
-            console.log(data);
-        }
+        // if (currentSource === 'venezuela') {
+        //     console.log(data);
+        // }
 
         if (geoSettings[currentSource].ready) {
             for (let item of data) {
+                let filteredPaths;
                 delete item.id;
+
+                if (settings.removeSmallIslands) {
+                    filteredPaths =removeSmallIslands(item.paths);
+                } else {
+                    filteredPaths = item.paths;
+                }
+
+
+
+                item.paths = filteredPaths.map(path => {
+                    let pathToArray, thePath;
+                    pathToArray = path.map(coordinate => [coordinate.x, coordinate.y]);
+
+                    if (settings.scaleDownPaths) {
+                        thePath = scaleDownPath(pathToArray);
+                    } else {
+                        thePath = pathToArray;
+                    }
+
+                    return thePath.map(coordinate => {
+                        return {
+                            x: coordinate[0],
+                            y: coordinate[1]
+                        }
+                    })
+                });
+
                 regions.push(item);
             }
 
@@ -76,8 +117,17 @@ const loadRegions = function() {
 
                         let dictRegion = geoSettings[currentSource].getRegion(item, title);
                         if (!dictRegion) {
-                            console.error('NOT FOUND ' + item.properties[titleKey] + ' ' + currentSource);
-                            found = false;
+                            // regions we want to add to the map
+                            // but are not present in regions.csv
+                            // therefor dont have data and will appear
+                            // grey on the map
+                            if (geoSettings[currentSource].include.indexOf(title) > -1) {
+                                found = true;
+                            } else {
+                                console.error('NOT FOUND ' + item.properties[titleKey] + ' ' + currentSource);
+                                found = false;
+                            }
+
                         } else {
                             region.population = Number(dictRegion.population.replace(/,/g, ''));
                             region.title = dictRegion.region;
@@ -99,15 +149,7 @@ const loadRegions = function() {
                     }
 
                     if (settings.removeSmallIslands) {
-                        let numberOfPaths, maxPaths;
-                        maxPaths = 16;
-                        numberOfPaths = paths.length;
-                        if (numberOfPaths > maxPaths) {
-                            filteredPaths = paths
-                                .sort((a,b) => (a.length > b.length) ? -1 : ((b.length > a.length) ? 1 : 0)).slice(0,maxPaths);
-                        } else {
-                            filteredPaths = paths;
-                        }
+                        filteredPaths =removeSmallIslands(paths);
                     } else {
                         filteredPaths = paths;
                     }

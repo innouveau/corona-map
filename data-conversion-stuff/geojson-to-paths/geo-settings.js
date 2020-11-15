@@ -1,4 +1,9 @@
 window.geoSettings = {
+    scandinavia: {
+        geo: 'data/scandinavia/geo-ready.json',
+        ready: true,
+        exclude: []
+    },
     venezuela: {
         geo: 'data/venezuela/geo.json',
         titleKey: 'NAME_1',
@@ -15,7 +20,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: ['Dependencias Federales']
+        exclude: ['Dependencias Federales'],
+        include: []
     },
     bolivia: {
         geo: 'data/bolivia/geo.json',
@@ -33,7 +39,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: ['Lago Uru Uru', 'Lago Poopo', 'Lag Titicaca']
+        exclude: ['Lago Uru Uru', 'Lago Poopo', 'Lag Titicaca'],
+        include: []
     },
     poland: {
         geo: 'data/poland/geo.json',
@@ -51,7 +58,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     france: {
         geo: 'data/france/geo.json',
@@ -69,7 +77,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     germany: {
         geo: 'data/germany/geo.json',
@@ -87,7 +96,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     spain: {
         geo: 'data/spain/geo-ready.json',
@@ -110,7 +120,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     southamerica: {
         geo: 'data/south_america/geo.json',
@@ -129,7 +140,8 @@ window.geoSettings = {
         },
         addCountryCode: null,
         exclude: ['peru', 'colombia', 'brazil', 'mexico', 'argentina', 'chile',
-            'bolivia', 'venezuela']
+            'bolivia', 'venezuela'],
+        include: []
     },
     world: {
         geo: 'data/world/geo.json',
@@ -152,20 +164,21 @@ window.geoSettings = {
         },
         addCountryCode: null,
         exclude: ['germany', 'spain', 'russia', 'china', 'peru', 'colombia', 'brazil',
-            'poland', 'bolivia', 'venezuela',
-            'canada', 'australia', 'india', 'mexico', 'argentina', 'chile',
+            'poland', 'bolivia', 'venezuela', 'norway', 'sweden', 'finland', 'united kingdom',
+            'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'italy',
             'france', 'antarctica', 'ashmore and cartier island', 'french southern and antarctic lands',
             'Ashmore and Cartier Islands', 'Bajo Nuevo Bank (Petrel Is.)', 'Clipperton Island',
             'Cyprus No Mans Area', 'Cook Islands', 'Comoros', 'Coral Sea Islands',
             'Dhekelia Sovereign Base Area', 'Federated States of Micronesia', 'Guernsey',
             'Heard Island and McDonald Islands', 'British Indian Ocean Territory', 'Baykonur Cosmodrome',
-            'Siachen Glacier', 'Kiribati', 'Lesotho', 'Macao S.A.R', 'Marshall Islands',
+            'Siachen Glacier', 'Kiribati', 'Macao S.A.R', 'Marshall Islands',
             'Norfolk Island', 'Niue', 'Nauru', 'Pitcairn Islands', 'Spratly Islands',
-            'Palau', 'North Korea', 'Palestine', 'Scarborough Reef', 'Serranilla Bank',
+            'Palau', 'Palestine', 'Scarborough Reef', 'Serranilla Bank',
             'South Georgia and South Sandwich Islands', 'Saint Helena', 'Solomon Islands',
-            'Somaliland', 'Turkmenistan', 'Tonga', 'Tuvalu', 'United States Minor Outlying Islands',
+            'Somaliland', 'Tonga', 'Tuvalu', 'United States Minor Outlying Islands',
             'United States of America', 'US Naval Base Guantanamo Bay', 'United States Virgin Islands',
-            'Vanuatu', 'Wallis and Futuna', 'Akrotiri Sovereign Base Area']
+            'Vanuatu', 'Wallis and Futuna', 'Akrotiri Sovereign Base Area'],
+        include: ['North Korea', 'Turkmenistan', 'Lesotho']
     },
     chile: {
         geo: 'data/chile/geo.json',
@@ -183,7 +196,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: ['test']
+        exclude: ['test'],
+        include: []
     },
     peru: {
         geo: 'data/peru/geo.json',
@@ -201,7 +215,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     colombia: {
         geo: 'data/colombia/geo.json',
@@ -219,7 +234,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     argentina: {
         geo: 'data/argentina/geo.json',
@@ -237,7 +253,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     mexico: {
         geo: 'data/mexico/geo.json',
@@ -255,7 +272,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     india: {
         geo: 'data/india/geo.json',
@@ -273,7 +291,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     australia: {
         geo: 'data/australia/geo.json',
@@ -291,7 +310,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     china: {
         geo: 'data/china/geo.json',
@@ -348,7 +368,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: ['香港特别行政区']
+        exclude: ['香港特别行政区'],
+        include: []
     },
     canada: {
         geo: 'data/canada/geo.json',
@@ -366,7 +387,8 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     brazil: {
         geo: 'data/brazil/geo.json',
@@ -378,7 +400,8 @@ window.geoSettings = {
             return populationDict[title];
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     },
     russia: {
         geo: 'data/russia/geo.json',
@@ -430,6 +453,7 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: []
+        exclude: [],
+        include: []
     }
 };
