@@ -4,7 +4,7 @@ regions = [];
 
 //sources = ['bolivia', 'china', 'poland', 'france', 'germany', 'spain', 'world', 'usa', 'peru', 'colombia',
 //    'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia'];
-sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile', 'bolivia'];
+sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile', 'bolivia', 'venezuela'];
 currentSource = sources[0];
 
 
@@ -47,7 +47,7 @@ const shouldExclude = function (title) {
 const loadRegions = function() {
     $.getJSON(geoSettings[currentSource].geo, function( data ) {
 
-        if (currentSource === 'bolivia') {
+        if (currentSource === 'venezuela') {
             console.log(data);
         }
 
