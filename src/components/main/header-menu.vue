@@ -106,7 +106,10 @@
     <div class="header-menu">
         <div class="title">
             <div class="title__main">
-                Corona status {{mapTitle}}
+                Corona status
+                <div class="title__map">
+                    {{mapTitle}}
+                </div>
             </div>
 
             <div class="title__sub">
@@ -151,24 +154,36 @@
             height: 48px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 8px;
+            //justify-content: center;
 
             .title__main {
-                font-size: 24px;
-                font-weight: 700;
+                font-size: 22px;
                 margin-right: 12px;
+                display: flex;
+                align-items: center;
+                font-family: $serif;
+                border-right: 1px solid #ddd;
+                padding: 8px 16px;
+                height: 100%;
+
+                .title__map {
+                    margin-left: 8px;
+                    font-weight: 700;
+                }
             }
 
-             .title__sub {
-                font-size: 20px;
+            .title__sub {
+                font-size: 18px;
                 display: flex;
+                height: 100%;
 
                 .date-string {
-                    display: block;
-                    margin-top: 2px;
+                    display: flex;
+                    align-items: center;
                     font-family: $monospace;
                     margin-right: 4px;
+                    border-right: 1px solid #ddd;
+                    height: 100%;
 
                     .date-string__string {
                         white-space: nowrap;
@@ -180,6 +195,7 @@
                         padding: 3px;
                         font-size: inherit;
                         cursor: pointer;
+                        color: #000;
 
                         &:hover {
                             background: #ddd;
@@ -190,13 +206,14 @@
                 .total-infections {
                     width: 80px;
                     display: flex;
+                    align-items: center;
 
                     .total-infections__n {
                         padding: 2px 8px;
                         border-radius: 2px;
                         font-family: $monospace;
                         transition: all 0.1s ease;
-                        background: rgb(252, 203, 3);
+                        //background: rgb(252, 203, 3);
                         display: flex;
                     }
                 }

@@ -29,13 +29,6 @@
             },
             caseDataRequested() {
                 return this.$store.state.ui.caseDataRequested;
-            },
-            width() {
-                if (this.type.showRegion) {
-                    return 'auto';
-                } else {
-                    return 'calc(100% / ' + this.n + ')';
-                }
             }
         },
         methods: {
@@ -57,7 +50,6 @@
             'region-type--current': isActive,
             'region-type--with-region': type.showRegion
         }"
-        :style="{'width': width}"
         class="region-type">
         <div
             v-if="type.showRegion"
@@ -83,59 +75,41 @@
     .region-type {
         position: relative;
         cursor: pointer;
+        margin-right: 16px;
+        height: 16px;
+        font-size: 10px;
+
+        &:after {
+            content: '»';
+            position: absolute;
+            right: -11px;
+            top: calc(50% - 1px);
+            transform: translateY(-50%);
+        }
+
+        &:last-child {
+            margin-right: 0;
+
+            &:after {
+                display: none;
+            }
+        }
 
         .region-type__region {
             display: flex;
             align-items: center;
-            font-size: 10px;
             border-bottom: 1px solid transparent;
         }
 
-        &.region-type--with-region {
 
-            margin-right: 16px;
 
-            &:after {
-                content: '»';
-                position: absolute;
-                right: -11px;
-                top: -5px;
-            }
-
-            &:last-child {
-                margin-right: 0;
-
-                &:after {
-                    display: none;
-                }
-            }
-        }
-
-        &:not(.region-type--with-region) {
-            height: 100%;
-
-            .region-type__label {
-                padding: 4px;
-                border-right: 1px solid $map-color-dark;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 10px;
-            }
-        }
 
         &.region-type--current {
 
-            .region-type__region {
+            .region-type__region,
+            .region-type__label {
                 border-bottom: 1px solid $map-color-dark;
             }
-
-            .region-type__label {
-                background: $map-color-dark;
-                color: $map-color;
-            }
-
         }
     }
 </style>

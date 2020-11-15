@@ -73,6 +73,10 @@
 
         .region-type-picker {
             height: 24px;
+            display: flex;
+            align-items: center;
+            padding-left: 4px;
+            color: $map-color-super-dark;
         }
 
         .map,

@@ -85,10 +85,9 @@
         .region-type-picker__container {
             display: flex;
             flex-wrap: wrap;
-            height: 100%;
-            border-bottom: 1px solid $map-color-dark;
-            border-top: 1px solid $map-color-dark;
-            border-left: 1px solid $map-color-dark;
+            //border-bottom: 1px solid $map-color-dark;
+            //border-top: 1px solid $map-color-dark;
+            //border-left: 1px solid $map-color-dark;
         }
     }
 </style>
