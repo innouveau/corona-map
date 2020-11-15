@@ -2,9 +2,9 @@ let regions, populationDict, settings, sources, currentSource;
 
 regions = [];
 
-sources = ['china', 'poland', 'france', 'germany', 'spain', 'world', 'usa', 'peru', 'colombia',
-    'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia'];
-//sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile'];
+//sources = ['bolivia', 'china', 'poland', 'france', 'germany', 'spain', 'world', 'usa', 'peru', 'colombia',
+//    'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia'];
+sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile', 'bolivia'];
 currentSource = sources[0];
 
 
@@ -47,8 +47,8 @@ const shouldExclude = function (title) {
 const loadRegions = function() {
     $.getJSON(geoSettings[currentSource].geo, function( data ) {
 
-        if (currentSource === 'china') {
-            //console.log(data);
+        if (currentSource === 'bolivia') {
+            console.log(data);
         }
 
         if (geoSettings[currentSource].ready) {

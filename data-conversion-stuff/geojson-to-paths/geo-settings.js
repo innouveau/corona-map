@@ -1,4 +1,22 @@
 window.geoSettings = {
+    bolivia: {
+        geo: 'data/bolivia/geo.json',
+        titleKey: 'NOM_DEP',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (region.region.toLowerCase() === title.toLowerCase()) {
+                    return region;
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: ['Lago Uru Uru', 'Lago Poopo', 'Lag Titicaca']
+    },
     poland: {
         geo: 'data/poland/geo.json',
         titleKey: 'name',
@@ -92,7 +110,7 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: ['peru', 'colombia', 'brazil', 'mexico', 'argentina', 'chile']
+        exclude: ['peru', 'colombia', 'brazil', 'mexico', 'argentina', 'chile', 'bolivia']
     },
     world: {
         geo: 'data/world/geo.json',
@@ -115,7 +133,7 @@ window.geoSettings = {
         },
         addCountryCode: null,
         exclude: ['germany', 'spain', 'russia', 'china', 'peru', 'colombia', 'brazil',
-            'poland',
+            'poland', 'bolivia',
             'canada', 'australia', 'india', 'mexico', 'argentina', 'chile',
             'france', 'antarctica', 'ashmore and cartier island', 'french southern and antarctic lands',
             'Ashmore and Cartier Islands', 'Bajo Nuevo Bank (Petrel Is.)', 'Clipperton Island',
