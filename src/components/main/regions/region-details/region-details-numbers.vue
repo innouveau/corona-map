@@ -63,7 +63,7 @@
                     <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getIncreaseOfType(view.offset, 1, 'positiveTests', false), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, 1, 'positiveTests', false), true)}}
                 </div>
             </div>
             <div v-if="hasDays && !short" class="region-details__row">
@@ -72,7 +72,7 @@
                     <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getIncreaseOfType(view.offset, 1, 'positiveTests', true), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, 1, 'positiveTests', true), true)}}
                 </div>
             </div>
             <div
@@ -82,7 +82,7 @@
                     {{translate('increase', true)}} {{translate('last-7-days')}} <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getIncreaseOfType(view.offset, 7, 'positiveTests', false), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, 7, 'positiveTests', false), true)}}
                 </div>
             </div>
             <div class="region-details__row">
@@ -90,7 +90,7 @@
                     {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getIncreaseOfType(view.offset, 7, 'positiveTests', true), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, 7, 'positiveTests', true), true)}}
                 </div>
             </div>
         </div>
@@ -100,7 +100,7 @@
                     {{translate('total-infections', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getIncreaseOfType(view.offset, -1, 'positiveTests', false), false)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, -1, 'positiveTests', false), false)}}
                 </div>
             </div>
             <div class="region-details__row">

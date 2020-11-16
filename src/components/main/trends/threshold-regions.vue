@@ -47,9 +47,14 @@
         methods: {
             getRegions(threshold) {
                 let regions = this.$store.getters['ui/regions'];
+
+                const getTotalRelativeIncreaseWeek = (region) => {
+                    return region.getTotalIncreaseOfType(this.view.offset, 7, 'positiveTests', true);
+                };
+
                 return regions.filter(region => {
                     return region.getThreshold(0, this.view.offset) === threshold;
-                }).sort((a,b) => (a.getTotalRelativeIncreaseWeek(this.view.offset) < b.getTotalRelativeIncreaseWeek(this.view.offset)) ? 1 : ((b.getTotalRelativeIncreaseWeek(this.view.offset) < a.getTotalRelativeIncreaseWeek(this.view.offset)) ? -1 : 0));
+                }).sort((a,b) => (getTotalRelativeIncreaseWeek(a) < getTotalRelativeIncreaseWeek(b)) ? 1 : ((getTotalRelativeIncreaseWeek(b) < getTotalRelativeIncreaseWeek(a)) ? -1 : 0));
             }
         }
     }

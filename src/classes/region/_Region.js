@@ -4,6 +4,23 @@ import thresholdTools from "@/tools/thresholds";
 class _Region {
     constructor(_region) {}
 
+    getTotalIncreaseOfType(offset, days, type, relative) {
+        let regions, total, population;
+        total = 0;
+        regions = this.getRegions();
+        if (relative) {
+            population = this.population;
+        }
+        for (let region of regions) {
+            total += region.getIncreaseOfType(offset, days, type, false)
+        }
+        if (relative) {
+            return 100000 * total / population;
+        } else {
+            return total;
+        }
+    }
+
     getTotalPopulation() {
         let population, regions;
         population = 0;
@@ -14,23 +31,29 @@ class _Region {
         return population;
     }
 
-
-
-
-
-    // old
-
-
-    // lastday no need of offset, therefor a getter is possible
-    // but then trends should only be shown at today
-    get relativeIncreaseLastday() {
-        let regions, increase;
-        increase = 0;
-        regions = this.getRegions();
-        for (let region of regions) {
-            increase += region.absoluteIncreaseLastDay;
+    getRegions() {
+        let module = store.state.maps.current.module;
+        switch(this.regionType) {
+            case 'city':
+            case 'district':
+                return [this];
+            case 'ggd':
+                return store.state[module].all.filter(city => {
+                    return city.ggd_code === this.ggd_code;
+                });
+            case 'safety-region':
+                return store.state[module].all.filter(city => {
+                    return city.safetyRegion_code === this.safetyRegion_code;
+                });
+            case 'province':
+                return store.state[module].all.filter(city => {
+                    return city.province_code === this.province_code;
+                });
+            case 'country':
+                return store.state[module].all.filter(city => {
+                    return city.country_id === this.id;
+                });
         }
-        return 100000 * increase / this.getTotalPopulation();
     }
 
     getGgds() {
@@ -81,30 +104,6 @@ class _Region {
         }
     }
 
-    getRegions() {
-        let module = store.state.maps.current.module;
-        switch(this.regionType) {
-            case 'city':
-            case 'district':
-                return [this];
-            case 'ggd':
-                return store.state[module].all.filter(city => {
-                    return city.ggd_code === this.ggd_code;
-                });
-            case 'safety-region':
-                return store.state[module].all.filter(city => {
-                    return city.safetyRegion_code === this.safetyRegion_code;
-                });
-            case 'province':
-                return store.state[module].all.filter(city => {
-                    return city.province_code === this.province_code;
-                });
-            case 'country':
-                return store.state[module].all.filter(city => {
-                    return city.country_id === this.id;
-                });
-        }
-    }
 
     getAllPaths() {
         let cities, paths;
@@ -117,45 +116,6 @@ class _Region {
     }
 
 
-
-    getTotalIncreaseDay(delta, offset) {
-        let increase, cities;
-        increase = 0;
-        cities = this.getRegions();
-        for (let city of cities) {
-            increase += city.getIncreaseDay(delta, offset);
-        }
-        return increase;
-    }
-
-    getTotalIncreaseWeek(delta, offset) {
-        let increase, cities;
-        increase = 0;
-        cities = this.getRegions();
-        for (let city of cities) {
-            let thisIncrease = city.getIncreaseWeek(delta, offset);
-            if (thisIncrease === null) {
-                return null;
-            } else {
-                increase += thisIncrease;
-            }
-        }
-        return increase;
-    }
-
-    getTotalRelativeIncreasDay(offset) {
-        let increase = this.getTotalIncreaseDay(0, offset);
-        return 100000 * increase / this.getTotalPopulation();
-    }
-
-    getTotalRelativeIncreaseWeek(offset) {
-        if (store.state.maps.current.settings.hasTests) {
-            let increase = this.getTotalIncreaseWeek(0, offset);
-            return 100000 * increase / this.getTotalPopulation();
-        } else {
-            return 0;
-        }
-    }
 
     getTotalReport() {
         let report, cities, counter;
@@ -187,20 +147,6 @@ class _Region {
         return this.getThreshold(1) !== this.getThreshold(0);
     }
 
-    getThreshold(delta = 0, offset) {
-        let cases, signalingSystem;
-        signalingSystem = store.state.signalingSystems.current;
-        if (signalingSystem.days === 1) {
-            cases = this.getTotalIncreaseDay(delta, offset);
-        } else if (signalingSystem.days === 7) {
-            cases = this.getTotalIncreaseWeek(delta, offset);
-            if (cases === null) {
-                return null;
-            }
-        }
-        return thresholdTools.getThreshold(cases, this.getTotalPopulation(), signalingSystem.days);
-    }
-
     get hasLateReporting() {
         let map = store.state.maps.current;
         if (map.settings.caseSettings) {
@@ -229,9 +175,9 @@ class _Region {
         map = store.state.maps.current;
         signalingSystem = store.state.signalingSystems.current;
         if (signalingSystem.days === 1) {
-            cases = this.getTotalRelativeIncreasDay(offset);
+            cases = this.getTotalIncreaseOfType(offset, 1, 'positiveTests', false);
         } else if (signalingSystem.days === 7) {
-            cases = this.getTotalRelativeIncreaseWeek(offset)
+            cases = this.getTotalIncreaseOfType(offset, 7, 'positiveTests', false);
         }
         if (map.settings.hasTests) {
             if (this.hasLateReporting && offset < 10) {
@@ -243,14 +189,28 @@ class _Region {
         }
     }
 
+    getThreshold(delta = 0, offset) {
+        let cases, signalingSystem;
+        signalingSystem = store.state.signalingSystems.current;
+        if (signalingSystem.days === 1) {
+            cases = this.getTotalIncreaseOfType((offset + delta), 1, 'positiveTests', false);
+        } else if (signalingSystem.days === 7) {
+            cases = this.getTotalIncreaseOfType((offset + delta), 7, 'positiveTests', false);
+            if (cases === null) {
+                return null;
+            }
+        }
+        return thresholdTools.getThreshold(cases, this.getTotalPopulation(), signalingSystem.days);
+    }
+
     getChange(offset, daysBefore) {
         let before, after, extraOffset;
         extraOffset = 0;
         if (this.hasLateReporting && offset < 10) {
             extraOffset = this.getLatestReporting(offset);
         }
-        before = this.getTotalRelativeIncreaseWeek((offset + daysBefore + extraOffset));
-        after = this.getTotalRelativeIncreaseWeek((offset + extraOffset));
+        before = this.getTotalIncreaseOfType((offset + daysBefore + extraOffset), 7, 'positiveTests', true);
+        after = this.getTotalIncreaseOfType((offset + extraOffset), 7, 'positiveTests', true);
         if (before === 0) {
             //if (after === 0) {
                 return 1;
@@ -260,14 +220,6 @@ class _Region {
         }
     }
 
-    getDoublings(offset) {
-        let increase = this.getTotalRelativeIncreaseWeek(offset);
-        if (increase === 0) {
-            return 0;
-        } else {
-            return Math.floor(Math.log(increase) / Math.log(2));
-        }
-    }
 }
 
 export default _Region;

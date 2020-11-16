@@ -21,7 +21,7 @@
             n() {
                 let n = 0;
                 for (let region of this.regions) {
-                    n += region.getIncreaseDay(0, this.view.offset);
+                    n += region.getIncreaseOfType(this.view.offset, 1, 'positiveTests', false);
                 }
                 return numberTools.format(n, true);
             },
