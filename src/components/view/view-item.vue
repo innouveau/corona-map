@@ -121,18 +121,30 @@
                     right: 10px;
                     top: 10px;
                     width: 200px;
-                    z-index: 1;
+                    z-index: 10;
 
-                    .region-details__row {
-                        display: block;
+                    .region-card {
+                        padding: 12px;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                        margin-bottom: 20px;
+                        border-radius: 6px;
+                        background: #FDFCF8;
 
-                        .region-details__label {
-                            width: 100%;
-                        }
+                        .region-details__section {
+                            padding: 6px 0;
 
-                        .region-details__value {
-                            width: 100%;
-                            text-align: left;
+                            .region-details__row {
+
+                                .region-details__label {
+                                    width: 60%;
+                                    font-size: 11px;
+                                }
+
+                                .region-details__value {
+                                    width: 40%;
+                                    font-size: 13px;
+                                }
+                            }
                         }
                     }
                 }

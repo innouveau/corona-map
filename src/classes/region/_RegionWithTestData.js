@@ -12,22 +12,26 @@ class _RegionWithTestData extends _Region{
         let total, history, first, last, population;
         total = 0;
         history = this.report.history;
-        first = history.length - offset - 1;
-        if (days === -1) {
-            last = -1;
+        if (history.length > 0) {
+            first = history.length - offset - 1;
+            if (days === -1) {
+                last = -1;
+            } else {
+                last = first - days;
+            }
+            if (relative) {
+                population = this.population;
+            }
+            for (let i = first, l = last; i > l; i--) {
+                total += history[i][type];
+            }
+            if (relative) {
+                return 100000 * total / population;
+            } else {
+                return total;
+            }
         } else {
-            last = first - days;
-        }
-        if (relative) {
-            population = this.population;
-        }
-        for (let i = first, l = last; i > l; i--) {
-            total += history[i][type];
-        }
-        if (relative) {
-            return 100000 * total / population;
-        } else {
-            return total;
+            return null;
         }
     }
 

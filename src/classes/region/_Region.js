@@ -151,7 +151,7 @@ class _Region {
     getLatestReporting(offset) {
         let value = 0;
         while (value === 0) {
-            value = this.getTotalIncreaseDay(0, offset);
+            value = this.getTotalIncreaseOfType(offset, 1, 'positiveTests', true);
             offset++;
         }
         return offset - 1;
