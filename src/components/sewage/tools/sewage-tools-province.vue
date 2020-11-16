@@ -1,5 +1,5 @@
 <script>
-    import Province from "@/classes/Province";
+    import Province from "@/classes/region/Province";
 
     export default {
         name: 'sewage-tools-province',

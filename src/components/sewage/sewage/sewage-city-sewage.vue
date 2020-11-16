@@ -1,5 +1,5 @@
 <script>
-    import City from "@/classes/City";
+    import City from "@/classes/region/City";
     import SewageTreatmentPlant from "@/classes/SewageTreatmentPlant";
     import sewageCityMeasurement from "./sewage-city-measurement";
     import sewageGraphDates from "../sewage-graph-dates";

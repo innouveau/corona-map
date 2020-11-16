@@ -1,5 +1,5 @@
 <script>
-    import _Region from "@/classes/_Region";
+    import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
 
     import positiveTests from "./tests/positive-tests";
@@ -84,12 +84,19 @@
             <region-details-head
                 :view="view"
                 :region="regionOfFocus"/>
+        </div>
 
-            <region-trend
-                v-if="showTrend"
-                :view="view"
-                :region="regionOfFocus"
-                :show-verdict="true"/>
+        <div class="region-details__section">
+            <positive-tests
+                    :view="view"
+                    :region="regionOfFocus"
+                    :weeks="weeks"/>
+
+            <administered-tests
+                    v-if="currentMap.settings.hasAdministeredTests"
+                    :view="view"
+                    :region="regionOfFocus"
+                    :weeks="weeks"/>
         </div>
 
         <div class="region-details__info">
@@ -120,22 +127,6 @@
                 :view="view"
                 :region="regionOfFocus"/>
 
-            <div class="region-details__section">
-                <div class="region-details__section-header">
-                    {{translate('test-results', true)}}
-                </div>
-                <positive-tests
-                    :view="view"
-                    :region="regionOfFocus"
-                    :weeks="weeks"/>
-
-                <administered-tests
-                        v-if="currentMap.settings.hasAdministeredTests"
-                        :view="view"
-                        :region="regionOfFocus"
-                        :weeks="weeks"/>
-            </div>
-
             <div
                     v-if="hasSewageTreatmentPlants"
                     class="region-details__section">
@@ -157,18 +148,10 @@
         font-size: 15px;
         position: relative;
 
-        .region-card {
-            padding: 12px;
-            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-            margin-bottom: 20px;
-            border-radius: 4px;
-            background: #fff;
-        }
-
         .region-details__info {
 
             .region-details__section {
-                border-bottom: 1px solid #ddd;
+                border-bottom: 2px solid #000;
                 padding: 10px 0;
 
                 .region-details__section-header {
@@ -183,19 +166,29 @@
 
             .region-details__row {
                 display: flex;
-                padding: 2px 0;
+                padding: 8px 0;
+                border-bottom: 1px dashed #555;
+                line-height: 1.1;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
 
                 .region-details__label {
-                    width: 200px;
+                    width: 250px;
+                    display: flex;
+                    align-items: center;
                 }
 
                 .region-details__value {
                     font-weight: 700;
                     font-family: $monospace;
                     font-size: 20px;
-                    text-align: right;
-                    width: calc(100% - 200px);
+                    width: calc(100% - 250px);
                     position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
                 }
             }
         }

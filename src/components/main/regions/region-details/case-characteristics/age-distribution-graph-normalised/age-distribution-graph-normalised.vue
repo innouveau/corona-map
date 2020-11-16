@@ -1,7 +1,7 @@
 <script>
-    import GGD from "@/classes/GGD";
+    import GGD from "@/classes/region/GGD";
     import View from "@/classes/View";
-    import Country from "@/classes/Country";
+    import Country from "@/classes/region/Country";
     import ageGroups from "@/data/age-groups";
     import ageGroup from "./age-group";
     import ageDistributionHeader from "./age-distribution-header";

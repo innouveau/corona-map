@@ -188,8 +188,8 @@ const dictionary = {
         en: "Population"
     },
     "positive-tests": {
-        nl: "Positieve tests",
-        en: "Positive tests"
+        nl: "Positieve PRC tests",
+        en: "Positive PCR tests"
     },
     "province": {
         nl: "Provincie",
@@ -254,6 +254,14 @@ const dictionary = {
     "today": {
         nl: "Vandaag",
         en: "Today"
+    },
+    "total-infections": {
+        nl: "Totaal positieve tests sinds dag 0",
+        en: "Total of positive tests since day 0"
+    },
+    "total-infections-percentage-of-population": {
+        nl: "Totaal positieve tests sinds dag 0 als pct vd bevolking",
+        en: "Total of positive tests since day 0 as perc of population"
     },
     "traffic-light": {
         nl: "Stoplicht",

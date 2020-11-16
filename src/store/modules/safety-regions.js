@@ -1,5 +1,5 @@
 import _base from './_base-module';
-import SafetyRegion from '@/classes/SafetyRegion';
+import SafetyRegion from '@/classes/region/SafetyRegion';
 
 const Model = SafetyRegion;
 

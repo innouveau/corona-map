@@ -1,23 +1,22 @@
 import _Region from "./_Region";
+import Path from "./geo/Path";
 import store from '@/store/store'
-import Path from "./Path";
 
-class Province extends _Region{
+class SafetyRegion extends _Region {
     constructor({
-        province_code = '',
+        safetyRegion_code = '',
         title = '',
         paths = [],
         report = null
     }) {
         super();
-        this.id = (store.state.provinces.all.length + 1);
-        this.regionType = 'province';
-        this.province_code = province_code;
+        this.id = (store.state.safetyRegions.all.length + 1);
+        this.regionType = 'safety-region';
+        this.safetyRegion_code = safetyRegion_code;
         this.title = title;
         this.paths = paths.map(path => new Path(path));
         this.report = report;
-        this.country_id = 1;
     }
 }
 
-export default Province;
+export default SafetyRegion;

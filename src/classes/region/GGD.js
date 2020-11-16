@@ -1,6 +1,6 @@
 import _Region from "./_Region";
 import store from '@/store/store'
-import Path from "./Path";
+import Path from "./geo/Path";
 
 class GGD extends _Region{
     constructor({

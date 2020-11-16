@@ -1,5 +1,5 @@
 import _Region from "./_Region";
-import Path from "./Path";
+import Path from "./geo/Path";
 
 class Country extends _Region {
     constructor({

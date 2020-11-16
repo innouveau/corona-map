@@ -1,6 +1,6 @@
 <script>
-    import GGD from "@/classes/GGD";
-    import Country from "@/classes/Country";
+    import GGD from "@/classes/region/GGD";
+    import Country from "@/classes/region/Country";
     import thresholdTools from "@/tools/thresholds";
     import View from "@/classes/View";
 
@@ -60,7 +60,7 @@
                 return Math.round(100000 * this.cases / this.population);
             },
             threshold() {
-                return thresholdTools.getThreshold(this.casesPerPopulation, 100000, 7);
+                return thresholdTools.getThreshold(this.casesPerPopulation);
             },
             color() {
                 return thresholdTools.thresholdToColor(this.threshold, this.casesPerPopulation);

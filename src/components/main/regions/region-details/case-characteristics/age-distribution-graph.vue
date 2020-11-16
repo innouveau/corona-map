@@ -1,6 +1,6 @@
 <script>
-    import GGD from "@/classes/GGD";
-    import Country from "@/classes/Country";
+    import GGD from "@/classes/region/GGD";
+    import Country from "@/classes/region/Country";
     import * as d3 from "d3";
     import ageGroups from "./age-groups";
 

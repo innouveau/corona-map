@@ -1,5 +1,5 @@
 <script>
-    import _Region from "@/classes/_Region";
+    import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
     import regionDetailsHead from "../main/regions/region-details/region-details-head";
     import numberTools from '@/tools/number';
@@ -51,6 +51,12 @@
             },
             showLateReportingWarning() {
                 return this.region.hasLateReporting && this.region.getLatestReporting(this.view.offset) > this.view.offset;
+            },
+            getTotalRelativeIncreaseWeek() {
+                return this.regionOfFocus.getIncreaseOfType(this.view.offset, 7, 'positiveTests', true);
+            },
+            getTotalRelativeIncreasePreviousWeek() {
+                return this.regionOfFocus.getIncreaseOfType((this.view.offset + 7), 7, 'positiveTests', true);
             }
         },
         methods: {
@@ -86,7 +92,7 @@
                         {{translate('relative', true)}} {{translate('increase')}} {{translate('for-7-days')}} {{translate('seven-days-back')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
                     </div>
                     <div class="region-details__value">
-                        {{format(Math.round(regionOfFocus.getTotalRelativeIncreaseWeek((view.offset + 7))))}}
+                        {{format(Math.round(getTotalRelativeIncreasePreviousWeek))}}
                     </div>
                 </div>
                 <div class="region-details__row">
@@ -95,7 +101,7 @@
                         <span v-if="showLateReportingWarning">*</span>
                     </div>
                     <div class="region-details__value">
-                        {{format(Math.round(regionOfFocus.getTotalRelativeIncreaseWeek(view.offset)))}}
+                        {{format(Math.round(getTotalRelativeIncreaseWeek))}}
                     </div>
                 </div>
             </div>

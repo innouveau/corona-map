@@ -4,7 +4,7 @@
     import timeTools from "./time-tools";
     import View from '@/classes/View';
     import timeSliderStops from "./time-slider-stops";
-    import _Region from "../../classes/_Region";
+    import _Region from "../../classes/region/_Region";
     import TimeSliderGraph from "./time-slider-graph";
 
     export default {

@@ -1,5 +1,5 @@
 import _base from './_base-module';
-import Province from '@/classes/Province';
+import Province from '@/classes/region/Province';
 
 const Model = Province;
 

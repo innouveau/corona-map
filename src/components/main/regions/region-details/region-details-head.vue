@@ -1,5 +1,5 @@
 <script>
-    import _Region from "@/classes/_Region";
+    import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
     import numberTools from '@/tools/number';
 
@@ -16,7 +16,11 @@
                 required: true
             }
         },
-        computed: {},
+        computed: {
+            increaseThisWeek() {
+                return this.region.getTotalIncreaseOfType(this.view.offset, 7, 'positiveTests', true);
+            }
+        },
         methods: {
             format(value) {
                 return numberTools.format(Math.round(value), true);
@@ -37,15 +41,7 @@
             {{region.title}}
         </div>
         <div class="region-details__increase">
-            {{format(region.getTotalRelativeIncreaseWeek(view.offset))}}
-
-            <div class="region-details__doublings">
-                (2
-                <div class="region-details__pow">
-                    {{region.getDoublings(view.offset)}}
-                </div>
-                )
-            </div>
+            {{format(increaseThisWeek)}}
         </div>
     </div>
 </template>
@@ -78,17 +74,6 @@
         .region-details__increase {
             font-size: 12px;
             display: flex;
-
-            .region-details__doublings {
-                margin-left: 4px;
-                font-weight: 400;
-                display: flex;
-
-                .region-details__pow {
-                    font-size: 10px;
-                    margin-top: -3px;
-                }
-            }
         }
     }
 </style>
