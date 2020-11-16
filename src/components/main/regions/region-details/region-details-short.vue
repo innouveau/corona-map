@@ -26,7 +26,7 @@
         },
         computed: {
             showTrend() {
-                return this.$store.state.signalingSystems.current.title === 'WHO' && this.currentMap.settings.testDataInterval * this.$store.state.settings.historyLength >= 14 ;
+                return this.$store.state.signalingSystems.current.title === 'WHO' && this.currentMap.data.positivePcrTests.interval * this.$store.state.settings.historyLength >= 14 ;
             },
             regionOfFocus() {
                 return this.$store.getters['ui/getRegionOfFocus'](this.region);

@@ -24,7 +24,7 @@
         },
         data() {
             return {
-                date: dateTools.getDateByOffset(this.view.offset * this.$store.state.maps.current.settings.testDataInterval)
+                date: dateTools.getDateByOffset(this.view.offset * this.$store.state.maps.current.data.positivePcrTests.interval)
             }
         },
         computed: {
@@ -59,7 +59,7 @@
                 return this.$store.state.languages.current;
             },
             dateString() {
-                return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.settings.testDataInterval), 'EE dd MMM', this.currentLanguage.iso_code)
+                return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'EE dd MMM', this.currentLanguage.iso_code)
             },
             offset() {
                 return this.view.offset;
@@ -71,7 +71,7 @@
                 return this.$store.state.ui.videoMode;
             },
             disabledDates() {
-                if (this.currentMap.settings.testDataInterval === 1) {
+                if (this.currentMap.data.positivePcrTests.interval === 1) {
                     return {
                         days: []
                     };
@@ -84,10 +84,10 @@
         },
         methods: {
             updateOffset(value) {
-                this.view.offset = (dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime())) / this.currentMap.settings.testDataInterval;
+                this.view.offset = (dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime())) / this.currentMap.data.positivePcrTests.interval;
             },
             updateDatePicker() {
-                this.date = dateTools.getDateByOffset(this.view.offset * this.currentMap.settings.testDataInterval);
+                this.date = dateTools.getDateByOffset(this.view.offset * this.currentMap.data.positivePcrTests.interval);
             }
         },
         watch: {

@@ -43,7 +43,7 @@
                 return this.$store.state.languages.current;
             },
             dateString() {
-                return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.settings.testDataInterval), 'dd MMM', this.currentLanguage.iso_code)
+                return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'dd MMM', this.currentLanguage.iso_code)
             },
             dates() {
                 return this.story.chapters.map(chapter => chapter.date);

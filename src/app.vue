@@ -100,13 +100,13 @@
                 this.loadRegions();
             },
             loadRegions() {
-                $.getJSON(this.currentMap.url.regions, (regions) => {
+                $.getJSON(this.currentMap.data.geo.source, (regions) => {
                     let promises = [];
                     this.$store.commit(this.currentMap.module + '/init', regions);
-                    if (this.currentMap.settings.hasTests) {
+                    if (this.currentMap.data.positivePcrTests.status) {
                         promises.push(this.loadTests);
                     }
-                    if (this.currentMap.settings.hasAgeGroups) {
+                    if (this.currentMap.data.ageGroups.status) {
                         promises.push(this.loadAgeGroupsForCities);
                     }
                     if (promises.length === 0) {
@@ -116,7 +116,7 @@
                             .then((result) => {
                                 // always do sewage after the tests, otherwise
                                 // date offset can come too late
-                                if (this.currentMap.settings.hasSewageTreatmentPlants) {
+                                if (this.currentMap.data.sewageMeasurements.status) {
                                     this.loadSewageTreatmentPlants().then(() => {
                                         this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
                                     });
@@ -132,7 +132,7 @@
             },
             loadSewageTreatmentPlants() {
                 return new Promise((resolve, reject) => {
-                    $.getJSON(this.currentMap.url.sewageTreatmentPlants + dateTool.getTimestamp(), (sewageTreatmentPlants) => {
+                    $.getJSON(this.currentMap.data.sewageMeasurements.source + dateTool.getTimestamp(), (sewageTreatmentPlants) => {
                         this.$store.commit('sewageTreatmentPlants/init', sewageTreatmentPlants);
                         resolve();
                     });
@@ -149,7 +149,7 @@
                 };
 
                 return new Promise((resolve, reject) => {
-                    d3.csv(this.currentMap.url.tests + dateTool.getTimestamp())
+                    d3.csv(this.currentMap.data.positivePcrTests.source + dateTool.getTimestamp())
                         .then((data) => {
                             let adapter;
                             if (this.currentMap.settings.testAdapter) {
@@ -181,7 +181,7 @@
             },
             loadAgeGroupsForCities() {
                 return new Promise((resolve, reject) => {
-                    d3.csv(this.currentMap.url.ageGroups + dateTool.getTimestamp())
+                    d3.csv(this.currentMap.data.ageGroups.source + dateTool.getTimestamp())
                         .then((result) => {
                             for (let item of result) {
                                 let city = this.$store.getters['cities/getItemByProperty']('identifier', item.Gemeentecode, true);
@@ -239,11 +239,11 @@
                 totalLengthOfTestHistory = first.offset;
                 // when cumulative the first day has to be ignored, because we
                 // dont know the value of the day before that to calculate the absolute value
-                if (this.currentMap.settings.testDataCumulative) {
+                if (this.currentMap.data.positivePcrTests.cumulative) {
                     totalLengthOfTestHistory--;
                 }
                 // need extra buffer to calculate the first week
-                if (this.currentMap.settings.testDataInterval === 1) {
+                if (this.currentMap.data.positivePcrTests.interval === 1) {
                     totalLengthOfTestHistory -= 7;
                 }
 
@@ -280,14 +280,14 @@
                     if (data[dateKey.positiveTestsKey]) {
                         positiveTests = Number(data[dateKey.positiveTestsKey]);
                         day.positiveTests = positiveTests;
-                        if (this.currentMap.settings.hasAdministeredTests) {
+                        if (this.currentMap.data.administeredPcrTests.status) {
                             administeredTests = Number(data[dateKey.administeredTestsKey]);
                             day.administeredTests = administeredTests;
                         }
                     }
                     incidents.push(day);
                 }
-                if (this.currentMap.settings.testDataCumulative) {
+                if (this.currentMap.data.positivePcrTests.cumulative) {
                     for (let i = 0, l = incidents.length; i < l; i++) {
                         if (i > 0) {
                             let positiveTests = incidents[i].positiveTests - incidents[i - 1].positiveTests;

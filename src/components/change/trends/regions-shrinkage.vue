@@ -25,11 +25,11 @@
             regions() {
                 let regions = this.$store.getters['ui/regions'];
                 return regions.filter(region => {
-                    return region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.settings.testDataInterval) < (1 - changeTools.margin);
+                    return region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.data.positivePcrTests.interval) < (1 - changeTools.margin);
                 }).sort((a,b) => {
                     let ac, bc;
-                    ac = a.getChange(this.view.offset, changeTools.daysBack / this.currentMap.settings.testDataInterval);
-                    bc = b.getChange(this.view.offset, changeTools.daysBack / this.currentMap.settings.testDataInterval);
+                    ac = a.getChange(this.view.offset, changeTools.daysBack / this.currentMap.data.positivePcrTests.interval);
+                    bc = b.getChange(this.view.offset, changeTools.daysBack / this.currentMap.data.positivePcrTests.interval);
                     return (ac < bc) ? -1 : ((bc < ac) ? 1 : 0);
                 });
             },
@@ -49,11 +49,11 @@
         },
         methods: {
             formatChange(region) {
-                let change = region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.settings.testDataInterval);
+                let change = region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.data.positivePcrTests.interval);
                 return numberTools.formatChange(change);
             },
             getColor(region) {
-                let change = region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.settings.testDataInterval);
+                let change = region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.data.positivePcrTests.interval);
                 return changeTools.getColorForChange(change);
             }
         }

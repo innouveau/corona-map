@@ -36,7 +36,7 @@
                 return this.view.offset;
             },
             disabledDates() {
-                if (this.currentMap.settings.testDataInterval === 1) {
+                if (this.currentMap.data.positivePcrTests.interval === 1) {
                     return {
                         days: []
                     };
@@ -49,7 +49,7 @@
         },
         methods: {
             updateOffset(value) {
-                this.view.offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime()) / this.currentMap.settings.testDataInterval;
+                this.view.offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime()) / this.currentMap.data.positivePcrTests.interval;
             },
             updateDate() {
                 this.date = dateTools.getDateByOffset(this.view.offset);

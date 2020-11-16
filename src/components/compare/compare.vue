@@ -45,8 +45,8 @@
                 } else {
                     date2 = today;
                 }
-                offset1 = dateTools.getDateOffset(this.$store.state.ui.todayInMs, date1.getTime()) / this.$store.state.maps.current.settings.testDataInterval;
-                offset2 = dateTools.getDateOffset(this.$store.state.ui.todayInMs, date2.getTime()) / this.$store.state.maps.current.settings.testDataInterval;
+                offset1 = dateTools.getDateOffset(this.$store.state.ui.todayInMs, date1.getTime()) / this.$store.state.maps.current.data.positivePcrTests.interval;
+                offset2 = dateTools.getDateOffset(this.$store.state.ui.todayInMs, date2.getTime()) / this.$store.state.maps.current.data.positivePcrTests.interval;
                 this.views.push(new View ({
                     id: 1,
                     offset: offset1
@@ -58,8 +58,8 @@
             },
             updateQuery() {
                 let url, date1, date2;
-                date1 = dateTools.formatDate( dateTools.getDateByOffset(this.views[0].offset * this.currentMap.settings.testDataInterval));
-                date2 = dateTools.formatDate( dateTools.getDateByOffset(this.views[1].offset * this.currentMap.settings.testDataInterval));
+                date1 = dateTools.formatDate( dateTools.getDateByOffset(this.views[0].offset * this.currentMap.data.positivePcrTests.interval));
+                date2 = dateTools.formatDate( dateTools.getDateByOffset(this.views[1].offset * this.currentMap.data.positivePcrTests.interval));
                 url = this.routePath + '#/compare?map=' + encodeURI(this.currentMap.title) + '&date1=' + date1 + '&date2=' + date2;
                 history.pushState(
                     {},

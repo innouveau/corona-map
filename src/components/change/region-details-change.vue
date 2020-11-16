@@ -133,7 +133,7 @@
                     :map-type="'change'"/>
 
                 <administered-tests
-                    v-if="currentMap.settings.hasAdministeredTests"
+                    v-if="currentMap.data.administeredPrcTests.status"
                     :view="view"
                     :region="regionOfFocus"
                     :weeks="3"

@@ -26,7 +26,7 @@
                 return numberTools.format(n, true);
             },
             perWeek() {
-                return this.currentMap.settings.testDataInterval === 7;
+                return this.currentMap.data.positivePcrTests.interval === 7;
             },
             intervalText() {
                 return this.translate('per') + ' 7 ' + this.translate('days');

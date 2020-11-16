@@ -29,7 +29,7 @@
                 return this.region.hasLateReporting && this.region.getLatestReporting(this.view.offset) > this.view.offset;
             },
             testDataInterval() {
-                return this.$store.state.maps.current.settings.testDataInterval;
+                return this.$store.state.maps.current.data.positivePcrTests.interval;
             }
         },
         methods: {

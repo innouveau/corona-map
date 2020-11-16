@@ -134,7 +134,7 @@
             },
             getY(day) {
                 // for the graph we always use 100000, independent from the signaling system
-                let relativeValue = 100000 * (day.positiveTests / this.currentMap.settings.testDataInterval) / this.region.getTotalPopulation();
+                let relativeValue = 100000 * (day.positiveTests / this.currentMap.data.positivePcrTests.interval) / this.region.getTotalPopulation();
                 return this.valueToY(relativeValue)
             },
             valueToY(value) {

@@ -41,7 +41,7 @@
         },
         computed: {
             showTrend() {
-                return this.$store.state.signalingSystems.current.title === 'WHO' && this.currentMap.settings.testDataInterval === 1 ;
+                return this.$store.state.signalingSystems.current.title === 'WHO' && this.currentMap.data.positivePcrTests.interval === 1 ;
             },
             regionOfFocus() {
                 return this.$store.getters['ui/getRegionOfFocus'](this.region);
@@ -59,10 +59,10 @@
                 return this.$store.getters['ui/dateString']();
             },
             hasSewageTreatmentPlants() {
-                return this.$store.state.maps.current.settings.hasSewageTreatmentPlants;
+                return this.$store.state.maps.current.data.sewageMeasurements.status;
             },
             hasAgeGroups() {
-                return this.$store.state.maps.current.settings.hasAgeGroups;
+                return this.$store.state.maps.current.data.ageGroups.status;
             },
             currentMap() {
                 return this.$store.state.maps.current;
@@ -93,7 +93,7 @@
                     :weeks="weeks"/>
 
             <administered-tests
-                    v-if="currentMap.settings.hasAdministeredTests"
+                    v-if="currentMap.data.administeredPcrTests.status"
                     :view="view"
                     :region="regionOfFocus"
                     :weeks="weeks"/>

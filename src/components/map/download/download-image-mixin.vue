@@ -48,7 +48,7 @@
                 return this.getDateString(view).replace(/\s/g , "-").toLowerCase();
             },
             getDateString(view) {
-                return this.$store.getters['ui/getDateByOffset'](view.offset * this.currentMap.settings.testDataInterval, 'EE d MMM', this.currentLanguage.iso_code);
+                return this.$store.getters['ui/getDateByOffset'](view.offset * this.currentMap.data.positivePcrTests.interval, 'EE d MMM', this.currentLanguage.iso_code);
             },
             prepair() {
                 this.canvas.id = 'image-for-download';

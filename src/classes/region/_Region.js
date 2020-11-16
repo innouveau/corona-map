@@ -173,7 +173,7 @@ class _Region {
         map = store.state.maps.current;
         frames = this.framesForPeriod;
         cases = this.getTotalIncreaseOfType(offset, frames, 'positiveTests', true);
-        if (map.settings.hasTests) {
+        if (map.data.positivePcrTests.status) {
             if (this.hasLateReporting && offset < 10) {
                 offset = this.getLatestReporting(offset);
             }
@@ -203,7 +203,7 @@ class _Region {
         let map, signalingSystem;
         map = store.state.maps.current;
         signalingSystem = store.state.signalingSystems.current;
-        return signalingSystem.days / map.settings.testDataInterval;
+        return signalingSystem.days / map.data.positivePcrTests.interval;
     }
 
     getChange(offset, daysBefore) {

@@ -27,7 +27,7 @@
                 let date, offset;
                 if (this.$route.query.date) {
                     date = new Date(this.$route.query.date);
-                    offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, date.getTime()) / this.currentMap.settings.testDataInterval;
+                    offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, date.getTime()) / this.currentMap.data.positivePcrTests.interval;
                 } else {
                     offset = 0;
                 }
@@ -38,7 +38,7 @@
             },
             updateQuery() {
                 let url, date;
-                date = dateTools.formatDate( dateTools.getDateByOffset(this.view.offset * this.currentMap.settings.testDataInterval));
+                date = dateTools.formatDate( dateTools.getDateByOffset(this.view.offset * this.currentMap.data.positivePcrTests.interval));
                 url = this.routePath + '#/timeline?map=' + encodeURI(this.currentMap.title) + '&date=' + date;
                 history.pushState(
                     {},

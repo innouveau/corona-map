@@ -29,12 +29,6 @@ const maps = [
                     paths: 'city'
                 }
             ],
-            hasAgeGroups: true,
-            hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: true,
-            testDataCumulative: true,
-            testDataInterval: 1,
             generalInfoHasPopulation: false,
             map: {
                 latitude: 52.15,
@@ -47,11 +41,29 @@ const maps = [
                 zoomFactor: 0.66
             }
         },
-        url: {
-            tests: (window.config.dataUrl + 'data/municipality-totals.csv'),
-            regions: 'data/maps/nederland/cities.json',
-            ageGroups: 'data/maps/nederland/cities-population-agegroup.csv',
-            sewageTreatmentPlants: sewageDataUrl
+        data: {
+            geo: {
+                status: true,
+                source: 'data/maps/nederland/cities.json'
+            },
+            positivePcrTests: {
+                status: true,
+                source: (window.config.dataUrl + 'data/municipality-totals.csv'),
+                interval: 1,
+                cumulative: true
+            },
+            administeredPcrTests: {
+                status: false,
+                source: ''
+            },
+            ageGroups: {
+                status: true,
+                source: 'data/maps/nederland/cities-population-agegroup.csv'
+            },
+            sewageMeasurements: {
+                status: true,
+                source: sewageDataUrl
+            }
         }
     }, {
         id: 2,
@@ -67,12 +79,6 @@ const maps = [
                     paths: 'district'
                 }
             ],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: true,
-            hasSewageTreatmentPlants: true,
-            testDataCumulative: false,
-            testDataInterval: 7,
             generalInfoHasPopulation: false,
             map: {
                 latitude: 52.32,
@@ -85,49 +91,31 @@ const maps = [
                 zoomFactor: 0.66
             }
         },
-        url: {
-            tests: 'data/maps/amsterdam/amsterdam-tests.csv',
-            regions: 'data/maps/amsterdam/amsterdam.json',
-            ageGroups: '',
-            sewageTreatmentPlants: sewageDataUrl
+        data: {
+            geo: {
+                status: true,
+                source: 'data/maps/amsterdam/amsterdam.json'
+            },
+            positivePcrTests: {
+                status: true,
+                source: 'data/maps/amsterdam/amsterdam-tests.csv',
+                interval: 7,
+                cumulative: false
+            },
+            administeredPcrTests: {
+                status: true,
+                source: 'data/maps/amsterdam/amsterdam-tests.csv'
+            },
+            ageGroups: {
+                status: false,
+                source: ''
+            },
+            sewageMeasurements: {
+                status: false,
+                source: ''
+            }
         }
     },
-    // {
-    //     id: 3,
-    //     ready: true,
-    //     regionType: 'District',
-    //     module: 'districts',
-    //     title: 'Den Haag',
-    //     settings: {
-    //         regionTypes: ['district', 'ggd'],
-    //         pathOrigins: [
-    //             {
-    //                 type: 'ggd',
-    //                 paths: 'district'
-    //             }
-    //         ],
-    //         hasAgeGroups: false,
-    //         hasTests: true,
-    //         hasAdministeredTests: true,
-    //         hasSewageTreatmentPlants: false,
-    //         testDataCumulative: false,
-    //         testDataInterval: 7,
-    //         generalInfoHasPopulation: false,
-    //         map: {
-    //             latitude: 52.05,
-    //             longitude: 4.34,
-    //             stretch: 0.62,
-    //             zoom: 3.2,
-    //             ratio: 0.89
-    //         }
-    //     },
-    //     url: {
-    //         tests: 'data/maps/den-haag/tests-den-haag.csv',
-    //         regions: 'data/maps/den-haag/den-haag.json',
-    //         ageGroups: '',
-    //         sewageTreatmentPlants: sewageDataUrl
-    //     }
-    // },
     {
         id: 4,
         ready: true,
@@ -172,9 +160,6 @@ const maps = [
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
-            hasTests: true,
-            testDataCumulative: true,
-            testDataInterval: 1,
             generalInfoHasPopulation: true,
             testAdapter: standardTestAdapter,
             map: {
@@ -190,11 +175,29 @@ const maps = [
             excludeRegions: [],
             caseSettings: caseSettings
         },
-        url: {
-            tests: casesUrl,
-            regions: 'data/maps/europa/europa.json',
-            ageGroups: '',
-            sewageTreatmentPlants: ''
+        data: {
+            geo: {
+                status: true,
+                source: 'data/maps/europa/europa.json'
+            },
+            positivePcrTests: {
+                status: true,
+                source: casesUrl,
+                interval: 1,
+                cumulative: true
+            },
+            administeredPcrTests: {
+                status: false,
+                source: ''
+            },
+            ageGroups: {
+                status: false,
+                source: ''
+            },
+            sewageMeasurements: {
+                status: false,
+                source: ''
+            }
         }
     },
     {
@@ -206,12 +209,6 @@ const maps = [
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: false,
-            testDataCumulative: true,
-            testDataInterval: 1,
             generalInfoHasPopulation: true,
             testAdapter: standardTestAdapter,
             map: {
@@ -223,11 +220,29 @@ const maps = [
                 ratio: 2
             }
         },
-        url: {
-            tests: casesUrl,
-            regions: 'data/maps/world/world.json',
-            ageGroups: '',
-            sewageTreatmentPlants: ''
+        data: {
+            geo: {
+                status: true,
+                source: 'data/maps/world/world.json'
+            },
+            positivePcrTests: {
+                status: true,
+                source: casesUrl,
+                interval: 1,
+                cumulative: true
+            },
+            administeredPcrTests: {
+                status: false,
+                source: ''
+            },
+            ageGroups: {
+                status: false,
+                source: ''
+            },
+            sewageMeasurements: {
+                status: false,
+                source: ''
+            }
         }
     },
     {
@@ -239,12 +254,6 @@ const maps = [
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: false,
-            testDataCumulative: true,
-            testDataInterval: 1,
             generalInfoHasPopulation: true,
             testAdapter: standardTestAdapter,
             map: {
@@ -256,145 +265,31 @@ const maps = [
 
             }
         },
-        url: {
-            tests: casesUrl,
-            regions: 'data/maps/usa/usa.json',
-            ageGroups: '',
-            sewageTreatmentPlants: ''
+        data: {
+            geo: {
+                status: true,
+                source: 'data/maps/usa/usa.json'
+            },
+            positivePcrTests: {
+                status: true,
+                source: casesUrl,
+                interval: 1,
+                cumulative: true
+            },
+            administeredPcrTests: {
+                status: false,
+                source: ''
+            },
+            ageGroups: {
+                status: false,
+                source: ''
+            },
+            sewageMeasurements: {
+                status: false,
+                source: ''
+            }
         }
     },
-    // {
-    //     id: 7,
-    //     ready: true,
-    //     regionType: 'District',
-    //     module: 'districts',
-    //     title: 'Spain',
-    //     settings: {
-    //         regionTypes: ['district'],
-    //         pathOrigins: [],
-    //         hasAgeGroups: false,
-    //         hasTests: true,
-    //         hasAdministeredTests: false,
-    //         hasSewageTreatmentPlants: false,
-    //         testDataCumulative: true,
-    //         testDataInterval: 1,
-    //         generalInfoHasPopulation: true,
-    //         testAdapter: standardTestAdapter,
-    //         map: {
-    //             latitude: 40,
-    //             longitude: -3,
-    //             stretch: 0.7,
-    //             zoom: 0.11,
-    //             ratio: 1.18
-    //         }
-    //     },
-    //     url: {
-    //         tests: casesUrl,
-    //         regions: 'data/maps/spain/spain.json',
-    //         ageGroups: '',
-    //         sewageTreatmentPlants: ''
-    //     }
-    // },
-    // {
-    //     id: 8,
-    //     ready: true,
-    //     regionType: 'District',
-    //     module: 'districts',
-    //     title: 'Belgie',
-    //     settings: {
-    //         regionTypes: ['district'],
-    //         pathOrigins: [],
-    //         hasAgeGroups: false,
-    //         hasTests: true,
-    //         hasAdministeredTests: false,
-    //         hasSewageTreatmentPlants: false,
-    //         testDataCumulative: true,
-    //         testDataInterval: 1,
-    //         generalInfoHasPopulation: true,
-    //         testAdapter: standardTestAdapter,
-    //         map: {
-    //             latitude: 50.5,
-    //             longitude: 4.5,
-    //             stretch: 0.65,
-    //             zoom: 0.4,
-    //             ratio: 1.22
-    //         }
-    //     },
-    //     url: {
-    //         tests: casesUrl,
-    //         regions: 'data/maps/belgium/belgium.json',
-    //         ageGroups: '',
-    //         sewageTreatmentPlants: ''
-    //     }
-    // },
-    // {
-    //     id: 10,
-    //     ready: true,
-    //     regionType: 'District',
-    //     module: 'districts',
-    //     title: 'Rotterdam',
-    //     settings: {
-    //         regionTypes: ['district'],
-    //         pathOrigins: [
-    //             {
-    //                 type: 'ggd',
-    //                 paths: 'district'
-    //             }
-    //         ],
-    //         hasAgeGroups: false,
-    //         hasTests: true,
-    //         hasAdministeredTests: false,
-    //         hasSewageTreatmentPlants: true,
-    //         testDataCumulative: true,
-    //         testDataInterval: 7,
-    //         generalInfoHasPopulation: false,
-    //         map: {
-    //             latitude: 51.92,
-    //             longitude: 4.32,
-    //             stretch: 0.62,
-    //             zoom: 5.1,
-    //             ratio: 2
-    //         }
-    //     },
-    //     url: {
-    //         tests: 'data/maps/rotterdam/tests-rotterdam.csv',
-    //         regions: 'data/maps/rotterdam/rotterdam.json',
-    //         ageGroups: '',
-    //         sewageTreatmentPlants: sewageDataUrl
-    //     }
-    // },
-    // {
-    //     id: 11,
-    //     ready: false,
-    //     regionType: 'District',
-    //     module: 'districts',
-    //     title: 'South Korea',
-    //     settings: {
-    //         regionTypes: ['district'],
-    //         pathOrigins: [],
-    //         hasAgeGroups: false,
-    //         hasTests: true,
-    //         hasAdministeredTests: false,
-    //         hasSewageTreatmentPlants: false,
-    //         testDataCumulative: true,
-    //         testDataInterval: 1,
-    //         generalInfoHasPopulation: true,
-    //         testAdapter: standardTestAdapter,
-    //         map: {
-    //             latitude: 36.6,
-    //             longitude: 127.7,
-    //             stretch: 0.62,
-    //             zoom: 0.24,
-    //             ratio: 0.7
-    //         }
-    //     },
-    //     url: {
-    //         tests: casesUrl,
-    //         regions: 'data/maps/south-korea/south-korea.json',
-    //         ageGroups: '',
-    //         sewageTreatmentPlants: ''
-    //     }
-    // },
     {
         id: 12,
         ready: true,
@@ -409,12 +304,6 @@ const maps = [
                     paths: 'city'
                 }
             ],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: false,
-            testDataCumulative: true,
-            testDataInterval: 1,
             generalInfoHasPopulation: true,
             testAdapter: standardTestAdapter,
             map: {
@@ -428,11 +317,29 @@ const maps = [
                 zoomFactor: 0.7
             }
         },
-        url: {
-            tests: 'data/maps/slovakia/cases.csv',
-            regions: 'data/maps/slovakia/slovakia.json',
-            ageGroups: '',
-            sewageTreatmentPlants: ''
+        data: {
+            geo: {
+                status: true,
+                source: 'data/maps/slovakia/slovakia.json'
+            },
+            positivePcrTests: {
+                status: true,
+                source: 'data/maps/slovakia/cases.csv',
+                interval: 1,
+                cumulative: true
+            },
+            administeredPcrTests: {
+                status: false,
+                source: ''
+            },
+            ageGroups: {
+                status: false,
+                source: ''
+            },
+            sewageMeasurements: {
+                status: false,
+                source: ''
+            }
         }
     }, {
         id: 13,
@@ -443,9 +350,6 @@ const maps = [
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
-            hasTests: true,
-            testDataCumulative: true,
-            testDataInterval: 1,
             generalInfoHasPopulation: true,
             testAdapter: standardTestAdapter,
             map: {
@@ -461,13 +365,31 @@ const maps = [
             excludeRegions: [],
             caseSettings: caseSettings
         },
-        url: {
-            tests: casesUrl,
-            regions: 'data/maps/south-america/south-america.json',
-            ageGroups: '',
-            sewageTreatmentPlants: ''
+        data: {
+            geo: {
+                status: true,
+                source: 'data/maps/south-america/south-america.json'
+            },
+            positivePcrTests: {
+                status: true,
+                source: casesUrl,
+                interval: 1,
+                cumulative: true
+            },
+            administeredPcrTests: {
+                status: false,
+                source: ''
+            },
+            ageGroups: {
+                status: false,
+                source: ''
+            },
+            sewageMeasurements: {
+                status: false,
+                source: ''
+            }
         }
-    },
+    }
 ];
 
 export default maps;

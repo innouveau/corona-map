@@ -37,7 +37,7 @@ const getters = {
         let today, offset, dateOfFocus;
         today = state.today;
         if (today) {
-            offset = rootState.settings.currentDateOffset * rootState.maps.current.settings.testDataInterval;
+            offset = rootState.settings.currentDateOffset * rootState.maps.current.data.positivePcrTests.interval;
             dateOfFocus = sub(today, {days: offset});
             return format(dateOfFocus, dateFormat, {locale: nl} );
         } else {
