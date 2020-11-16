@@ -60,7 +60,7 @@
                 return Math.round(100000 * this.cases / this.population);
             },
             threshold() {
-                return thresholdTools.getThreshold(this.casesPerPopulation, 100000, 7);
+                return thresholdTools.getThreshold(this.casesPerPopulation);
             },
             color() {
                 return thresholdTools.thresholdToColor(this.threshold, this.casesPerPopulation);
