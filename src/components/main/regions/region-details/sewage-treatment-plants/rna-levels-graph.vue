@@ -155,7 +155,7 @@
             },
             drawBars() {
                 let width, minHeight;
-                width = 8;
+                width = 3;
 
                 // give the bar a min width
                 // to show that there was a measurement
@@ -254,7 +254,7 @@
     .rna-levels-graph {
 
         svg {
-            background: #ddd;
+            background: #eee;
 
             .line-container {
 
