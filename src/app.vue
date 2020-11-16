@@ -141,7 +141,7 @@
             loadTests() {
                 const addTestsForRegions = (item) => {
                     if (this.currentMap.settings.excludeRegions) {
-                        let identifier = item[this.currentMap.settings.testAdapter.titleKey];
+                        let identifier = item[this.currentMap.data.positivePcrTests.adapter.titleKey];
                         return this.currentMap.settings.excludeRegions.indexOf(identifier) === -1;
                     } else {
                         return true;
@@ -152,8 +152,8 @@
                     d3.csv(this.currentMap.data.positivePcrTests.source + dateTool.getTimestamp())
                         .then((data) => {
                             let adapter;
-                            if (this.currentMap.settings.testAdapter) {
-                                adapter = this.currentMap.settings.testAdapter;
+                            if (this.currentMap.data.positivePcrTests.adapter) {
+                                adapter = this.currentMap.data.positivePcrTests.adapter;
                             } else {
                                 adapter = {
                                     titleKey: 'Municipality_code',

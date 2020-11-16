@@ -129,14 +129,7 @@ const maps = [
             },
             regionTypes: ['district'],
             pathOrigins: [],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: false,
-            testDataCumulative: true,
-            testDataInterval: 1,
             generalInfoHasPopulation: true,
-            testAdapter: standardTestAdapter,
             map: {
                 latitude: 51.29,
                 longitude: 10.16,
@@ -145,11 +138,30 @@ const maps = [
                 ratio: 1.15
             }
         },
-        url: {
-            tests: casesUrl,
-            regions: 'data/maps/nl-de/nl-de.json',
-            ageGroups: '',
-            sewageTreatmentPlants: ''
+        data: {
+            geo: {
+                status: true,
+                source: 'data/maps/nl-de/nl-de.json'
+            },
+            positivePcrTests: {
+                status: true,
+                source: casesUrl,
+                interval: 1,
+                cumulative: true,
+                adapter: standardTestAdapter
+            },
+            administeredPcrTests: {
+                status: false,
+                source: ''
+            },
+            ageGroups: {
+                status: false,
+                source: ''
+            },
+            sewageMeasurements: {
+                status: false,
+                source: ''
+            }
         }
     }, {
         id: 5,
@@ -161,7 +173,6 @@ const maps = [
             regionTypes: ['district'],
             pathOrigins: [],
             generalInfoHasPopulation: true,
-            testAdapter: standardTestAdapter,
             map: {
                 latitude: 53,
                 longitude: 5,
@@ -184,7 +195,8 @@ const maps = [
                 status: true,
                 source: casesUrl,
                 interval: 1,
-                cumulative: true
+                cumulative: true,
+                adapter: standardTestAdapter
             },
             administeredPcrTests: {
                 status: false,
@@ -210,7 +222,6 @@ const maps = [
             regionTypes: ['district'],
             pathOrigins: [],
             generalInfoHasPopulation: true,
-            testAdapter: standardTestAdapter,
             map: {
                 projection: 'robinson',
                 shiftY: -5,
@@ -229,7 +240,8 @@ const maps = [
                 status: true,
                 source: casesUrl,
                 interval: 1,
-                cumulative: true
+                cumulative: true,
+                adapter: standardTestAdapter
             },
             administeredPcrTests: {
                 status: false,
@@ -255,7 +267,6 @@ const maps = [
             regionTypes: ['district'],
             pathOrigins: [],
             generalInfoHasPopulation: true,
-            testAdapter: standardTestAdapter,
             map: {
                 latitude: 38,
                 longitude: -100,
@@ -274,7 +285,8 @@ const maps = [
                 status: true,
                 source: casesUrl,
                 interval: 1,
-                cumulative: true
+                cumulative: true,
+                adapter: standardTestAdapter
             },
             administeredPcrTests: {
                 status: false,
@@ -305,7 +317,6 @@ const maps = [
                 }
             ],
             generalInfoHasPopulation: true,
-            testAdapter: standardTestAdapter,
             map: {
                 latitude: 48.65,
                 longitude: 19.9,
@@ -326,7 +337,8 @@ const maps = [
                 status: true,
                 source: 'data/maps/slovakia/cases.csv',
                 interval: 1,
-                cumulative: true
+                cumulative: true,
+                adapter: standardTestAdapter
             },
             administeredPcrTests: {
                 status: false,
@@ -351,7 +363,6 @@ const maps = [
             regionTypes: ['district'],
             pathOrigins: [],
             generalInfoHasPopulation: true,
-            testAdapter: standardTestAdapter,
             map: {
                 latitude: -22,
                 longitude: -60,
@@ -374,7 +385,8 @@ const maps = [
                 status: true,
                 source: casesUrl,
                 interval: 1,
-                cumulative: true
+                cumulative: true,
+                adapter: standardTestAdapter
             },
             administeredPcrTests: {
                 status: false,
