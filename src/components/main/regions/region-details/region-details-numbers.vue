@@ -23,10 +23,13 @@
         },
         computed: {
             hasDays() {
-                return this.$store.state.maps.current.settings.testDataInterval === 1;
+                return this.testDataInterval === 1;
             },
             showLateReportingWarning() {
                 return this.region.hasLateReporting && this.region.getLatestReporting(this.view.offset) > this.view.offset;
+            },
+            testDataInterval() {
+                return this.$store.state.maps.current.settings.testDataInterval;
             }
         },
         methods: {
@@ -79,10 +82,11 @@
                 v-if="!short"
                 class="region-details__row">
                 <div class="region-details__label">
-                    {{translate('increase', true)}} {{translate('last-7-days')}} <span v-if="showLateReportingWarning">*</span>
+                    {{translate('increase', true)}} {{translate('last-7-days')}}
+                    <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, 7, 'positiveTests', false), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, (7 / testDataInterval) , 'positiveTests', false), true)}}
                 </div>
             </div>
             <div class="region-details__row">
@@ -90,7 +94,7 @@
                     {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, 7, 'positiveTests', true), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, (7 / testDataInterval), 'positiveTests', true), true)}}
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ class _Region {
         total = 0;
         regions = this.getRegions();
         if (relative) {
-            population = this.population;
+            population = this.getTotalPopulation();
         }
         for (let region of regions) {
             total += region.getIncreaseOfType(offset, days, type, false)
@@ -19,6 +19,17 @@ class _Region {
         } else {
             return total;
         }
+    }
+
+    getTotalAsPercentageOfPopulation(offset, type) {
+        let total, population, regions;
+        total = 0;
+        population = this.getTotalPopulation();
+        regions = this.getRegions();
+        for (let region of regions) {
+            total += region.getIncreaseOfType(offset, -1, type, false)
+        }
+        return 100 * total / population;
     }
 
     getTotalPopulation() {
@@ -158,36 +169,41 @@ class _Region {
     }
 
     getColor(offset) {
-        let map, signalingSystem, cases;
+        let map, frames, cases, threshold;
         map = store.state.maps.current;
-        signalingSystem = store.state.signalingSystems.current;
-        if (signalingSystem.days === 1) {
-            cases = this.getTotalIncreaseOfType(offset, 1, 'positiveTests', true);
-        } else if (signalingSystem.days === 7) {
-            cases = this.getTotalIncreaseOfType(offset, 7, 'positiveTests', true);
-        }
+        frames = this.framesForPeriod;
+        cases = this.getTotalIncreaseOfType(offset, frames, 'positiveTests', true);
         if (map.settings.hasTests) {
             if (this.hasLateReporting && offset < 10) {
                 offset = this.getLatestReporting(offset);
             }
-            return thresholdTools.thresholdToColor(this.getThreshold(0, offset), cases);
+            threshold = this.getThreshold(0, offset);
+            return thresholdTools.thresholdToColor(threshold, cases);
         } else {
             return '#ddd';
         }
     }
 
     getThreshold(delta = 0, offset) {
-        let cases, signalingSystem;
-        signalingSystem = store.state.signalingSystems.current;
-        if (signalingSystem.days === 1) {
-            cases = this.getTotalIncreaseOfType((offset + delta), 1, 'positiveTests', false);
-        } else if (signalingSystem.days === 7) {
-            cases = this.getTotalIncreaseOfType((offset + delta), 7, 'positiveTests', false);
+        let cases, frames;
+        frames = this.framesForPeriod;
+        // possible with testDataInterval of 7 and signalingSystem-days of 1
+        if (frames < 1) {
+            return null;
+        } else {
+            cases = this.getTotalIncreaseOfType((offset + delta), frames, 'positiveTests', true);
             if (cases === null) {
                 return null;
             }
+            return thresholdTools.getThreshold(cases);
         }
-        return thresholdTools.getThreshold(cases, this.getTotalPopulation(), signalingSystem.days);
+    }
+
+    get framesForPeriod() {
+        let map, signalingSystem;
+        map = store.state.maps.current;
+        signalingSystem = store.state.signalingSystems.current;
+        return signalingSystem.days / map.settings.testDataInterval;
     }
 
     getChange(offset, daysBefore) {

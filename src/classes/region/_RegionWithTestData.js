@@ -35,10 +35,6 @@ class _RegionWithTestData extends _Region{
         }
     }
 
-    getTotalAsPercentageOfPopulation(offset, type) {
-        return 100 * this.getIncreaseOfType(offset, -1, type, false) / this.population;
-    }
-
     get titleForSorting() {
         return stringTool.titleForSorting(this.title);
     }

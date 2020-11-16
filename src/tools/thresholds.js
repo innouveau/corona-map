@@ -6,15 +6,14 @@ import translateTool from '@/tools/translate';
 
 
 
-const getThreshold = function(cases, population, days) {
+const getThreshold = function(cases) {
     let signalingSystem = store.state.signalingSystems.current;
-    if (cases === null || population === null) {
+    if (cases === null) {
         return null;
     } else {
-        let relativeCasesInPeriod = signalingSystem.population * cases / population * (signalingSystem.days / days);
 
         for (let threshold of signalingSystem.thresholds) {
-            if ((relativeCasesInPeriod < threshold.n) || (relativeCasesInPeriod === 0 && threshold.n === 0)) {
+            if ((cases < threshold.n) || (cases === 0 && threshold.n === 0)) {
                 return threshold;
             }
         }

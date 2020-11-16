@@ -25,7 +25,8 @@
                 thresholds = this.signalingSystem.thresholds;
                 regions = this.$store.getters['ui/regions'];
                 return regions.filter(region => {
-                    return region.getThreshold(0, this.offset) === thresholds[thresholds.length - 1];
+                    let threshold = region.getThreshold(0, this.offset);
+                    return threshold === thresholds[thresholds.length - 1] || threshold === thresholds[thresholds.length - 2] || threshold === thresholds[thresholds.length - 3];
                 }).sort((a,b) => {
                     if (this.signalingSystem.days === 1){
                         return (a.getTotalRelativeIncreasDay(this.offset) < b.getTotalRelativeIncreasDay(this.offset)) ? 1 : ((b.getTotalRelativeIncreasDay(this.offset) < a.getTotalRelativeIncreasDay(this.offset)) ? -1 : 0)
