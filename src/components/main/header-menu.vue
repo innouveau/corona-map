@@ -106,7 +106,9 @@
     <div class="header-menu">
         <div class="title">
             <div class="title__main">
-                Corona status
+                <div class="title__main-label">
+                    Corona status
+                </div>
                 <div class="title__map">
                     {{mapTitle}}
                 </div>
@@ -154,7 +156,6 @@
             height: 48px;
             display: flex;
             align-items: center;
-            //justify-content: center;
 
             .title__main {
                 font-size: 22px;
@@ -165,6 +166,7 @@
                 border-right: 1px solid #ddd;
                 padding: 8px 16px;
                 height: 100%;
+                white-space: nowrap;
 
                 .title__map {
                     margin-left: 8px;
@@ -204,7 +206,6 @@
                 }
 
                 .total-infections {
-                    width: 80px;
                     display: flex;
                     align-items: center;
 
@@ -212,8 +213,6 @@
                         padding: 2px 8px;
                         border-radius: 2px;
                         font-family: $monospace;
-                        transition: all 0.1s ease;
-                        //background: rgb(252, 203, 3);
                         display: flex;
                     }
                 }
@@ -237,16 +236,23 @@
                     font-size: 16px;
                     line-height: 1.2;
                     margin-right: 6px;
+                    display: block;
+
+                    .title__map {
+                        margin-left: 0;
+                    }
                 }
 
                 .title__sub {
                     font-size: 14px;
+                    display: block;
+                    border-right: 1px solid #ddd;
 
                     .date-string {
                         display: block;
-                        margin-top: 2px;
                         margin-right: 0;
-                        font-family: $monospace;
+                        height: auto;
+                        border-right: 0;
 
                         input {
                             width: 100px;
@@ -262,17 +268,9 @@
                     }
 
                     .total-infections {
-                        width: 80px;
-                        display: flex;
 
                         .total-infections__n {
-                            padding: 2px 8px;
-                            border-radius: 2px;
-                            font-family: $monospace;
-                            display: inline-block;
-                            transition: all 0.1s ease;
                             background: rgb(252, 203, 3);
-                            display: flex;
                         }
                     }
                 }
