@@ -67,7 +67,7 @@
                 width: 12px;
                 height: 17px;
                 margin-right: 4px;
-                border: 1px solid #fff;
+                border: 1px solid $map-color;
                 margin-bottom: -1px;
             }
 

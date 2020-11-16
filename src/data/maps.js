@@ -91,42 +91,44 @@ const maps = [
             ageGroups: '',
             sewageTreatmentPlants: sewageDataUrl
         }
-    }, {
-        id: 3,
-        ready: true,
-        regionType: 'District',
-        module: 'districts',
-        title: 'Den Haag',
-        settings: {
-            regionTypes: ['district', 'ggd'],
-            pathOrigins: [
-                {
-                    type: 'ggd',
-                    paths: 'district'
-                }
-            ],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: true,
-            hasSewageTreatmentPlants: false,
-            testDataCumulative: false,
-            testDataInterval: 7,
-            generalInfoHasPopulation: false,
-            map: {
-                latitude: 52.05,
-                longitude: 4.34,
-                stretch: 0.62,
-                zoom: 3.2,
-                ratio: 0.89
-            }
-        },
-        url: {
-            tests: 'data/maps/den-haag/tests-den-haag.csv',
-            regions: 'data/maps/den-haag/den-haag.json',
-            ageGroups: '',
-            sewageTreatmentPlants: sewageDataUrl
-        }
-    }, {
+    },
+    // {
+    //     id: 3,
+    //     ready: true,
+    //     regionType: 'District',
+    //     module: 'districts',
+    //     title: 'Den Haag',
+    //     settings: {
+    //         regionTypes: ['district', 'ggd'],
+    //         pathOrigins: [
+    //             {
+    //                 type: 'ggd',
+    //                 paths: 'district'
+    //             }
+    //         ],
+    //         hasAgeGroups: false,
+    //         hasTests: true,
+    //         hasAdministeredTests: true,
+    //         hasSewageTreatmentPlants: false,
+    //         testDataCumulative: false,
+    //         testDataInterval: 7,
+    //         generalInfoHasPopulation: false,
+    //         map: {
+    //             latitude: 52.05,
+    //             longitude: 4.34,
+    //             stretch: 0.62,
+    //             zoom: 3.2,
+    //             ratio: 0.89
+    //         }
+    //     },
+    //     url: {
+    //         tests: 'data/maps/den-haag/tests-den-haag.csv',
+    //         regions: 'data/maps/den-haag/den-haag.json',
+    //         ageGroups: '',
+    //         sewageTreatmentPlants: sewageDataUrl
+    //     }
+    // },
+    {
         id: 4,
         ready: true,
         regionType: 'District',
@@ -260,137 +262,142 @@ const maps = [
             ageGroups: '',
             sewageTreatmentPlants: ''
         }
-    }, {
-        id: 7,
-        ready: true,
-        regionType: 'District',
-        module: 'districts',
-        title: 'Spain',
-        settings: {
-            regionTypes: ['district'],
-            pathOrigins: [],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: false,
-            testDataCumulative: true,
-            testDataInterval: 1,
-            generalInfoHasPopulation: true,
-            testAdapter: standardTestAdapter,
-            map: {
-                latitude: 40,
-                longitude: -3,
-                stretch: 0.7,
-                zoom: 0.11,
-                ratio: 1.18
-            }
-        },
-        url: {
-            tests: casesUrl,
-            regions: 'data/maps/spain/spain.json',
-            ageGroups: '',
-            sewageTreatmentPlants: ''
-        }
-    }, {
-        id: 8,
-        ready: true,
-        regionType: 'District',
-        module: 'districts',
-        title: 'Belgie',
-        settings: {
-            regionTypes: ['district'],
-            pathOrigins: [],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: false,
-            testDataCumulative: true,
-            testDataInterval: 1,
-            generalInfoHasPopulation: true,
-            testAdapter: standardTestAdapter,
-            map: {
-                latitude: 50.5,
-                longitude: 4.5,
-                stretch: 0.65,
-                zoom: 0.4,
-                ratio: 1.22
-            }
-        },
-        url: {
-            tests: casesUrl,
-            regions: 'data/maps/belgium/belgium.json',
-            ageGroups: '',
-            sewageTreatmentPlants: ''
-        }
-    }, {
-        id: 10,
-        ready: true,
-        regionType: 'District',
-        module: 'districts',
-        title: 'Rotterdam',
-        settings: {
-            regionTypes: ['district'],
-            pathOrigins: [
-                {
-                    type: 'ggd',
-                    paths: 'district'
-                }
-            ],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: true,
-            testDataCumulative: true,
-            testDataInterval: 7,
-            generalInfoHasPopulation: false,
-            map: {
-                latitude: 51.92,
-                longitude: 4.32,
-                stretch: 0.62,
-                zoom: 5.1,
-                ratio: 2
-            }
-        },
-        url: {
-            tests: 'data/maps/rotterdam/tests-rotterdam.csv',
-            regions: 'data/maps/rotterdam/rotterdam.json',
-            ageGroups: '',
-            sewageTreatmentPlants: sewageDataUrl
-        }
-    }, {
-        id: 11,
-        ready: false,
-        regionType: 'District',
-        module: 'districts',
-        title: 'South Korea',
-        settings: {
-            regionTypes: ['district'],
-            pathOrigins: [],
-            hasAgeGroups: false,
-            hasTests: true,
-            hasAdministeredTests: false,
-            hasSewageTreatmentPlants: false,
-            testDataCumulative: true,
-            testDataInterval: 1,
-            generalInfoHasPopulation: true,
-            testAdapter: standardTestAdapter,
-            map: {
-                latitude: 36.6,
-                longitude: 127.7,
-                stretch: 0.62,
-                zoom: 0.24,
-                ratio: 0.7
-            }
-        },
-        url: {
-            tests: casesUrl,
-            regions: 'data/maps/south-korea/south-korea.json',
-            ageGroups: '',
-            sewageTreatmentPlants: ''
-        }
-    }, {
+    },
+    // {
+    //     id: 7,
+    //     ready: true,
+    //     regionType: 'District',
+    //     module: 'districts',
+    //     title: 'Spain',
+    //     settings: {
+    //         regionTypes: ['district'],
+    //         pathOrigins: [],
+    //         hasAgeGroups: false,
+    //         hasTests: true,
+    //         hasAdministeredTests: false,
+    //         hasSewageTreatmentPlants: false,
+    //         testDataCumulative: true,
+    //         testDataInterval: 1,
+    //         generalInfoHasPopulation: true,
+    //         testAdapter: standardTestAdapter,
+    //         map: {
+    //             latitude: 40,
+    //             longitude: -3,
+    //             stretch: 0.7,
+    //             zoom: 0.11,
+    //             ratio: 1.18
+    //         }
+    //     },
+    //     url: {
+    //         tests: casesUrl,
+    //         regions: 'data/maps/spain/spain.json',
+    //         ageGroups: '',
+    //         sewageTreatmentPlants: ''
+    //     }
+    // },
+    // {
+    //     id: 8,
+    //     ready: true,
+    //     regionType: 'District',
+    //     module: 'districts',
+    //     title: 'Belgie',
+    //     settings: {
+    //         regionTypes: ['district'],
+    //         pathOrigins: [],
+    //         hasAgeGroups: false,
+    //         hasTests: true,
+    //         hasAdministeredTests: false,
+    //         hasSewageTreatmentPlants: false,
+    //         testDataCumulative: true,
+    //         testDataInterval: 1,
+    //         generalInfoHasPopulation: true,
+    //         testAdapter: standardTestAdapter,
+    //         map: {
+    //             latitude: 50.5,
+    //             longitude: 4.5,
+    //             stretch: 0.65,
+    //             zoom: 0.4,
+    //             ratio: 1.22
+    //         }
+    //     },
+    //     url: {
+    //         tests: casesUrl,
+    //         regions: 'data/maps/belgium/belgium.json',
+    //         ageGroups: '',
+    //         sewageTreatmentPlants: ''
+    //     }
+    // },
+    // {
+    //     id: 10,
+    //     ready: true,
+    //     regionType: 'District',
+    //     module: 'districts',
+    //     title: 'Rotterdam',
+    //     settings: {
+    //         regionTypes: ['district'],
+    //         pathOrigins: [
+    //             {
+    //                 type: 'ggd',
+    //                 paths: 'district'
+    //             }
+    //         ],
+    //         hasAgeGroups: false,
+    //         hasTests: true,
+    //         hasAdministeredTests: false,
+    //         hasSewageTreatmentPlants: true,
+    //         testDataCumulative: true,
+    //         testDataInterval: 7,
+    //         generalInfoHasPopulation: false,
+    //         map: {
+    //             latitude: 51.92,
+    //             longitude: 4.32,
+    //             stretch: 0.62,
+    //             zoom: 5.1,
+    //             ratio: 2
+    //         }
+    //     },
+    //     url: {
+    //         tests: 'data/maps/rotterdam/tests-rotterdam.csv',
+    //         regions: 'data/maps/rotterdam/rotterdam.json',
+    //         ageGroups: '',
+    //         sewageTreatmentPlants: sewageDataUrl
+    //     }
+    // },
+    // {
+    //     id: 11,
+    //     ready: false,
+    //     regionType: 'District',
+    //     module: 'districts',
+    //     title: 'South Korea',
+    //     settings: {
+    //         regionTypes: ['district'],
+    //         pathOrigins: [],
+    //         hasAgeGroups: false,
+    //         hasTests: true,
+    //         hasAdministeredTests: false,
+    //         hasSewageTreatmentPlants: false,
+    //         testDataCumulative: true,
+    //         testDataInterval: 1,
+    //         generalInfoHasPopulation: true,
+    //         testAdapter: standardTestAdapter,
+    //         map: {
+    //             latitude: 36.6,
+    //             longitude: 127.7,
+    //             stretch: 0.62,
+    //             zoom: 0.24,
+    //             ratio: 0.7
+    //         }
+    //     },
+    //     url: {
+    //         tests: casesUrl,
+    //         regions: 'data/maps/south-korea/south-korea.json',
+    //         ageGroups: '',
+    //         sewageTreatmentPlants: ''
+    //     }
+    // },
+    {
         id: 12,
-        ready: false,
+        ready: true,
         regionType: 'District',
         module: 'cities',
         title: 'Slovakia',
@@ -427,7 +434,40 @@ const maps = [
             ageGroups: '',
             sewageTreatmentPlants: ''
         }
-    }
+    }, {
+        id: 13,
+        ready: true,
+        regionType: 'District',
+        module: 'districts',
+        title: 'South America',
+        settings: {
+            regionTypes: ['district'],
+            pathOrigins: [],
+            hasTests: true,
+            testDataCumulative: true,
+            testDataInterval: 1,
+            generalInfoHasPopulation: true,
+            testAdapter: standardTestAdapter,
+            map: {
+                latitude: -22,
+                longitude: -60,
+                stretch: 0.8,
+                zoom: 0.014,
+                ratio: 0.65
+            },
+            positiveTestGraph: {
+                zoomFactor: 0.9
+            },
+            excludeRegions: [],
+            caseSettings: caseSettings
+        },
+        url: {
+            tests: casesUrl,
+            regions: 'data/maps/south-america/south-america.json',
+            ageGroups: '',
+            sewageTreatmentPlants: ''
+        }
+    },
 ];
 
 export default maps;

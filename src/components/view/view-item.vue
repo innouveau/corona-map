@@ -89,6 +89,7 @@
 
     .view-item {
         border-right: 1px solid #ddd;
+        background: $map-color;
 
         &:last-child {
             border-right: 0;

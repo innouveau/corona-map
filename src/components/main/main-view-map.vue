@@ -64,6 +64,7 @@
 
     .standard-view-map {
         padding-bottom: 0;
+        background: $map-color;
 
         .search-regions {
             height: 36px;
@@ -72,6 +73,10 @@
 
         .region-type-picker {
             height: 24px;
+            display: flex;
+            align-items: center;
+            padding-left: 4px;
+            color: $map-color-super-dark;
         }
 
         .map,

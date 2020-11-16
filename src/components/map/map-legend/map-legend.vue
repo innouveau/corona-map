@@ -31,11 +31,13 @@
     @import '@/styles/variables.scss';
 
     .map-legend {
+        pointer-events: none;
 
         .threshold {
             display: flex;
             align-items: center;
             font-size: 9px;
+            color: $map-color-super-dark;
         }
     }
 </style>

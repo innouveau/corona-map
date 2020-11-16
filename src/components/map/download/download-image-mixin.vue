@@ -130,7 +130,7 @@
                     }
                     ctx.fillRect(baseX, y, width, height);
 
-                    ctx.fillStyle = 'black';
+                    ctx.fillStyle = '#544e41';
                     if (threshold.label) {
                         label = threshold.label;
                     } else {
@@ -151,7 +151,7 @@
                     ctx.arc(baseX, baseY, (9 * this.imageScale), 0, (Math.PI * 2), false);
                     ctx.stroke();
                     ctx.fill();
-                    ctx.fillStyle = 'black';
+                    ctx.fillStyle = '#544e41';
                     if (threshold.label) {
                         label = threshold.label;
                     } else {
@@ -182,12 +182,12 @@
                     // text top
                     change = changeTools.getChangeForFactor(section.range[0]);
                     value = numberTools.formatChange(change);
-                    ctx.fillStyle = 'black';
+                    ctx.fillStyle = '#544e41';
                     ctx.fillText(value, baseX + (24 * this.imageScale), y + (6 * this.imageScale));
                     if (index === changeTools.sections.length - 1) {
                         change = changeTools.getChangeForFactor(section.range[1]);
                         value = numberTools.formatChange(change);
-                        ctx.fillStyle = 'black';
+                        ctx.fillStyle = '#544e41';
                         ctx.fillText(value, baseX + (24 * this.imageScale), y + height + (2 * this.imageScale));
                     }
 
@@ -198,7 +198,7 @@
             addCreator() {
                 let ctx = this.ctx;
                 ctx.font = (20 * this.imageScale) + 'px Arial';
-                ctx.fillStyle = 'black';
+                ctx.fillStyle = '#544e41';
                 ctx.fillText('Created by: @innouveau', (30 * this.imageScale),  (545 * this.imageScale));
             },
             finish(name) {
