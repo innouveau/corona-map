@@ -8,6 +8,39 @@ class _RegionWithTestData extends _Region{
         super();
     }
 
+    getIncreaseOfType(offset, days, type, relative) {
+        let total, history, first, last, population;
+        total = 0;
+        history = this.report.history;
+        first = history.length - offset - 1;
+        if (days === -1) {
+            last = -1;
+        } else {
+            last = first - days;
+        }
+        if (relative) {
+            population = this.population;
+        }
+        for (let i = first, l = last; i > l; i--) {
+            total += history[i][type];
+        }
+        if (relative) {
+            return 100000 * total / population;
+        } else {
+            return total;
+        }
+    }
+
+    getTotalAsPercentageOfPopulation(offset, type) {
+        return 100 * this.getIncreaseOfType(offset, -1, type, false) / this.population;
+    }
+
+
+
+
+
+    // old
+
     get absoluteIncreaseLastDay() {
         if (this.report.history[this.report.history.length - 1]) {
             return this.report.history[this.report.history.length - 1].positiveTests;

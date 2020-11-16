@@ -41,22 +41,6 @@ class City extends _RegionWithTestData {
         clone.paths = this.paths.map(p => p.export());
         return clone;
     }
-
-
-    //
-    // get trend() {
-    //     let difference = this.newestSet - this.oldestSet;
-    //     if (Math.abs(difference) < this.oldestSet / 20 || difference < 5) {
-    //         return 'gelijk';
-    //     } else {
-    //         if (this.newestSet > this.oldestSet) {
-    //             return 'stijgend';
-    //         } else {
-    //             return 'dalend';
-    //         }
-    //     }
-    // }
-    //
 }
 
 export default City;

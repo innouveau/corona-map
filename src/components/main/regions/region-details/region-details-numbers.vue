@@ -31,7 +31,10 @@
         },
         methods: {
             format(value, addPlus) {
-                return numberTools.format(value, addPlus);
+                return numberTools.format(Math.round(value), addPlus);
+            },
+            formatPercentage(value) {
+                return value.toFixed(1) + '%';
             }
         }
     }
@@ -50,6 +53,7 @@
                 </div>
             </div>
         </div>
+
         <div class="region-details__section">
             <div
                 v-if="hasDays && !short"
@@ -59,7 +63,7 @@
                     <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseDay(0, view.offset))}}
+                    {{format(region.getIncreaseOfType(view.offset, 1, 'positiveTests', false), true)}}
                 </div>
             </div>
             <div v-if="hasDays && !short" class="region-details__row">
@@ -68,7 +72,7 @@
                     <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(Math.round(region.getTotalRelativeIncreasDay(view.offset)))}}
+                    {{format(region.getIncreaseOfType(view.offset, 1, 'positiveTests', true), true)}}
                 </div>
             </div>
             <div
@@ -78,7 +82,7 @@
                     {{translate('increase', true)}} {{translate('last-7-days')}} <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseWeek(0, view.offset))}}
+                    {{format(region.getIncreaseOfType(view.offset, 7, 'positiveTests', false), true)}}
                 </div>
             </div>
             <div class="region-details__row">
@@ -86,9 +90,29 @@
                     {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
                 </div>
                 <div class="region-details__value">
-                    {{format(Math.round(region.getTotalRelativeIncreaseWeek(view.offset)))}}
+                    {{format(region.getIncreaseOfType(view.offset, 7, 'positiveTests', true), true)}}
                 </div>
             </div>
+        </div>
+        <div class="region-details__section">
+            <div class="region-details__row">
+                <div class="region-details__label">
+                    {{translate('total-infections', true)}}
+                </div>
+                <div class="region-details__value">
+                    {{format(region.getIncreaseOfType(view.offset, -1, 'positiveTests', false), false)}}
+                </div>
+            </div>
+            <div class="region-details__row">
+                <div class="region-details__label">
+                    {{translate('total-infections-percentage-of-population', true)}}
+                </div>
+                <div class="region-details__value">
+                    {{formatPercentage(region.getTotalAsPercentageOfPopulation(view.offset, 'positiveTests'), false)}}
+                </div>
+            </div>
+        </div>
+        <div class="region-details__section">
             <div
                 v-if="showLateReportingWarning"
                 class="region-details__row">

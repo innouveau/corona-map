@@ -2,9 +2,23 @@ import store from '@/store/store';
 import thresholdTools from "@/tools/thresholds";
 
 class _Region {
-    constructor(_region) {
+    constructor(_region) {}
 
+    getTotalPopulation() {
+        let population, regions;
+        population = 0;
+        regions = this.getRegions();
+        for (let region of regions) {
+            population += region.population;
+        }
+        return population;
     }
+
+
+
+
+
+    // old
 
 
     // lastday no need of offset, therefor a getter is possible
@@ -102,15 +116,7 @@ class _Region {
         return paths;
     }
 
-    getTotalPopulation() {
-        let population, cities;
-        population = 0;
-        cities = this.getRegions();
-        for (let city of cities) {
-            population += city.population;
-        }
-        return population;
-    }
+
 
     getTotalIncreaseDay(delta, offset) {
         let increase, cities;
