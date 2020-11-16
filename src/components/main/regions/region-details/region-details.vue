@@ -84,12 +84,19 @@
             <region-details-head
                 :view="view"
                 :region="regionOfFocus"/>
+        </div>
 
-            <region-trend
-                v-if="showTrend"
-                :view="view"
-                :region="regionOfFocus"
-                :show-verdict="true"/>
+        <div class="region-details__section">
+            <positive-tests
+                    :view="view"
+                    :region="regionOfFocus"
+                    :weeks="weeks"/>
+
+            <administered-tests
+                    v-if="currentMap.settings.hasAdministeredTests"
+                    :view="view"
+                    :region="regionOfFocus"
+                    :weeks="weeks"/>
         </div>
 
         <div class="region-details__info">
@@ -119,22 +126,6 @@
             <region-details-numbers
                 :view="view"
                 :region="regionOfFocus"/>
-
-            <div class="region-details__section">
-                <div class="region-details__section-header">
-                    {{translate('test-results', true)}}
-                </div>
-                <positive-tests
-                    :view="view"
-                    :region="regionOfFocus"
-                    :weeks="weeks"/>
-
-                <administered-tests
-                        v-if="currentMap.settings.hasAdministeredTests"
-                        :view="view"
-                        :region="regionOfFocus"
-                        :weeks="weeks"/>
-            </div>
 
             <div
                     v-if="hasSewageTreatmentPlants"
