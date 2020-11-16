@@ -29,9 +29,6 @@
             showEmbedPopup() {
                 return this.$store.state.ui.embedPopup;
             },
-            showTrends() {
-                return this.currentMap.settings.hasTests;
-            },
             currentRegion() {
                 return this.view.currentRegion;
             },
@@ -74,22 +71,20 @@
 
         <div class="content">
 
-            <main-view-map
-                :view="view"/>
-
-            <trends
-                v-if="showTrends"
-                :view="view"/>
+            <main-view-map :view="view"/>
 
             <region-details
                 v-if="currentRegion"
                 :view="view"
                 :region="currentRegion"/>
+
             <div
                 v-else
                 class="region-details region-details--mobile">
                 Kies eerst een gemeente op de kaart.
             </div>
+
+            <trends :view="view"/>
         </div>
 
         <embed-popup v-if="showEmbedPopup"/>
