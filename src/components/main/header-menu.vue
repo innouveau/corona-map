@@ -186,6 +186,7 @@
                     margin-right: 4px;
                     border-right: 1px solid #ddd;
                     height: 100%;
+                    padding-right: 8px;
 
                     .date-string__string {
                         white-space: nowrap;
