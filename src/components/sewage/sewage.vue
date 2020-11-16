@@ -14,8 +14,8 @@
         data() {
             return {
                 settings: {
-                    width: 4,
-                    margin: 1,
+                    width: 2,
+                    margin: 4,
                     start: 56,
                     end: 0,
                     calibration: 50,
@@ -25,6 +25,7 @@
                     ignoreOutliers: true,
                     //provinces: ["PV20", "PV21", "PV22", "PV27"],
                     regios: ["Noord", "Niet-Noord"],
+                    //regios: ["Noord"],
                     provinces: ["PV20", "PV21", "PV22", "PV23", "PV24", "PV25", "PV26", "PV27", "PV28", "PV29", "PV30", "PV31"],
                     ignoreAmsterdam: false
                 }

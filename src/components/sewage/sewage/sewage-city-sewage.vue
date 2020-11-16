@@ -2,10 +2,12 @@
     import City from "@/classes/City";
     import SewageTreatmentPlant from "@/classes/SewageTreatmentPlant";
     import sewageCityMeasurement from "./sewage-city-measurement";
+    import sewageGraphDates from "../sewage-graph-dates";
 
     export default {
         name: 'sewage-city-sewage',
         components: {
+            sewageGraphDates,
             sewageCityMeasurement
         },
         props: {
@@ -50,18 +52,21 @@
 
 <template>
     <div class="sewage-city-sewage">
+        <div class="sewage-city-sewage__title">
+            RWZI: {{sewage.name}}
+        </div>
         <div
             :class="{'sewage-city-sewage__graph--old-style':correctedByCapacity}"
             class="sewage-city-sewage__graph">
-            <div class="sewage-city-sewage__title">
-                {{sewage.name}} ({{sewage.capacity}})
-            </div>
 
             <sewage-city-measurement
                 v-for="measurement in measurements"
                 :measurement="measurement"
                 :settings="settings"/>
         </div>
+        <sewage-graph-dates
+            :measurements="measurements"
+            :settings="settings"/>
     </div>
 </template>
 
@@ -70,22 +75,19 @@
     @import '@/styles/variables.scss';
 
     .sewage-city-sewage {
-        display: flex;
         margin-bottom: 2px;
+        margin-top: 4px;
+
+        .sewage-city-sewage__title {
+            padding-bottom: 8px;
+
+        }
 
         .sewage-city-sewage__graph {
-            position: relative;
-            border-bottom: 1px solid #000;
-            background: #ddd;
+            border-bottom: 1px solid #888;
+            padding-bottom: 2px;
             display: flex;
             align-items: flex-end;
-            padding-top: 8px;
-
-            .sewage-city-sewage__title {
-                position: absolute;
-                left: 4px;
-                top: 4px;
-            }
 
             &.sewage-city-sewage__graph--old-style {
                 background: pink;

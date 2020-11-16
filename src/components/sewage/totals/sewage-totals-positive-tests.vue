@@ -54,11 +54,13 @@
 
 
 <template>
-    <div class="sewage-totals-positive-tests">
-        <sewage-positive-tests-bar
-                v-for="positiveTest in positiveTests"
-                :positive-test="positiveTest"
-                :settings="settings"/>
+    <div class="sewage-totals-positive-tests sewage-city-positive-tests">
+        <div class="sewage-city-positive-tests__graph">
+            <sewage-positive-tests-bar
+                    v-for="positiveTest in positiveTests"
+                    :positive-test="positiveTest"
+                    :settings="settings"/>
+        </div>
     </div>
 </template>
 
@@ -67,10 +69,6 @@
     @import '@/styles/variables.scss';
 
     .sewage-totals-positive-tests {
-        position: relative;
-        display: flex;
-        align-items: flex-end;
-        min-height: 60px;
-        border-bottom: 1px solid #000;
+
     }
 </style>

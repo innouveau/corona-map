@@ -67,15 +67,14 @@
 
     .sewage-city {
         margin-bottom: 16px;
-        padding: 4px 0;
+        padding: 8px;
         background: #fff;
         box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
         position: relative;
 
         .sewage-city__title {
-            position: absolute;
-            left: 4px;
-            top: 4px;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         &:last-child {

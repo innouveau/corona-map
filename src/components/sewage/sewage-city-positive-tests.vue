@@ -67,7 +67,8 @@
             display: flex;
             align-items: flex-end;
             min-height: 60px;
-            border-bottom: 1px solid #000;
+            border-bottom: 1px solid #888;
+            padding-bottom: 2px;
         }
     }
 </style>

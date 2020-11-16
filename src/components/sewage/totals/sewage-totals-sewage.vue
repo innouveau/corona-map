@@ -1,9 +1,11 @@
 <script>
     import sewageCityMeasurement from "./../sewage/sewage-city-measurement";
+    import sewageGraphDates from "../sewage-graph-dates";
 
     export default {
         name: 'sewage-totals-sewage',
         components: {
+            sewageGraphDates,
             sewageCityMeasurement
         },
         props: {
@@ -37,11 +39,13 @@
                             nOfMeasurementsPerDay.push(0);
                             if (measurement.unreliable) {
                                 measurements.push({
-                                    value: 0
+                                    value: 0,
+                                    offset: measurement.offset
                                 });
                             } else {
                                 measurements.push({
-                                    value: measurement.value
+                                    value: measurement.value,
+                                    offset: measurement.offset
                                 });
                             }
                         } else {
@@ -142,6 +146,9 @@
                 :measurement="measurement"
                 :settings="settings"/>
         </div>
+        <sewage-graph-dates
+            :measurements="measurements"
+            :settings="settings"/>
     </div>
 </template>
 

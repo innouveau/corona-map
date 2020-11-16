@@ -36,6 +36,9 @@
 
 <template>
     <div class="sewage-totals sewage-totals sewage-city">
+        <div class="sewage-city__label">
+            Gemiddelde van selectie
+        </div>
         <div class="sewage-city__content">
 
             <sewage-totals-positive-tests
@@ -55,17 +58,18 @@
 
     .sewage-totals {
 
+        .sewage-city__label {
+            padding: 16px;
+        }
+
         .sewage-city__content {
-            height: 100%;
 
             .sewage-totals-positive-tests {
-                height: 50%;
                 border-bottom: 1px solid #ddd;
                 padding: 16px;
             }
 
             .sewage-totals-sewage {
-                height: 50%;
                 padding: 16px;
             }
         }
