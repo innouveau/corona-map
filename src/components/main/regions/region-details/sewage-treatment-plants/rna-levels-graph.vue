@@ -114,7 +114,8 @@
                 return (this.width) * pct - (0.5 * this.step);
             },
             getY(measurement) {
-                return this.height - (measurement.RNA_per_ml / this.max * this.height);
+                let value = measurement.valueFlowPer100000;
+                return this.height - (value / this.max * this.height);
             },
             drawGraph() {
                 this.drawGrid();
@@ -210,7 +211,8 @@
                         }
                     })
                     .text(function(d) {
-                        return d.measurement.RNA_per_ml + '';
+                        let value = Math.round(d.measurement.RNA_flow_per_100000 / 1000000);
+                        return value;
                     });
             }
         },
