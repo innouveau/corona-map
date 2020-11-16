@@ -104,19 +104,6 @@ class _Region {
         }
     }
 
-
-    getAllPaths() {
-        let cities, paths;
-        cities = this.getRegions();
-        paths = [];
-        for (let city of cities) {
-            paths = paths.concat(city.paths);
-        }
-        return paths;
-    }
-
-
-
     getTotalReport() {
         let report, cities, counter;
         report = {
@@ -175,9 +162,9 @@ class _Region {
         map = store.state.maps.current;
         signalingSystem = store.state.signalingSystems.current;
         if (signalingSystem.days === 1) {
-            cases = this.getTotalIncreaseOfType(offset, 1, 'positiveTests', false);
+            cases = this.getTotalIncreaseOfType(offset, 1, 'positiveTests', true);
         } else if (signalingSystem.days === 7) {
-            cases = this.getTotalIncreaseOfType(offset, 7, 'positiveTests', false);
+            cases = this.getTotalIncreaseOfType(offset, 7, 'positiveTests', true);
         }
         if (map.settings.hasTests) {
             if (this.hasLateReporting && offset < 10) {

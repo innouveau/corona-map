@@ -62,7 +62,7 @@
                 for (let week of weeks) {
                     let cases, y, offset;
                     offset = (this.weeks - week - 1) * 7;
-                    cases = this.region.getTotalRelativeIncreaseWeek((offset +this.view.offset));
+                    cases = this.region.getIncreaseOfType((this.view.offset + offset), 7, 'positiveTests', true);
                     y = this.valueToY(cases / 7);
                     this.contentContainer.append('rect')
                         .attr('x', week * (this.width / this.weeks))
@@ -76,7 +76,7 @@
                 let baseY, doublings, baseOffset, heightGraph, cases;
                 heightGraph = this.height;
                 doublings = [0.25, 0.5, 1, 2, 4];
-                cases = this.region.getTotalRelativeIncreaseWeek((7 + this.view.offset));
+                cases = this.region.getIncreaseOfType((this.view.offset + 7), 7, 'positiveTests', true);
                 baseY = this.valueToY(cases / 7);
 
                 if (baseY > 0.75 * heightGraph) {
