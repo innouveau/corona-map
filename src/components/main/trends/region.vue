@@ -1,6 +1,6 @@
 <script>
     import View from "@/classes/View";
-    import _Region from "@/classes/_Region";
+    import _Region from "@/classes/region/_Region";
     import swatch from "@/components/elements/swatch";
 
     export default {

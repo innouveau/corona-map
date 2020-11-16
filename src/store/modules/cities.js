@@ -1,5 +1,5 @@
 import _base from './_base-module';
-import City from '@/classes/City';
+import City from '@/classes/region/City';
 
 const state = {
     all: [],

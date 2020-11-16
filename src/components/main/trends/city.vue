@@ -1,5 +1,5 @@
 <script>
-    import City from "@/classes/City";
+    import City from "@/classes/region/City";
     import swatch from "@/components/elements/swatch";
 
     export default {

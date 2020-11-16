@@ -1,6 +1,6 @@
 <script>
     import regionType from './region-type';
-    import _Region from "@/classes/_Region";
+    import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
 
     export default {

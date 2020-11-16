@@ -1,5 +1,5 @@
 <script>
-    import _Region from "@/classes/_Region";
+    import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
     import PositiveTests from "./tests/positive-tests";
     import thresholdTool from "@/tools/thresholds";

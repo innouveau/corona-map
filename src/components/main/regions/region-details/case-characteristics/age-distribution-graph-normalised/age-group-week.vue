@@ -1,6 +1,6 @@
 <script>
-    import GGD from "@/classes/GGD";
-    import Country from "@/classes/Country";
+    import GGD from "@/classes/region/GGD";
+    import Country from "@/classes/region/Country";
     import thresholdTools from "@/tools/thresholds";
     import View from "@/classes/View";
 

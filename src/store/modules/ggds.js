@@ -1,5 +1,5 @@
 import _base from './_base-module';
-import GGD from '@/classes/GGD';
+import GGD from '@/classes/region/GGD';
 
 const Model = GGD;
 

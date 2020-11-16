@@ -1,5 +1,5 @@
 <script>
-    import Regio from "@/classes/Regio";
+    import Regio from "@/classes/region/Regio";
 
     export default {
         name: 'sewage-tools-regio',

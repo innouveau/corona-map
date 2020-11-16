@@ -1,5 +1,5 @@
 import _base from './_base-module';
-import District from '@/classes/District';
+import District from '@/classes/region/District';
 
 const state = {
     all: [],

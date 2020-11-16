@@ -1,4 +1,4 @@
-import Path from './Path';
+import Path from './geo/Path';
 import _RegionWithTestData from "./_RegionWithTestData";
 
 class City extends _RegionWithTestData {

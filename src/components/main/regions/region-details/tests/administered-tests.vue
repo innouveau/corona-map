@@ -1,5 +1,5 @@
 <script>
-    import _Region from "@/classes/_Region";
+    import _Region from "@/classes/region/_Region";
     import testGraphMixin from './test-graph-mixin';
     import * as d3 from "d3";
 

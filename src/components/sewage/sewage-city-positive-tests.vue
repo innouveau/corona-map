@@ -1,5 +1,5 @@
 <script>
-    import City from "@/classes/City";
+    import City from "@/classes/region/City";
     import sewagePositiveTestsBar from "./sewage-positive-tests-bar";
 
     export default {
