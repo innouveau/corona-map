@@ -30,7 +30,7 @@
                     if (this.signalingSystem.days === 1){
                         return (a.getTotalRelativeIncreasDay(this.offset) < b.getTotalRelativeIncreasDay(this.offset)) ? 1 : ((b.getTotalRelativeIncreasDay(this.offset) < a.getTotalRelativeIncreasDay(this.offset)) ? -1 : 0)
                     } else {
-                        return (a.getTotalRelativeIncreaseWeek(this.offset) < b.getTotalRelativeIncreaseWeek(this.offset)) ? 1 : ((b.getTotalRelativeIncreaseWeek(this.offset) < a.getTotalRelativeIncreaseWeek(this.offset)) ? -1 : 0)
+                        return (this.getValue(a) < this.getValue(b)) ? 1 : ((this.getValue(b) < this.getValue(a)) ? -1 : 0)
                     }
                 }).slice(0, 10);
             },
@@ -61,11 +61,14 @@
             }
         },
         methods: {
+            getValue(region) {
+                return region.getTotalIncreaseOfType(this.offset, 7, 'positiveTests', true);
+            },
             getIndicator(region) {
                 if (this.signalingSystem.days === 1) {
                     return region.getTotalRelativeIncreasDay(this.offset);
                 } else if (this.signalingSystem.days === 7) {
-                    return region.getTotalRelativeIncreaseWeek(this.offset);
+                    return this.getValue(region);
                 }
             }
         }

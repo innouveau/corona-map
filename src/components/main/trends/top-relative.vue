@@ -22,8 +22,8 @@
                 let regions = this.$store.getters['ui/regions'];
                 return regions.sort((a,b) => {
                     let ai, bi;
-                    ai = a.relativeIncreaseLastday;
-                    bi = b.relativeIncreaseLastday;
+                    ai = this.relativeIncreaseLastday(a);
+                    bi = this.relativeIncreaseLastday(b);
                     return ai < bi ? 1 : -1;
 
                 }).slice(0, 10);
@@ -32,6 +32,9 @@
         methods: {
             format(value, addPlus) {
                 return numberTools.format(Math.round(value), addPlus);
+            },
+            relativeIncreaseLastday(region) {
+                return region.getTotalIncreaseOfType(this.view.offset, 1, 'positiveTests', true);
             }
         }
     }
@@ -52,7 +55,7 @@
                         :view="view"
                         :region="region"/>
                     <div class="region__info">
-                        ({{format(region.relativeIncreaseLastday)}})
+                        ({{format(relativeIncreaseLastday(region))}})
                     </div>
                 </div>
             </div>

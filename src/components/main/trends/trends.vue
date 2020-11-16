@@ -4,14 +4,12 @@
     import thresholdRegions from "./threshold-regions";
     import thresholdTools from '@/tools/thresholds';
     import citiesWithSewageTreatmentPlant from "./cities-with-sewage-treatment-plant";
-    import topAbsolute from "./top-absolute";
     import topRelative from "./top-relative";
 
     export default {
         name: 'trends',
         components: {
             topRelative,
-            topAbsolute,
             citiesWithSewageTreatmentPlant,
             thresholdRegions,
             topRelativeWeek,
