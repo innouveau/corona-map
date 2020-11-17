@@ -1,17 +1,13 @@
 <script>
-    import _Region from "@/classes/region/_Region";
-    import testGraphMixin from './test-graph-mixin';
+    import d3TestGraphMixin from '@/mixins/d3-test-graph-mixin';
     import * as d3 from "d3";
 
     export default {
-        name: 'administered-tests',
+        name: 'administered-pcr-tests',
         components: {},
-        mixins: [testGraphMixin],
+        mixins: [d3TestGraphMixin],
         props: {
-            region: {
-                type: _Region,
-                required: true
-            },
+
             stepWide: {
                 type: Boolean,
                 required: false,

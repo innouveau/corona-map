@@ -2,13 +2,13 @@
     import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
 
-    import positiveTests from "./tests/positive-tests";
+    import positivePcrTests from "@/components/graphs/positive-pcr-tests";
+    import administeredPcrTests from "@/components/graphs/administered-pcr-tests"
     import sewageTreatmentPlants from "./sewage-treatment-plants/sewage-treatment-plants";
     import ageDistributionGraph from "./case-characteristics/age-distribution-graph";
     import ageDistributionGraphNormalised from "./case-characteristics/age-distribution-graph-normalised/age-distribution-graph-normalised";
     import ageDistributionTools from "./case-characteristics/age-distribution-graph-normalised/age-distribution-tools";
     import regionRelations from "./../region-type/region-relations";
-    import administeredTests from "./tests/administered-tests";
     import regionTrend from "./region-trend";
     import regionDetailsHead from "./region-details-head";
     import loader from "@/components/elements/loader";
@@ -20,14 +20,14 @@
             regionDetailsNumbers,
             regionDetailsHead,
             regionTrend,
-            administeredTests,
+            administeredPcrTests,
             regionRelations,
             ageDistributionTools,
             ageDistributionGraphNormalised,
             loader,
             ageDistributionGraph,
             sewageTreatmentPlants,
-            positiveTests
+            positivePcrTests
         },
         props: {
             view: {
@@ -87,12 +87,12 @@
         </div>
 
         <div class="region-details__section">
-            <positive-tests
+            <positive-pcr-tests
                     :view="view"
                     :region="regionOfFocus"
                     :weeks="weeks"/>
 
-            <administered-tests
+            <administered-pcr-tests
                     v-if="currentMap.data.administeredPcrTests.status"
                     :view="view"
                     :region="regionOfFocus"

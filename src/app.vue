@@ -103,8 +103,12 @@
                 $.getJSON(this.currentMap.data.geo.source, (regions) => {
                     let promises = [];
                     this.$store.commit(this.currentMap.module + '/init', regions);
+                    // check all sources
                     if (this.currentMap.data.positivePcrTests.status) {
-                        promises.push(this.loadTests);
+                        promises.push(this.loadPcrTests);
+                    }
+                    if (this.currentMap.data.positiveAntigenTests.status) {
+                        promises.push(this.loadAntigenTests);
                     }
                     if (this.currentMap.data.ageGroups.status) {
                         promises.push(this.loadAgeGroupsForCities);
@@ -138,7 +142,29 @@
                     });
                 })
             },
-            loadTests() {
+            loadAntigenTests() {
+                return new Promise((resolve, reject) => {
+                    d3.csv(this.currentMap.data.positiveAntigenTests.source + dateTool.getTimestamp())
+                        .then((result) => {
+                            let adapter, dates;
+                            adapter = this.currentMap.data.positiveAntigenTests.adapter;
+                            dates = result.columns.filter(column => adapter.findColumn(column));
+                            for (let row of result) {
+                                let region = row.region;
+                                for (let date of dates) {
+                                    let value = adapter.handleValue(row, row[date]);
+                                }
+                            }
+                            resolve();
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+
+
+                })
+            },
+            loadPcrTests() {
                 const addTestsForRegions = (item) => {
                     if (this.currentMap.settings.excludeRegions) {
                         let identifier = item[this.currentMap.data.positivePcrTests.adapter.titleKey];
@@ -177,8 +203,6 @@
                         .catch((error) => {
                             console.error(error);
                         });
-
-
                 })
             },
             loadAgeGroupsForCities() {

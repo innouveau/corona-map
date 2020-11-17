@@ -3,15 +3,13 @@
     import View from "@/classes/View";
     import regionDetailsHead from "../main/regions/region-details/region-details-head";
     import numberTools from '@/tools/number';
-    import positiveTests from "@/components/main/regions/region-details/tests/positive-tests";
     import changeTools from '@/tools/change';
-    import administeredTests from "@/components/main/regions/region-details/tests/administered-tests";
+    import positivePcrTestsChange from "@/components/graphs/positive-pcr-tests-change";
 
     export default {
         name: 'region-details-change',
         components: {
-            administeredTests,
-            positiveTests,
+            positivePcrTestsChange,
             regionDetailsHead
         },
         props: {
@@ -123,21 +121,10 @@
                 </div>
             </div>
             <div class="region-details__section">
-                <div class="region-details__section-header">
-                    {{translate('test-results', true)}}
-                </div>
-                <positive-tests
+                <positive-pcr-tests-change
                     :view="view"
                     :region="regionOfFocus"
-                    :weeks="3"
-                    :map-type="'change'"/>
-
-                <administered-tests
-                    v-if="currentMap.data.administeredPrcTests.status"
-                    :view="view"
-                    :region="regionOfFocus"
-                    :weeks="3"
-                    :step-wide="true"/>
+                    :weeks="3"/>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-const standardTestAdapter = {
+const standardPcrTestAdapter = {
     titleKey: 'Land/regio',
     positiveTestsKey: '',
     findColumn: function(column) {
@@ -52,6 +52,9 @@ const maps = [
                 interval: 1,
                 cumulative: true
             },
+            positiveAntigenTests: {
+                status: false
+            },
             administeredPcrTests: {
                 status: false,
                 source: ''
@@ -102,6 +105,9 @@ const maps = [
                 interval: 7,
                 cumulative: false
             },
+            positiveAntigenTests: {
+                status: false
+            },
             administeredPcrTests: {
                 status: true,
                 source: 'data/maps/amsterdam/amsterdam-tests.csv'
@@ -148,7 +154,10 @@ const maps = [
                 source: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardTestAdapter
+                adapter: standardPcrTestAdapter
+            },
+            positiveAntigenTests: {
+                status: false
             },
             administeredPcrTests: {
                 status: false,
@@ -196,7 +205,10 @@ const maps = [
                 source: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardTestAdapter
+                adapter: standardPcrTestAdapter
+            },
+            positiveAntigenTests: {
+                status: false
             },
             administeredPcrTests: {
                 status: false,
@@ -241,7 +253,10 @@ const maps = [
                 source: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardTestAdapter
+                adapter: standardPcrTestAdapter
+            },
+            positiveAntigenTests: {
+                status: false
             },
             administeredPcrTests: {
                 status: false,
@@ -288,7 +303,10 @@ const maps = [
                 source: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardTestAdapter
+                adapter: standardPcrTestAdapter
+            },
+            positiveAntigenTests: {
+                status: false
             },
             administeredPcrTests: {
                 status: false,
@@ -327,7 +345,7 @@ const maps = [
                 ratio: 2.07
             },
             positiveTestGraph: {
-                zoomFactor: 0.7
+                zoomFactor: 0.2
             }
         },
         data: {
@@ -340,11 +358,25 @@ const maps = [
                 source: 'data/maps/slovakia/cases.csv',
                 interval: 1,
                 cumulative: true,
-                adapter: standardTestAdapter
+                adapter: standardPcrTestAdapter
             },
             administeredPcrTests: {
                 status: false,
                 source: ''
+            },
+            positiveAntigenTests: {
+                status: true,
+                source: 'data/maps/slovakia/positive-antigen-tests.csv',
+                period: 2,
+                adapter: {
+                    titleKey: 'region',
+                    findColumn: function(column) {
+                        return column.indexOf('20') > -1;
+                    },
+                    handleValue: function(row, value) {
+                        return Math.round(Number(row.population) * 0.01 * Number(value));
+                    }
+                }
             },
             ageGroups: {
                 status: false,
@@ -388,7 +420,10 @@ const maps = [
                 source: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardTestAdapter
+                adapter: standardPcrTestAdapter
+            },
+            positiveAntigenTests: {
+                status: false
             },
             administeredPcrTests: {
                 status: false,

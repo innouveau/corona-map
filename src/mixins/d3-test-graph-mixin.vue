@@ -2,12 +2,17 @@
     import View from "@/classes/View";
     import * as d3 from "d3";
     import d3GraphMixin from '@/mixins/d3-graph-mixin';
+    import _Region from '@/classes/region/_Region';
 
     export default {
         name: 'test-graph-mixin',
         components: {},
         mixins: [d3GraphMixin],
         props: {
+            region: {
+                type: _Region,
+                required: true
+            },
             view: {
                 type: View,
                 required: true
@@ -53,6 +58,15 @@
         },
         computed: {
             // settings
+            signalingSystem() {
+                return this.$store.state.signalingSystems.current;
+            },
+            colorSet() {
+                return this.$store.state.ui.color;
+            },
+            isColorblind() {
+                return this.colorSet === 'colorblind1';
+            },
             appliedZoom() {
                 if (this.currentMap.settings.positiveTestGraph && this.currentMap.settings.positiveTestGraph.zoomFactor) {
                     return this.zoom * this.currentMap.settings.positiveTestGraph.zoomFactor;
@@ -92,9 +106,6 @@
             max() {
                 return this.offset;
             },
-            isColorblind() {
-                return this.colorSet === 'colorblind1';
-            },
             report() {
                 return this.region.report
             }
@@ -125,28 +136,32 @@
                     .attr('height', this.height)
                     .attr('fill', color);
             },
-            drawDates() {
-                let weeks, index;
-                index = 0;
-                weeks = Array.from(Array(this.weeks + 1).keys());
-                for (let week of weeks) {
-                    let dateString, x, y, offset;
-                    offset = (this.offset * this.currentMap.data.positivePcrTests.interval) + ((this.weeks - week) * 7);
-                    dateString = this.$store.getters['ui/getDateByOffset'](offset, 'd/M');
-                    x = this.step * week * 7;
-                    y = this.height - 4;
-                    this.datesContainer.append('text')
-                        .attr('x', x)
-                        .attr('y', y + 16)
-                        .attr('text-anchor', function(){
-                            return index === 0 ? 'start' : 'middle';
-                        })
-                        .text(dateString)
-                        .attr('font-size', '11px');
-                    index++;
+            drawThresholds() {
+                let lastY, thresholds;
+                lastY = 0;
+                thresholds = this.signalingSystem.thresholds;
+
+                for (let threshold of thresholds) {
+                    if (threshold.n > 0) {
+                        let height, x, y;
+                        if (threshold.n !== Infinity) {
+                            height = (this.appliedZoom * threshold.n / this.signalingSystem.days) - lastY;
+                            y = this.height  - lastY - height;
+                        } else {
+                            height = this.height - lastY;
+                            y = 0;
+                        }
+                        this.contentContainer.append('rect')
+                            .attr('x', 0)
+                            .attr('y', y)
+                            .attr('width', this.width)
+                            .attr('height', height)
+                            .attr('fill', threshold.color[this.$store.state.ui.color])
+                            .attr('opacity', 0.5);
+                        lastY += height;
+                    }
                 }
             },
-
             // business logic
             getX(day) {
                 let offset = day.offset - this.offset;
@@ -165,6 +180,74 @@
                     return day.positiveTests !== null && day.offset <= this.min && day.offset >= this.max;
                 });
                 return days;
+            },
+            drawPcrTestsLine(smoothened, dotted) {
+                let points, days, lineFunction;
+                days = this.getDays();
+                points = days.map(day => {
+                    return {
+                        x: this.getX(day),
+                        y: this.getY(day, smoothened)
+                    }
+                });
+                lineFunction = d3.line()
+                    .x(function(d) { return d.x; })
+                    .y(function(d) { return d.y; });
+
+                this.lineContainer.append('path')
+                    .attr('d', lineFunction(points))
+                    .attr('stroke', () => {
+                        return dotted ? '#888' : '#000';
+                    })
+                    .attr('stroke-width', 1)
+                    .attr('fill', 'none')
+                    .attr('stroke-dasharray', () => {
+                        return dotted ? [4,4] : [];
+                    })
+            },
+            drawPcrTestsBars(color) {
+                let days = this.getDays();
+
+                for (let day of days) {
+                    let y =  this.getY(day, false);
+                    this.lineContainer.append('rect')
+                        .attr('x', (d) => {
+                            return this.getX(day) - 0.5 * this.step
+                        })
+                        .attr('y', y)
+                        .attr('width', () => {
+                            let last = days.indexOf(day) === days.length - 1;
+                            return last ? (0.5 * this.step) : this.step;
+                        })
+                        .attr('height', this.height - y)
+                        .attr('fill', color)
+                }
+            },
+            getY(day, smoothened) {
+                let end, start, total, days, average, relativeValue, l;
+                if (!smoothened) {
+                    // for the graph we always use 100000, independent from the signaling system
+                    relativeValue = 100000 * (day.positiveTests / this.currentMap.data.positivePcrTests.interval) / this.region.getTotalPopulation();
+                } else {
+                    total = 0;
+                    days = 7;
+                    end = day.offset - 1;
+                    l = this.report.history.length - 1;
+                    start = Math.min((end + days), l);
+                    // correct days if it is < 7
+                    days = start - end;
+                    for (let i = start; i > end; i--) {
+                        let d = this.report.history[l - i];
+                        total += d.positiveTests / this.currentMap.data.positivePcrTests.interval;
+                    }
+                    average = total / days;
+                    relativeValue = 100000 * average / this.region.getTotalPopulation();
+                }
+                //console.log(smoothened, relativeValue);
+                return this.valueToY(relativeValue);
+            },
+            valueToY(value) {
+                return this.height - (value * this.appliedZoom);
             },
         },
         mounted() {

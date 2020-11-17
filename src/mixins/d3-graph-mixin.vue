@@ -24,6 +24,27 @@
                     })
                     .attr('stroke-width', 1);
             },
+            drawDates() {
+                let weeks, index;
+                index = 0;
+                weeks = Array.from(Array(this.weeks + 1).keys());
+                for (let week of weeks) {
+                    let dateString, x, y, offset;
+                    offset = (this.offset * this.currentMap.data.positivePcrTests.interval) + ((this.weeks - week) * 7);
+                    dateString = this.$store.getters['ui/getDateByOffset'](offset, 'd/M');
+                    x = this.step * week * 7;
+                    y = this.height - 4;
+                    this.datesContainer.append('text')
+                        .attr('x', x)
+                        .attr('y', y + 16)
+                        .attr('text-anchor', function(){
+                            return index === 0 ? 'start' : 'middle';
+                        })
+                        .text(dateString)
+                        .attr('font-size', '11px');
+                    index++;
+                }
+            },
         }
     }
 </script>
