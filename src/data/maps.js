@@ -273,7 +273,9 @@ const maps = [
                 zoom: 0.03,
                 ratio: 1.8,
                 stretch: 0.7,
-
+            },
+            positiveTestGraph: {
+                zoomFactor: 0.3
             }
         },
         data: {

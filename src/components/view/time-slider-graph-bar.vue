@@ -42,7 +42,7 @@
     @import '@/styles/variables.scss';
 
     .time-slider-graph-bar {
-        background: #ddd;
+        background: rgba(0,0,0,0.15);
         width: 2px;
         flex-grow: 1;
 

@@ -209,7 +209,7 @@
         .story__body {
             height: calc(100% - 300px);
             overflow: auto;
-            background: #D6E2EA;
+            //background: #D6E2EA;
 
             .story__content {
                 width: 600px;

@@ -56,14 +56,14 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        border: 1px solid #aaa;
+        border: transparent;
         background: #fff;
         top: calc(50% - 1px);
         transform: translate(-50%, -50%);
 
         &.time-slider-stop--done {
-            background: #000;
-            border: 1px solid #000;
+            background: $map-color-dark;
+            border: 1px solid $map-color;
         }
     }
 </style>

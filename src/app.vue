@@ -177,6 +177,8 @@
                         .catch((error) => {
                             console.error(error);
                         });
+
+
                 })
             },
             loadAgeGroupsForCities() {

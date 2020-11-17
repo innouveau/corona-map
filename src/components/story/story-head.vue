@@ -126,6 +126,7 @@
         position: relative;
         z-index: 1;
         display: flex;
+        background: $map-color;
 
         .story-head__left {
             height: 100%;
@@ -134,7 +135,7 @@
 
             .story__navigation {
                 height: 30px;
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid $map-color-dark;
                 padding: 4px 8px;
                 display: flex;
                 align-items: center;
@@ -197,24 +198,6 @@
 
                     .positive-tests__title {
                         display: none;
-                    }
-                }
-
-                .story__age-groups {
-                    padding: 8px;
-                    font-size: 9px;
-                    width: 300px;
-
-                    .age-distribution-header, .age-group {
-                        height: 17px;
-
-                        .age-distribution-header__week {
-                            font-size: inherit;
-                        }
-                    }
-
-                    .age-distribution-header__week, .age-group-week {
-                        width: 60px!important;
                     }
                 }
             }
