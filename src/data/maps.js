@@ -355,7 +355,7 @@ const maps = [
             },
             positivePcrTests: {
                 status: true,
-                source: 'data/maps/slovakia/cases.csv',
+                source: 'data/maps/slovakia/positive-pcr-tests.csv',
                 interval: 1,
                 cumulative: true,
                 adapter: standardPcrTestAdapter
