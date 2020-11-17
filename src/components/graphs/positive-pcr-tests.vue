@@ -23,8 +23,13 @@
                 }
                 this.drawGrid();
                 if (this.getDays().length > 0) {
-                    this.drawPcrTestsBars('rgba(0,0,0,0.15)');
-                    this.drawPcrTestsLine(true, false);
+                    if (this.currentMap.data.positivePcrTests.interval === 1) {
+                        this.drawPcrTestsBars('rgba(0,0,0,0.15)');
+                        this.drawTestsLine('positiveTests', true, false, '#000');
+                    } else {
+                        this.drawTestsLine('positiveTests', false, false, '#000');
+                    }
+
                 }
                 if (this.thresholds) {
                     this.drawDates();

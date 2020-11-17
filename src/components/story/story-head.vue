@@ -3,17 +3,17 @@
 
     import mapSignaling from "@/components/map/map-signaling";
     import timeSlider from "@/components/view/time-slider";
-    import positiveTests from "@/components/main/regions/region-details/tests/positive-tests";
     import _Region from "@/classes/region/_Region";
     import Chapter from "@/classes/story/Chapter";
     import Story from "@/classes/story/Story";
-    import regionDetailsShort from "../main/regions/region-details/region-details-short";
+    import regionDetailsShort from "@/components/main/regions/region-details/region-details-short";
+    import positivePcrTests from "@/components/graphs/positive-pcr-tests";
 
     export default {
         name: 'story-head',
         components: {
+            positivePcrTests,
             regionDetailsShort,
-            positiveTests,
             timeSlider,
             mapSignaling
         },
@@ -91,7 +91,7 @@
         <div class="story-head__right">
             <div class="story__graphs">
                 <div class="story__tests">
-                    <positive-tests
+                    <positive-pcr-tests
                         v-if="currentRegion"
                         :view="view"
                         :region="currentRegion"

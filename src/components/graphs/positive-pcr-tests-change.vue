@@ -22,7 +22,7 @@
                 this.drawDoublingLines();
                 this.drawGrid();
                 if (this.getDays().length > 0) {
-                    this.drawPcrTestsLine(false, false);
+                    this.drawTestsLine('positiveTests', false, false, '#000');
                 }
                 this.drawDates();
             },
