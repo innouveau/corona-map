@@ -345,7 +345,7 @@ const maps = [
                 ratio: 2.07
             },
             positiveTestGraph: {
-                zoomFactor: 0.4
+                zoomFactor: 0.3
             }
         },
         data: {
@@ -367,14 +367,17 @@ const maps = [
             positiveAntigenTests: {
                 status: true,
                 source: 'data/maps/slovakia/positive-antigen-tests.csv',
-                period: 5,
+                period: 2,
                 adapter: {
                     titleKey: 'region',
-                    findColumn: function(column) {
-                        return column.indexOf('20') > -1;
+                    getKeys: function(column) {
+                        return column.indexOf('positive') > -1;
+                    },
+                    getDateFromKey: function(column) {
+                        return column.split('_')[0];
                     },
                     handleValue: function(row, value) {
-                        return Math.round(Number(row.population) * 0.01 * Number(value));
+                        return Number(value);
                     }
                 }
             },

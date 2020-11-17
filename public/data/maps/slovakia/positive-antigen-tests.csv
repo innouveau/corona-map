@@ -1,73 +1,68 @@
-region,population,code,2020-10-23,2020-10-31,2020-11-07
-Bratislava,432801,BA,,0.33,
-Banská Bystrica,110931,BB,,1.07,0.35
-Bardejov,77704,BJ,3.25,1.67,0.83
-Bánovce nad Bebravou,36512,BN,,1.96,0.86
-Brezno,61959,BR,,1.21,0.63
-Banská Štiavnica,16165,BS,,0.28,
-Bytča,30835,BY,,1.53,0.78
-Čadca,90499,CA,,3.22,0.97
-Dolný Kubín,39478,DK,3.12,1.42,0.57
-Dunajská Streda,114217,DS,,0.96,0.52
-Detva,32270,DT,,1.07,0.34
-Galanta,94533,GA,,0.49,
-Gelnica,31365,GL,,0.71,0.38
-Hlohovec,45247,HC,,0.59,
-Humenné,64845,HE,,1.81,0.6
-Ilava,62042,IL,,1.18,0.81
-Krupina,22841,KA,,0.49,
-Košice,239171,KE,,0.56,
-Kežmarok,63231,KK,,1.92,0.9
-Kysucké Nové Mesto,33778,KM,,1.86,0.86
-Komárno,108556,KN,,0.56,
-Košice - okolie,125290,KS,,0.6,
-Lučenec,72837,LC,,0.52,
-Levoča,14818,LE,,2.03,0.97
-Liptovský Mikuláš,73984,LM,,1.41,0.57
-Levice,120021,LV,,0.53,
-Malacky,64354,MA,,0.52,
-Michalovce,109121,MI,,0.87,0.34
-Medzilaborce,12668,ML,,1.3,0.28
-Martin,97813,MT,,1.36,0.66
-Myjava,29243,MY,,1.4,0.37
-Nové Mesto nad Váhom,62708,NM,,0.89,0.43
-Námestovo,56043,NO,4.77,1.8,0.55
-Nitra,163540,NR,,0.68,
-Nové Zámky,149594,NZ,,0.6,
-Považská Bystrica,65150,PB,,1.34,0.95
-Prievidza,140444,PD,,2.04,0.75
-Partizánske,48005,PE,,1.86,0.67
-Pezinok,54164,PK,,0.52,
-Piešťany,64019,PN,,0.46,
-Prešov,161782,PO,,0.85,0.44
-Poprad,104348,PP,,1.79,0.63
-Poltár,23594,PT,,0.57,
-Púchov,45761,PU,,2.65,1.65
-Revúca,40879,RA,,0.27,
-Ružomberok,59420,RK,,2.01,0.71
-Rimavská Sobota,82970,RS,,0.42,
-Rožňava,61887,RV,,0.29,
-Šaľa,54000,SA,,0.62,
-Sabinov,54067,SB,,2.27,0.85
-Senec,51825,SC,,0.48,
-Senica,60891,SE,,0.94,0.42
-Skalica,46757,SI,,1.26,0.54
-Svidník,33506,SK,,1.32,0.51
-Stará Ľubovňa,50684,SL,,2.8,1.3
-Spišská Nová Ves,93516,SN,,1.36,0.67
-Sobrance,23776,SO,,1.04,0.33
-Stropkov,21027,SP,,1.19,0.59
-Snina,39633,SV,,1.8,0.57
-Trenčín,112767,TN,,1.13,0.6
-Topoľčany,74089,TO,,1.68,0.66
-Turčianske Teplice,16720,TR,,0.99,0.44
-Tvrdošín,35062,TS,4.85,1.99,0.8
-Trnava,126864,TT,,0.6,
-Trebišov,103779,TV,,0.58,
-Veľký Krtíš,46597,VK,,0.31,
-Vranov nad Topľou,76504,VT,,1.06,0.62
-Žilina,156361,ZA,,1.25,0.49
-Žarnovica,27634,ZC,,0.65,
-Žiar nad Hronom,48053,ZH,,0.41,
-Zlaté Moravce,43622,ZM,,0.6,
-Zvolen,67650,ZV,,0.7,0.28
+region,2020-10-31_total,2020-10-31_positive,2020-11-07_total,2020-11-07_positive
+Stará Ľubovňa,18155,541,17345,299
+Michalovce,1355,68,1128,40
+Kežmarok,12602,297,11794,171
+Púchov,28459,811,26998,454
+Poprad,4016,230,3397,57
+Bardejov,9926,259,9656,175
+Prešov,2319,40,2046,44
+Žarnovica,3655,53,0,0
+Sabinov,15968,414,15567,200
+Tvrdošín,4266,156,4158,51
+Prievidza,10781,278,10189,124
+Čadca,28549,823,28204,328
+Levoča,9998,220,9848,134
+Spišská Nová Ves,7162,169,7258,106
+Topoľčany,5397,92,6723,82
+Dunajská Streda,3918,96,4621,77
+Trebišov,7963,127,0,0
+Partizánske,2951,60,2498,36
+Humenné,6068,145,5623,75
+Nové Mesto nad Váhom,1712,34,2724,31
+Bánovce nad Bebravou,5356,109,4936,79
+Považská Bystrica,10820,172,10262,131
+Sobrance,393,13,399,10
+Turčianske Teplice,1607,15,1601,20
+Veľký Krtíš,864,14,0,0
+Rožňava,2092,30,0,0
+Vranov nad Topľou,6136,95,5946,101
+Svidník,1182,11,1220,21
+Gelnica,1499,24,1442,17
+Martin,4231,77,3888,64
+Hlohovec,1177,24,0,0
+Rimavská Sobota,2841,44,0,0
+Liptovský Mikuláš,4536,59,4470,61
+Poltár,1249,20,0,0
+Levice,2786,43,0,0
+Stropkov,1169,6,1005,18
+Nitra,15755,223,0,0
+Trenčín,5770,71,5611,68
+Banská Bystrica,170,4,196,2
+Košice - okolie,18492,251,0,0
+Komárno,4902,78,0,0
+Kysucké Nové Mesto,4058,64,3579,45
+Banská Štiavnica,192,3,0,0
+Senec,2007,31,0,0
+Nové Zámky,8297,108,0,0
+Skalica,1554,26,1530,20
+Ilava,9501,125,7928,104
+Snina,1638,20,1624,24
+Trnava,7589,101,0,0
+Námestovo,2531,44,2638,32
+Brezno,4403,60,4522,52
+Lučenec,1005,17,0,0
+Dolný Kubín,2328,36,2474,26
+Bytča,9091,145,9015,100
+Žiar nad Hronom,2293,30,0,0
+Galanta,3671,54,0,0
+Zlaté Moravce,4932,65,0,0
+Ružomberok,2394,29,2406,53
+Žilina,2951,35,2748,32
+Šaľa,4122,55,0,0
+Pezinok,1122,16,0,0
+Krupina,1070,14,0,0
+Senica,304,4,280,3
+Revúca,1659,18,0,0
+Piešťany,789,8,0,0
+Malacky,595,6,0,0
+Zvolen,153,0,341,6

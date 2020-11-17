@@ -1,44 +1,44 @@
               Tabuľka miest a obcí s pozitivitou nad 1%, ktoré budú pretestované 21.-22.11.2020
      Kraj              Okres              Obec                      2 etapa 30.10.-1.11.     3 etapa 7.-8.11.
                                                                    test    poz %         test     poz %
- 1   Prešovský         Stará Ľubovňa      Čirč                         713    81 11,36%      535     32    5,98%
- 2   Košický           Michalovce         Markovce                     544    48 8,82%       447     27    6,04%
- 3   Prešovský         Kežmarok           Spišské Hanušovce            457    32 7,00%       378      9    2,38%
- 4   Trenčiansky       Púchov             Záriečie                     615    42 6,83%       485     11    2,27%
- 5   Prešovský         Poprad             Vydrník                      820    55 6,71%       686     14    2,04%
- 6   Prešovský         Poprad             Spišský Štiavnik            1741   111 6,38%      1460     30    2,05%
- 7   Prešovský         Bardejov           Malcov                       753    46 6,11%       821     26    3,17%
- 8   Trenčiansky       Púchov             Horovce                      603    36 5,97%       546      6    1,10%
- 9   Prešovský         Bardejov           Ortuťová                     110     6 5,45%       111      5    4,50%
-10   Prešovský         Poprad             Jánovce                     1124    61 5,43%       977     10    1,02%
-11   Prešovský         Stará Ľubovňa      Kolačkov                     732    38 5,19%       645     14    2,17%
-12   Trenčiansky       Púchov             Dolné Kočkovce               642    33 5,14%       752     20    2,66%
-13   Prešovský         Prešov             Geraltov                      99     5 5,05%       185      2    1,08%
-14   Banskobystrický   Žarnovica          Kľak                         100     5 5,00%
-15   Prešovský         Stará Ľubovňa      Hromoš                       406    20 4,93%       314      5    1,59%
-16   Prešovský         Stará Ľubovňa      Pusté Pole                   122     6 4,92%       107      2    1,87%
-17   Prešovský         Sabinov            Ďačov                        496    24 4,84%       476      7    1,47%
-18   Prešovský         Kežmarok           Veľká Franková               270    13 4,81%       283      4    1,41%
-19   Trenčiansky       Púchov             Lednica                      569    27 4,75%       532     10    1,88%
-20   Žilinský          Tvrdošín           Liesek                      1595    75 4,70%      1567     16    1,02%
-21   Trenčiansky       Prievidza          Čereňany                    1043    48 4,60%      1011     12    1,19%
-22   Trenčiansky       Púchov             Mestečko                     243    11 4,53%       245      6    2,45%
-23   Žilinský          Čadca              Klokočov                    1532    69 4,50%      1418     15    1,06%
-24   Prešovský         Levoča             Spišský Hrhov                812    35 4,31%       817     10    1,22%
-25   Prešovský         Stará Ľubovňa      Forbasy                      474    20 4,22%       340      6    1,76%
-26   Košický           Spišská Nová Ves   Letanovce                   1178    49 4,16%      1356     15    1,11%
-27   Nitriansky        Topoľčany          Tvrdomestice                 242    10 4,13%       260      3    1,15%
-28   Prešovský         Levoča             Dravce                       558    23 4,12%       504      7    1,39%
-29   Trnavský          Dunajská Streda    Vrakúň                      1491    61 4,09%      1555     31    1,99%
-30   Prešovský         Bardejov           Hrabské                      249    10 4,02%       306     10    3,27%
-31   Trenčiansky       Púchov             Dolná Breznica               507    20 3,94%       527     20    3,80%
-32   Košický           Trebišov           Zemplínska Teplica           970    38 3,92%
-33   Prešovský         Bardejov           Smilno                       470    18 3,83%       443      9    2,03%
-34   Trenčiansky       Partizánske        Veľké Krštenany              470    18 3,83%       348      4    1,15%
-35   Prešovský         Stará Ľubovňa      Kamienka                     683    26 3,81%       667     19    2,85%
-36   Prešovský         Humenné            Baškovce                     503    19 3,78%       436      6    1,38%
-37   Trenčiansky       Prievidza          Poruba                       980    37 3,78%       829      9    1,09%
-38   Prešovský         Humenné            Myslina                      424    16 3,77%       369      4    1,08%
+ 1   Prešovský         Stará Ľubovňa      Čirč                         713    81  11,36%      535     32    5,98%
+ 2   Košický           Michalovce         Markovce                     544    48  8,82%       447     27    6,04%
+ 3   Prešovský         Kežmarok           Spišské Hanušovce            457    32  7,00%       378      9    2,38%
+ 4   Trenčiansky       Púchov             Záriečie                     615    42  6,83%       485     11    2,27%
+ 5   Prešovský         Poprad             Vydrník                      820    55  6,71%       686     14    2,04%
+ 6   Prešovský         Poprad             Spišský Štiavnik            1741   111  6,38%      1460     30    2,05%
+ 7   Prešovský         Bardejov           Malcov                       753    46  6,11%       821     26    3,17%
+ 8   Trenčiansky       Púchov             Horovce                      603    36  5,97%       546      6    1,10%
+ 9   Prešovský         Bardejov           Ortuťová                     110     6  5,45%       111      5    4,50%
+10   Prešovský         Poprad             Jánovce                     1124    61  5,43%       977     10    1,02%
+11   Prešovský         Stará Ľubovňa      Kolačkov                     732    38  5,19%       645     14    2,17%
+12   Trenčiansky       Púchov             Dolné Kočkovce               642    33  5,14%       752     20    2,66%
+13   Prešovský         Prešov             Geraltov                      99     5  5,05%       185      2    1,08%
+14   Banskobystrický   Žarnovica          Kľak                         100     5  5,00%
+15   Prešovský         Stará Ľubovňa      Hromoš                       406    20  4,93%       314      5    1,59%
+16   Prešovský         Stará Ľubovňa      Pusté Pole                   122     6  4,92%       107      2    1,87%
+17   Prešovský         Sabinov            Ďačov                        496    24  4,84%       476      7    1,47%
+18   Prešovský         Kežmarok           Veľká Franková               270    13  4,81%       283      4    1,41%
+19   Trenčiansky       Púchov             Lednica                      569    27  4,75%       532     10    1,88%
+20   Žilinský          Tvrdošín           Liesek                      1595    75  4,70%      1567     16    1,02%
+21   Trenčiansky       Prievidza          Čereňany                    1043    48  4,60%      1011     12    1,19%
+22   Trenčiansky       Púchov             Mestečko                     243    11  4,53%       245      6    2,45%
+23   Žilinský          Čadca              Klokočov                    1532    69  4,50%      1418     15    1,06%
+24   Prešovský         Levoča             Spišský Hrhov                812    35  4,31%       817     10    1,22%
+25   Prešovský         Stará Ľubovňa      Forbasy                      474    20  4,22%       340      6    1,76%
+26   Košický           Spišská Nová Ves   Letanovce                   1178    49  4,16%      1356     15    1,11%
+27   Nitriansky        Topoľčany          Tvrdomestice                 242    10  4,13%       260      3    1,15%
+28   Prešovský         Levoča             Dravce                       558    23  4,12%       504      7    1,39%
+29   Trnavský          Dunajská Streda    Vrakúň                      1491    61  4,09%      1555     31    1,99%
+30   Prešovský         Bardejov           Hrabské                      249    10  4,02%       306     10    3,27%
+31   Trenčiansky       Púchov             Dolná Breznica               507    20  3,94%       527     20    3,80%
+32   Košický           Trebišov           Zemplínska Teplica           970    38  3,92%
+33   Prešovský         Bardejov           Smilno                       470    18  3,83%       443      9    2,03%
+34   Trenčiansky       Partizánske        Veľké Krštenany              470    18  3,83%       348      4    1,15%
+35   Prešovský         Stará Ľubovňa      Kamienka                     683    26  3,81%       667     19    2,85%
+36   Prešovský         Humenné            Baškovce                     503    19  3,78%       436      6    1,38%
+37   Trenčiansky       Prievidza          Poruba                       980    37  3,78%       829      9    1,09%
+38   Prešovský         Humenné            Myslina                      424    16  3,77%       369      4    1,08%
                                                                1
      Kraj              Okres                  Obec                        2 etapa 30.10.-1.11.     3 etapa 7.-8.11.
                                                                          test    poz %         test     poz %

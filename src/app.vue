@@ -143,17 +143,18 @@
                 return new Promise((resolve, reject) => {
                     d3.csv(this.currentMap.data.positiveAntigenTests.source + dateTool.getTimestamp())
                         .then((result) => {
-                            let adapter, dates;
+                            let adapter, keys;
                             adapter = this.currentMap.data.positiveAntigenTests.adapter;
-                            dates = result.columns.filter(column => adapter.findColumn(column));
+                            keys = result.columns.filter(column => adapter.getKeys(column));
                             for (let row of result) {
                                 let title, region;
                                 title = row.region;
                                 region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
                                 if (region) {
-                                    for (let date of dates) {
-                                        let value, frame;
-                                        value = adapter.handleValue(row, row[date]);
+                                    for (let key of keys) {
+                                        let value, frame, date;
+                                        value = adapter.handleValue(row, row[key]);
+                                        date = adapter.getDateFromKey(key);
                                         frame = region.report.history.find(f => f.date === date);
                                         if (frame) {
                                             // spread the result over the test period
