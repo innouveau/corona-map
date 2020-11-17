@@ -32,7 +32,8 @@
         <speed-test-graph
             :view="view"
             :region="region"
-            :weeks="4"/>
+            :weeks="4"
+            :height="700"/>
     </div>
 </template>
 

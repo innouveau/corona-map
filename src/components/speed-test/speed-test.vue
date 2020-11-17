@@ -30,7 +30,7 @@
                 return this.$store.getters['ui/regions'];
             },
             currentRegion() {
-                return this.view.currentRegion ? this.view.currentRegion : this.regions[0];
+                return this.view.currentRegion ? this.view.currentRegion : this.regions[2];
             },
             currentMap() {
                 return this.$store.state.maps.current;

@@ -181,13 +181,13 @@
                 });
                 return days;
             },
-            drawPcrTestsLine(smoothened, dotted) {
+            drawTestsLine(source = 'pcr', smoothened, dotted, color) {
                 let points, days, lineFunction;
                 days = this.getDays();
                 points = days.map(day => {
                     return {
                         x: this.getX(day),
-                        y: this.getY(day, smoothened)
+                        y: this.getY(day, source, smoothened)
                     }
                 });
                 lineFunction = d3.line()
@@ -196,9 +196,7 @@
 
                 this.lineContainer.append('path')
                     .attr('d', lineFunction(points))
-                    .attr('stroke', () => {
-                        return dotted ? '#888' : '#000';
-                    })
+                    .attr('stroke', color)
                     .attr('stroke-width', 1)
                     .attr('fill', 'none')
                     .attr('stroke-dasharray', () => {
@@ -209,7 +207,7 @@
                 let days = this.getDays();
 
                 for (let day of days) {
-                    let y =  this.getY(day, false);
+                    let y =  this.getY(day, 'positiveTests',false);
                     this.lineContainer.append('rect')
                         .attr('x', (d) => {
                             return this.getX(day) - 0.5 * this.step
@@ -223,11 +221,43 @@
                         .attr('fill', color)
                 }
             },
-            getY(day, smoothened) {
+            drawAntigenTestsBars(color) {
+                let days = this.getDays();
+
+                for (let day of days) {
+                    let pcrY,antigenY;
+                    pcrY =  this.getY(day, 'positiveTests', false);
+                    antigenY = this.getRelativeOfType(day, 'positiveAntigenTests') * this.appliedZoom;
+                    if (antigenY > 0) {
+                        this.lineContainer.append('rect')
+                            .attr('x', (d) => {
+                                return this.getX(day) - 0.5 * this.step
+                            })
+                            .attr('y', (pcrY - antigenY))
+                            .attr('width', () => {
+                                let last = days.indexOf(day) === days.length - 1;
+                                return last ? (0.5 * this.step) : this.step;
+                            })
+                            .attr('height', antigenY)
+                            .attr('fill', color)
+                    }
+
+                }
+            },
+            getRelativeOfType(day, source) {
+                let value;
+                // for the graph we always use 100000, independent from the signaling system
+                if (source !== 'cumulative') {
+                    value = day[source]
+                } else {
+                    value = day['positiveTests'] + day['positiveAntigenTests'];
+                }
+                return 100000 * (value / this.currentMap.data.positivePcrTests.interval) / this.region.getTotalPopulation();
+            },
+            getY(day, source, smoothened) {
                 let end, start, total, days, average, relativeValue, l;
                 if (!smoothened) {
-                    // for the graph we always use 100000, independent from the signaling system
-                    relativeValue = 100000 * (day.positiveTests / this.currentMap.data.positivePcrTests.interval) / this.region.getTotalPopulation();
+                    relativeValue = this.getRelativeOfType(day, source);
                 } else {
                     total = 0;
                     days = 7;
@@ -237,8 +267,14 @@
                     // correct days if it is < 7
                     days = start - end;
                     for (let i = start; i > end; i--) {
-                        let d = this.report.history[l - i];
-                        total += d.positiveTests / this.currentMap.data.positivePcrTests.interval;
+                        let d, value;
+                        d = this.report.history[l - i];
+                        if (source === 'cumulative') {
+                            value = d['positiveTests'] + d['positiveAntigenTests'];
+                        } else {
+                            value = d[source];
+                        }
+                        total += value / this.currentMap.data.positivePcrTests.interval;
                     }
                     average = total / days;
                     relativeValue = 100000 * average / this.region.getTotalPopulation();

@@ -107,9 +107,6 @@
                     if (this.currentMap.data.positivePcrTests.status) {
                         promises.push(this.loadPcrTests);
                     }
-                    if (this.currentMap.data.positiveAntigenTests.status) {
-                        promises.push(this.loadAntigenTests);
-                    }
                     if (this.currentMap.data.ageGroups.status) {
                         promises.push(this.loadAgeGroupsForCities);
                     }
@@ -150,10 +147,30 @@
                             adapter = this.currentMap.data.positiveAntigenTests.adapter;
                             dates = result.columns.filter(column => adapter.findColumn(column));
                             for (let row of result) {
-                                let region = row.region;
-                                for (let date of dates) {
-                                    let value = adapter.handleValue(row, row[date]);
+                                let title, region;
+                                title = row.region;
+                                region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
+                                if (region) {
+                                    for (let date of dates) {
+                                        let value, frame;
+                                        value = adapter.handleValue(row, row[date]);
+                                        frame = region.report.history.find(f => f.date === date);
+                                        if (frame) {
+                                            // spread the result over the test period
+                                            let frameIndex = region.report.history.indexOf(frame);
+                                            for (let i = 0; i < this.currentMap.data.positiveAntigenTests.period; i++) {
+                                                let f = region.report.history[frameIndex + i];
+                                                f.positiveAntigenTests = Math.round(value / this.currentMap.data.positiveAntigenTests.period);
+                                            }
+
+                                        } else {
+                                            console.error('frame with date ' + date + ' not found for antigen data');
+                                        }
+                                    }
+                                } else {
+                                    console.error('Region ' + title + ' not found for antigen data');
                                 }
+
                             }
                             resolve();
                         })
@@ -197,8 +214,11 @@
                                     this.addTests(item, adapter);
                                 }
                             }
-
-                            resolve();
+                            if (this.currentMap.data.positiveAntigenTests.status) {
+                                this.loadAntigenTests().then(() => resolve());
+                            } else {
+                                resolve();
+                            }
                         })
                         .catch((error) => {
                             console.error(error);
@@ -298,9 +318,10 @@
                     let positiveTests, administeredTests, day;
                     day = {
                         // ms: new Date(dateKey.dateString).getTime(),
-                        // date: dateKey.dateString,
+                        date: dateKey.dateString,
                         offset: dateKey.offset,
                         positiveTests: null,
+                        positiveAntigenTests: 0,
                         administeredTests: null
                     };
                     if (data[dateKey.positiveTestsKey]) {
@@ -319,8 +340,9 @@
                             let positiveTests = incidents[i].positiveTests - incidents[i - 1].positiveTests;
                             report.history.push({
                                 // ms: incidents[i].ms,
-                                // date: incidents[i].date,
+                                date: incidents[i].date,
                                 offset: incidents[i].offset,
+                                positiveAntigenTests: incidents[i].positiveAntigenTests,
                                 positiveTests
                             });
                         }

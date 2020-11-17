@@ -345,7 +345,7 @@ const maps = [
                 ratio: 2.07
             },
             positiveTestGraph: {
-                zoomFactor: 0.2
+                zoomFactor: 0.4
             }
         },
         data: {
@@ -367,7 +367,7 @@ const maps = [
             positiveAntigenTests: {
                 status: true,
                 source: 'data/maps/slovakia/positive-antigen-tests.csv',
-                period: 2,
+                period: 5,
                 adapter: {
                     titleKey: 'region',
                     findColumn: function(column) {
