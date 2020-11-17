@@ -9,7 +9,6 @@
     import ageDistributionGraphNormalised from "./case-characteristics/age-distribution-graph-normalised/age-distribution-graph-normalised";
     import ageDistributionTools from "./case-characteristics/age-distribution-graph-normalised/age-distribution-tools";
     import regionRelations from "./../region-type/region-relations";
-    import regionTrend from "./region-trend";
     import regionDetailsHead from "./region-details-head";
     import loader from "@/components/elements/loader";
     import regionDetailsNumbers from "./region-details-numbers";
@@ -19,7 +18,6 @@
         components: {
             regionDetailsNumbers,
             regionDetailsHead,
-            regionTrend,
             administeredPcrTests,
             regionRelations,
             ageDistributionTools,
@@ -40,9 +38,6 @@
             }
         },
         computed: {
-            showTrend() {
-                return this.$store.state.signalingSystems.current.title === 'WHO' && this.currentMap.data.positivePcrTests.interval === 1 ;
-            },
             regionOfFocus() {
                 return this.$store.getters['ui/getRegionOfFocus'](this.region);
             },
