@@ -139,8 +139,7 @@ window.geoSettings = {
             return null;
         },
         addCountryCode: null,
-        exclude: ['peru', 'colombia', 'brazil', 'mexico', 'argentina', 'chile',
-            'bolivia', 'venezuela'],
+        exclude: ['peru', 'colombia', 'brazil', 'mexico', 'argentina', 'chile', 'venezuela'],
         include: []
     },
     world: {
@@ -164,7 +163,7 @@ window.geoSettings = {
         },
         addCountryCode: null,
         exclude: ['germany', 'spain', 'russia', 'china', 'peru', 'colombia', 'brazil',
-            'poland', 'bolivia', 'venezuela', 'norway', 'sweden', 'finland', 'united kingdom',
+            'poland', 'venezuela', 'norway', 'sweden', 'finland', 'united kingdom',
             'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'italy',
             'france', 'antarctica', 'ashmore and cartier island', 'french southern and antarctic lands',
             'Ashmore and Cartier Islands', 'Bajo Nuevo Bank (Petrel Is.)', 'Clipperton Island',
