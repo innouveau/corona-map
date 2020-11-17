@@ -230,25 +230,25 @@
 
                 for (let day of days) {
                     let pcrY,antigenY;
-                    pcrY =  this.getY(day, 'positiveTests', false);
+                    //pcrY =  this.getY(day, 'positiveTests', false);
+                    pcrY =  0;
                     antigenY = this.getRelativeOfType(day, 'positiveAntigenTests') * this.appliedZoom;
                     if (antigenY > 0) {
                         let rect = this.lineContainer.append('rect')
                             .attr('x', (d) => {
                                 return this.getX(day) - 0.5 * this.step
                             })
-                            .attr('y', (pcrY - antigenY))
+                            .attr('y', (this.height - antigenY))
                             .attr('width', () => {
                                 let last = days.indexOf(day) === days.length - 1;
                                 return last ? (0.5 * this.step) : this.step;
                             })
                             .attr('height', antigenY)
-                            .attr('fill', color)
+                            .attr('fill', color);
 
                         rect.append('svg:title')
                             .text(day.positiveAntigenTests)
                     }
-
                 }
             },
             getRelativeOfType(day, source) {

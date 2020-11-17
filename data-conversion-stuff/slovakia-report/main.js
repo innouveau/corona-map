@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url : "report-01.txt",
+        url : "report-complete.txt",
         dataType: "text",
         success : function (result) {
             readText(result);
@@ -34,9 +34,12 @@ function exportAsCsv(regions) {
 function readText(result) {
     let lines, linesWithData;
     lines = result.split('\n');
+
     linesWithData = lines.filter(line => {
-        let chunks = line.trim().split(/\s+/);
-        return !isNaN(chunks[0]);
+        let chunks, firstChunk;
+        chunks = line.trim().split(/\s+/);
+        firstChunk = chunks[0];
+        return firstChunk.length > 0 && firstChunk !== 'RHQ' && isNaN(firstChunk);
     });
 
     for (let line of linesWithData) {
@@ -50,6 +53,14 @@ function readText(result) {
             positiveRound1 = Number(chunks[5]);
             testRound2 = Number(chunks[7]);
             positiveRound2 = Number(chunks[8]);
+
+            if (title.indexOf('Bratislava') > -1) {
+                title = 'Bratislava';
+            }
+
+            if (title.indexOf('Košice') > -1 && title !== 'Košice - okolie') {
+                title = 'Košice';
+            }
 
             if (isNaN(testsRound1)) {
                 testsRound1 = 0;

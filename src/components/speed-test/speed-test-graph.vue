@@ -34,7 +34,7 @@
                 if (this.getDays().length > 0) {
                     this.drawPcrTestsBars('rgba(0,0,0,0.15)');
                     this.drawAntigenTestsBars('rgba(255,0,0,0.5)');
-                    this.drawTestsLine('cumulative', true, false, '#ff0000');
+                    this.drawTestsLine('positiveAntigenTests', true, false, '#ff0000');
                     this.drawTestsLine('positiveTests', true, false, '#000');
                 }
                 this.drawDates();
