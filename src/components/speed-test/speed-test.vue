@@ -7,11 +7,14 @@
     import timeSlider from "../view/time-slider";
     import regionTypePicker from "@/components/main/regions/region-type/region-type-picker";
     import dateTools from '@/tools/date';
+    import RegionDetailsShort
+        from "../main/regions/region-details/region-details-short";
 
 
     export default {
         name: 'speed-test',
         components: {
+            RegionDetailsShort,
             timeSlider,
             searchRegions,
             mapSignaling,
@@ -30,7 +33,7 @@
                 return this.$store.getters['ui/regions'];
             },
             currentRegion() {
-                return this.view.currentRegion ? this.view.currentRegion : this.regions[2];
+                return this.view.currentRegion ? this.view.currentRegion : this.regions.find(region => region.title === 'Tvrdošín');
             },
             currentMap() {
                 return this.$store.state.maps.current;
@@ -96,6 +99,11 @@
                 <speed-test-region
                         :region="currentRegion"
                         :view="view"/>
+                <div class="region-details__container">
+                    <region-details-short
+                            :region="currentRegion"
+                            :view="view"/>
+                </div>
             </div>
 
         </div>
@@ -113,6 +121,10 @@
             width: 750px;
             height: 100%;
             overflow: auto;
+
+            .region-details__container {
+                padding: 12px;
+            }
         }
     }
 </style>

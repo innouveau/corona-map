@@ -143,27 +143,31 @@
                 return new Promise((resolve, reject) => {
                     d3.csv(this.currentMap.data.positiveAntigenTests.source + dateTool.getTimestamp())
                         .then((result) => {
-                            let adapter, keys;
+                            let adapter, positiveAntigenTestsKeys;
                             adapter = this.currentMap.data.positiveAntigenTests.adapter;
-                            keys = result.columns.filter(column => adapter.getKeys(column));
+                            positiveAntigenTestsKeys = result.columns.filter(column => adapter.getPositiveKeys(column));
                             for (let row of result) {
                                 let title, region;
                                 title = row.region;
                                 region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
                                 if (region) {
-                                    for (let key of keys) {
-                                        let value, frame, date;
-                                        value = adapter.handleValue(row, row[key]);
-                                        date = adapter.getDateFromKey(key);
+                                    for (let positiveAntigenTestsKey of positiveAntigenTestsKeys) {
+                                        let frame, date, positiveAntigenTestsValue,
+                                            totalAntigenTestsKey, totalAntigenTestsValue;
+                                        positiveAntigenTestsValue = Number(row[positiveAntigenTestsKey]);
+                                        date = adapter.getDateFromKey(positiveAntigenTestsKey);
                                         frame = region.report.history.find(f => f.date === date);
                                         if (frame) {
-                                            // spread the result over the test period
-                                            let frameIndex = region.report.history.indexOf(frame);
-                                            for (let i = 0; i < this.currentMap.data.positiveAntigenTests.period; i++) {
-                                                let f = region.report.history[frameIndex + i];
-                                                f.positiveAntigenTests = Math.round(value / this.currentMap.data.positiveAntigenTests.period);
-                                            }
-
+                                            totalAntigenTestsKey = adapter.getTotalKeyFromDate(date);
+                                            totalAntigenTestsValue = Number(row[totalAntigenTestsKey]);
+                                            frame.positiveAntigenTests = positiveAntigenTestsValue;
+                                            frame.totalAntigenTests = totalAntigenTestsValue;
+                                            // // spread the result over the test period
+                                            // let frameIndex = region.report.history.indexOf(frame);
+                                            // for (let i = 0; i < this.currentMap.data.positiveAntigenTests.period; i++) {
+                                            //     let f = region.report.history[frameIndex + i];
+                                            //     f.positiveAntigenTests = Math.round(value / this.currentMap.data.positiveAntigenTests.period);
+                                            // }
                                         } else {
                                             console.error('frame with date ' + date + ' not found for antigen data');
                                         }

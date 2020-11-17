@@ -207,8 +207,9 @@
                 let days = this.getDays();
 
                 for (let day of days) {
-                    let y =  this.getY(day, 'positiveTests',false);
-                    this.lineContainer.append('rect')
+                    let y, rect;
+                    y =  this.getY(day, 'positiveTests',false);
+                    rect = this.lineContainer.append('rect')
                         .attr('x', (d) => {
                             return this.getX(day) - 0.5 * this.step
                         })
@@ -218,7 +219,10 @@
                             return last ? (0.5 * this.step) : this.step;
                         })
                         .attr('height', this.height - y)
-                        .attr('fill', color)
+                        .attr('fill', color);
+
+                    rect.append('svg:title')
+                        .text(day.positiveTests)
                 }
             },
             drawAntigenTestsBars(color) {
@@ -229,7 +233,7 @@
                     pcrY =  this.getY(day, 'positiveTests', false);
                     antigenY = this.getRelativeOfType(day, 'positiveAntigenTests') * this.appliedZoom;
                     if (antigenY > 0) {
-                        this.lineContainer.append('rect')
+                        let rect = this.lineContainer.append('rect')
                             .attr('x', (d) => {
                                 return this.getX(day) - 0.5 * this.step
                             })
@@ -240,6 +244,9 @@
                             })
                             .attr('height', antigenY)
                             .attr('fill', color)
+
+                        rect.append('svg:title')
+                            .text(day.positiveAntigenTests)
                     }
 
                 }
@@ -255,18 +262,18 @@
                 return 100000 * (value / this.currentMap.data.positivePcrTests.interval) / this.region.getTotalPopulation();
             },
             getY(day, source, smoothened) {
-                let end, start, total, days, average, relativeValue, l;
+                let end, start, total, average, relativeValue, l, steps, maxSteps;
                 if (!smoothened) {
                     relativeValue = this.getRelativeOfType(day, source);
                 } else {
                     total = 0;
-                    days = 7;
-                    end = day.offset - 1;
+                    steps = 3;
+                    // todo fix threshold left
+                    maxSteps = Math.min(steps, day.offset);
+                    end = day.offset - maxSteps;
+                    start = day.offset + maxSteps;
                     l = this.report.history.length - 1;
-                    start = Math.min((end + days), l);
-                    // correct days if it is < 7
-                    days = start - end;
-                    for (let i = start; i > end; i--) {
+                    for (let i = start; i > (end - 1); i--) {
                         let d, value;
                         d = this.report.history[l - i];
                         if (source === 'cumulative') {
@@ -276,10 +283,9 @@
                         }
                         total += value / this.currentMap.data.positivePcrTests.interval;
                     }
-                    average = total / days;
+                    average = total / (maxSteps * 2 + 1);
                     relativeValue = 100000 * average / this.region.getTotalPopulation();
                 }
-                //console.log(smoothened, relativeValue);
                 return this.valueToY(relativeValue);
             },
             valueToY(value) {

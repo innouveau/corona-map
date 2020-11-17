@@ -2,10 +2,12 @@
     import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
     import speedTestGraph from "./speed-test-graph";
+    import SpeedTestNumbers from "./speed-test-numbers";
 
     export default {
         name: 'speed-test-region',
         components: {
+            SpeedTestNumbers,
             speedTestGraph
         },
         props: {
@@ -32,7 +34,12 @@
         <speed-test-graph
             :view="view"
             :region="region"
-            :weeks="4"/>
+            :weeks="4"
+            :height="300"/>
+
+        <speed-test-numbers
+            :view="view"
+            :region="region"/>
     </div>
 </template>
 
