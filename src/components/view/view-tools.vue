@@ -45,6 +45,9 @@
                         days: [1,2,3,4,5,6]
                     }
                 }
+            },
+            videoMode() {
+                return this.$store.state.ui.videoMode;
             }
         },
         methods: {
@@ -67,6 +70,7 @@
 <template>
     <div class="view-tools">
         <datepicker
+            v-if="!videoMode"
             :value="date"
             :disabled-dates="disabledDates"
             @input="updateOffset"/>

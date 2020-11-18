@@ -194,6 +194,9 @@
             },
             openMapTools() {
                 this.$store.commit('ui/updateProperty', {key: 'mapToolsPopup', value: true});
+            },
+            videoMode() {
+                return this.$store.state.ui.videoMode;
             }
         },
         mounted() {
@@ -249,7 +252,7 @@
             :view="view"/>
 
         <div
-            v-if="showTools"
+            v-if="showTools && !videoMode"
             @click="openMapTools()"
             class="icon-button icon-button--without-border button-open-map-tools">
             <img src="assets/img/tools/dots.svg">

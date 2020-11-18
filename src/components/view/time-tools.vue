@@ -30,6 +30,9 @@
             },
             interval() {
                 return this.$store.state.ui.timeInterval;
+            },
+            videoMode() {
+                return this.$store.state.ui.videoMode;
             }
         },
         methods: {
@@ -70,7 +73,7 @@
 <template>
     <div class="time-tools">
         <div
-            v-if="isAtEnd"
+            v-if="isAtEnd && !videoMode"
             @click="rewind()"
             class="icon-button">
             <img src="assets/img/tools/redo.svg">
@@ -84,25 +87,25 @@
         </div>
 
         <div
-            v-if="isPlaying"
+            v-if="isPlaying && !videoMode"
             @click="stop()"
             class="icon-button">
         <img src="assets/img/tools/stop.svg">
         </div>
 
         <div
-                v-if="isPlaying || isAtStart"
-                class="icon-button--placeholder">
+            v-if="isPlaying || isAtStart && !videoMode"
+            class="icon-button--placeholder">
         </div>
 
         <div
-            v-if="!isPlaying && !isAtStart"
+            v-if="!isPlaying && !isAtStart && !videoMode"
             @click="move(-1)"
             class="icon-button">
             <img src="assets/img/tools/back.svg">
         </div>
         <div
-            v-if="!isPlaying && !isAtEnd"
+            v-if="!isPlaying && !isAtEnd && !videoMode"
             @click="move(1)"
             class="icon-button">
             <img src="assets/img/tools/forward.svg">

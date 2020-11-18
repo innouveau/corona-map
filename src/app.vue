@@ -75,6 +75,9 @@
                         this.$store.commit('signalingSystems/setCurrent', signalingSystem);
                     }
                 }
+                if (this.$route.query.video) {
+                    this.$store.commit('ui/updateProperty', {key: 'videoMode', value: true});
+                }
             },
             initLanguages() {
                 let language;
