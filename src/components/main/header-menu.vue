@@ -150,7 +150,7 @@
         background: #fff;
         box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         position: relative;
-        z-index: 10;
+        z-index: 5;
 
         .title {
             height: 48px;
