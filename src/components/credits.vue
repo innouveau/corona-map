@@ -106,6 +106,40 @@
                         </div>
                         <div class="source__value-row">
                             <div class="source__value-map">
+                                Slovakia PCR
+                            </div>
+                            <div class="source__value-what">
+                                Daily positives
+                            </div>
+                            <div class="source__value-who">
+
+                            </div>
+                            <div class="source__value-notes">
+
+                            </div>
+                            <div class="source__value-link">
+                                https://covid-19.nczisk.sk/sk
+                            </div>
+                        </div>
+                        <div class="source__value-row">
+                            <div class="source__value-map">
+                                Slovakia speedtest
+                            </div>
+                            <div class="source__value-what">
+                                Positive cases from speedtest program
+                            </div>
+                            <div class="source__value-who">
+
+                            </div>
+                            <div class="source__value-notes">
+
+                            </div>
+                            <div class="source__value-link">
+                                https://www.scribd.com/document/484566629/Kompletn%C3%BD-Preh%C4%BEad-Mesta-a-Obce
+                            </div>
+                        </div>
+                        <div class="source__value-row">
+                            <div class="source__value-map">
                                 Europa en Wereld
                             </div>
                             <div class="source__value-what">
@@ -120,8 +154,7 @@
                             <div class="source__value-link">
                                 https://github.com/CSSEGISandData/COVID-19 (China, Canada and Australia)<br>
                                 https://github.com/ec-jrc/COVID-19 (Europe)<br>
-                                https://github.com/GoogleCloudPlatform/covid-19-open-data<br>
-                                https://github.com/nytimes/covid-19-data/ (USA)
+                                https://github.com/GoogleCloudPlatform/covid-19-open-data
                             </div>
                         </div>
                     </div>
