@@ -1,4 +1,6 @@
 <script>
+    import dateTools from '@/tools/date';
+
     export default {
         name: 'd3-graph-mixin',
         components: {},
@@ -30,8 +32,8 @@
                 weeks = Array.from(Array(this.weeks + 1).keys());
                 for (let week of weeks) {
                     let dateString, x, y, offset;
-                    offset = (this.offset * this.currentMap.data.positivePcrTests.interval) + ((this.weeks - week) * 7);
-                    dateString = this.$store.getters['ui/getDateByOffset'](offset, 'd/M');
+                    offset = this.offset + ((this.weeks - week) * (7 / this.currentMap.data.positivePcrTests.interval));
+                    dateString = dateTools.getDateByOffset(offset).split('-').slice(1,3).join('-');
                     x = this.step * week * 7;
                     y = this.height - 4;
                     this.datesContainer.append('text')

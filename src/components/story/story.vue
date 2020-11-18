@@ -99,12 +99,9 @@
                 }
             },
             rewind() {
-                let chapter, dateInMs, offset;
-                chapter = this.chapters[0];
+                let chapter = this.chapters[0];
                 this.activeChapter(chapter);
-                dateInMs = new Date(chapter.date).getTime();
-                offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, dateInMs);
-                this.view.offset = offset;
+                this.view.offset = dateTools.getOffsetByDate(chapter.date);
             },
             measureChapters() {
                 let base, _this;

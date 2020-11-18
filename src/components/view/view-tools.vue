@@ -52,7 +52,8 @@
         },
         methods: {
             updateOffset(value) {
-                this.view.offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime()) / this.currentMap.data.positivePcrTests.interval;
+                let dateString = dateTools.formatDate(value);
+                this.view.offset = dateTools.getOffsetByDate(dateString) / this.currentMap.data.positivePcrTests.interval;
             },
             updateDate() {
                 this.date = dateTools.getDateByOffset(this.view.offset);

@@ -31,10 +31,12 @@
         computed: {},
         methods: {
             updateStart(value) {
-                this.clone.start = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime());
+                let dateString = dateTools.formatDate(value);
+                this.clone.start = dateTools.getOffsetByDate(dateString);
             },
             updateEnd(value) {
-                this.clone.end = dateTools.getDateOffset(this.$store.state.ui.todayInMs, value.getTime());
+                let dateString = dateTools.formatDate(value);
+                this.clone.end = dateTools.getOffsetByDate(dateString);
             },
             applySettings() {
                 for (let key in this.settings){
@@ -123,6 +125,14 @@
         <div class="sewage-tools__section">
             <input type="checkbox" v-model="clone.ignoreAmsterdam">
             Negeer Amsterdam
+        </div>
+        <div class="sewage-tools__section">
+            <input type="checkbox" v-model="clone.ignoreWoerden">
+            Negeer Woerden
+        </div>
+        <div class="sewage-tools__section">
+            <input type="checkbox" v-model="clone.showOnlyTotals">
+            Toon alleen totalen (sneller)
         </div>
 <!--        <div class="sewage-tools__section">-->
 <!--            <input type="number" v-model.number="clone.calibration">-->

@@ -16,8 +16,7 @@
                 return window.location.href.split('?')[0];
             },
             date() {
-                let date = dateTools.getDateByOffset(this.view.offset);
-                return dateTools.formatDate(date);
+                return dateTools.getDateByOffset(this.view.offset);
             },
             query() {
                 let query = '?';

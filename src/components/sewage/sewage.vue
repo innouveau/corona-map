@@ -27,7 +27,9 @@
                     regios: ["Noord", "Niet-Noord"],
                     //regios: ["Noord"],
                     provinces: ["PV20", "PV21", "PV22", "PV23", "PV24", "PV25", "PV26", "PV27", "PV28", "PV29", "PV30", "PV31"],
-                    ignoreAmsterdam: false
+                    ignoreAmsterdam: false,
+                    ignoreWoerden: true,
+                    showOnlyTotals: true
                 }
             }
         },
@@ -42,12 +44,16 @@
                         && this.matchesPopulation(city)
                         && this.matchesRegio(city)
                         && this.matchesAmsterdamIgnoring(city)
+                        && this.matchesWoerdenIgnoring(city)
                         && this.hasMeasurementsInPeriod(city);
                 })
                 //.sort((a,b) => (a.getRelativeIncreaseWeek() > b.getRelativeIncreaseWeek()) ? -1 : ((b.getRelativeIncreaseWeek() > a.getRelativeIncreaseWeek()) ? 1 : 0));
             },
         },
         methods: {
+            matchesWoerdenIgnoring(city) {
+                return city.title !== 'Woerden' || !this.settings.ignoreWoerden;
+            },
             matchesAmsterdamIgnoring(city) {
                 return city.title !== 'Amsterdam' || !this.settings.ignoreAmsterdam;
             },

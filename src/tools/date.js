@@ -1,23 +1,20 @@
 import {format, sub} from "date-fns";
 import {nl} from "date-fns/locale";
-import store from '@/store/store';
 
 const dayLength = 1000 * 3600 * 24;
+const dateToOffsetDict = {};
+const offsetToDateDict = {};
 
-const getDateOffset = function(dateBase, date1) {
-    return Math.round(dateBase - date1) / dayLength;
+const getOffsetByDate = function(date) {
+    return dateToOffsetDict[date];
 };
 
 const getDateByOffset = function(offset) {
-    let today = store.state.ui.todayInMs;
-    if (today) {
-        return new Date(today - (offset * dayLength));
-    } else {
-        return null;
-    }
+    return offsetToDateDict[offset];
 };
 
 const formatDate = function(date, dateFormat = 'yyyy-MM-dd') {
+    console.log(date);
     if (date) {
         return format(date, dateFormat, {locale: nl} );
     } else {
@@ -29,9 +26,15 @@ const getTimestamp = function() {
     return '?time=' + new Date().getTime();
 };
 
+const addDateOffset = function(dateString, offset) {
+    dateToOffsetDict[dateString] = offset;
+    offsetToDateDict[offset] = dateString;
+};
+
 export default {
-    getDateOffset,
+    getOffsetByDate,
     getDateByOffset,
     formatDate,
-    getTimestamp
+    getTimestamp,
+    addDateOffset
 }

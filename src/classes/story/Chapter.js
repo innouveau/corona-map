@@ -38,7 +38,7 @@ class Chapter {
     }
 
     get offset() {
-        return dateTools.getDateOffset(store.state.ui.todayInMs,  new Date(this.date).getTime());
+        return dateTools.getOffsetByDate(this.date);
     }
 
     get offsetBottom() {

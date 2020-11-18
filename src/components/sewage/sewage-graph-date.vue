@@ -15,11 +15,8 @@
             }
         },
         computed: {
-            date() {
-                return dateTools.getDateByOffset(this.offset);
-            },
             dateString() {
-                return dateTools.formatDate(this.date);
+                return dateTools.getDateByOffset(this.offset);
             },
             day() {
                 return Number(this.dateString.split('-')[2]);

@@ -44,7 +44,7 @@
         },
         methods: {
             readQuery() {
-                let region, string, date, offset;
+                let region, string, offset;
                 if (this.$route.query.region) {
                     string = decodeURI(this.$route.query.region);
                     region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', string, true);
@@ -53,8 +53,7 @@
                     }
                 }
                 if (this.$route.query.date) {
-                    date = new Date(this.$route.query.date);
-                    offset = dateTools.getDateOffset(this.$store.state.ui.todayInMs, date.getTime());
+                    offset = dateTools.getOffsetByDate(this.$route.query.date);
                     this.view.offset = offset;
                 }
             }

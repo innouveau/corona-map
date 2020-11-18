@@ -107,31 +107,30 @@
                     let promises = [];
                     this.$store.commit(this.currentMap.module + '/init', regions);
                     // check all sources
-                    if (this.currentMap.data.positivePcrTests.status) {
-                        promises.push(this.loadPcrTests);
-                    }
-                    if (this.currentMap.data.ageGroups.status) {
-                        promises.push(this.loadAgeGroupsForCities);
-                    }
-                    if (promises.length === 0) {
-                        this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                    } else {
-                        Promise.all(promises.map(p => p()))
-                            .then((result) => {
-                                // always do sewage after the tests, otherwise
-                                // date offset can come too late
-                                if (this.currentMap.data.sewageMeasurements.status) {
-                                    this.loadSewageTreatmentPlants().then(() => {
+                    this.loadPcrTests().then(() => {
+                        if (this.currentMap.data.ageGroups.status) {
+                            promises.push(this.loadAgeGroupsForCities);
+                        }
+                        if (promises.length === 0) {
+                            this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
+                        } else {
+                            Promise.all(promises.map(p => p()))
+                                .then((result) => {
+                                    // always do sewage after the tests, otherwise
+                                    // date offset can come too late
+                                    if (this.currentMap.data.sewageMeasurements.status) {
+                                        this.loadSewageTreatmentPlants().then(() => {
+                                            this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
+                                        });
+                                    } else {
                                         this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                                    });
-                                } else {
-                                    this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                                }
-                            })
-                            .catch(error => {
-                                console.error(error)
-                            });
-                    }
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error(error)
+                                });
+                        }
+                    })
                 });
             },
             loadSewageTreatmentPlants() {
@@ -285,7 +284,9 @@
                 }
                 dates = dates.sort((a,b) => (a.ms > b.ms) ? 1 : ((b.ms > a.ms) ? -1 : 0));
                 for (let date of dates) {
-                    date.offset = dates.length - dates.indexOf(date) - 1;
+                    let offset = dates.length - dates.indexOf(date) - 1;
+                    date.offset = offset;
+                    dateTool.addDateOffset(date.dateString, offset)
                 }
                 first = dates[0];
                 last = dates[dates.length - 1];

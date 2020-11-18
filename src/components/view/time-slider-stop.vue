@@ -21,7 +21,7 @@
         },
         computed: {
             offset() {
-                return dateTools.getDateOffset(this.$store.state.ui.todayInMs, new Date(this.stop).getTime()) / this.$store.state.maps.current.data.positivePcrTests.interval;
+                return dateTools.getOffsetByDate(this.stop) / this.$store.state.maps.current.data.positivePcrTests.interval;
             },
             x() {
                 return 100 - (100 * this.offset/this.l);

@@ -36,7 +36,9 @@
         <div class="sewage-city__title">
             {{city.title}}
         </div>
-        <div class="sewage-city__content">
+        <div
+            v-if="!settings.showOnlyTotals"
+            class="sewage-city__content">
             <sewage-city-positive-tests
                     :city="city"
                     :settings="settings"/>
@@ -48,15 +50,6 @@
                     :city="city"
                     :settings="settings"/>
             </div>
-
-<!--            <div class="old-situation">-->
-<!--                <sewage-city-sewage-->
-<!--                    v-for="sewage in sewages"-->
-<!--                    :sewage="sewage"-->
-<!--                    :city="city"-->
-<!--                    :settings="settings"-->
-<!--                    :corrected-by-capacity="true"/>-->
-<!--            </div>-->
         </div>
     </div>
 </template>

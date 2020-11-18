@@ -36,17 +36,17 @@
                 today = this.$store.state.ui.today;
                 fourWeeksBack = dateTools.getDateByOffset(28);
                 if (this.$route.query.date1) {
-                    date1 = new Date(this.$route.query.date1);
+                    date1 = this.$route.query.date1;
                 } else {
                     date1 = fourWeeksBack;
                 }
                 if (this.$route.query.date2) {
-                    date2 = new Date(this.$route.query.date2);
+                    date2 = this.$route.query.date2;
                 } else {
-                    date2 = today;
+                    date2 = dateTools.formatDate(today);
                 }
-                offset1 = dateTools.getDateOffset(this.$store.state.ui.todayInMs, date1.getTime()) / this.$store.state.maps.current.data.positivePcrTests.interval;
-                offset2 = dateTools.getDateOffset(this.$store.state.ui.todayInMs, date2.getTime()) / this.$store.state.maps.current.data.positivePcrTests.interval;
+                offset1 = dateTools.getOffsetByDate(date1) / this.$store.state.maps.current.data.positivePcrTests.interval;
+                offset2 = dateTools.getOffsetByDate(date2) / this.$store.state.maps.current.data.positivePcrTests.interval;
                 this.views.push(new View ({
                     id: 1,
                     offset: offset1
@@ -58,8 +58,8 @@
             },
             updateQuery() {
                 let url, date1, date2;
-                date1 = dateTools.formatDate( dateTools.getDateByOffset(this.views[0].offset * this.currentMap.data.positivePcrTests.interval));
-                date2 = dateTools.formatDate( dateTools.getDateByOffset(this.views[1].offset * this.currentMap.data.positivePcrTests.interval));
+                date1 = dateTools.getDateByOffset(this.views[0].offset * this.currentMap.data.positivePcrTests.interval);
+                date2 = dateTools.getDateByOffset(this.views[1].offset * this.currentMap.data.positivePcrTests.interval);
                 url = this.routePath + '#/compare?map=' + encodeURI(this.currentMap.title) + '&date1=' + date1 + '&date2=' + date2;
                 history.pushState(
                     {},

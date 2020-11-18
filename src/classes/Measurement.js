@@ -10,8 +10,7 @@ class Measurement {
     }, sewageTreatmentPlant) {
         this.sewageTreatmentPlant = sewageTreatmentPlant;
         this.date = date;
-        this.dateInMs = new Date(date).getTime();
-        this.dateOffset = dateTools.getDateOffset(store.state.ui.todayInMs, this.dateInMs);
+        this.dateOffset = dateTools.getOffsetByDate(date);
         this.RNA_per_ml = RNA_per_ml;
         this.RNA_flow_per_100000 = RNA_flow_per_100000;
         this.representative_measurement = representative_measurement;
