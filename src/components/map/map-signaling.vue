@@ -194,9 +194,6 @@
             },
             openMapTools() {
                 this.$store.commit('ui/updateProperty', {key: 'mapToolsPopup', value: true});
-            },
-            videoMode() {
-                return this.$store.state.ui.videoMode;
             }
         },
         mounted() {

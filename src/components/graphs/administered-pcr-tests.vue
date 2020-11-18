@@ -101,8 +101,8 @@
                 let maxPercentage, value, height;
                 maxPercentage = 50;
                 value = percentage / maxPercentage;
-                height = this.height - this.paddingBottom;
-                return (this.height - this.paddingBottom) - (value * height);
+                height = this.height;
+                return height - (value * height);
             },
             drawMaxLine() {
                 let y, normValue, normColor, normString1, normString2;
