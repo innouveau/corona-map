@@ -1,16 +1,19 @@
 const puppeteer = require('puppeteer');
 
+const csv = require('csv-parser');
+const fs = require('fs');
+const currentFile = '../../../public/data/maps/slovakia/positive-pcr-tests.csv';
+const titleKey = 'Land/regio';
+
 let browser, page, url, data, titlesSelector, valuesSelector,
-    dateInputSelectorStart, dateInputSelectorEnd, currentDate, today, currentMonth, currentYear;
+    dateInputSelectorStart, dateInputSelectorEnd, currentDate, today;
 
 url = 'https://app.powerbi.com/view?r=eyJrIjoiNDUwMDc4YjgtYjEyYS00YzlhLWI1MzktMzhlMTczYmY0YjVjIiwidCI6IjMxMGJhNTk1LTAxM2MtNDAyZC05ZWYyLWI1N2Q1ZjFkY2Q2MyIsImMiOjl9';
 data = [];
-currentDate = new Date('2020-07-01');
-//currentDate = new Date('2020-11-01');
+currentDate = new Date('2020-11-18');
+
 // removes the hours and minutes
 today = new Date(getDateString(new Date(), false));
-currentYear = 2020;
-currentMonth = 11;
 
 // selectors
 titlesSelector = 'visual-container-repeat visual-container-modern:nth-child(3) visual-modern .bodyCells > div > div > div:nth-child(1) .pivotTableCellWrap';
@@ -115,16 +118,6 @@ const scrollPage = async function(scroll, scrolls) {
     await page.mouse.up();
 };
 
-const scrollPage2 = async function(l) {
-    let elementSelector = 'visual-container-repeat visual-container-modern:nth-child(3) visual-modern .bodyCells';
-    await page.$eval(elementSelector, (el, elementSelector, l) => {
-        let $ = window.$;
-        $(elementSelector).animate({
-            scrollTop: l
-        }, 0);
-    });
-};
-
 function getDateString (date, forUi) {
     let d, m, y;
     d = date.getDate();
@@ -181,19 +174,65 @@ const addDayToDate = function() {
     currentDate = d;
 };
 
-(async () => {
-    console.log('start');
-    browser = await puppeteer.launch({
-        headless: false,
-        executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+const scrape = function() {
+    (async () => {
+        console.log('start');
+        browser = await puppeteer.launch({
+            headless: false,
+            executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+        });
+
+        page = await browser.newPage();
+        await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.2.1.min.js' });
+        await page.goto(url);
+        await page.waitForTimeout(5000);
+
+
+        await readTimeFrame();
+    })();
+};
+
+
+
+// csv reading
+
+const getItemByDate = function(date) {
+    return data.find(item => item.date === date);
+};
+
+const addValue = function(title, date, value) {
+    let item = getItemByDate(date);
+    if (item) {
+        item.entries.push({
+            title,
+            value
+        })
+    } else {
+        data.push({
+            date,
+            entries: [{
+                title,
+                value
+            }]
+        })
+    }
+};
+
+
+fs.createReadStream(currentFile)
+    .pipe(csv())
+    .on('data', (row) => {
+        let title, date, value;
+        title = row[titleKey];
+        for (let key in row) {
+            if (key !== titleKey) {
+                date = key;
+                value = row[key];
+                addValue(title, date, value);
+            }
+        }
+    })
+    .on('end', () => {
+        scrape();
     });
-
-    page = await browser.newPage();
-    await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.2.1.min.js' });
-    await page.goto(url);
-    await page.waitForTimeout(5000);
-
-
-    await readTimeFrame();
-})();
 
