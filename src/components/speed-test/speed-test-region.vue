@@ -34,7 +34,7 @@
         <speed-test-graph
             :view="view"
             :region="region"
-            :weeks="4"
+            :weeks="6"
             :height="300"/>
 
         <speed-test-numbers
