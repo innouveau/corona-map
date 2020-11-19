@@ -22,6 +22,35 @@ class SewageTreatmentPlant {
         this.measurements = measurements.map(m => new Measurement(m, this));
     }
 
+    get city() {
+        return store.state.cities.all.find(c => c.identifier === this.city_code);
+    }
+
+    get population() {
+        let totalCapacity, share, siblings;
+        totalCapacity = 0;
+        siblings = this.siblings;
+        if (siblings.length === 1) {
+            return this.city.population;
+        } else {
+            for (let sibling of this.siblings) {
+                totalCapacity += sibling.capacity;
+            }
+            if (this.capacity === 0) {
+                share = 1 / siblings.length;
+            } else {
+                share = this.capacity / totalCapacity;
+            }
+            return Math.round(this.city.population * share);
+        }
+    }
+
+    get siblings() {
+        return store.state.sewageTreatmentPlants.all.filter(s => {
+            return s.city_code === this.city_code;
+        })
+    }
+
     getMeasurementByOffset(offset) {
         return this.measurements.find(m => m.dateOffset === offset);
     }

@@ -3,6 +3,7 @@
     import SewageTreatmentPlant from "@/classes/SewageTreatmentPlant";
     import sewageCityMeasurement from "./sewage-city-measurement";
     import sewageGraphDates from "../sewage-graph-dates";
+    import numberTools from '@/tools/number';
 
     export default {
         name: 'sewage-city-sewage',
@@ -45,7 +46,11 @@
                 }
             }
         },
-        methods: {}
+        methods: {
+            format(value) {
+                return numberTools.format(value, false);
+            }
+        }
     }
 </script>
 
@@ -53,7 +58,7 @@
 <template>
     <div class="sewage-city-sewage">
         <div class="sewage-city-sewage__title">
-            RWZI: {{sewage.name}}
+            RWZI: {{sewage.name}} ({{format(sewage.population)}})<br>
         </div>
         <div
             :class="{'sewage-city-sewage__graph--old-style':correctedByCapacity}"

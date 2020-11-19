@@ -42,10 +42,7 @@
 
                 //console.log(positiveTests);
 
-                return positiveTests.map(v => this.enlargementForTotal * v / this.cities.length);
-            },
-            enlargementForTotal() {
-                return 5;
+                return positiveTests.map(v => v / this.cities.length);
             }
         },
         methods: {}
@@ -59,7 +56,8 @@
             <sewage-positive-tests-bar
                     v-for="positiveTest in positiveTests"
                     :positive-test="positiveTest"
-                    :settings="settings"/>
+                    :settings="settings"
+                    :size="3"/>
         </div>
     </div>
 </template>

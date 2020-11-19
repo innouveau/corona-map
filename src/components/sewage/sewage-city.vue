@@ -34,7 +34,7 @@
 <template>
     <div class="sewage-city">
         <div class="sewage-city__title">
-            {{city.title}}
+            {{city.title}} ({{city.population}})
         </div>
         <div
             v-if="!settings.showOnlyTotals"

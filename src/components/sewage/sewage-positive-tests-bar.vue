@@ -10,6 +10,11 @@
             settings: {
                 type: Object,
                 required: true
+            },
+            size: {
+                type: Number,
+                required: false,
+                default: 1
             }
         },
         computed: {},
@@ -21,7 +26,7 @@
 <template>
     <div
         :style="{
-            'height': positiveTest + 'px',
+            'height': (positiveTest * size) + 'px',
             'width': settings.width + 'px',
             'margin-right': settings.margin + 'px'
             }"

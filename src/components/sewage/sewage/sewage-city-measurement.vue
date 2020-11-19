@@ -10,11 +10,16 @@
             settings: {
                 type: Object,
                 required: true
+            },
+            size: {
+                type: Number,
+                required: false,
+                default: 1
             }
         },
         computed: {
             height() {
-                return this.measurement.value / this.settings.calibration;
+                return this.size * this.measurement.value / this.settings.calibration;
             },
             title() {
                 if (this.measurement.source) {
