@@ -4,13 +4,14 @@ const csv = require('csv-parser');
 const fs = require('fs');
 const currentFile = '../../../public/data/maps/slovakia/positive-pcr-tests.csv';
 const titleKey = 'Land/regio';
+let scrolled = false;
 
 let browser, page, url, data, titlesSelector, valuesSelector,
     dateInputSelectorStart, dateInputSelectorEnd, currentDate, today;
 
 url = 'https://app.powerbi.com/view?r=eyJrIjoiNDUwMDc4YjgtYjEyYS00YzlhLWI1MzktMzhlMTczYmY0YjVjIiwidCI6IjMxMGJhNTk1LTAxM2MtNDAyZC05ZWYyLWI1N2Q1ZjFkY2Q2MyIsImMiOjl9';
 data = [];
-currentDate = new Date('2020-11-18');
+currentDate = new Date('2020-11-12');
 
 // removes the hours and minutes
 today = new Date(getDateString(new Date(), false));
@@ -35,11 +36,12 @@ const readTimeFrame = async function() {
     await page.waitForTimeout(5000);
 
     // Power BI adds and removes divs with content while scrolling
-    scrolls = [0, 25, 50, 75, 100];
+    scrolls = [0, 30, 60, 90, 1];
 
-    for (let scroll of scrolls) {
-        await scrollPage(scroll, scrolls);
-        await page.waitForTimeout(4000);
+    for (let i = 0, l = scrolls.length; i < l; i++) {
+        await scrollPage(scrolls, i);
+        await page.waitForTimeout(500);
+
 
         titlesElements = await page.$$(titlesSelector);
         valuesElements = await page.$$(valuesSelector);
@@ -96,26 +98,21 @@ enterDateToInput = async function(date) {
     //await page.mouse.click();
 };
 
-const scrollPage = async function(scroll, scrolls) {
-    let x, y, index, previous;
+const scrollPage = async function(scrolls, index) {
+    let x, y, previous, scroll;
     x = 184;
     y = 310;
-    index = scrolls.indexOf(scroll);
+    scroll = scrolls[index];
     if (index > 0) {
         previous = scrolls[index - 1];
     } else {
-        if (data.length === 0) {
-            previous = 0;
-        } else {
-            // scroll is at end from previous timeframe
-            previous = scrolls[scrolls.length - 1];
-        }
+        previous = 0;
     }
-
     await page.mouse.move(x, (y + previous));
     await page.mouse.down();
     await page.mouse.move(x, (y + scroll));
     await page.mouse.up();
+    scrolled = true;
 };
 
 function getDateString (date, forUi) {
