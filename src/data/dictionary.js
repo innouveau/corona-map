@@ -188,7 +188,7 @@ const dictionary = {
         en: "Population"
     },
     "positive-tests": {
-        nl: "Positieve PRC tests",
+        nl: "Positieve PCR tests",
         en: "Positive PCR tests"
     },
     "province": {

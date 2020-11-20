@@ -22,7 +22,7 @@
                     this.drawBackground('#ddd');
                 }
                 this.drawGrid();
-                if (this.getDays().length > 0) {
+                if (this.days.length > 0) {
                     if (this.currentMap.data.positivePcrTests.interval === 1) {
                         this.drawPcrTestsBars('rgba(0,0,0,0.15)');
                         this.drawTestsLine('positiveTests', true, false, '#000');

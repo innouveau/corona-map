@@ -6,10 +6,12 @@
     import mapLegend from "./map-legend/map-legend";
     import View from "@/classes/View";
     import $ from 'jquery';
+    import MapLabels from "./map-labels/map-labels";
 
     export default {
         name: 'map-signaling',
         components: {
+            MapLabels,
             mapLegend,
             mapToolsPopup,
             pointerCanvas,
@@ -32,6 +34,13 @@
                 type: Boolean,
                 required: false,
                 default: true
+            },
+            labels: {
+                type: Array,
+                required: false,
+                default: () => {
+                    return [];
+                }
             }
         },
         data() {
@@ -254,6 +263,11 @@
             class="icon-button icon-button--without-border button-open-map-tools">
             <img src="assets/img/tools/dots.svg">
         </div>
+
+        <map-labels
+            v-if="labels"
+            :style="{'width': width + 'px', 'height': height + 'px'}"
+            :labels="labels"/>
 
         <map-tools-popup
             v-if="showMapToolsPopup && showTools"/>

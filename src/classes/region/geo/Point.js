@@ -1,7 +1,4 @@
 import coordinatesTool from "@/tools/coordinates";
-import store from '@/store/store';
-import robinson from '@/tools/projections/robinson';
-
 
 class Point {
     constructor({

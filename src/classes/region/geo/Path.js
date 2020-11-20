@@ -25,6 +25,32 @@ class Path {
     export() {
         return this.path;
     }
+
+    get centroid() {
+        let x1, x2, y1, y2;
+        x1 = null;
+        x2 = null;
+        y1 = null;
+        y2 = null;
+        for (let point of this.path) {
+            if ( x1 === null || point.x < x1) {
+                x1 = point.x;
+            }
+            if ( x2 === null || point.x > x2) {
+                x2 = point.x;
+            }
+            if ( y1 === null || point.y < y1) {
+                y1 = point.y;
+            }
+            if ( y2 === null || point.y > y2) {
+                y2 = point.y;
+            }
+        }
+        return {
+            x: (x1 + x2) / 2,
+            y: (y1 + y2) / 2
+        }
+    }
 }
 
 export default Path;

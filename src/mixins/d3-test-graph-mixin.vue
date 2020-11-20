@@ -58,6 +58,12 @@
         },
         computed: {
             // settings
+            weeksBefore(){
+                return this.weeks;
+            },
+            totalWeeks(){
+                return this.weeksBefore + this.weeksAfter;
+            },
             signalingSystem() {
                 return this.$store.state.signalingSystems.current;
             },
@@ -88,8 +94,14 @@
                     return this.$store.state.settings.step;
                 }
             },
+            widthBefore() {
+                return this.lengthBefore * this.step;
+            },
+            widthAfter() {
+                return this.lengthAfter * this.step;
+            },
             width() {
-                return this.length * this.step;
+                return this.widthBefore + this.widthAfter;
             },
             canvasWidth() {
                 return this.width + this.paddingRight;
@@ -97,18 +109,38 @@
             canvashHeight() {
                 return this.height + this.paddingBottom;
             },
-            length() {
-                return this.weeks * 7;
+            lengthBefore() {
+                return this.weeksBefore * 7;
+            },
+            lengthAfter() {
+                return this.weeksAfter * 7;
+            },
+            totalLenght() {
+                return this.lengthBefore + this.lengthAfter;
             },
             min() {
-                return this.offset + (this.length / this.currentMap.data.positivePcrTests.interval);
+                return this.offset + (this.lengthBefore / this.currentMap.data.positivePcrTests.interval);
             },
             max() {
-                return this.offset;
+                return this.offset - (this.lengthAfter / this.currentMap.data.positivePcrTests.interval);
             },
             report() {
                 return this.region.report
-            }
+            },
+            days() {
+                let report, module, days;
+                report = this.region.report;
+                if (!report) {
+                    report = this.region.getTotalReport();
+                    module = this.$store.getters['ui/module'];
+                    this.$store.commit(module +'/updatePropertyOfItem', {item: this.region, property: 'report', value: report});
+
+                }
+                days = report.history.filter(day => {
+                    return day.positiveTests !== null && day.offset <= this.min && day.offset >= this.max;
+                });
+                return days;
+            },
         },
         methods: {
             init() {
@@ -165,26 +197,11 @@
             // business logic
             getX(day) {
                 let offset = day.offset - this.offset;
-                return this.width - (this.step * this.currentMap.data.positivePcrTests.interval * offset);
-            },
-            getDays() {
-                let report, module, days;
-                report = this.region.report;
-                if (!report) {
-                    report = this.region.getTotalReport();
-                    module = this.$store.getters['ui/module'];
-                    this.$store.commit(module +'/updatePropertyOfItem', {item: this.region, property: 'report', value: report});
-
-                }
-                days = report.history.filter(day => {
-                    return day.positiveTests !== null && day.offset <= this.min && day.offset >= this.max;
-                });
-                return days;
+                return this.widthBefore - (this.step * this.currentMap.data.positivePcrTests.interval * offset);
             },
             drawTestsLine(source = 'pcr', smoothened, dotted, color) {
-                let points, days, lineFunction;
-                days = this.getDays();
-                points = days.map(day => {
+                let points, lineFunction;
+                points = this.days.map(day => {
                     return {
                         x: this.getX(day),
                         y: this.getY(day, source, smoothened)
@@ -204,9 +221,7 @@
                     })
             },
             drawPcrTestsBars(color) {
-                let days = this.getDays();
-
-                for (let day of days) {
+                for (let day of this.days) {
                     let y, rect;
                     y =  this.getY(day, 'positiveTests',false);
                     rect = this.lineContainer.append('rect')
@@ -215,7 +230,7 @@
                         })
                         .attr('y', y)
                         .attr('width', () => {
-                            let last = days.indexOf(day) === days.length - 1;
+                            let last = this.days.indexOf(day) === this.days.length - 1;
                             return last ? (0.5 * this.step) : this.step;
                         })
                         .attr('height', this.height - y)
@@ -226,9 +241,7 @@
                 }
             },
             drawAntigenTestsBars(color) {
-                let days = this.getDays();
-
-                for (let day of days) {
+                for (let day of this.days) {
                     let pcrY,antigenY;
                     //pcrY =  this.getY(day, 'positiveTests', false);
                     pcrY =  0;
@@ -240,7 +253,7 @@
                             })
                             .attr('y', (this.height - antigenY))
                             .attr('width', () => {
-                                let last = days.indexOf(day) === days.length - 1;
+                                let last = this.days.indexOf(day) === this.days.length - 1;
                                 return last ? (0.5 * this.step) : this.step;
                             })
                             .attr('height', antigenY)

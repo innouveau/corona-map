@@ -3,7 +3,7 @@
     import _Region from "@/classes/region/_Region";
 
     export default {
-        name: 'speed-test-graph',
+        name: 'population-test-graph',
         components: {},
         props: {
             region: {
@@ -18,12 +18,12 @@
         mixins: [d3TestGraphMixin],
         data() {
             return {
-                mapType: 'speed-test-graph'
+                mapType: 'population-test-graph'
             }
         },
         computed: {
             title() {
-                return 'Speed tests'
+                return 'Population tests'
             }
         },
         methods: {
@@ -31,7 +31,7 @@
                 this.clear();
                 this.drawBackground('#f5eedc');
                 this.drawGrid();
-                if (this.getDays().length > 0) {
+                if (this.days.length > 0) {
                     this.drawPcrTestsBars('rgba(0,0,0,0.15)');
                     this.drawAntigenTestsBars('rgba(255,0,0,0.5)');
                     this.drawTestsLine('positiveAntigenTests', true, false, '#ff0000');
@@ -57,7 +57,7 @@
 
 
 <template>
-    <div class="speed-test-graph">
+    <div class="population-test-graph">
         <div
             ref="container"
             class="administered-tests__container">
@@ -70,7 +70,7 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .speed-test-graph {
+    .population-test-graph {
 
     }
 </style>

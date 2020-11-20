@@ -33,22 +33,21 @@
                 this.drawBackground('#ddd');
                 this.drawGrid();
                 this.drawMaxLine();
-                if (this.getDays().length > 0) {
+                if (this.days.length > 0) {
                     this.drawLine();
                     this.drawValues();
                 }
                 this.drawDates();
             },
             drawLine() {
-                let points, days, lineFunction;
+                let points, lineFunction;
 
                 const getY = (day) => {
                     return this.getY(this.getPercentage(day));
                 };
 
 
-                days = this.getDays();
-                points = days.map(day => {
+                points = this.days.map(day => {
                     return {
                         x: this.getX(day),
                         y: getY(day)
@@ -67,11 +66,10 @@
 
             },
             drawValues() {
-                let days, index;
+                let  index;
                 index = 0;
-                days = this.getDays();
 
-                for (let day of days) {
+                for (let day of this.days) {
                     let percentage, x, y, string;
                     percentage = this.getPercentage(day);
                     x = this.getX(day);

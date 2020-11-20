@@ -7,7 +7,7 @@ import compare from '@/components/compare/compare'
 import timeLine from '@/components/time-line/time-line'
 import change from '@/components/change/change'
 import story from '@/components/story/story'
-import speedTest from '@/components/speed-test/speed-test'
+import populationTest from '@/components/population-test/population-test'
 
 Vue.use(Router);
 
@@ -41,9 +41,13 @@ const routes = [
         name: "story",
         component: story,
     }, {
+        path: "/population-test",
+        name: "populationTest",
+        component: populationTest,
+    }, {
         path: "/speed-test",
-        name: "speedTest",
-        component: speedTest,
+        name: "populationTest",
+        component: populationTest,
     }
 ];
 

@@ -1,5 +1,6 @@
 import store from '@/store/store';
 import thresholdTools from "@/tools/thresholds";
+import coordinatesTool from "@/tools/coordinates";
 
 class _Region {
     constructor(_region) {}
@@ -221,6 +222,19 @@ class _Region {
         } else {
             return after / before;
         }
+    }
+
+    //
+
+    getCentroid(settings) {
+        let path, centroid, projected;
+        path = this.paths[0];
+        centroid = path.centroid;
+        projected = coordinatesTool.project(centroid, settings);
+        return {
+            x: projected[0],
+            y: projected[1]
+        };
     }
 
 }

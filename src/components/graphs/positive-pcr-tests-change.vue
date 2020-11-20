@@ -21,7 +21,7 @@
                 this.drawWeekAverageLines();
                 this.drawDoublingLines();
                 this.drawGrid();
-                if (this.getDays().length > 0) {
+                if (this.days.length > 0) {
                     this.drawTestsLine('positiveTests', false, false, '#000');
                 }
                 this.drawDates();
