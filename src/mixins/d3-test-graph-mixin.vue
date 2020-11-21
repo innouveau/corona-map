@@ -17,15 +17,16 @@
                 type: View,
                 required: true
             },
-            weeks: {
+            framesBefore: {
                 type: Number,
                 required: true
             },
-            height: {
+            framesAfter: {
                 type: Number,
                 required: false,
-                default: 220
+                default: 0
             },
+            // ui
             zoom: {
                 type: Number,
                 required: false,
@@ -35,16 +36,6 @@
                 type: Boolean,
                 required: false,
                 default: true
-            },
-            paddingBottom: {
-                type: Number,
-                required: false,
-                default: 20
-            },
-            paddingRight: {
-                type: Number,
-                required: false,
-                default: 80
             }
         },
         data() {
@@ -58,11 +49,8 @@
         },
         computed: {
             // settings
-            weeksBefore(){
-                return this.weeks;
-            },
-            totalWeeks(){
-                return this.weeksBefore + this.weeksAfter;
+            totalFrames(){
+                return this.framesBefore + this.framesAfter;
             },
             signalingSystem() {
                 return this.$store.state.signalingSystems.current;
@@ -75,9 +63,9 @@
             },
             appliedZoom() {
                 if (this.currentMap.settings.positiveTestGraph && this.currentMap.settings.positiveTestGraph.zoomFactor) {
-                    return this.zoom * this.currentMap.settings.positiveTestGraph.zoomFactor;
+                    return this.zoom * this.currentMap.settings.positiveTestGraph.zoomFactor / this.frameSize;
                 } else {
-                    return this.zoom;
+                    return this.zoom / this.frameSize;
                 }
             },
             offset() {
@@ -86,19 +74,15 @@
             currentMap() {
                 return this.$store.state.maps.current;
             },
-            // dimensions
-            step() {
-                if (this.mapType === 'change' || this.stepWide) {
-                    return 1.5 * this.$store.state.settings.step;
-                } else {
-                    return this.$store.state.settings.step;
-                }
+            frameSize() {
+                return this.view.pcrWeekly ? 7 : 1;
             },
+            // dimensions
             widthBefore() {
-                return this.lengthBefore * this.step;
+                return this.framesBefore * this.step;
             },
             widthAfter() {
-                return this.lengthAfter * this.step;
+                return this.framesAfter * this.step;
             },
             width() {
                 return this.widthBefore + this.widthAfter;
@@ -109,37 +93,30 @@
             canvashHeight() {
                 return this.height + this.paddingBottom;
             },
-            lengthBefore() {
-                return this.weeksBefore * 7;
-            },
-            lengthAfter() {
-                return this.weeksAfter * 7;
-            },
-            totalLenght() {
-                return this.lengthBefore + this.lengthAfter;
-            },
             min() {
-                return this.offset + (this.lengthBefore / this.currentMap.data.positivePcrTests.interval);
+                return this.offset + (this.frameSize * this.framesBefore / this.currentMap.data.positivePcrTests.interval);
             },
             max() {
-                return this.offset - (this.lengthAfter / this.currentMap.data.positivePcrTests.interval);
+                return this.offset - (this.frameSize * this.framesAfter / this.currentMap.data.positivePcrTests.interval);
             },
             report() {
                 return this.region.report
             },
+            frameOffsetPoints() {
+                let frames = Array.from(Array(this.totalFrames + 1).keys());
+                return frames.map(frame => {
+                    return this.min - (frame * this.frameSize);
+                });
+            },
             days() {
-                let report, module, days;
-                report = this.region.report;
+                let report = this.region.report;
                 if (!report) {
                     report = this.region.getTotalReport();
-                    module = this.$store.getters['ui/module'];
-                    this.$store.commit(module +'/updatePropertyOfItem', {item: this.region, property: 'report', value: report});
-
+                    this.$store.commit(this.$store.getters['ui/module'] +'/updatePropertyOfItem', {item: this.region, property: 'report', value: report});
                 }
-                days = report.history.filter(day => {
-                    return day.positiveTests !== null && day.offset <= this.min && day.offset >= this.max;
+                return this.frameOffsetPoints.map(offset => {
+                    return report.history.find(day => day.offset === offset);
                 });
-                return days;
             },
         },
         methods: {
@@ -221,47 +198,58 @@
                     })
             },
             drawPcrTestsBars(color) {
+                let index, margin;
+                index = 0;
+                margin = 1;
                 for (let day of this.days) {
-                    let y, rect;
-                    y =  this.getY(day, 'positiveTests',false);
-                    rect = this.lineContainer.append('rect')
-                        .attr('x', (d) => {
-                            return this.getX(day) - 0.5 * this.step
-                        })
-                        .attr('y', y)
-                        .attr('width', () => {
-                            let last = this.days.indexOf(day) === this.days.length - 1;
-                            return last ? (0.5 * this.step) : this.step;
-                        })
-                        .attr('height', this.height - y)
-                        .attr('fill', color);
-
-                    rect.append('svg:title')
-                        .text(day.positiveTests)
-                }
-            },
-            drawAntigenTestsBars(color) {
-                for (let day of this.days) {
-                    let pcrY,antigenY;
-                    //pcrY =  this.getY(day, 'positiveTests', false);
-                    pcrY =  0;
-                    antigenY = this.getRelativeOfType(day, 'positiveAntigenTests') * this.appliedZoom;
-                    if (antigenY > 0) {
-                        let rect = this.lineContainer.append('rect')
+                    if (day) {
+                        let value, y, rect;
+                        value = this.getAbsoluteValue(day, 'positiveTests');
+                        y = this.getY(day, 'positiveTests',false);
+                        rect = this.lineContainer.append('rect')
                             .attr('x', (d) => {
-                                return this.getX(day) - 0.5 * this.step
+                                return (index - 0.5) * this.step + margin;
                             })
-                            .attr('y', (this.height - antigenY))
+                            .attr('y', y)
                             .attr('width', () => {
                                 let last = this.days.indexOf(day) === this.days.length - 1;
-                                return last ? (0.5 * this.step) : this.step;
+                                return last ? (0.5 * this.step) : (this.step - (2 * margin));
                             })
-                            .attr('height', antigenY)
+                            .attr('height', this.height - y)
                             .attr('fill', color);
 
                         rect.append('svg:title')
-                            .text(day.positiveAntigenTests)
+                            .text(value);
+                        index++;
                     }
+                }
+            },
+            drawAntigenTestsBars(color) {
+                let size, index;
+                size = 0.5;
+                index = 0;
+                for (let day of this.days) {
+                    let value, rect, y;
+                    if (day) {
+                        value = this.getAbsoluteValue(day, 'positiveAntigenTests');
+                        if (value > 0) {
+                            y = this.getY(day, 'positiveAntigenTests',false);
+                            rect = this.lineContainer.append('rect')
+                                .attr('x', (index - (0.5 * size)) * this.step)
+                                .attr('y', y)
+                                .attr('width', () => {
+                                    let last = index === this.days.length - 1;
+                                    return last ? (0.5 * size * this.step) :( this.step * size);
+                                })
+                                .attr('height', (this.height - y))
+                                .attr('fill', color);
+
+                            rect.append('svg:title')
+                                .text(value)
+                        }
+
+                    }
+                    index ++;
                 }
             },
             getRelativeOfType(day, source) {
@@ -274,10 +262,36 @@
                 }
                 return 100000 * (value / this.currentMap.data.positivePcrTests.interval) / this.region.getTotalPopulation();
             },
+            getAbsoluteValue(day, source) {
+                let total, index;
+                if (this.frameSize === 1) {
+                    return d[source];
+                } else {
+                    // get sum of 7 days
+                    total = 0;
+                    index = this.region.report.history.indexOf(day);
+                    if (index > -1) {
+                        for (let i = index - 6; i < (index + 1); i++) {
+                            let d = this.region.report.history[i];
+                            if (d) {
+                                total += d[source];
+                            } else {
+                                console.error('coud not find day with index ' + index + ' for region ' + this.region.title);
+                            }
+                        }
+                    }
+                    return total;
+                }
+            },
             getY(day, source, smoothened) {
-                let end, start, total, average, relativeValue, l, steps, maxSteps;
+                let end, start, total, average, relativeValue, l, index,
+                    steps, maxSteps;
                 if (!smoothened) {
-                    relativeValue = this.getRelativeOfType(day, source);
+                    if (this.frameSize === 1) {
+                        relativeValue = this.getRelativeOfType(day, source);
+                    } else {
+                        relativeValue = 100000 * this.getAbsoluteValue(day, source) / this.region.getTotalPopulation();
+                    }
                 } else {
                     total = 0;
                     steps = 3;

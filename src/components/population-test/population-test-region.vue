@@ -35,8 +35,9 @@
         <population-test-graph
             :view="view"
             :region="region"
-            :weeks="3"
-            :weeks-after="3"
+            :frames-before="3"
+            :frames-after="3"
+            :step="40"
             :padding-right="20"
             :height="250"/>
 

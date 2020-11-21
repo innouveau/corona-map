@@ -8,10 +8,12 @@
     import dateTools from '@/tools/date';
     import populationTestGroup from "./population-test-group";
     import query from '@/components/elements/query'
+    import PopulationTestRegion from "./population-test-region";
 
     export default {
         name: 'population-test',
         components: {
+            PopulationTestRegion,
             populationTestGroup,
             timeSlider,
             searchRegions,
@@ -22,8 +24,12 @@
         props: {},
         mixins: [query],
         data() {
+            let view = {
+                id: 1,
+                pcrWeekly: true
+            };
             return {
-                view: new View({id: 1}),
+                view: new View(view),
                 groups: [
                     {
                         title: 'Pilot regions',
@@ -36,7 +42,8 @@
                                     x: 40,
                                     y: -80
                                 }
-                            }, {
+                            },
+                            {
                                 title: 'Námestovo',
                                 position: {
                                     x: 10,
@@ -94,6 +101,13 @@
             }
         },
         computed: {
+            selectionGroup() {
+                return {
+                    title: 'Selection',
+                    label: 'X',
+                    color: 'purple'
+                }
+            },
             regions() {
                 return this.$store.getters['ui/regions'];
             },
@@ -180,6 +194,11 @@
                     v-for="group in groups"
                     :group="group"
                     :view="view"/>
+                <population-test-region
+                    v-if="view.currentRegion"
+                    :region="view.currentRegion"
+                    :view="view"
+                    :group="selectionGroup"/>
             </div>
         </div>
     </div>

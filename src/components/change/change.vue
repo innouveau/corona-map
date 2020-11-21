@@ -79,7 +79,8 @@
                     :view="view"
                     :show-tools="true"
                     :show-legend="true"
-                    :offset="view.offset"/>
+                    :offset="view.offset"
+                    :step="15"/>
 
                 <div class="standard-view-map__tools">
                     <time-slider

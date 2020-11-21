@@ -81,8 +81,8 @@
             }"
             class="map-label__pointer">
             <svg>
-                <line :x1="x1" :y1="y1" :x2="x2" :y2="y2" stroke="#888"></line>
-                <line :x1="x1" :y1="(y1 - 1)" :x2="x2" :y2="(y2 - 1)" stroke="#000"></line>
+                <line :x1="x1" :y1="y1" :x2="x2" :y2="y2" stroke="#faf7f0"></line>
+                <line :x1="x1" :y1="(y1 - 1)" :x2="x2" :y2="(y2 - 1)" stroke="#807765"></line>
             </svg>
         </div>
     </div>
@@ -97,9 +97,8 @@
 
         .map-label__content {
             background: #fff;
-            padding: 2px 4px;
             display: flex;
-            box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
             font-size: 9px;
             transform: translate(-50%, -50%);
             height: 16px;
@@ -113,7 +112,7 @@
                 display: flex;
                 align-items: center;
                 border-right: 1px solid #ddd;
-                padding-right: 2px;
+                padding: 2px;
             }
 
             .map-label__region {
