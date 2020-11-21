@@ -29,23 +29,65 @@
                         title: 'Pilot regions',
                         label: 'A',
                         color: 'blue',
-                        regionTitles: [
-                            'Tvrdošín',
-                            'Námestovo',
-                            'Dolný Kubín',
-                            'Bardejov'
-
+                        regions: [
+                            {
+                                title: 'Tvrdošín',
+                                position: {
+                                    x: 40,
+                                    y: -80
+                                }
+                            }, {
+                                title: 'Námestovo',
+                                position: {
+                                    x: 10,
+                                    y: -90
+                                }
+                            }, {
+                                title: 'Dolný Kubín',
+                                position: {
+                                    x: -40,
+                                    y: -90
+                                }
+                            }, {
+                                title: 'Bardejov',
+                                position: {
+                                    x: 80,
+                                    y: -60
+                                }
+                            }
                         ]
                     },
                     {
                         title: 'Adjacent regions',
                          label: 'B',
                         color: 'red',
-                        regionTitles: [
-                            'Liptovský Mikuláš',
-                            'Ružomberok',
-                            'Martin',
-                            'Sabinov'
+                        regions: [
+                            {
+                                title: 'Liptovský Mikuláš',
+                                position: {
+                                    x: 80,
+                                    y: -80
+                                }
+                            }
+                            , {
+                                title: 'Ružomberok',
+                                position: {
+                                    x: -130,
+                                    y: -50
+                                }
+                            }, {
+                                title: 'Martin',
+                                position: {
+                                    x: -120,
+                                    y: -20
+                                }
+                            }, {
+                                title: 'Sabinov',
+                                position: {
+                                    x: 40,
+                                    y: -110
+                                }
+                            }
                         ]
                     }
                 ]
@@ -67,12 +109,13 @@
             labels() {
                 let labels = [];
                 for (let group of this.groups) {
-                    for (let regionTitle of group.regionTitles) {
-                        let region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', regionTitle, true);
+                    for (let item of group.regions) {
+                        let region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', item.title, true);
                         labels.push({
                             region,
                             color: group.color,
-                            title: group.label
+                            title: group.label,
+                            position: item.position
                         })
                     }
                 }

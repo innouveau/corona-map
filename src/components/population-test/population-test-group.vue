@@ -20,8 +20,8 @@
                 return this.$store.state.maps.current;
             },
             regions() {
-                return this.group.regionTitles.map(title => {
-                    return this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
+                return this.group.regions.map(region => {
+                    return this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', region.title, true);
                 })
             }
         },
