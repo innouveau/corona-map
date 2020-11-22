@@ -64,39 +64,39 @@
                             }
                         ]
                     },
-                    {
-                        title: 'Adjacent regions',
-                         label: 'B',
-                        color: 'red',
-                        regions: [
-                            {
-                                title: 'Liptovský Mikuláš',
-                                position: {
-                                    x: 80,
-                                    y: -80
-                                }
-                            }
-                            , {
-                                title: 'Ružomberok',
-                                position: {
-                                    x: -130,
-                                    y: -50
-                                }
-                            }, {
-                                title: 'Martin',
-                                position: {
-                                    x: -120,
-                                    y: -20
-                                }
-                            }, {
-                                title: 'Sabinov',
-                                position: {
-                                    x: 40,
-                                    y: -110
-                                }
-                            }
-                        ]
-                    }
+                    // {
+                    //     title: 'Adjacent regions',
+                    //      label: 'B',
+                    //     color: 'red',
+                    //     regions: [
+                    //         {
+                    //             title: 'Liptovský Mikuláš',
+                    //             position: {
+                    //                 x: 80,
+                    //                 y: -80
+                    //             }
+                    //         }
+                    //         , {
+                    //             title: 'Ružomberok',
+                    //             position: {
+                    //                 x: -130,
+                    //                 y: -50
+                    //             }
+                    //         }, {
+                    //             title: 'Martin',
+                    //             position: {
+                    //                 x: -120,
+                    //                 y: -20
+                    //             }
+                    //         }, {
+                    //             title: 'Sabinov',
+                    //             position: {
+                    //                 x: 40,
+                    //                 y: -110
+                    //             }
+                    //         }
+                    //     ]
+                    // }
                 ]
             }
         },
