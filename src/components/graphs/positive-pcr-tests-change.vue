@@ -12,6 +12,9 @@
             },
             mapType() {
                 return 'change';
+            },
+            weeks() {
+                return this.framesBefore / 7;
             }
         },
         methods: {

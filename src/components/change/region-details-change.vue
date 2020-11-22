@@ -124,7 +124,7 @@
                 <positive-pcr-tests-change
                     :view="view"
                     :region="regionOfFocus"
-                    :weeks="3"/>
+                    :frames-before="21"/>
             </div>
         </div>
     </div>

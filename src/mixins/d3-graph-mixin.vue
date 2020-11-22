@@ -58,7 +58,7 @@
                 for (let offset of this.frameOffsetPoints) {
                     let dateString, x, y, g;
                     if (offset >= 0) {
-                        if (this.frameSize === 7 || offset % 7 === 0) {
+                        if (this.frameSize === 7 || (offset - this.max) % 7 === 0) {
                             dateString = dateTools.getDateByOffset(offset).split('-').slice(1,3).join('-');
                             x = this.step * index;
                             y = this.height;
