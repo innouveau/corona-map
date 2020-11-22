@@ -31,7 +31,7 @@
         computed: {},
         methods: {
             drawGrid() {
-                let set = Array.from(Array(7 * this.totalFrames).keys());
+                let set = Array.from(Array(this.totalFrames).keys());
                 this.gridContainer.selectAll('line')
                     .data(set)
                     .enter()
@@ -58,32 +58,33 @@
                 for (let offset of this.frameOffsetPoints) {
                     let dateString, x, y, g;
                     if (offset >= 0) {
-                        dateString = dateTools.getDateByOffset(offset).split('-').slice(1,3).join('-');
-                        x = this.step * index;
-                        y = this.height;
-                        g = this.datesContainer.append('g')
-                            .attr('transform', 'translate(' + x + ',' + y + ')');
+                        if (this.frameSize === 7 || offset % 7 === 0) {
+                            dateString = dateTools.getDateByOffset(offset).split('-').slice(1,3).join('-');
+                            x = this.step * index;
+                            y = this.height;
+                            g = this.datesContainer.append('g')
+                                .attr('transform', 'translate(' + x + ',' + y + ')');
 
-                        g.append('line')
-                            .attr('x1', 0)
-                            .attr('y1', 0)
-                            .attr('x2', 0)
-                            .attr('y2', 4)
-                            .attr('stroke', 'rgba(0,0,0,0.5)');
-                        g.append('text')
-                            .attr('text-anchor', function(){
-                                return index === 0 ? 'start' : 'middle';
-                            })
-                            .attr('y', 20)
-                            .text(dateString)
-                            .attr('font-size', '9px');
+                            g.append('line')
+                                .attr('x1', 0)
+                                .attr('y1', 0)
+                                .attr('x2', 0)
+                                .attr('y2', 4)
+                                .attr('stroke', 'rgba(0,0,0,0.5)');
+                            g.append('text')
+                                .attr('text-anchor', function(){
+                                    return index === 0 ? 'start' : 'middle';
+                                })
+                                .attr('y', 20)
+                                .text(dateString)
+                                .attr('font-size', '9px');
 
-                        if (this.framesAfter > 0 && this.offset === offset) {
-                            g.append('polygon')
-                                .attr('points', '0,0 5,8, -5,8')
-                                .attr('fill', 'blue');
+                            if (this.framesAfter > 0 && this.offset === offset) {
+                                g.append('polygon')
+                                    .attr('points', '0,0 5,8, -5,8')
+                                    .attr('fill', 'blue');
+                            }
                         }
-
                         index++;
                     }
                 }

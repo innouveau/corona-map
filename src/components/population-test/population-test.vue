@@ -190,15 +190,15 @@
             </div>
 
             <div class="population-test__dashboard">
-                <population-test-group
-                    v-for="group in groups"
-                    :group="group"
-                    :view="view"/>
                 <population-test-region
                     v-if="view.currentRegion"
                     :region="view.currentRegion"
                     :view="view"
                     :group="selectionGroup"/>
+                <population-test-group
+                    v-for="group in groups"
+                    :group="group"
+                    :view="view"/>
             </div>
         </div>
     </div>

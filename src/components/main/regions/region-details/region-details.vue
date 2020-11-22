@@ -85,13 +85,13 @@
             <positive-pcr-tests
                     :view="view"
                     :region="regionOfFocus"
-                    :weeks="weeks"/>
+                    :frames-before="(weeks * 7)"/>
 
             <administered-pcr-tests
                     v-if="currentMap.data.administeredPcrTests.status"
                     :view="view"
                     :region="regionOfFocus"
-                    :weeks="weeks"/>
+                    :frames-before="(weeks * 7)"/>
         </div>
 
         <div class="region-details__info">
@@ -122,15 +122,15 @@
                 :view="view"
                 :region="regionOfFocus"/>
 
-            <div
-                    v-if="hasSewageTreatmentPlants"
-                    class="region-details__section">
-                <div class="region-details__row">
-                    <sewage-treatment-plants
-                        :view="view"
-                        :region="regionOfFocus"/>
-                </div>
-            </div>
+<!--            <div-->
+<!--                    v-if="hasSewageTreatmentPlants"-->
+<!--                    class="region-details__section">-->
+<!--                <div class="region-details__row">-->
+<!--                    <sewage-treatment-plants-->
+<!--                        :view="view"-->
+<!--                        :region="regionOfFocus"/>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </template>

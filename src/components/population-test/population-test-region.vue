@@ -75,7 +75,6 @@
         .population-test-region__info {
 
             .population-test-region__title {
-                padding: 4px;
                 margin-bottom: 24px;
                 border: 1px solid #ddd;
                 display: flex;

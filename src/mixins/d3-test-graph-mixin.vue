@@ -265,7 +265,7 @@
             getAbsoluteValue(day, source) {
                 let total, index;
                 if (this.frameSize === 1) {
-                    return d[source];
+                    return day[source];
                 } else {
                     // get sum of 7 days
                     total = 0;

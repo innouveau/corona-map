@@ -43,7 +43,7 @@
 <template>
     <div class="pcr-test-graph">
         <div
-            v-if="weeks > 2"
+            v-if="framesBefore > 14"
             class="pcr-test-graph__title">
             {{title}}
         </div>
