@@ -33,6 +33,9 @@
             },
             videoMode() {
                 return this.$store.state.ui.videoMode;
+            },
+            frameSize() {
+                return this.view.pcrWeekly ? 7 : 1;
             }
         },
         methods: {
@@ -43,14 +46,14 @@
                 this.$store.commit('ui/updateProperty', {key: 'isPlaying', value: true});
                 this.timer = setInterval(() => {
                     if (this.view.offset > 0) {
-                        this.view.offset -= 1
+                        this.view.offset -= this.frameSize;
                     } else {
                         this.stop();
                     }
                 }, this.interval)
             },
             move(value) {
-                this.view.offset -= value
+                this.view.offset -= (value * this.frameSize);
             },
             stop() {
                 this.$store.commit('ui/updateProperty', {key: 'isPlaying', value: false});

@@ -36,10 +36,10 @@
         computed: {
             reversedOffset: {
                 get() {
-                    return this.historyLength - this.view.offset;
+                    return this.max - this.view.offset;
                 },
                 set(value) {
-                    this.view.offset = (this.historyLength - value)
+                    this.view.offset = (this.max - value)
                 }
             },
             historyLength() {
@@ -50,6 +50,19 @@
             },
             currentMap() {
                 return this.$store.state.maps.current
+            },
+            frameSize() {
+                return this.view.pcrWeekly ? 7 : 1;
+            },
+            min() {
+                return 0;
+            },
+            max() {
+                if (this.frameSize === 1) {
+                    return this.historyLength;
+                } else {
+                    return Math.floor(this.historyLength / this.frameSize) * this.frameSize;
+                }
             }
         },
         methods: {}
@@ -59,13 +72,12 @@
 
 <template>
     <div class="time-slider">
-
         <div class="vue-slider__container">
             <vue-slider
                 v-model="reversedOffset"
-                :min="0"
-                :max="historyLength"
-                :interval="1"
+                :min="min"
+                :max="max"
+                :interval="frameSize"
                 :tooltip-formatter="date"
                 :duration="0"/>
             <time-slider-stops
