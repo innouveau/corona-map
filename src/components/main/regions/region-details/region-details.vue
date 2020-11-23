@@ -143,51 +143,6 @@
         font-size: 15px;
         position: relative;
 
-        .region-details__info {
-
-            .region-details__section {
-                border-bottom: 2px solid #000;
-                padding: 10px 0;
-
-                .region-details__section-header {
-                    font-weight: 700;
-                    margin-bottom: 4px;
-                }
-
-                &:last-child {
-                    border-bottom: 0;
-                }
-            }
-
-            .region-details__row {
-                display: flex;
-                padding: 8px 0;
-                border-bottom: 1px dashed #555;
-                line-height: 1.1;
-
-                &:last-child {
-                    border-bottom: 0;
-                }
-
-                .region-details__label {
-                    width: 250px;
-                    display: flex;
-                    align-items: center;
-                }
-
-                .region-details__value {
-                    font-weight: 700;
-                    font-family: $monospace;
-                    font-size: 20px;
-                    width: calc(100% - 250px);
-                    position: relative;
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                }
-            }
-        }
-
         .age-distribution-graph__container {
             height: 352px;
             position: relative;
@@ -217,6 +172,48 @@
 
                 }
             }
+        }
+    }
+
+    .region-details__section {
+        border-bottom: 2px solid #000;
+        padding: 10px 0;
+
+        .region-details__section-header {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .region-details__row {
+            display: flex;
+            padding: 8px 0;
+            border-bottom: 1px dashed #555;
+            line-height: 1.1;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            .region-details__label {
+                width: 250px;
+                display: flex;
+                align-items: center;
+            }
+
+            .region-details__value {
+                font-weight: 700;
+                font-family: $monospace;
+                font-size: 20px;
+                width: calc(100% - 250px);
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+        }
+
+        &:last-child {
+            border-bottom: 0;
         }
     }
 </style>

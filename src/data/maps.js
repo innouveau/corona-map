@@ -329,23 +329,19 @@ const maps = [
         module: 'cities',
         title: 'Slovakia',
         settings: {
-            regionTypes: ['city','country'],
-            pathOrigins: [
-                {
-                    type: 'country',
-                    paths: 'city'
-                }
-            ],
+            regionTypes: ['city'],
+            pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
                 latitude: 48.65,
                 longitude: 19.9,
                 stretch: 0.65,
                 zoom: 0.5,
-                ratio: 2.07
+                ratio: 2.07,
+                discreteRegions: ['Podkarpackie', 'Małopolskie', 'Śląskie', 'Moravian-Silesian Region', 'Zlin Region', 'Olomouc Region', 'South Moravian Region', 'Niederösterreich', 'Nógrád', 'Borsod-Abaúj-Zemplén', 'Szabolcs-Szatmár-Bereg', 'Komárom-Esztergom', 'Győr-Moson-Sopron', 'Burgenland', 'Pest', 'Hajdú-Bihar', 'Heves']
             },
             positiveTestGraph: {
-                zoomFactor: 0.16
+                zoomFactor: 0.2
             }
         },
         data: {

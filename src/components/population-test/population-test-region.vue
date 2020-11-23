@@ -3,6 +3,7 @@
     import View from "@/classes/View";
     import populationTestGraph from "./population-test-graph";
     import populationTestNumbers from "./population-test-numbers";
+    import numberTools from '@/tools/number';
 
     export default {
         name: 'population-test-region',
@@ -25,7 +26,11 @@
             }
         },
         computed: {},
-        methods: {}
+        methods: {
+            format(value, addPlus) {
+                return numberTools.format(Math.round(value), addPlus);
+            }
+        }
     }
 </script>
 
@@ -39,20 +44,40 @@
             :frames-after="3"
             :step="40"
             :padding-right="20"
-            :height="250"/>
+            :height="270"/>
 
         <div class="population-test-region__info">
             <div
-                :style="{'border-left': '4px solid ' + group.color}"
                 class="population-test-region__title">
-                <div class="population-test-region__label">
+                <div
+                        :style="{'background': group.color}"
+                    class="population-test-region__label">
                     {{group.label}}
                 </div>
                 <div class="population-test-region__region">
                     {{region.title}}
                 </div>
-
             </div>
+
+            <div class="region-details__section">
+                <div class="region-details__row">
+                    <div class="region-details__label">
+                        {{translate('population', true)}}
+                    </div>
+                    <div class="region-details__value">
+                        {{format(region.getTotalPopulation(), false)}}
+                    </div>
+                </div>
+                <div class="region-details__row">
+                    <div class="region-details__label">
+                        {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
+                    </div>
+                    <div class="region-details__value">
+                        {{format(region.getTotalIncreaseOfType(view.offset, (7), 'positiveTests', true), true)}}
+                    </div>
+                </div>
+            </div>
+
             <population-test-numbers
                     :view="view"
                     :region="region"/>
@@ -66,31 +91,43 @@
 
     .population-test-region {
         border-bottom: 1px solid #ddd;
-        padding: 12px;
+        padding: 24px;
         display: flex;
 
         .population-test-graph {
         }
 
         .population-test-region__info {
+            width: calc(100% - 260px);
 
             .population-test-region__title {
-                margin-bottom: 24px;
-                border: 1px solid #ddd;
                 display: flex;
+                font-weight: 700;
+                padding-bottom: 4px;
+                border-bottom: 2px solid #000;
 
                 .population-test-region__label {
                     display: flex;
                     align-items: center;
-                    padding: 4px;
-                    font-weight: 700;
-                    border-right: 1px solid #ddd;
+                    padding: 4px 6px;
+                    color: #fff;
+                    font-size: 11px;
+                    margin-right: 8px;
                 }
 
                 .population-test-region__region {
                     display: flex;
                     align-items: center;
-                    padding: 4px;
+                    font-size: 16px;
+                    font-family: $serif;
+                }
+            }
+
+            .region-details__section {
+                border-bottom: 2px solid #ddd;
+
+                .region-details__value {
+                    font-size: 16px;
                 }
             }
         }

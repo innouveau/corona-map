@@ -58,8 +58,8 @@
                             }, {
                                 title: 'Bardejov',
                                 position: {
-                                    x: 80,
-                                    y: -60
+                                    x: -20,
+                                    y: -70
                                 }
                             }
                         ]

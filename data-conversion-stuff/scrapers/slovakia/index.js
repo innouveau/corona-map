@@ -11,7 +11,7 @@ let browser, page, url, data, titlesSelector, valuesSelector,
 
 url = 'https://app.powerbi.com/view?r=eyJrIjoiNDUwMDc4YjgtYjEyYS00YzlhLWI1MzktMzhlMTczYmY0YjVjIiwidCI6IjMxMGJhNTk1LTAxM2MtNDAyZC05ZWYyLWI1N2Q1ZjFkY2Q2MyIsImMiOjl9';
 data = [];
-currentDate = new Date('2020-11-12');
+currentDate = new Date('2020-11-15');
 
 // removes the hours and minutes
 today = new Date(getDateString(new Date(), false));

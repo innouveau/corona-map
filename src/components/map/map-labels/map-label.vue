@@ -61,10 +61,10 @@
             'top': (position.y + label.position.y) + 'px'
         }"
         class="map-label">
-        <div
-            :style="{'border-left': '2px solid ' + label.color}"
-            class="map-label__content">
-            <div class="map-label__title">
+        <div class="map-label__content">
+            <div
+                :style="{'background': label.color}"
+                class="map-label__title">
                 {{label.title}}
             </div>
             <div class="map-label__region">
@@ -96,11 +96,10 @@
         position: absolute;
 
         .map-label__content {
-            background: #fff;
             display: flex;
             //box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
             border: 1px solid rgba(0,0,0,0.1);
-            font-size: 9px;
+            font-size: 10px;
             transform: translate(-50%, -50%);
             height: 16px;
             position: absolute;
@@ -112,15 +111,17 @@
                 height: 100%;
                 display: flex;
                 align-items: center;
-                border-right: 1px solid #ddd;
-                padding: 2px;
+                padding: 0 3px;
+                color: #fff;
+                font-size: 9px;
             }
 
             .map-label__region {
                 white-space: nowrap;
-                padding: 2px;
+                padding: 0 3px;
                 display: flex;
                 align-items: center;
+                background: #fff
             }
         }
 

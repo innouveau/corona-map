@@ -28,6 +28,12 @@ const drawRegionContainer = function(ctx, parent, settings, offset, mapType) {
         ctx.fillStyle = parent.getColor(offset);
     }
 
+    if (currentMap.settings.map.discreteRegions && currentMap.settings.map.discreteRegions.indexOf(parent.title) > -1) {
+        ctx.globalAlpha = 0.25;
+    } else {
+        ctx.globalAlpha = 1;
+    }
+
     pathsOriginSetting = currentMap.settings.pathOrigins.find(region => region.type === regionType);
     if (pathsOriginSetting) {
         pathsOrigin = pathsOriginSetting.paths;

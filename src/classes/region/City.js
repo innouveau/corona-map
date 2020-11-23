@@ -1,9 +1,9 @@
 import Path from './geo/Path';
 import _RegionWithTestData from "./_RegionWithTestData";
+import store from '@/store/store';
 
 class City extends _RegionWithTestData {
     constructor({
-        id = null,
         country_id = 1,
         identifier = '',
         ggd_code = '',
@@ -21,7 +21,7 @@ class City extends _RegionWithTestData {
     }) {
         super();
         this.regionType = 'city';
-        this.id = id;
+        this.id = store.state.cities.all.length + 1;
         this.country_id = country_id;
         this.identifier = identifier;
         this.ggd_code = ggd_code;
