@@ -333,11 +333,11 @@ const maps = [
             pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
-                latitude: 48.65,
-                longitude: 19.9,
+                latitude: 48.95,
+                longitude: 19.3,
                 stretch: 0.65,
-                zoom: 0.5,
-                ratio: 2.07,
+                zoom: 0.235,
+                ratio: 1.5,
                 discreteRegions: ['Podkarpackie', 'Małopolskie', 'Śląskie', 'Moravian-Silesian Region', 'Zlin Region', 'Olomouc Region', 'South Moravian Region', 'Niederösterreich', 'Nógrád', 'Borsod-Abaúj-Zemplén', 'Szabolcs-Szatmár-Bereg', 'Komárom-Esztergom', 'Győr-Moson-Sopron', 'Burgenland', 'Pest', 'Hajdú-Bihar', 'Heves']
             },
             positiveTestGraph: {

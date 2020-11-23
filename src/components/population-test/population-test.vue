@@ -32,7 +32,7 @@
                 view: new View(view),
                 groups: [
                     {
-                        title: 'Pilot regions',
+                        title: 'Pilot regions (3 population test rounds)',
                         label: 'A',
                         color: 'blue',
                         regions: [
@@ -52,7 +52,7 @@
                             }, {
                                 title: 'Dolný Kubín',
                                 position: {
-                                    x: -40,
+                                    x: -30,
                                     y: -90
                                 }
                             }, {
@@ -64,39 +64,32 @@
                             }
                         ]
                     },
-                    // {
-                    //     title: 'Adjacent regions',
-                    //      label: 'B',
-                    //     color: 'red',
-                    //     regions: [
-                    //         {
-                    //             title: 'Liptovský Mikuláš',
-                    //             position: {
-                    //                 x: 80,
-                    //                 y: -80
-                    //             }
-                    //         }
-                    //         , {
-                    //             title: 'Ružomberok',
-                    //             position: {
-                    //                 x: -130,
-                    //                 y: -50
-                    //             }
-                    //         }, {
-                    //             title: 'Martin',
-                    //             position: {
-                    //                 x: -120,
-                    //                 y: -20
-                    //             }
-                    //         }, {
-                    //             title: 'Sabinov',
-                    //             position: {
-                    //                 x: 40,
-                    //                 y: -110
-                    //             }
-                    //         }
-                    //     ]
-                    // }
+                    {
+                        title: 'Czech regions (no population test)',
+                         label: 'B',
+                        color: 'red',
+                        regions: [
+                            {
+                                title: 'Moravian-Silesian Region',
+                                position: {
+                                    x: -10,
+                                    y: -90
+                                }
+                            }, {
+                                title: 'Zlin Region',
+                                position: {
+                                    x: -80,
+                                    y: -110
+                                }
+                            }, {
+                                title: 'South Moravian Region',
+                                position: {
+                                    x: -40,
+                                    y: -40
+                                }
+                            }
+                        ]
+                    }
                 ]
             }
         },
