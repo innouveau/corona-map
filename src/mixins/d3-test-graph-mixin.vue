@@ -284,7 +284,7 @@
                 }
             },
             getY(day, source, smoothened) {
-                let end, start, total, average, relativeValue, l, index,
+                let end, start, total, average, relativeValue, l,
                     steps, maxSteps;
                 if (!smoothened) {
                     if (this.frameSize === 1) {
@@ -294,12 +294,15 @@
                     }
                 } else {
                     total = 0;
-                    steps = 3;
-                    // todo fix threshold left
-                    maxSteps = Math.min(steps, day.offset);
-                    end = day.offset - maxSteps;
-                    start = day.offset + maxSteps;
+                    steps = 7;
                     l = this.report.history.length - 1;
+                    maxSteps = Math.min(steps, (l - day.offset));
+                    end = day.offset;
+                    start = day.offset + (maxSteps - 1);
+                    if (day.offset === 0) {
+                        console.log(maxSteps, start, end);
+                    }
+
                     for (let i = start; i > (end - 1); i--) {
                         let d, value;
                         d = this.report.history[l - i];
@@ -310,7 +313,7 @@
                         }
                         total += value / this.currentMap.data.positivePcrTests.interval;
                     }
-                    average = total / (maxSteps * 2 + 1);
+                    average = total / maxSteps;
                     relativeValue = 100000 * average / this.region.getTotalPopulation();
                 }
                 return this.valueToY(relativeValue);
