@@ -37,7 +37,7 @@ const getNumber = function(threshold) {
         text = signalingSystem.thresholds[signalingSystem.thresholds.length - 2].n + ' ' + translateTool.translate('or-mor');
     }
     if (index === 0) {
-        text += ' ' + translateTool.translate('positive-tests').toLowerCase() + ' ' + translateTool.translate('per') + ' ';
+        text += ' ' + translateTool.translate('positive-tests', true) + ' ' + translateTool.translate('per') + ' ';
         text += getNiceNumberForPopulation(signalingSystem.population) + ' ';
         text += translateTool.translate('inhabitants') + ' ' + translateTool.translate('per') + ' ';
         text += getNiceNumberForDays(signalingSystem.days);

@@ -338,7 +338,7 @@ const maps = [
                 stretch: 0.65,
                 zoom: 0.235,
                 ratio: 1.5,
-                discreteRegions: ['Podkarpackie', 'Małopolskie', 'Śląskie', 'Moravian-Silesian Region', 'Zlin Region', 'Olomouc Region', 'South Moravian Region', 'Niederösterreich', 'Nógrád', 'Borsod-Abaúj-Zemplén', 'Szabolcs-Szatmár-Bereg', 'Komárom-Esztergom', 'Győr-Moson-Sopron', 'Burgenland', 'Pest', 'Hajdú-Bihar', 'Heves']
+                discreteRegions: []
             },
             positiveTestGraph: {
                 zoomFactor: 0.2

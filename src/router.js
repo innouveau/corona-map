@@ -8,6 +8,7 @@ import timeLine from '@/components/time-line/time-line'
 import change from '@/components/change/change'
 import story from '@/components/story/story'
 import populationTest from '@/components/population-test/population-test'
+import exportPage from '@/components/export/export'
 
 Vue.use(Router);
 
@@ -48,6 +49,10 @@ const routes = [
         path: "/speed-test",
         name: "populationTest",
         component: populationTest,
+    }, {
+        path: "/export",
+        name: "exportPage",
+        component: exportPage,
     }
 ];
 

@@ -50,12 +50,12 @@
             getDateString(view) {
                 return this.$store.getters['ui/getDateByOffset'](view.offset * this.currentMap.data.positivePcrTests.interval, 'EE d MMM', this.currentLanguage.iso_code);
             },
-            prepair() {
+            prepair(width = this.width, height = this.height) {
                 this.canvas.id = 'image-for-download';
-                this.canvas.width = this.width;
-                this.canvas.height = this.height;
+                this.canvas.width = width;
+                this.canvas.height = height;
 
-                canvasTools.addBackground(this.ctx, this.width, this.height);
+                canvasTools.addBackground(this.ctx, width, height);
             },
             addHead() {
                 let width, height;

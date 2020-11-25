@@ -9,7 +9,7 @@ const addBackground = function(ctx, width, height) {
 
 const draw = function(ctx, regionContainers, settings, offset, mapType = 'signaling', border = true) {
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+    ctx.strokeStyle = settings.borderStyle ? settings.borderStyle : 'rgba(0,0,0,0.3)';
 
     for (let regionContainer of regionContainers) {
         drawRegionContainer(ctx, regionContainer, settings, offset, mapType);
