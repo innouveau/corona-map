@@ -94,10 +94,10 @@
                 return this.height + this.paddingBottom;
             },
             min() {
-                return this.offset + (this.frameSize * this.framesBefore / this.currentMap.data.positivePcrTests.interval);
+                return this.offset + (this.frameSize * this.framesBefore);
             },
             max() {
-                return this.offset - (this.frameSize * this.framesAfter / this.currentMap.data.positivePcrTests.interval);
+                return this.offset - (this.frameSize * this.framesAfter);
             },
             report() {
                 return this.region.report
@@ -174,7 +174,7 @@
             // business logic
             getX(day) {
                 let offset = day.offset - this.offset;
-                return this.widthBefore - (this.step * this.currentMap.data.positivePcrTests.interval * offset);
+                return this.widthBefore - (this.step * offset);
             },
             drawTestsLine(source = 'pcr', smoothened, dotted, color) {
                 let points, lineFunction;
@@ -196,6 +196,19 @@
                     .attr('stroke-dasharray', () => {
                         return dotted ? [4,4] : [];
                     })
+            },
+            drawTestsDots(source = 'pcr', smoothened, color) {
+                for (let day of this.days) {
+                    let x, y;
+                    x = this.getX(day);
+                    y = this.getY(day, source, smoothened);
+
+                    this.lineContainer.append('circle')
+                        .attr('cx', x)
+                        .attr('cy', y)
+                        .attr('r', 2)
+                        .attr('fill', color);
+                }
             },
             drawPcrTestsBars(color) {
                 let index, margin;

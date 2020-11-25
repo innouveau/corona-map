@@ -85,10 +85,10 @@
         methods: {
             updateOffset(value) {
                 let dateString = dateTools.formatDate(value);
-                this.view.offset = (dateTools.getOffsetByDate(dateString)) / this.currentMap.data.positivePcrTests.interval;
+                this.view.offset = dateTools.getOffsetByDate(dateString);
             },
             updateDatePicker() {
-                this.date = dateTools.getDateByOffset(this.view.offset * this.currentMap.data.positivePcrTests.interval);
+                this.date = dateTools.getDateByOffset(this.view.offset);
             }
         },
         watch: {

@@ -64,6 +64,12 @@
             },
             weeks() {
                 return this.$store.state.settings.weeks;
+            },
+            framesBefore() {
+                return this.weeks * 7 / this.currentMap.data.positivePcrTests.interval;
+            },
+            step() {
+                return this.$store.state.settings.step * this.currentMap.data.positivePcrTests.interval;
             }
         },
         methods: {}
@@ -85,13 +91,15 @@
             <positive-pcr-tests
                     :view="view"
                     :region="regionOfFocus"
-                    :frames-before="(weeks * 7)"/>
+                    :frames-before="framesBefore"
+                    :step="step"/>
 
             <administered-pcr-tests
                     v-if="currentMap.data.administeredPcrTests.status"
                     :view="view"
                     :region="regionOfFocus"
-                    :frames-before="(weeks * 7)"/>
+                    :frames-before="framesBefore"
+                    :step="step"/>
         </div>
 
         <div class="region-details__info">

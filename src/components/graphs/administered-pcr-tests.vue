@@ -89,7 +89,6 @@
                         .attr('r', 2)
                         .attr('fill', '#000');
                     index++;
-
                 }
             },
             getPercentage(day) {

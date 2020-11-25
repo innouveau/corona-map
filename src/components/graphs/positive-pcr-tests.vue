@@ -28,6 +28,7 @@
                         this.drawTestsLine('positiveTests', true, false, '#000');
                     } else {
                         this.drawTestsLine('positiveTests', false, false, '#000');
+                        this.drawTestsDots('positiveTests', false, '#000');
                     }
 
                 }
@@ -43,7 +44,7 @@
 <template>
     <div class="pcr-test-graph">
         <div
-            v-if="framesBefore > 14"
+            v-if="framesBefore > 2"
             class="pcr-test-graph__title">
             {{title}}
         </div>

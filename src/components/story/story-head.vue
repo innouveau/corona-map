@@ -95,7 +95,7 @@
                         v-if="currentRegion"
                         :view="view"
                         :region="currentRegion"
-                        :weeks="4"
+                        :frames-before="28"
                         :height="190"/>
                 </div>
             </div>
@@ -110,7 +110,6 @@
                     :stops="dates"
                     :show-graph="true"/>
             </div>
-
         </div>
     </div>
 </template>
@@ -188,10 +187,11 @@
         .story-head__right {
             height: 100%;
             width: 50%;
+            position: relative;
 
             .story__graphs {
                 display: flex;
-                height: calc(100% - 88px);
+                height: calc(100% - 52px);
 
                 .story__tests {
                     padding: 8px;
@@ -204,8 +204,10 @@
 
             .story__region {
                 height: 36px;
-                padding: 10px 8px;
-                font-weight: 700;
+                //font-weight: 700;
+                position: absolute;
+                left: 16px;
+                top: 36px;
             }
 
             .story__time-slider {
