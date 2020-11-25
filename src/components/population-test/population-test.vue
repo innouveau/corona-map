@@ -33,7 +33,7 @@
                 groups: [
                     {
                         title: 'Pilot regions (3 population test rounds)',
-                        label: 'A',
+                        label: 'SK',
                         color: 'blue',
                         regions: [
                             {
@@ -66,7 +66,7 @@
                     },
                     {
                         title: 'Czech regions (no population test)',
-                         label: 'B',
+                         label: 'CZ',
                         color: 'red',
                         regions: [
                             {
