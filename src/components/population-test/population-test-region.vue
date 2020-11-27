@@ -44,7 +44,7 @@
             :frames-after="3"
             :step="40"
             :padding-right="20"
-            :height="270"/>
+            :height="350"/>
 
         <div class="population-test-region__info">
             <div

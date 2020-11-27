@@ -229,7 +229,7 @@ const maps = [
         regionType: 'District',
         module: 'districts',
         title: 'World',
-        ready: false,
+        ready: true,
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],

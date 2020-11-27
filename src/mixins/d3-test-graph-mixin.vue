@@ -238,21 +238,25 @@
                 }
             },
             drawAntigenTestsBars(color) {
-                let size, index;
-                size = 0.5;
+                let size, index, margin;
                 index = 0;
+                size = 1;
+                margin = 1;
                 for (let day of this.days) {
-                    let value, rect, y;
+                    let value, rect, y, pcrHeight;
                     if (day) {
                         value = this.getAbsoluteValue(day, 'positiveAntigenTests');
                         if (value > 0) {
+                            pcrHeight = this.height - this.getY(day, 'positiveTests',false);
                             y = this.getY(day, 'positiveAntigenTests',false);
                             rect = this.lineContainer.append('rect')
-                                .attr('x', (index - (0.5 * size)) * this.step)
-                                .attr('y', y)
+                                .attr('x', (d) => {
+                                    return (index - 0.5) * this.step + margin;
+                                })
+                                .attr('y', (y - pcrHeight))
                                 .attr('width', () => {
-                                    let last = index === this.days.length - 1;
-                                    return last ? (0.5 * size * this.step) :( this.step * size);
+                                    let last = this.days.indexOf(day) === this.days.length - 1;
+                                    return last ? (0.5 * this.step) : (this.step - (2 * margin));
                                 })
                                 .attr('height', (this.height - y))
                                 .attr('fill', color);
