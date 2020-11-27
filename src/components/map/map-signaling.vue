@@ -72,7 +72,10 @@
                 return this.canvas.getContext('2d');
             },
             currentRegionType() {
-                return this.$store.state.ui.currentRegionType
+                return this.$store.state.ui.currentRegionType;
+            },
+            currentSource() {
+                return this.$store.state.ui.currentSource;
             },
             color() {
                 return this.$store.state.ui.color;
@@ -217,6 +220,11 @@
                 deep: true
             },
             currentRegionType: {
+                handler: function() {
+                    this.draw();
+                }
+            },
+            currentSource: {
                 handler: function() {
                     this.draw();
                 }

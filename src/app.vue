@@ -184,8 +184,6 @@
                         .catch((error) => {
                             console.error(error);
                         });
-
-
                 })
             },
             loadPcrTests() {
@@ -221,11 +219,51 @@
                                     this.addTests(item, adapter);
                                 }
                             }
+
+
                             if (this.currentMap.data.positiveAntigenTests.status) {
                                 this.loadAntigenTests().then(() => resolve());
+                            } else if (this.currentMap.data.hospitalisations && this.currentMap.data.hospitalisations.status) {
+                                this.loadHospitalisations().then(() => resolve());
                             } else {
                                 resolve();
                             }
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                })
+            },
+            loadHospitalisations() {
+                return new Promise((resolve, reject) => {
+                    d3.csv(this.currentMap.data.hospitalisations.source + dateTool.getTimestamp())
+                        .then((result) => {
+                            let adapter, keys, lastValue;
+                            adapter = this.currentMap.data.hospitalisations.adapter;
+                            keys = adapter.getKeys(result.columns);
+                            for (let row of result) {
+                                let title, region;
+                                title = row[adapter.regionKey];
+                                region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
+                                if (region) {
+                                    lastValue = 0;
+                                    for (let key of keys) {
+                                        let frame, date, value;
+                                        value = Number(row[key]);
+                                        date = adapter.getDateFromKey(key);
+                                        frame = region.report.history.find(f => f.date === date);
+                                        if (frame) {
+                                            frame.hospitalisations = value - lastValue;
+                                        } else {
+                                            //console.error('frame with date ' + date + ' not found for hospitalisations data');
+                                        }
+                                        lastValue = value;
+                                    }
+                                } else {
+                                    //console.error('Region ' + title + ' not found for hospitalisations data');
+                                }
+                            }
+                            resolve();
                         })
                         .catch((error) => {
                             console.error(error);

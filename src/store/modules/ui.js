@@ -21,6 +21,7 @@ const state = {
 
     // general
     currentRegionType: '',
+    currentSource: 'positiveTests',
     today: null,
     todayInMs: null,
     caseDataRequested: false,

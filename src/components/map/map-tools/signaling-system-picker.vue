@@ -4,8 +4,12 @@
         components: {},
         props: {},
         computed: {
+            currentSource() {
+                return this.$store.state.ui.currentSource;
+            },
             signalingSystems() {
-                return this.$store.state.signalingSystems.all;
+                return this.$store.state.signalingSystems.all
+                    .filter(s => s.source === this.currentSource);
             },
             activeSignalingSystem: {
                 get() {
@@ -13,7 +17,6 @@
                 },
                 set(signalingSystem) {
                     this.$store.commit('signalingSystems/setCurrent', signalingSystem);
-
                 }
             }
         },
@@ -24,6 +27,20 @@
             },
             isActive(signalingSystem) {
                 return this.$store.state.signalingSystems.current === signalingSystem ;
+            },
+            update() {
+                if (this.activeSignalingSystem.source !== this.currentSource) {
+                    this.$store.commit('signalingSystems/setCurrent', this.signalingSystems[0]);
+                }
+            }
+        },
+        watch: {
+            currentSource: {
+                handler: function(newValue) {
+                    setTimeout(() => {
+                        this.update();
+                    })
+                }
             }
         }
     }
@@ -33,7 +50,7 @@
 <template>
     <div class="signaling-system-picker">
         <div class="map-tools-popup__head">
-            {{translate('signaling-system', true)}}
+            {{translate('signaling-system', true)}} {{currentSource}}
         </div>
         <div class="map-tools-popup__body">
             <div

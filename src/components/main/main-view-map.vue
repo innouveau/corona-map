@@ -5,10 +5,12 @@
     import timeSlider from "@/components/view/time-slider";
     import embedButton from "./embed-button";
     import View from "@/classes/View";
+    import mapSourcePicker from "./map-source-picker";
 
     export default {
         name: 'main-view-map',
         components: {
+            mapSourcePicker,
             mapSignaling,
             searchRegions,
             regionTypePicker,
@@ -42,6 +44,8 @@
         <region-type-picker
             :view="view"/>
 
+        <map-source-picker/>
+
         <map-signaling
             :view="view"
             :show-tools="true"
@@ -65,6 +69,7 @@
     .standard-view-map {
         padding-bottom: 0;
         background: $map-color;
+        position: relative;
 
         .search-regions {
             height: 36px;
@@ -77,6 +82,12 @@
             align-items: center;
             padding-left: 4px;
             color: $map-color-super-dark;
+        }
+
+        .map-source-picker {
+            position: absolute;
+            top: 62px;
+            right: 20px;
         }
 
         .map,

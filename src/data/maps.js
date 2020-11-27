@@ -59,6 +59,21 @@ const maps = [
                 status: false,
                 source: ''
             },
+            hospitalisations: {
+                status: true,
+                source: (window.config.dataUrl + 'data/municipality-hospitalisations.csv'),
+                interval: 1,
+                cumulative: true,
+                adapter: {
+                    getKeys(columns) {
+                        return columns.filter(c => c.indexOf('Hospital_admission.') > -1);
+                    },
+                    getDateFromKey(key) {
+                        return key.split('Hospital_admission.')[1];
+                    },
+                    regionKey: 'Municipality_name'
+                }
+            },
             ageGroups: {
                 status: true,
                 source: 'data/maps/nederland/cities-population-agegroup.csv'
