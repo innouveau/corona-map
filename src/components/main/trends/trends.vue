@@ -22,7 +22,7 @@
         },
         data() {
             return {
-                thresholds: thresholdTools.getThresholds()
+                thresholds: thresholdTools.getThresholds(this.view.currentSource)
             }
         },
         computed: {

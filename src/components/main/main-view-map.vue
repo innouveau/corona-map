@@ -44,7 +44,8 @@
         <region-type-picker
             :view="view"/>
 
-        <map-source-picker/>
+        <map-source-picker
+            :view="view"/>
 
         <map-signaling
             :view="view"

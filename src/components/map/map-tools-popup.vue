@@ -5,6 +5,7 @@
     import vClickOutside from 'v-click-outside';
     import downloadImageMixin from '@/components/map/download/download-image-mixin';
     import canvasTools from '@/tools/canvas';
+    import View from "@/classes/View";
 
     export default {
         name: 'map-tools-popup',
@@ -17,7 +18,12 @@
         directives: {
             clickOutside: vClickOutside.directive
         },
-        props: {},
+        props: {
+            view: {
+                type: View,
+                required: true
+            }
+        },
         computed: {
             isFreeSignalingSystem() {
                 return this.$store.state.signalingSystems.current.id === 4;
@@ -52,7 +58,7 @@
                 };
 
                 const draw = () => {
-                    canvasTools.draw(this.ctx, this.regions, this.getSettings(), this.$parent.view.offset, 'signaling', false);
+                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings(), this.$parent.view.offset, 'signaling', false);
                     this.finish('frame-' + index).then(()=>{
                         if (this.$parent.view.offset > 0) {
                             this.$parent.view.offset--;
@@ -75,7 +81,8 @@
         v-click-outside="close"
         class="map-tools-popup">
         <div class="map-tools-popup__section">
-            <signaling-system-picker/>
+            <signaling-system-picker
+                :view="view"/>
         </div>
         <div
             v-if="!isFreeSignalingSystem"

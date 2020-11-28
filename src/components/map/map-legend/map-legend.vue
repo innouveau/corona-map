@@ -1,6 +1,7 @@
 <script>
     import mapLegendRegular from "./map-legend-regular";
     import mapLegendGradient from "./map-legend-gradient";
+    import View from "@/classes/View";
 
     export default {
         name: 'map-legend',
@@ -8,7 +9,12 @@
             mapLegendGradient,
             mapLegendRegular
         },
-        props: {},
+        props: {
+            view: {
+                type: View,
+                required: true
+            }
+        },
         computed: {
             gradient() {
                 return this.$store.state.settings.gradient;
@@ -21,8 +27,12 @@
 
 <template>
     <div class="map-legend">
-        <map-legend-gradient v-if="gradient"/>
-        <map-legend-regular v-else/>
+        <map-legend-gradient
+            v-if="gradient"
+            :view="view"/>
+        <map-legend-regular
+            v-else
+            :view="view"/>
     </div>
 </template>
 

@@ -1,46 +1,31 @@
 <script>
+    import View from "@/classes/View";
+
     export default {
         name: 'signaling-system-picker',
         components: {},
-        props: {},
+        props: {
+            view: {
+                type: View,
+                required: true
+            }
+        },
         computed: {
             currentSource() {
-                return this.$store.state.ui.currentSource;
+                return this.view.currentSource;
             },
             signalingSystems() {
                 return this.$store.state.signalingSystems.all
-                    .filter(s => s.source === this.currentSource);
-            },
-            activeSignalingSystem: {
-                get() {
-                    return this.$store.state.signalingSystems.current;
-                },
-                set(signalingSystem) {
-                    this.$store.commit('signalingSystems/setCurrent', signalingSystem);
-                }
+                    .filter(s => s.source === this.currentSource.key);
             }
         },
         methods: {
             select(signalingSystem){
-                this.$store.commit('signalingSystems/setCurrent', signalingSystem);
+                this.$store.commit('sources/updatePropertyOfItem', {item: this.currentSource, property: 'signalingSystem_id', value: signalingSystem.id});
                 this.$parent.close();
             },
             isActive(signalingSystem) {
-                return this.$store.state.signalingSystems.current === signalingSystem ;
-            },
-            update() {
-                if (this.activeSignalingSystem.source !== this.currentSource) {
-                    this.$store.commit('signalingSystems/setCurrent', this.signalingSystems[0]);
-                }
-            }
-        },
-        watch: {
-            currentSource: {
-                handler: function(newValue) {
-                    setTimeout(() => {
-                        this.update();
-                    })
-                }
+                return this.currentSource.signalingSystem_id === signalingSystem.id;
             }
         }
     }
@@ -50,7 +35,7 @@
 <template>
     <div class="signaling-system-picker">
         <div class="map-tools-popup__head">
-            {{translate('signaling-system', true)}} {{currentSource}}
+            {{translate('signaling-system', true)}}
         </div>
         <div class="map-tools-popup__body">
             <div

@@ -169,36 +169,34 @@ class _Region {
         return offset - 1;
     }
 
-    getColor(offset) {
-        let map, frames, n, threshold, source;
+    getColor(offset, source) {
+        let map, frames, n, threshold;
         map = store.state.maps.current;
         frames = this.framesForPeriod;
-        source = store.state.ui.currentSource;
-        n = this.getTotalIncreaseOfType(offset, frames, source, true);
+        n = this.getTotalIncreaseOfType(offset, frames, source.key, true);
         if (map.data.positivePcrTests.status) {
             if (this.hasLateReporting && offset < 10) {
                 offset = this.getLatestReporting(offset);
             }
-            threshold = this.getThreshold(0, offset);
-            return thresholdTools.thresholdToColor(threshold, n);
+            threshold = this.getThreshold(0, offset, source);
+            return thresholdTools.thresholdToColor(threshold, n, source);
         } else {
             return '#ddd';
         }
     }
 
-    getThreshold(delta = 0, offset) {
-        let n, frames, source;
-        source = store.state.ui.currentSource;
+    getThreshold(delta = 0, offset, source) {
+        let n, frames;
         frames = this.framesForPeriod;
         // possible with testDataInterval of 7 and signalingSystem-days of 1
         if (frames < 1) {
             return null;
         } else {
-            n = this.getTotalIncreaseOfType((offset + delta), frames, source, true);
+            n = this.getTotalIncreaseOfType((offset + delta), frames, source.key, true);
             if (n === null) {
                 return null;
             }
-            return thresholdTools.getThreshold(n);
+            return thresholdTools.getThreshold(n, source);
         }
     }
 

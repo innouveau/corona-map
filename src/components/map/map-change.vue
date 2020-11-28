@@ -35,7 +35,7 @@
                     zoom: this.$store.state.settings.zoom,
                     fill: true
                 };
-                canvasTools.draw(this.ctx, this.containerRegions, settings, this.view.offset, 'change');
+                canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view.offset, 'change');
             },
         }
     }

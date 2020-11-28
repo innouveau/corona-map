@@ -274,6 +274,39 @@ let signalingSystems = [
                 }
             }
         ]
+    }, {
+        id: 6,
+        source: 'deceased',
+        title: 'Deceased',
+        days: 7,
+        population: 100000,
+        thresholds: [
+            {
+                n: 0,
+                color: {
+                    regular: 'rgb(255,255,255)',
+                    colorblind1: 'rgb(255,255,255)',
+                    colorblind2: 'rgb(255,255,255)',
+                    variant3: 'rgb(255,255,255)'
+                }
+            }, {
+                n: 20,
+                color: {
+                    regular: 'rgb(255,255,255)',
+                    colorblind1: 'rgb(255,255,255)',
+                    colorblind2: 'rgb(255,255,255)',
+                    variant3: 'rgb(255,255,255)'
+                }
+            }, {
+                n: Infinity,
+                color: {
+                    regular: 'rgb(0, 0, 0)',
+                    colorblind1: 'rgb(0, 0, 0)',
+                    colorblind2: 'rgb(0, 0, 0)',
+                    variant3: 'rgb(0, 0, 0)'
+                }
+            }
+        ]
     }
 ];
 

@@ -43,8 +43,8 @@
                     this.addDate(this.view1, 0.03, 0.22);
                     this.addDate(this.view2, 0.53, 0.22);
                     //this.addLegend();
-                    canvasTools.draw(this.ctx, this.regions, this.getSettings(1), this.view1.offset, this.mapType);
-                    canvasTools.draw(this.ctx, this.regions, this.getSettings(2), this.view2.offset, this.mapType);
+                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings(1), this.view1.offset, this.mapType);
+                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings(2), this.view2.offset, this.mapType);
                     this.addCreator();
                     this.finish();
                 });

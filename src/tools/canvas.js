@@ -7,16 +7,16 @@ const addBackground = function(ctx, width, height) {
     ctx.fill();
 };
 
-const draw = function(ctx, regionContainers, settings, offset, mapType = 'signaling', border = true) {
+const draw = function(ctx, source, regionContainers, settings, offset, mapType = 'signaling', border = true) {
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = settings.borderStyle ? settings.borderStyle : 'rgba(0,0,0,0.3)';
 
     for (let regionContainer of regionContainers) {
-        drawRegionContainer(ctx, regionContainer, settings, offset, mapType);
+        drawRegionContainer(ctx, regionContainer, settings, offset, mapType, source);
     }
 };
 
-const drawRegionContainer = function(ctx, parent, settings, offset, mapType) {
+const drawRegionContainer = function(ctx, parent, settings, offset, mapType, source) {
     let currentMap, regionType, pathsOriginSetting, pathsOrigin, children;
     currentMap = store.state.maps.current;
     regionType = parent.regionType;
@@ -25,7 +25,7 @@ const drawRegionContainer = function(ctx, parent, settings, offset, mapType) {
         let change = parent.getChange(offset, changeTools.daysBack);
         ctx.fillStyle = changeTools.getColorForChange(change);
     } else {
-        ctx.fillStyle = parent.getColor(offset);
+        ctx.fillStyle = parent.getColor(offset, source);
     }
 
     if (currentMap.settings.map.discreteRegions && currentMap.settings.map.discreteRegions.indexOf(parent.title) > -1) {

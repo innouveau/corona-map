@@ -42,6 +42,9 @@
                 title += this.translate('per') + ' ';
                 title += this.translate('signal-value').toLowerCase();
                 return title;
+            },
+            source() {
+                return this.$store.getters['sources/getStandardSource'];
             }
         },
         methods: {
@@ -53,7 +56,7 @@
                 };
 
                 return regions.filter(region => {
-                    return region.getThreshold(0, this.view.offset) === threshold;
+                    return region.getThreshold(0, this.view.offset, this.source) === threshold;
                 }).sort((a,b) => (getTotalRelativeIncreaseWeek(a) < getTotalRelativeIncreaseWeek(b)) ? 1 : ((getTotalRelativeIncreaseWeek(b) < getTotalRelativeIncreaseWeek(a)) ? -1 : 0));
             }
         }

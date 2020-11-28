@@ -19,6 +19,9 @@
         computed: {
             increaseThisWeek() {
                 return this.region.getTotalIncreaseOfType(this.view.offset, 7, 'positiveTests', true);
+            },
+            positiveTestsSource() {
+                return this.$store.getters['sources/getStandardSource'];
             }
         },
         methods: {
@@ -33,7 +36,7 @@
 <template>
     <div class="region-details-head">
         <div
-            :style="{'background': region.getColor(view.offset)}"
+            :style="{'background': region.getColor(view.offset, positiveTestsSource)}"
             class="dot"></div>
         <div
             :title="region.nutsCode"

@@ -39,8 +39,8 @@
                 this.prepair();
                 this.addHead().then(() => {
                     this.addDate(this.view, 0.51, 0.12, false);
-                    canvasTools.draw(this.ctx, this.regions, this.getSettings('signaling'), this.view.offset, 'signaling');
-                    canvasTools.draw(this.ctx, this.regions, this.getSettings('change'), this.view.offset, 'change');
+                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings('signaling'), this.view.offset, 'signaling');
+                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings('change'), this.view.offset, 'change');
                     this.addCreator();
                     this.addLegend('signaling', true, 0.03, 0.18);
                     this.addLegend('change', null, 0.57, 0.18);

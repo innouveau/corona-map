@@ -316,10 +316,6 @@
                     maxSteps = Math.min(steps, (l - day.offset));
                     end = day.offset;
                     start = day.offset + (maxSteps - 1);
-                    if (day.offset === 0) {
-                        console.log(maxSteps, start, end);
-                    }
-
                     for (let i = start; i > (end - 1); i--) {
                         let d, value;
                         d = this.report.history[l - i];

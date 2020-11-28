@@ -199,7 +199,7 @@
                     zoom: this.$store.state.settings.zoom,
                     fill: true
                 };
-                canvasTools.draw(this.ctx, this.containerRegions, settings, this.view.offset);
+                canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view.offset);
             },
             clear() {
                 this.ctx.clearRect(0, 0, this.width, this.height);
@@ -259,7 +259,8 @@
             :height="height"/>
 
         <map-legend
-            v-if="showLegend"/>
+            v-if="showLegend"
+            :view="view"/>
 
         <download-image-signaling
             v-if="showDownload && !videoMode"
@@ -278,7 +279,8 @@
             :labels="labels"/>
 
         <map-tools-popup
-            v-if="showMapToolsPopup && showTools"/>
+            v-if="showMapToolsPopup && showTools"
+            :view="view"/>
     </div>
 </template>
 

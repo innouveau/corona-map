@@ -74,6 +74,21 @@ const maps = [
                     regionKey: 'Municipality_name'
                 }
             },
+            deceased: {
+                status: true,
+                source: (window.config.dataUrl + 'data/municipality-deaths.csv'),
+                interval: 1,
+                cumulative: true,
+                adapter: {
+                    getKeys(columns) {
+                        return columns.filter(c => c.indexOf('Deceased.') > -1);
+                    },
+                    getDateFromKey(key) {
+                        return key.split('Deceased.')[1];
+                    },
+                    regionKey: 'Municipality_name'
+                }
+            },
             ageGroups: {
                 status: true,
                 source: 'data/maps/nederland/cities-population-agegroup.csv'
@@ -121,6 +136,12 @@ const maps = [
                 cumulative: false
             },
             positiveAntigenTests: {
+                status: false
+            },
+            hospitalisations: {
+                status: false
+            },
+            deceased: {
                 status: false
             },
             administeredPcrTests: {
@@ -174,6 +195,12 @@ const maps = [
             positiveAntigenTests: {
                 status: false
             },
+            hospitalisations: {
+                status: false
+            },
+            deceased: {
+                status: false
+            },
             administeredPcrTests: {
                 status: false,
                 source: ''
@@ -225,6 +252,12 @@ const maps = [
             positiveAntigenTests: {
                 status: false
             },
+            hospitalisations: {
+                status: false
+            },
+            deceased: {
+                status: false
+            },
             administeredPcrTests: {
                 status: false,
                 source: ''
@@ -271,6 +304,12 @@ const maps = [
                 adapter: standardPcrTestAdapter
             },
             positiveAntigenTests: {
+                status: false
+            },
+            hospitalisations: {
+                status: false
+            },
+            deceased: {
                 status: false
             },
             administeredPcrTests: {
@@ -321,6 +360,12 @@ const maps = [
                 adapter: standardPcrTestAdapter
             },
             positiveAntigenTests: {
+                status: false
+            },
+            hospitalisations: {
+                status: false
+            },
+            deceased: {
                 status: false
             },
             administeredPcrTests: {
@@ -391,6 +436,12 @@ const maps = [
                     }
                 }
             },
+            hospitalisations: {
+                status: false
+            },
+            deceased: {
+                status: false
+            },
             ageGroups: {
                 status: false,
                 source: ''
@@ -436,6 +487,12 @@ const maps = [
                 adapter: standardPcrTestAdapter
             },
             positiveAntigenTests: {
+                status: false
+            },
+            hospitalisations: {
+                status: false
+            },
+            deceased: {
                 status: false
             },
             administeredPcrTests: {

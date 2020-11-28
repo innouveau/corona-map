@@ -1,25 +1,29 @@
 <script>
+    import View from "@/classes/View";
+
     export default {
         name: 'map-source-picker',
         components: {},
-        props: {},
+        props: {
+            view: {
+                type: View,
+                required: true
+            }
+        },
         computed: {
             sources() {
-                return [{
-                    key: 'positiveTests',
-                    label: 'cases'
-                }, {
-                    key: 'hospitalisations',
-                    label: 'hospitalisations'
-                }];
+                return this.$store.state.sources.all
+            },
+            currentSource() {
+                return this.view.currentSource;
             }
         },
         methods: {
             pickSource(source) {
-                this.$store.commit('ui/updateProperty', {key: 'currentSource', value: source.key});
+                this.view.currentSource = source;
             },
             isActive(source){
-                return source.key === this.$store.state.ui.currentSource;
+                return source === this.currentSource;
             }
         }
     }
@@ -33,7 +37,7 @@
             @click="pickSource(source)"
             :class="{'map-source-picker__button--active': isActive(source)}"
             class="map-source-picker__button">
-            {{source.label}}
+            {{translate(source.key)}}
         </div>
     </div>
 </template>

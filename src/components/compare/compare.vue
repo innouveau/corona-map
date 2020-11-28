@@ -81,8 +81,8 @@
             <view-item
                 v-for="(view, index) in views"
                 :view="view"
-                :show-legend="index === 0"
-                :show-tools="index === 0"
+                :show-legend="true"
+                :show-tools="true"
                 :show-download="false"/>
 
             <download-image-double
