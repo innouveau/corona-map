@@ -34,7 +34,7 @@
                 return numberTools.format(Math.round(value), addPlus);
             },
             relativeIncreaseLastday(region) {
-                return region.getTotalIncreaseOfType(this.view.offset, 1, 'positiveTests', true);
+                return region.getTotalIncreaseOfType(this.view.offset, 1, this.view.currentSource.key, true);
             }
         }
     }

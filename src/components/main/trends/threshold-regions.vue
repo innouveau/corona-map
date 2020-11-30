@@ -22,8 +22,11 @@
             n() {
                 return this.thresholds[this.thresholds.length - 2].n
             },
+            signalingSystem() {
+                return this.$store.getters['signalingSystems/getItemById'](this.view.currentSource.signalingSystem_id);
+            },
             thresholds() {
-                return this.$store.state.signalingSystems.current.thresholds;
+                return this.signalingSystem.thresholds;
             },
             currentLanguage() {
                 return this.$store.state.languages.current;
@@ -44,7 +47,7 @@
                 return title;
             },
             source() {
-                return this.$store.getters['sources/getStandardSource'];
+                return this.view.currentSource;
             }
         },
         methods: {

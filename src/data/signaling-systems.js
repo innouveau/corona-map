@@ -251,7 +251,7 @@ let signalingSystems = [
             }, {
                 n: 10,
                 color: {
-                    regular: 'rgb(255,255,255)',
+                    regular: 'rgb(255,200,200)',
                     colorblind1: 'rgb(255,255,255)',
                     colorblind2: 'rgb(255,255,255)',
                     variant3: 'rgb(255,255,255)'
@@ -292,7 +292,7 @@ let signalingSystems = [
             }, {
                 n: 20,
                 color: {
-                    regular: 'rgb(255,255,255)',
+                    regular: 'rgb(200,200,200)',
                     colorblind1: 'rgb(255,255,255)',
                     colorblind2: 'rgb(255,255,255)',
                     variant3: 'rgb(255,255,255)'

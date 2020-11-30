@@ -1,5 +1,4 @@
 import _Region from "./_Region";
-import store from '@/store/store';
 import stringTool from '@/tools/string';
 
 

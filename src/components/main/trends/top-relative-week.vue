@@ -15,17 +15,17 @@
         },
         computed: {
             signalingSystem() {
-                return this.$store.state.signalingSystems.current;
+                return this.$store.getters['signalingSystems/getItemById'](this.view.currentSource.signalingSystem_id);
             },
             thresholds() {
                 return this.signalingSystem.thresholds;
             },
             regions() {
                 let thresholds, regions;
-                thresholds = this.signalingSystem.thresholds;
+                thresholds = this.thresholds;
                 regions = this.$store.getters['ui/regions'];
                 return regions.filter(region => {
-                    let threshold = region.getThreshold(0, this.offset);
+                    let threshold = region.getThreshold(0, this.offset, this.view.currentSource);
                     return threshold === thresholds[thresholds.length - 1] || threshold === thresholds[thresholds.length - 2] || threshold === thresholds[thresholds.length - 3];
                 }).sort((a,b) => {
                     if (this.signalingSystem.days === 1){
@@ -63,7 +63,7 @@
         },
         methods: {
             getValue(region) {
-                return region.getTotalIncreaseOfType(this.offset, 7, 'positiveTests', true);
+                return region.getTotalIncreaseOfType(this.offset, 7, this.view.currentSource.key, true);
             },
             getIndicator(region) {
                 if (this.signalingSystem.days === 1) {

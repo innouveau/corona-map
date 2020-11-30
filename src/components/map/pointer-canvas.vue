@@ -58,7 +58,7 @@
                 this.clear();
                 if (this.currentRegion) {
                     this.ctx.strokeStyle = '#fff';
-                    canvasTools.drawRegionContainer(this.ctx, this.currentRegion, this.settings, this.view.offset);
+                    canvasTools.drawRegionContainer(this.ctx, this.currentRegion, this.settings, this.view.offset, null, this.view.currentSource);
                 }
             },
             clear() {

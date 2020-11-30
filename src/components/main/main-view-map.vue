@@ -71,7 +71,7 @@
 
         .map,
         .map-change {
-            height: calc(100% - 76px);
+            height: calc(100% - 82px);
         }
 
 

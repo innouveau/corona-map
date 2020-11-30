@@ -43,7 +43,7 @@
         @click="selectRegion()"
         :class="{'region--current': isCurrent}"
         class="region">
-        <swatch :threshold="region.getThreshold(0, view.offset)"/>
+        <swatch :threshold="region.getThreshold(0, view.offset, view.currentSource)"/>
 
         <div class="region__title">
             {{region.title}}
