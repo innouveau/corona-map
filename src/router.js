@@ -9,6 +9,7 @@ import change from '@/components/change/change'
 import story from '@/components/story/story'
 import populationTest from '@/components/population-test/population-test'
 import exportPage from '@/components/export/export'
+import hospitalisations from '@/components/hospitalisations/hospitalisations'
 
 Vue.use(Router);
 
@@ -53,6 +54,10 @@ const routes = [
         path: "/export",
         name: "exportPage",
         component: exportPage,
+    }, {
+        path: "/hospitalisations",
+        name: "hospitalisations",
+        component: hospitalisations,
     }
 ];
 

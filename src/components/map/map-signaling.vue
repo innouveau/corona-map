@@ -47,7 +47,12 @@
                 default: () => {
                     return [];
                 }
-            }
+            },
+            showSourcePicker: {
+                type: Boolean,
+                required: false,
+                default: true
+            },
         },
         mixins: [mapMixin],
         data() {
@@ -263,7 +268,7 @@
             :view="view"/>
 
         <map-source-picker
-            v-if="hasSourcePicker"
+            v-if="hasSourcePicker && showSourcePicker"
             :view="view"/>
 
         <download-image-signaling
