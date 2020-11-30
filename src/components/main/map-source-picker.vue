@@ -37,7 +37,7 @@
             @click="pickSource(source)"
             :class="{'map-source-picker__button--active': isActive(source)}"
             class="map-source-picker__button">
-            {{translate(source.key)}}
+            {{translate(source.key, true)}}
         </div>
     </div>
 </template>

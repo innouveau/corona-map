@@ -7,9 +7,22 @@
         components: {},
         props: {},
         computed: {
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
             sections() {
                 return changeTools.sections;
-            }
+            },
+            top() {
+                if (this.hasRegionTypePicker) {
+                    return 34;
+                } else {
+                    return 0;
+                }
+            },
+            hasRegionTypePicker() {
+                return this.currentMap.settings.regionTypes && this.currentMap.settings.regionTypes.length > 1;
+            },
         },
         methods: {
             getValue(factor) {
@@ -26,7 +39,9 @@
 
 
 <template>
-    <div class="change-legend map-legend">
+    <div
+        :style="{'top': top + 'px'}"
+        class="change-legend map-legend">
         <div
             v-for="(section, index) in sections"
             class="change-legend__section">

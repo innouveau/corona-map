@@ -7,6 +7,10 @@
     import View from "@/classes/View";
     import $ from 'jquery';
     import MapLabels from "./map-labels/map-labels";
+    import regionTypePicker from "../main/regions/region-type/region-type-picker";
+    import mapSourcePicker from "../main/map-source-picker";
+    import mapMixin from "./map-mixin";
+
 
     export default {
         name: 'map-signaling',
@@ -15,7 +19,9 @@
             mapLegend,
             mapToolsPopup,
             pointerCanvas,
-            downloadImageSignaling
+            downloadImageSignaling,
+            regionTypePicker,
+            mapSourcePicker
         },
         props: {
             showTools: {
@@ -43,6 +49,7 @@
                 }
             }
         },
+        mixins: [mapMixin],
         data() {
             let id = Math.round(Math.random() * 1000000);
             return {
@@ -59,9 +66,6 @@
             containerRegions() {
                 return this.$store.getters['ui/regions'];
             },
-            currentMap() {
-                return this.$store.state.maps.current;
-            },
             regions() {
                 return this.$store.state[this.currentMap.module].all;
             },
@@ -73,9 +77,6 @@
             },
             currentRegionType() {
                 return this.$store.state.ui.currentRegionType;
-            },
-            currentSource() {
-                return this.$store.state.ui.currentSource;
             },
             color() {
                 return this.$store.state.ui.color;
@@ -224,11 +225,6 @@
                     this.draw();
                 }
             },
-            currentSource: {
-                handler: function() {
-                    this.draw();
-                }
-            },
             color: {
                 handler: function() {
                     this.draw();
@@ -260,6 +256,14 @@
 
         <map-legend
             v-if="showLegend"
+            :view="view"/>
+
+        <region-type-picker
+            v-if="hasRegionTypePicker"
+            :view="view"/>
+
+        <map-source-picker
+            v-if="hasSourcePicker"
             :view="view"/>
 
         <download-image-signaling
@@ -312,8 +316,35 @@
         .map-legend {
             position: absolute;
             left: 0;
-            top: 10px;
             z-index: 1;
+        }
+
+        .region-type-picker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 20px;
+            border-left: 2px solid $map-color-dark;
+            padding-left: 8px;
+            margin-left: 1px;
+            display: flex;
+            align-items: center;
+            color: $map-color-super-dark;
+            z-index: 2;
+        }
+
+        .map-source-picker {
+            position: absolute;
+            left: 0;
+            top: 24px;
+            height: 20px;
+            border-left: 2px solid $map-color-dark;
+            padding-left: 8px;
+            margin-left: 1px;
+            display: flex;
+            align-items: center;
+            color: $map-color-super-dark;
+            z-index: 2;
         }
 
         .download-image {

@@ -4,12 +4,10 @@
     import dateTools from '@/tools/date';
     import timeSlider from "@/components/view/time-slider";
     import timeSpeed from "./time-speed";
-    import mapSourcePicker from "../main/map-source-picker";
 
     export default {
         name: 'view-tools',
         components: {
-            mapSourcePicker,
             timeSpeed,
             timeSlider,
             Datepicker
@@ -83,9 +81,6 @@
 
         <time-speed
             v-if="showTimeTools"
-            :view="view"/>
-
-        <map-source-picker
             :view="view"/>
     </div>
 </template>

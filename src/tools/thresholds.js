@@ -37,7 +37,7 @@ const getNumber = function(threshold, source) {
         text = signalingSystem.thresholds[signalingSystem.thresholds.length - 2].n + ' ' + translateTool.translate('or-mor');
     }
     if (index === 0) {
-        text += ' ' + translateTool.translate(source.key, true) + ' ' + translateTool.translate('per') + ' ';
+        text += ' ' + translateTool.translate(source.key, false) + ' ' + translateTool.translate('per') + ' ';
         text += getNiceNumberForPopulation(signalingSystem.population) + ' ';
         text += translateTool.translate('inhabitants') + ' ' + translateTool.translate('per') + ' ';
         text += getNiceNumberForDays(signalingSystem.days);

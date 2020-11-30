@@ -5,7 +5,6 @@
     import regionDetailsChange from "./region-details-change";
     import searchRegions from "../main/regions/search/search-regions";
     import timeSlider from "../view/time-slider";
-    import regionTypePicker from "@/components/main/regions/region-type/region-type-picker";
     import changeTrends from "./trends/change-trends";
     import dateTools from '@/tools/date';
     import query from '@/components/elements/query'
@@ -18,8 +17,7 @@
             searchRegions,
             regionDetailsChange,
             mapChange,
-            headerMenu,
-            regionTypePicker
+            headerMenu
         },
         mixins: [query],
         props: {},
@@ -70,9 +68,6 @@
                 :class="{'panel--active': showMap}"
                 class="panel standard-view-map">
                 <search-regions
-                    :view="view"/>
-
-                <region-type-picker
                     :view="view"/>
 
                 <map-change

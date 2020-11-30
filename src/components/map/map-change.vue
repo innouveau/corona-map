@@ -4,24 +4,28 @@
     import pointerCanvas from "./pointer-canvas";
     import ChangeLegend from "./map-legend/change-legend";
     import downloadImageChange from "./download/download-image-change";
+    import regionTypePicker from "@/components/main/regions/region-type/region-type-picker";
 
     export default {
         name: 'map-change',
         components: {
             downloadImageChange,
             ChangeLegend,
-            pointerCanvas
+            pointerCanvas,
+            regionTypePicker
         },
         mixins: [mapMixin],
         props: {},
         data() {
             let id = Math.round(Math.random() * 1000000);
             return {
-                id
+                id,
             }
         },
         computed: {
-
+            hasSourcePicker() {
+                return false;
+            }
         },
         methods: {
             draw() {
@@ -54,6 +58,10 @@
             :view="view"/>
 
         <change-legend/>
+
+        <region-type-picker
+            v-if="hasRegionTypePicker"
+            :view="view"/>
     </div>
 </template>
 

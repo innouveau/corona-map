@@ -18,6 +18,24 @@
         computed: {
             gradient() {
                 return this.$store.state.settings.gradient;
+            },
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
+            hasRegionTypePicker() {
+                return this.currentMap.settings.regionTypes && this.currentMap.settings.regionTypes.length > 1;
+            },
+            hasSourcePicker() {
+                return this.currentMap.data.hospitalisations.status || this.currentMap.data.deceased.status;
+            },
+            top() {
+                if (this.hasSourcePicker && this.hasRegionTypePicker) {
+                    return 54;
+                } else if (this.hasSourcePicker || this.hasRegionTypePicker) {
+                    return 34;
+                } else {
+                    return 0;
+                }
             }
         },
         methods: {}
@@ -26,7 +44,9 @@
 
 
 <template>
-    <div class="map-legend">
+    <div
+        :style="{'top': top + 'px'}"
+        class="map-legend">
         <map-legend-gradient
             v-if="gradient"
             :view="view"/>

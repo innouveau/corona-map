@@ -1,19 +1,15 @@
 <script>
     import searchRegions from "./regions/search/search-regions";
-    import regionTypePicker from "./regions/region-type/region-type-picker";
     import mapSignaling from "@/components/map/map-signaling";
     import timeSlider from "@/components/view/time-slider";
     import embedButton from "./embed-button";
     import View from "@/classes/View";
-    import mapSourcePicker from "./map-source-picker";
 
     export default {
         name: 'main-view-map',
         components: {
-            mapSourcePicker,
             mapSignaling,
             searchRegions,
-            regionTypePicker,
             timeSlider,
             embedButton
         },
@@ -41,17 +37,13 @@
         <search-regions
             :view="view"/>
 
-        <region-type-picker
-            :view="view"/>
-
-        <map-source-picker
-            :view="view"/>
-
         <map-signaling
             :view="view"
             :show-tools="true"
             :show-legend="true"
             :offset="view.offset"/>
+
+
 
         <div class="standard-view-map__tools">
             <time-slider
@@ -77,24 +69,11 @@
             margin-bottom: 6px;
         }
 
-        .region-type-picker {
-            height: 24px;
-            display: flex;
-            align-items: center;
-            padding-left: 4px;
-            color: $map-color-super-dark;
-        }
-
-        .map-source-picker {
-            position: absolute;
-            top: 62px;
-            right: 20px;
-        }
-
         .map,
         .map-change {
-            height: calc(100% - 106px);
+            height: calc(100% - 76px);
         }
+
 
         .standard-view-map__tools {
             height: 40px;
