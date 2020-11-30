@@ -22,7 +22,10 @@
         mixins: [query],
         data() {
             return {
-                view: new View({id: 1})
+                view: new View({
+                    id: 1,
+                    currentSource: this.$store.state.sources.all[0]
+                })
             }
         },
         computed: {

@@ -1,21 +1,30 @@
 <script>
     import thresholdTools from '@/tools/thresholds';
+    import View from "@/classes/View";
 
     export default {
         name: 'map-legend-regular',
         components: {},
-        props: {},
+        props: {
+            view: {
+                type: View,
+                required: true
+            }
+        },
         computed: {
             colorSetting() {
                 return this.$store.state.ui.color;
             },
+            signalingSystem() {
+                return store.getters['signalingSystems/getItemById'](this.view.currentSource.signalingSystem_id);
+            },
             thresholds() {
-                return this.$store.state.signalingSystems.current.thresholds;
+                return this.signalingSystem.thresholds;
             }
         },
         methods: {
             getNumber(threshold) {
-                return thresholdTools.getNumber(threshold);
+                return thresholdTools.getNumber(threshold, this.view.currentSource);
             },
             getValue(threshold) {
                 if (threshold.label) {

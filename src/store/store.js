@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 import languages from './modules/languages';
+import sources from './modules/sources';
 import signalingSystems from './modules/signaling-systems';
 import maps from './modules/maps';
 import stories from './modules/stories';
@@ -34,7 +35,7 @@ const store = new Vuex.Store({
     actions: {},
     modules: {
         languages,
-        signalingSystems,
+        signalingSystems, sources,
         maps, stories, views,
         countries, cities, districts, ggds, safetyRegions, provinces, regios,
         sewageTreatmentPlants,

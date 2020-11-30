@@ -1,29 +1,31 @@
 <script>
+    import View from "@/classes/View";
+
     export default {
         name: 'signaling-system-picker',
         components: {},
-        props: {},
+        props: {
+            view: {
+                type: View,
+                required: true
+            }
+        },
         computed: {
-            signalingSystems() {
-                return this.$store.state.signalingSystems.all;
+            currentSource() {
+                return this.view.currentSource;
             },
-            activeSignalingSystem: {
-                get() {
-                    return this.$store.state.signalingSystems.current;
-                },
-                set(signalingSystem) {
-                    this.$store.commit('signalingSystems/setCurrent', signalingSystem);
-
-                }
+            signalingSystems() {
+                return this.$store.state.signalingSystems.all
+                    .filter(s => s.source === this.currentSource.key);
             }
         },
         methods: {
             select(signalingSystem){
-                this.$store.commit('signalingSystems/setCurrent', signalingSystem);
+                this.$store.commit('sources/updatePropertyOfItem', {item: this.currentSource, property: 'signalingSystem_id', value: signalingSystem.id});
                 this.$parent.close();
             },
             isActive(signalingSystem) {
-                return this.$store.state.signalingSystems.current === signalingSystem ;
+                return this.currentSource.signalingSystem_id === signalingSystem.id;
             }
         }
     }

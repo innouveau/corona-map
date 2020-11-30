@@ -51,6 +51,10 @@ const dictionary = {
         nl: "Data positieve testen",
         en: "Data positive tests"
     },
+    "deceased": {
+        nl: "Overledenen",
+        en: "Deceased"
+    },
     "description": {
         nl: "Beschrijving",
         en: "Description"
@@ -98,6 +102,10 @@ const dictionary = {
     "help-with-data": {
         nl: "voor hulp en ter beschikking stellen van alle data.",
         en: "for help and providing all the data."
+    },
+    "hospitalisations": {
+        nl: "Ziekenhuisopnames",
+        en: "Hospitalisations"
     },
     "info": {
         nl: "Info",
@@ -188,8 +196,12 @@ const dictionary = {
         en: "Population"
     },
     "positive-tests": {
-        nl: "Positieve PCR tests",
-        en: "Positive PCR tests"
+        nl: "Positieven",
+        en: "Positives"
+    },
+    "positiveTests": {
+        nl: "Positieven",
+        en: "Positives"
     },
     "province": {
         nl: "Provincie",

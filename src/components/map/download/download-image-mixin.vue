@@ -115,7 +115,7 @@
                 y = baseY;
                 ctx = this.ctx;
                 index = 0;
-                thresholds = thresholdTools.getThresholds();
+                thresholds = thresholdTools.getThresholds(this.view.currentSource);
                 for (let threshold of thresholds) {
                     let color1, color2, grd, label;
                     color1 = threshold.color[this.$store.state.ui.color];
@@ -134,7 +134,7 @@
                     if (threshold.label) {
                         label = threshold.label;
                     } else {
-                        label = thresholdTools.getNumber(threshold);
+                        label = thresholdTools.getNumber(threshold, this.view.currentSource);
                     }
                     ctx.fillText(label, baseX + width + (8 * this.imageScale), (y + (18 * this.imageScale)));
                     y += (height + margin);
@@ -144,7 +144,7 @@
             addLegendSignaling(baseX, baseY) {
                 let ctx = this.ctx;
                 baseX += 8;
-                for (let threshold of thresholdTools.getThresholds()) {
+                for (let threshold of thresholdTools.getThresholds(this.view.currentSource)) {
                     let label;
                     ctx.fillStyle = threshold.color[this.$store.state.ui.color];
                     ctx.beginPath();
@@ -155,7 +155,7 @@
                     if (threshold.label) {
                         label = threshold.label;
                     } else {
-                        label = thresholdTools.getNumber(threshold);
+                        label = thresholdTools.getNumber(threshold, this.view.currentSource);
                     }
                     ctx.fillText(label, baseX + (24 * this.imageScale), (baseY + (7 * this.imageScale)));
                     baseY += (24 * this.imageScale);

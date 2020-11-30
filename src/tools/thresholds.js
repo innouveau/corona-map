@@ -6,8 +6,8 @@ import translateTool from '@/tools/translate';
 
 
 
-const getThreshold = function(cases) {
-    let signalingSystem = store.state.signalingSystems.current;
+const getThreshold = function(cases, source) {
+    let signalingSystem = store.getters['signalingSystems/getItemById'](source.signalingSystem_id);
     if (cases === null) {
         return null;
     } else {
@@ -20,9 +20,9 @@ const getThreshold = function(cases) {
     }
 };
 
-const getNumber = function(threshold) {
-    let index, signalingSystem, text;
-    signalingSystem = store.state.signalingSystems.current;
+const getNumber = function(threshold, source) {
+    let index, text, signalingSystem;
+    signalingSystem = store.getters['signalingSystems/getItemById'](source.signalingSystem_id);
     index = signalingSystem.thresholds.indexOf(threshold);
     if (index === 0) {
         if (threshold.n === 0) {
@@ -37,7 +37,7 @@ const getNumber = function(threshold) {
         text = signalingSystem.thresholds[signalingSystem.thresholds.length - 2].n + ' ' + translateTool.translate('or-mor');
     }
     if (index === 0) {
-        text += ' ' + translateTool.translate('positive-tests', true) + ' ' + translateTool.translate('per') + ' ';
+        text += ' ' + translateTool.translate(source.key, false) + ' ' + translateTool.translate('per') + ' ';
         text += getNiceNumberForPopulation(signalingSystem.population) + ' ';
         text += translateTool.translate('inhabitants') + ' ' + translateTool.translate('per') + ' ';
         text += getNiceNumberForDays(signalingSystem.days);
@@ -59,29 +59,34 @@ const getNiceNumberForPopulation = function(number) {
     }
 };
 
-const getThresholds = function() {
-    return store.state.signalingSystems.current.thresholds;
+const getThresholds = function(source) {
+    let signalingSystem = store.getters['signalingSystems/getItemById'](source.signalingSystem_id);
+    return signalingSystem.thresholds;
 };
 
-const _prevThreshold = function(threshold) {
-    let index = getThresholds().indexOf(threshold);
+const _prevThreshold = function(threshold, source) {
+    let index, thresholds;
+    thresholds = getThresholds(source);
+    index = thresholds.indexOf(threshold);
     if (index > 0) {
-        return getThresholds()[index - 1];
+        return thresholds[index - 1];
     } else {
         return null;
     }
 };
 
-const _nextThreshold = function(threshold) {
-    let index = getThresholds().indexOf(threshold);
-    if (index < getThresholds().length - 1) {
-        return getThresholds()[index + 1];
+const _nextThreshold = function(threshold, source) {
+    let index, thresholds;
+    thresholds = getThresholds(source);
+    index = thresholds.indexOf(threshold);
+    if (index < thresholds.length - 1) {
+        return thresholds[index + 1];
     } else {
         return null;
     }
 };
 
-const thresholdToColor = function(threshold, cases) {
+const thresholdToColor = function(threshold, cases, source) {
     if (!threshold) {
         return '#888';
     } else {
@@ -89,8 +94,8 @@ const thresholdToColor = function(threshold, cases) {
             return threshold.color[store.state.ui.color];
         } else {
             let prev, next;
-            prev = _prevThreshold(threshold);
-            next = _nextThreshold(threshold);
+            prev = _prevThreshold(threshold, source);
+            next = _nextThreshold(threshold, source);
             if (!prev || !next) {
                 return threshold.color[store.state.ui.color];
             } else {

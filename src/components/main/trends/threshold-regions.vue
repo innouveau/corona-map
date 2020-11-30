@@ -22,8 +22,11 @@
             n() {
                 return this.thresholds[this.thresholds.length - 2].n
             },
+            signalingSystem() {
+                return this.$store.getters['signalingSystems/getItemById'](this.view.currentSource.signalingSystem_id);
+            },
             thresholds() {
-                return this.$store.state.signalingSystems.current.thresholds;
+                return this.signalingSystem.thresholds;
             },
             currentLanguage() {
                 return this.$store.state.languages.current;
@@ -42,6 +45,9 @@
                 title += this.translate('per') + ' ';
                 title += this.translate('signal-value').toLowerCase();
                 return title;
+            },
+            source() {
+                return this.view.currentSource;
             }
         },
         methods: {
@@ -53,7 +59,7 @@
                 };
 
                 return regions.filter(region => {
-                    return region.getThreshold(0, this.view.offset) === threshold;
+                    return region.getThreshold(0, this.view.offset, this.source) === threshold;
                 }).sort((a,b) => (getTotalRelativeIncreaseWeek(a) < getTotalRelativeIncreaseWeek(b)) ? 1 : ((getTotalRelativeIncreaseWeek(b) < getTotalRelativeIncreaseWeek(a)) ? -1 : 0));
             }
         }

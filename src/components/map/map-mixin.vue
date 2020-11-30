@@ -65,6 +65,12 @@
             },
             videoMode() {
                 return this.$store.state.ui.videoMode;
+            },
+            hasRegionTypePicker() {
+                return this.currentMap.settings.regionTypes && this.currentMap.settings.regionTypes.length > 1;
+            },
+            hasSourcePicker() {
+                return this.currentMap.data.hospitalisations.status || this.currentMap.data.deceased.status;
             }
         },
         methods: {

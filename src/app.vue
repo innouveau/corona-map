@@ -164,12 +164,6 @@
                                             totalAntigenTestsValue = Number(row[totalAntigenTestsKey]);
                                             frame.positiveAntigenTests = positiveAntigenTestsValue;
                                             frame.totalAntigenTests = totalAntigenTestsValue;
-                                            // // spread the result over the test period
-                                            // let frameIndex = region.report.history.indexOf(frame);
-                                            // for (let i = 0; i < this.currentMap.data.positiveAntigenTests.period; i++) {
-                                            //     let f = region.report.history[frameIndex + i];
-                                            //     f.positiveAntigenTests = Math.round(value / this.currentMap.data.positiveAntigenTests.period);
-                                            // }
                                         } else {
                                             console.error('frame with date ' + date + ' not found for antigen data');
                                         }
@@ -184,8 +178,6 @@
                         .catch((error) => {
                             console.error(error);
                         });
-
-
                 })
             },
             loadPcrTests() {
@@ -201,7 +193,8 @@
                 return new Promise((resolve, reject) => {
                     d3.csv(this.currentMap.data.positivePcrTests.source + dateTool.getTimestamp())
                         .then((data) => {
-                            let adapter;
+                            let adapter, promises;
+                            promises = [];
                             if (this.currentMap.data.positivePcrTests.adapter) {
                                 adapter = this.currentMap.data.positivePcrTests.adapter;
                             } else {
@@ -221,8 +214,32 @@
                                     this.addTests(item, adapter);
                                 }
                             }
+                            this.addSource('positiveTests');
+
+                            const loadHospitalisations = () => {
+                                this.loadStandard('hospitalisations');
+                            };
+
+                            const loadDeceased = () => {
+                                this.loadStandard('deceased');
+                            };
+
+
                             if (this.currentMap.data.positiveAntigenTests.status) {
-                                this.loadAntigenTests().then(() => resolve());
+                                promises.push(this.loadAntigenTests);
+                            }
+                            if (this.currentMap.data.hospitalisations.status) {
+                                promises.push(loadHospitalisations);
+                            }
+                            if (this.currentMap.data.deceased.status) {
+                                promises.push(loadDeceased);
+                            }
+
+                            if (promises.length > 0) {
+                                Promise.all(promises.map(p => p()))
+                                    .then((result) => {
+                                        resolve();
+                                    })
                             } else {
                                 resolve();
                             }
@@ -231,6 +248,53 @@
                             console.error(error);
                         });
                 })
+            },
+            loadStandard(subjectKey) {
+                return new Promise((resolve, reject) => {
+                    d3.csv(this.currentMap.data[subjectKey].source + dateTool.getTimestamp())
+                        .then((result) => {
+                            let adapter, keys, lastValue;
+                            adapter = this.currentMap.data[subjectKey].adapter;
+                            keys = adapter.getKeys(result.columns);
+                            for (let row of result) {
+                                let title, region;
+                                title = row[adapter.regionKey];
+                                region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
+                                if (region) {
+                                    lastValue = 0;
+                                    for (let key of keys) {
+                                        let frame, date, value;
+                                        value = Number(row[key]);
+                                        date = adapter.getDateFromKey(key);
+                                        frame = region.report.history.find(f => f.date === date);
+                                        if (frame) {
+                                            frame[subjectKey] = value - lastValue;
+                                        } else {
+                                            //console.error('frame with date ' + date + ' not found for hospitalisations data');
+                                        }
+                                        lastValue = value;
+                                    }
+                                } else {
+                                    //console.error('Region ' + title + ' not found for hospitalisations data');
+                                }
+                            }
+                            this.addSource(subjectKey);
+                            resolve();
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                })
+            },
+            addSource(subjectKey) {
+                let signalingSystem, source;
+                signalingSystem = this.$store.state.signalingSystems.all.find(s => s.source === subjectKey);
+                source = {
+                    key: subjectKey,
+                    title: subjectKey,
+                    signalingSystem_id: signalingSystem.id
+                };
+                this.$store.commit('sources/create', source);
             },
             loadAgeGroupsForCities() {
                 return new Promise((resolve, reject) => {

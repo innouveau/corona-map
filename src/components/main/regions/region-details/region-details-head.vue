@@ -33,7 +33,7 @@
 <template>
     <div class="region-details-head">
         <div
-            :style="{'background': region.getColor(view.offset)}"
+            :style="{'background': region.getColor(view.offset, view.currentSource)}"
             class="dot"></div>
         <div
             :title="region.nutsCode"

@@ -24,11 +24,11 @@
                 this.drawGrid();
                 if (this.days.length > 0) {
                     if (this.currentMap.data.positivePcrTests.interval === 1) {
-                        this.drawPcrTestsBars('rgba(0,0,0,0.15)');
-                        this.drawTestsLine('positiveTests', true, false, '#000');
+                        this.drawPcrTestsBars(this.view.currentSource.key, 'rgba(0,0,0,0.15)');
+                        this.drawTestsLine(this.view.currentSource.key, true, false, '#000');
                     } else {
-                        this.drawTestsLine('positiveTests', false, false, '#000');
-                        this.drawTestsDots('positiveTests', false, '#000');
+                        this.drawTestsLine(this.view.currentSource.key, false, false, '#000');
+                        this.drawTestsDots(this.view.currentSource.key, false, '#000');
                     }
 
                 }
@@ -46,7 +46,7 @@
         <div
             v-if="framesBefore > 2"
             class="pcr-test-graph__title">
-            {{title}}
+            {{translate(this.view.currentSource.key, true)}}
         </div>
         <div
             ref="container"

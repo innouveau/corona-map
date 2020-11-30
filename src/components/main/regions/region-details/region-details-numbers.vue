@@ -66,7 +66,7 @@
                     <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, 1, 'positiveTests', false), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, 1, view.currentSource.key, false), true)}}
                 </div>
             </div>
             <div v-if="hasDays && !short" class="region-details__row">
@@ -75,7 +75,7 @@
                     <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, 1, 'positiveTests', true), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, 1, view.currentSource.key, true), true)}}
                 </div>
             </div>
             <div
@@ -86,7 +86,7 @@
                     <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, (7 / testDataInterval) , 'positiveTests', false), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, (7 / testDataInterval) , view.currentSource.key, false), true)}}
                 </div>
             </div>
             <div class="region-details__row">
@@ -94,17 +94,19 @@
                     {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, (7 / testDataInterval), 'positiveTests', true), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, (7 / testDataInterval), view.currentSource.key, true), true)}}
                 </div>
             </div>
         </div>
-        <div class="region-details__section">
+        <div
+            v-if="view.currentSource.key === 'positiveTests'"
+            class="region-details__section">
             <div class="region-details__row">
                 <div class="region-details__label">
                     {{translate('total-infections', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, -1, 'positiveTests', false), false)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, -1, view.currentSource.key, false), false)}}
                 </div>
             </div>
             <div class="region-details__row">
@@ -112,7 +114,7 @@
                     {{translate('total-infections-percentage-of-population', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{formatPercentage(region.getTotalAsPercentageOfPopulation(view.offset, 'positiveTests'), false)}}
+                    {{formatPercentage(region.getTotalAsPercentageOfPopulation(view.offset, view.currentSource.key), false)}}
                 </div>
             </div>
         </div>

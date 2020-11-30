@@ -1,4 +1,3 @@
-import store from '@/store/store';
 import dateTools from '@/tools/date';
 
 class Measurement {

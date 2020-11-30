@@ -53,7 +53,7 @@
                 return this.framesBefore + this.framesAfter;
             },
             signalingSystem() {
-                return this.$store.state.signalingSystems.current;
+                return this.$store.getters['signalingSystems/getItemById'](this.view.currentSource.signalingSystem_id);
             },
             colorSet() {
                 return this.$store.state.ui.color;
@@ -62,11 +62,18 @@
                 return this.colorSet === 'colorblind1';
             },
             appliedZoom() {
+                let z;
                 if (this.currentMap.settings.positiveTestGraph && this.currentMap.settings.positiveTestGraph.zoomFactor) {
-                    return this.zoom * this.currentMap.settings.positiveTestGraph.zoomFactor / this.frameSize;
+                    z = this.zoom * this.currentMap.settings.positiveTestGraph.zoomFactor / this.frameSize;
                 } else {
-                    return this.zoom / this.frameSize;
+                    z = this.zoom / this.frameSize;
                 }
+                if (this.view.currentSource.key === 'hospitalisations') {
+                    z *= 5;
+                } else if (this.view.currentSource.key === 'deceased') {
+                    z *= 20;
+                }
+                return z;
             },
             offset() {
                 return this.view.offset;
@@ -157,7 +164,8 @@
                             height = (this.appliedZoom * threshold.n / this.signalingSystem.days) - lastY;
                             y = this.height  - lastY - height;
                         } else {
-                            height = this.height - lastY;
+                            // prevent zero
+                            height = Math.max((this.height - lastY), 0);
                             y = 0;
                         }
                         this.contentContainer.append('rect')
@@ -176,12 +184,12 @@
                 let offset = day.offset - this.offset;
                 return this.widthBefore - (this.step * offset);
             },
-            drawTestsLine(source = 'pcr', smoothened, dotted, color) {
+            drawTestsLine(sourceKey, smoothened, dotted, color) {
                 let points, lineFunction;
                 points = this.days.map(day => {
                     return {
                         x: this.getX(day),
-                        y: this.getY(day, source, smoothened)
+                        y: this.getY(day, sourceKey, smoothened)
                     }
                 });
                 lineFunction = d3.line()
@@ -197,11 +205,11 @@
                         return dotted ? [4,4] : [];
                     })
             },
-            drawTestsDots(source = 'pcr', smoothened, color) {
+            drawTestsDots(sourceKey = 'pcr', smoothened, color) {
                 for (let day of this.days) {
                     let x, y;
                     x = this.getX(day);
-                    y = this.getY(day, source, smoothened);
+                    y = this.getY(day, sourceKey, smoothened);
 
                     this.lineContainer.append('circle')
                         .attr('cx', x)
@@ -210,15 +218,15 @@
                         .attr('fill', color);
                 }
             },
-            drawPcrTestsBars(color) {
+            drawPcrTestsBars(sourceKey, color) {
                 let index, margin;
                 index = 0;
                 margin = 1;
                 for (let day of this.days) {
                     if (day) {
                         let value, y, rect;
-                        value = this.getAbsoluteValue(day, 'positiveTests');
-                        y = this.getY(day, 'positiveTests',false);
+                        value = this.getAbsoluteValue(day, sourceKey);
+                        y = this.getY(day, sourceKey,false);
                         rect = this.lineContainer.append('rect')
                             .attr('x', (d) => {
                                 return (index - 0.5) * this.step + margin;
@@ -228,7 +236,7 @@
                                 let last = this.days.indexOf(day) === this.days.length - 1;
                                 return last ? (0.5 * this.step) : (this.step - (2 * margin));
                             })
-                            .attr('height', this.height - y)
+                            .attr('height', Math.max((this.height - y), 0))
                             .attr('fill', color);
 
                         rect.append('svg:title')
@@ -269,20 +277,20 @@
                     index ++;
                 }
             },
-            getRelativeOfType(day, source) {
+            getRelativeOfType(day, sourceKey) {
                 let value;
                 // for the graph we always use 100000, independent from the signaling system
-                if (source !== 'cumulative') {
-                    value = day[source]
+                if (sourceKey !== 'cumulative') {
+                    value = day[sourceKey]
                 } else {
                     value = day['positiveTests'] + day['positiveAntigenTests'];
                 }
                 return 100000 * (value / this.currentMap.data.positivePcrTests.interval) / this.region.getTotalPopulation();
             },
-            getAbsoluteValue(day, source) {
+            getAbsoluteValue(day, sourceKey) {
                 let total, index;
                 if (this.frameSize === 1) {
-                    return day[source];
+                    return day[sourceKey];
                 } else {
                     // get sum of 7 days
                     total = 0;
@@ -291,7 +299,7 @@
                         for (let i = index - 6; i < (index + 1); i++) {
                             let d = this.region.report.history[i];
                             if (d) {
-                                total += d[source];
+                                total += d[sourceKey];
                             } else {
                                 console.error('coud not find day with index ' + index + ' for region ' + this.region.title);
                             }
@@ -300,14 +308,14 @@
                     return total;
                 }
             },
-            getY(day, source, smoothened) {
+            getY(day, sourceKey, smoothened) {
                 let end, start, total, average, relativeValue, l,
                     steps, maxSteps;
                 if (!smoothened) {
                     if (this.frameSize === 1) {
-                        relativeValue = this.getRelativeOfType(day, source);
+                        relativeValue = this.getRelativeOfType(day, sourceKey);
                     } else {
-                        relativeValue = 100000 * this.getAbsoluteValue(day, source) / this.region.getTotalPopulation();
+                        relativeValue = 100000 * this.getAbsoluteValue(day, sourceKey) / this.region.getTotalPopulation();
                     }
                 } else {
                     total = 0;
@@ -316,17 +324,13 @@
                     maxSteps = Math.min(steps, (l - day.offset));
                     end = day.offset;
                     start = day.offset + (maxSteps - 1);
-                    if (day.offset === 0) {
-                        console.log(maxSteps, start, end);
-                    }
-
                     for (let i = start; i > (end - 1); i--) {
                         let d, value;
                         d = this.report.history[l - i];
-                        if (source === 'cumulative') {
+                        if (sourceKey === 'cumulative') {
                             value = d['positiveTests'] + d['positiveAntigenTests'];
                         } else {
-                            value = d[source];
+                            value = d[sourceKey];
                         }
                         total += value / this.currentMap.data.positivePcrTests.interval;
                     }

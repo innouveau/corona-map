@@ -7,6 +7,10 @@
     import View from "@/classes/View";
     import $ from 'jquery';
     import MapLabels from "./map-labels/map-labels";
+    import regionTypePicker from "../main/regions/region-type/region-type-picker";
+    import mapSourcePicker from "../main/map-source-picker";
+    import mapMixin from "./map-mixin";
+
 
     export default {
         name: 'map-signaling',
@@ -15,7 +19,9 @@
             mapLegend,
             mapToolsPopup,
             pointerCanvas,
-            downloadImageSignaling
+            downloadImageSignaling,
+            regionTypePicker,
+            mapSourcePicker
         },
         props: {
             showTools: {
@@ -43,6 +49,7 @@
                 }
             }
         },
+        mixins: [mapMixin],
         data() {
             let id = Math.round(Math.random() * 1000000);
             return {
@@ -59,9 +66,6 @@
             containerRegions() {
                 return this.$store.getters['ui/regions'];
             },
-            currentMap() {
-                return this.$store.state.maps.current;
-            },
             regions() {
                 return this.$store.state[this.currentMap.module].all;
             },
@@ -72,7 +76,7 @@
                 return this.canvas.getContext('2d');
             },
             currentRegionType() {
-                return this.$store.state.ui.currentRegionType
+                return this.$store.state.ui.currentRegionType;
             },
             color() {
                 return this.$store.state.ui.color;
@@ -196,7 +200,7 @@
                     zoom: this.$store.state.settings.zoom,
                     fill: true
                 };
-                canvasTools.draw(this.ctx, this.containerRegions, settings, this.view.offset);
+                canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view.offset);
             },
             clear() {
                 this.ctx.clearRect(0, 0, this.width, this.height);
@@ -251,7 +255,16 @@
             :height="height"/>
 
         <map-legend
-            v-if="showLegend"/>
+            v-if="showLegend"
+            :view="view"/>
+
+        <region-type-picker
+            v-if="hasRegionTypePicker"
+            :view="view"/>
+
+        <map-source-picker
+            v-if="hasSourcePicker"
+            :view="view"/>
 
         <download-image-signaling
             v-if="showDownload && !videoMode"
@@ -270,7 +283,8 @@
             :labels="labels"/>
 
         <map-tools-popup
-            v-if="showMapToolsPopup && showTools"/>
+            v-if="showMapToolsPopup && showTools"
+            :view="view"/>
     </div>
 </template>
 
@@ -302,8 +316,35 @@
         .map-legend {
             position: absolute;
             left: 0;
-            top: 10px;
             z-index: 1;
+        }
+
+        .region-type-picker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 20px;
+            border-left: 2px solid $map-color-dark;
+            padding-left: 8px;
+            margin-left: 1px;
+            display: flex;
+            align-items: center;
+            color: $map-color-super-dark;
+            z-index: 2;
+        }
+
+        .map-source-picker {
+            position: absolute;
+            left: 0;
+            top: 24px;
+            height: 20px;
+            border-left: 2px solid $map-color-dark;
+            padding-left: 8px;
+            margin-left: 1px;
+            display: flex;
+            align-items: center;
+            color: $map-color-super-dark;
+            z-index: 2;
         }
 
         .download-image {
