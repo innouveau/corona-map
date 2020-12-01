@@ -60,10 +60,10 @@
                 return Math.round(100000 * this.cases / this.population);
             },
             threshold() {
-                return thresholdTools.getThreshold(this.casesPerPopulation);
+                return thresholdTools.getThreshold(this.casesPerPopulation, this.view.currentSource);
             },
             color() {
-                return thresholdTools.thresholdToColor(this.threshold, this.casesPerPopulation);
+                return thresholdTools.thresholdToColor(this.threshold, this.casesPerPopulation, this.view.currentSource);
             },
             ageDistributionAbsolute() {
                 return this.$store.state.settings.ageDistributionAbsolute;

@@ -70,6 +70,9 @@
             },
             step() {
                 return this.$store.state.settings.step * this.currentMap.data.positivePcrTests.interval;
+            },
+            sourceIsPositiveTests() {
+                return this.view.currentSource.key === 'positiveTests'
             }
         },
         methods: {}
@@ -89,17 +92,17 @@
 
         <div class="region-details__section">
             <positive-pcr-tests
-                    :view="view"
-                    :region="regionOfFocus"
-                    :frames-before="framesBefore"
-                    :step="step"/>
+                :view="view"
+                :region="regionOfFocus"
+                :frames-before="framesBefore"
+                :step="step"/>
 
             <administered-pcr-tests
-                    v-if="currentMap.data.administeredPcrTests.status"
-                    :view="view"
-                    :region="regionOfFocus"
-                    :frames-before="framesBefore"
-                    :step="step"/>
+                v-if="currentMap.data.administeredPcrTests.status"
+                :view="view"
+                :region="regionOfFocus"
+                :frames-before="framesBefore"
+                :step="step"/>
         </div>
 
         <div class="region-details__info">
@@ -110,7 +113,7 @@
             </div>
 
             <div
-                v-if="hasAgeGroups && (regionOfFocus.regionType === 'ggd' || regionOfFocus.regionType === 'country') && caseDataRequested"
+                v-if="sourceIsPositiveTests && hasAgeGroups && (regionOfFocus.regionType === 'ggd' || regionOfFocus.regionType === 'country') && caseDataRequested"
                 class="region-details__section">
                 <div class="region-details__section-header">
                     {{translate('age-distribution', true)}}
