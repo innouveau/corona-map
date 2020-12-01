@@ -214,14 +214,16 @@
                                     this.addTests(item, adapter);
                                 }
                             }
-                            this.addSource('positiveTests');
+                            this.addSource('positiveTests', 0);
 
                             const loadHospitalisations = () => {
                                 this.loadStandard('hospitalisations');
+                                this.addSource('hospitalisations', 1);
                             };
 
                             const loadDeceased = () => {
                                 this.loadStandard('deceased');
+                                this.addSource('deceased', 2);
                             };
 
 
@@ -278,7 +280,6 @@
                                     //console.error('Region ' + title + ' not found for hospitalisations data');
                                 }
                             }
-                            this.addSource(subjectKey);
                             resolve();
                         })
                         .catch((error) => {
@@ -286,13 +287,14 @@
                         });
                 })
             },
-            addSource(subjectKey) {
+            addSource(subjectKey, order) {
                 let signalingSystem, source;
                 signalingSystem = this.$store.state.signalingSystems.all.find(s => s.source === subjectKey);
                 source = {
                     key: subjectKey,
                     title: subjectKey,
-                    signalingSystem_id: signalingSystem.id
+                    signalingSystem_id: signalingSystem.id,
+                    order
                 };
                 this.$store.commit('sources/create', source);
             },

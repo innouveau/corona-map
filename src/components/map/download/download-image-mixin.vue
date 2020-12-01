@@ -97,7 +97,7 @@
                 if (mapType === 'change') {
                     this.addLegendChange(baseX, baseY);
                 } else {
-                    ctx.font = (14 * this.imageScale) + 'px Arial';
+                    ctx.font = (12 * this.imageScale) + 'px Arial';
                     if (gradient) {
                         this.addLegendSignalingGradient(baseX, baseY, source);
                     } else {

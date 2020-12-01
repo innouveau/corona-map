@@ -4,10 +4,13 @@
     import MapSignaling from "../map/map-signaling";
     import HeaderMenu from "../main/header-menu";
     import ViewTools from "../view/view-tools";
+    import DownloadImageHospitalisations
+        from "../map/download/download-hospitalisations";
 
     export default {
         name: 'hospitalisations',
         components: {
+            DownloadImageHospitalisations,
             ViewTools,
             HeaderMenu,
             MapSignaling,
@@ -19,7 +22,7 @@
                 return new View({
                     currentSource: source
                 });
-            });
+            }).sort((a,b) => (a.order > b.order) ? -1 : ((b.order > a.order) ? 1 : 0));
             return {
                 views
             }
@@ -64,6 +67,9 @@
                     :view="view"/>
             </div>
         </div>
+
+        <download-image-hospitalisations
+            :views="views"/>
     </div>
 </template>
 
@@ -102,6 +108,13 @@
                     border-right: 0;
                 }
             }
+        }
+
+        .download-image {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            z-index: 1;
         }
     }
 </style>
