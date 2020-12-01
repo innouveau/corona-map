@@ -75,6 +75,10 @@
                 });
             },
             addDate(view, x, y, addLine = true) {
+                let date = this.getDateString(view);
+                this.addCustomText(date, x, y);
+            },
+            addCustomText(text, x, y) {
                 let ctx, xAbs, yAbs;
                 ctx = this.ctx;
                 xAbs = x * this.width;
@@ -82,15 +86,9 @@
                 ctx.font = 'bold ' + (32 * this.imageScale) + 'px Arial';
                 ctx.fillStyle = 'black';
                 ctx.textAlign = 'left';
-                ctx.fillText(this.getDateString(view), xAbs, yAbs);
-                if (addLine) {
-                    ctx.beginPath();
-                    ctx.moveTo(xAbs, yAbs + (24 * this.imageScale));
-                    ctx.lineTo( (xAbs + 0.44 * this.width), yAbs + (24 * this.imageScale));
-                    ctx.stroke();
-                }
+                ctx.fillText(text, xAbs, yAbs);
             },
-            addLegend(mapType, gradient, x, y) {
+            addLegend(mapType, gradient, x, y, source) {
                 let baseX, baseY, ctx;
                 ctx = this.ctx;
                 baseX = x * this.width;
@@ -101,13 +99,13 @@
                 } else {
                     ctx.font = (14 * this.imageScale) + 'px Arial';
                     if (gradient) {
-                        this.addLegendSignalingGradient(baseX, baseY);
+                        this.addLegendSignalingGradient(baseX, baseY, source);
                     } else {
-                        this.addLegendSignaling(baseX, baseY);
+                        this.addLegendSignaling(baseX, baseY, source);
                     }
                 }
             },
-            addLegendSignalingGradient(baseX, baseY) {
+            addLegendSignalingGradient(baseX, baseY, source) {
                 let ctx, index, thresholds, y, width, height, margin;
                 height = 20 *  this.imageScale;
                 margin = this.imageScale;
@@ -115,7 +113,7 @@
                 y = baseY;
                 ctx = this.ctx;
                 index = 0;
-                thresholds = thresholdTools.getThresholds(this.view.currentSource);
+                thresholds = thresholdTools.getThresholds(source);
                 for (let threshold of thresholds) {
                     let color1, color2, grd, label;
                     color1 = threshold.color[this.$store.state.ui.color];
@@ -134,17 +132,17 @@
                     if (threshold.label) {
                         label = threshold.label;
                     } else {
-                        label = thresholdTools.getNumber(threshold, this.view.currentSource);
+                        label = thresholdTools.getNumber(threshold, source);
                     }
                     ctx.fillText(label, baseX + width + (8 * this.imageScale), (y + (18 * this.imageScale)));
                     y += (height + margin);
                     index++;
                 }
             },
-            addLegendSignaling(baseX, baseY) {
+            addLegendSignaling(baseX, baseY, source) {
                 let ctx = this.ctx;
                 baseX += 8;
-                for (let threshold of thresholdTools.getThresholds(this.view.currentSource)) {
+                for (let threshold of thresholdTools.getThresholds(source)) {
                     let label;
                     ctx.fillStyle = threshold.color[this.$store.state.ui.color];
                     ctx.beginPath();
@@ -155,7 +153,7 @@
                     if (threshold.label) {
                         label = threshold.label;
                     } else {
-                        label = thresholdTools.getNumber(threshold, this.view.currentSource);
+                        label = thresholdTools.getNumber(threshold, source);
                     }
                     ctx.fillText(label, baseX + (24 * this.imageScale), (baseY + (7 * this.imageScale)));
                     baseY += (24 * this.imageScale);

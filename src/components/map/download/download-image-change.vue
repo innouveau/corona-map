@@ -20,18 +20,18 @@
         },
         computed: {
             typeLabel() {
-                return '-change' + this.getDateStringdashes(this.view);
+                return '-change-' + this.getDateStringdashes(this.view);
             }
         },
         methods: {
-            getSettings(mapType) {
+            getSettings(index, key) {
                 return {
                     width: 0.5 * this.width,
                     height: 0.8 * this.height,
-                    shiftX: mapType === 'signaling' ? 0 : 0.5 * this.width,
+                    shiftX: index === 0 ? 0 : 0.5 * this.width,
                     shiftY: 0.2 * this.height,
                     zoom: this.currentMap.settings.map.zoom * 400 * this.imageScale,
-                    key: 'download-' + mapType,
+                    key: 'download-' + key,
                     fill: true
                 }
             },
@@ -39,10 +39,10 @@
                 this.prepair();
                 this.addHead().then(() => {
                     this.addDate(this.view, 0.51, 0.12, false);
-                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings('signaling'), this.view.offset, 'signaling');
-                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings('change'), this.view.offset, 'change');
+                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings(0, 'signaling'), this.view.offset, 'signaling');
+                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings(1, 'change'), this.view.offset, 'change');
                     this.addCreator();
-                    this.addLegend('signaling', true, 0.03, 0.18);
+                    this.addLegend('signaling', true, 0.03, 0.18, this.view.currentSource);
                     this.addLegend('change', null, 0.57, 0.18);
                     this.finish();
                 });

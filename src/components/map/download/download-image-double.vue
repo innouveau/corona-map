@@ -25,26 +25,25 @@
         },
         computed: {},
         methods: {
-            getSettings(i) {
+            getSettings(index) {
                 return {
                     width: 0.5 * this.width,
                     height: 0.8 * this.height,
-                    shiftX: (i - 1) * 0.5 * this.width + (20 * this.imageScale),
+                    shiftX: index === 0 ? 0 : 0.5 * this.width,
                     shiftY: 0.2 * this.height,
                     zoom: this.currentMap.settings.map.zoom * 400 * this.imageScale,
-                    key: 'download-compare-' + i,
+                    key: 'download-compare-' + index,
                     fill: true
                 }
             },
             download() {
                 this.prepair();
                 this.addHead().then(() => {
-
-                    this.addDate(this.view1, 0.03, 0.22);
-                    this.addDate(this.view2, 0.53, 0.22);
-                    //this.addLegend();
-                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings(1), this.view1.offset, this.mapType);
-                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings(2), this.view2.offset, this.mapType);
+                    let text = this.getDateString(this.view1) + ' - ' + this.getDateString(this.view2);
+                    this.addCustomText(text,0.48, 0.12);
+                    this.addLegend('signaling', true, 0.03, 0.18, this.view1.currentSource);
+                    canvasTools.draw(this.ctx, this.view1.currentSource, this.regions, this.getSettings(0), this.view1.offset, this.mapType);
+                    canvasTools.draw(this.ctx, this.view2.currentSource, this.regions, this.getSettings(1), this.view2.offset, this.mapType);
                     this.addCreator();
                     this.finish();
                 });

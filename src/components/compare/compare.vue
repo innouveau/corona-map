@@ -2,12 +2,12 @@
     import viewItem from "@/components/view/view-item";
     import dateTools from '@/tools/date';
     import View from '@/classes/View';
-    import DownloadImageDouble from "../map/download/download-image-double";
+    import downloadImageDouble from "../map/download/download-image-double";
 
     export default {
         name: 'compare',
         components: {
-            DownloadImageDouble,
+            downloadImageDouble,
             viewItem
         },
         props: {},
