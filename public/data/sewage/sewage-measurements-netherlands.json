@@ -215,19 +215,25 @@
       {
         "date": "2020-11-20",
         "RNA_per_ml": null,
-        "RNA_flow_per_100000": 63618237140776,
-        "representative_measurement": true
-      },
-      {
-        "date": "2020-11-20",
-        "RNA_per_ml": null,
-        "RNA_flow_per_100000": 130409784253883,
+        "RNA_flow_per_100000": 103693165408640,
         "representative_measurement": true
       },
       {
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 27029792993824,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8343401116742,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 34050747041083,
         "representative_measurement": true
       }
     ]
@@ -324,6 +330,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 83534139005848,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14339497048628,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 101107749182334,
+        "representative_measurement": true
       }
     ]
   },
@@ -382,6 +400,24 @@
         "date": "2020-11-10",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10937199843889,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19724872167194,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14766364679547,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 23922590681568,
         "representative_measurement": true
       }
     ]
@@ -472,6 +508,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2072171839875,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 967752965948,
+        "representative_measurement": true
       }
     ]
   },
@@ -542,6 +584,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 0,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7314777702061,
         "representative_measurement": true
       }
     ]
@@ -632,6 +680,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 8224136782736,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1970143530236,
+        "representative_measurement": true
       }
     ]
   },
@@ -714,6 +768,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 9530930478974,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2628639820327,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7754995232040,
         "representative_measurement": true
       }
     ]
@@ -810,6 +876,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 1561785717675,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 904540465593,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2210889264822,
+        "representative_measurement": true
       }
     ]
   },
@@ -880,6 +958,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 3303508052166,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5536643840935,
         "representative_measurement": true
       }
     ]
@@ -964,6 +1048,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6003516277011,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1023039603222,
+        "representative_measurement": true
       }
     ]
   },
@@ -1025,9 +1115,21 @@
         "representative_measurement": true
       },
       {
+        "date": "2020-11-17",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2231692619317,
+        "representative_measurement": true
+      },
+      {
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2881008129354,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 433941971111,
         "representative_measurement": true
       }
     ]
@@ -1118,6 +1220,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 1025149403533,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1707940445390,
+        "representative_measurement": true
       }
     ]
   },
@@ -1206,6 +1314,12 @@
         "date": "2020-11-21",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2824241904989,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1058348180534,
         "representative_measurement": true
       }
     ]
@@ -1440,6 +1554,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10587349237627,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12320306996452,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 37332559135520,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6279893365398,
+        "representative_measurement": true
       }
     ]
   },
@@ -1541,6 +1673,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 0,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1550813763025,
+        "representative_measurement": true
       }
     ]
   },
@@ -1623,6 +1761,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 3075641075792,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6728971445173,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6807943645045,
         "representative_measurement": true
       }
     ]
@@ -1755,6 +1905,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 12440253433734,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 50190085052309,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11871896812930,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19924016643250,
+        "representative_measurement": true
       }
     ]
   },
@@ -1849,6 +2017,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 8818560854719,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2893673358402,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5596194051487,
         "representative_measurement": true
       }
     ]
@@ -1986,6 +2166,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 260388337699063,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5909794600632,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 518610614045313,
+        "representative_measurement": true
       }
     ]
   },
@@ -2074,6 +2266,18 @@
         "date": "2020-11-21",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 1853044063818,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 0,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12592441739102,
         "representative_measurement": true
       }
     ]
@@ -2169,6 +2373,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2263179091321,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 482876584060,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 22970247169247,
         "representative_measurement": true
       }
     ]
@@ -2288,6 +2504,18 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 12601490910189,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5585557987161,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 71943153447531,
         "representative_measurement": true
       }
     ]
@@ -2540,6 +2768,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 4931371879728,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5563874762775,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 17802673083390,
+        "representative_measurement": true
       }
     ]
   },
@@ -2695,6 +2935,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11324937910625,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 36900693721812,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 23240249848656,
+        "representative_measurement": true
       }
     ]
   },
@@ -2813,6 +3065,18 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 931570933781,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2920510590609,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7594066007991,
         "representative_measurement": true
       }
     ]
@@ -2969,6 +3233,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 1127433361897,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1553317031531,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 24735965849063,
+        "representative_measurement": true
       }
     ]
   },
@@ -3081,6 +3357,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 1906204362172,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 305201852139,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10906644174356,
         "representative_measurement": true
       }
     ]
@@ -3201,6 +3489,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2169026685454,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 819678434948,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 20904591121616,
+        "representative_measurement": true
       }
     ]
   },
@@ -3313,6 +3613,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11931570511872,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5463222713738,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 28850391247573,
         "representative_measurement": true
       }
     ]
@@ -3433,6 +3745,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 4545723778939,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 30419516861693,
+        "representative_measurement": true
       }
     ]
   },
@@ -3551,6 +3869,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2734126934894,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7670186677063,
         "representative_measurement": true
       }
     ]
@@ -3706,6 +4030,18 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2499095222883,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1661732689902,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 71926541058246,
         "representative_measurement": true
       }
     ]
@@ -3874,6 +4210,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 1249003240687,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5745950084971,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14734617409806,
+        "representative_measurement": true
       }
     ]
   },
@@ -3992,6 +4340,18 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 9841827828145,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10991422553517,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 130588195043210,
         "representative_measurement": true
       }
     ]
@@ -4112,6 +4472,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 3759418505576,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3233273763547,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 60586062425212,
+        "representative_measurement": true
       }
     ]
   },
@@ -4230,6 +4602,18 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 19324301586513,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4702600466450,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 99496088864897,
         "representative_measurement": true
       }
     ]
@@ -4445,6 +4829,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 3540668128094,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8226537368054,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 34560718560982,
+        "representative_measurement": true
       }
     ]
   },
@@ -4563,6 +4959,18 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5087811540559,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 510505639167,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 82597220716878,
         "representative_measurement": true
       }
     ]
@@ -4683,6 +5091,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 4296857729167,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 15781613871703,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 129818381945035,
+        "representative_measurement": true
       }
     ]
   },
@@ -4795,6 +5215,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5088676393087,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3889221780306,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18326559966243,
         "representative_measurement": true
       }
     ]
@@ -4913,7 +5345,13 @@
       {
         "date": "2020-11-24",
         "RNA_per_ml": null,
-        "RNA_flow_per_100000": 0,
+        "RNA_flow_per_100000": 1983524169345,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 15099935066255,
         "representative_measurement": true
       }
     ]
@@ -5148,6 +5586,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 4696889697234,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3333125657678,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 39902731736463,
+        "representative_measurement": true
       }
     ]
   },
@@ -5260,6 +5710,18 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 1263152156831,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8951058841233,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12968330660340,
         "representative_measurement": true
       }
     ]
@@ -5403,6 +5865,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 14439577866529,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3671788461267,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 16383991960059,
         "representative_measurement": true
       }
     ]
@@ -5571,6 +6045,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6706636540904,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10513664104318,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 52409686392800,
+        "representative_measurement": true
       }
     ]
   },
@@ -5689,6 +6175,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 7035064612648,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8820059763853,
         "representative_measurement": true
       }
     ]
@@ -5815,6 +6307,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 1232134607450,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1822111312791,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 47647997648860,
+        "representative_measurement": true
       }
     ]
   },
@@ -5915,6 +6419,18 @@
         "date": "2020-11-16",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 38909687390464,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5314002242042,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8469012423588,
         "representative_measurement": true
       }
     ]
@@ -6143,6 +6659,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 21355219641249,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12488597408135,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4799240996544,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13344286685603,
+        "representative_measurement": true
       }
     ]
   },
@@ -6334,6 +6868,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 18635568739024,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18588377699575,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18588377699575,
+        "representative_measurement": true
       }
     ]
   },
@@ -6428,6 +6974,30 @@
         "date": "2020-11-16",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 22815561034701,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-21",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6703294670639,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5705074382250,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7625723362705,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 15885086794235,
         "representative_measurement": true
       }
     ]
@@ -6553,6 +7123,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6437437319399,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1777879216204,
         "representative_measurement": true
       }
     ]
@@ -6702,6 +7278,18 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10988821139857,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2272896017022,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1047044655895,
         "representative_measurement": true
       }
     ]
@@ -6936,6 +7524,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 3411984369268,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 15512620615040,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11000113707904,
+        "representative_measurement": true
       }
     ]
   },
@@ -7012,6 +7612,24 @@
         "date": "2020-11-15",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 24533907408325,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 331212258116,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 15982483079943,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4095751927598,
         "representative_measurement": true
       }
     ]
@@ -7095,6 +7713,24 @@
         "date": "2020-11-20",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6172317562735,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10581786766586,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10685609915630,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4557554381849,
         "representative_measurement": true
       }
     ]
@@ -7184,6 +7820,18 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 15433611180104,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14789793684131,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 36952223008214,
         "representative_measurement": true
       }
     ]
@@ -7448,6 +8096,30 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5680116847330,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8658065468133,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8658065468133,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11343709856605,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11343709856605,
+        "representative_measurement": true
       }
     ]
   },
@@ -7639,6 +8311,30 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 8567789625181,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6963356236552,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6963356236552,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12299166705166,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12299166705166,
+        "representative_measurement": true
       }
     ]
   },
@@ -7733,6 +8429,24 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 9103410075936,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 17697114625997,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18083802232772,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13187929859191,
         "representative_measurement": true
       }
     ]
@@ -7829,6 +8543,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 9140091438466,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 747915039438,
+        "representative_measurement": true
       }
     ]
   },
@@ -7911,6 +8631,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5489226024833,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2293905796636,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1491933366262,
         "representative_measurement": true
       }
     ]
@@ -7995,6 +8727,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11239981902939,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5460070491750,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 36574486068843,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4697175498124,
+        "representative_measurement": true
       }
     ]
   },
@@ -8071,6 +8821,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10775681997287,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10307763889774,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8853375209140,
         "representative_measurement": true
       }
     ]
@@ -8215,6 +8977,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 40462621407157,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 20670112875486,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 43296113613146,
+        "representative_measurement": true
       }
     ]
   },
@@ -8309,6 +9083,18 @@
         "date": "2020-11-16",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 14112515424480,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8410839307830,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6204220882403,
         "representative_measurement": true
       }
     ]
@@ -8513,6 +9299,30 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 9168037800875,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10780431916414,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10780431916414,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3108544147467,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3108544147467,
+        "representative_measurement": true
       }
     ]
   },
@@ -8704,6 +9514,30 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 7045503722085,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6766575183302,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6766575183302,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18014554885673,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18014554885673,
+        "representative_measurement": true
       }
     ]
   },
@@ -8847,6 +9681,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 15675949082767,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6952201962705,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 17837592634235,
+        "representative_measurement": true
       }
     ]
   },
@@ -8966,6 +9812,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 22866227110371,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9757505259822,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6392869629020,
+        "representative_measurement": true
       }
     ]
   },
@@ -9048,6 +9906,18 @@
         "date": "2020-11-16",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5879441764895,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7434891907544,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9282837532795,
         "representative_measurement": true
       }
     ]
@@ -9305,6 +10175,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10974343574377,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2771755581594,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 16045633692423,
         "representative_measurement": true
       }
     ]
@@ -9569,6 +10451,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 380402832172400,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 27371081707397,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 42338040160605,
+        "representative_measurement": true
       }
     ]
   },
@@ -9636,6 +10530,12 @@
         "representative_measurement": true
       },
       {
+        "date": "2020-11-16",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4838073316807,
+        "representative_measurement": true
+      },
+      {
         "date": "2020-11-18",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 13086072500825,
@@ -9645,6 +10545,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6564294033244,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7786166121571,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 17594712728698,
         "representative_measurement": true
       }
     ]
@@ -9735,6 +10647,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 9830169642280,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6383699271569,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6134754279925,
+        "representative_measurement": true
       }
     ]
   },
@@ -9811,6 +10735,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 39440175904049,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13248406706715,
         "representative_measurement": true
       }
     ]
@@ -9961,6 +10891,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 70312074339602,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 17769541095463,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 160669946299874,
+        "representative_measurement": true
       }
     ]
   },
@@ -10050,6 +10992,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 12628314533182,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5347069645313,
+        "representative_measurement": true
       }
     ]
   },
@@ -10132,6 +11080,24 @@
         "date": "2020-11-17",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 16232350917823,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-20",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12852487673890,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-22",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11655532002992,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10547700550324,
         "representative_measurement": true
       }
     ]
@@ -10222,6 +11188,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 17290019367065,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7386701775790,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 94444481430580,
+        "representative_measurement": true
       }
     ]
   },
@@ -10286,6 +11264,30 @@
         "date": "2020-11-09",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 46079999167566,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-20",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12294748365021,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-22",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 35344771137218,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10752568367545,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 84887830232581,
         "representative_measurement": true
       }
     ]
@@ -10514,6 +11516,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 45562490449380,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11918796423829,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 24290431566973,
+        "representative_measurement": true
       }
     ]
   },
@@ -10596,6 +11610,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6591852748272,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3370346281052,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 27909447045577,
         "representative_measurement": true
       }
     ]
@@ -10680,6 +11706,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 16214786224008,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8954959629574,
+        "representative_measurement": true
       }
     ]
   },
@@ -10750,6 +11782,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10206528906491,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8689594543014,
         "representative_measurement": true
       }
     ]
@@ -10846,6 +11884,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11104159999921,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7431599478522,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8959688687787,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13536077884348,
+        "representative_measurement": true
       }
     ]
   },
@@ -10928,6 +11984,18 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 20756004529128,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4613123341133,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 137776644580183,
         "representative_measurement": true
       }
     ]
@@ -11014,9 +12082,33 @@
         "representative_measurement": true
       },
       {
+        "date": "2020-11-16",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 89821072572661,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-16",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 89821072572661,
+        "representative_measurement": true
+      },
+      {
         "date": "2020-11-19",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 17221974034072,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7462389167656,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6775155561528,
         "representative_measurement": true
       }
     ]
@@ -11082,6 +12174,12 @@
         "date": "2020-11-01",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 37887573349031,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-16",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 26422807381661,
         "representative_measurement": true
       }
     ]
@@ -11177,6 +12275,12 @@
         "date": "2020-11-19",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 19423319583854,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9531688023499,
         "representative_measurement": true
       }
     ]
@@ -11345,6 +12449,30 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 78922466256724,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9934048728671,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9934048728671,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18600168109064,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18600168109064,
+        "representative_measurement": true
       }
     ]
   },
@@ -11464,6 +12592,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 3184652846404,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2794683772190,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4094817238836,
+        "representative_measurement": true
       }
     ]
   },
@@ -11570,6 +12710,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11944006541288,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 35061438219108,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 25781948931086,
         "representative_measurement": true
       }
     ]
@@ -11840,6 +12992,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 14592707831940,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18660834979144,
+        "representative_measurement": true
       }
     ]
   },
@@ -11976,6 +13134,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 22268086309633,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 27294856399923,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 46226310462181,
         "representative_measurement": true
       }
     ]
@@ -12138,6 +13308,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 30420286609141,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1171034733255,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18683742198398,
+        "representative_measurement": true
       }
     ]
   },
@@ -12245,6 +13427,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 8708683641905,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6419178245097,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 37864036235611,
+        "representative_measurement": true
       }
     ]
   },
@@ -12339,6 +13533,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 7052865408413,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2130961140759,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18546304819570,
         "representative_measurement": true
       }
     ]
@@ -12447,6 +13653,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 3163254570148,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 691980336326,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 55208565477980,
+        "representative_measurement": true
       }
     ]
   },
@@ -12553,6 +13771,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5243134887942,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2781287977959,
         "representative_measurement": true
       }
     ]
@@ -12727,6 +13951,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 8266712935340,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7481958998651,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 49591921632989,
+        "representative_measurement": true
       }
     ]
   },
@@ -12827,6 +14063,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2221966862013,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 954287942053,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3841897809676,
         "representative_measurement": true
       }
     ]
@@ -12934,6 +14182,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2237424583716,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1880803918910,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 23254471604638,
         "representative_measurement": true
       }
     ]
@@ -13047,6 +14307,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2766121837435,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6202784589488,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 30142690695254,
         "representative_measurement": true
       }
     ]
@@ -13250,6 +14522,30 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 7701366175853,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13722644814867,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13722644814867,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 53279101135459,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 53279101135459,
         "representative_measurement": true
       }
     ]
@@ -13477,6 +14773,30 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5100886052143,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7793999408126,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7793999408126,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 55148580739505,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 55148580739505,
         "representative_measurement": true
       }
     ]
@@ -13729,6 +15049,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10592530724697,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3354192649189,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 41724503768516,
+        "representative_measurement": true
       }
     ]
   },
@@ -13824,6 +15156,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 7961189877151,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2654671546695,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 49637425980670,
+        "representative_measurement": true
       }
     ]
   },
@@ -13907,6 +15251,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 131855470051583,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-21",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12151894403140,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 27514366108981,
+        "representative_measurement": true
       }
     ]
   },
@@ -13989,6 +15345,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 22629164203905,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7841445186135,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 71047644553793,
         "representative_measurement": true
       }
     ]
@@ -14147,6 +15515,18 @@
         "representative_measurement": true
       },
       {
+        "date": "2020-11-17",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 44607967168164,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-17",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 44607967168164,
+        "representative_measurement": true
+      },
+      {
         "date": "2020-11-20",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 16771247621192,
@@ -14156,6 +15536,18 @@
         "date": "2020-11-20",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 16771247621192,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14127946154292,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14127946154292,
         "representative_measurement": true
       }
     ]
@@ -14239,6 +15631,30 @@
         "date": "2020-11-20",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 0,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-20",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 0,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1116465783886,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2770010300684,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3290270321265,
         "representative_measurement": true
       }
     ]
@@ -14389,6 +15805,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 3676328849778,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 884561606734,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7014190354917,
+        "representative_measurement": true
       }
     ]
   },
@@ -14489,6 +15917,18 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 25071266497043,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 48132329336745,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 52820151308585,
         "representative_measurement": true
       }
     ]
@@ -14645,6 +16085,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 14111278777150,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 43357279734644,
+        "representative_measurement": true
       }
     ]
   },
@@ -14772,6 +16218,12 @@
         "representative_measurement": true
       },
       {
+        "date": "2020-11-17",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 43443463808430,
+        "representative_measurement": true
+      },
+      {
         "date": "2020-11-20",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 16926379051596,
@@ -14864,6 +16316,24 @@
         "date": "2020-11-17",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 12065016975243,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-20",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 37301559213704,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 15068588245413,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 15360183565300,
         "representative_measurement": true
       }
     ]
@@ -14960,6 +16430,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 16360888396758,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9984503383882,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 64668644837438,
+        "representative_measurement": true
       }
     ]
   },
@@ -15039,6 +16521,12 @@
         "representative_measurement": true
       },
       {
+        "date": "2020-11-17",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19541114953859,
+        "representative_measurement": true
+      },
+      {
         "date": "2020-11-20",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 7395847478993,
@@ -15048,6 +16536,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5345169474597,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2183547400620,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2720054557732,
         "representative_measurement": true
       }
     ]
@@ -15144,6 +16644,30 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 21487745140897,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-20",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9111206734893,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4770418412719,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2649168603353,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10825550698303,
+        "representative_measurement": true
       }
     ]
   },
@@ -15220,6 +16744,12 @@
         "date": "2020-11-15",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 15856074351848,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10241217733044,
         "representative_measurement": true
       }
     ]
@@ -15303,6 +16833,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 51204327440987,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14693714681315,
         "representative_measurement": true
       }
     ]
@@ -15417,6 +16953,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 32220555257351,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6478737271492,
+        "representative_measurement": true
       }
     ]
   },
@@ -15493,6 +17035,18 @@
         "date": "2020-11-17",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10465589107977,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 30290828792344,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8402099763370,
         "representative_measurement": true
       }
     ]
@@ -15949,6 +17503,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10004577850866,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 69492952713464,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 69492952713464,
+        "representative_measurement": true
       }
     ]
   },
@@ -16062,6 +17628,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 42621545058035,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 30420615976226,
+        "representative_measurement": true
       }
     ]
   },
@@ -16145,6 +17717,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 31084032457152,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18212866337222,
+        "representative_measurement": true
       }
     ]
   },
@@ -16209,6 +17787,12 @@
         "date": "2020-11-02",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 15753453740234,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 55865737712886,
         "representative_measurement": true
       }
     ]
@@ -16323,6 +17907,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11097912991347,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 32235595110755,
+        "representative_measurement": true
       }
     ]
   },
@@ -16406,6 +17996,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11018747574655,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6484578065649,
+        "representative_measurement": true
       }
     ]
   },
@@ -16483,6 +18079,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6757731535421,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 24802456436020,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7428589421215,
+        "representative_measurement": true
       }
     ]
   },
@@ -16559,6 +18167,12 @@
         "date": "2020-11-15",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 101251338735836,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4809524033084,
         "representative_measurement": true
       }
     ]
@@ -16672,6 +18286,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 77987326666772,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2624349250085,
+        "representative_measurement": true
       }
     ]
   },
@@ -16755,6 +18375,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 19976552102644,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8476691263929,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8476691263929,
+        "representative_measurement": true
       }
     ]
   },
@@ -16831,6 +18463,18 @@
         "date": "2020-11-17",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 12659443492289,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8267564003079,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8101692104661,
         "representative_measurement": true
       }
     ]
@@ -17046,6 +18690,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 65928969486240,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 53377122785096,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 53377122785096,
+        "representative_measurement": true
       }
     ]
   },
@@ -17123,6 +18779,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6318966394285,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 38002787265808,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3984403141468,
+        "representative_measurement": true
       }
     ]
   },
@@ -17194,6 +18862,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 33310927685012,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2360164125810,
+        "representative_measurement": true
       }
     ]
   },
@@ -17258,6 +18932,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 24915187264481,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 29876206421173,
         "representative_measurement": true
       }
     ]
@@ -17342,6 +19022,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 31554504828151,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-21",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8115337442365,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11884749285594,
+        "representative_measurement": true
       }
     ]
   },
@@ -17412,6 +19104,18 @@
         "date": "2020-11-12",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 16075896546500,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9037272082437,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 155504290432557,
         "representative_measurement": true
       }
     ]
@@ -17489,6 +19193,12 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 26254582782489,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9079295011985,
         "representative_measurement": true
       }
     ]
@@ -17573,6 +19283,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11815707432654,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8612806648400,
+        "representative_measurement": true
       }
     ]
   },
@@ -17655,6 +19371,18 @@
         "date": "2020-11-21",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10521529584508,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7709854121054,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12614839862556,
         "representative_measurement": true
       }
     ]
@@ -17996,6 +19724,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 15575689967322,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 22372382297721,
+        "representative_measurement": true
       }
     ]
   },
@@ -18091,6 +19825,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 7936945838307,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11829048682278,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 17954493076349,
+        "representative_measurement": true
       }
     ]
   },
@@ -18173,6 +19919,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 84305922404262,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12880071543615,
         "representative_measurement": true
       }
     ]
@@ -18413,6 +20165,30 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 63228682278919,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-18",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13267402110633,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-18",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13267402110633,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-21",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 22217256860009,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-21",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 22217256860009,
+        "representative_measurement": true
       }
     ]
   },
@@ -18514,6 +20290,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 28881280716145,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 51977081904062,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 49393646735467,
+        "representative_measurement": true
       }
     ]
   },
@@ -18584,6 +20372,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 22803812840776,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 94837791516528,
         "representative_measurement": true
       }
     ]
@@ -18907,6 +20701,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 75675652666202,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 38652739015948,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 61161539841001,
+        "representative_measurement": true
       }
     ]
   },
@@ -18989,6 +20795,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 49248598555653,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19366449406310,
         "representative_measurement": true
       }
     ]
@@ -19156,6 +20968,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 49973826915071,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 20227828462105,
+        "representative_measurement": true
       }
     ]
   },
@@ -19232,6 +21050,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 16996093433788,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 94538460264145,
         "representative_measurement": true
       }
     ]
@@ -19321,6 +21145,12 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11573581789650,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 15730874913745,
         "representative_measurement": true
       }
     ]
@@ -19488,6 +21318,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 15563245318104,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 54357277143045,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11888660682945,
+        "representative_measurement": true
       }
     ]
   },
@@ -19607,6 +21449,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 20933423272600,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 24642667590708,
+        "representative_measurement": true
       }
     ]
   },
@@ -19689,6 +21537,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 51446657607307,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 23215918614239,
         "representative_measurement": true
       }
     ]
@@ -19844,6 +21698,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 36468294198100,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14716165114452,
+        "representative_measurement": true
       }
     ]
   },
@@ -19920,6 +21780,12 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 39589698777413,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 41358594794068,
         "representative_measurement": true
       }
     ]
@@ -20343,6 +22209,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 13570338584573,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 25758959548127,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 24716437744363,
+        "representative_measurement": true
       }
     ]
   },
@@ -20606,6 +22484,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 36833544412618,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 35390390007578,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 35390390007578,
+        "representative_measurement": true
       }
     ]
   },
@@ -20664,6 +22554,12 @@
         "date": "2020-11-18",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 8774974778297,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13042453705539,
         "representative_measurement": true
       }
     ]
@@ -21140,6 +23036,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 58284277333192,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-22",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 23528276188865,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-22",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 23528276188865,
+        "representative_measurement": true
       }
     ]
   },
@@ -21204,6 +23112,18 @@
         "date": "2020-11-18",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 16879364810473,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-22",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13009712400952,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 23758785367299,
         "representative_measurement": true
       }
     ]
@@ -21394,6 +23314,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11704198055524,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10659563009474,
         "representative_measurement": true
       }
     ]
@@ -22244,6 +24170,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 19273086888467,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10690425879269,
+        "representative_measurement": true
       }
     ]
   },
@@ -22297,6 +24229,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 82279601471970,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-24",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9996433037293,
+        "representative_measurement": true
       }
     ]
   },
@@ -22349,6 +24287,12 @@
         "date": "2020-10-26",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5644558079477,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-23",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3947040296500,
         "representative_measurement": true
       }
     ]
@@ -22491,6 +24435,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 33124760659477,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 17954287984965,
         "representative_measurement": true
       }
     ]
@@ -22651,6 +24601,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 74544101546188,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 45286468937125,
         "representative_measurement": true
       }
     ]
@@ -22885,6 +24841,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 20958131224326,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7954626882631,
+        "representative_measurement": true
       }
     ]
   },
@@ -23032,6 +24994,12 @@
         "date": "2020-11-13",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 162339170861770,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3991660013202,
         "representative_measurement": true
       }
     ]
@@ -23863,6 +25831,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 35064096145329,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 61009194246216,
+        "representative_measurement": true
       }
     ]
   },
@@ -24065,6 +26039,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 61985700751118,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13175171136991,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 25451468306629,
+        "representative_measurement": true
       }
     ]
   },
@@ -24141,6 +26127,12 @@
         "date": "2020-11-21",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 24109064290071,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 15886613475700,
         "representative_measurement": true
       }
     ]
@@ -24224,6 +26216,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 34517749531768,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 25102372770903,
         "representative_measurement": true
       }
     ]
@@ -24428,6 +26426,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 36445370681409,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 24501484871884,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 24501484871884,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 24501484871884,
+        "representative_measurement": true
       }
     ]
   },
@@ -24510,6 +26526,12 @@
         "date": "2020-11-21",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 30664193680736,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14619844346562,
         "representative_measurement": true
       }
     ]
@@ -24736,6 +26758,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 20989679059731,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 25628526429482,
+        "representative_measurement": true
       }
     ]
   },
@@ -24944,6 +26972,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 28570294139045,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 33736360640784,
+        "representative_measurement": true
       }
     ]
   },
@@ -25086,6 +27120,18 @@
         "date": "2020-11-21",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 17920591332101,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 26819563029419,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 26819563029419,
         "representative_measurement": true
       }
     ]
@@ -25302,6 +27348,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 16666346283506,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 74143174772230,
+        "representative_measurement": true
       }
     ]
   },
@@ -25516,6 +27568,30 @@
         "date": "2020-11-16",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 33929044929630,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 20314269085146,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 20314269085146,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 39167741316222,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 39167741316222,
         "representative_measurement": true
       }
     ]
@@ -25870,6 +27946,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5972930709883,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 46992482477339,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 46992482477339,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 46992482477339,
+        "representative_measurement": true
       }
     ]
   },
@@ -26013,6 +28107,30 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11556687323861,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19937407915473,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19937407915473,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14091310125283,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14091310125283,
+        "representative_measurement": true
       }
     ]
   },
@@ -26126,6 +28244,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 19119679867706,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8254649748249,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 29590149850654,
+        "representative_measurement": true
       }
     ]
   },
@@ -26190,6 +28320,18 @@
         "date": "2020-11-17",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 21383391238194,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19764399422409,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 92985193678361,
         "representative_measurement": true
       }
     ]
@@ -26267,6 +28409,12 @@
         "date": "2020-11-17",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 31712006848779,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 113121480970636,
         "representative_measurement": true
       }
     ]
@@ -26351,6 +28499,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 9244426947339,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10432827551887,
+        "representative_measurement": true
       }
     ]
   },
@@ -26421,6 +28575,18 @@
         "date": "2020-11-17",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 35343876859504,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10965479642932,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8160809574702,
         "representative_measurement": true
       }
     ]
@@ -26630,6 +28796,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 18067307053420,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 23220979546919,
+        "representative_measurement": true
       }
     ]
   },
@@ -26713,6 +28885,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 41780299228884,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19852451888034,
+        "representative_measurement": true
       }
     ]
   },
@@ -26790,6 +28968,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 14077241411426,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 33499529217722,
+        "representative_measurement": true
       }
     ]
   },
@@ -26854,6 +29038,12 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 13439052024262,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3119824714142,
         "representative_measurement": true
       }
     ]
@@ -26925,6 +29115,18 @@
         "date": "2020-11-15",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 97425039508540,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6735015458339,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6131164623483,
         "representative_measurement": true
       }
     ]
@@ -27081,6 +29283,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 43404213423853,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 26187032949284,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 26187032949284,
+        "representative_measurement": true
       }
     ]
   },
@@ -27158,6 +29372,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 8395180742014,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14533381670183,
+        "representative_measurement": true
       }
     ]
   },
@@ -27234,6 +29454,18 @@
         "date": "2020-11-19",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 48385432716223,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 13219974171834,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 32952852779061,
         "representative_measurement": true
       }
     ]
@@ -27318,6 +29550,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 29507945859268,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8533022460683,
+        "representative_measurement": true
       }
     ]
   },
@@ -27401,6 +29639,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6108930263495,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 23322563135623,
+        "representative_measurement": true
       }
     ]
   },
@@ -27483,6 +29727,12 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 30537170504146,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 35966554191950,
         "representative_measurement": true
       }
     ]
@@ -27627,6 +29877,30 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 97508385559207,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14941208420218,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14941208420218,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14996884073039,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14996884073039,
+        "representative_measurement": true
       }
     ]
   },
@@ -27746,6 +30020,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 2682160277462,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 0,
+        "representative_measurement": true
       }
     ]
   },
@@ -27829,6 +30109,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 13241499146585,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12837110325783,
+        "representative_measurement": true
       }
     ]
   },
@@ -27887,6 +30173,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 19522098705549,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5656321617230,
         "representative_measurement": true
       }
     ]
@@ -27964,6 +30256,18 @@
         "date": "2020-11-15",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 152886680934219,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4145074318784,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7701937055493,
         "representative_measurement": true
       }
     ]
@@ -28048,6 +30352,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 87060062132203,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 64272920141616,
+        "representative_measurement": true
       }
     ]
   },
@@ -28118,6 +30428,18 @@
         "date": "2020-11-10",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 34430749688511,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7687715931412,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18413276699559,
         "representative_measurement": true
       }
     ]
@@ -28207,6 +30529,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 15045255773528,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 27988229142929,
         "representative_measurement": true
       }
     ]
@@ -28494,6 +30822,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 21704913905168,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3628791111570,
+        "representative_measurement": true
       }
     ]
   },
@@ -28571,6 +30905,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 55684707423372,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 58324537221167,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 25539321103140,
+        "representative_measurement": true
       }
     ]
   },
@@ -28647,6 +30993,12 @@
         "date": "2020-11-17",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 23473197894732,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 41629853773302,
         "representative_measurement": true
       }
     ]
@@ -28796,6 +31148,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 23723775665786,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10126317595043,
+        "representative_measurement": true
       }
     ]
   },
@@ -28878,6 +31236,18 @@
         "date": "2020-11-17",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5865229299856,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 607001180017,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11496654921109,
         "representative_measurement": true
       }
     ]
@@ -29176,6 +31546,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 41036122692835,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10816177383250,
+        "representative_measurement": true
       }
     ]
   },
@@ -29246,6 +31622,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 43454458667514,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8533868813278,
         "representative_measurement": true
       }
     ]
@@ -29354,6 +31736,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 3229889945152,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8177938294440,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2881130585718,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5298819001794,
+        "representative_measurement": true
       }
     ]
   },
@@ -29425,6 +31825,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 32436278034841,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2736252036087,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1989360869164,
+        "representative_measurement": true
       }
     ]
   },
@@ -29495,6 +31907,24 @@
         "date": "2020-11-16",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 1098230361838,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2084096412380,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1134256191189,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 36847019454256,
         "representative_measurement": true
       }
     ]
@@ -29573,6 +32003,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 15750733662682,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19405661824596,
+        "representative_measurement": true
       }
     ]
   },
@@ -29643,6 +32079,24 @@
         "date": "2020-11-15",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 17517131951898,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 29812518676106,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 34966762886501,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8388905014555,
         "representative_measurement": true
       }
     ]
@@ -29721,6 +32175,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6722374162754,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6552682836097,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11885920627681,
+        "representative_measurement": true
       }
     ]
   },
@@ -29797,6 +32263,18 @@
         "date": "2020-11-15",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 32293530704623,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 429763152323,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5545567735597,
         "representative_measurement": true
       }
     ]
@@ -29880,6 +32358,18 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 45649747302554,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1574194021911,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1384462064507,
         "representative_measurement": true
       }
     ]
@@ -30084,6 +32574,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 15148474487463,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5546926386067,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2459008416496,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5831005785276,
+        "representative_measurement": true
       }
     ]
   },
@@ -30154,6 +32662,24 @@
         "date": "2020-11-18",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 12953828291833,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12349404428057,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 36527044132080,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 27161734788269,
         "representative_measurement": true
       }
     ]
@@ -30226,6 +32752,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 27201343762352,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5183935284956,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 22957773638429,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18203903428521,
+        "representative_measurement": true
       }
     ]
   },
@@ -30296,6 +32840,18 @@
         "date": "2020-11-18",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 7066083183761,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 31062920016012,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4625209378595,
         "representative_measurement": true
       }
     ]
@@ -30506,6 +33062,24 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 27019078725620,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 25125576253890,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 43623822903065,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 28762698311134,
+        "representative_measurement": true
       }
     ]
   },
@@ -30577,6 +33151,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 25500975758080,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 29478381396407,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14835328128794,
+        "representative_measurement": true
       }
     ]
   },
@@ -30647,6 +33233,24 @@
         "date": "2020-11-18",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10498281061911,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4591663038046,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2161223637458,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6845742797843,
         "representative_measurement": true
       }
     ]
@@ -30731,6 +33335,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10415561212829,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8367419116091,
+        "representative_measurement": true
       }
     ]
   },
@@ -30813,6 +33423,12 @@
         "date": "2020-11-18",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 9158748874702,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 22098975692739,
         "representative_measurement": true
       }
     ]
@@ -31117,6 +33733,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 35821023724573,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8592731666411,
+        "representative_measurement": true
       }
     ]
   },
@@ -31394,13 +34016,25 @@
       {
         "date": "2020-11-16",
         "RNA_per_ml": null,
-        "RNA_flow_per_100000": 9782954750706,
+        "RNA_flow_per_100000": 26462892600660,
         "representative_measurement": true
       },
       {
         "date": "2020-11-22",
         "RNA_per_ml": null,
-        "RNA_flow_per_100000": 18413767777305,
+        "RNA_flow_per_100000": 49183173733182,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-28",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 93056999615198,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 130321196431240,
         "representative_measurement": true
       }
     ]
@@ -31694,6 +34328,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 55551388423652,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14828379317066,
+        "representative_measurement": true
       }
     ]
   },
@@ -31807,6 +34447,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 25142757927438,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9436496785367,
+        "representative_measurement": true
       }
     ]
   },
@@ -31890,6 +34536,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 27340476270739,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11508980715127,
+        "representative_measurement": true
       }
     ]
   },
@@ -31972,6 +34624,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 54619402046064,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 23252800259899,
         "representative_measurement": true
       }
     ]
@@ -32259,6 +34917,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 55133375888390,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 222842637191,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2476596535603,
+        "representative_measurement": true
       }
     ]
   },
@@ -32342,6 +35012,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 19515684137277,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5222180970800,
+        "representative_measurement": true
       }
     ]
   },
@@ -32424,6 +35100,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 40698590416092,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6687842798617,
         "representative_measurement": true
       }
     ]
@@ -32591,6 +35273,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 40208425736686,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 12211284379204,
+        "representative_measurement": true
       }
     ]
   },
@@ -32673,6 +35361,12 @@
         "date": "2020-11-20",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11723816210477,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 28782287527220,
         "representative_measurement": true
       }
     ]
@@ -32757,6 +35451,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 13720000620883,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 26002849102912,
+        "representative_measurement": true
       }
     ]
   },
@@ -32833,6 +35533,12 @@
         "date": "2020-11-24",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10037955260183,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 45261117950932,
         "representative_measurement": true
       }
     ]
@@ -33192,6 +35898,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 25423609508489,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19039699175140,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19039699175140,
+        "representative_measurement": true
       }
     ]
   },
@@ -33419,6 +36137,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 23912172191702,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 33247296402557,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 33247296402557,
+        "representative_measurement": true
       }
     ]
   },
@@ -33574,6 +36304,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 25897409769186,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 30090257510749,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 30090257510749,
+        "representative_measurement": true
       }
     ]
   },
@@ -33680,6 +36422,18 @@
         "date": "2020-11-13",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 3110436686493,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6314074778602,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8120461335669,
         "representative_measurement": true
       }
     ]
@@ -33920,6 +36674,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 27303334203088,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7635957894108,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7635957894108,
+        "representative_measurement": true
       }
     ]
   },
@@ -34135,6 +36901,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 20760205210683,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-27",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 15398458496177,
+        "representative_measurement": true
       }
     ]
   },
@@ -34205,6 +36977,18 @@
         "date": "2020-11-18",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 22138146146342,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 21553140681480,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2794421689478,
         "representative_measurement": true
       }
     ]
@@ -34288,6 +37072,12 @@
         "date": "2020-11-20",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 9412054402690,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 7755142440765,
         "representative_measurement": true
       }
     ]
@@ -34510,6 +37300,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 15943149368862,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 0,
+        "representative_measurement": true
       }
     ]
   },
@@ -34605,6 +37401,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 22830299451164,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 17861187478830,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 27286637043467,
+        "representative_measurement": true
       }
     ]
   },
@@ -34699,6 +37507,18 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 12202899652151,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3002347928595,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18496658649256,
         "representative_measurement": true
       }
     ]
@@ -34939,6 +37759,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 19142196585590,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11434582835913,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 32410550016772,
+        "representative_measurement": true
       }
     ]
   },
@@ -35082,6 +37914,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11852741133030,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3949733810104,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 16238006299490,
+        "representative_measurement": true
       }
     ]
   },
@@ -35176,6 +38020,12 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 1842756245350,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 33258636989195,
         "representative_measurement": true
       }
     ]
@@ -35272,6 +38122,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 5914883362708,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4829446712010,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 18662455026464,
+        "representative_measurement": true
       }
     ]
   },
@@ -35367,6 +38229,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10003112811902,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 9670652583962,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 31737801877036,
+        "representative_measurement": true
       }
     ]
   },
@@ -35461,6 +38335,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 17847908071121,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 24912812862807,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 54370568495450,
         "representative_measurement": true
       }
     ]
@@ -35587,6 +38473,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 14226468178314,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2250276518878,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5562453082771,
+        "representative_measurement": true
       }
     ]
   },
@@ -35682,6 +38580,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11699924020204,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 2240997783095,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 8194146785096,
+        "representative_measurement": true
       }
     ]
   },
@@ -35776,6 +38686,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 10149419145285,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-26",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 6963310501366,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 54794730843618,
         "representative_measurement": true
       }
     ]
@@ -35998,6 +38920,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 11938605990893,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 17166812521349,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14479900000000,
+        "representative_measurement": true
       }
     ]
   },
@@ -36086,6 +39020,18 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6995655156711,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 5669446062518,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 10111188993661,
         "representative_measurement": true
       }
     ]
@@ -36362,6 +39308,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 8590001534394,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14317435772026,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 14317435772026,
+        "representative_measurement": true
       }
     ]
   },
@@ -36499,6 +39457,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6823354899483,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 1372531990650,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 28383133674303,
+        "representative_measurement": true
       }
     ]
   },
@@ -36581,6 +39551,18 @@
         "date": "2020-11-22",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 7770866819392,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 3256432721411,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 11442564715839,
         "representative_measurement": true
       }
     ]
@@ -36683,6 +39665,18 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 36729720954573,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4112450990123,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 17204696905065,
+        "representative_measurement": true
       }
     ]
   },
@@ -36747,6 +39741,12 @@
         "date": "2020-10-31",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 53056780232093,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-12-01",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 19563277758796,
         "representative_measurement": true
       }
     ]
@@ -36969,6 +39969,12 @@
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 20701421309133,
         "representative_measurement": true
+      },
+      {
+        "date": "2020-11-30",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 79201140718565,
+        "representative_measurement": true
       }
     ]
   },
@@ -37123,6 +40129,30 @@
         "date": "2020-11-23",
         "RNA_per_ml": null,
         "RNA_flow_per_100000": 6035556248488,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4177898218482,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-25",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 4177898218482,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 58676525796615,
+        "representative_measurement": true
+      },
+      {
+        "date": "2020-11-29",
+        "RNA_per_ml": null,
+        "RNA_flow_per_100000": 58676525796615,
         "representative_measurement": true
       }
     ]
