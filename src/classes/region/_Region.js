@@ -172,7 +172,7 @@ class _Region {
     getColor(offset, source) {
         let map, frames, n, threshold;
         map = store.state.maps.current;
-        frames = this.framesForPeriod;
+        frames = this.getFramesForPeriod(source);
         n = this.getTotalIncreaseOfType(offset, frames, source.key, true);
         if (map.data.positivePcrTests.status) {
             if (this.hasLateReporting && offset < 10) {
@@ -187,7 +187,8 @@ class _Region {
 
     getThreshold(delta = 0, offset, source) {
         let n, frames;
-        frames = this.framesForPeriod;
+        frames = this.getFramesForPeriod(source);
+
         // possible with testDataInterval of 7 and signalingSystem-days of 1
         if (frames < 1) {
             return null;
@@ -200,10 +201,10 @@ class _Region {
         }
     }
 
-    get framesForPeriod() {
+    getFramesForPeriod(source) {
         let map, signalingSystem;
         map = store.state.maps.current;
-        signalingSystem = store.state.signalingSystems.current;
+        signalingSystem = store.getters['signalingSystems/getItemById'](source.signalingSystem_id);
         return signalingSystem.days / map.data.positivePcrTests.interval;
     }
 
