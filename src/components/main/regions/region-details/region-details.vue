@@ -95,7 +95,8 @@
                 :view="view"
                 :region="regionOfFocus"
                 :frames-before="framesBefore"
-                :step="step"/>
+                :step="step"
+                :height="300"/>
 
             <administered-pcr-tests
                 v-if="currentMap.data.administeredPcrTests.status"

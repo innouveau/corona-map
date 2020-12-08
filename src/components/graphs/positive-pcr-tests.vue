@@ -62,6 +62,8 @@
 
     .pcr-test-graph {
         margin-bottom: 12px;
+        width: 100%;
+        overflow: hidden;
 
         .pcr-test-graph__title {
             margin-bottom: 4px;
