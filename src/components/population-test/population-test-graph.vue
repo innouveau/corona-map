@@ -22,7 +22,7 @@
                 this.drawBackground('#f5eedc');
                 this.drawGrid();
                 if (this.days.length > 0) {
-                    this.drawPcrTestsBars('rgba(0,0,0,0.15)');
+                    this.drawPcrTestsBars('positiveTests','rgba(0,0,0,0.15)');
                     this.drawAntigenTestsBars('rgba(255,0,0,0.5)');
                     // this.drawTestsLine('positiveAntigenTests', true, false, '#ff0000');
                     // this.drawTestsLine('positiveTests', true, false, '#000');

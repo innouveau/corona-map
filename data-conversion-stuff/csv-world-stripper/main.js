@@ -1,9 +1,9 @@
 let url = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv';
 
-let regions = ['Podkarpackie', 'Małopolskie', 'Śląskie', 'Moravian-Silesian Region', 'Zlin Region', 'Olomouc Region', 'South Moravian Region', 'Niederösterreich', 'Nógrád', 'Borsod-Abaúj-Zemplén', 'Szabolcs-Szatmár-Bereg', 'Komárom-Esztergom', 'Győr-Moson-Sopron', 'Burgenland', 'Pest', 'Hajdú-Bihar', 'Heves'];
+let regions = ['Moravian-Silesian Region', 'Zlin Region', 'Olomouc Region', 'South Moravian Region'];
 let titleKey = 'Land/regio';
 let dateStart = new Date('2020-07-01').getTime();
-let dateEnd = new Date('2020-11-21').getTime();
+let dateEnd = new Date('2020-12-05').getTime();
 
 d3.csv(url)
     .then((data) => {
