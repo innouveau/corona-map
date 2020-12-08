@@ -30,6 +30,15 @@
             },
             testDataInterval() {
                 return this.$store.state.maps.current.data.positivePcrTests.interval;
+            },
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
+            hasHospitalisations() {
+                return this.currentMap.data.hospitalisations.status;
+            },
+            hasDeceased() {
+                return this.currentMap.data.deceased.status;
             }
         },
         methods: {
@@ -58,6 +67,9 @@
         </div>
 
         <div class="region-details__section">
+            <div class="region-details__section-head">
+                {{translate('trend-today', true)}}
+            </div>
             <div
                 v-if="hasDays && !short"
                 class="region-details__row">
@@ -77,6 +89,11 @@
                 <div class="region-details__value">
                     {{format(region.getTotalIncreaseOfType(view.offset, 1, view.currentSource.key, true), true)}}
                 </div>
+            </div>
+        </div>
+        <div class="region-details__section">
+            <div class="region-details__section-head">
+                {{translate('trend-week', true)}}
             </div>
             <div
                 v-if="!short"
@@ -98,15 +115,16 @@
                 </div>
             </div>
         </div>
-        <div
-            v-if="view.currentSource.key === 'positiveTests'"
-            class="region-details__section">
+        <div class="region-details__section">
+            <div class="region-details__section-head">
+                {{translate('total-since-day-1', true)}}
+            </div>
             <div class="region-details__row">
                 <div class="region-details__label">
                     {{translate('total-infections', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, -1, view.currentSource.key, false), false)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, -1, 'positiveTests', false), false)}}
                 </div>
             </div>
             <div class="region-details__row">
@@ -114,7 +132,27 @@
                     {{translate('total-infections-percentage-of-population', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{formatPercentage(region.getTotalAsPercentageOfPopulation(view.offset, view.currentSource.key), false)}}
+                    {{formatPercentage(region.getTotalAsPercentageOfPopulation(view.offset, 'positiveTests'), false)}}
+                </div>
+            </div>
+            <div
+                v-if="hasHospitalisations"
+                class="region-details__row">
+                <div class="region-details__label">
+                    {{translate('total-hospitalisations', true)}}
+                </div>
+                <div class="region-details__value">
+                    {{format(region.getTotalIncreaseOfType(view.offset, -1, 'hospitalisations', false), false)}}
+                </div>
+            </div>
+            <div
+                v-if="hasDeceased"
+                class="region-details__row">
+                <div class="region-details__label">
+                    {{translate('total-deceased', true)}}
+                </div>
+                <div class="region-details__value">
+                    {{format(region.getTotalIncreaseOfType(view.offset, -1, 'deceased', false), false)}}
                 </div>
             </div>
         </div>

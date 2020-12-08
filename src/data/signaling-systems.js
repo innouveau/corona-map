@@ -290,7 +290,7 @@ let signalingSystems = [
                     variant3: 'rgb(255,255,255)'
                 }
             }, {
-                n: 20,
+                n: 30,
                 color: {
                     regular: 'rgb(200,200,200)',
                     colorblind1: 'rgb(255,255,255)',

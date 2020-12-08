@@ -6,8 +6,14 @@
         components: {},
         props: {},
         computed: {
+            hasSourcePicker() {
+                return this.currentMap.data.hospitalisations.status || this.currentMap.data.deceased.status;
+            },
             currentMap() {
                 return this.$store.state.maps.current;
+            },
+            currentLanguage() {
+                return this.$store.state.languages.current;
             },
             currentRegion() {
                 return this.view.currentRegion;
@@ -30,6 +36,10 @@
                 if (this.view.offset > 0) {
                     query += '&date=' + this.date;
                 }
+                if (this.hasSourcePicker) {
+                    query += '&source=' + this.view.currentSource.key
+                }
+                query += '&language=' + this.currentLanguage.iso_code;
                 return query;
             },
             url() {

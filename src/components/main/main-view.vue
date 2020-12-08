@@ -41,7 +41,7 @@
         },
         methods: {
             readQuery() {
-                let region, string, offset;
+                let region, string, offset, source;
                 if (this.$route.query.region) {
                     string = decodeURI(this.$route.query.region);
                     region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', string, true);
@@ -55,6 +55,10 @@
                 }
                 if (this.$route.query.admin) {
                     this.$store.commit('ui/updateProperty', {key: 'admin', value: true});
+                }
+                if (this.$route.query.source) {
+                    source = this.$store.getters['sources/getItemByProperty']('title', this.$route.query.source, true);
+                    this.view.currentSource = source;
                 }
             }
         },

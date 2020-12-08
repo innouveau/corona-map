@@ -267,17 +267,37 @@ const dictionary = {
         nl: "Vandaag",
         en: "Today"
     },
+    "total-deceased": {
+        nl: "Totaal overleden sinds dag 1",
+        en: "Total deceased since day 1"
+    },
+    "total-hospitalisations": {
+        nl: "Totaal ziekenhuisopnames sinds dag 1",
+        en: "Total hospitalisations since day 1"
+    },
     "total-infections": {
-        nl: "Totaal positieve tests sinds dag 0",
-        en: "Total of positive tests since day 0"
+        nl: "Totaal positieve tests sinds dag 1",
+        en: "Total of positive tests since day 1"
     },
     "total-infections-percentage-of-population": {
-        nl: "Totaal positieve tests sinds dag 0 als pct vd bevolking",
-        en: "Total of positive tests since day 0 as perc of population"
+        nl: "Totaal positieve tests sinds dag 1 als pct vd bevolking",
+        en: "Total of positive tests since day 1 as perc of population"
     },
     "traffic-light": {
         nl: "Stoplicht",
         en: "Traffic light"
+    },
+    "total-since-day-1": {
+        nl: "Totalen sinds dag 1",
+        en: "Totals since day 1"
+    },
+    "trend-today": {
+        nl: "Trend vandaag",
+        en: "Trend today"
+    },
+    "trend-week": {
+        nl: "Trend deze week",
+        en: "Trend this week"
     },
     "show-notification": {
         nl: "Het tonen van trends maakt de user interface wat langzaam, daarom staan ze standaard uit",

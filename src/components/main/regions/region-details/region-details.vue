@@ -190,6 +190,13 @@
         border-bottom: 2px solid #000;
         padding: 10px 0;
 
+        .region-details__section-head {
+            font-family: $serif;
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
         .region-details__section-header {
             font-weight: 700;
             margin-bottom: 4px;

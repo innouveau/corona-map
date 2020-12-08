@@ -71,7 +71,7 @@
                 if (this.view.currentSource.key === 'hospitalisations') {
                     z *= 5;
                 } else if (this.view.currentSource.key === 'deceased') {
-                    z *= 20;
+                    z *= 12;
                 }
                 return z;
             },
