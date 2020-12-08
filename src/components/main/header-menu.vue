@@ -127,7 +127,7 @@
                     </div>
                 </div>
                 <total-infections
-                    v-if="hasTests && !videoMode"
+                    v-if="!videoMode"
                     :view="view"/>
             </div>
         </div>
