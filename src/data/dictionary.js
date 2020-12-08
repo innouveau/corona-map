@@ -55,6 +55,10 @@ const dictionary = {
         nl: "Overledenen",
         en: "Deceased"
     },
+    "deceased-per-positive-test": {
+        nl: "Overledenen per positieve test",
+        en: "Deceased per positive test"
+    },
     "description": {
         nl: "Beschrijving",
         en: "Description"
@@ -106,6 +110,10 @@ const dictionary = {
     "hospitalisations": {
         nl: "Ziekenhuisopnames",
         en: "Hospitalisations"
+    },
+    "hospitalisations-per-positive-test": {
+        nl: "Ziekenhuisopnames per positieve test",
+        en: "Hospitalisations per positive test"
     },
     "info": {
         nl: "Info",
@@ -210,6 +218,10 @@ const dictionary = {
     "provinces": {
         nl: "Provincies",
         en: "Provinces"
+    },
+    "ratios-since-july-1": {
+        nl: "Ratio's sinds 1 juli",
+        en: "Ratios since july 1st"
     },
     "relative": {
         nl: "Relatieve",

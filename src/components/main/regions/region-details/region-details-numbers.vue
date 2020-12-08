@@ -2,6 +2,7 @@
     import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
     import numberTools from '@/tools/number';
+    import dateTools from '@/tools/date';
 
     export default {
         name: 'region-details-numbers',
@@ -39,14 +40,28 @@
             },
             hasDeceased() {
                 return this.currentMap.data.deceased.status;
+            },
+            offsetOfJuly1() {
+                return dateTools.getOffsetByDate('2020-07-01');
+            },
+            lengthToJuly1() {
+                return this.offsetOfJuly1 - this.view.offset;
+            },
+            hospitalisationsPerPositiveTest() {
+                let value = 100 * this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'hospitalisations', false) / this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'positiveTests', false);
+                return this.formatPercentage(value, 1);
+            },
+            deceasedPerPositiveTest() {
+                let value = 100 * this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'deceased', false) / this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'positiveTests', false);
+                return this.formatPercentage(value, 1);
             }
         },
         methods: {
             format(value, addPlus) {
                 return numberTools.format(Math.round(value), addPlus);
             },
-            formatPercentage(value) {
-                return value.toFixed(1) + '%';
+            formatPercentage(value, d = 1) {
+                return value.toFixed(d) + '%';
             }
         }
     }
@@ -132,7 +147,7 @@
                     {{translate('total-infections-percentage-of-population', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{formatPercentage(region.getTotalAsPercentageOfPopulation(view.offset, 'positiveTests'), false)}}
+                    {{formatPercentage(region.getTotalAsPercentageOfPopulation(view.offset, 'positiveTests', false), 1)}}
                 </div>
             </div>
             <div
@@ -153,6 +168,29 @@
                 </div>
                 <div class="region-details__value">
                     {{format(region.getTotalIncreaseOfType(view.offset, -1, 'deceased', false), false)}}
+                </div>
+            </div>
+        </div>
+        <div
+            v-if="hasHospitalisations"
+            class="region-details__section">
+            <div class="region-details__section-head">
+                {{translate('ratios-since-july-1', true)}}
+            </div>
+            <div class="region-details__row">
+                <div class="region-details__label">
+                    {{translate('hospitalisations-per-positive-test', true)}}
+                </div>
+                <div class="region-details__value">
+                    {{hospitalisationsPerPositiveTest}}
+                </div>
+            </div>
+            <div class="region-details__row">
+                <div class="region-details__label">
+                    {{translate('deceased-per-positive-test', true)}}
+                </div>
+                <div class="region-details__value">
+                    {{deceasedPerPositiveTest}}
                 </div>
             </div>
         </div>
