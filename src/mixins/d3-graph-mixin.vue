@@ -54,12 +54,14 @@
                     .attr('stroke-width', 1);
             },
             drawDates() {
-                let index = 0;
-                for (let offset of this.frameOffsetPoints) {
+                let index, offsets;
+                offsets = this.days.map(d => d.offset);
+                for (let offset of offsets) {
                     let dateString, x, y, g;
                     if (offset >= 0) {
                         if (this.frameSize === 7 || (offset - this.max) % 7 === 0 || this.currentMap.data.positivePcrTests.interval === 7) {
                             dateString = dateTools.getDateByOffset(offset).split('-').slice(1,3).join('-');
+                            index = this.min - offset;
                             x = this.step * index;
                             y = this.height;
                             g = this.datesContainer.append('g')
@@ -79,13 +81,12 @@
                                 .text(dateString)
                                 .attr('font-size', '9px');
 
-                            // if (this.framesAfter > 0 && this.offset === offset) {
-                            //     g.append('polygon')
-                            //         .attr('points', '0,0 5,8, -5,8')
-                            //         .attr('fill', 'blue');
-                            // }
+                            if (this.framesAfter > 0 && this.offset === offset) {
+                                g.append('polygon')
+                                    .attr('points', '0,0 5,8, -5,8')
+                                    .attr('fill', 'blue');
+                            }
                         }
-                        index++;
                     }
                 }
             }

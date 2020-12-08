@@ -123,7 +123,7 @@
                 }
                 return this.frameOffsetPoints.map(offset => {
                     return report.history.find(day => day.offset === offset);
-                });
+                }).filter(day => day !== undefined);
             },
         },
         methods: {
@@ -220,11 +220,11 @@
             },
             drawPcrTestsBars(sourceKey, color) {
                 let index, margin;
-                index = 0;
                 margin = 1;
                 for (let day of this.days) {
                     if (day) {
                         let value, y, rect;
+                        index = this.min - day.offset;
                         value = this.getAbsoluteValue(day, sourceKey);
                         y = this.getY(day, sourceKey,false);
                         rect = this.lineContainer.append('rect')
@@ -241,7 +241,6 @@
 
                         rect.append('svg:title')
                             .text(value);
-                        index++;
                     }
                 }
             },
@@ -320,13 +319,13 @@
                 } else {
                     total = 0;
                     steps = 7;
-                    l = this.report.history.length - 1;
+                    l = this.report.history.length;
                     maxSteps = Math.min(steps, (l - day.offset));
                     end = day.offset;
                     start = day.offset + (maxSteps - 1);
                     for (let i = start; i > (end - 1); i--) {
                         let d, value;
-                        d = this.report.history[l - i];
+                        d = this.report.history[(l - 1) - i];
                         if (sourceKey === 'cumulative') {
                             value = d['positiveTests'] + d['positiveAntigenTests'];
                         } else {
