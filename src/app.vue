@@ -44,6 +44,9 @@
             },
             videoMode() {
                 return this.$store.state.ui.videoMode;
+            },
+            block() {
+                return this.currentMap && this.currentMap.block;
             }
         },
         methods: {
@@ -449,7 +452,9 @@
 
 
 <template>
-    <div class="app">
+    <div
+        :class="{'map--blocked': block}"
+        class="app">
         <router-view v-if="dataLoaded"/>
 
         <div

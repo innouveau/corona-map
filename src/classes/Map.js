@@ -2,6 +2,7 @@ class Map {
     constructor({
         id = null,
         ready = true,
+        block = false,
         title = '',
         module = '',
         regionLabel = '',
@@ -11,6 +12,7 @@ class Map {
     }) {
         this.id = id;
         this.ready = ready;
+        this.block = block;
         this.title = title;
         this.module = module;
         this.regionLabel = regionLabel;

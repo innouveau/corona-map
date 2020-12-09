@@ -1,4 +1,6 @@
 import Point from "./Point";
+import store from '@/store/store';
+
 
 class Path {
     constructor(path) {
@@ -7,9 +9,14 @@ class Path {
     }
 
     create(settings) {
-        let path, pathWithoutStart, translatedPath;
+        let path, pathWithoutStart, translatedPath, map;
+        map = store.state.maps.current;
         path = new Path2D();
-        translatedPath = this.getTranslatedPath(settings);
+        if (map.block) {
+            translatedPath = this.box.map(point => point.getTranslated(settings));
+        } else {
+            translatedPath = this.getTranslatedPath(settings);
+        }
         path.moveTo(...translatedPath[0]);
         pathWithoutStart = translatedPath.slice(1);
         for (let point of pathWithoutStart) {
@@ -26,7 +33,7 @@ class Path {
         return this.path;
     }
 
-    get centroid() {
+    get box() {
         let x1, x2, y1, y2;
         x1 = null;
         x2 = null;
@@ -46,9 +53,19 @@ class Path {
                 y2 = point.y;
             }
         }
+        return [
+            new Point({x: x1, y: y1}),
+            new Point({x: x2, y: y1}),
+            new Point({x: x2, y: y2}),
+            new Point({x: x1, y: y2})
+        ];
+    }
+
+    get centroid() {
+        let box = this.box;
         return {
-            x: (x1 + x2) / 2,
-            y: (y1 + y2) / 2
+            x: (box[0].x + box[1].x) / 2,
+            y: (box[1].y + box[2].y) / 2
         }
     }
 }

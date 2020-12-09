@@ -17,6 +17,7 @@ const maps = [
     {
         id: 1,
         ready: true,
+        block: true,
         title: 'Nederland',
         module: 'cities',
         regionLabel: 'gemeentes',
@@ -101,6 +102,7 @@ const maps = [
     }, {
         id: 2,
         ready: true,
+        block: false,
         regionType: 'District',
         module: 'districts',
         title: 'Amsterdam',
@@ -161,6 +163,7 @@ const maps = [
     {
         id: 4,
         ready: true,
+        block: false,
         regionType: 'District',
         module: 'districts',
         title: 'NL-DE',
@@ -217,6 +220,7 @@ const maps = [
     }, {
         id: 5,
         ready: true,
+        block: false,
         regionType: 'District',
         module: 'districts',
         title: 'Europe',
@@ -278,6 +282,7 @@ const maps = [
         module: 'districts',
         title: 'World',
         ready: true,
+        block: false,
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
@@ -329,6 +334,7 @@ const maps = [
     {
         id: 7,
         ready: true,
+        block: false,
         regionType: 'District',
         module: 'districts',
         title: 'USA',
@@ -385,6 +391,7 @@ const maps = [
     {
         id: 12,
         ready: true,
+        block: false,
         regionType: 'District',
         module: 'cities',
         title: 'Slovakia',
@@ -454,6 +461,7 @@ const maps = [
     }, {
         id: 13,
         ready: true,
+        block: false,
         regionType: 'District',
         module: 'districts',
         title: 'South America',

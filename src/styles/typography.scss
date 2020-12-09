@@ -1,0 +1,45 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0;
+
+    .map--blocked {
+
+        .region-details__label {
+            background: #000;
+        }
+
+        .region-details__value {
+            background: #000;
+        }
+
+        .pcr-test-graph__container {
+
+            svg {
+                 rect {
+                     fill: #000!important;
+                     opacity: 1!important;
+                 }
+            }
+        }
+
+        .region-details__increase {
+            background: #000;
+        }
+
+        .dot {
+            background: #000!important;
+            border-radius: 0;
+        }
+
+        .swatch {
+            background: #000!important;
+            border-radius: 0;
+        }
+
+        .region__title {
+            background: #000;
+        }
+    }
+}

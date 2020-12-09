@@ -21,12 +21,18 @@ const drawRegionContainer = function(ctx, parent, settings, offset, mapType, sou
     currentMap = store.state.maps.current;
     regionType = parent.regionType;
 
-    if (mapType === 'change') {
-        let change = parent.getChange(offset, changeTools.daysBack);
-        ctx.fillStyle = changeTools.getColorForChange(change);
+    if (currentMap.block) {
+        ctx.fillStyle = '#000';
+        ctx.strokeStyle = '#888';
     } else {
-        ctx.fillStyle = parent.getColor(offset, source);
+        if (mapType === 'change') {
+            let change = parent.getChange(offset, changeTools.daysBack);
+            ctx.fillStyle = changeTools.getColorForChange(change);
+        } else {
+            ctx.fillStyle = parent.getColor(offset, source);
+        }
     }
+
 
     if (currentMap.settings.map.discreteRegions && currentMap.settings.map.discreteRegions.indexOf(parent.title) > -1) {
         ctx.globalAlpha = 0.25;
