@@ -79,8 +79,9 @@
             </div>
 
             <population-test-numbers
-                    :view="view"
-                    :region="region"/>
+                v-if="region.report"
+                :view="view"
+                :region="region"/>
         </div>
     </div>
 </template>

@@ -4,7 +4,7 @@ import store from '@/store/store';
 
 class City extends _RegionWithTestData {
     constructor({
-        country_id = 1,
+        country_id = null,
         identifier = '',
         ggd_code = '',
         safetyRegion_code = '',
@@ -21,6 +21,7 @@ class City extends _RegionWithTestData {
     }) {
         super();
         this.regionType = 'city';
+        this.module = 'cities';
         this.id = store.state.cities.all.length + 1;
         this.country_id = country_id;
         this.identifier = identifier;

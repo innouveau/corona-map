@@ -12,6 +12,7 @@ class GGD extends _Region{
     }) {
         super();
         this.id = (store.state.ggds.all.length + 1);
+        this.module = 'ggds';
         this.regionType = 'ggd';
         this.ggd_code = ggd_code;
         this.title = title;

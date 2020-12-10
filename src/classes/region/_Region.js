@@ -131,6 +131,8 @@ class _Region {
                     report.history.push(copy)
                 } else {
                     report.history[dayCounter].positiveTests += copy.positiveTests;
+                    report.history[dayCounter].positiveAntigenTests += copy.positiveAntigenTests;
+                    report.history[dayCounter].totalAntigenTests += copy.totalAntigenTests;
                     if (report.history[dayCounter].administeredTests) {
                         report.history[dayCounter].administeredTests += copy.administeredTests;
                     }

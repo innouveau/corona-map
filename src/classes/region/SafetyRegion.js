@@ -11,6 +11,7 @@ class SafetyRegion extends _Region {
     }) {
         super();
         this.id = (store.state.safetyRegions.all.length + 1);
+        this.module = 'safetyRegions';
         this.regionType = 'safety-region';
         this.safetyRegion_code = safetyRegion_code;
         this.title = title;

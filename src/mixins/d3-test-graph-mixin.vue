@@ -119,7 +119,7 @@
                 let report = this.region.report;
                 if (!report) {
                     report = this.region.getTotalReport();
-                    this.$store.commit(this.$store.getters['ui/module'] +'/updatePropertyOfItem', {item: this.region, property: 'report', value: report});
+                    this.$store.commit(this.region.module +'/updatePropertyOfItem', {item: this.region, property: 'report', value: report});
                 }
                 return this.frameOffsetPoints.map(offset => {
                     return report.history.find(day => day.offset === offset);

@@ -11,6 +11,7 @@ class Province extends _Region{
     }) {
         super();
         this.id = (store.state.provinces.all.length + 1);
+        this.module = 'provinces';
         this.regionType = 'province';
         this.province_code = province_code;
         this.title = title;

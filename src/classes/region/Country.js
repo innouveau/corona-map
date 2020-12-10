@@ -9,6 +9,7 @@ class Country extends _Region {
         paths = []
     }) {
         super();
+        this.module = 'countries';
         this.regionType = 'country';
         this.id = id;
         this.title = title;

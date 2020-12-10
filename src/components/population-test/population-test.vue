@@ -101,8 +101,20 @@
                     color: 'purple'
                 }
             },
+            countryGroup() {
+                return {
+                    title: 'Country',
+                    label: '◯',
+                    color: 'orange'
+                }
+            },
             regions() {
                 return this.$store.getters['ui/regions'];
+            },
+            country() {
+                return this.$store.state.countries.all.find(c => {
+                    return this.regions[0].country_id === c.id;
+                })
             },
             currentRegion() {
                 return this.view.currentRegion ? this.view.currentRegion : this.regions.find(region => region.title === 'Tvrdošín');
@@ -165,9 +177,6 @@
                 <search-regions
                     :view="view"/>
 
-                <region-type-picker
-                    :view="view"/>
-
                 <map-signaling
                     :view="view"
                     :show-tools="true"
@@ -183,6 +192,10 @@
             </div>
 
             <div class="population-test__dashboard">
+                <population-test-region
+                    :region="country"
+                    :view="view"
+                    :group="countryGroup"/>
                 <population-test-region
                     v-if="view.currentRegion"
                     :region="view.currentRegion"

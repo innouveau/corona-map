@@ -18,8 +18,22 @@
             title() {
                 return 'Top 10 ' + this.translate('relative') + ' ' + this.translate('increase') + ' ' + this.translate('today');
             },
+            currentRegionType() {
+                return this.$store.state.ui.currentRegionType;
+            },
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
             regions() {
                 let regions = this.$store.getters['ui/regions'];
+                // check if the country has regions in this map
+                if (this.currentRegionType === 'country') {
+                    regions = regions.filter(country => {
+                        return this.$store.state[this.currentMap.module].all.filter(r => {
+                            return r.country_id === country.id;
+                        }).length > 0;
+                    })
+                }
                 return regions.sort((a,b) => {
                     let ai, bi;
                     ai = this.relativeIncreaseLastday(a);

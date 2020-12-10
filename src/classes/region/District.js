@@ -18,6 +18,7 @@ class District extends _RegionWithTestData {
     }) {
         super();
         this.regionType = 'district';
+        this.module = 'districts';
         this.id = store.state.districts.all.length + 1;
         this.identifier = identifier;
         this.nutsCode = nutsCode;

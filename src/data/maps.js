@@ -396,8 +396,13 @@ const maps = [
         module: 'cities',
         title: 'Slovakia',
         settings: {
-            regionTypes: ['city'],
-            pathOrigins: [],
+            regionTypes: ['city', 'country'],
+            pathOrigins: [
+                {
+                    type: 'country',
+                    paths: 'city'
+                }
+            ],
             generalInfoHasPopulation: true,
             map: {
                 latitude: 48.95,
