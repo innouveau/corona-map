@@ -61,7 +61,7 @@
                     if (offset >= 0) {
                         if (this.frameSize === 7 || (offset - this.max) % 7 === 0 || this.currentMap.data.positivePcrTests.interval === 7) {
                             dateString = dateTools.getDateByOffset(offset).split('-').slice(1,3).join('-');
-                            index = this.min - offset;
+                            index = (this.min - offset) / this.frameSize;
                             x = this.step * index;
                             y = this.height;
                             g = this.datesContainer.append('g')

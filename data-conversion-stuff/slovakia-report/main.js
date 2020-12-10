@@ -1,98 +1,99 @@
-$(document).ready(function() {
-    $.ajax({
-        url : "report-complete.txt",
-        dataType: "text",
-        success : function (result) {
-            readText(result);
-        }
+let url, source;
+url = 'reports/Tabulka-vysledkov-testovania-miest-a-obci-2.-3.-a-4.-kolo-porovnani....csv';
+source = '../../public/data/maps/slovakia/positive-antigen-tests.csv';
+
+d3.csv(url)
+    .then((newData) => {
+        d3.csv(source)
+            .then((sourceData) => {
+                addNewData(newData, sourceData);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        // let csv = '';
+        // for (let item of data) {
+        //     if (regions.indexOf(item[titleKey]) > -1) {
+        //         let title;
+        //         title = item[titleKey];
+        //         csv += title + ',';
+        //         for (let key in item){
+        //             if (key !== titleKey) {
+        //                 let time = new Date(key).getTime();
+        //                 if (time >= dateStart && time <= dateEnd) {
+        //                     csv += Number(item[key]) + ',';
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     csv = csv.slice(0, -1);
+        //     csv += '\n';
+        // }
+        // console.log(csv);
+
+    })
+    .catch((error) => {
+        console.error(error);
     });
-});
 
-let regions = [];
-
-function getRegion(title) {
-    for (let region of regions) {
-        if (region.title === title) {
+function getRegion(sourceData, regionTitle) {
+    for (let region of sourceData) {
+        if (region.region === regionTitle) {
             return region;
         }
     }
     return null;
 }
 
-function exportAsCsv(regions) {
-    let csv = 'region,2020-10-31_total,2020-10-31_positive,2020-11-07_total,2020-11-07_positive\n';
-    for (let region of regions) {
-        csv += region.title + ',';
-        csv += region.tests_1 + ',';
-        csv += region.positive_1 + ',';
-        csv += region.tests_2 + ',';
-        csv += region.positive_2 + '\n';
+function addNewData(newData, sourceData) {
+    //console.log(sourceData);
+    for (let item of newData) {
+        let region = getRegion(sourceData, item.Okres);
+        if (region) {
+            let positive, total, pct;
+            // 4c is for round 4, c is total (a = residents, b = non-residents)
+            positive = Number(item['poz4c']);
+            total = Number(item['test4c']);
+            pct = Number(item['% poz4c'].slice(0, -1).replace(/,/g, '.'));
+            if (!region.added) {
+                region['2020-11-21_positive'] = positive;
+                region['2020-11-21_total'] = total;
+                region.added = true;
+            } else {
+                region['2020-11-21_positive'] += positive;
+                region['2020-11-21_total'] += total;
+            }
+
+            // check on percentage
+            if (Math.round(10000 * positive / total) / 100 !== pct) {
+                //console.log(positive, total, pct);
+            }
+        } else {
+            //console.warn('Region with title ' + item.Okres + ' not found');
+        }
     }
-    console.log(csv);
+    exportAsCSV(sourceData);
 }
 
-function readText(result) {
-    let lines, linesWithData;
-    lines = result.split('\n');
+function exportAsCSV(data) {
+    console.log(data);
+    let cols, csv;
+    cols = ['region','2020-10-24_total','2020-10-24_positive', '2020-10-31_total','2020-10-31_positive','2020-11-07_total','2020-11-07_positive','2020-11-21_total','2020-11-21_positive'];
 
-    linesWithData = lines.filter(line => {
-        let chunks, firstChunk;
-        chunks = line.trim().split(/\s+/);
-        firstChunk = chunks[0];
-        return firstChunk.length > 0 && firstChunk !== 'RHQ' && isNaN(firstChunk);
-    });
-
-    for (let line of linesWithData) {
-        let convertedLine, chunks, title, region,
-            testsRound1, positiveRound1, testRound2, positiveRound2;
-        convertedLine = line.trim().replace(/\s\s+/g, '\t');
-        chunks = convertedLine.trim().split('\t');
-        if (chunks.length > 1) {
-            title = chunks[2];
-            testsRound1 = Number(chunks[4]);
-            positiveRound1 = Number(chunks[5]);
-            testRound2 = Number(chunks[7]);
-            positiveRound2 = Number(chunks[8]);
-
-            if (title.indexOf('Bratislava') > -1) {
-                title = 'Bratislava';
-            }
-
-            if (title.indexOf('Košice') > -1 && title !== 'Košice - okolie') {
-                title = 'Košice';
-            }
-
-            if (isNaN(testsRound1)) {
-                testsRound1 = 0;
-            }
-            if (isNaN(positiveRound1)) {
-                positiveRound1 = 0;
-            }
-            if (isNaN(testRound2)) {
-                testRound2 = 0;
-            }
-            if (isNaN(positiveRound2)) {
-                positiveRound2 = 0;
-            }
-
-            region = getRegion(title);
-            if (region) {
-                region.tests_1 += testsRound1;
-                region.positive_1 += positiveRound1;
-                region.tests_2 += testRound2;
-                region.positive_2 += positiveRound2;
+    csv = cols.join(',') + '\n';
+    for (let region of data) {
+        for (let col of cols) {
+            if (region[col]) {
+                csv += region[col];
             } else {
-                regions.push({
-                    title,
-                    tests_1: testsRound1,
-                    positive_1: positiveRound1,
-                    tests_2: testRound2,
-                    positive_2: positiveRound2
-                })
+                csv += '0';
+            }
+            if (cols.indexOf(col) === cols.length - 1) {
+                csv += '\n';
+            } else {
+                csv += ',';
             }
         }
-
-
     }
-    exportAsCsv(regions);
+    console.log(csv);
 }

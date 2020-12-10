@@ -224,7 +224,7 @@
                 for (let day of this.days) {
                     if (day) {
                         let value, y, rect;
-                        index = this.min - day.offset;
+                        index = (this.min - day.offset) / this.frameSize;
                         value = this.getAbsoluteValue(day, sourceKey);
                         y = this.getY(day, sourceKey,false);
                         rect = this.lineContainer.append('rect')
@@ -233,7 +233,7 @@
                             })
                             .attr('y', y)
                             .attr('width', () => {
-                                let last = this.days.indexOf(day) === this.days.length - 1;
+                                let last = index === this.totalFrames;
                                 return last ? (0.5 * this.step) : (this.step - (2 * margin));
                             })
                             .attr('height', Math.max((this.height - y), 0))
@@ -246,12 +246,12 @@
             },
             drawAntigenTestsBars(color) {
                 let size, index, margin;
-                index = 0;
                 size = 1;
                 margin = 1;
                 for (let day of this.days) {
                     let value, rect, y, pcrHeight;
                     if (day) {
+                        index = (this.min - day.offset) / this.frameSize;
                         value = this.getAbsoluteValue(day, 'positiveAntigenTests');
                         if (value > 0) {
                             pcrHeight = this.height - this.getY(day, 'positiveTests',false);
@@ -262,7 +262,7 @@
                                 })
                                 .attr('y', (y - pcrHeight))
                                 .attr('width', () => {
-                                    let last = this.days.indexOf(day) === this.days.length - 1;
+                                    let last = index === this.totalFrames;
                                     return last ? (0.5 * this.step) : (this.step - (2 * margin));
                                 })
                                 .attr('height', (this.height - y))
@@ -273,7 +273,6 @@
                         }
 
                     }
-                    index ++;
                 }
             },
             getRelativeOfType(day, sourceKey) {
