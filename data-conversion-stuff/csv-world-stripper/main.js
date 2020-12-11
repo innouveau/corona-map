@@ -2,7 +2,7 @@
 let url = 'https://raw.githubusercontent.com/mzelst/covid-19/master/data/municipality-totals.csv';
 
 //let regions = ['Moravian-Silesian Region', 'Zlin Region', 'Olomouc Region', 'South Moravian Region'];
-let regions = ['Vlaardingen'];
+let regions = ['Zwartewaterland', 'Tiel'];
 let ignoreKeys = ['Municipality_code', 'population'];
 
 //let titleKey = 'Land/regio';
