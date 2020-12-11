@@ -10,6 +10,7 @@ import story from '@/components/story/story'
 import populationTest from '@/components/population-test/population-test'
 import exportPage from '@/components/export/export'
 import hospitalisations from '@/components/hospitalisations/hospitalisations'
+import weekStats from '@/components/population-test/population-week-stats'
 
 Vue.use(Router);
 
@@ -58,6 +59,10 @@ const routes = [
         path: "/hospitalisations",
         name: "hospitalisations",
         component: hospitalisations,
+    }, {
+        path: "/week-stats",
+        name: "weekStats",
+        component: weekStats,
     }
 ];
 

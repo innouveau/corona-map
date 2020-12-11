@@ -1,7 +1,12 @@
-let url = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv';
+//let url = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv';
+let url = 'https://raw.githubusercontent.com/mzelst/covid-19/master/data/municipality-totals.csv';
 
-let regions = ['Moravian-Silesian Region', 'Zlin Region', 'Olomouc Region', 'South Moravian Region'];
-let titleKey = 'Land/regio';
+//let regions = ['Moravian-Silesian Region', 'Zlin Region', 'Olomouc Region', 'South Moravian Region'];
+let regions = ['Vlaardingen'];
+let ignoreKeys = ['Municipality_code', 'population'];
+
+//let titleKey = 'Land/regio';
+let titleKey = 'Municipality_name';
 let dateStart = new Date('2020-07-01').getTime();
 let dateEnd = new Date('2020-12-05').getTime();
 
@@ -14,7 +19,7 @@ d3.csv(url)
                 title = item[titleKey];
                 csv += title + ',';
                 for (let key in item){
-                    if (key !== titleKey) {
+                    if (key !== titleKey && ignoreKeys.indexOf(key) === -1) {
                         let time = new Date(key).getTime();
                         if (time >= dateStart && time <= dateEnd) {
                             csv += Number(item[key]) + ',';
