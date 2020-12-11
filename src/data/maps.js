@@ -1,105 +1,16 @@
-const standardPcrTestAdapter = {
-    titleKey: 'Land/regio',
-    positiveTestsKey: '',
-    findColumn: function(column) {
-        return column.indexOf('20') > -1;
-    }
-};
+import slovakia from "./maps/slovakia";
+import netherlands from "./maps/netherlands";
+import europe from "./maps/europe";
+import {standardPcrTestAdapter} from "./maps/adapters"
 
-const caseSettings = {
-    lateReporting: ['FR', 'BE', 'PL', 'SE']
-};
 
-const sewageDataUrl = 'https://raw.githubusercontent.com/innouveau/corona-map/master/public/data/sewage/sewage-measurements-netherlands.json';
+
+
 const casesUrl = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv';
 
 const maps = [
+    netherlands,
     {
-        id: 1,
-        ready: true,
-        block: true,
-        title: 'Nederland',
-        module: 'cities',
-        regionLabel: 'gemeentes',
-        story_id: 1,
-        settings: {
-            regionTypes: ['city','ggd', 'safety-region', 'province', 'country'],
-            pathOrigins: [
-                {
-                    type: 'country',
-                    paths: 'city'
-                }
-            ],
-            generalInfoHasPopulation: false,
-            map: {
-                latitude: 52.15,
-                longitude: 5.34,
-                stretch: 0.62,
-                zoom: 0.345,
-                ratio: 0.91
-            },
-            positiveTestGraph: {
-                zoomFactor: 0.66
-            }
-        },
-        data: {
-            geo: {
-                status: true,
-                source: 'data/maps/nederland/cities.json'
-            },
-            positivePcrTests: {
-                status: true,
-                source: (window.config.dataUrl + 'data/municipality-totals.csv'),
-                interval: 1,
-                cumulative: true
-            },
-            positiveAntigenTests: {
-                status: false
-            },
-            administeredPcrTests: {
-                status: false,
-                source: ''
-            },
-            hospitalisations: {
-                status: true,
-                source: (window.config.dataUrl + 'data/municipality-hospitalisations.csv'),
-                interval: 1,
-                cumulative: true,
-                adapter: {
-                    getKeys(columns) {
-                        return columns.filter(c => c.indexOf('Hospital_admission.') > -1);
-                    },
-                    getDateFromKey(key) {
-                        return key.split('Hospital_admission.')[1];
-                    },
-                    regionKey: 'Municipality_name'
-                }
-            },
-            deceased: {
-                status: true,
-                source: (window.config.dataUrl + 'data/municipality-deaths.csv'),
-                interval: 1,
-                cumulative: true,
-                adapter: {
-                    getKeys(columns) {
-                        return columns.filter(c => c.indexOf('Deceased.') > -1);
-                    },
-                    getDateFromKey(key) {
-                        return key.split('Deceased.')[1];
-                    },
-                    regionKey: 'Municipality_name'
-                }
-            },
-            ageGroups: {
-                status: true,
-                source: 'data/maps/nederland/cities-population-agegroup.csv'
-            },
-            sewageMeasurements: {
-                status: true,
-                source: sewageDataUrl
-            }
-        }
-    }, {
         id: 2,
         ready: true,
         block: false,
@@ -217,65 +128,8 @@ const maps = [
                 source: ''
             }
         }
-    }, {
-        id: 5,
-        ready: true,
-        block: false,
-        regionType: 'District',
-        module: 'districts',
-        title: 'Europe',
-        settings: {
-            regionTypes: ['district'],
-            pathOrigins: [],
-            generalInfoHasPopulation: true,
-            map: {
-                latitude: 53,
-                longitude: 5,
-                stretch: 0.65,
-                zoom: 0.027,
-                ratio: 1.04
-            },
-            positiveTestGraph: {
-                zoomFactor: 0.3
-            },
-            excludeRegions: [],
-            caseSettings: caseSettings
-        },
-        data: {
-            geo: {
-                status: true,
-                source: 'data/maps/europa/europa.json?version=2'
-            },
-            positivePcrTests: {
-                status: true,
-                source: casesUrl,
-                interval: 1,
-                cumulative: true,
-                adapter: standardPcrTestAdapter
-            },
-            positiveAntigenTests: {
-                status: false
-            },
-            hospitalisations: {
-                status: false
-            },
-            deceased: {
-                status: false
-            },
-            administeredPcrTests: {
-                status: false,
-                source: ''
-            },
-            ageGroups: {
-                status: false,
-                source: ''
-            },
-            sewageMeasurements: {
-                status: false,
-                source: ''
-            }
-        }
     },
+    europe,
     {
         id: 6,
         regionType: 'District',
@@ -388,82 +242,7 @@ const maps = [
             }
         }
     },
-    {
-        id: 12,
-        ready: true,
-        block: false,
-        regionType: 'District',
-        module: 'cities',
-        title: 'Slovakia',
-        settings: {
-            regionTypes: ['city', 'country'],
-            pathOrigins: [
-                {
-                    type: 'country',
-                    paths: 'city'
-                }
-            ],
-            generalInfoHasPopulation: true,
-            map: {
-                latitude: 48.95,
-                longitude: 19.3,
-                stretch: 0.65,
-                zoom: 0.235,
-                ratio: 1.5,
-                discreteRegions: []
-            },
-            positiveTestGraph: {
-                zoomFactor: 0.2
-            }
-        },
-        data: {
-            geo: {
-                status: true,
-                source: 'data/maps/slovakia/slovakia.json'
-            },
-            positivePcrTests: {
-                status: true,
-                source: 'data/maps/slovakia/positive-pcr-tests.csv',
-                interval: 1,
-                cumulative: true,
-                adapter: standardPcrTestAdapter
-            },
-            administeredPcrTests: {
-                status: false,
-                source: ''
-            },
-            positiveAntigenTests: {
-                status: true,
-                source: 'data/maps/slovakia/positive-antigen-tests.csv',
-                adapter: {
-                    titleKey: 'region',
-                    getPositiveKeys: function(column) {
-                        return column.indexOf('positive') > -1;
-                    },
-                    getTotalKeyFromDate:function(date) {
-                        return date + '_total';
-                    },
-                    getDateFromKey: function(column) {
-                        return column.split('_')[0];
-                    }
-                }
-            },
-            hospitalisations: {
-                status: false
-            },
-            deceased: {
-                status: false
-            },
-            ageGroups: {
-                status: false,
-                source: ''
-            },
-            sewageMeasurements: {
-                status: false,
-                source: ''
-            }
-        }
-    }, {
+    slovakia, {
         id: 13,
         ready: true,
         block: false,
@@ -485,7 +264,7 @@ const maps = [
                 zoomFactor: 0.9
             },
             excludeRegions: [],
-            caseSettings: caseSettings
+            caseSettings: null
         },
         data: {
             geo: {
