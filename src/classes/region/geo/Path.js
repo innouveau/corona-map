@@ -12,7 +12,7 @@ class Path {
         let path, pathWithoutStart, translatedPath, map;
         map = store.state.maps.current;
         path = new Path2D();
-        if (map.block) {
+        if (map.block && !store.state.ui.admin) {
             translatedPath = this.box.map(point => point.getTranslated(settings));
         } else {
             translatedPath = this.getTranslatedPath(settings);

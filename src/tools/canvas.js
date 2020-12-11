@@ -21,7 +21,7 @@ const drawRegionContainer = function(ctx, parent, settings, offset, mapType, sou
     currentMap = store.state.maps.current;
     regionType = parent.regionType;
 
-    if (currentMap.block) {
+    if (currentMap.block && !store.state.ui.admin) {
         ctx.fillStyle = '#000';
         ctx.strokeStyle = '#888';
     } else {

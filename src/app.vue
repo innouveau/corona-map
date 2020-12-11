@@ -46,7 +46,7 @@
                 return this.$store.state.ui.videoMode;
             },
             block() {
-                return this.currentMap && this.currentMap.block;
+                return this.currentMap && this.currentMap.block && !this.$store.state.ui.admin;
             }
         },
         methods: {
