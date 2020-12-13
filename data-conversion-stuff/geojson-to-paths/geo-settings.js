@@ -163,7 +163,7 @@ window.geoSettings = {
         },
         addCountryCode: null,
         exclude: ['germany', 'spain', 'russia', 'china', 'peru', 'colombia', 'brazil',
-            'poland', 'venezuela', 'norway', 'sweden', 'finland', 'united kingdom',
+            'venezuela', 'norway', 'sweden', 'finland', 'united kingdom',
             'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'italy',
             'france', 'antarctica', 'ashmore and cartier island', 'french southern and antarctic lands',
             'Ashmore and Cartier Islands', 'Bajo Nuevo Bank (Petrel Is.)', 'Clipperton Island',

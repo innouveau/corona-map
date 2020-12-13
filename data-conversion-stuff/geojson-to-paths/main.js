@@ -2,7 +2,7 @@ let regions, populationDict, settings, sources, currentSource;
 
 regions = [];
 
-sources = ['scandinavia', 'china', 'poland', 'france', 'germany', 'spain', 'world', 'usa', 'peru', 'colombia',
+sources = ['scandinavia', 'china', 'france', 'germany', 'spain', 'world', 'usa', 'peru', 'colombia',
     'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia', 'venezuela'];
 //sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile', 'venezuela'];
 currentSource = sources[0];
