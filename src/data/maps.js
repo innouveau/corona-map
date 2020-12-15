@@ -17,7 +17,7 @@ const maps = [
     {
         id: 1,
         ready: true,
-        block: true,
+        block: false,
         title: 'Nederland',
         module: 'cities',
         regionLabel: 'gemeentes',
