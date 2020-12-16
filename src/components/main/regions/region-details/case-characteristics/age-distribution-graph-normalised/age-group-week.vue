@@ -33,12 +33,38 @@
             width() {
                 return 7 * this.$store.state.settings.step;
             },
-            cases() {
+            casesPreviousWeek() {
+                return this.getCases(this.week + 1);
+            },
+            casesThisWeek() {
+                return this.getCases(this.week);
+            },
+            casesPerPopulation() {
+                return Math.round(100000 * this.casesThisWeek / this.population);
+            },
+            threshold() {
+                return thresholdTools.getThreshold(this.casesPerPopulation, this.view.currentSource);
+            },
+            color() {
+                return thresholdTools.thresholdToColor(this.threshold, this.casesPerPopulation, this.view.currentSource);
+            },
+            ageDistributionAbsolute() {
+                return this.$store.state.settings.ageDistributionAbsolute;
+            },
+            value() {
+                return this.ageDistributionAbsolute ? this.casesThisWeek : this.casesPerPopulation;
+            },
+            growth() {
+                return Math.round(100 * ((this.casesThisWeek / this.casesPreviousWeek) - 1));
+            }
+        },
+        methods: {
+            getCases(week) {
                 let cases, offset, start, ggds, firstGgd;
                 cases = 0;
                 ggds = this.region.getGgds();
                 firstGgd = ggds[0];
-                offset = (this.week * 7) + this.view.offset;
+                offset = (week * 7) + this.view.offset;
                 start = firstGgd.ageGroupReport.length - 1 - offset;
                 for (let i = start; i > start - 7; i--) {
                     let date, day, ageGroup;
@@ -55,24 +81,8 @@
                     }
                 }
                 return cases;
-            },
-            casesPerPopulation() {
-                return Math.round(100000 * this.cases / this.population);
-            },
-            threshold() {
-                return thresholdTools.getThreshold(this.casesPerPopulation, this.view.currentSource);
-            },
-            color() {
-                return thresholdTools.thresholdToColor(this.threshold, this.casesPerPopulation, this.view.currentSource);
-            },
-            ageDistributionAbsolute() {
-                return this.$store.state.settings.ageDistributionAbsolute;
-            },
-            value() {
-                return this.ageDistributionAbsolute ? this.cases : this.casesPerPopulation;
             }
-        },
-        methods: {}
+        }
     }
 </script>
 
@@ -85,6 +95,11 @@
         }"
         class="age-group-week">
         {{value}}
+        <div
+            :class="{'age-group-week__growth--negative': growth < 0}"
+            class="age-group-week__growth">
+            {{growth}}%
+        </div>
     </div>
 </template>
 
@@ -96,11 +111,25 @@
         border-right: 1px solid #fff;
         height: 100%;
         display: flex;
-        padding: 4px;
+        padding: 0 12px;
         align-items: center;
-        justify-content: center;
         transition: all 0.1s ease;
         flex-shrink: 0;
         color: #fff;
+        position: relative;
+
+        .age-group-week__growth {
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            font-size: 10px;
+            background: #fff;
+            padding: 1px 2px;
+            color: #000;
+
+            &.age-group-week__growth--negative {
+                background: greenyellow;
+            }
+        }
     }
 </style>
