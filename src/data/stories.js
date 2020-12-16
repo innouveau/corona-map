@@ -2,11 +2,11 @@ const stories = [
     {
         id: 1,
         title: {
-            nl: 'Hoe Nederland in de Tweede Golf belandde',
+            nl: 'Jaaroverzicht 2020 Corona in Nederland',
             en: 'How the Netherlands ended up in its Second Wave'
         },
         subtitle: {
-            nl: 'De puzzelstukjes: chaos en besluiteloosheid',
+            nl: 'Drie golven, mondkapjes, laat ingrijpen en een huwelijk...',
             en: 'Pieces of the puzzle: chaos and lack of leadership'
         },
         image: 'assets/img/stories/netherlands/persconferentie-31-maart.jpg',
@@ -14,8 +14,216 @@ const stories = [
         chapters: [
             {
                 title: {
+                    nl: 'Berichten uit China',
+                    en: ''
+                },
+                date: '2020-01-22',
+                dateTitle: {
+                    nl: 'Januari en februari',
+                    en: ''
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                            De geruchten uit China over een mysterieuze longziekte
+                            stapelen zich op in de eerste weken van januari. Wuhan 
+                            de stad van de uitbraak besluit haar complete bevolking op 
+                            22 januari onder quarantaine te plaatsen. Een dag
+                            later volgen naastgelegen steden, zodat eind januari
+                            meer dan 40 miljoen inwoners in lockdown zitten.
+                        </p>
+                        <p>
+                            Hoewel de dramatische beelden via verschillende kanalen
+                            bij het Westen binnen komen, blijft het RIVM  tot 
+                            diep in februari zelfverzekerd over de positie van Nederland.
+                        </p>
+                        <p>
+                            <img height="329" src="assets/img/stories/netherlands/rivm-februari.png">
+                        </p>
+                        <p>
+                            Zie voor hele tijdlijn in januari/februari dit artikel:
+                            <a href="https://www.ewmagazine.nl/nederland/achtergrond/2020/03/tijdlijn-coronacrisis-in-tweets-rivm-743404/" target="_blank">
+                            Tijdlijn coronacrisis in tweets RIVM</a>
+                        </p>
+                        `,
+                    en: ``
+                }
+            }, {
+                title: {
+                    nl: 'De eerste melding in Nederland',
+                    en: ''
+                },
+                date: '2020-02-27',
+                dateTitle: {
+                    nl: 'Eind februari',
+                    en: ''
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                            Het virus duikt in kleine aantallen op verschillende
+                            plekken in de wereld op: Iran, Italië en op de 
+                            Diamond Princess, een cruisschip die onder Japanse
+                            quarantainer komt op 3 februari.
+                        </p>
+                        <p>
+                            Op 27 februari wordt de eerste besmetting corona in Nederland gemeld. 
+                            Een man uit Loon op Zand die een week eerder, voor werk in het Italiaanse 
+                            Lombardije is geweest. Twee van zijn gezinsleden testen
+                            vervolgens ook positief. Vervolgens een vrouw uit Amsterdam
+                            die op skivakantie is geweest in Italië.
+                        </p>
+                        `,
+                    en: ``
+                }
+            }, {
+                title: {
+                    nl: 'Beelden uit Italië',
+                    en: ''
+                },
+                date: '2020-02-27',
+                dateTitle: {
+                    nl: 'Begin maart',
+                    en: ''
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                            De beelden uit Bergamo dringen onze huiskamers binnen:<br>
+                            huilende verpleegsters die het niet meer aankunnen,
+                            gangen van ziekenhuizen vol met patiënten, af- en aanrijdende
+                            lijkwagens en de mensen beademd in de bekende buikligging. 
+                        </p>
+                        <p>
+                           <img height="329" src="assets/img/stories/netherlands/bergamo-army.png"><br>
+                           Het leger wordt ingezet om alle lijkkisten te kunnen verwerken.<br>
+                           Bron: straitstimes.com
+                        </p>
+                        <p>
+                            De reactie vanuit Nederland blijft laconiek en passief. Op 9 maart
+                            kondigt het kabinet aan om te stoppen met handen schudden. 
+                            In de aankondinging ervan blundert Rutte meteen, door
+                            Jaap van Dissel juist wel een hand te geven. Nederland 
+                            maakt hiermee ook voor het eerst op grote schaal kennis 
+                            met de voorman van het RIVM, die een grote rol zou gaan spelen in 
+                            de aanpank van de crisis.
+                        </p>
+                          <p>
+                           <img height="329" src="assets/img/stories/netherlands/rutte-shaking-hands.png"><br>
+                        </p>
+                        `,
+                    en: ``
+                }
+            }, {
+                title: {
+                    nl: 'Groepsimmuniteit',
+                    en: ''
+                },
+                date: '2020-03-16',
+                dateTitle: {
+                    nl: 'Maart',
+                    en: ''
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                            De besmettingen stijgen explosief, van enkelen links
+                            en rechts op de kaart, gaat het al snel naar de 500 en
+                            Nederland meldt op 6 maart haar eerste sterfgeval als
+                            gevolg van Corona.
+                        </p>
+                        <p>
+                            Nederland beseft dat het achter de feiten aanloopt,
+                            probeert nog enkele dagen met opschaling het virus in
+                            te halen: mensen worden opgeroepen om thuis te werken,
+                            bijeenkomsten met meer dan 100 mensen worden afgelast.
+                        </p>
+                        <p>
+                            Maar de enorme groei is niet meer te stoppen. Op 16
+                            maart houdt minister president Rutte een plechtige
+                            toespraak vanuit het torentje, waarin hij uitvoerig
+                            uitlegt dat Nederland aan de hand van groepsimmuniteit 
+                            dit virus wil gaan aanpakken. Een keuze die in het 
+                            buitenland met verbazing wordt ontvangen, maar in het
+                            binnenland is de media lyrisch over de 'presidentiële toespraak'
+                        </p>
+                        <p>
+                           <img height="329" src="assets/img/stories/netherlands/rutte-herd-immunity.png"><br>
+                        </p>
+                        `,
+                    en: ``
+                }
+            }, {
+                title: {
+                    nl: 'Intelligente Lockdown',
+                    en: ''
+                },
+                date: '2020-03-23',
+                dateTitle: {
+                    nl: 'Eind maart',
+                    en: ''
+                },
+                selection: {
+                    tests: {
+                        module: 'cities',
+                        title: 'Amsterdam'
+                    }
+                },
+                content: {
+                    nl: `
+                        <p>
+                            Nederland blijkt te lang te hebben afgewacht. In die
+                            dagen testen er dagelijks honderden mensen positief
+                            en loopt het sterftecijfer op naar meer dan 60 per dag.
+                        </p>
+                        <p>
+                            De druk om in lockdown te gaan neemt toe in de talkshows. 
+                            Het is vooral Ab Osterhaus (nadat hij in februari juist
+                            ook het virus onderschatte) die pleit voor harde
+                            maatregelen.  
+                        </p>
+                        <p>
+                            Op 23 maart gaat Nederland dan toch in lockdown. Met 
+                            een zelfbenoemde 'intelligente' variant, legt het
+                            kabinet veel nadruk op de eigen verantwoordelijkheid
+                            van de burger.
+                        </p>
+                        <p>
+                           <img height="329" src="assets/img/stories/netherlands/intelligent-lockdown.png"><br>
+                           Lege snelwegen. De Nederlanders blijven massaal thuis.<br>
+                           Bron: Parool
+                        </p>
+                        `,
+                    en: ``
+                }
+            }, {
+                title: {
                     nl: 'Onduidelijkheid over tactiek',
-                    en: 'Uncertainty about tactics'
+                    en: ''
                 },
                 date: '2020-04-21',
                 dateTitle: {
@@ -46,172 +254,17 @@ const stories = [
                         <p>
                             Het plan voor groepsimmuniteit is nooit officieel
                             teruggetrokken en ook in de media blijven verwarrende
-                            signalen opduiken, zoals hier OMT-lid Ann Vossen bij Jinek
+                            signalen opduiken, zoals  OMT-lid Ann Vossen bij Jinek
                             op 21 april.
                         </p>
-                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ah Ann Vossen weer bij Jinek <a href="https://t.co/ERzLSOik56">pic.twitter.com/ERzLSOik56</a></p>&mdash; Jaap Stronks (@jaapstronks) <a href="https://twitter.com/jaapstronks/status/1316111502823378946?ref_src=twsrc%5Etfw">October 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <p>
+                            <img height="300" src="assets/img/stories/netherlands/ann-vossen-herd-immunity.png"><br>
+                            Bekijk hier het <a href="https://twitter.com/jaapstronks/status/1253050826496577537" target="_blank">videofragment</a>.
+                        </p>
                         `,
-                    en: `
-                        <p>
-                            After a fierce first wave, with about 10,000 deceased, 
-                            including many people in nursing homes, hospital care 
-                            that just - with the help of Germany - survived, more 
-                            and more questions are beginning to arise about the 
-                            policies pursued and planned. And above all: 
-                            how do we prevent a Second Wave?
-                        </p>
-                        <p>
-                            The Netherlands opted for an idiosyncratic tactic, among the
-                            name <i>Maximum Control</i> - with in the background
-                            still the 'herd immunity' pronounced on March 16.
-                        </p>
-                        <p>
-                            The plan for herd immunity is never official
-                            withdrawn and also in the media confusing
-                            signals appear, such as OMT member Ann Vossen at Jinek
-                            April 21st (bottom tweet).
-                        </p>
-                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Did the Netherlands try to use children to create herd immunity?<br><br>“So we want to keep people getting infected, including children who visit daycares?”<br><br>“Yes, possibly through children ... who will infect each other ... They might infect a father or mother”<a href="https://t.co/g476otObBL">pic.twitter.com/g476otObBL</a></p>&mdash; Dr Zoë Hyde (@DrZoeHyde) <a href="https://twitter.com/DrZoeHyde/status/1321017142578352129?ref_src=twsrc%5Etfw">October 27, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    `
+                    en: ``
                 }
             }, {
-                title: {
-                    nl: 'Oppositie vraagt om helderheid tactiek',
-                    en: 'Opposition demands clarity tactics'
-                },
-                date: '2020-05-07',
-                dateTitle: {
-                    nl: 'Mei',
-                    en: 'May'
-                },
-                selection: {
-                    tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
-                },
-                content: {
-                    nl: `
-                        <p>
-                            Als in de maanden mei en juni de coronagevallen flink
-                            minder worden en de kaart steeds groener wordt, 
-                            komen er in de politiek ook meer en meer vragen. Nadat
-                            de partijen tijdens de eerste golf de rijen sloten, is 
-                            er nu bezorgdheid: wat ís nou precies de tactiek? Hebben
-                            we echt afscheid genomen van groepsimmuniteit, willen
-                            we echt het virus indammen?
-                        </p>
-                        <p>
-                            Het plan van Rutte is om corona niet hard aan te pakken,
-                            omdat men overtuigd is dat dat niet mogelijk is. Het plan
-                            is om pas bij te sturen als de zorg overbelast dreigt te raken.
-                        </p>
-                        <p>
-                            Ook wordt er - ondanks dat experts dit afraden - uitgegaan
-                            van het idee dat het virus rond kan gaan onder de ene
-                            leeftijdsgroep, terwijl de ouderen zich zouden kunnen
-                            afzonderen (<i>shielden</i>). Op het fragment VVD-fractievoorzitter
-                            Dijkhoff over dit shielden.
-                        </p>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/47xmJLr98W4?start=11324" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <p>
-                            Er wordt intussen nagedacht over een corona-dashboard,
-                            maar ook hier wil het kabinet zich niet commiteren
-                            aan grenswaardes (zoals Duitsland al vroeg uitspreekt
-                            dat het sterke maatregelen wil invoeren bij meer dan
-                            50 besmettingen per 100.000 inwoners per 7 dagen. Dat 
-                            is de rode grenswaarde op de kaart en in de grafiek.
-                            Zwart staat voor 100).
-                        </p>
-                        `,
-                    en: `
-                        <p>
-                            When during May and June the corona cases drop heavily,
-                            and the map becomes greener and greener, 
-                            there is more and more debate in the political arena.  
-                            What exactly ís the tactic? Did
-                            we really said goodbye to herd immunity, or do
-                            we want to really contain the virus?
-                        </p>
-                        <p>
-                            Rutte's plan sounds like it is not the purpose to hit corona hard,
-                            because they are convinced that this is not possible. The plan
-                            is to make adjustments only when health care is in danger of becoming overburdened.
-                        </p>
-                        <p>
-                            In spite of the fact that several experts advise against this, 
-                             assumptions are also made
-                            of the idea that the virus can safely circulate under 
-                            young people, while the elderly could
-                            separate (<i>shielding</i>). In this fragment VVD fraction chairman
-                            Dijkhoff talks about this shielding (dutch).
-                        </p>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/47xmJLr98W4?start=11324" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <p>
-                            In the meantime a corona dashboard is being considered,
-                            but here as well, the government does not want to commit itself
-                            at signal values (as Germany declares at an early stage
-                            that it wants to introduce strong measures at more than
-                            50 infections per 100,000 inhabitants per 7 days. This 
-                            is the red on the map and in the chart. Black stands for >100).
-                        </p>
-                    `
-                }
-            },
-            {
-                title: {
-                    nl: "Nederlands standpunt over mondkapjes",
-                    en: "Dutch position on face masks"
-                },
-                date: '2020-06-25',
-                dateTitle: {
-                    nl: 'Juni',
-                    en: "June"
-                },
-                selection: {
-                    tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
-                },
-                content: {
-                    nl: `
-                        <p>
-                            Nederland verzet zich tot op het laatst tot
-                            het gebruik van mondkapjes. Het originele standpunt
-                            van het RIVM is de hele tijd dat het een schijnzekerheid
-                            zou geven.
-                        </p>
-                        <p>
-                            Hieronder enkele fragmenten die het verloop van de discussie
-                            weergeven. Behoudens een raar politiek compromis voor in
-                            het OV (mondkapjes verplicht, maar ze mogen juist niet
-                            'medisch' van aard zijn), draait het kabinet pas
-                            in oktober - als ongeveer allerlaatste land - van 
-                            standpunt over het inzetten van de mondkapjes.
-                        </p>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/u3D9OrTYTrA?start=25" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    `,
-                    en: `
-                     <p>
-                            The Netherlands keep resisting against
-                            the use of face maks. The original point of view
-                            of the RIVM is, that it would 'give a false feeling
-                            of security'.
-                        </p>
-                        <p>
-                            Here are some fragments that show the course of the discussion
-                            (dutch). Except for a weird political compromise for in
-                            the public transport (face masks are mandatory, but they may not
-                            be 'medical' in nature), the government turns only as late
-                            as October - as about the very last country - from 
-                            position on use of face masks.
-                        </p>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/u3D9OrTYTrA?start=25" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    `
-                }
-            },
-            {
                 title: {
                     nl: 'Nederland gaat weer open',
                     en: "Netherlands is opening again"
@@ -219,7 +272,7 @@ const stories = [
                 date: '2020-07-17',
                 dateTitle: {
                     nl: 'Juni/juli',
-                    en: "June/July"
+                    en: ""
                 },
                 selection: {
                     tests: {
@@ -231,7 +284,7 @@ const stories = [
                     nl: `
                         <p>
                             Nederland voelt zich zelfverzekerd.<br>
-                            De kaart is groen en de besmettingslijn bijna aan de grond.<br>
+                            De kaart is groen en de besmettingslijn bijna op 0.<br>
                             Vrijwel alle openbare restricties worden 
                             in juli opgeheven. Wel blijft het advies: handen wassen, 1.5 meter afstand houden
                             en bij klachten thuisblijven.
@@ -241,35 +294,21 @@ const stories = [
                             opgeschaald en lijkt met onderstaande tweet te denken 
                             dat het corona-virus ook vakantie houdt.
                         </p>
-                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Zo. De laatste stapels gelezen en getekend. En dan nu even vakantie en tijd voor thuis. Iedereen een mooie zomer gewenst.☀️ <a href="https://t.co/LAzIgN5ODL">pic.twitter.com/LAzIgN5ODL</a></p>&mdash; Hugo de Jonge (@hugodejonge) <a href="https://twitter.com/hugodejonge/status/1284109468368875521?ref_src=twsrc%5Etfw">July 17, 2020</a></blockquote>
+                        <p>
+                            <img height="406" src="assets/img/stories/netherlands/hugo-de-jonge-vakantie.png">
+                        </p>
                     `,
-                    en: `
-                        <p>
-                            The Netherlands feel self-assured.<br>
-                            The map is green and the chart with infections almost dropped to zero.<br>
-                            Almost all public restrictions are 
-                            disbanded in July. But the advice remains: wash your hands, keep your distance
-                            and stay at home in case of complaints.
-                        </p>
-                        <p>
-                            Corona Minister
-                            Hugo de Jonge promises that the test capacity will be enormous
-                            scaled up and seems to think with the tweet below 
-                            that the corona virus also keeps you on vacation.
-                        </p>
-                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Zo. De laatste stapels gelezen en getekend. En dan nu even vakantie en tijd voor thuis. Iedereen een mooie zomer gewenst.☀️ <a href="https://t.co/LAzIgN5ODL">pic.twitter.com/LAzIgN5ODL</a></p>&mdash; Hugo de Jonge (@hugodejonge) <a href="https://twitter.com/hugodejonge/status/1284109468368875521?ref_src=twsrc%5Etfw">July 17, 2020</a></blockquote>
-
-                    `
+                    en: ``
                 }
             }, {
                 title: {
                     nl: 'Geen zicht op verkeer vanuit het buitenland',
-                    en: "No sight on traffic from abroad"
+                    en: ""
                 },
                 date: '2020-08-01',
                 dateTitle: {
                     nl: 'Zomervakantie',
-                    en: "Summer vacations"
+                    en: ""
                 },
                 selection: {
                     tests: {
@@ -294,27 +333,8 @@ const stories = [
                             Het advies wordt in de wind geslagen, extern OMT-lid 
                             Jan Kluytmans noemt het advies 'paniekvoetbal'.
                         </p>
-                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Jan Kluytmans, de eigenwijze microbioloog die in Brabant alarm sloeg, vindt dat adviseurs van het kabinet nu aan &#39;paniekvoetbal&#39; doen. <a href="https://t.co/s15XWbs2VV">https://t.co/s15XWbs2VV</a> via <a href="https://twitter.com/martenvdw?ref_src=twsrc%5Etfw">@martenvdw</a> En vertelt over zijn ervaringen. <a href="https://twitter.com/hashtag/coronamaatregelen?src=hash&amp;ref_src=twsrc%5Etfw">#coronamaatregelen</a></p>&mdash; Wilma Kieskamp (@wilmakieskamp) <a href="https://twitter.com/wilmakieskamp/status/1288045609698701312?ref_src=twsrc%5Etfw">July 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     `,
-                    en: `
-                        <p>
-                            In August, the map still seems very positive
-                            and the graph still flat. However, for Red Team 
-                            (a self-organised group providing (unasked) advice to 
-                            the government) it stands out that the virus is growing dangerously.
-                            At the end of July they send an <a href="https://nos.nl/nieuwsuur/artikel/2341651-experts-waarschuwen-kabinet-neem-binnen-drie-dagen-nieuwe-maatregelen.html" target="_blank">.
-                            open letter</a> to the government, in which
-                            they warn of the failing contact tracing, 
-                            not keeping track of returning travelers and
-                            asking for clearer government communication. .
-                        </p>
-                        <p>
-                            The advice is ignored, external OMT member 
-                            Jan Kluytmans calls the advice 'panicking'.
-                        </p>
-                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Jan Kluytmans, de eigenwijze microbioloog die in Brabant alarm sloeg, vindt dat adviseurs van het kabinet nu aan &#39;paniekvoetbal&#39; doen. <a href="https://t.co/s15XWbs2VV">https://t.co/s15XWbs2VV</a> via <a href="https://twitter.com/martenvdw?ref_src=twsrc%5Etfw">@martenvdw</a> En vertelt over zijn ervaringen. <a href="https://twitter.com/hashtag/coronamaatregelen?src=hash&amp;ref_src=twsrc%5Etfw">#coronamaatregelen</a></p>&mdash; Wilma Kieskamp (@wilmakieskamp) <a href="https://twitter.com/wilmakieskamp/status/1288045609698701312?ref_src=twsrc%5Etfw">July 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-                    `
+                    en: ``
                 }
             }, {
                 title: {
@@ -347,18 +367,7 @@ const stories = [
                            teveel gemelde cases.
                         </p>
                     `,
-                    en: `
-                        <img height="400" src="assets/img/stories/netherlands/duimen-draaien.jpeg">
-                        <p>
-                           Barely a month after GGD (Area Health Authority) director Sjaak de Gouw
-                           sent part of the contact tracing staff home,
-                           because they were 'twiddling their thumbs' in June, Amsterdam
-                           already through breaks the red border (the value at which Germany has a
-                           regional lockdown) and reports GGD Amsterdam
-                           <a href="https://www.parool.nl/amsterdam/ggd-amsterdam-beperkt-bron-en-contactonderzoek-door-tekort-personeel~bbc2385d/" target="_blank">is temporarily limiting (dutch)</a>
-                           its contact tracing due to too many reported cases.
-                        </p>
-                    `
+                    en: ``
                 }
             }, {
                 title: {
@@ -384,13 +393,7 @@ const stories = [
                             Zie <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">https://www.volkskrant.nl/nieuws-achtergrond/experts-i...</a>
                         </p>
                     `,
-                    en: `
-                        <img height="220" src="assets/img/stories/netherlands/brandbrief-red-team.png">
-                        <p>
-                            A second call from Red Team to government to intervene.
-                            See <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">https://www.volkskrant.nl/nieuws-achtergrond/experts-i... (dutch)</a>
-                        </p>
-                    `
+                    en: ``
                 }
             }, {
                 title: {
@@ -423,28 +426,17 @@ const stories = [
                             het handhavingsbeleid telkens boven het hoofd blijft 
                             hangen.
                         </p>
-                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ai ai... meer foto’s van bruiloft Grapperhaus laten minister handenschuddend en knuffelend zien <a href="https://twitter.com/hashtag/exit?src=hash&amp;ref_src=twsrc%5Etfw">#exit</a> <a href="https://t.co/hHjUEmMUVJ">https://t.co/hHjUEmMUVJ</a> <a href="https://t.co/Sx5IQ7dQhg">pic.twitter.com/Sx5IQ7dQhg</a></p>&mdash; Lammert de Bruin (@lammert) <a href="https://twitter.com/lammert/status/1301035182628184065?ref_src=twsrc%5Etfw">September 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    `,
-                    en: `
                         <p>
-                            Minister of Justice  Grapperhaus who in the earlier (lockdown) phase
-                            represented the 'iron fist' of the corona rules,
-                            was caught during his wedding in August, where 
-                            he violates his own corona rules several times.
+                            <img height="400" src="assets/img/stories/netherlands/grapperhaus-wedding.png"><br>
+                            Telegraaf van 28 augustus
                         </p>
-                        <p>
-                            Contrary to e.g. England, the government decides
-                            Grapperhaus can stay on. The Netherlands will be 
-                            wrestling with enforcement for months to come, because of this incident. 
-                         </p>
-                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ai ai... meer foto’s van bruiloft Grapperhaus laten minister handenschuddend en knuffelend zien <a href="https://twitter.com/hashtag/exit?src=hash&amp;ref_src=twsrc%5Etfw">#exit</a> <a href="https://t.co/hHjUEmMUVJ">https://t.co/hHjUEmMUVJ</a> <a href="https://t.co/Sx5IQ7dQhg">pic.twitter.com/Sx5IQ7dQhg</a></p>&mdash; Lammert de Bruin (@lammert) <a href="https://twitter.com/lammert/status/1301035182628184065?ref_src=twsrc%5Etfw">September 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-                    `
+                    `,
+                    en: ``
                 }
             }, {
                 title: {
                     nl: 'Sleutelfiguren zien nog geen reden om in te grijpen',
-                    en: "Key figures still see no reason to intervene"
+                    en: ""
                 },
                 date: '2020-09-08',
                 dateTitle: {
@@ -482,30 +474,7 @@ const stories = [
                             Blijkbaar heerst nog steeds het idee van <i>shielden</i>.
                         </p>
                     `,
-                    en: `
-                    <p>
-                          Infection rates are frightening. Amsterdam
-                          shoots through the 100 cases per 100,000 inhabitants per 7 days.
-                          After it was mainly the young people in July, now more 
-                          and more elderly people are infected.   
-                        </p>
-                        <img height="300" src="assets/img/stories/netherlands/perleeftijdsgroepperweek.gif">
-                        <br><i>
-                            Credits animation: @jannotr
-                        </i>
-                        <p>
-                            The Netherlands that is still operating from a 'steering on the hospital 
-                            admissions' tactic.
-                            Remarkable are the words of Ernst Kuipers (Chairman of the National Acute Care Network):
-                            "no reason for concern (...) The number recorded 
-                            COVID patients have risen very slightly in recent days". 
-                            and "numbers remain low") 
-                            (source <a href="https://m.limburger.nl/cnt/dmf20200908_00174924" target="_blank">De Limburger (dutch)</a>).
-                        </p>
-                        <p>
-                            Apparently the idea of <i>shielding</i> still prevails.
-                        </p>
-                    `
+                    en: ``
                 }
             }, {
                 title: {
@@ -527,9 +496,7 @@ const stories = [
                     nl: `
                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Het huidige tekort aan coronatesten was te voorzien. Arts-microbiologen in het Outbreak Management Team, lieten het economisch belang van hun beroepsgroep zwaarder wegen dan de volksgezondheid. Dat blijkt uit een reconstructie. <a href="https://t.co/g0Z6h7w2OA">https://t.co/g0Z6h7w2OA</a></p>&mdash; Jan-Hein Strop (@janheinstrop) <a href="https://twitter.com/janheinstrop/status/1304312103596175360?ref_src=twsrc%5Etfw">September 11, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     `,
-                    en: `
-                    <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Het huidige tekort aan coronatesten was te voorzien. Arts-microbiologen in het Outbreak Management Team, lieten het economisch belang van hun beroepsgroep zwaarder wegen dan de volksgezondheid. Dat blijkt uit een reconstructie. <a href="https://t.co/g0Z6h7w2OA">https://t.co/g0Z6h7w2OA</a></p>&mdash; Jan-Hein Strop (@janheinstrop) <a href="https://twitter.com/janheinstrop/status/1304312103596175360?ref_src=twsrc%5Etfw">September 11, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    `
+                    en: ``
                 }
             }, {
                 title: {
@@ -568,25 +535,7 @@ const stories = [
                         </p>
                        <iframe width="560" height="315" src="https://www.youtube.com/embed/r171tx44NZw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `,
-                    en: `
-                        <p>
-                          While the big cities turn black, the mayor
-                          van Tilburg casually organises a massive party of football supporters.
-                        </p>
-                        <p>
-                            In other places, fairs are still going on
-                            and in Staphorst there is no problem with
-                            600 people to hold a church service.
-                        </p>
-                        <p>
-                            These many incidents are indicative of the unclear
-                            policy and also the lack of clarity about who is in charge
-                            to intervene: are the central or the local governments in
-                            control? In this hole the corona numbers jump to
-                            unprecedented values.
-                        </p>
-                       <iframe width="560" height="315" src="https://www.youtube.com/embed/r171tx44NZw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    `
+                    en: ``
                 }
             }, {
                 title: {
@@ -631,42 +580,17 @@ const stories = [
                         </p>
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/vx9Fd5b7gr0?start=140" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `,
-                    en: `
-                        <p>
-                            Slowly the map turns completely black and 
-                            the graph is shooting through the roof.
-                       </p>
-                       <p>
-                            At the beginning of October it becomes clear that all three goals
-                            of the government have failed:<br>
-                            1. Keeping health care up<br>
-                            2. Protecting the elderly<br>
-                            3. Keeping sight on the virus.
-                        </p>
-                        <img height="240" src="assets/img/stories/netherlands/ic-capacity.png">
-                        <br><i>
-                            Credits: @YorickB
-                        </i>
-                        <p>
-                            Health care has to be scaled down again, the virus is raging
-                            again through the nursing homes and contact tracing
-                            is collapsing.
-                        </p>
-                        <p>
-                            Rutte still thinks he can turn the tide just half a lockdown (dutch):
-                        </p>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/vx9Fd5b7gr0?start=140" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    `
+                    en: ``
                 }
             }, {
                 title: {
-                    nl: "Dan toch de lockdown",
-                    en: "Finally lockdown"
+                    nl: "Een derde golf en de tweede lockdown",
+                    en: ""
                 },
-                date: '2020-10-27',
+                date: '2020-12-14',
                 dateTitle: {
-                    nl: 'November',
-                    en: "November"
+                    nl: 'December',
+                    en: "December"
                 },
                 selection: {
                     tests: {
@@ -676,15 +600,30 @@ const stories = [
                 },
                 content: {
                     nl: `
+                         <p>
+                            Rutten & De Jonge denken eind november nog hardop na
+                            over versoepelingen richting december. De net geintroduceerde
+                            routekaart kan blijkbaar dus weer de prullenbak in, aangezien
+                            de besmettingcijfers nog zeer hoog zijn. Geen enkele
+                            trend is positief, maar het kabinet en het RIVM blijven
+                            hopen dat Nederland een 'goede afslag' neemt.
+                         </p>
                        <p>
-                            Dan toch eindelijk de lockdown
+                            Hoop is geen tactiek en het pakket aan maatregelen van oktober en november blijkt
+                            niet sterk genoeg. De zorg loopt al 2 maanden op haar 
+                            laatste benen en infecties rijzen de pan uit. Zodoende
+                            besluit het kabinet dan aan de vooravond van een derde
+                            golf om voor de tweede keer in lockdown te gaan.
+                       </p>
+                       <p>
+                            Nederland heeft hoop, met het zicht op het vaccin, maar
+                            deskundigen wijzen er op dat 2021 nog een lange weg
+                            weg is, terug naar het oude normaal. Rutten & De Jonge
+                            zullen nu wel met een goed plan moeten komen voor een 
+                            tweede exit-strategie.
                        </p>
                     `,
-                    en: `
-                        <p>
-                            Then finally the lockdown is there.
-                       </p>
-                    `
+                    en: ``
                 }
             }
         ]

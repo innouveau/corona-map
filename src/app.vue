@@ -429,6 +429,12 @@
                     report.history = incidents;
                 }
 
+                if (this.currentMap.title === 'Nederland') {
+                    this.addDates(report, data[adapter.titleKey]);
+                }
+
+
+
                 key = data[adapter.titleKey];
                 if (this.$store.state[this.currentMap.module].dict[key]) {
                     region = this.$store.state[this.currentMap.module].dict[key];
@@ -439,6 +445,26 @@
                 } else {
                     //console.log('not found ' + key);
                 }
+            },
+            addDates(report, key) {
+                let startDate, startDateOffset, firstDateInReportOffset;
+                startDate = '2020-01-01';
+                startDateOffset = dateTool.getOffsetByDate(startDate);
+                firstDateInReportOffset = report.history[0].offset;
+
+                for (let offset = (firstDateInReportOffset + 1); offset < (startDateOffset + 1); offset++) {
+                    report.history.unshift({
+                        date: dateTool.getDateByOffset(offset),
+                        offset: offset,
+                        positiveAntigenTests: 0,
+                        positiveTests: 0,
+                        administeredTests: 0,
+                        hospitalisations: 0,
+                        deceased: 0
+                    }
+                    )
+                }
+                this.$store.commit('settings/updateProperty', {key: 'historyLength', value: startDateOffset});
             },
             openHamburgerMenu() {
                 this.$store.commit('ui/updateProperty', {key: 'hamburgerMenu', value: true});
