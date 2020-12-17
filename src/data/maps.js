@@ -45,7 +45,7 @@ const maps = [
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/nederland/cities.json'
+                source: 'data/maps/nederland/cities.json?version=2'
             },
             positivePcrTests: {
                 status: true,
