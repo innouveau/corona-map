@@ -2,6 +2,8 @@
     import sewageTools from "./tools/sewage-tools";
     import sewageCity from "./sewage-city";
     import sewageTotals from "./totals/sewage-totals";
+    import $ from "jquery";
+    import dateTool from "@/tools/date";
 
     export default {
         name: 'sewage',
@@ -13,6 +15,7 @@
         props: {},
         data() {
             return {
+                loaded: false,
                 settings: {
                     width: 2,
                     margin: 4,
@@ -50,6 +53,9 @@
                 })
                 //.sort((a,b) => (a.getRelativeIncreaseWeek() > b.getRelativeIncreaseWeek()) ? -1 : ((b.getRelativeIncreaseWeek() > a.getRelativeIncreaseWeek()) ? 1 : 0));
             },
+            currentMap() {
+                return this.$store.state.maps.current;
+            }
         },
         methods: {
             matchesWoerdenIgnoring(city) {
@@ -85,34 +91,28 @@
             matchesPopulation(city) {
                 return city.population >= this.settings.minPopulation && city.population <= this.settings.maxPopulation;
             },
-            addRegions() {
-                let cities, northProvinces, northExceptions, northCities;
-                cities = [];
-                northProvinces = ['PV22', 'PV24', 'PV21', 'PV20', 'PV27', 'PV23'];
-                northExceptions = ['Zeewolde'];
-                northCities = ['Hattem', 'Eemnes'];
-                for (let city of this.$store.state.cities.all) {
-                    let c = city.export();
-                    if ((northProvinces.indexOf(city.province_code) > -1 && northExceptions.indexOf(city.title) === -1) || northCities.indexOf(city.title) > -1) {
-                        c.regio_title = 'Noord';
-
-                    } else {
-                        c.regio_title = 'Niet-Noord';
-                    }
-                    cities.push(c);
-                }
-                console.log(JSON.stringify(cities));
-            }
+            loadSewageTreatmentPlants() {
+                return new Promise((resolve, reject) => {
+                    $.getJSON(this.currentMap.data.sewageMeasurements.source + dateTool.getTimestamp(), (sewageTreatmentPlants) => {
+                        this.$store.commit('sewageTreatmentPlants/init', sewageTreatmentPlants);
+                        resolve();
+                    });
+                })
+            },
         },
         mounted() {
-            //this.addRegions();
+            this.loadSewageTreatmentPlants().then(() => {
+                this.loaded = true;
+            });
         }
     }
 </script>
 
 
 <template>
-    <div class="sewage">
+    <div
+        v-if="loaded"
+        class="sewage">
         <sewage-tools
             :settings="settings"/>
         <div class="sewage__cities">

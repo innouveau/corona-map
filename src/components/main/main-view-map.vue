@@ -19,12 +19,29 @@
                 required: true
             }
         },
+        data() {
+            return {
+                initialised: false
+            }
+        },
         computed: {
             showMap() {
                 return this.$store.state.ui.menu === 'map';
             }
         },
-        methods: {}
+        methods: {
+            init(){
+                // this does render all other components
+                // 1 callstack before the map, so there is
+                // already a feeling something is there to see
+                setTimeout(() => {
+                    this.initialised = true;
+                })
+            }
+        },
+        mounted() {
+            this.init();
+        }
     }
 </script>
 
@@ -38,6 +55,7 @@
             :view="view"/>
 
         <map-signaling
+            v-if="initialised"
             :view="view"
             :show-tools="true"
             :show-legend="true"

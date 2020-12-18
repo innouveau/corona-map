@@ -111,23 +111,16 @@
                     this.$store.commit(this.currentMap.module + '/init', regions);
                     // check all sources
                     this.loadPcrTests().then(() => {
+                        this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
                         if (this.currentMap.data.ageGroups.status) {
                             promises.push(this.loadAgeGroupsForCities);
                         }
                         if (promises.length === 0) {
-                            this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
+                            //this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
                         } else {
                             Promise.all(promises.map(p => p()))
                                 .then((result) => {
-                                    // always do sewage after the tests, otherwise
-                                    // date offset can come too late
-                                    if (this.currentMap.data.sewageMeasurements.status) {
-                                        this.loadSewageTreatmentPlants().then(() => {
-                                            this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                                        });
-                                    } else {
-                                        this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                                    }
+                                    //this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
                                 })
                                 .catch(error => {
                                     console.error(error)
@@ -135,14 +128,6 @@
                         }
                     })
                 });
-            },
-            loadSewageTreatmentPlants() {
-                return new Promise((resolve, reject) => {
-                    $.getJSON(this.currentMap.data.sewageMeasurements.source + dateTool.getTimestamp(), (sewageTreatmentPlants) => {
-                        this.$store.commit('sewageTreatmentPlants/init', sewageTreatmentPlants);
-                        resolve();
-                    });
-                })
             },
             loadAntigenTests() {
                 return new Promise((resolve, reject) => {
@@ -482,6 +467,11 @@
         :class="{'map--blocked': block}"
         class="app">
         <router-view v-if="dataLoaded"/>
+        <div
+            class="loading"
+            v-else>
+            Loading data...
+        </div>
 
         <div
             @click="openHamburgerMenu()"
@@ -512,6 +502,13 @@
         top: 0;
         width: 100%;
         height: 100%;
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
 
         .author {
             position: fixed;
