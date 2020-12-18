@@ -6,7 +6,7 @@ const stories = [
             en: 'How the Netherlands ended up in its Second Wave'
         },
         subtitle: {
-            nl: 'Drie golven, mondkapjes, laat ingrijpen en een huwelijk...',
+            nl: 'Drie golven, duimen draaien en een huwelijk...',
             en: 'Pieces of the puzzle: chaos and lack of leadership'
         },
         image: 'assets/img/stories/netherlands/persconferentie-31-maart.jpg',
@@ -295,7 +295,9 @@ const stories = [
                             dat het corona-virus ook vakantie houdt.
                         </p>
                         <p>
-                            <img height="406" src="assets/img/stories/netherlands/hugo-de-jonge-vakantie.png">
+                            <img height="406" src="assets/img/stories/netherlands/hugo-de-jonge-vakantie.png"><br>
+                            Bron: <a href="https://twitter.com/hugodejonge/status/1284109468368875521" target="_blank">
+                            @hugodejonge</a>
                         </p>
                     `,
                     en: ``
@@ -322,16 +324,29 @@ const stories = [
                             In augustus lijkt de kaart nog steeds heel gunstig
                             en de grafiek nog plat. Toch heeft Red Team al  
                             door dat het virus gevaarlijk aan het groeien is.
+                        </p>
+                        <p>
                             Eind juli sturen ze <a href="https://nos.nl/nieuwsuur/artikel/2341651-experts-waarschuwen-kabinet-neem-binnen-drie-dagen-nieuwe-maatregelen.html" target="_blank">
                             open brief</a> aan het kabinet, waarin
                             ze waarschuwen voor het onvolledige bron en contactonderzoek, 
                             het niet in de gaten houden van terugkerende reizigers en
                             duidelijker overheidscommunicatie. Ze adviseren meer 
                             aandacht voor het BCO en mondkapjesplicht in de horeca.
-                        </p>
-                        <p>
                             Het advies wordt in de wind geslagen, extern OMT-lid 
                             Jan Kluytmans noemt het advies 'paniekvoetbal'.
+                        </p>
+                        <p>
+                            Op Schiphol hoeft niet overal afstand te worden gehouden. 
+                            Er wordt weliswaareen tijdelijke test met testen gehouden bij aankomst,
+                            maar de teststraat is alleen open tijdens kantooruren, het testen
+                            is vrijwillig en wordt
+                            na enkele weken ook al weer opgeheven. Nederland lijkt niet
+                            van zins om een milimeter in te leveren op haar beeld
+                            van 'hub tot de wereld' om serieus corona aan te pakken.
+                        </p>
+                        <p>
+                            <img width="450" src="assets/img/stories/netherlands/schiphol-zomer.png"><br>
+                            Bron: PZC
                         </p>
                     `,
                     en: ``
@@ -354,42 +369,24 @@ const stories = [
                 },
                 content: {
                     nl: `
-                       <img height="400" src="assets/img/stories/netherlands/duimen-draaien.jpeg">
-
+          
                         <p>
                            Amper een maand nadat GGD-directeur Sjaak de Gouw
                            deel van het BCO-personeel naar huis heeft gestuurd,
                            omdat ze in juni 'duimen zaten te draaien', schiet Amsterdam
                            al door de rode grens (de waarde waarop Duitsland een
                            regio in lockdown zou doen) en meldt de GGD Amsterdam dat het 
-                           contactonderzoek 
-                           <a href="https://www.parool.nl/amsterdam/ggd-amsterdam-beperkt-bron-en-contactonderzoek-door-tekort-personeel~bbc2385d/" target="_blank">tijdelijk moet beperken</a>, vanwege
+                           contactonderzoek  tijdelijk moet beperken, vanwege
                            teveel gemelde cases.
                         </p>
-                    `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Brandbrief Red Team',
-                    en: "Letter of urgence from Red Team"
-                },
-                date: '2020-08-10',
-                dateTitle: {
-                    nl: '10 Augustus',
-                    en: "August 10th"
-                },
-                selection: {
-                    tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
-                },
-                content: {
-                    nl: `
-                        <img height="220" src="assets/img/stories/netherlands/brandbrief-red-team.png">
                         <p>
-                            Een tweede oproep van het Red Team om in te grijpen.
+                            <img height="400" src="assets/img/stories/netherlands/duimen-draaien.jpg"><br>
+                            Bron: Trouw
+                        </p>
+                        <p>
+                            <img height="220" src="assets/img/stories/netherlands/brandbrief-red-team.png"><br>
+                            Het Red Team trekt begin augustus weer aan de bel, met
+                            nu een officiele brandbrief. 
                             Zie <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">https://www.volkskrant.nl/nieuws-achtergrond/experts-i...</a>
                         </p>
                     `,
@@ -435,7 +432,7 @@ const stories = [
                 }
             }, {
                 title: {
-                    nl: 'Sleutelfiguren zien nog geen reden om in te grijpen',
+                    nl: 'Shielding',
                     en: ""
                 },
                 date: '2020-09-08',
@@ -471,7 +468,15 @@ const stories = [
                             (bron <a href="https://m.limburger.nl/cnt/dmf20200908_00174924" target="_blank">De Limburger</a>).
                         </p>
                         <p>
-                            Blijkbaar heerst nog steeds het idee van <i>shielden</i>.
+                            Ook OMT-lid Marc Bonten ziet er geen probleem in  
+                            als het virus rondgaat onder jongeren. Long Covid lijkt
+                            nooit een onderwerp te zijn geweest binnen het OMT,
+                            maar ook het idee van 'shielding' - het idee dat je de oudere
+                            generatie kunt scheiden van de jongere generatie, lijkt
+                            nog steeds aanwezig te zijn in het OMT.
+                        </p>
+                        <p>
+                            <img height="300" src="assets/img/stories/netherlands/marc-bonten-shielding.png">
                         </p>
                     `,
                     en: ``
@@ -494,14 +499,25 @@ const stories = [
                 },
                 content: {
                     nl: `
-                        <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Het huidige tekort aan coronatesten was te voorzien. Arts-microbiologen in het Outbreak Management Team, lieten het economisch belang van hun beroepsgroep zwaarder wegen dan de volksgezondheid. Dat blijkt uit een reconstructie. <a href="https://t.co/g0Z6h7w2OA">https://t.co/g0Z6h7w2OA</a></p>&mdash; Jan-Hein Strop (@janheinstrop) <a href="https://twitter.com/janheinstrop/status/1304312103596175360?ref_src=twsrc%5Etfw">September 11, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    `,
+                        <p>
+                            Begin september brengt Follow the Money een van de oorzaken
+                            van het gefaalde testbeleid aan het licht: eigenbelangen
+                            bleken een bepalende rol te spelen in het toekennen
+                            van de rechten om te mogen testen. Een naam die telkens
+                            valt, is die van Ann Vossen (bekend van het eerdere
+                            fragment over groepsimmuniteit).
+                        </p>
+                        <p>
+                            <img height="500" src="assets/img/stories/netherlands/follow-the-money.png"><br>
+                            Lees het <a href="https://www.ftm.nl/artikelen/coronatesten-belangen-arts-microbiologen" "target=_blank">
+                            artikel</a>.
+                        </p>                    `,
                     en: ``
                 }
             }, {
                 title: {
                     nl: 'Den Haag en regio kijken naar elkaar, niemand grijpt in',
-                    en: "Local and central government looking at each other, none interven"
+                    en: ""
                 },
                 date: '2020-09-24',
                 dateTitle: {
@@ -527,13 +543,17 @@ const stories = [
                             600 mensen een kerkdienst te houden.
                         </p>
                         <p>
-                            Deze vele incidenten zijn tekenend voor het onduidelijke
-                            beleid en ook de onduidelijkheid wie nou de regie
-                            om in te grijpen heeft: de centrale of de lokale
-                            besturen? In dit gat knallen de corona-cijfers naar
-                            ongekende waarden.
+                           <img height="300" src="assets/img/stories/netherlands/willem-ii.png"><br>
+                            Opeengepakte Willem II supporters. Bron: ANP
                         </p>
-                       <iframe width="560" height="315" src="https://www.youtube.com/embed/r171tx44NZw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <p>
+                            In het buitenland kijkt men met verbazing naar het 
+                            vrijblijvende beleid van Nederland, alsof men hier
+                            doet alsof er geen virus is. Het RIVM blijft ontkennen
+                            dat mondkapjes een nuttige bijdrage heeft, waardoor
+                            Nederland ongeveer het enige overgebleven land is,
+                            waar dit geen onderdeel is van de aanpak.
+                        </p>
                     `,
                     en: ``
                 }
@@ -556,7 +576,7 @@ const stories = [
                 content: {
                     nl: `
                        <p>
-                            Langzaam kleurt de kaart helemaal zwart en schiet
+                            Langzaam kleurt de kaart zwart en schiet
                             de grafiek door het plafond.
                        </p>
                        <p>
@@ -566,19 +586,22 @@ const stories = [
                             2. De ouderen beschermen<br>
                             3. Zicht hebben op het virus.
                         </p>
-                        <img height="240" src="assets/img/stories/netherlands/ic-capacity.png">
-                        <br><i>
-                            Credits: @YorickB
-                        </i>
                         <p>
-                            De zorg moet weer afgeschaald worden, het virus raast
+                            <img height="240" src="assets/img/stories/netherlands/ic-capacity.png"><br>
+                            Bron: @yorickB
+                        </p>
+                        <p>
+                            De reguliere zorg moet weer afgeschaald worden, het virus raast
                             weer door de verpleeghuizen en de GGD'en zijn zo overspoeld
                             dat bron en contactonderzoek niet meer goed lukt.
                         </p>
                         <p>
-                            Rutte denkt dat hij het tij nog kan keren met een halve lockdown.
+                            Het kabinet reageert laat en halfslachtig. Nadat eerst
+                            naïef geprobeerd wordt het virus aan te pakken met
+                            het 1 uur eerder sluiten van de cafés, moet Rutte 
+                            enkele weken later erkennen dat dat niet genoeg is
+                            en gaat over, tot wat hij een 'halve lockdown' noemt.
                         </p>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/vx9Fd5b7gr0?start=140" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `,
                     en: ``
                 }
@@ -601,7 +624,7 @@ const stories = [
                 content: {
                     nl: `
                          <p>
-                            Rutten & De Jonge denken eind november nog hardop na
+                            Rutte & De Jonge denken eind november nog hardop na
                             over versoepelingen richting december. De net geintroduceerde
                             routekaart kan blijkbaar dus weer de prullenbak in, aangezien
                             de besmettingcijfers nog zeer hoog zijn. Geen enkele
@@ -614,6 +637,10 @@ const stories = [
                             laatste benen en infecties rijzen de pan uit. Zodoende
                             besluit het kabinet dan aan de vooravond van een derde
                             golf om voor de tweede keer in lockdown te gaan.
+                       </p>
+                       <p>
+                          <img height="240" src="assets/img/stories/netherlands/rutte-torentje.png"><br>
+                           Bron: ANP
                        </p>
                        <p>
                             Nederland heeft hoop, met het zicht op het vaccin, maar

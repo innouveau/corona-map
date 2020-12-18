@@ -43,7 +43,7 @@
     @import '@/styles/variables.scss';
 
     .story-chapter {
-        border-left: 1px solid #fff;
+        border-left: 1px solid #ddd;
         padding: 0 0 100px 40px;
         position: relative;
 
@@ -55,14 +55,15 @@
             white-space: nowrap;
             background: #fff;
             border-radius: 3px;
-            padding: 4px 8px;
-            box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+            border: 1px solid #ddd;
+            color: #555;
+            padding: 4px 8px 3px 8px;
             z-index: 2;
 
             &:before {
                 width: 18px;
                 height: 1px;
-                background: #fff;
+                background: #ddd;
                 content: '';
                 position: absolute;
                 right: -20px;
@@ -71,15 +72,16 @@
             }
 
             &:after {
-                width: 10px;
-                height: 10px;
+                width: 6px;
+                height: 6px;
                 border-radius: 50%;
                 content: '';
                 background: #fff;
                 position: absolute;
-                right: -26px;
-                top: 4px;
-                border: 2px solid #D6E2EA;
+                right: -24px;
+                top: 7px;
+                border: 1px solid #ddd;
+                z-index: 2;
             }
         }
 
@@ -110,6 +112,13 @@
                 &:first-child {
                     font-weight: 700;
                 }
+            }
+
+            img {
+                border: 1px solid #ddd;
+                display: block;
+                padding: 8px;
+                position: relative;
             }
         }
 
