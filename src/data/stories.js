@@ -44,7 +44,9 @@ const stories = [
                             diep in februari zelfverzekerd over de positie van Nederland.
                         </p>
                         <p>
-                            <img height="329" src="assets/img/stories/netherlands/rivm-februari.png">
+                            <div class="frame">
+                                <img height="329" src="assets/img/stories/netherlands/rivm-februari.png">
+                            </div>
                         </p>
                         <p>
                             Zie voor hele tijdlijn in januari/februari dit artikel:
@@ -85,6 +87,19 @@ const stories = [
                             vervolgens ook positief. Vervolgens een vrouw uit Amsterdam
                             die op skivakantie is geweest in Italië.
                         </p>
+                        <p>
+                            Live op televisie wordt een uitzending met minister van Gezondheid
+                            Bruno Bruins onderbroken om de eerste melding kenbaar te maken. 
+                            Minister Bruins zou later van de stress flauw vallen tijdens
+                            een corona-debat. Huidig minister Hugo de Jonge zal hem
+                            opvolgen.
+                        </p>
+                        <p>
+                            <div class="frame">
+                                <img height="329" src="assets/img/stories/netherlands/bruno-bruins.png">
+                                Toenmalig minister Bruno Bruins
+                            </div>
+                        </p>
                         `,
                     en: ``
                 }
@@ -113,9 +128,11 @@ const stories = [
                             lijkwagens en de mensen beademd in de bekende buikligging. 
                         </p>
                         <p>
-                           <img height="329" src="assets/img/stories/netherlands/bergamo-army.png"><br>
-                           Het leger wordt ingezet om alle lijkkisten te kunnen verwerken.<br>
-                           Bron: straitstimes.com
+                            <div class="frame">
+                                <img height="329" src="assets/img/stories/netherlands/bergamo-army.png">
+                                Het leger wordt ingezet om alle lijkkisten te kunnen verwerken.<br>
+                                Bron: straitstimes.com
+                            </div>
                         </p>
                         <p>
                             De reactie vanuit Nederland blijft laconiek en passief. Op 9 maart
@@ -126,8 +143,10 @@ const stories = [
                             met de voorman van het RIVM, die een grote rol zou gaan spelen in 
                             de aanpank van de crisis.
                         </p>
-                          <p>
-                           <img height="329" src="assets/img/stories/netherlands/rutte-shaking-hands.png"><br>
+                        <p>
+                            <div class="frame">    
+                                <img height="329" src="assets/img/stories/netherlands/rutte-shaking-hands.png">
+                            </div>
                         </p>
                         `,
                     en: ``
@@ -172,7 +191,14 @@ const stories = [
                             binnenland is de media lyrisch over de 'presidentiële toespraak'
                         </p>
                         <p>
-                           <img height="329" src="assets/img/stories/netherlands/rutte-herd-immunity.png"><br>
+                            <div class="frame">
+                                <img height="329" src="assets/img/stories/netherlands/rutte-herd-immunity.png">
+                            </div>
+                        </p>
+                        <p>
+                            In later opgevraagde WOB bestanden bleek het woord 
+                            'groepsimmuniteit' als synoniem voor de gekozen tactiek
+                            'maximale controle' te zijn weggelakt.
                         </p>
                         `,
                     en: ``
@@ -213,9 +239,11 @@ const stories = [
                             van de burger.
                         </p>
                         <p>
-                           <img height="329" src="assets/img/stories/netherlands/intelligent-lockdown.png"><br>
-                           Lege snelwegen. De Nederlanders blijven massaal thuis.<br>
-                           Bron: Parool
+                            <div class="frame">
+                                <img height="329" src="assets/img/stories/netherlands/intelligent-lockdown.png">
+                                Lege snelwegen. De Nederlanders blijven massaal thuis.<br>
+                                Bron: Parool
+                            </div>
                         </p>
                         `,
                     en: ``
@@ -242,7 +270,8 @@ const stories = [
                             Na een heftige eerste golf, met ongeveer 10.000 overledenen, 
                             waaronder veel mensen in de verpleeghuizen, een 
                             ziekenhuiszorg die net - met de hulp van Duitsland - 
-                            overeind bleef, beginnen er meer en meer vragen te
+                            overeind bleef en veel mensen die thuis of in het verpleeghuis
+                            stierven, beginnen er meer en meer vragen te
                             komen over het gevoerde en geplande beleid. En vooral:
                             hoe voorkomen we een Tweede Golf?
                         </p>
@@ -258,8 +287,10 @@ const stories = [
                             op 21 april.
                         </p>
                         <p>
-                            <img height="300" src="assets/img/stories/netherlands/ann-vossen-herd-immunity.png"><br>
-                            Bekijk hier het <a href="https://twitter.com/jaapstronks/status/1253050826496577537" target="_blank">videofragment</a>.
+                            <div class="frame">
+                                <img height="300" src="assets/img/stories/netherlands/ann-vossen-herd-immunity.png">
+                                Bekijk hier het <a href="https://twitter.com/jaapstronks/status/1253050826496577537" target="_blank">videofragment</a>
+                            </div>
                         </p>
                         `,
                     en: ``
@@ -295,9 +326,11 @@ const stories = [
                             dat het corona-virus ook vakantie houdt.
                         </p>
                         <p>
-                            <img height="406" src="assets/img/stories/netherlands/hugo-de-jonge-vakantie.png"><br>
-                            Bron: <a href="https://twitter.com/hugodejonge/status/1284109468368875521" target="_blank">
-                            @hugodejonge</a>
+                            <div class="frame">
+                                <img height="406" src="assets/img/stories/netherlands/hugo-de-jonge-vakantie.png">
+                                Bron: <a href="https://twitter.com/hugodejonge/status/1284109468368875521" target="_blank">
+                                @hugodejonge</a>
+                            </div>
                         </p>
                     `,
                     en: ``
@@ -337,7 +370,7 @@ const stories = [
                         </p>
                         <p>
                             Op Schiphol hoeft niet overal afstand te worden gehouden. 
-                            Er wordt weliswaareen tijdelijke test met testen gehouden bij aankomst,
+                            Er wordt weliswaar een tijdelijke test met testen gehouden bij aankomst,
                             maar de teststraat is alleen open tijdens kantooruren, het testen
                             is vrijwillig en wordt
                             na enkele weken ook al weer opgeheven. Nederland lijkt niet
@@ -345,8 +378,10 @@ const stories = [
                             van 'hub tot de wereld' om serieus corona aan te pakken.
                         </p>
                         <p>
-                            <img width="450" src="assets/img/stories/netherlands/schiphol-zomer.png"><br>
-                            Bron: PZC
+                            <div class="frame">
+                                <img width="450" src="assets/img/stories/netherlands/schiphol-zomer.png">
+                                Bron: PZC
+                            </div>
                         </p>
                     `,
                     en: ``
@@ -380,14 +415,20 @@ const stories = [
                            teveel gemelde cases.
                         </p>
                         <p>
-                            <img height="400" src="assets/img/stories/netherlands/duimen-draaien.jpg"><br>
-                            Bron: Trouw
+                            <div class="frame">
+                                <img height="400" src="assets/img/stories/netherlands/duimen-draaien.jpg">
+                                Bron: Trouw
+                            </div>
                         </p>
                         <p>
-                            <img height="220" src="assets/img/stories/netherlands/brandbrief-red-team.png"><br>
                             Het Red Team trekt begin augustus weer aan de bel, met
                             nu een officiele brandbrief. 
                             Zie <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">https://www.volkskrant.nl/nieuws-achtergrond/experts-i...</a>
+                        </p>
+                        <p>
+                            <div class="frame">
+                                <img height="220" src="assets/img/stories/netherlands/brandbrief-red-team.png">
+                            </div>
                         </p>
                     `,
                     en: ``
@@ -424,8 +465,10 @@ const stories = [
                             hangen.
                         </p>
                         <p>
-                            <img height="400" src="assets/img/stories/netherlands/grapperhaus-wedding.png"><br>
-                            Telegraaf van 28 augustus
+                            <div class="frame">
+                                <img height="400" src="assets/img/stories/netherlands/grapperhaus-wedding.png">
+                                Telegraaf van 28 augustus
+                            </div>
                         </p>
                     `,
                     en: ``
@@ -454,10 +497,12 @@ const stories = [
                           Nadat het in juli vooral de jongeren waren, raken nu ook
                           steeds meer ouderen besmet.   
                         </p>
-                        <img height="300" src="assets/img/stories/netherlands/perleeftijdsgroepperweek.gif">
-                        <br><i>
-                            Credits animatie: @jannotr
-                        </i>
+                        <p>
+                            <div class="frame">
+                                <img height="300" src="assets/img/stories/netherlands/perleeftijdsgroepperweek.gif">
+                                Credits animatie: @jannotr
+                            </div>
+                        </p>
                         <p>
                             Nederland dat vanuit een 'sturen op het ziekenhuis' 
                             beredeneert grijpt nog steeds niet in. Tekenend zijn de 
@@ -476,7 +521,9 @@ const stories = [
                             nog steeds aanwezig te zijn in het OMT.
                         </p>
                         <p>
-                            <img height="300" src="assets/img/stories/netherlands/marc-bonten-shielding.png">
+                            <div class="frame">
+                                <img height="300" src="assets/img/stories/netherlands/marc-bonten-shielding.png">
+                            </div>
                         </p>
                     `,
                     en: ``
@@ -505,13 +552,28 @@ const stories = [
                             bleken een bepalende rol te spelen in het toekennen
                             van de rechten om te mogen testen. Een naam die telkens
                             valt, is die van Ann Vossen (bekend van het eerdere
-                            fragment over groepsimmuniteit).
+                            fragment over groepsimmuniteit) en in een later artikel
+                            van Follow the Money wordt ook OMT-lid Jan Kluytmans
+                            genoemd, die een financiele belangenverstrengling zou 
+                            hebben verzwegen.
                         </p>
                         <p>
-                            <img height="500" src="assets/img/stories/netherlands/follow-the-money.png"><br>
-                            Lees het <a href="https://www.ftm.nl/artikelen/coronatesten-belangen-arts-microbiologen" "target=_blank">
-                            artikel</a>.
-                        </p>                    `,
+                            <div class="frame">
+                                <img height="500" src="assets/img/stories/netherlands/follow-the-money.png">
+                                Lees het <a href="https://www.ftm.nl/artikelen/coronatesten-belangen-arts-microbiologen" "target=_blank">
+                                artikel</a>
+                            </div>
+                        </p>     
+                        <p>
+                            Intussen stort het testsysteem in. Mensen kunnen soms
+                            pas 4 dagen later of 100 km verder terecht voor een test.
+                            Verantwoordelijke burgers die zich met lichte klachten
+                            laten testen, krijgen vervolgens de schuld in de schoenen
+                            geschoven, door de bewering dat het testen spaak loop
+                            als gevolg van 'pret-testers' (uitspraak van 
+                            GGD-woordvoerder Sonja Kloppenburg).
+                        </p>            
+                        `,
                     en: ``
                 }
             }, {
@@ -543,8 +605,10 @@ const stories = [
                             600 mensen een kerkdienst te houden.
                         </p>
                         <p>
-                           <img height="300" src="assets/img/stories/netherlands/willem-ii.png"><br>
-                            Opeengepakte Willem II supporters. Bron: ANP
+                            <div class="frame">
+                                <img height="300" src="assets/img/stories/netherlands/willem-ii.png">
+                                Opeengepakte Willem II supporters. Bron: ANP
+                            </div>
                         </p>
                         <p>
                             In het buitenland kijkt men met verbazing naar het 
@@ -587,8 +651,10 @@ const stories = [
                             3. Zicht hebben op het virus.
                         </p>
                         <p>
-                            <img height="240" src="assets/img/stories/netherlands/ic-capacity.png"><br>
-                            Bron: @yorickB
+                            <div class="frame">
+                                <img height="240" src="assets/img/stories/netherlands/ic-capacity.png">
+                                Bron: @yorickB
+                            </div>
                         </p>
                         <p>
                             De reguliere zorg moet weer afgeschaald worden, het virus raast
@@ -635,20 +701,29 @@ const stories = [
                             Hoop is geen tactiek en het pakket aan maatregelen van oktober en november blijkt
                             niet sterk genoeg. De zorg loopt al 2 maanden op haar 
                             laatste benen en infecties rijzen de pan uit. Zodoende
-                            besluit het kabinet dan aan de vooravond van een derde
-                            golf om voor de tweede keer in lockdown te gaan.
+                            besluit het kabinet op maandag 14 decmber, om voor de tweede keer in lockdown te gaan.
                        </p>
                        <p>
-                          <img height="240" src="assets/img/stories/netherlands/rutte-torentje.png"><br>
-                           Bron: ANP
+                            <div class="frame">
+                                <img height="240" src="assets/img/stories/netherlands/rutte-torentje.png">
+                                Bron: ANP
+                            </div>
                        </p>
                        <p>
-                            Nederland heeft hoop, met het zicht op het vaccin, maar
-                            deskundigen wijzen er op dat 2021 nog een lange weg
-                            weg is, terug naar het oude normaal. Rutten & De Jonge
-                            zullen nu wel met een goed plan moeten komen voor een 
-                            tweede exit-strategie.
+                            Hoewel half mei Rutte nog stelde dat "Maatregelen [zullen] 
+                            met aan zekerheid grenzende waarschijnlijkheid geen 
+                            onacceptabele gevolgen hebben voor de zorg, [..] 
+                            geplande operaties kunnen doorgaan" 
+                            (<a href="https://twitter.com/bslagter/status/1341391865527078913" target="_blank">zie video</a>) 
+                            loopt de zorg op haal allerlaatste benen het einde van het
+                            jaar in.
                        </p>
+                       <p>
+                            Het jaar eindigt tussen hoop en vrees. Angst is er voor
+                            de introductie van een nieuwe virus-variant uit Engeland.
+                            Hoop is er vanwege het aanstaande vaccin. Deskundigen 
+                            wijzen er op, dat 2021 nog een lange weg is, terug naar het oude normaal.
+                        </p>
                     `,
                     en: ``
                 }

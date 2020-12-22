@@ -117,8 +117,21 @@
             img {
                 border: 1px solid #ddd;
                 display: block;
+            }
+
+            .frame {
+                border: 1px solid #ddd;
                 padding: 8px;
                 position: relative;
+                display: inline-block;
+                color: #555;
+                font-size: 12px;
+
+                img {
+                    border: 1px solid #ddd;
+                    display: block;
+                    margin-bottom: 8px!important;
+                }
             }
         }
 

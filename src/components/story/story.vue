@@ -178,6 +178,13 @@
                         v-for="(chapter, index) in chapters"
                         :chapter="chapter"/>
                 </div>
+                <div class="story__outro">
+                    Ofschoon met zorg samengesteld, kan deze reconstructie feitelijke
+                    onjuistheden bevatten. Ook hebben we geprobeerd om beeldrechten
+                    te respecteren, met de juiste credits.<br>
+                    Neem contact op met <a href="mailto:info@innouveau.nl">info@innouveau.nl</a>
+                    voor tips, correcties en dergelijke.
+                </div>
             </div>
         </div>
         <div
@@ -230,6 +237,11 @@
                     max-width: 100%;
                     // reserve height for measuring
                     height: 550px;
+                }
+
+                .story__outro {
+                    margin-top: 200px;
+                    font-style: italic;
                 }
             }
         }
