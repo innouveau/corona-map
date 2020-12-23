@@ -45,7 +45,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="329" src="assets/img/stories/netherlands/rivm-februari.png">
+                                <img height="306" src="assets/img/stories/netherlands/rivm-februari.jpg">
                             </div>
                         </p>
                         <p>
@@ -96,7 +96,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="329" src="assets/img/stories/netherlands/bruno-bruins.png">
+                                <img height="343" src="assets/img/stories/netherlands/bruno-bruins.jpg">
                                 Toenmalig minister Bruno Bruins
                             </div>
                         </p>
@@ -129,7 +129,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="329" src="assets/img/stories/netherlands/bergamo-army.png">
+                                <img height="287" src="assets/img/stories/netherlands/bergamo-army.jpg">
                                 Het leger wordt ingezet om alle lijkkisten te kunnen verwerken.<br>
                                 Bron: straitstimes.com
                             </div>
@@ -145,7 +145,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">    
-                                <img height="329" src="assets/img/stories/netherlands/rutte-shaking-hands.png">
+                                <img height="370" src="assets/img/stories/netherlands/rutte-shaking-hands.jpg">
                             </div>
                         </p>
                         `,
@@ -192,7 +192,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="329" src="assets/img/stories/netherlands/rutte-herd-immunity.png">
+                                <img height="325" src="assets/img/stories/netherlands/rutte-herd-immunity.jpg">
                             </div>
                         </p>
                         <p>
@@ -240,7 +240,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="329" src="assets/img/stories/netherlands/intelligent-lockdown.png">
+                                <img height="338" src="assets/img/stories/netherlands/intelligent-lockdown.jpg">
                                 Lege snelwegen. De Nederlanders blijven massaal thuis.<br>
                                 Bron: Parool
                             </div>
@@ -288,7 +288,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="300" src="assets/img/stories/netherlands/ann-vossen-herd-immunity.png">
+                                <img height="303" src="assets/img/stories/netherlands/ann-vossen-herd-immunity.jpg">
                                 Bekijk hier het <a href="https://twitter.com/jaapstronks/status/1253050826496577537" target="_blank">videofragment</a>
                             </div>
                         </p>
@@ -327,7 +327,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="406" src="assets/img/stories/netherlands/hugo-de-jonge-vakantie.png">
+                                <img height="368" src="assets/img/stories/netherlands/hugo-de-jonge-vakantie.jpg">
                                 Bron: <a href="https://twitter.com/hugodejonge/status/1284109468368875521" target="_blank">
                                 @hugodejonge</a>
                             </div>
@@ -379,7 +379,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img width="450" src="assets/img/stories/netherlands/schiphol-zomer.png">
+                                <img width="356" src="assets/img/stories/netherlands/schiphol-zomer.jpg">
                                 Bron: PZC
                             </div>
                         </p>
@@ -466,7 +466,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="400" src="assets/img/stories/netherlands/grapperhaus-wedding.png">
+                                <img height="406" src="assets/img/stories/netherlands/grapperhaus-wedding.jpg">
                                 Telegraaf van 28 augustus
                             </div>
                         </p>
@@ -499,7 +499,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="300" src="assets/img/stories/netherlands/perleeftijdsgroepperweek.gif">
+                                <img height="405" src="assets/img/stories/netherlands/perleeftijdsgroepperweek.gif">
                                 Credits animatie: @jannotr
                             </div>
                         </p>
@@ -522,7 +522,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="300" src="assets/img/stories/netherlands/marc-bonten-shielding.png">
+                                <img height="351" src="assets/img/stories/netherlands/marc-bonten-shielding.jpg">
                             </div>
                         </p>
                     `,
@@ -559,7 +559,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="500" src="assets/img/stories/netherlands/follow-the-money.png">
+                                <img height="400" src="assets/img/stories/netherlands/follow-the-money.jpg">
                                 Lees het <a href="https://www.ftm.nl/artikelen/coronatesten-belangen-arts-microbiologen" "target=_blank">
                                 artikel</a>
                             </div>
@@ -606,7 +606,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="300" src="assets/img/stories/netherlands/willem-ii.png">
+                                <img height="278" src="assets/img/stories/netherlands/willem-ii.jpg">
                                 Opeengepakte Willem II supporters. Bron: ANP
                             </div>
                         </p>
@@ -652,7 +652,7 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="240" src="assets/img/stories/netherlands/ic-capacity.png">
+                                <img height="405" src="assets/img/stories/netherlands/ic-capacity.png">
                                 Bron: @yorickB
                             </div>
                         </p>
@@ -705,7 +705,7 @@ const stories = [
                        </p>
                        <p>
                             <div class="frame">
-                                <img height="240" src="assets/img/stories/netherlands/rutte-torentje.png">
+                                <img height="343" src="assets/img/stories/netherlands/rutte-torentje.jpg">
                                 Bron: ANP
                             </div>
                        </p>

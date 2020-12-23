@@ -106,7 +106,7 @@
         .story-chapter__content {
             font-size: 16px;
             line-height: 1.6;
-
+            //background: pink;
             p {
 
                 &:first-child {

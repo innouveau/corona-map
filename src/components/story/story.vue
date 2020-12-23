@@ -179,7 +179,7 @@
                         :chapter="chapter"/>
                 </div>
                 <div class="story__outro">
-                    Ofschoon met zorg samengesteld, kan deze reconstructie feitelijke
+                    Hoewel met zorg samengesteld, kan deze reconstructie feitelijke
                     onjuistheden bevatten. Ook hebben we geprobeerd om beeldrechten
                     te respecteren, met de juiste credits.<br>
                     Neem contact op met <a href="mailto:info@innouveau.nl">info@innouveau.nl</a>
