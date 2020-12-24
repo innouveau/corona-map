@@ -17,8 +17,8 @@ Vue.use(Router);
 const routes = [
     {
         path: "/",
-        name: "main",
-        component: main
+        name: "story",
+        component: story
     }, {
         path: "/main",
         name: "main",

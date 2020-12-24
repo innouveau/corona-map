@@ -59,7 +59,7 @@ const stories = [
                     nl: 'De eerste melding in Nederland',
                     en: ''
                 },
-                date: '2020-02-27',
+                date: '2020-03-16',
                 dateTitle: {
                     nl: 'Eind februari',
                     en: ''
@@ -75,21 +75,20 @@ const stories = [
                         <p>
                             Het virus duikt in kleine aantallen op verschillende
                             plekken in de wereld op: Iran, Italië en op de 
-                            Diamond Princess, een cruisschip dat onder Japanse
-                            quarantainer komt op 3 februari.
+                            Diamond Princess, een cruiseschip dat onder Japanse
+                            quarantaine komt op 3 februari.
                         </p>
                         <p>
                             Op 27 februari wordt de eerste besmetting van corona in Nederland gemeld. 
-                            Een man uit Loon op Zand die een week eerder, voor werk in het Italiaanse 
+                            Een man uit Loon op Zand, die een week eerder voor werk in het Italiaanse 
                             Lombardije is geweest. Twee van zijn gezinsleden testen
-                            vervolgens ook positief. Vervolgens een vrouw uit Amsterdam
-                            die op skivakantie is geweest in Italië.
+                            vervolgens ook positief.
                         </p>
                         <p>
                             Live op televisie wordt een uitzending met minister van Gezondheid
                             Bruno Bruins onderbroken om de eerste melding kenbaar te maken. 
-                            Minister Bruins zou later van de stress flauw vallen tijdens
-                            een corona-debat. Huidig minister Hugo de Jonge zal hem
+                            Minister Bruins zou later van de stress flauwvallen tijdens
+                            een coronadebat. Huidig minister Hugo de Jonge zal hem
                             opvolgen.
                         </p>
                         <p>
@@ -106,7 +105,7 @@ const stories = [
                     nl: 'Beelden uit Italië',
                     en: ''
                 },
-                date: '2020-02-27',
+                date: '2020-03-18',
                 dateTitle: {
                     nl: 'Begin maart',
                     en: ''
@@ -154,9 +153,9 @@ const stories = [
                     nl: 'Groepsimmuniteit',
                     en: ''
                 },
-                date: '2020-03-16',
+                date: '2020-03-19',
                 dateTitle: {
-                    nl: 'Maart',
+                    nl: '16 maart',
                     en: ''
                 },
                 selection: {
@@ -182,9 +181,13 @@ const stories = [
                         <p>
                             Maar de enorme groei is niet meer te stoppen. Op 16
                             maart houdt minister-president Rutte een plechtige
-                            toespraak vanuit het torentje, waarin hij uitvoerig
+                            toespraak vanuit het Torentje, waarin hij uitvoerig
                             uitlegt dat Nederland aan de hand van groepsimmuniteit 
-                            dit virus wil gaan aanpakken. Een keuze die in het 
+                            dit virus wil gaan aanpakken, dat bewust een grote groep
+                            mensen besmet moet worden, 
+                            <a href="https://www.rijksoverheid.nl/documenten/toespraken/2020/03/16/tv-toespraak-van-minister-president-mark-rutte" target="_blank">
+                            zodat dit werkt als een beschermende muur
+                            voor de ouderen en zwakkeren</a>. Een keuze die in het 
                             buitenland met verbazing wordt ontvangen, maar in het
                             binnenland is de media vooral lyrisch over de 'presidentiële toespraak'
                         </p>
@@ -294,7 +297,7 @@ const stories = [
                         <p>
                             Het plan voor groepsimmuniteit is nooit officieel
                             teruggetrokken en ook in de media blijven verwarrende
-                            signalen opduiken, zoals  OMT-lid Ann Vossen bij Jinek
+                            signalen opduiken, zoals OMT-lid Ann Vossen bij Jinek
                             op 21 april.
                         </p>
                         <p>
@@ -326,20 +329,22 @@ const stories = [
                     nl: `
                         <p>
                             De lockdown heeft goed gewerkt, Nederland toonde
-                            zich solidair en met alle heftige beelden en verhalen 
+                            zich solidair en met alle 
+                            <a href="https://www.npostart.nl/frontberichten/BV_101398693" target="_blank">
+                            heftige beelden en verhalen op het netvlies</a> 
                             volgde de Nederlander over het algemeen de maatregelen op.
                         </p>
                         <p>
-                            De kaart is groen en de besmettingslijn bijna op 0.<br>
+                            De kaart is weer langzaam groen geworden en de besmettingslijn bijna op 0.<br>
                             Vrijwel alle openbare restricties worden 
                             in juli opgeheven. Wel blijft het advies: handen wassen, 1.5 meter afstand houden
                             en bij klachten thuisblijven.
                         </p>
                         <p>
                             Het kabinet voelt zich zelfverzekerd.
-                            Corona-minister  Hugo de Jonge belooft dat de testcapaciteit enorm wordt
+                            Coronaminister  Hugo de Jonge belooft dat de testcapaciteit enorm wordt
                             opgeschaald en lijkt met onderstaande tweet te denken 
-                            dat het corona-virus ook vakantie houdt of grotendeels
+                            dat het coronavirus ook vakantie houdt of grotendeels
                             verslagen is.
                         </p>
                         <p>
@@ -374,14 +379,16 @@ const stories = [
                             In augustus lijkt - met een vluchtige blik - de kaart nog steeds heel gunstig
                             en de grafiek plat. Het Red Team - een verzameling
                             van bezorgde burgers en experts - merkt wel op dat het virus gevaarlijk 
-                            aan de oppervlakte aan het groeien is sinds alle versoepelingen.
+                            aan de oppervlakte aan het groeien is sinds alle versoepelingen; Rotterdam is
+                            alweer stiekem oranje.
                         </p>
                         <p>
-                            Eind juli sturen ze <a href="https://nos.nl/nieuwsuur/artikel/2341651-experts-waarschuwen-kabinet-neem-binnen-drie-dagen-nieuwe-maatregelen.html" target="_blank">
+                            Eind juli stuurt het Red Team een
+                            <a href="https://nos.nl/nieuwsuur/artikel/2341651-experts-waarschuwen-kabinet-neem-binnen-drie-dagen-nieuwe-maatregelen.html" target="_blank">
                             open brief</a> aan het kabinet, waarin
-                            ze waarschuwen voor het onvolledige bron- en contactonderzoek (BCO), 
+                            het waarschuwt voor het onvolledige bron- en contactonderzoek (BCO), 
                             het niet in de gaten houden van terugkerende reizigers en
-                            vragen om duidelijker overheidscommunicatie. Ze adviseren meer 
+                            vraagt het om duidelijkere overheidscommunicatie. Ze adviseren meer 
                             aandacht voor het BCO en mondkapjesplicht in de horeca.
                             Het advies wordt in de wind geslagen, extern OMT-lid 
                             Jan Kluytmans noemt het advies 'paniekvoetbal'.
@@ -392,7 +399,7 @@ const stories = [
                             maar de teststraat is alleen open tijdens kantooruren, het testen
                             is vrijwillig en wordt
                             na enkele weken ook al weer opgeheven. Nederland lijkt niet
-                            van zins om een milimeter in te leveren op haar open grenzen
+                            van zins om een millimeter in te leveren op haar open grenzen
                             om serieus corona aan te pakken.
                         </p>
                         <p>
@@ -427,11 +434,11 @@ const stories = [
                            Amper een maand nadat GGD-directeur Sjaak de Gouw
                            een deel van het BCO-personeel naar huis heeft gestuurd,
                            omdat ze in juni 'duimen zaten te draaien', schiet Amsterdam
-                           al door de rode grens van 50 besmettingen per 100.000 inwoners
+                           al door de grens van 50 besmettingen per 100.000 inwoners
                            per 7 dagen (de waarde waarop Duitsland een
-                           regio in lockdown zou doen) en meldt de GGD Amsterdam dat het 
-                           contactonderzoek  tijdelijk moet beperken, vanwege
-                           teveel gemelde cases.
+                           regio in lockdown zou doen) en meldt GGD-Amsterdam dat het 
+                           contactonderzoek  tijdelijk beperkt moet worden, vanwege
+                           teveel gemelde besmettingen.
                         </p>
                         <p>
                             <div class="frame">
@@ -575,7 +582,7 @@ const stories = [
                             valt, is die van Ann Vossen (bekend van het eerdere
                             fragment over groepsimmuniteit) en in een later artikel
                             van Follow the Money wordt ook OMT-lid Jan Kluytmans
-                            genoemd, die een financiele belangenverstrengling zou 
+                            genoemd, die een financiële belangenverstrengling zou 
                             hebben verzwegen.
                         </p>
                         <p>
@@ -617,8 +624,7 @@ const stories = [
                 content: {
                     nl: `
                         <p>
-                          Terwijl de grote steden in het zwart schieten en de hele
-                          Randstad al diep rood gekleurd is, staat de burgemeester
+                          Terwijl de grote steden diep in het rood schieten, staat de burgemeester
                           van Tilburg doodleuk een massaal feest van voetbalsupporters toe.  
                         </p>
                         <p>
@@ -714,14 +720,14 @@ const stories = [
                          <p>
                             Rutte & De Jonge denken eind november nog hardop na
                             over versoepelingen richting december. De net geintroduceerde
-                            routekaart kan blijkbaar dus weer de prullenbak in, aangezien
+                            routekaart kan blijkbaar weer de prullenbak in, aangezien
                             de besmettingcijfers nog zeer hoog zijn. Geen enkele
                             trend is positief, maar het kabinet en het RIVM blijven
                             hopen dat Nederland een 'goede afslag' neemt.
                          </p>
                        <p>
                             Hoop is geen tactiek en het pakket aan maatregelen van oktober en november blijkt
-                            niet sterk genoeg. De zorg loopt al 2 maanden op haar 
+                            niet sterk genoeg. De zorg loopt al twee maanden op haar 
                             laatste benen en infecties rijzen de pan uit. Zodoende
                             besluit het kabinet op maandag 14 decmber, om voor de tweede keer in lockdown te gaan.
                        </p>
@@ -737,14 +743,19 @@ const stories = [
                             onacceptabele gevolgen hebben voor de zorg, [..] 
                             geplande operaties kunnen doorgaan" 
                             (<a href="https://twitter.com/bslagter/status/1341391865527078913" target="_blank">zie video</a>) 
-                            loopt de zorg op haal allerlaatste benen het einde van het
+                            loopt de zorg op haar allerlaatste benen het einde van het
                             jaar in.
                        </p>
                        <p>
                             Het jaar eindigt tussen hoop en vrees. Angst is er voor
-                            de introductie van een nieuwe virus-variant uit Engeland.
-                            Hoop is er vanwege het aanstaande vaccin. Deskundigen 
-                            wijzen er op, dat 2021 nog een lange weg is, terug naar het oude normaal.
+                            de introductie van een nieuwe virusvariant uit Engeland.
+                            Hoop is er vanwege het aanstaande vaccin, alhoewel
+                            Nederland door een slechte voorbereiding van minister
+                            De Jonge enkele weken later gaat beginnen met vaccineren 
+                            dan de rest van Europa. 
+                        </p>
+                        <p>
+                            Deskundigen  wijzen er op, dat 2021 nog een lange weg is, terug naar het oude normaal.
                         </p>
                     `,
                     en: ``

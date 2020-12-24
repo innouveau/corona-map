@@ -84,9 +84,6 @@
                     :show-legend="true"
                     :show-download="false"
                     :view="view"/>
-                <div class="story__date">
-                    {{dateString}}
-                </div>
             </div>
         </div>
 
