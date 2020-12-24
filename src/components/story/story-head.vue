@@ -72,8 +72,10 @@
         <div class="story-head__left">
             <div class="story__navigation">
                 <b>{{getTranslatedItem(story.title)}}</b>
-                <span v-if="currentChapter">
-                        &nbsp;{{limitLength(getTranslatedItem(currentChapter.title))}}
+                <span
+                    class="story__navigation-chapter"
+                    v-if="currentChapter">
+                        &nbsp;{{getTranslatedItem(currentChapter.title)}}
                     </span>
             </div>
             <div class="story__map">
@@ -120,7 +122,6 @@
 
     .story-head {
         height: 300px;
-        border-bottom: 1px solid #ddd;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         position: relative;
         z-index: 1;
@@ -130,15 +131,16 @@
         .story-head__left {
             height: 100%;
             width: 50%;
-            border-right: 1px solid #ddd;
+            border-right: 1px solid #fff;
 
             .story__navigation {
                 height: 30px;
-                border-bottom: 1px solid $map-color-dark;
+                border-bottom: 1px solid #fff;
                 padding: 4px 8px;
                 display: flex;
                 align-items: center;
                 white-space: nowrap;
+                overflow: hidden;
 
                 span {
                     margin-left: 4px;
@@ -213,7 +215,7 @@
             .story__time-slider {
                 height: 52px;
                 padding: 10px 16px;
-                border-top: 1px solid #ddd;
+                border-top: 1px solid #fff;
                 width: 100%;
                 position: relative;
 
@@ -231,6 +233,10 @@
 
                 .story__navigation {
                     border-bottom: 0;
+
+                    .story__navigation-chapter {
+                        display: none;
+                    }
                 }
             }
 

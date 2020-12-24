@@ -6,8 +6,8 @@ const stories = [
             en: 'How the Netherlands ended up in its Second Wave'
         },
         subtitle: {
-            nl: 'Drie golven, duimen draaien en een huwelijk...',
-            en: 'Pieces of the puzzle: chaos and lack of leadership'
+            nl: 'The good, the bad and the ugly:<br>2 lockdowns, ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛, duimen draaien, een huwelijk en de pret-tester...',
+            en: ''
         },
         image: 'assets/img/stories/netherlands/persconferentie-31-maart.jpg',
         hasAgeGroups: true,
@@ -32,26 +32,24 @@ const stories = [
                     nl: `
                         <p>
                             De geruchten uit China over een mysterieuze longziekte
-                            stapelen zich op in de eerste weken van januari. Wuhan 
-                            de stad van de uitbraak besluit haar complete bevolking op 
+                            stapelen zich op in de eerste weken van januari. Wuhan -
+                            de stad van de uitbraak - besluit haar complete bevolking op 
                             22 januari onder quarantaine te plaatsen. Een dag
                             later volgen naastgelegen steden, zodat eind januari
                             meer dan 40 miljoen inwoners in lockdown zitten.
                         </p>
                         <p>
                             Hoewel de dramatische beelden via verschillende kanalen
-                            bij het Westen binnen komen, blijft het RIVM  tot 
+                            bij het Westen binnenkomen, blijft het RIVM  tot 
                             diep in februari zelfverzekerd over de positie van Nederland.
                         </p>
                         <p>
                             <div class="frame">
                                 <img height="306" src="assets/img/stories/netherlands/rivm-februari.jpg">
+                                Zie voor hele tijdlijn in januari/februari dit artikel:
+                                <a href="https://www.ewmagazine.nl/nederland/achtergrond/2020/03/tijdlijn-coronacrisis-in-tweets-rivm-743404/" target="_blank">
+                                Tijdlijn coronacrisis in tweets RIVM</a>
                             </div>
-                        </p>
-                        <p>
-                            Zie voor hele tijdlijn in januari/februari dit artikel:
-                            <a href="https://www.ewmagazine.nl/nederland/achtergrond/2020/03/tijdlijn-coronacrisis-in-tweets-rivm-743404/" target="_blank">
-                            Tijdlijn coronacrisis in tweets RIVM</a>
                         </p>
                         `,
                     en: ``
@@ -77,11 +75,11 @@ const stories = [
                         <p>
                             Het virus duikt in kleine aantallen op verschillende
                             plekken in de wereld op: Iran, Italië en op de 
-                            Diamond Princess, een cruisschip die onder Japanse
+                            Diamond Princess, een cruisschip dat onder Japanse
                             quarantainer komt op 3 februari.
                         </p>
                         <p>
-                            Op 27 februari wordt de eerste besmetting corona in Nederland gemeld. 
+                            Op 27 februari wordt de eerste besmetting van corona in Nederland gemeld. 
                             Een man uit Loon op Zand die een week eerder, voor werk in het Italiaanse 
                             Lombardije is geweest. Twee van zijn gezinsleden testen
                             vervolgens ook positief. Vervolgens een vrouw uit Amsterdam
@@ -183,12 +181,12 @@ const stories = [
                         </p>
                         <p>
                             Maar de enorme groei is niet meer te stoppen. Op 16
-                            maart houdt minister president Rutte een plechtige
+                            maart houdt minister-president Rutte een plechtige
                             toespraak vanuit het torentje, waarin hij uitvoerig
                             uitlegt dat Nederland aan de hand van groepsimmuniteit 
                             dit virus wil gaan aanpakken. Een keuze die in het 
                             buitenland met verbazing wordt ontvangen, maar in het
-                            binnenland is de media lyrisch over de 'presidentiële toespraak'
+                            binnenland is de media vooral lyrisch over de 'presidentiële toespraak'
                         </p>
                         <p>
                             <div class="frame">
@@ -196,9 +194,13 @@ const stories = [
                             </div>
                         </p>
                         <p>
-                            In later opgevraagde WOB bestanden bleek het woord 
+                            Rutte beweerde later in een kamerdebat dat hij
+                            <a href="https://twitter.com/ContainmentNu/status/1268815139383521281" target="_blank">
+                            helemaal geen toespraak over groepsimmuniteit gehouden
+                            had</a> en in later opgevraagde WOB bestanden bleek het woord 
                             'groepsimmuniteit' als synoniem voor de gekozen tactiek
-                            'maximale controle' te zijn weggelakt.
+                            'maximale controle' <a href="https://twitter.com/jaapstronks/status/1334443280445169665" target="_blank">
+                            te zijn weggelakt</a>.
                         </p>
                         `,
                     en: ``
@@ -276,6 +278,15 @@ const stories = [
                             hoe voorkomen we een Tweede Golf?
                         </p>
                         <p>
+                            De kritiek op het RIVM groeit ook langzamerhand. Nieuwsuur
+                            zou in juli een reportage maken, waarin gesteld wordt
+                            dat de richtlijnen van het RIVM voor gebruik van mondkapjes
+                            in de zorg, <a href="https://www.youtube.com/watch?v=WtJlA2aYDXQ&feature=youtu.be" target="_blank">
+                            zorgen voor onveilige werksituaties</a>. In een
+                            latere uitzending wordt geconstateerd dat de richtlijnen
+                            gebaseerd waren op schaarste.
+                        </p>
+                        <p>
                             Nederland koos voor een eigenzinnige tactiek, onder de
                             naam <i>Maximaal Controleren</i> - met op de achtergrond
                             nog steeds het op 16 maart uitgesproken 'groepsimmuniteit'.
@@ -314,16 +325,22 @@ const stories = [
                 content: {
                     nl: `
                         <p>
-                            Nederland voelt zich zelfverzekerd.<br>
+                            De lockdown heeft goed gewerkt, Nederland toonde
+                            zich solidair en met alle heftige beelden en verhalen 
+                            volgde de Nederlander over het algemeen de maatregelen op.
+                        </p>
+                        <p>
                             De kaart is groen en de besmettingslijn bijna op 0.<br>
                             Vrijwel alle openbare restricties worden 
                             in juli opgeheven. Wel blijft het advies: handen wassen, 1.5 meter afstand houden
                             en bij klachten thuisblijven.
                         </p>
                         <p>
+                            Het kabinet voelt zich zelfverzekerd.
                             Corona-minister  Hugo de Jonge belooft dat de testcapaciteit enorm wordt
                             opgeschaald en lijkt met onderstaande tweet te denken 
-                            dat het corona-virus ook vakantie houdt.
+                            dat het corona-virus ook vakantie houdt of grotendeels
+                            verslagen is.
                         </p>
                         <p>
                             <div class="frame">
@@ -354,32 +371,33 @@ const stories = [
                 content: {
                     nl: `
                         <p>
-                            In augustus lijkt de kaart nog steeds heel gunstig
-                            en de grafiek nog plat. Toch heeft Red Team al  
-                            door dat het virus gevaarlijk aan het groeien is.
+                            In augustus lijkt - met een vluchtige blik - de kaart nog steeds heel gunstig
+                            en de grafiek plat. Het Red Team - een verzameling
+                            van bezorgde burgers en experts - merkt wel op dat het virus gevaarlijk 
+                            aan de oppervlakte aan het groeien is sinds alle versoepelingen.
                         </p>
                         <p>
                             Eind juli sturen ze <a href="https://nos.nl/nieuwsuur/artikel/2341651-experts-waarschuwen-kabinet-neem-binnen-drie-dagen-nieuwe-maatregelen.html" target="_blank">
                             open brief</a> aan het kabinet, waarin
-                            ze waarschuwen voor het onvolledige bron en contactonderzoek, 
+                            ze waarschuwen voor het onvolledige bron- en contactonderzoek (BCO), 
                             het niet in de gaten houden van terugkerende reizigers en
-                            duidelijker overheidscommunicatie. Ze adviseren meer 
+                            vragen om duidelijker overheidscommunicatie. Ze adviseren meer 
                             aandacht voor het BCO en mondkapjesplicht in de horeca.
                             Het advies wordt in de wind geslagen, extern OMT-lid 
                             Jan Kluytmans noemt het advies 'paniekvoetbal'.
                         </p>
                         <p>
                             Op Schiphol hoeft niet overal afstand te worden gehouden. 
-                            Er wordt weliswaar een tijdelijke test met testen gehouden bij aankomst,
+                            Er wordt weliswaar een proef met testen bij aankomst gehouden,
                             maar de teststraat is alleen open tijdens kantooruren, het testen
                             is vrijwillig en wordt
                             na enkele weken ook al weer opgeheven. Nederland lijkt niet
-                            van zins om een milimeter in te leveren op haar beeld
-                            van 'hub tot de wereld' om serieus corona aan te pakken.
+                            van zins om een milimeter in te leveren op haar open grenzen
+                            om serieus corona aan te pakken.
                         </p>
                         <p>
                             <div class="frame">
-                                <img width="356" src="assets/img/stories/netherlands/schiphol-zomer.jpg">
+                                <img height="356" src="assets/img/stories/netherlands/schiphol-zomer.jpg">
                                 Bron: PZC
                             </div>
                         </p>
@@ -407,9 +425,10 @@ const stories = [
           
                         <p>
                            Amper een maand nadat GGD-directeur Sjaak de Gouw
-                           deel van het BCO-personeel naar huis heeft gestuurd,
+                           een deel van het BCO-personeel naar huis heeft gestuurd,
                            omdat ze in juni 'duimen zaten te draaien', schiet Amsterdam
-                           al door de rode grens (de waarde waarop Duitsland een
+                           al door de rode grens van 50 besmettingen per 100.000 inwoners
+                           per 7 dagen (de waarde waarop Duitsland een
                            regio in lockdown zou doen) en meldt de GGD Amsterdam dat het 
                            contactonderzoek  tijdelijk moet beperken, vanwege
                            teveel gemelde cases.
@@ -423,11 +442,11 @@ const stories = [
                         <p>
                             Het Red Team trekt begin augustus weer aan de bel, met
                             nu een officiele brandbrief. 
-                            Zie <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">https://www.volkskrant.nl/nieuws-achtergrond/experts-i...</a>
                         </p>
                         <p>
                             <div class="frame">
                                 <img height="220" src="assets/img/stories/netherlands/brandbrief-red-team.png">
+                                Bron <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">Volskrant</a>
                             </div>
                         </p>
                     `,
@@ -452,13 +471,13 @@ const stories = [
                 content: {
                     nl: `
                         <p>
-                            Minister van justitie Grapperhaus die in de eerdere (lockdown)fase
-                            de harde hand van het beleid vertegenwoordigde wordt
+                            Minister van justitie Grapperhaus - die in de eerdere (lockdown)fase
+                            de harde hand van het beleid vertegenwoordigde - wordt
                             tijdens zijn bruiloft in augustus vastgelegd, waarbij 
                             hij meermaals zijn eigen coronaregels overtreedt.
                         </p>
                         <p>
-                            In tegenstelling tot bijv. Engeland besluit de tweede kamer
+                            In tegenstelling tot bijv. Engeland besluit de Tweede Kamer
                             Grapperhaus aan te laten blijven. Nederland zal hier 
                             nog maandenlang mee worstelen, doordat dit incident
                             het handhavingsbeleid telkens boven het hoofd blijft 
@@ -522,7 +541,9 @@ const stories = [
                         </p>
                         <p>
                             <div class="frame">
-                                <img height="351" src="assets/img/stories/netherlands/marc-bonten-shielding.jpg">
+                                <img height="350" src="assets/img/stories/netherlands/marc-bonten-shielding.jpg">
+                                Bron <a href="https://twitter.com/MarcBonten/status/1306535978652270593" target="_blank">
+                                @MarcBonten</a>
                             </div>
                         </p>
                     `,
@@ -547,7 +568,7 @@ const stories = [
                 content: {
                     nl: `
                         <p>
-                            Begin september brengt Follow the Money een van de oorzaken
+                            Begin september brengt Follow the Money één van de oorzaken
                             van het gefaalde testbeleid aan het licht: eigenbelangen
                             bleken een bepalende rol te spelen in het toekennen
                             van de rechten om te mogen testen. Een naam die telkens
@@ -569,8 +590,9 @@ const stories = [
                             pas 4 dagen later of 100 km verder terecht voor een test.
                             Verantwoordelijke burgers die zich met lichte klachten
                             laten testen, krijgen vervolgens de schuld in de schoenen
-                            geschoven, door de bewering dat het testen spaak loop
-                            als gevolg van 'pret-testers' (uitspraak van 
+                            geschoven, door de bewering dat het testen spaak loopt
+                            als gevolg van <a href="https://www.trouw.nl/binnenland/geen-klachten-toch-testen-een-grote-groep-prettesters-veroorzaakt-tekorten-bij-de-ggd~b83fe887/" target="_blank">
+                            'pret-testers'</a> (uitspraak van 
                             GGD-woordvoerder Sonja Kloppenburg).
                         </p>            
                         `,
@@ -673,7 +695,7 @@ const stories = [
                 }
             }, {
                 title: {
-                    nl: "Een derde golf en de tweede lockdown",
+                    nl: "Kerst in lockdown",
                     en: ""
                 },
                 date: '2020-12-14',

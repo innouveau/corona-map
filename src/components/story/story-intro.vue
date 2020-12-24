@@ -22,8 +22,8 @@
 
 <template>
     <div class="story-intro">
-        <h3>{{getTranslatedItem(story.title)}}</h3>
-        <h4>{{getTranslatedItem(story.subtitle)}}</h4>
+        <h3 v-html="getTranslatedItem(story.title)"/>
+        <h4 v-html="getTranslatedItem(story.subtitle)"/>
         <div
             :style="{'background-image': 'url(' + story.image + ')'}"
             class="story-intro__image"></div>
@@ -38,19 +38,20 @@
         margin-bottom: 150px;
 
         h3 {
-            font-family: $serif;
-            font-size: 36px;
-            line-height: 1.15;
-            margin-bottom: 6px;
+            line-height: 0.9;
+            font-size: 65px;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin-bottom: 18px;
         }
 
         h4 {
-            font-family: $serif;
             font-size: 24px;
             line-height: 1.15;
             margin-top: 0;
-            margin-bottom: 12px;
-            font-weight: 400;
+            margin-bottom: 96px;
+            text-transform: uppercase;
+            font-weight: 100;
         }
 
         .story-intro__image {
@@ -58,6 +59,23 @@
             background-position: 50% 50%;
             background-size: cover;
             background-repeat: no-repeat;
+        }
+
+        @include mobile() {
+
+            h3 {
+                font-size: 36px;
+                margin-bottom: 8px;
+            }
+
+            h4 {
+                font-size: 16px;
+                margin-bottom: 24px;
+            }
+
+            .story-intro__image {
+                height: 260px;
+            }
         }
     }
 </style>
