@@ -6,7 +6,7 @@ const stories = [
             en: 'How the Netherlands ended up in its Second Wave'
         },
         subtitle: {
-            nl: 'The good, the bad and the ugly:<br>2 lockdowns, ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛, duimen draaien, een huwelijk en de pret-tester...',
+            nl: 'Handen wassen, duimen draaien, ellebooggroet<br>anderhalve meter en tweeënhalve lockdown<br>een huwelijk, een begrafenis en <span class="blocked">groepsimmuniteit</span>',
             en: ''
         },
         image: 'assets/img/stories/netherlands/persconferentie-31-maart.jpg',
@@ -59,7 +59,7 @@ const stories = [
                     nl: 'De eerste melding in Nederland',
                     en: ''
                 },
-                date: '2020-03-16',
+                date: '2020-02-27',
                 dateTitle: {
                     nl: 'Eind februari',
                     en: ''
@@ -105,7 +105,7 @@ const stories = [
                     nl: 'Beelden uit Italië',
                     en: ''
                 },
-                date: '2020-03-18',
+                date: '2020-03-09',
                 dateTitle: {
                     nl: 'Begin maart',
                     en: ''
@@ -153,7 +153,7 @@ const stories = [
                     nl: 'Groepsimmuniteit',
                     en: ''
                 },
-                date: '2020-03-19',
+                date: '2020-03-16',
                 dateTitle: {
                     nl: '16 maart',
                     en: ''

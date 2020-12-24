@@ -46,12 +46,16 @@
         }
 
         h4 {
-            font-size: 24px;
-            line-height: 1.15;
+            font-size: 22px;
+            line-height: 1.35;
             margin-top: 0;
             margin-bottom: 96px;
-            text-transform: uppercase;
-            font-weight: 100;
+            font-weight: 300;
+            //font-family: $serif;
+
+            .blocked {
+                background: #000;
+            }
         }
 
         .story-intro__image {
