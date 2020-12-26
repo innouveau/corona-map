@@ -236,7 +236,7 @@ const dictionary = {
         en: "Safety regions"
     },
     "scroll-hint": {
-        nl: "<b>Scroll naar beneden om te starten.</b><br><br>De kaart van Nederland verandert mee, terwijl u scrollt door de tijdlijn.",
+        nl: "<b>Scroll naar beneden om te starten.</b><br><br>De kaart van Nederland verandert mee, terwijl u scrollt door de tijdlijn.<br>(Kijk je op mobiel? Hij is mooier op computer of tablet)",
         en: "<b>Scroll down to start.</b><br><br>The map will update while you are scrolling throught the timeline"
     },
     "search-or-click-on-map": {

@@ -39,7 +39,7 @@
 
         h3 {
             line-height: 0.9;
-            font-size: 65px;
+            font-size: 60px;
             text-transform: uppercase;
             font-weight: 900;
             margin-bottom: 18px;
@@ -51,7 +51,6 @@
             margin-top: 0;
             margin-bottom: 96px;
             font-weight: 300;
-            //font-family: $serif;
 
             .blocked {
                 background: #000;
@@ -73,7 +72,7 @@
             }
 
             h4 {
-                font-size: 16px;
+                font-size: 14px;
                 margin-bottom: 24px;
             }
 
