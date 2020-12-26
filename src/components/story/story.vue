@@ -6,10 +6,12 @@
     import storyIntro from "./story-intro";
     import $ from 'jquery';
     import Loader from "../elements/loader";
+    import StoryHint from "./story-hint";
 
     export default {
         name: 'story',
         components: {
+            StoryHint,
             Loader,
             storyIntro,
             storyHead,
@@ -26,7 +28,8 @@
                 measuring: [],
                 ready: false,
                 scrollTimeout: null,
-                isScrolling: false
+                isScrolling: false,
+                hasScrolled: false
             }
         },
         computed: {
@@ -57,6 +60,7 @@
                 })
             },
             scrollStart() {
+                this.hasScrolled = true;
                 this.isScrolling = true;
                 clearTimeout(this.scrollTimeout);
                 this.scrollTimeout = setTimeout(() => {
@@ -187,6 +191,10 @@
                 </div>
             </div>
         </div>
+
+        <story-hint
+            :has-scrolled="hasScrolled"/>
+
         <div
             v-if="!ready"
             class="loader__container">

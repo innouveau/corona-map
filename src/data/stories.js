@@ -6,7 +6,11 @@ const stories = [
             en: 'How the Netherlands ended up in its Second Wave'
         },
         subtitle: {
-            nl: 'Handen wassen, duimen draaien, ellebooggroet<br>anderhalve meter en tweeënhalve lockdown<br>een huwelijk, een begrafenis en <span class="blocked">groepsimmuniteit</span>',
+            nl: `
+            Handen wassen, duimen draaien, ellebooggroet.<br>
+            Anderhalve meter afstand omdat het moet.<br>
+            De tweenhalfde lockdown is een feit.<br>
+            Een huwelijk, begrafenis en <span class="blocked">groepsimmuniteit</span>`,
             en: ''
         },
         image: 'assets/img/stories/netherlands/persconferentie-31-maart.jpg',
@@ -132,7 +136,8 @@ const stories = [
                             </div>
                         </p>
                         <p>
-                            De reactie vanuit Nederland blijft laconiek en passief. Op 9 maart
+                            Hoewel het virus overal op de kaart opduikt, blijf de 
+                            reactie vanuit Nederland laconiek en passief. Op 9 maart
                             kondigt het kabinet aan om te stoppen met handen schudden. 
                             In de aankondinging ervan blundert Rutte meteen, door
                             Jaap van Dissel juist wel een hand te geven. Nederland 
@@ -170,7 +175,8 @@ const stories = [
                             De besmettingen stijgen explosief, van enkelen links
                             en rechts op de kaart, gaat het al snel naar de 500 en
                             Nederland meldt op 6 maart haar eerste sterfgeval als
-                            gevolg van Corona.
+                            gevolg van Corona. Vooral Brabant wordt hard getroffen,
+                            carnaval blijkt een <i>superspread event</i> te zijn geweest.
                         </p>
                         <p>
                             Nederland beseft dat het achter de feiten aanloopt,
