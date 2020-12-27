@@ -59,6 +59,21 @@ const dictionary = {
         nl: "Overledenen per positieve test",
         en: "Deceased per positive test"
     },
+    "disclaimer": {
+        nl: `
+        Hoewel met zorg samengesteld, kan deze reconstructie feitelijke
+                    onjuistheden bevatten. Ook hebben we geprobeerd om beeldrechten
+                    te respecteren, met de juiste credits.<br>
+                    Neem contact op met <a href="mailto:info@innouveau.nl">info@innouveau.nl</a>
+                    voor tips, correcties en dergelijke.
+        `,
+        en: `
+        Although compiled with care, this reconstruction may contain factual inaccuracies. 
+            We have also tried to respect image rights, with appropriate credits. <br>
+                     Please contact <a href="mailto:info@innouveau.nl"> info@innouveau.nl </a>
+                     for tips, corrections and the like.
+        `
+    },
     "description": {
         nl: "Beschrijving",
         en: "Description"
@@ -237,7 +252,7 @@ const dictionary = {
     },
     "scroll-hint": {
         nl: "<b>Scroll naar beneden om te starten.</b><br><br>De kaart van Nederland verandert mee, terwijl u scrollt door de tijdlijn.<br>(Kijk je op mobiel? Hij is mooier op computer of tablet)",
-        en: "<b>Scroll down to start.</b><br><br>The map will update while you are scrolling throught the timeline"
+        en: "<b>Scroll down to start.</b><br><br>The map will update while you are scrolling through the timeline.<br>(Best on desktop / tablet)"
     },
     "search-or-click-on-map": {
         nl: "Zoek of klik op de kaart",

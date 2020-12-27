@@ -11,6 +11,10 @@
             },
             mapType() {
                 return 'signaling';
+            },
+            test() {
+                let lastDay = this.days[this.days.length - 1];
+                return lastDay.positiveTests + ' ' + this.region.population;
             }
         },
         methods: {
@@ -47,6 +51,8 @@
             v-if="framesBefore > 2"
             class="pcr-test-graph__title">
             {{translate(this.view.currentSource.key, true)}}
+
+            {{test}}
         </div>
         <div
             ref="container"

@@ -9,7 +9,7 @@ const stories = [
             nl: `
             Handen wassen, duimen draaien, ellebooggroet.<br>
             Anderhalve meter afstand omdat het moet.<br>
-            De tweenhalfde lockdown is een feit.<br>
+            De tweeënhalfde lockdown is een feit.<br>
             Een huwelijk, begrafenis en <span class="blocked">groepsimmuniteit</span>`,
             en: `
                 Washing hands, twiddling thumbs, elbow greets.<br>
