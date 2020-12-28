@@ -22,7 +22,6 @@ const routes = [
     }, {
         path: "/main",
         name: "main",
-        redirect: {name: "main"},
     }, {
         path: "/riool",
         name: "riool",

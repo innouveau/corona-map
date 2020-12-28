@@ -42,7 +42,6 @@ function addRow(row) {
     cityName = row.Municipality_name;
     dateString = row.Date_of_publication;
 
-    //if (cityName === 'Amsterdam') {
     city = getCity(cityName);
     if (city) {
         date = findDate(city, dateString);
@@ -52,11 +51,11 @@ function addRow(row) {
                 cases: Number(row.Total_reported)
             })
         } else {
+            date.cases += Number(row.Total_reported);
             // doubles
         }
     }
 
-    //}
 
 
 }
