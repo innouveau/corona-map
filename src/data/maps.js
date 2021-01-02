@@ -67,10 +67,10 @@ const maps = [
                 cumulative: true,
                 adapter: {
                     getKeys(columns) {
-                        return columns.filter(c => c.indexOf('Hospital_admission.') > -1);
+                        return columns.filter(c => c.indexOf('20') > -1);
                     },
                     getDateFromKey(key) {
-                        return key.split('Hospital_admission.')[1];
+                        return key;
                     },
                     regionKey: 'Municipality_name'
                 }
@@ -82,10 +82,10 @@ const maps = [
                 cumulative: true,
                 adapter: {
                     getKeys(columns) {
-                        return columns.filter(c => c.indexOf('Deceased.') > -1);
+                        return columns.filter(c => c.indexOf('20') > -1);
                     },
                     getDateFromKey(key) {
-                        return key.split('Deceased.')[1];
+                        return key;
                     },
                     regionKey: 'Municipality_name'
                 }

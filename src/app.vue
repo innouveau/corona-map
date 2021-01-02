@@ -188,10 +188,10 @@
                             } else {
                                 adapter = {
                                     titleKey: 'Municipality_code',
-                                    positiveTestsKey: 'Total_reported.',
+                                    positiveTestsKey: '',
                                     administeredTestsKey: 'Total_administered.',
                                     findColumn: function(column) {
-                                        return column.indexOf('Total_reported.') > -1;
+                                        return column.indexOf('20') > -1;
                                     }
                                 }
                             }
@@ -250,6 +250,7 @@
                                 let title, region;
                                 title = row[adapter.regionKey];
                                 region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
+
                                 if (region) {
                                     lastValue = 0;
                                     for (let key of keys) {
