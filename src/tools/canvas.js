@@ -1,5 +1,6 @@
 import store from '@/store/store';
 import changeTools from '@/tools/change';
+import dateTools from '@/tools/date';
 
 const addBackground = function(ctx, width, height) {
     ctx.rect(0, 0, width, height);
@@ -49,7 +50,9 @@ const drawRegionContainer = function(ctx, parent, settings, offset, mapType, sou
     }
     children = parent.getRegionsForPaths(pathsOrigin);
     for (let child of children) {
-        drawRegion(ctx, child, settings);
+        if (dateTools.isLiveDate(offset, child.lifecycle)) {
+            drawRegion(ctx, child, settings);
+        }
     }
 };
 

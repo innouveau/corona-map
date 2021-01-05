@@ -15,6 +15,7 @@ class City extends _RegionWithTestData {
         area = 0,
         paths = [],
         ageGroups = [],
+        lifecycle = null,
         report = {
             history: []
         }
@@ -34,6 +35,7 @@ class City extends _RegionWithTestData {
         this.area = area;
         this.paths = paths.map(path => new Path(path));
         this.ageGroups = ageGroups;
+        this.lifecycle = lifecycle;
         this.report = report;
     }
 
