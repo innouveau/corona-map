@@ -247,27 +247,30 @@
                             adapter = this.currentMap.data[subjectKey].adapter;
                             keys = adapter.getKeys(result.columns);
                             for (let row of result) {
-                                let title, region;
+                                let title, regions;
                                 title = row[adapter.regionKey];
-                                region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
+                                regions = this.$store.getters[this.currentMap.module + '/getItemsByProperty']('title', title, true);
 
-                                if (region) {
-                                    lastValue = 0;
-                                    for (let key of keys) {
-                                        let frame, date, value;
-                                        value = Number(row[key]);
-                                        date = adapter.getDateFromKey(key);
-                                        frame = region.report.history.find(f => f.date === date);
-                                        if (frame) {
-                                            frame[subjectKey] = value - lastValue;
-                                        } else {
-                                            //console.error('frame with date ' + date + ' not found for hospitalisations data');
+                                for (let region of regions) {
+                                    if (region) {
+                                        lastValue = 0;
+                                        for (let key of keys) {
+                                            let frame, date, value;
+                                            value = Number(row[key]);
+                                            date = adapter.getDateFromKey(key);
+                                            frame = region.report.history.find(f => f.date === date);
+                                            if (frame) {
+                                                frame[subjectKey] = value - lastValue;
+                                            } else {
+                                                //console.error('frame with date ' + date + ' not found for hospitalisations data');
+                                            }
+                                            lastValue = value;
                                         }
-                                        lastValue = value;
+                                    } else {
+                                        //console.error('Region ' + title + ' not found for hospitalisations data');
                                     }
-                                } else {
-                                    //console.error('Region ' + title + ' not found for hospitalisations data');
                                 }
+
                             }
                             resolve();
                         })
@@ -363,7 +366,7 @@
                 this.dateKeys = dates;
             },
             addTests(data, adapter) {
-                let key, region, report, incidents;
+                let key, regions, report, incidents;
                 incidents = [];
                 const convertToNumber = function(value) {
                     let numb = Number(value);
@@ -420,17 +423,16 @@
                 }
 
 
-
                 key = data[adapter.titleKey];
-                if (this.$store.state[this.currentMap.module].dict[key]) {
-                    region = this.$store.state[this.currentMap.module].dict[key];
+                regions = this.$store.getters[this.currentMap.module + '/getItemsByProperty']('identifier', key, true);
+
+                for (let region of regions) {
                     this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'report', value: report});
                     if (!this.currentMap.settings.generalInfoHasPopulation) {
                         this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'population', value: convertToNumber(data.population)});
                     }
-                } else {
-                    //console.log('not found ' + key);
                 }
+
             },
             addDates(report, key) {
                 let startDate, startDateOffset, firstDateInReportOffset;

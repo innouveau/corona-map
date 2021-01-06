@@ -13,6 +13,13 @@ const getters = {
             return state.all.find(item => item[property] === value);
         }
     },
+    getItemsByProperty: (state) => (property, value, ignoreCase) => {
+        if (ignoreCase) {
+            return state.all.filter(item => item[property].toLowerCase() === value.toLowerCase());
+        } else {
+            return state.all.filter(item => item[property] === value);
+        }
+    },
     getSetByIds: (state) => (ids) => {
         // we cannot user array.filter here, which would not respect the order
         // or the ids, see #693
