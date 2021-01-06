@@ -50,7 +50,7 @@ const drawRegionContainer = function(ctx, parent, settings, offset, mapType, sou
     }
     children = parent.getRegionsForPaths(pathsOrigin);
     for (let child of children) {
-        if (dateTools.isLiveDate(offset, child.lifecycle)) {
+        if (child.isLive(offset)) {
             drawRegion(ctx, child, settings);
         }
     }

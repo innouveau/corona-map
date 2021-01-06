@@ -1,4 +1,32 @@
 window.geoSettings = {
+    netherlands: {
+        geo: 'data/netherlands-2021/Gemeentegrenzen2021WGS84.geojson',
+        titleKey: 'statnaam',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (region.region.toLowerCase() === title.toLowerCase()) {
+                    return region;
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: ['Dependencias Federales'],
+        include: ['Eemsdelta', 'Oisterwijk', 'Vught', 'Boxtel', 'Tilburg'],
+        exclusive: ['Eemsdelta', 'Oisterwijk', 'Vught', 'Boxtel', 'Tilburg'],
+        differentIditifier: 'statcode',
+        customAdd: {
+            "regionType":"city","country_id":1,"ggd_code":"","safetyRegion_code":"","province_code":"","regio_title":"",
+            "lifecycle": {
+                start: "2021-01-01",
+                end: null
+            }
+        }
+    },
     scandinavia: {
         geo: 'data/scandinavia/geo-ready.json',
         ready: true,

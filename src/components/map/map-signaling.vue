@@ -186,9 +186,11 @@
             getRegionForPoint(x, y) {
                 let reversed = this.regions.slice().reverse();
                 for (let region of reversed) {
-                    for (let path of region.paths) {
-                        if (this.ctx.isPointInPath(path.storedPaths['map-' + this.$store.state.settings.canvasWidth], x, y)) {
-                            return region;
+                    if (region.isLive(this.view.offset)) {
+                        for (let path of region.paths) {
+                            if (this.ctx.isPointInPath(path.storedPaths['map-' + this.$store.state.settings.canvasWidth], x, y)) {
+                                return region;
+                            }
                         }
                     }
                 }

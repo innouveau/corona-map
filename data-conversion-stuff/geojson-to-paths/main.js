@@ -2,9 +2,10 @@ let regions, populationDict, settings, sources, currentSource;
 
 regions = [];
 
-sources = ['scandinavia', 'china', 'france', 'germany', 'spain', 'world', 'usa', 'peru', 'colombia',
-    'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia', 'venezuela'];
-//sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile', 'venezuela'];
+// sources = ['scandinavia', 'china', 'france', 'germany', 'spain', 'world', 'usa', 'peru', 'colombia',
+//     'brazil', 'canada', 'australia', 'india', 'mexico', 'argentina', 'chile', 'russia', 'venezuela'];
+// //sources = ['southamerica', 'peru', 'colombia', 'brazil', 'argentina', 'chile', 'venezuela'];
+sources = ['netherlands'];
 currentSource = sources[0];
 
 
@@ -15,7 +16,7 @@ settings = {
     removeSmallIslands: true,
     maxIslands: 16,
     addPathsIfExists: true,
-    threshold: 0.04 // smaller is more detail
+    threshold: 0.0000000000004 // smaller is more detail
     //threshold: 0.005 // 0.005 for south america
 };
 
@@ -40,6 +41,14 @@ const finish = function() {
     console.log(string);
 };
 
+const isExclusive = function(geoSettings, title) {
+    if (!geoSettings.exclusive) {
+        return true;
+    } else {
+        return geoSettings.exclusive.indexOf(title) > - 1;
+    }
+};
+
 const shouldExclude = function (title) {
     return geoSettings[currentSource].exclude.indexOf(title.toLowerCase()) > -1 ||
         geoSettings[currentSource].exclude.indexOf(title) > -1
@@ -60,9 +69,6 @@ const removeSmallIslands = function(paths) {
 const loadRegions = function() {
     $.getJSON(geoSettings[currentSource].geo, function( data ) {
 
-        // if (currentSource === 'venezuela') {
-        //     console.log(data);
-        // }
 
         if (geoSettings[currentSource].ready) {
             for (let item of data) {
@@ -97,22 +103,30 @@ const loadRegions = function() {
 
                 regions.push(item);
             }
-
         } else {
             for (let item of data.features) {
                 let region, paths, found, titleKey, title, filteredPaths;
                 found = true;
                 region = {};
 
-
                 // add properties
                 titleKey = geoSettings[currentSource].titleKey;
                 region.title = item.properties[titleKey];
-                region.identifier = item.properties[titleKey];
+                if (geoSettings[currentSource].differentIditifier) {
+                    region.identifier = item.properties[geoSettings[currentSource].differentIditifier];
+                } else {
+                    region.identifier = item.properties[titleKey];
+                }
+                if (geoSettings[currentSource].customAdd) {
+                    for (let key in geoSettings[currentSource].customAdd) {
+                        region[key] = geoSettings[currentSource].customAdd[key];
+                    }
+                }
+
                 title = item.properties[titleKey];
 
-                if (!shouldExclude(title)) {
-
+                if (!shouldExclude(title) && isExclusive(geoSettings[currentSource], title)) {
+                    console.log(item);
                     if (settings.getInfoFromPopulationFile) {
 
                         let dictRegion = geoSettings[currentSource].getRegion(item, title);
