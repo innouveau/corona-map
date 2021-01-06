@@ -59,24 +59,10 @@ const getDateFromOffsetCalculated = function(offset) {
     return formatDate(date);
 };
 
-const isLiveDate = function(offset, lifecycle) {
-    let startOffset, endOffset;
-    if (!lifecycle) {
-        return true;
-    } else {
-        startOffset = getOffsetByDate(lifecycle.start);
-        if (lifecycle.end) {
-            endOffset = getOffsetByDate(lifecycle.end);
-        }
-        return offset <= startOffset && (lifecycle.end === null || offset >= endOffset);
-    }
-};
-
 export default {
     getOffsetByDate,
     getDateByOffset,
     formatDate,
     getTimestamp,
-    addDateOffset,
-    isLiveDate
+    addDateOffset
 }
