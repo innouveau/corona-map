@@ -118,8 +118,8 @@ const loadRegions = function() {
                     region.identifier = item.properties[titleKey];
                 }
                 if (geoSettings[currentSource].customAdd) {
-                    for (let key in geoSettings[currentSource].customAdd) {
-                        region[key] = geoSettings[currentSource].customAdd[key];
+                    for (let key in geoSettings[currentSource].customAdd[region.title]) {
+                        region[key] = geoSettings[currentSource].customAdd[region.title][key];
                     }
                 }
 

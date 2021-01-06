@@ -1,3 +1,29 @@
+const HaarenSettings1 = {
+    regionType:"city",
+    country_id:1,
+    ggd_code: "GG5406",
+    safetyRegion_code:"VR20",
+    province_code:"PV30",
+    regio_title:"Niet-Noord",
+    lifecycle: {
+        start: "2021-01-01",
+        end: null
+    }
+};
+
+const HaarenSettings2 = {
+    regionType:"city",
+    country_id:1,
+    ggd_code: "GG5406",
+    safetyRegion_code:"VR21",
+    province_code:"PV30",
+    regio_title:"Niet-Noord",
+    lifecycle: {
+        start: "2021-01-01",
+        end: null
+    }
+};
+
 window.geoSettings = {
     netherlands: {
         geo: 'data/netherlands-2021/Gemeentegrenzen2021WGS84.geojson',
@@ -20,11 +46,22 @@ window.geoSettings = {
         exclusive: ['Eemsdelta', 'Oisterwijk', 'Vught', 'Boxtel', 'Tilburg'],
         differentIditifier: 'statcode',
         customAdd: {
-            "regionType":"city","country_id":1,"ggd_code":"","safetyRegion_code":"","province_code":"","regio_title":"",
-            "lifecycle": {
-                start: "2021-01-01",
-                end: null
-            }
+            Eemsdelta: {
+                regionType:"city",
+                country_id:1,
+                ggd_code: "GG0111",
+                safetyRegion_code:"VR01",
+                province_code:"PV20",
+                regio_title:"Noord",
+                lifecycle: {
+                    start: "2021-01-01",
+                    end: null
+                }
+            },
+            Oisterwijk: HaarenSettings1,
+            Vught: HaarenSettings2,
+            Boxtel: HaarenSettings2,
+            Tilburg: HaarenSettings1
         }
     },
     scandinavia: {

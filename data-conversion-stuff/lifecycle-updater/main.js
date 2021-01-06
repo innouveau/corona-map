@@ -1,5 +1,13 @@
 let url, settings, cities;
 
+// dit zijn de 8 gemeentes die (in hun huidige vorm) aflopen op 2020-12-31
+// we lopen door de oude dataset, laten alle gemeentes door, maar voegen op
+// deze 8 een lifecycle toe
+// in geojson-to-paths adhv source: Netherlands pakken we de 5 gemeentes
+// die nieuw zijn (Eemsdelta) of in een nieuwe vorm komen (Oisterwijk,
+// Vught, Boxtel en Tilburg) uit de geojson. We voegen daar nog wat custom
+// data aan toe, zoals een ggd_code, etc
+
 url = './../../public/data/maps/nederland-bu/cities.json';
 settings = {
     'Appingedam': {
@@ -43,8 +51,8 @@ const loadFile = function() {
         for (let item of data) {
             if (settings[item.title]) {
                 item.lifecycle = settings[item.title];
-                cities.push(item);
             }
+            cities.push(item);
         }
         console.log(cities);
         console.log(JSON.stringify(cities));
