@@ -20,7 +20,7 @@ let signalingSystems = [
                     regular: '#CBDA2D',
                     colorblind1: 'rgb(216, 216, 216)',
                     colorblind2: 'rgb(216, 216, 216)',
-                    variant3: 'rgb(216, 216, 216)'
+                    variant3: '#FDFEA7'
                 }
             }, {
                 n: 32,
@@ -28,7 +28,7 @@ let signalingSystems = [
                     regular: '#FFF200',
                     colorblind1: 'rgb(180, 180, 180)',
                     colorblind2: 'rgb(180, 180, 180)',
-                    variant3: 'rgb(180, 180, 180)'
+                    variant3: '#FBA121'
                 }
             }, {
                 n: 64,
@@ -36,7 +36,7 @@ let signalingSystems = [
                     regular: '#FDB913',
                     colorblind1: 'rgb(144,144,144)',
                     colorblind2: 'rgb(144,144,144)',
-                    variant3: 'rgb(144,144,144)'
+                    variant3: '#DD513B'
                 }
             }, {
                 n: 128,
@@ -44,7 +44,7 @@ let signalingSystems = [
                     regular: '#F48221',
                     colorblind1: 'rgb(108,108,108)',
                     colorblind2: 'rgb(108,108,108)',
-                    variant3: 'rgb(108,108,108)'
+                    variant3: '#BB3554'
                 }
             }, {
                 n: 256,
@@ -52,7 +52,7 @@ let signalingSystems = [
                     regular: '#ED1C24',
                     colorblind1: 'rgb(72,72,72)',
                     colorblind2: 'rgb(72,72,72)',
-                    variant3: 'rgb(72,72,72)'
+                    variant3: '#80206B'
                 }
             }, {
                 n: 512,
@@ -60,7 +60,7 @@ let signalingSystems = [
                     regular: '#D91872',
                     colorblind1: 'rgb(36,36,36)',
                     colorblind2: 'rgb(36,36,36)',
-                    variant3: 'rgb(36,36,36)'
+                    variant3: '#2B0E58'
                 }
             }, {
                 n: Infinity,

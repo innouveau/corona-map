@@ -7,18 +7,15 @@
             return {
                 colorSets: [
                     {
-                        label: 'traffic-light',
+                        label: 'Color mode 1',
                         value: 'regular'
                     }, {
-                        label: 'color-blindness',
-                        value: 'colorblind1'
-                    }, {
-                        label: 'gradient-1',
-                        value: 'colorblind2'
-                    }, {
-                        label: 'gradient-2',
+                        label: 'Color mode 2',
                         value: 'variant3'
-                    }
+                    }, {
+                        label: 'Gradient',
+                        value: 'colorblind1'
+                    },
                 ]
             }
         },
@@ -51,7 +48,7 @@
                     <img src="assets/img/tools/checkmark.svg">
                 </div>
                 <div class="map-tools-popup__title">
-                    {{translate(colorSet.label, true)}}
+                    {{colorSet.label}}
                 </div>
             </div>
         </div>
