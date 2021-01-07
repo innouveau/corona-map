@@ -16,7 +16,7 @@
                 return this.$store.state.maps.current;
             },
             regions() {
-                return this.$store.state[this.currentMap.module].all;
+                return this.$store.state[this.currentMap.module].all.filter(r => r.isLive(this.view.offset));
             },
             n() {
                 let n = 0;
