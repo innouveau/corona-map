@@ -383,6 +383,7 @@
                 key = data[adapter.titleKey];
                 regions = this.$store.getters[this.currentMap.module + '/getItemsByProperty']('identifier', key, true);
 
+
                 if (regions.length > 0) {
                     report = {
                         history: []
@@ -432,12 +433,17 @@
                     for (let region of regions) {
                         this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'report', value: report});
                         if (!this.currentMap.settings.generalInfoHasPopulation) {
-                            this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'population', value: convertToNumber(data.population)});
+                            // fix for Haaren
+                            if (data.population === 'NA') {
+                                this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'population', value: region.population});
+                            } else {
+                                this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'population', value: convertToNumber(data.population)});
+                            }
                         }
                     }
                 }
             },
-            addDates(report, key) {
+            addDates(report) {
                 let startDate, startDateOffset, firstDateInReportOffset;
                 startDate = '2020-01-01';
                 startDateOffset = dateTool.getOffsetByDate(startDate);
