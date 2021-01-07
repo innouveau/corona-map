@@ -445,14 +445,14 @@
 
                 for (let offset = (firstDateInReportOffset + 1); offset < (startDateOffset + 1); offset++) {
                     report.history.unshift({
-                        date: dateTool.getDateByOffset(offset),
-                        offset: offset,
-                        positiveAntigenTests: 0,
-                        positiveTests: 0,
-                        administeredTests: 0,
-                        hospitalisations: 0,
-                        deceased: 0
-                    }
+                            date: dateTool.getDateByOffset(offset),
+                            offset: offset,
+                            positiveAntigenTests: 0,
+                            positiveTests: 0,
+                            administeredTests: 0,
+                            hospitalisations: 0,
+                            deceased: 0
+                        }
                     )
                 }
                 this.$store.commit('settings/updateProperty', {key: 'historyLength', value: startDateOffset});
@@ -470,18 +470,18 @@
 
 <template>
     <div
-        :class="{'map--blocked': block}"
-        class="app">
+            :class="{'map--blocked': block}"
+            class="app">
         <router-view v-if="dataLoaded"/>
         <div
-            class="loading"
-            v-else>
+                class="loading"
+                v-else>
             Loading data...
         </div>
 
         <div
-            @click="openHamburgerMenu()"
-            class="icon-button icon-button--without-border hamburger">
+                @click="openHamburgerMenu()"
+                class="icon-button icon-button--without-border hamburger">
             <img src="assets/img/tools/hamburger.svg">
         </div>
 
