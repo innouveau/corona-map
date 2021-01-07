@@ -377,62 +377,65 @@
                     }
                 };
 
-                report = {
-                    history: []
-                };
 
-                for (let dateKey of this.dateKeys) {
-                    let positiveTests, administeredTests, day;
-                    day = {
-                        // ms: new Date(dateKey.dateString).getTime(),
-                        date: dateKey.dateString,
-                        offset: dateKey.offset,
-                        positiveTests: null,
-                        positiveAntigenTests: 0,
-                        administeredTests: null
-                    };
-                    if (data[dateKey.positiveTestsKey]) {
-                        positiveTests = Number(data[dateKey.positiveTestsKey]);
-                        day.positiveTests = positiveTests;
-                        if (this.currentMap.data.administeredPcrTests.status) {
-                            administeredTests = Number(data[dateKey.administeredTestsKey]);
-                            day.administeredTests = administeredTests;
-                        }
-                    }
-                    incidents.push(day);
-                }
-                if (this.currentMap.data.positivePcrTests.cumulative) {
-                    for (let i = 0, l = incidents.length; i < l; i++) {
-                        if (i > 0) {
-                            let positiveTests = incidents[i].positiveTests - incidents[i - 1].positiveTests;
-                            report.history.push({
-                                // ms: incidents[i].ms,
-                                date: incidents[i].date,
-                                offset: incidents[i].offset,
-                                positiveAntigenTests: incidents[i].positiveAntigenTests,
-                                positiveTests
-                            });
-                        }
-                    }
-                } else {
-                    report.history = incidents;
-                }
-
-                if (this.currentMap.title === 'Nederland') {
-                    this.addDates(report, data[adapter.titleKey]);
-                }
 
 
                 key = data[adapter.titleKey];
                 regions = this.$store.getters[this.currentMap.module + '/getItemsByProperty']('identifier', key, true);
 
-                for (let region of regions) {
-                    this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'report', value: report});
-                    if (!this.currentMap.settings.generalInfoHasPopulation) {
-                        this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'population', value: convertToNumber(data.population)});
+                if (regions.length > 0) {
+                    report = {
+                        history: []
+                    };
+
+                    for (let dateKey of this.dateKeys) {
+                        let positiveTests, administeredTests, day;
+                        day = {
+                            // ms: new Date(dateKey.dateString).getTime(),
+                            date: dateKey.dateString,
+                            offset: dateKey.offset,
+                            positiveTests: null,
+                            positiveAntigenTests: 0,
+                            administeredTests: null
+                        };
+                        if (data[dateKey.positiveTestsKey]) {
+                            positiveTests = Number(data[dateKey.positiveTestsKey]);
+                            day.positiveTests = positiveTests;
+                            if (this.currentMap.data.administeredPcrTests.status) {
+                                administeredTests = Number(data[dateKey.administeredTestsKey]);
+                                day.administeredTests = administeredTests;
+                            }
+                        }
+                        incidents.push(day);
+                    }
+                    if (this.currentMap.data.positivePcrTests.cumulative) {
+                        for (let i = 0, l = incidents.length; i < l; i++) {
+                            if (i > 0) {
+                                let positiveTests = incidents[i].positiveTests - incidents[i - 1].positiveTests;
+                                report.history.push({
+                                    // ms: incidents[i].ms,
+                                    date: incidents[i].date,
+                                    offset: incidents[i].offset,
+                                    positiveAntigenTests: incidents[i].positiveAntigenTests,
+                                    positiveTests
+                                });
+                            }
+                        }
+                    } else {
+                        report.history = incidents;
+                    }
+
+                    if (this.currentMap.title === 'Nederland') {
+                        this.addDates(report, data[adapter.titleKey]);
+                    }
+
+                    for (let region of regions) {
+                        this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'report', value: report});
+                        if (!this.currentMap.settings.generalInfoHasPopulation) {
+                            this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'population', value: convertToNumber(data.population)});
+                        }
                     }
                 }
-
             },
             addDates(report, key) {
                 let startDate, startDateOffset, firstDateInReportOffset;
