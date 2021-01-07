@@ -1,5 +1,6 @@
 import _Region from "./_Region";
 import stringTool from '@/tools/string';
+import dateTools from '@/tools/date';
 
 
 class _RegionWithTestData extends _Region{
@@ -36,6 +37,19 @@ class _RegionWithTestData extends _Region{
 
     get titleForSorting() {
         return stringTool.titleForSorting(this.title);
+    }
+
+    isLive(offset) {
+        let startOffset, endOffset;
+        if (!this.lifecycle) {
+            return true;
+        } else {
+            startOffset = dateTools.getOffsetByDate(this.lifecycle.start);
+            if (this.lifecycle.end) {
+                endOffset = dateTools.getOffsetByDate(this.lifecycle.end);
+            }
+            return offset <= startOffset && (this.lifecycle.end === null || offset >= endOffset);
+        }
     }
 }
 

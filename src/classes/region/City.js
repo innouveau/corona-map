@@ -1,7 +1,6 @@
 import Path from './geo/Path';
 import _RegionWithTestData from "./_RegionWithTestData";
 import store from '@/store/store';
-import dateTools from '@/tools/date';
 
 class City extends _RegionWithTestData {
     constructor({
@@ -44,19 +43,6 @@ class City extends _RegionWithTestData {
         let clone = {...this};
         clone.paths = this.paths.map(p => p.export());
         return clone;
-    }
-
-    isLive(offset) {
-        let startOffset, endOffset;
-        if (!this.lifecycle) {
-            return true;
-        } else {
-            startOffset = dateTools.getOffsetByDate(this.lifecycle.start);
-            if (this.lifecycle.end) {
-                endOffset = dateTools.getOffsetByDate(this.lifecycle.end);
-            }
-            return offset <= startOffset && (this.lifecycle.end === null || offset >= endOffset);
-        }
     }
 }
 
