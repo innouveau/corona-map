@@ -81,28 +81,30 @@
             </div>
         </div>
 
-        <div class="region-details__section">
+        <div
+            v-if="hasDays && !short"
+            class="region-details__section">
             <div class="region-details__section-head">
                 {{translate('trend-today', true)}}
             </div>
             <div
-                v-if="hasDays && !short"
+
                 class="region-details__row">
                 <div class="region-details__label">
                     {{translate('increase', true)}} {{translate('today')}}
                     <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, 1, view.currentSource.key, false), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, 1, view.currentSource.key, false), true)}} <span class="abs-rel abs-rel--big">abs</span>
                 </div>
             </div>
-            <div v-if="hasDays && !short" class="region-details__row">
+            <div class="region-details__row">
                 <div class="region-details__label">
                     {{translate('relative', true)}} {{translate('increase')}} {{translate('today')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
                     <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, 1, view.currentSource.key, true), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, 1, view.currentSource.key, true), true)}} <span class="abs-rel abs-rel--big">rel</span>
                 </div>
             </div>
         </div>
@@ -118,7 +120,7 @@
                     <span v-if="showLateReportingWarning">*</span>
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, (7 / testDataInterval) , view.currentSource.key, false), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, (7 / testDataInterval) , view.currentSource.key, false), true)}} <span class="abs-rel abs-rel--big">abs</span>
                 </div>
             </div>
             <div class="region-details__row">
@@ -126,7 +128,7 @@
                     {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, (7 / testDataInterval), view.currentSource.key, true), true)}}
+                    {{format(region.getTotalIncreaseOfType(view.offset, (7 / testDataInterval), view.currentSource.key, true), true)}} <span class="abs-rel abs-rel--big">rel</span>
                 </div>
             </div>
         </div>

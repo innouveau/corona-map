@@ -1,10 +1,11 @@
 <script>
     import thresholdTools from '@/tools/thresholds';
     import View from "@/classes/View";
+    import P100p7 from "../../elements/p100p7";
 
     export default {
         name: 'map-legend-gradient',
-        components: {},
+        components: {P100p7},
         props: {
             view: {
                 type: View,
@@ -52,7 +53,7 @@
 <template>
     <div class="map-legend-gradient">
         <div
-            v-for="threshold in thresholds"
+            v-for="(threshold, index) in thresholds"
             class="threshold">
             <div
                 :style="{'background': getBackground(threshold)}"

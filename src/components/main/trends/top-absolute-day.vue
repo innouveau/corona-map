@@ -1,10 +1,11 @@
 <script>
     import View from "@/classes/View";
-    import region from "@/components/main/trends/region";
-    import trendMixin from "./trend-mixin";
+    import region from "./region";
+
+    import trendMixin from './trend-mixin'
 
     export default {
-        name: 'top-relative-week',
+        name: 'top-absolute-day',
         components: {
             region
         },
@@ -15,19 +16,14 @@
                 required: true
             }
         },
-        data() {
-            return {
-                list: []
-            }
-        },
         computed: {
             title() {
-                return 'Top 10 ' + this.translate('relative') + ' ' + this.translate('increase') + ' ' + this.translate('for-7-days');
+                return 'Top 10 ' + this.translate('absolute') + ' ' + this.translate('increase') + ' ' + this.translate('today');
             }
         },
         methods: {
             getValue(region) {
-                return region.getTotalIncreaseOfType(this.view.offset, (7 / this.interval), this.view.currentSource.key, true);
+                return region.getTotalIncreaseOfType(this.view.offset, 1, this.view.currentSource.key, false);
             }
         }
     }
@@ -35,7 +31,7 @@
 
 
 <template>
-    <div class="section top-relative-week">
+    <div class="section top-absolute-day">
         <div class="section__header">
             {{title}}:
         </div>
@@ -60,12 +56,7 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .section {
-        margin-bottom: 20px;
+    .top-absolute-day {
 
-        .section__header {
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
     }
 </style>

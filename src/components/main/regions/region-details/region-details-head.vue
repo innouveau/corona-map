@@ -17,8 +17,11 @@
             }
         },
         computed: {
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
             increaseThisWeek() {
-                return this.region.getTotalIncreaseOfType(this.view.offset, 7, 'positiveTests', true);
+                return this.region.getTotalIncreaseOfType(this.view.offset, (7 / this.currentMap.data.positivePcrTests.interval), 'positiveTests', true);
             }
         },
         methods: {
@@ -41,7 +44,7 @@
             {{region.title}}
         </div>
         <div class="region-details__increase">
-            {{format(increaseThisWeek)}}
+            {{format(increaseThisWeek)}} <span class="abs-rel">rel</span>
         </div>
     </div>
 </template>
@@ -74,6 +77,10 @@
         .region-details__increase {
             font-size: 12px;
             display: flex;
+
+            .abs-rel {
+                margin-left: 2px;
+            }
         }
     }
 </style>

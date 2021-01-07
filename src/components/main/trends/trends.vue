@@ -4,12 +4,14 @@
     import thresholdRegions from "./threshold-regions";
     import thresholdTools from '@/tools/thresholds';
     import citiesWithSewageTreatmentPlant from "./cities-with-sewage-treatment-plant";
-    import topRelative from "./top-relative";
+    import topRelativeDay from "./top-relative-day";
+    import TopAbsoluteDay from "./top-absolute-day";
 
     export default {
         name: 'trends',
         components: {
-            topRelative,
+            TopAbsoluteDay,
+            topRelativeDay,
             citiesWithSewageTreatmentPlant,
             thresholdRegions,
             topRelativeWeek,
@@ -34,6 +36,9 @@
             },
             showTrends() {
                 return this.$store.state.ui.showTrends;
+            },
+            hasDays() {
+                return this.$store.state.maps.current.data.positivePcrTests.interval === 1;
             }
         },
         methods: {
@@ -63,7 +68,11 @@
 
             <top-relative-week
                 :view="view"/>
-            <top-relative
+            <top-relative-day
+                v-if="hasDays"
+                :view="view"/>
+            <top-absolute-day
+                v-if="hasDays"
                 :view="view"/>
         </div>
         <div v-else>
