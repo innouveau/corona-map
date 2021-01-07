@@ -135,7 +135,15 @@ const maps = [
                 status: true,
                 source: 'data/maps/amsterdam/amsterdam-tests.csv',
                 interval: 7,
-                cumulative: false
+                cumulative: false,
+                adapter: {
+                    titleKey: 'Municipality_code',
+                    positiveTestsKey: 'Total_reported.',
+                    administeredTestsKey: 'Total_administered.',
+                    findColumn: function(column) {
+                        return column.indexOf('Total_reported.') > -1;
+                    }
+                }
             },
             positiveAntigenTests: {
                 status: false
