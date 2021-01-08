@@ -27,6 +27,9 @@
         computed: {
             showMap() {
                 return this.$store.state.ui.menu === 'map';
+            },
+            currentSource() {
+                return this.view.currentSource;
             }
         },
         methods: {
@@ -41,6 +44,11 @@
         },
         mounted() {
             this.init();
+        },
+        watch: {
+            currentSource: function () {
+                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
+            }
         }
     }
 </script>

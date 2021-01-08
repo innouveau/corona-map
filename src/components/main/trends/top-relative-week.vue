@@ -48,7 +48,7 @@
                         :view="view"
                         :region="item.region"/>
                     <div class="region__info">
-                        ({{format(item.value)}} <span class="abs-rel">abs</span>)
+                        ({{format(item.value)}} <span class="abs-rel">rel</span>)
                     </div>
                 </div>
             </div>
