@@ -113,9 +113,18 @@ window.geoSettings = {
         getRegion: function(item, title) {
             for (let key in populationDict) {
                 let region = populationDict[key];
-                if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
-                    return region;
+
+                if (title === 'California') {
+                    if (region.region.toLowerCase() === title.toLowerCase()) {
+                        return region;
+                    }
+                } else {
+                    if (region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                        return region;
+                    }
                 }
+
+
             }
             return null;
         },

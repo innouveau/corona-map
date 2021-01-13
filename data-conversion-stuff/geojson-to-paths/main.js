@@ -60,9 +60,7 @@ const removeSmallIslands = function(paths) {
 const loadRegions = function() {
     $.getJSON(geoSettings[currentSource].geo, function( data ) {
 
-        // if (currentSource === 'venezuela') {
-        //     console.log(data);
-        // }
+
 
         if (geoSettings[currentSource].ready) {
             for (let item of data) {
@@ -110,6 +108,8 @@ const loadRegions = function() {
                 region.title = item.properties[titleKey];
                 region.identifier = item.properties[titleKey];
                 title = item.properties[titleKey];
+
+
 
                 if (!shouldExclude(title)) {
 
