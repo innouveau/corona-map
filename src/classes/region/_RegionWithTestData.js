@@ -8,26 +8,33 @@ class _RegionWithTestData extends _Region{
     }
 
     getIncreaseOfType(offset, days, type, relative) {
-        let total, history, first, last, population;
+        let total, history, first, last, population, value;
         total = 0;
         history = this.report.history;
         if (history.length > 0) {
-            first = history.length - offset - 1;
-            if (days === -1) {
-                last = -1;
+            value = this.getStoredValue(offset, days, type, relative, 'regular');
+            if (value !== null) {
+                return value;
             } else {
-                last = first - days;
-            }
-            if (relative) {
-                population = this.population;
-            }
-            for (let i = first, l = last; i > l; i--) {
-                total += history[i][type];
-            }
-            if (relative) {
-                return 100000 * total / population;
-            } else {
-                return total;
+                first = history.length - offset - 1;
+                if (days === -1) {
+                    last = -1;
+                } else {
+                    last = first - days;
+                }
+                if (relative) {
+                    population = this.population;
+                }
+                for (let i = first, l = last; i > l; i--) {
+                    total += history[i][type];
+                }
+                if (relative) {
+                    value = 100000 * total / population;
+                } else {
+                    value = total;
+                }
+                this.store(offset, days, type, relative, value, 'regular');
+                return value;
             }
         } else {
             return null;

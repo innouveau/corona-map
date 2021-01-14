@@ -283,7 +283,7 @@
                 } else {
                     value = day['positiveTests'] + day['positiveAntigenTests'];
                 }
-                return 100000 * (value / this.currentMap.data.positivePcrTests.interval) / this.region.getTotalPopulation();
+                return 100000 * (value / this.currentMap.data.positivePcrTests.interval) / this.region.totalPopulation;
             },
             getAbsoluteValue(day, sourceKey) {
                 let total, index;
@@ -313,7 +313,7 @@
                     if (this.frameSize === 1) {
                         relativeValue = this.getRelativeOfType(day, sourceKey);
                     } else {
-                        relativeValue = 100000 * this.getAbsoluteValue(day, sourceKey) / this.region.getTotalPopulation();
+                        relativeValue = 100000 * this.getAbsoluteValue(day, sourceKey) / this.region.totalPopulation;
                     }
                 } else {
                     total = 0;
@@ -333,7 +333,7 @@
                         total += value / this.currentMap.data.positivePcrTests.interval;
                     }
                     average = total / maxSteps;
-                    relativeValue = 100000 * average / this.region.getTotalPopulation();
+                    relativeValue = 100000 * average / this.region.totalPopulation;
                 }
                 return this.valueToY(relativeValue);
             },

@@ -28,7 +28,7 @@
         computed: {
             population() {
                 let population = 0;
-                for (let city of this.region.getRegions()) {
+                for (let city of this.region.regions) {
                     let ageGroup = city.ageGroups.find(a => a.title === this.ageGroup.title);
                     if (ageGroup) {
                         population += ageGroup.population;

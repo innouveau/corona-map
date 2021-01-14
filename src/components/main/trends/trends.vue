@@ -61,11 +61,11 @@
     <div
         :class="{'panel--active': isTrendPanel}"
         class="trends panel">
-        <threshold-regions
-            v-if="offset === 0 || showTrends"
-            :view="view"/>
+
         <div v-if="showTrends">
 
+            <threshold-regions
+                :view="view"/>
             <top-relative-week
                 :view="view"/>
             <top-relative-day

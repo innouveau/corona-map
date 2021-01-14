@@ -1,49 +1,60 @@
 import store from '@/store/store';
 import thresholdTools from "@/tools/thresholds";
 import coordinatesTool from "@/tools/coordinates";
+import _Cache from "./_Cache";
 
-class _Region {
-    constructor(_region) {}
+class _Region extends _Cache {
+    constructor(_region) {
+        super();
+    }
 
     getTotalIncreaseOfType(offset, days, type, relative) {
-        let regions, total, population;
-        total = 0;
-        regions = this.getRegions();
-        if (relative) {
-            population = this.getTotalPopulation();
-        }
-        for (let region of regions) {
-            total += region.getIncreaseOfType(offset, days, type, false)
-        }
-        if (relative) {
-            return 100000 * total / population;
+        let regions, total, population, value;
+
+        value = this.getStoredValue(offset, days, type, relative, 'regular');
+        if (value !== null) {
+            return value;
         } else {
-            return total;
+            total = 0;
+            regions = this.regions;
+            if (relative) {
+                population = this.totalPopulation;
+            }
+            for (let region of regions) {
+                total += region.getIncreaseOfType(offset, days, type, false)
+            }
+            if (relative) {
+                value = 100000 * total / population;
+            } else {
+                value = total;
+            }
+            this.store(offset, days, type, relative, value, 'total');
+            return value;
         }
     }
 
     getTotalAsPercentageOfPopulation(offset, type) {
         let total, population, regions;
         total = 0;
-        population = this.getTotalPopulation();
-        regions = this.getRegions();
+        population = this.totalPopulation;
+        regions = this.regions;
         for (let region of regions) {
             total += region.getIncreaseOfType(offset, -1, type, false)
         }
         return 100 * total / population;
     }
 
-    getTotalPopulation() {
+    get totalPopulation() {
         let population, regions;
         population = 0;
-        regions = this.getRegions();
+        regions = this.regions;
         for (let region of regions) {
             population += region.population;
         }
         return population;
     }
 
-    getRegions() {
+    get regions() {
         let module = store.state.maps.current.module;
         switch(this.regionType) {
             case 'city':
@@ -122,7 +133,7 @@ class _Region {
             history: []
         };
         counter = 0;
-        cities = this.getRegions();
+        cities = this.regions;
         for (let city of cities) {
             let dayCounter = 0;
             for (let day of city.report.history) {

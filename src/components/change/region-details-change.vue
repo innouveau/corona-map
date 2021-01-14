@@ -80,7 +80,7 @@
                         {{translate('population', true)}}
                     </div>
                     <div class="region-details__value">
-                        {{format(regionOfFocus.getTotalPopulation(), false)}}
+                        {{format(regionOfFocus.totalPopulation, false)}}
                     </div>
                 </div>
             </div>

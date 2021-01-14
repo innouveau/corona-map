@@ -65,7 +65,7 @@
                         {{translate('population', true)}}
                     </div>
                     <div class="region-details__value">
-                        {{format(region.getTotalPopulation(), false)}}
+                        {{format(region.totalPopulation, false)}}
                     </div>
                 </div>
                 <div class="region-details__row">
