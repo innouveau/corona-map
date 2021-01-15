@@ -203,26 +203,16 @@
                                 }
                             }
                             this.addSource('positiveTests', 0);
-
-                            const loadHospitalisations = () => {
-                                this.loadStandard('hospitalisations');
-                                this.addSource('hospitalisations', 1);
-                            };
-
-                            const loadDeceased = () => {
-                                this.loadStandard('deceased');
-                                this.addSource('deceased', 2);
-                            };
-
+                            this.$store.commit('sources/updatePropertyOfItem', {item: this.$store.state.sources.all[0], property: 'loaded', value: true});
 
                             if (this.currentMap.data.positiveAntigenTests.status) {
                                 promises.push(this.loadAntigenTests);
                             }
                             if (this.currentMap.data.hospitalisations.status) {
-                                promises.push(loadHospitalisations);
+                                this.addSource('hospitalisations', 1);
                             }
                             if (this.currentMap.data.deceased.status) {
-                                promises.push(loadDeceased);
+                                this.addSource('deceased', 2);
                             }
 
                             if (promises.length > 0) {
@@ -240,41 +230,41 @@
                 })
             },
             loadStandard(subjectKey) {
-                return new Promise((resolve, reject) => {
-                    d3.csv(this.currentMap.data[subjectKey].source + dateTool.getTimestamp())
-                        .then((result) => {
-                            let adapter, keys, lastValue;
-                            adapter = this.currentMap.data[subjectKey].adapter;
-                            keys = adapter.getKeys(result.columns);
-                            for (let row of result) {
-                                let title, region;
-                                title = row[adapter.regionKey];
-                                region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
-
-                                if (region) {
-                                    lastValue = 0;
-                                    for (let key of keys) {
-                                        let frame, date, value;
-                                        value = Number(row[key]);
-                                        date = adapter.getDateFromKey(key);
-                                        frame = region.report.history.find(f => f.date === date);
-                                        if (frame) {
-                                            frame[subjectKey] = value - lastValue;
-                                        } else {
-                                            //console.error('frame with date ' + date + ' not found for hospitalisations data');
-                                        }
-                                        lastValue = value;
-                                    }
-                                } else {
-                                    //console.error('Region ' + title + ' not found for hospitalisations data');
-                                }
-                            }
-                            resolve();
-                        })
-                        .catch((error) => {
-                            console.error(error);
-                        });
-                })
+                // return new Promise((resolve, reject) => {
+                //     d3.csv(this.currentMap.data[subjectKey].source + dateTool.getTimestamp())
+                //         .then((result) => {
+                //             let adapter, keys, lastValue;
+                //             adapter = this.currentMap.data[subjectKey].adapter;
+                //             keys = adapter.getKeys(result.columns);
+                //             for (let row of result) {
+                //                 let title, region;
+                //                 title = row[adapter.regionKey];
+                //                 region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
+                //
+                //                 if (region) {
+                //                     lastValue = 0;
+                //                     for (let key of keys) {
+                //                         let frame, date, value;
+                //                         value = Number(row[key]);
+                //                         date = adapter.getDateFromKey(key);
+                //                         frame = region.report.history.find(f => f.date === date);
+                //                         if (frame) {
+                //                             frame[subjectKey] = value - lastValue;
+                //                         } else {
+                //                             //console.error('frame with date ' + date + ' not found for hospitalisations data');
+                //                         }
+                //                         lastValue = value;
+                //                     }
+                //                 } else {
+                //                     //console.error('Region ' + title + ' not found for hospitalisations data');
+                //                 }
+                //             }
+                //             resolve();
+                //         })
+                //         .catch((error) => {
+                //             console.error(error);
+                //         });
+                // })
             },
             addSource(subjectKey, order) {
                 let signalingSystem, source;

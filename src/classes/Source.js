@@ -12,6 +12,7 @@ class Source {
         this.title = title;
         this.signalingSystem_id = signalingSystem_id;
         this.order = order;
+        this.loaded = false;
     }
 }
 

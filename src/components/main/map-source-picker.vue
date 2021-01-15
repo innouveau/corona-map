@@ -16,6 +16,9 @@
             },
             currentSource() {
                 return this.view.currentSource;
+            },
+            currentMap() {
+                return this.$store.state.maps.current;
             }
         },
         methods: {
