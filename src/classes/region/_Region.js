@@ -21,7 +21,10 @@ class _Region extends _Cache {
                 population = this.totalPopulation;
             }
             for (let region of regions) {
-                total += region.getIncreaseOfType(offset, days, type, false)
+                let thisValue = region.getIncreaseOfType(offset, days, type, false);
+                if (!isNaN(thisValue)) {
+                    total += thisValue;
+                }
             }
             if (relative) {
                 value = 100000 * total / population;
