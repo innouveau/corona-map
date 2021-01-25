@@ -144,7 +144,7 @@
             </div>
 
             <region-details
-                v-if="currentRegion"
+                v-if="currentRegion && isLoaded"
                 :view="view"
                 :region="currentRegion"/>
 
@@ -154,7 +154,9 @@
                 Kies eerst een gemeente op de kaart.
             </div>
 
-            <trends :view="view"/>
+            <trends
+                v-if="isLoaded"
+                :view="view"/>
         </div>
 
         <embed-popup v-if="showEmbedPopup"/>
