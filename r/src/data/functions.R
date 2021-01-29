@@ -1,22 +1,20 @@
 library(dplyr)
 library(plyr)
 
-get_data_for_date <- function(data, date) {
+get_data_for_date <- function(data, date, col_name) {
   date_string <- format(date, "%Y-%m-%d")
   data_filtered <- data %>% filter(Date_of_publication == date)
-  # todo: later use Hospital_admission and Deceased as well
-  # data.stripped <- data.filtered[,c("Municipality_code","Total_reported", "Hospital_admission", "Deceased")]
-  df <- data_filtered[,c("Municipality_code","Total_reported")]
+  df <- data_filtered[,c("Municipality_code", col_name)]
   # sum double entries (Amsterdam)
-  df_agg <- aggregate(df["Total_reported"], by = df["Municipality_code"], sum)
+  df_agg <- aggregate(df[col_name], by = df["Municipality_code"], sum)
   return(df_agg)
 }
 
-get_range <- function(data, date, start, end, new_name) {
-  df1 <- get_data_for_date(data, date)
+get_range <- function(data, date, start, end, col_name, new_name) {
+  df1 <- get_data_for_date(data, date, col_name)
   for(i in seq((start + 1), end, 1)) {
     this_date <- date - i
-    df2 <- get_data_for_date(data, this_date)
+    df2 <- get_data_for_date(data, this_date, col_name)
     
     res <- aggregate(cbind(Total_reported) ~ Municipality_code, rbind(df1,df2), sum)
     df1 <- res
@@ -25,12 +23,20 @@ get_range <- function(data, date, start, end, new_name) {
   return(df1)
 }
 
-merge_data <- function(municipalities, data_today, data_thisweek, data_previousweek) {
+merge_data <- function(municipalities, data_today, data_thisweek, data_previousweek, data_deceased_today) {
   # join the data
   data_ready <- municipalities %>%
     left_join(data_today, by=c("Municipality_code")) %>%
     left_join(data_thisweek, by=c("Municipality_code")) %>%
-    left_join(data_previousweek, by=c("Municipality_code"))
+    left_join(data_previousweek, by=c("Municipality_code")) %>%
+    left_join(data_deceased_today, by=c("Municipality_code"))
+  
+  # get totals for 'Nederland' (row 1)
+  data_ready$population[1] <- sum(data_ready$population, na.rm = T)
+  data_ready$Total_reported_today[1] <- sum(data_ready$Total_reported_today, na.rm = T)
+  data_ready$Total_reported_this_week[1] <- sum(data_ready$Total_reported_this_week, na.rm = T)
+  data_ready$Total_reported_last_week[1] <- sum(data_ready$Total_reported_last_week, na.rm = T)
+  data_ready$Deceased[1] <- sum(data_ready$Deceased, na.rm = T)
   
   # make number relative to population
   data_ready$Total_reported_today_relative = round(100000 * data_ready$Total_reported_today /data_ready$population)
