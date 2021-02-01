@@ -1,4 +1,4 @@
-get_tweet_2 <- function() {
+get_tweet_3 <- function() {
   text <- ""
   return (text)
 }

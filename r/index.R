@@ -6,6 +6,7 @@ library(broom)
 library(sysfonts)
 library(showtext)
 library(dplyr)
+library(rtweet)
 
 project_path <- "/Users/jeroen/Documents/_work/innouveau/projects/innouveau/corona-map/dev/r"
 
@@ -13,8 +14,15 @@ project_path <- "/Users/jeroen/Documents/_work/innouveau/projects/innouveau/coro
 source(paste0(project_path, "/src/variables.R"))
 source(paste0(project_path, "/src/environment.R"))
 source(paste0(project_path, "/src/fonts.R"))
-source(paste0(project_path, "/src/data/functions.R"))
+source(paste0(project_path, "/src/data/data-getters.R"))
+source(paste0(project_path, "/src/map/plot-variables.R"))
 source(paste0(project_path, "/src/map/plot.R"))
+source(paste0(project_path, "/src/texts/text-getters.R"))
+source(paste0(project_path, "/src/twitter/functions.R"))
+source(paste0(project_path, "/src/twitter/credentials.R"))
+source(paste0(project_path, "/src/twitter/tweets/tweet-1.R"))
+source(paste0(project_path, "/src/twitter/tweets/tweet-2.R"))
+source(paste0(project_path, "/src/twitter/tweets/tweet-3.R"))
 
 # pick data (today, thisweek and previousweek) from source
 DATA.deceased_today <- get_data_for_date(DATA.cases, today, "Deceased")
@@ -25,12 +33,43 @@ DATA.previousweek <- get_range(DATA.cases, today, 7, 13, "Total_reported", "Tota
 DATA.ready <- merge_data(DATA.municipalities, DATA.today, DATA.thisweek, DATA.previousweek, DATA.deceased_today)
 
 
-# prepair data for plotting
+# prepare data for plotting
 MUNICIPALITIES.geo <- geojson_read(MUNICIPALITIES.geo.url,  what = "sp")
 # join geo data with test data
 MUNICIPALITIES.geo@data <- MUNICIPALITIES.geo@data %>%
   left_join(DATA.ready,by=c("statcode"))
 DATA.fortified <- fortify(MUNICIPALITIES.geo, region = "id")
 DATA.merged <- merge(DATA.fortified, MUNICIPALITIES.geo@data, by = "id")
-colnames(DATA.merged)[ncol(DATA.merged)] <- "Positieve tests per 100.000 inw. per 7 dagen"
-plot_map(DATA.merged)
+
+colnames(DATA.merged)[ncol(DATA.merged) -2] <- "Positieve tests per 100.000 inw. per 7 dagen"
+colnames(DATA.merged)[ncol(DATA.merged)] <- "Groei / Krimp"
+
+main_settings <- list(
+  type = "main",
+  filename = "main",
+  title = "Corona status",
+  subtitle = format(Sys.time(), "%A %d %B")
+)
+
+change_settings <- list(
+  type = "change",
+  filename = "change",
+  title = "Groei/Krimp",
+  subtitle = format(Sys.time(), "%A %d %B")
+)
+
+plot_map(DATA.merged, main_settings)
+plot_map(DATA.merged, change_settings)
+
+if (MODUS.tweet) {
+  post_tweet(
+    status = get_tweet_1(),
+    media = paste0(project_path, "/plots/main.png")
+  )
+  
+  post_tweet(
+    status = get_tweet_2(),
+    in_reply_to_status_id = get_last_tweet_id(),
+    media = paste0(project_path, "/plots/change.png")
+  ) 
+}

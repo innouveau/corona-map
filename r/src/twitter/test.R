@@ -8,5 +8,6 @@ source(paste0(project_path, "/src/twitter/tweets/tweet-1.R"))
 
 
 post_tweet(
-  status = get_tweet_1()
+  status = get_tweet_1(),
+  media = paste0(project_path, "/plots/main.png")
 )

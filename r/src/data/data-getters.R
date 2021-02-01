@@ -39,9 +39,9 @@ merge_data <- function(municipalities, data_today, data_thisweek, data_previousw
   data_ready$Deceased[1] <- sum(data_ready$Deceased, na.rm = T)
   
   # make number relative to population
-  data_ready$Total_reported_today_relative = round(100000 * data_ready$Total_reported_today /data_ready$population)
-  data_ready$Total_reported_this_week_relative = round(100000 * data_ready$Total_reported_this_week /data_ready$population)
-  data_ready$Total_reported_last_week_relative = round(100000 * data_ready$Total_reported_last_week /data_ready$population)
+  data_ready$Total_reported_today_relative <- round(100000 * data_ready$Total_reported_today /data_ready$population)
+  data_ready$Total_reported_this_week_relative <- round(100000 * data_ready$Total_reported_this_week /data_ready$population)
+  data_ready$Total_reported_last_week_relative <- round(100000 * data_ready$Total_reported_last_week /data_ready$population)
   
   # prepare for labels
   # 0 infections = step 0
@@ -61,8 +61,63 @@ merge_data <- function(municipalities, data_today, data_thisweek, data_previousw
     ),
     0
   )
+  data_ready$change <- ifelse(
+    data_ready$Total_reported_last_week_relative == 0,
+    ifelse(
+      data_ready$Total_reported_this_week_relative == 0,
+      0, # 0 vs 0 handle as equal
+      1 # from 0 to 1: handle as max growth
+    ),
+    (data_ready$Total_reported_this_week_relative - data_ready$Total_reported_last_week_relative) / data_ready$Total_reported_last_week_relative
+  )
+    
+    
+  data_ready$change_scale <- ifelse(
+    data_ready$change < 0,
+    ifelse(
+      data_ready$change < -0.5,
+      -1,
+      2 * data_ready$change
+    ),
+    ifelse(
+      data_ready$change > 1,
+      1,
+      data_ready$change
+    )
+  )
   
+    
   # needed for joining with geo data
   colnames(data_ready)[1] <- "statcode"
   return(data_ready)
+}
+
+get_daily_reported_exact <- function(data) {
+  return (data$Total_reported_today[1])
+}
+
+get_daily_reported_rounded <- function(data) {
+   return (100 * floor(data$Total_reported_today[1] / 100))
+}
+
+get_daily_deceased <- function(data) {
+  return (data$Deceased[1])
+}
+
+get_infection_rate <- function(data) {
+  return (data$Total_reported_this_week_relative[1])
+}
+
+get_change <- function(data) {
+  return (round(100 * data$change[1]))
+}
+
+get_change_highest <- function(data) {
+  entry <- data[which.max(data$change),]
+  return (entry$Municipality_name)
+}
+
+get_change_lowest <- function(data) {
+  entry <- data[which.min(data$change),]
+  return (entry$Municipality_name)
 }
