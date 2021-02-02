@@ -1,10 +1,10 @@
 get_annotation_1 <- function(settings) {
   if (settings$type == 'main') {
     text <- "• %s+ positieve tests"
-    text_merged <- sprintf(text, get_daily_reported_rounded(DATA.ready))
+    text_merged <- sprintf(text, get_daily_reported_rounded())
   } else {
     text <- "• %s groei"
-    change <- get_change(DATA.ready)
+    change <- get_change()
     print(change)
     if (change > 0) {
       text_merged <- paste0("• Groei t.o.v. vorige week: ", change, "%")
@@ -18,9 +18,9 @@ get_annotation_1 <- function(settings) {
 get_annotation_2 <- function(settings) {
   if (settings$type == 'main') {
     text <- "• %s overleden"
-    text_merged <- sprintf(text, get_daily_deceased(DATA.ready))
+    text_merged <- sprintf(text, get_daily_deceased())
   } else {
-    text_merged <- paste0("• Grootste stijger: ", get_change_highest(DATA.ready))
+    text_merged <- paste0("• Grootste stijger: ", get_change_highest())
   }
   return (text_merged)
 }
@@ -28,9 +28,9 @@ get_annotation_2 <- function(settings) {
 get_annotation_3 <- function(settings) {
   if (settings$type == 'main') {
     text <- "• besmettingsgraad: %s"
-    text_merged <- sprintf(text, get_infection_rate(DATA.ready))
+    text_merged <- sprintf(text, get_infection_rate())
   } else {
-    text_merged <- paste0("• Grootste daler: ", get_change_lowest(DATA.ready))
+    text_merged <- paste0("• Grootste daler: ", get_change_lowest())
   }
   return (text_merged)
 }

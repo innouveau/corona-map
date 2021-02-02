@@ -1,4 +1,3 @@
-ICON.hand_pointing_right <- intToUtf8(0x1f449)
 
 get_tweet_1 <- function() {
   text <- "Update #corona #kaart 
