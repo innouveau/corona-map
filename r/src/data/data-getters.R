@@ -39,7 +39,11 @@ merge_data <- function(regions_list, cases_today, cases_this_week, cases_previou
   data$cases_this_week[1] <- sum(data$cases_this_week, na.rm = T)
   data$cases_previous_week[1] <- sum(data$cases_previous_week, na.rm = T)
   data$deceased_today[1] <- sum(data$deceased_today, na.rm = T)
-  
+  return (data);
+}
+
+add_calculations <- function(original_data) {
+  data <- original_data
   # make number relative to population
   data$cases_today_relative <- round(100000 * data$cases_today /data$population)
   data$cases_this_week_relative <- round(100000 * data$cases_this_week /data$population)
@@ -72,8 +76,8 @@ merge_data <- function(regions_list, cases_today, cases_this_week, cases_previou
     ),
     (data$cases_this_week_relative - data$cases_previous_week_relative) / data$cases_previous_week_relative
   )
-    
-    
+  
+  
   data$change_scale <- ifelse(
     data$change < 0,
     ifelse(
@@ -88,38 +92,38 @@ merge_data <- function(regions_list, cases_today, cases_this_week, cases_previou
     )
   )
   
-    
+  
   # needed for joining with geo data
   colnames(data)[1] <- "statcode"
   return(data)
 }
 
 get_daily_reported_exact <- function() {
-  return (municipalities_total$cases_today[1])
+  return (pivot_total$cases_today[1])
 }
 
 get_daily_reported_rounded <- function() {
-   return (100 * floor(municipalities_total$cases_today[1] / 100))
+   return (100 * floor(pivot_total$cases_today[1] / 100))
 }
 
 get_daily_deceased <- function() {
-  return (municipalities_total$deceased_today[1])
+  return (pivot_total$deceased_today[1])
 }
 
 get_infection_rate <- function() {
-  return (municipalities_total$cases_this_week_relative[1])
+  return (pivot_total$cases_this_week_relative[1])
 }
 
 get_change <- function() {
-  return (round(100 * municipalities_total$change[1]))
+  return (round(100 * pivot_total$change[1]))
 }
 
 get_change_highest <- function() {
-  entry <- municipalities_total[which.max(municipalities_total$change),]
+  entry <- pivot_total[which.max(pivot_total$change),]
   return (entry$Municipality_name)
 }
 
 get_change_lowest <- function() {
-  entry <- municipalities_total[which.min(municipalities_total$change),]
+  entry <- pivot_total[which.min(pivot_total$change),]
   return (entry$Municipality_name)
 }

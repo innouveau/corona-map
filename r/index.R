@@ -36,23 +36,26 @@ if (MODUS.download ) {
 today <- as.Date(last(data_rivm$Date_of_publication))
 
 # regions
-municipalities_list <- read.csv(paste0(project_path, "/data/regions/municipalities.csv"))
+pivot_regions <- read.csv(paste0(project_path, "/data/regions/pivot-regions.csv"))
+# municipalities_list <- read.csv(paste0(project_path, "/data/regions/municipalities.csv"))
 municipalities_geo <- geojson_read(paste0(project_path, "/data/maps/municipalities.geojson"),  what = "sp")
 
 # pick data from source
-municipalities_cases_today <- get_data_for_date(data_rivm, today, "Total_reported", "cases_today")
-municipalities_cases_this_week <- get_range(data_rivm, today, 0, 6, "Total_reported", "cases_this_week")
-municipalities_cases_previous_week <- get_range(data_rivm, today, 7, 13, "Total_reported", "cases_previous_week")
-municipalities_deceased_today <- get_data_for_date(data_rivm, today, "Deceased", "deceased_today")
-municipalities_total <- merge_data(municipalities_list, municipalities_cases_today, municipalities_cases_this_week, municipalities_cases_previous_week, municipalities_deceased_today)
+pivot_cases_today <- get_data_for_date(data_rivm, today, "Total_reported", "cases_today")
+pivot_cases_this_week <- get_range(data_rivm, today, 0, 6, "Total_reported", "cases_this_week")
+pivot_cases_previous_week <- get_range(data_rivm, today, 7, 13, "Total_reported", "cases_previous_week")
+pivot_deceased_today <- get_data_for_date(data_rivm, today, "Deceased", "deceased_today")
+pivot_total <- merge_data(pivot_regions, pivot_cases_today, pivot_cases_this_week, pivot_cases_previous_week, pivot_deceased_today)
 
-# geo
+
+municipalitie_calculated <- add_calculations(pivot_total)
+
 
 # join geo data with test data
 municipalities_geo@data <- municipalities_geo@data %>%
-  left_join(municipalities_total,by=c("statcode"))
+  left_join(municipalitie_calculated, by=c("statcode"))
 municipalities_geo_merged <- merge(fortify(municipalities_geo, region = "id"), municipalities_geo@data, by = "id")
-# todo find a way to put nice title in legend, instead as via a col name 
+# todo find a way to put nice title in legend, instead as via a col name
 colnames(municipalities_geo_merged)[ncol(municipalities_geo_merged) -2] <- "Positieve tests per 100.000 inw. per 7 dagen"
 colnames(municipalities_geo_merged)[ncol(municipalities_geo_merged)] <- "Groei / Krimp"
 
