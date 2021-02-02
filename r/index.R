@@ -25,7 +25,7 @@ source(paste0(project_path, "/src/twitter/tweets/tweet-3.R"))
 
 # settings
 MODUS.tweet = F
-MODUS.download = T
+MODUS.download = F
 
 # init
 if (MODUS.download ) {
@@ -60,14 +60,14 @@ main_settings <- list(
   type = "main",
   filename = "main",
   title = "Corona status",
-  subtitle = format(Sys.time(), "%A %d %B")
+  subtitle = format(today, "%A %d %B")
 )
 
 change_settings <- list(
   type = "change",
   filename = "change",
   title = "Groei/Krimp",
-  subtitle = format(Sys.time(), "%A %d %B")
+  subtitle = format(today, "%A %d %B")
 )
 
 plot_map(municipalities_geo_merged, main_settings)
