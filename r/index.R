@@ -25,7 +25,7 @@ source(paste0(project_path, "/src/twitter/tweets/tweet-3.R"))
 
 # settings
 MODUS.tweet = F
-MODUS.download = F
+MODUS.download = T
 
 # init
 if (MODUS.download ) {
@@ -35,46 +35,22 @@ if (MODUS.download ) {
 }
 today <- as.Date(last(data_rivm$Date_of_publication))
 
-# regions
-pivot_regions <- read.csv(paste0(project_path, "/data/regions/pivot-regions.csv"))
-# municipalities_list <- read.csv(paste0(project_path, "/data/regions/municipalities.csv"))
-municipalities_geo <- geojson_read(paste0(project_path, "/data/maps/municipalities.geojson"),  what = "sp")
 
-# pick data from source
-pivot_cases_today <- get_data_for_date(data_rivm, today, "Total_reported", "cases_today")
-pivot_cases_this_week <- get_range(data_rivm, today, 0, 6, "Total_reported", "cases_this_week")
-pivot_cases_previous_week <- get_range(data_rivm, today, 7, 13, "Total_reported", "cases_previous_week")
-pivot_deceased_today <- get_data_for_date(data_rivm, today, "Deceased", "deceased_today")
-pivot_total <- merge_data(pivot_regions, pivot_cases_today, pivot_cases_this_week, pivot_cases_previous_week, pivot_deceased_today)
+pivot_total <- get_pivot()
+pivot_total_calculated <- add_calculations(pivot_total)
+
+safety_regions <- get_regions("safety-regions", "safetyRegion_code")
+ggds <- get_regions("ggds", "ggd_code")
+municipalities <- get_regions("municipalities", "Municipality_code")
 
 
-municipalitie_calculated <- add_calculations(pivot_total)
+plot_map(municipalities, get_plot_settings("main", "municipalities"))
+plot_map(municipalities, get_plot_settings("change", "municipalities"))
+plot_map(safety_regions, get_plot_settings("main", "safety-regions"))
+plot_map(safety_regions, get_plot_settings("change", "safety-regions"))
+plot_map(ggds, get_plot_settings("main", "ggds"))
+plot_map(ggds, get_plot_settings("change", "ggds"))
 
-
-# join geo data with test data
-municipalities_geo@data <- municipalities_geo@data %>%
-  left_join(municipalitie_calculated, by=c("statcode"))
-municipalities_geo_merged <- merge(fortify(municipalities_geo, region = "id"), municipalities_geo@data, by = "id")
-# todo find a way to put nice title in legend, instead as via a col name
-colnames(municipalities_geo_merged)[ncol(municipalities_geo_merged) -2] <- "Positieve tests per 100.000 inw. per 7 dagen"
-colnames(municipalities_geo_merged)[ncol(municipalities_geo_merged)] <- "Groei / Krimp"
-
-main_settings <- list(
-  type = "main",
-  filename = "main",
-  title = "Corona status",
-  subtitle = format(today, "%A %d %B")
-)
-
-change_settings <- list(
-  type = "change",
-  filename = "change",
-  title = "Groei/Krimp",
-  subtitle = format(today, "%A %d %B")
-)
-
-plot_map(municipalities_geo_merged, main_settings)
-# plot_map(municipalities_geo_merged, change_settings)
 
 if (MODUS.tweet) {
   post_tweet(

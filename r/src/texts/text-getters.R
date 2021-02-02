@@ -5,7 +5,6 @@ get_annotation_1 <- function(settings) {
   } else {
     text <- "• %s groei"
     change <- get_change()
-    print(change)
     if (change > 0) {
       text_merged <- paste0("• Groei t.o.v. vorige week: ", change, "%")
     } else {

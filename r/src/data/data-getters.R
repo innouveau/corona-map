@@ -1,5 +1,21 @@
-library(dplyr)
-library(plyr)
+get_regions <- function(region_type, col_name_for_join) {
+  regions_list <- read.csv(paste0(project_path, "/data/regions/", region_type, ".csv"))
+  regions_geo <- geojson_read(paste0(project_path, "/data/geo/", region_type, ".geojson"),  what = "sp")
+  regions_pivoted <- pivot_regions_list(regions_list, pivot_total, col_name_for_join)
+  regions_calculated <- add_calculations(regions_pivoted)
+  regions_geo_joined <- join_regions_with_geo(regions_calculated, regions_geo)
+  return(regions_geo_joined)
+}
+
+get_pivot <- function() {
+  pivot_regions <- read.csv(paste0(project_path, "/data/regions/pivot-regions.csv"))
+  pivot_cases_today <- get_data_for_date(data_rivm, today, "Total_reported", "cases_today")
+  pivot_cases_this_week <- get_range(data_rivm, today, 0, 6, "Total_reported", "cases_this_week")
+  pivot_cases_previous_week <- get_range(data_rivm, today, 7, 13, "Total_reported", "cases_previous_week")
+  pivot_deceased_today <- get_data_for_date(data_rivm, today, "Deceased", "deceased_today")
+  pivot_total <- merge_data(pivot_regions, pivot_cases_today, pivot_cases_this_week, pivot_cases_previous_week, pivot_deceased_today)
+  return(pivot_total)
+}
 
 get_data_for_date <- function(data, date, col_name, rename_col) {
   date_string <- format(date, "%Y-%m-%d")
@@ -23,6 +39,26 @@ get_range <- function(data, date, start, end, col_name, rename_col) {
   }
   colnames(df1)[2] <- rename_col
   return(df1)
+}
+
+pivot_regions_list <- function(list, pivot, col_name_for_join) {
+  if (col_name_for_join == "Municipality_code") {
+    # remove col Municipality_name, since the list already has it
+    list[2] <- NULL
+  }
+  
+  df_aggregated <- pivot %>% 
+    group_by_at(col_name_for_join) %>% 
+    summarise(
+        population = sum(population),
+        cases_today = sum(cases_today),
+        cases_this_week = sum(cases_this_week),
+        cases_previous_week = sum(cases_previous_week),
+        deceased_today = sum(deceased_today)
+    )
+  data <- list %>%
+    left_join(df_aggregated, by=c(col_name_for_join))
+  return (data)
 }
 
 merge_data <- function(regions_list, cases_today, cases_this_week, cases_previous_week, deceased_today) {
@@ -98,32 +134,44 @@ add_calculations <- function(original_data) {
   return(data)
 }
 
+join_regions_with_geo <- function(regions, geo) {
+  # join geo data with test data
+  geo@data <- geo@data %>%
+    left_join(regions, by=c("statcode"))
+  regions_geo_merged <- merge(fortify(geo, region = "id"), geo@data, by = "id")
+  # todo find a way to put nice title in legend, instead as via a col name
+  colnames(regions_geo_merged)[ncol(regions_geo_merged) -2] <- "Positieve tests per 100.000 inw. per 7 dagen"
+  colnames(regions_geo_merged)[ncol(regions_geo_merged)] <- "Groei / Krimp"
+  return(regions_geo_merged)
+  
+}
+
 get_daily_reported_exact <- function() {
-  return (pivot_total$cases_today[1])
+  return (pivot_total_calculated$cases_today[1])
 }
 
 get_daily_reported_rounded <- function() {
-   return (100 * floor(pivot_total$cases_today[1] / 100))
+   return (100 * floor(pivot_total_calculated$cases_today[1] / 100))
 }
 
 get_daily_deceased <- function() {
-  return (pivot_total$deceased_today[1])
+  return (pivot_total_calculated$deceased_today[1])
 }
 
 get_infection_rate <- function() {
-  return (pivot_total$cases_this_week_relative[1])
+  return (pivot_total_calculated$cases_this_week_relative[1])
 }
 
 get_change <- function() {
-  return (round(100 * pivot_total$change[1]))
+  return (round(100 * pivot_total_calculated$change[1]))
 }
 
 get_change_highest <- function() {
-  entry <- pivot_total[which.max(pivot_total$change),]
+  entry <- pivot_total_calculated[which.max(pivot_total_calculated$change),]
   return (entry$Municipality_name)
 }
 
 get_change_lowest <- function() {
-  entry <- pivot_total[which.min(pivot_total$change),]
+  entry <- pivot_total_calculated[which.min(pivot_total_calculated$change),]
   return (entry$Municipality_name)
 }
