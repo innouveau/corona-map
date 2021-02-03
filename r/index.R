@@ -23,7 +23,7 @@ source(paste0(project_path, "/src/twitter/tweets/tweets.R"))
 
 
 # settings
-MODUS.tweet = F
+MODUS.tweet = T
 MODUS.download = T
 
 # init

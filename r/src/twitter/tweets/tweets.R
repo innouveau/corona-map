@@ -8,7 +8,7 @@ get_tweet_1 <- function() {
 %s zelf kijken in jouw gemeente? https://covid19.innouveau.com/#/?language=nl
 (update omstreeks 15:30)"
   
-  text_merged <- sprintf(text,get_daily_reported_rounded(DATA.ready), get_daily_deceased(DATA.ready), get_infection_rate(DATA.ready), ICON.hand_pointing_right)
+  text_merged <- sprintf(text,get_daily_reported_rounded(), get_daily_deceased(), get_infection_rate(), ICON.hand_pointing_right)
   Encoding(text_merged) <- "UTF-8"
   return (text_merged)
 }
