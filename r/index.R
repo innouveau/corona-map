@@ -19,9 +19,8 @@ source(paste0(project_path, "/src/map/plot.R"))
 source(paste0(project_path, "/src/texts/text-getters.R"))
 source(paste0(project_path, "/src/twitter/functions.R"))
 source(paste0(project_path, "/src/twitter/credentials.R"))
-source(paste0(project_path, "/src/twitter/tweets/tweet-1.R"))
-source(paste0(project_path, "/src/twitter/tweets/tweet-2.R"))
-source(paste0(project_path, "/src/twitter/tweets/tweet-3.R"))
+source(paste0(project_path, "/src/twitter/tweets/tweets.R"))
+
 
 # settings
 MODUS.tweet = F
@@ -39,28 +38,48 @@ today <- as.Date(last(data_rivm$Date_of_publication))
 pivot_total <- get_pivot()
 pivot_total_calculated <- add_calculations(pivot_total)
 
-safety_regions <- get_regions("safety-regions", "safetyRegion_code")
-ggds <- get_regions("ggds", "ggd_code")
-municipalities <- get_regions("municipalities", "Municipality_code")
+
+municipalities_calculated <- get_regions_calculated("municipalities", "Municipality_code")
+municipalities_geo <- get_regions_with_geo("municipalities", municipalities_calculated)
+safety_regions_calculated <- get_regions_calculated("safety-regions", "safetyRegion_code")
+safety_regions_geo <- get_regions_with_geo("safety-regions", safety_regions_calculated)
+# ggds_calculated <- get_regions_calculated("ggds", "ggd_code")
+# ggds_geo <- get_regions_with_geo("ggds", ggds_calculated)
 
 
-plot_map(municipalities, get_plot_settings("main", "municipalities"))
-plot_map(municipalities, get_plot_settings("change", "municipalities"))
-plot_map(safety_regions, get_plot_settings("main", "safety-regions"))
-plot_map(safety_regions, get_plot_settings("change", "safety-regions"))
-plot_map(ggds, get_plot_settings("main", "ggds"))
-plot_map(ggds, get_plot_settings("change", "ggds"))
+plot_map(municipalities_geo, municipalities_calculated, get_plot_settings("main", "municipalities"))
+plot_map(municipalities_geo, municipalities_calculated, get_plot_settings("change", "municipalities"))
+plot_map(safety_regions_geo, safety_regions_calculated, get_plot_settings("main", "safety-regions"))
+plot_map(safety_regions_geo, safety_regions_calculated, get_plot_settings("change", "safety-regions"))
+# plot_map(ggds_geo, ggds_calculated, get_plot_settings("main", "ggds"))
+# plot_map(ggds_geo, ggds_calculated, get_plot_settings("change", "ggds"))
 
 
 if (MODUS.tweet) {
+  #1
   post_tweet(
     status = get_tweet_1(),
-    media = paste0(project_path, "/plots/main.png")
+    media = paste0(project_path, "/plots/main-municipalities.png")
   )
 
+  #2
   post_tweet(
     status = get_tweet_2(),
     in_reply_to_status_id = get_last_tweet_id(),
-    media = paste0(project_path, "/plots/change.png")
+    media = paste0(project_path, "/plots/change-municipalities.png")
+  )
+  
+  #3
+  post_tweet(
+    status = get_tweet_3(),
+    in_reply_to_status_id = get_last_tweet_id(),
+    media = paste0(project_path, "/plots/main-safety-regions.png")
+  )
+  
+  #4
+  post_tweet(
+    status = get_tweet_4(),
+    in_reply_to_status_id = get_last_tweet_id(),
+    media = paste0(project_path, "/plots/change-safety-regions.png")
   )
 }

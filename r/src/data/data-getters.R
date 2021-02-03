@@ -1,8 +1,13 @@
-get_regions <- function(region_type, col_name_for_join) {
+get_regions_calculated <- function(region_type, col_name_for_join) {
   regions_list <- read.csv(paste0(project_path, "/data/regions/", region_type, ".csv"))
-  regions_geo <- geojson_read(paste0(project_path, "/data/geo/", region_type, ".geojson"),  what = "sp")
   regions_pivoted <- pivot_regions_list(regions_list, pivot_total, col_name_for_join)
   regions_calculated <- add_calculations(regions_pivoted)
+  return (regions_calculated)
+  
+}
+
+get_regions_with_geo <- function(region_type, regions_calculated) {
+  regions_geo <- geojson_read(paste0(project_path, "/data/geo/", region_type, ".geojson"),  what = "sp")
   regions_geo_joined <- join_regions_with_geo(regions_calculated, regions_geo)
   return(regions_geo_joined)
 }
@@ -42,10 +47,7 @@ get_range <- function(data, date, start, end, col_name, rename_col) {
 }
 
 pivot_regions_list <- function(list, pivot, col_name_for_join) {
-  if (col_name_for_join == "Municipality_code") {
-    # remove col Municipality_name, since the list already has it
-    list[2] <- NULL
-  }
+
   
   df_aggregated <- pivot %>% 
     group_by_at(col_name_for_join) %>% 
@@ -162,16 +164,44 @@ get_infection_rate <- function() {
   return (pivot_total_calculated$cases_this_week_relative[1])
 }
 
-get_change <- function() {
+get_change_netherlands <- function() {
   return (round(100 * pivot_total_calculated$change[1]))
 }
 
-get_change_highest <- function() {
-  entry <- pivot_total_calculated[which.max(pivot_total_calculated$change),]
-  return (entry$Municipality_name)
+get_change_highest <- function(data) {
+  regions <- filter_regions_for_population(data)
+  entry <- regions[which.max(regions$change),]
+  print(entry)
+  if (entry$change > 0) {
+    return (paste0(entry$title, " ", change_to_string(entry$change)))
+  } else {
+    # no region had growth
+    return ("-")
+  }
+  
 }
 
-get_change_lowest <- function() {
-  entry <- pivot_total_calculated[which.min(pivot_total_calculated$change),]
-  return (entry$Municipality_name)
+get_change_lowest <- function(data) {
+  regions <- filter_regions_for_population(data)
+  entry <- regions[which.min(regions$change),]
+  if (entry$change < 0) {
+    return (paste0(entry$title, " ", change_to_string(entry$change)))
+  } else {
+    return ("-")
+  }
+}
+
+filter_regions_for_population <- function(data) {
+  filtered <- data %>% filter(population > 10000)
+  return (filtered)
+}
+
+change_to_string <- function(change) {
+  pct <- round(100 * change)
+  if (change > 0) {
+    text <- paste0("+", pct, "%")
+  } else {
+    text <- paste0("-", abs(pct), "%")
+  }
+  return (text)
 }
