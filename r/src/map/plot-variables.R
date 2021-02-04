@@ -47,33 +47,51 @@ get_theme <- function(settings) {
   return (mytheme)
 }
 
-get_aes <- function(settings) {
+get_aes <- function(settings, col) {
   if (settings$type == "main") {
-    myaes <- aes(
-      x = long, 
-      y = lat, 
-      group = group,
-      fill = `Positieve tests per 100.000 inw. per 7 dagen`
-    )
+    if (col == 'power_of_2') {
+      myaes <- aes(
+        x = long, 
+        y = lat, 
+        group = group,
+        fill = `power_of_2`
+      )
+    } else {
+      myaes <- aes(
+        x = long, 
+        y = lat, 
+        group = group,
+        fill = `routekaart`
+      )
+    }
   } else {
     myaes <- aes(
       x = long, 
       y = lat, 
       group = group,
-      fill = `Groei / Krimp`
+      fill = `change_scale`
     )
   }
   return (myaes)
 }
 
-get_scale <- function(settings) {
+get_scale <- function(settings, col) {
   if (settings$type == "main") {
-    myscale <- scale_fill_gradientn(
-      colours = c("#8DC63F", "#CBDA2D", "#FFF200", "#FDB913", "#F48221", "#ED1C24", "#D91872", "#000000"),
-      breaks = c(0, 1, 2, 3, 4, 5, 6),
-      limits = c(0,6),
-      labels = c("0", "16", "32", "64", "128", "256", "512")
-    )
+    if (col == 'power_of_2') {
+      myscale <- scale_fill_gradientn(
+        colours = c("#8DC63F", "#CBDA2D", "#FFF200", "#FDB913", "#F48221", "#ED1C24", "#D91872", "#000000"),
+        breaks = c(0, 1, 2, 3, 4, 5, 6),
+        limits = c(0,6),
+        labels = c("0", "16", "32", "64", "128", "256", "512")
+      )
+    } else {
+      myscale <- scale_fill_gradientn(
+        colours = c("#90FA05", "#F093BC", "#D95F94", "#BA2667", "#670630"),
+        breaks = c(1, 2, 3, 4, 5),
+        limits = c(1, 5),
+        labels = c("Geen", "Waakzaam", "Zorgelijk", "Ernstig", "Zeer ernstig")
+      )
+    }
   } else {
     myscale <- scale_fill_gradientn(
       colours = c("#014a0b", "#ffffff", "#FF0000"),

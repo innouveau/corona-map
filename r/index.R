@@ -23,7 +23,7 @@ source(paste0(project_path, "/src/twitter/tweets/tweets.R"))
 
 
 # settings
-MODUS.tweet = T
+MODUS.tweet = F
 MODUS.download = T
 
 # init
@@ -47,12 +47,14 @@ safety_regions_geo <- get_regions_with_geo("safety-regions", safety_regions_calc
 # ggds_geo <- get_regions_with_geo("ggds", ggds_calculated)
 
 
-plot_map(municipalities_geo, municipalities_calculated, get_plot_settings("main", "municipalities"))
-plot_map(municipalities_geo, municipalities_calculated, get_plot_settings("change", "municipalities"))
-plot_map(safety_regions_geo, safety_regions_calculated, get_plot_settings("main", "safety-regions"))
-plot_map(safety_regions_geo, safety_regions_calculated, get_plot_settings("change", "safety-regions"))
-# plot_map(ggds_geo, ggds_calculated, get_plot_settings("main", "ggds"))
-# plot_map(ggds_geo, ggds_calculated, get_plot_settings("change", "ggds"))
+plot_map(municipalities_geo, municipalities_calculated, get_plot_settings("main", "municipalities"), "power_of_2")
+plot_map(municipalities_geo, municipalities_calculated, get_plot_settings("main", "municipalities"), "routekaart")
+plot_map(municipalities_geo, municipalities_calculated, get_plot_settings("change", "municipalities"), "change_scale")
+plot_map(safety_regions_geo, safety_regions_calculated, get_plot_settings("main", "safety-regions"), "power_of_2")
+plot_map(safety_regions_geo, safety_regions_calculated, get_plot_settings("main", "safety-regions"), "routekaart")
+plot_map(safety_regions_geo, safety_regions_calculated, get_plot_settings("change", "safety-regions"), "change_scale")
+# plot_map(ggds_geo, ggds_calculated, get_plot_settings("main", "ggds"), "power_of_2")
+# plot_map(ggds_geo, ggds_calculated, get_plot_settings("change", "ggds"), "change_scale")
 
 
 if (MODUS.tweet) {

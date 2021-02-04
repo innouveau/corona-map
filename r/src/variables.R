@@ -12,14 +12,16 @@ get_plot_settings <- function(type, region_type) {
       type = "main",
       filename = paste0("main-", region_type),
       title = "Corona status",
-      subtitle = format(today, "%A %d %B")
+      subtitle = format(today, "%A %d %B"),
+      legend = "Positieve tests per 100.000 inw. per 7 dagen"
     )
   } else {
     plot_settings <- list(
       type = "change",
       filename = paste0("change-", region_type),
       title = "Groei/Krimp",
-      subtitle = format(today, "%A %d %B")
+      subtitle = format(today, "%A %d %B"),
+      legend = "Groei / Krimp"
     )
   }
   return (plot_settings)

@@ -47,8 +47,6 @@ get_range <- function(data, date, start, end, col_name, rename_col) {
 }
 
 pivot_regions_list <- function(list, pivot, col_name_for_join) {
-
-  
   df_aggregated <- pivot %>% 
     group_by_at(col_name_for_join) %>% 
     summarise(
@@ -105,6 +103,8 @@ add_calculations <- function(original_data) {
     ),
     0
   )
+  
+  # change
   data$change <- ifelse(
     data$cases_previous_week_relative == 0,
     ifelse(
@@ -115,7 +115,7 @@ add_calculations <- function(original_data) {
     (data$cases_this_week_relative - data$cases_previous_week_relative) / data$cases_previous_week_relative
   )
   
-  
+  # change corrected for scale
   data$change_scale <- ifelse(
     data$change < 0,
     ifelse(
@@ -130,6 +130,25 @@ add_calculations <- function(original_data) {
     )
   )
   
+  # Routekaart scale
+  data$routekaart <- ifelse(
+    data$cases_this_week_relative > 0,
+      ifelse(
+        data$cases_this_week_relative > 50,
+        ifelse(
+          data$cases_this_week_relative > 150,
+          ifelse (
+            data$cases_this_week_relative > 250,
+            5,
+            4
+          ),
+          3
+        ),
+        2
+      ),
+    1
+  )
+  
   
   # needed for joining with geo data
   colnames(data)[1] <- "statcode"
@@ -142,8 +161,8 @@ join_regions_with_geo <- function(regions, geo) {
     left_join(regions, by=c("statcode"))
   regions_geo_merged <- merge(fortify(geo, region = "id"), geo@data, by = "id")
   # todo find a way to put nice title in legend, instead as via a col name
-  colnames(regions_geo_merged)[ncol(regions_geo_merged) -2] <- "Positieve tests per 100.000 inw. per 7 dagen"
-  colnames(regions_geo_merged)[ncol(regions_geo_merged)] <- "Groei / Krimp"
+  # colnames(regions_geo_merged)[ncol(regions_geo_merged) -2] <- "Positieve tests per 100.000 inw. per 7 dagen"
+  # colnames(regions_geo_merged)[ncol(regions_geo_merged)] <- "Groei / Krimp"
   return(regions_geo_merged)
   
 }
