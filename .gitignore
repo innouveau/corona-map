@@ -3,3 +3,5 @@ frontend/dist
 r/src/credentials.R
 r/src/twitter/credentials.R
 r/plots
+r/.RData
+r/.Rhistory
