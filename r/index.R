@@ -61,27 +61,43 @@ if (MODUS.tweet) {
   #1
   post_tweet(
     status = get_tweet_1(),
-    media = paste0(project_path, "/plots/main-municipalities.png")
+    media = paste0(project_path, "/plots/main-municipalities-power_of_2.png")
   )
 
   #2
   post_tweet(
     status = get_tweet_2(),
     in_reply_to_status_id = get_last_tweet_id(),
-    media = paste0(project_path, "/plots/change-municipalities.png")
+    media = paste0(project_path, "/plots/change-municipalities-change_scale.png")
   )
   
   #3
   post_tweet(
-    status = get_tweet_3(),
+    status = "#corona #kaart
+Veiligheidsregio niveau",
     in_reply_to_status_id = get_last_tweet_id(),
-    media = paste0(project_path, "/plots/main-safety-regions.png")
+    media = paste0(project_path, "/plots/main-safety-regions-power_of_2.png")
   )
   
   #4
   post_tweet(
-    status = get_tweet_4(),
+    status = "Groei / Krimp
+Veiligheidsregio niveau",
     in_reply_to_status_id = get_last_tweet_id(),
-    media = paste0(project_path, "/plots/change-safety-regions.png")
+    media = paste0(project_path, "/plots/change-safety-regions-change_scale.png")
+  )
+  
+  #5
+  post_tweet(
+    status = "Gemeentes volgens #Routekaart modus",
+    in_reply_to_status_id = get_last_tweet_id(),
+    media = paste0(project_path, "/plots/main-municipalities-routekaart.png")
+  )
+  
+  #6
+  post_tweet(
+    status = "Veiligheidsregio's volgens #Routekaart modus",
+    in_reply_to_status_id = get_last_tweet_id(),
+    media = paste0(project_path, "/plots/main-safety-regions-routekaart.png")
   )
 }

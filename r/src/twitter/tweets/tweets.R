@@ -23,17 +23,3 @@ get_tweet_2 <- function() {
   Encoding(text_merged) <- "UTF-8"
   return (text_merged)
 }
-
-
-get_tweet_3 <- function() {
-  text <- "#corona #kaart
-Veiligheidsregio niveau"
-  return (text)
-}
-
-
-get_tweet_4 <- function() {
-  text <- "Groei / Krimp
-Veiligheidsregio niveau"
-  return (text)
-}
