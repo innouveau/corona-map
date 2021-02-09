@@ -53,6 +53,13 @@
         },
         mounted() {
             this.updateList();
+        },
+        watch: {
+            currentRegionType: {
+                handler: function () {
+                    this.updateList();
+                }
+            }
         }
     }
 </script>
