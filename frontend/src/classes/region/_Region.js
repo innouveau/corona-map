@@ -12,6 +12,7 @@ class _Region extends _Cache {
         let regions, total, population, value;
 
         value = this.getStoredValue(offset, days, type, relative, 'regular');
+
         if (value !== null) {
             return value;
         } else {
@@ -31,7 +32,9 @@ class _Region extends _Cache {
             } else {
                 value = total;
             }
-            this.store(offset, days, type, relative, value, 'total');
+            if (value !== null) {
+                this.store(offset, days, type, relative, value, 'total');
+            }
             return value;
         }
     }

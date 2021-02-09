@@ -33,7 +33,11 @@ class _RegionWithTestData extends _Region{
                 } else {
                     value = total;
                 }
-                this.store(offset, days, type, relative, value, 'regular');
+                if (!isNaN(value) && value !== null) {
+                    this.store(offset, days, type, relative, value, 'regular');
+                } else {
+                    value = null;
+                }
                 return value;
             }
         } else {
