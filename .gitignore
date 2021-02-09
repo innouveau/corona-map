@@ -1,3 +1,10 @@
 node_modules
 dist
 r/src/twitter/credentials.R
+frontend/node_modules
+frontend/dist
+r/src/credentials.R
+r/plots
+r/.RData
+r/.Rhistory
+r/.RDataRmp

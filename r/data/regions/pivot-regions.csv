@@ -1,0 +1,354 @@
+Municipality_code,ggd_code,province_code,regio_title,safetyRegion_code,Municipality_name,population
+"GM0000",NA,NA,NA,NA,"Nederland",0
+"GM0014","GG0111","PV20","Noord","VR01","Groningen",231112
+"GM0034","GG2209","PV24","Noord","VR25","Almere",213660
+"GM0037","GG0111","PV20","Noord","VR01","Stadskanaal",31581
+"GM0047","GG0111","PV20","Noord","VR01","Veendam",27430
+"GM0050","GG2209","PV24","Niet-Noord","VR25","Zeewolde",22680
+"GM0059","GG7206","PV21","Noord","VR02","Achtkarspelen",27873
+"GM0060","GG7206","PV21","Noord","VR02","Ameland",3752
+"GM0072","GG7206","PV21","Noord","VR02","Harlingen",15793
+"GM0074","GG7206","PV21","Noord","VR02","Heerenveen",50456
+"GM0080","GG7206","PV21","Noord","VR02","Leeuwarden",123625
+"GM0085","GG7206","PV21","Noord","VR02","Ooststellingwerf",25366
+"GM0086","GG7206","PV21","Noord","VR02","Opsterland",29743
+"GM0088","GG7206","PV21","Noord","VR02","Schiermonnikoog",953
+"GM0090","GG7206","PV21","Noord","VR02","Smallingerland",56181
+"GM0093","GG7206","PV21","Noord","VR02","Terschelling",4807
+"GM0096","GG7206","PV21","Noord","VR02","Vlieland",1190
+"GM0098","GG7206","PV21","Noord","VR02","Weststellingwerf",26018
+"GM0106","GG0706","PV22","Noord","VR03","Assen",68798
+"GM0109","GG0706","PV22","Noord","VR03","Coevorden",35303
+"GM0114","GG0706","PV22","Noord","VR03","Emmen",107078
+"GM0118","GG0706","PV22","Noord","VR03","Hoogeveen",55566
+"GM0119","GG0706","PV22","Noord","VR03","Meppel",34125
+"GM0141","GG1106","PV23","Noord","VR05","Almelo",73175
+"GM0147","GG1106","PV23","Noord","VR05","Borne",23489
+"GM0148","GG1009","PV23","Noord","VR04","Dalfsen",28837
+"GM0150","GG1009","PV23","Noord","VR04","Deventer",100913
+"GM0153","GG1106","PV23","Noord","VR05","Enschede",158918
+"GM0158","GG1106","PV23","Noord","VR05","Haaksbergen",24275
+"GM0160","GG1009","PV23","Noord","VR04","Hardenberg",61194
+"GM0163","GG1106","PV23","Noord","VR05","Hellendoorn",35959
+"GM0164","GG1106","PV23","Noord","VR05","Hengelo",81047
+"GM0166","GG1009","PV23","Noord","VR04","Kampen",54409
+"GM0168","GG1106","PV23","Noord","VR05","Losser",22780
+"GM0171","GG2209","PV24","Noord","VR25","Noordoostpolder",47618
+"GM0173","GG1106","PV23","Noord","VR05","Oldenzaal",31792
+"GM0175","GG1009","PV23","Noord","VR04","Ommen",18179
+"GM0177","GG1009","PV23","Noord","VR04","Raalte",37782
+"GM0180","GG1009","PV23","Noord","VR04","Staphorst",17217
+"GM0183","GG1106","PV23","Noord","VR05","Tubbergen",21271
+"GM0184","GG2209","PV24","Noord","VR25","Urk",21135
+"GM0189","GG1106","PV23","Noord","VR05","Wierden",24474
+"GM0193","GG1009","PV23","Noord","VR04","Zwolle",129213
+"GM0197","GG1413","PV25","Niet-Noord","VR06","Aalten",27116
+"GM0200","GG1413","PV25","Niet-Noord","VR06","Apeldoorn",164140
+"GM0202","GG1911","PV25","Niet-Noord","VR07","Arnhem",161961
+"GM0203","GG1911","PV25","Niet-Noord","VR07","Barneveld",59676
+"GM0209","GG2014","PV25","Niet-Noord","VR08","Beuningen",26054
+"GM0213","GG1413","PV25","Niet-Noord","VR06","Brummen",20838
+"GM0214","GG2014","PV25","Niet-Noord","VR08","Buren",27021
+"GM0216","GG2014","PV25","Niet-Noord","VR08","Culemborg",29020
+"GM0221","GG1911","PV25","Niet-Noord","VR07","Doesburg",11028
+"GM0222","GG1413","PV25","Niet-Noord","VR06","Doetinchem",58104
+"GM0225","GG2014","PV25","Niet-Noord","VR08","Druten",18973
+"GM0226","GG1911","PV25","Niet-Noord","VR07","Duiven",25062
+"GM0228","GG1911","PV25","Niet-Noord","VR07","Ede",117966
+"GM0230","GG1413","PV25","Niet-Noord","VR06","Elburg",23343
+"GM0232","GG1413","PV25","Niet-Noord","VR06","Epe",33171
+"GM0233","GG1413","PV25","Niet-Noord","VR06","Ermelo",26991
+"GM0243","GG1413","PV25","Niet-Noord","VR06","Harderwijk",48623
+"GM0244","GG1413","PV25","Noord","VR06","Hattem",12241
+"GM0246","GG1413","PV25","Niet-Noord","VR06","Heerde",18645
+"GM0252","GG2014","PV25","Niet-Noord","VR08","Heumen",16589
+"GM0262","GG1413","PV25","Niet-Noord","VR06","Lochem",33847
+"GM0263","GG2014","PV25","Niet-Noord","VR08","Maasdriel",25434
+"GM0267","GG1911","PV25","Niet-Noord","VR07","Nijkerk",43417
+"GM0268","GG2014","PV25","Niet-Noord","VR08","Nijmegen",176669
+"GM0269","GG1413","PV25","Niet-Noord","VR06","Oldebroek",23670
+"GM0273","GG1413","PV25","Niet-Noord","VR06","Putten",24220
+"GM0274","GG1911","PV25","Niet-Noord","VR07","Renkum",31401
+"GM0275","GG1911","PV25","Niet-Noord","VR07","Rheden",43565
+"GM0277","GG1911","PV25","Niet-Noord","VR07","Rozendaal",1697
+"GM0279","GG1911","PV25","Niet-Noord","VR07","Scherpenzeel",10000
+"GM0281","GG2014","PV25","Niet-Noord","VR08","Tiel",41962
+"GM0285","GG1413","PV25","Niet-Noord","VR06","Voorst",24702
+"GM0289","GG1911","PV25","Niet-Noord","VR07","Wageningen",39134
+"GM0293","GG1911","PV25","Niet-Noord","VR07","Westervoort",15013
+"GM0294","GG1413","PV25","Niet-Noord","VR06","Winterswijk",28893
+"GM0296","GG2014","PV25","Niet-Noord","VR08","Wijchen",41179
+"GM0297","GG2014","PV25","Niet-Noord","VR08","Zaltbommel",29225
+"GM0299","GG1911","PV25","Niet-Noord","VR07","Zevenaar",44011
+"GM0301","GG1413","PV25","Niet-Noord","VR06","Zutphen",48077
+"GM0302","GG1413","PV25","Niet-Noord","VR06","Nunspeet",27862
+"GM0303","GG2209","PV24","Noord","VR25","Dronten",41677
+"GM0307","GG2514","PV26","Niet-Noord","VR09","Amersfoort",157521
+"GM0308","GG2514","PV26","Niet-Noord","VR09","Baarn",24823
+"GM0310","GG2514","PV26","Niet-Noord","VR09","De Bilt",43190
+"GM0312","GG2514","PV26","Niet-Noord","VR09","Bunnik",15262
+"GM0313","GG2514","PV26","Niet-Noord","VR09","Bunschoten",21930
+"GM0317","GG2514","PV26","Noord","VR09","Eemnes",9323
+"GM0321","GG2514","PV26","Niet-Noord","VR09","Houten",50290
+"GM0327","GG2514","PV26","Niet-Noord","VR09","Leusden",30486
+"GM0331","GG2514","PV26","Niet-Noord","VR09","Lopik",14483
+"GM0335","GG2514","PV26","Niet-Noord","VR09","Montfoort",13889
+"GM0339","GG2514","PV26","Niet-Noord","VR09","Renswoude",5517
+"GM0340","GG2514","PV26","Niet-Noord","VR09","Rhenen",20086
+"GM0342","GG2514","PV26","Niet-Noord","VR09","Soest",46842
+"GM0344","GG2514","PV26","Niet-Noord","VR09","Utrecht",357667
+"GM0345","GG2514","PV26","Niet-Noord","VR09","Veenendaal",66918
+"GM0351","GG2514","PV26","Niet-Noord","VR09","Woudenberg",13568
+"GM0352","GG2514","PV26","Niet-Noord","VR09","Wijk bij Duurstede",23901
+"GM0353","GG2514","PV26","Niet-Noord","VR09","IJsselstein",33851
+"GM0355","GG2514","PV26","Niet-Noord","VR09","Zeist",64883
+"GM0356","GG2514","PV26","Niet-Noord","VR09","Nieuwegein",63690
+"GM0358","GG3406","PV27","Noord","VR13","Aalsmeer",31927
+"GM0361","GG2707","PV27","Noord","VR10","Alkmaar",109751
+"GM0362","GG3406","PV27","Noord","VR13","Amstelveen",90705
+"GM0363","GG3406","PV27","Noord","VR13","Amsterdam",869709
+"GM0370","GG7306","PV27","Noord","VR11","Beemster",10019
+"GM0373","GG2707","PV27","Noord","VR10","Bergen (NH.)",29762
+"GM0375","GG3109","PV27","Noord","VR12","Beverwijk",41752
+"GM0376","GG3606","PV27","Noord","VR14","Blaricum",11799
+"GM0377","GG3109","PV27","Noord","VR12","Bloemendaal",23566
+"GM0383","GG2707","PV27","Noord","VR10","Castricum",36124
+"GM0384","GG3406","PV27","Noord","VR13","Diemen",31206
+"GM0385","GG7306","PV27","Noord","VR11","Edam-Volendam",36190
+"GM0388","GG2707","PV27","Noord","VR10","Enkhuizen",18658
+"GM0392","GG3109","PV27","Noord","VR12","Haarlem",162962
+"GM0394","GG3109","PV27","Noord","VR12","Haarlemmermeer",157115
+"GM0396","GG3109","PV27","Noord","VR12","Heemskerk",39230
+"GM0397","GG3109","PV27","Noord","VR12","Heemstede",27341
+"GM0398","GG2707","PV27","Noord","VR10","Heerhugowaard",58018
+"GM0399","GG2707","PV27","Noord","VR10","Heiloo",24100
+"GM0400","GG2707","PV27","Noord","VR10","Den Helder",56388
+"GM0402","GG3606","PV27","Noord","VR14","Hilversum",91110
+"GM0405","GG2707","PV27","Noord","VR10","Hoorn",73360
+"GM0406","GG3606","PV27","Noord","VR14","Huizen",41104
+"GM0415","GG7306","PV27","Noord","VR11","Landsmeer",11573
+"GM0416","GG2707","PV27","Noord","VR10","Langedijk",28214
+"GM0417","GG3606","PV27","Noord","VR14","Laren",11355
+"GM0420","GG2707","PV27","Noord","VR10","Medemblik",45138
+"GM0431","GG7306","PV27","Noord","VR11","Oostzaan",9682
+"GM0432","GG2707","PV27","Noord","VR10","Opmeer",11967
+"GM0437","GG3406","PV27","Noord","VR13","Ouder-Amstel",14065
+"GM0439","GG7306","PV27","Noord","VR11","Purmerend",81775
+"GM0441","GG2707","PV27","Noord","VR10","Schagen",46459
+"GM0448","GG2707","PV27","Noord","VR10","Texel",13643
+"GM0450","GG3109","PV27","Noord","VR12","Uitgeest",13643
+"GM0451","GG3406","PV27","Noord","VR13","Uithoorn",29817
+"GM0453","GG3109","PV27","Noord","VR12","Velsen",68713
+"GM0457","GG3606","PV27","Noord","VR14","Weesp",20219
+"GM0473","GG3109","PV27","Noord","VR12","Zandvoort",17116
+"GM0479","GG7306","PV27","Noord","VR11","Zaanstad",156907
+"GM0482","GG4816","PV28","Niet-Noord","VR18","Alblasserdam",20221
+"GM0484","GG4506","PV28","Niet-Noord","VR16","Alphen aan den Rijn",112343
+"GM0489","GG4607","PV28","Niet-Noord","VR17","Barendrecht",48654
+"GM0498","GG2707","PV27","Noord","VR10","Drechterland",19775
+"GM0501","GG4607","PV28","Niet-Noord","VR17","Brielle",17378
+"GM0502","GG4607","PV28","Niet-Noord","VR17","Capelle aan den IJssel",67142
+"GM0503","GG7014","PV28","Niet-Noord","VR15","Delft",103037
+"GM0505","GG4816","PV28","Niet-Noord","VR18","Dordrecht",119342
+"GM0512","GG4816","PV28","Niet-Noord","VR18","Gorinchem",37372
+"GM0513","GG4506","PV28","Niet-Noord","VR16","Gouda",73540
+"GM0518","GG7014","PV28","Niet-Noord","VR15","'s-Gravenhage",545863
+"GM0523","GG4816","PV28","Niet-Noord","VR18","Hardinxveld-Giessendam",18460
+"GM0530","GG4607","PV28","Niet-Noord","VR17","Hellevoetsluis",40198
+"GM0531","GG4816","PV28","Niet-Noord","VR18","Hendrik-Ido-Ambacht",31311
+"GM0532","GG2707","PV27","Noord","VR10","Stede Broec",21773
+"GM0534","GG4506","PV28","Niet-Noord","VR16","Hillegom",22210
+"GM0537","GG4506","PV28","Niet-Noord","VR16","Katwijk",65929
+"GM0542","GG4607","PV28","Niet-Noord","VR17","Krimpen aan den IJssel",29452
+"GM0546","GG4506","PV28","Niet-Noord","VR16","Leiden",123655
+"GM0547","GG4506","PV28","Niet-Noord","VR16","Leiderdorp",27304
+"GM0553","GG4506","PV28","Niet-Noord","VR16","Lisse",22983
+"GM0556","GG4607","PV28","Niet-Noord","VR17","Maassluis",33336
+"GM0569","GG4506","PV28","Niet-Noord","VR16","Nieuwkoop",29021
+"GM0575","GG4506","PV28","Niet-Noord","VR16","Noordwijk",43733
+"GM0579","GG4506","PV28","Niet-Noord","VR16","Oegstgeest",24972
+"GM0589","GG2514","PV26","Niet-Noord","VR09","Oudewater",10178
+"GM0590","GG4816","PV28","Niet-Noord","VR18","Papendrecht",32095
+"GM0597","GG4607","PV28","Niet-Noord","VR17","Ridderkerk",46576
+"GM0599","GG4607","PV28","Niet-Noord","VR17","Rotterdam",650459
+"GM0603","GG7014","PV28","Niet-Noord","VR15","Rijswijk",54855
+"GM0606","GG4607","PV28","Niet-Noord","VR17","Schiedam",79003
+"GM0610","GG4816","PV28","Niet-Noord","VR18","Sliedrecht",25350
+"GM0613","GG4607","PV28","Niet-Noord","VR17","Albrandswaard",25896
+"GM0614","GG4607","PV28","Niet-Noord","VR17","Westvoorne",14863
+"GM0622","GG4607","PV28","Niet-Noord","VR17","Vlaardingen",73758
+"GM0626","GG4506","PV28","Niet-Noord","VR16","Voorschoten",25602
+"GM0627","GG4506","PV28","Niet-Noord","VR16","Waddinxveen",29906
+"GM0629","GG7014","PV28","Niet-Noord","VR15","Wassenaar",26490
+"GM0632","GG2514","PV26","Niet-Noord","VR09","Woerden",52558
+"GM0637","GG7014","PV28","Niet-Noord","VR15","Zoetermeer",125247
+"GM0638","GG4506","PV28","Niet-Noord","VR16","Zoeterwoude",8759
+"GM0642","GG4816","PV28","Niet-Noord","VR18","Zwijndrecht",44641
+"GM0654","GG5006","PV29","Niet-Noord","VR19","Borsele",22762
+"GM0664","GG5006","PV29","Niet-Noord","VR19","Goes",38423
+"GM0668","GG2014","PV25","Niet-Noord","VR08","West Maas en Waal",19436
+"GM0677","GG5006","PV29","Niet-Noord","VR19","Hulst",27631
+"GM0678","GG5006","PV29","Niet-Noord","VR19","Kapelle",12808
+"GM0687","GG5006","PV29","Niet-Noord","VR19","Middelburg",48766
+"GM0703","GG5006","PV29","Niet-Noord","VR19","Reimerswaal",22843
+"GM0715","GG5006","PV29","Niet-Noord","VR19","Terneuzen",54476
+"GM0716","GG5006","PV29","Niet-Noord","VR19","Tholen",25894
+"GM0717","GG5006","PV29","Niet-Noord","VR19","Veere",21974
+"GM0718","GG5006","PV29","Niet-Noord","VR19","Vlissingen",44132
+"GM0736","GG2514","PV26","Niet-Noord","VR09","De Ronde Venen",44636
+"GM0737","GG7206","PV21","Noord","VR02","Tytsjerksteradiel",32079
+"GM0743","GG5608","PV30","Niet-Noord","VR22","Asten",16718
+"GM0744","GG5206","PV30","Niet-Noord","VR20","Baarle-Nassau",6876
+"GM0748","GG5206","PV30","Niet-Noord","VR20","Bergen op Zoom",67667
+"GM0753","GG5608","PV30","Niet-Noord","VR22","Best",30073
+"GM0755","GG5406","PV30","Niet-Noord","VR21","Boekel",10872
+"GM0756","GG5406","PV30","Niet-Noord","VR21","Boxmeer",29465
+"GM0757","GG5406","PV30","Niet-Noord","VR21","Boxtel",30807
+"GM0758","GG5206","PV30","Niet-Noord","VR20","Breda",183790
+"GM0762","GG5608","PV30","Niet-Noord","VR22","Deurne",32466
+"GM0765","GG0111","PV20","Noord","VR01","Pekela",12172
+"GM0766","GG5406","PV30","Niet-Noord","VR20","Dongen",26345
+"GM0770","GG5608","PV30","Niet-Noord","VR22","Eersel",19418
+"GM0772","GG5608","PV30","Niet-Noord","VR22","Eindhoven",233983
+"GM0777","GG5206","PV30","Niet-Noord","VR20","Etten-Leur",43896
+"GM0779","GG5206","PV30","Niet-Noord","VR20","Geertruidenberg",21670
+"GM0784","GG5406","PV30","Niet-Noord","VR20","Gilze en Rijen",26551
+"GM0785","GG5406","PV30","Niet-Noord","VR20","Goirle",23823
+"GM0786","GG5406","PV30","Niet-Noord","VR21","Grave",12452
+"GM0794","GG5608","PV30","Niet-Noord","VR22","Helmond",92420
+"GM0796","GG5406","PV30","Niet-Noord","VR21","'s-Hertogenbosch",155409
+"GM0797","GG5406","PV30","Niet-Noord","VR21","Heusden",44897
+"GM0798","GG5406","PV30","Niet-Noord","VR20","Hilvarenbeek",15617
+"GM0809","GG5406","PV30","Niet-Noord","VR20","Loon op Zand",23466
+"GM0815","GG5406","PV30","Niet-Noord","VR21","Mill en Sint Hubert",11007
+"GM0820","GG5608","PV30","Niet-Noord","VR22","Nuenen, Gerwen en Nederwetten",23526
+"GM0823","GG5608","PV30","Niet-Noord","VR22","Oirschot",18832
+"GM0824","GG5406","PV30","Niet-Noord","VR20","Oisterwijk",26344
+"GM0826","GG5206","PV30","Niet-Noord","VR20","Oosterhout",56232
+"GM0828","GG5406","PV30","Niet-Noord","VR21","Oss",92229
+"GM0840","GG5206","PV30","Niet-Noord","VR20","Rucphen",23009
+"GM0845","GG5406","PV30","Niet-Noord","VR21","Sint-Michielsgestel",29422
+"GM0847","GG5608","PV30","Niet-Noord","VR22","Someren",19331
+"GM0848","GG5608","PV30","Niet-Noord","VR22","Son en Breugel",17465
+"GM0851","GG5206","PV30","Niet-Noord","VR20","Steenbergen",24302
+"GM0852","GG7306","PV27","Noord","VR11","Waterland",17393
+"GM0855","GG5406","PV30","Niet-Noord","VR20","Tilburg",219599
+"GM0856","GG5406","PV30","Niet-Noord","VR21","Uden",42163
+"GM0858","GG5608","PV30","Niet-Noord","VR22","Valkenswaard",31230
+"GM0861","GG5608","PV30","Niet-Noord","VR22","Veldhoven",45625
+"GM0865","GG5406","PV30","Niet-Noord","VR21","Vught",26709
+"GM0866","GG5608","PV30","Niet-Noord","VR22","Waalre",17518
+"GM0867","GG5406","PV30","Niet-Noord","VR20","Waalwijk",48754
+"GM0873","GG5206","PV30","Niet-Noord","VR20","Woensdrecht",21954
+"GM0879","GG5206","PV30","Niet-Noord","VR20","Zundert",22141
+"GM0880","GG7306","PV27","Noord","VR11","Wormerland",16203
+"GM0882","GG6106","PV31","Niet-Noord","VR24","Landgraaf",37267
+"GM0888","GG6106","PV31","Niet-Noord","VR24","Beek",15889
+"GM0889","GG6011","PV31","Niet-Noord","VR23","Beesel",13439
+"GM0893","GG6011","PV31","Niet-Noord","VR23","Bergen (L.)",13089
+"GM0899","GG6106","PV31","Niet-Noord","VR24","Brunssum",27709
+"GM0907","GG6011","PV31","Niet-Noord","VR23","Gennep",16968
+"GM0917","GG6106","PV31","Niet-Noord","VR24","Heerlen",86915
+"GM0928","GG6106","PV31","Niet-Noord","VR24","Kerkrade",45527
+"GM0935","GG6106","PV31","Niet-Noord","VR24","Maastricht",118636
+"GM0938","GG6106","PV31","Niet-Noord","VR24","Meerssen",18759
+"GM0944","GG6011","PV31","Niet-Noord","VR23","Mook en Middelaar",7879
+"GM0946","GG6011","PV31","Niet-Noord","VR23","Nederweert",17086
+"GM0957","GG6011","PV31","Niet-Noord","VR23","Roermond",58620
+"GM0965","GG6106","PV31","Niet-Noord","VR24","Simpelveld",10515
+"GM0971","GG6106","PV31","Niet-Noord","VR24","Stein",24935
+"GM0981","GG6106","PV31","Niet-Noord","VR24","Vaals",10055
+"GM0983","GG6011","PV31","Niet-Noord","VR23","Venlo",101853
+"GM0984","GG6011","PV31","Niet-Noord","VR23","Venray",43707
+"GM0986","GG6106","PV31","Niet-Noord","VR24","Voerendaal",12459
+"GM0988","GG6011","PV31","Niet-Noord","VR23","Weert",50109
+"GM0994","GG6106","PV31","Niet-Noord","VR24","Valkenburg aan de Geul",16399
+"GM0995","GG2209","PV24","Noord","VR25","Lelystad",79284
+"GM1507","GG6011","PV31","Niet-Noord","VR23","Horst aan de Maas",42416
+"GM1509","GG1413","PV25","Niet-Noord","VR06","Oude IJsselstreek",39331
+"GM1525","GG4506","PV28","Niet-Noord","VR16","Teylingen",37655
+"GM1581","GG2514","PV26","Niet-Noord","VR09","Utrechtse Heuvelrug",49784
+"GM1586","GG1413","PV25","Niet-Noord","VR06","Oost Gelre",29644
+"GM1598","GG2707","PV27","Noord","VR10","Koggenland",22864
+"GM1621","GG4607","PV28","Niet-Noord","VR17","Lansingerland",62882
+"GM1640","GG6011","PV31","Niet-Noord","VR23","Leudal",35999
+"GM1641","GG6011","PV31","Niet-Noord","VR23","Maasgouw",23936
+"GM1652","GG5608","PV30","Niet-Noord","VR22","Gemert-Bakel",30693
+"GM1655","GG5206","PV30","Niet-Noord","VR20","Halderberge",30314
+"GM1658","GG5608","PV30","Niet-Noord","VR22","Heeze-Leende",16217
+"GM1659","GG5608","PV30","Niet-Noord","VR22","Laarbeek",22665
+"GM1667","GG5608","PV30","Niet-Noord","VR22","Reusel-De Mierden",13066
+"GM1669","GG6011","PV31","Niet-Noord","VR23","Roerdalen",20552
+"GM1674","GG5206","PV30","Niet-Noord","VR20","Roosendaal",77308
+"GM1676","GG5006","PV29","Niet-Noord","VR19","Schouwen-Duiveland",34012
+"GM1680","GG0706","PV22","Noord","VR03","Aa en Hunze",25393
+"GM1681","GG0706","PV22","Noord","VR03","Borger-Odoorn",25554
+"GM1684","GG5406","PV30","Niet-Noord","VR21","Cuijk",25291
+"GM1685","GG5406","PV30","Niet-Noord","VR21","Landerd",15761
+"GM1690","GG0706","PV22","Noord","VR03","De Wolden",24357
+"GM1695","GG5006","PV29","Niet-Noord","VR19","Noord-Beveland",7560
+"GM1696","GG3606","PV27","Noord","VR14","Wijdemeren",24414
+"GM1699","GG0706","PV22","Noord","VR03","Noordenveld",31270
+"GM1700","GG1106","PV23","Noord","VR05","Twenterand",33729
+"GM1701","GG0706","PV22","Noord","VR03","Westerveld",19573
+"GM1702","GG5406","PV30","Niet-Noord","VR21","Sint Anthonis",11662
+"GM1705","GG1911","PV25","Niet-Noord","VR07","Lingewaard",46723
+"GM1706","GG5608","PV30","Niet-Noord","VR22","Cranendonck",20941
+"GM1708","GG1009","PV23","Noord","VR04","Steenwijkerland",44258
+"GM1709","GG5206","PV30","Niet-Noord","VR20","Moerdijk",37184
+"GM1711","GG6011","PV31","Niet-Noord","VR23","Echt-Susteren",31654
+"GM1714","GG5006","PV29","Niet-Noord","VR19","Sluis",23173
+"GM1719","GG5206","PV30","Niet-Noord","VR20","Drimmelen",27251
+"GM1721","GG5406","PV30","Niet-Noord","VR21","Bernheze",31313
+"GM1723","GG5206","PV30","Niet-Noord","VR20","Alphen-Chaam",10298
+"GM1724","GG5608","PV30","Niet-Noord","VR22","Bergeijk",18674
+"GM1728","GG5608","PV30","Niet-Noord","VR22","Bladel",20531
+"GM1729","GG6106","PV31","Niet-Noord","VR24","Gulpen-Wittem",14205
+"GM1730","GG0706","PV22","Noord","VR03","Tynaarlo",33842
+"GM1731","GG0706","PV22","Noord","VR03","Midden-Drenthe",33280
+"GM1734","GG1911","PV25","Niet-Noord","VR07","Overbetuwe",48057
+"GM1735","GG1106","PV23","Noord","VR05","Hof van Twente",35129
+"GM1740","GG2014","PV25","Niet-Noord","VR08","Neder-Betuwe",24526
+"GM1742","GG1106","PV23","Noord","VR05","Rijssen-Holten",38227
+"GM1771","GG5608","PV30","Niet-Noord","VR22","Geldrop-Mierlo",39997
+"GM1773","GG1009","PV23","Noord","VR04","Olst-Wijhe",18300
+"GM1774","GG1106","PV23","Noord","VR05","Dinkelland",26545
+"GM1783","GG7014","PV28","Niet-Noord","VR15","Westland",110974
+"GM1842","GG7014","PV28","Niet-Noord","VR15","Midden-Delfland",19406
+"GM1859","GG1413","PV25","Niet-Noord","VR06","Berkelland",43845
+"GM1876","GG1413","PV25","Niet-Noord","VR06","Bronckhorst",36077
+"GM1883","GG6106","PV31","Niet-Noord","VR24","Sittard-Geleen",91928
+"GM1884","GG4506","PV28","Niet-Noord","VR16","Kaag en Braassem",27492
+"GM1891","GG7206","PV21","Noord","VR02","Dantumadiel",18928
+"GM1892","GG4506","PV28","Niet-Noord","VR16","Zuidplas",44750
+"GM1894","GG6011","PV31","Niet-Noord","VR23","Peel en Maas",43561
+"GM1895","GG0111","PV20","Noord","VR01","Oldambt",38274
+"GM1896","GG1009","PV23","Noord","VR04","Zwartewaterland",22755
+"GM1900","GG7206","PV21","Noord","VR02","Súdwest-Fryslân",89976
+"GM1901","GG4506","PV28","Niet-Noord","VR16","Bodegraven-Reeuwijk",35157
+"GM1903","GG6106","PV31","Niet-Noord","VR24","Eijsden-Margraten",25775
+"GM1904","GG2514","PV26","Niet-Noord","VR09","Stichtse Vecht",65087
+"GM1911","GG2707","PV27","Noord","VR10","Hollands Kroon",48637
+"GM1916","GG7014","PV28","Niet-Noord","VR15","Leidschendam-Voorburg",76387
+"GM1924","GG4607","PV28","Niet-Noord","VR17","Goeree-Overflakkee",50356
+"GM1926","GG7014","PV28","Niet-Noord","VR15","Pijnacker-Nootdorp",55360
+"GM1930","GG4607","PV28","Niet-Noord","VR17","Nissewaard",85173
+"GM1931","GG4506","PV28","Niet-Noord","VR16","Krimpenerwaard",56353
+"GM1940","GG7206","PV21","Noord","VR02","De Fryske Marren",51678
+"GM1942","GG3606","PV27","Noord","VR14","Gooise Meren",58247
+"GM1945","GG2014","PV25","Niet-Noord","VR08","Berg en Dal",34972
+"GM1948","GG5406","PV30","Niet-Noord","VR21","Meierijstad",81467
+"GM1949","GG7206","PV21","Noord","VR02","Waadhoeke",46098
+"GM1950","GG0111","PV20","Noord","VR01","Westerwolde",25719
+"GM1952","GG0111","PV20","Noord","VR01","Midden-Groningen",60720
+"GM1954","GG6106","PV31","Niet-Noord","VR24","Beekdaelen",35916
+"GM1955","GG1413","PV25","Niet-Noord","VR06","Montferland",36052
+"GM1959","GG5206","PV30","Niet-Noord","VR20","Altena",56194
+"GM1960","GG2014","PV25","Niet-Noord","VR08","West Betuwe",51281
+"GM1961","GG2514","PV26","Niet-Noord","VR09","Vijfheerenlanden",57525
+"GM1963","GG4816","PV28","Niet-Noord","VR18","Hoeksche Waard",87614
+"GM1966","GG0111","PV20","Noord","VR01","Het Hogeland",47878
+"GM1969","GG0111","PV20","Noord","VR01","Westerkwartier",63458
+"GM1970","GG7206","PV21","Noord","VR02","Noardeast-Fryslân",45433
+"GM1978","GG4816","PV28","Niet-Noord","VR18","Molenlanden",44042
+"GM1979","GG0111","PV20","Noord","VR01","Eemsdelta",45609

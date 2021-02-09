@@ -1,0 +1,70 @@
+.icon-button {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #807765;
+    cursor: pointer;
+    padding: 2px;
+
+    &:hover {
+        background: #fff;
+    }
+
+    img {
+        width: 100%;
+        opacity: 0.7;
+    }
+
+    &.icon-button--without-border {
+        border: 0;
+        border-radius: 50%;
+    }
+}
+
+.close-button {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    border-radius: 3px;
+
+    &:before, &:after {
+        position: absolute;
+        left: 11px;
+        top: 2px;
+        content: ' ';
+        height: 18px;
+        width: 2px;
+        background-color: #000;
+    }
+
+    &:before {
+        transform: rotate(45deg);
+    }
+
+    &:after {
+        transform: rotate(-45deg);
+    }
+}
+
+.buttons {
+    display: flex;
+}
+
+.button {
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    background: #7ab6ff;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &:hover {
+        background: #ddd;
+    }
+}
