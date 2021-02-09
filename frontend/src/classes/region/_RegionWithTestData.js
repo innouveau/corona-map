@@ -25,8 +25,12 @@ class _RegionWithTestData extends _Region{
                 if (relative) {
                     population = this.population;
                 }
+
                 for (let i = first, l = last; i > l; i--) {
-                    total += history[i][type];
+                    let thisValue = history[i][type];
+                    if (thisValue) {
+                        total += thisValue;
+                    }
                 }
                 if (relative) {
                     value = 100000 * total / population;

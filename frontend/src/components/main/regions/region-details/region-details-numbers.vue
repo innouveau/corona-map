@@ -3,10 +3,13 @@
     import View from "@/classes/View";
     import numberTools from '@/tools/number';
     import dateTools from '@/tools/date';
+    import sourceLoader from "./source-loader";
 
     export default {
         name: 'region-details-numbers',
-        components: { },
+        components: {
+            sourceLoader,
+         },
         props: {
             view: {
                 type: View,
@@ -38,8 +41,14 @@
             hasHospitalisations() {
                 return this.currentMap.data.hospitalisations.status;
             },
+            hospitalisationsSource() {
+                return this.$store.state.sources.all[1];
+            },
             hasDeceased() {
                 return this.currentMap.data.deceased.status;
+            },
+            deceasedSource() {
+                return this.$store.state.sources.all[2];
             },
             offsetOfJuly1() {
                 return dateTools.getOffsetByDate('2020-07-01');
@@ -47,18 +56,40 @@
             lengthToJuly1() {
                 return this.offsetOfJuly1 - this.view.offset;
             },
-            hospitalisationsPerPositiveTest() {
-                let value = 100 * this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'hospitalisations', false) / this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'positiveTests', false);
-                return this.formatPercentage(value, 1);
-            },
             deceasedPerPositiveTest() {
-                let value = 100 * this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'deceased', false) / this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'positiveTests', false);
-                return this.formatPercentage(value, 1);
+                if (this.deceasedSource.loaded) {
+                    let value = 100 * this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'deceased', false) / this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'positiveTests', false);
+                    return this.formatPercentage(value, 1);
+                } else {
+                    return '';
+                }
+            },
+            hospitalisationsPerPositiveTest() {
+                if (this.hospitalisationsSource.loaded) {
+                    let value = 100 * this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'hospitalisations', false) / this.region.getTotalIncreaseOfType(this.view.offset, this.lengthToJuly1, 'positiveTests', false);
+                    return this.formatPercentage(value, 1);
+                } else {
+                    return '';
+                }
+            },
+            totalHospitalisations() {
+                if (this.hospitalisationsSource.loaded) {
+                    return this.format(this.region.getTotalIncreaseOfType(this.view.offset, -1, 'hospitalisations', false), false);
+                } else {
+                    return '';
+                }
+            },
+            totalDeceased(){
+                if (this.deceasedSource.loaded) {
+                    return this.format(this.region.getTotalIncreaseOfType(this.view.offset, -1, 'deceased', false), false);
+                } else {
+                    return '';
+                }
             }
         },
         methods: {
             format(value, addPlus) {
-                return numberTools.format(Math.round(value), addPlus);
+                return String(numberTools.format(Math.round(value), addPlus))
             },
             formatPercentage(value, d = 1) {
                 return value.toFixed(d) + '%';
@@ -159,7 +190,10 @@
                     {{translate('total-hospitalisations', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, -1, 'hospitalisations', false), false)}}
+                    <source-loader
+                        :value="totalHospitalisations"
+                        :has-value="hospitalisationsSource.loaded"
+                        :source="hospitalisationsSource"/>
                 </div>
             </div>
             <div
@@ -169,7 +203,10 @@
                     {{translate('total-deceased', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{format(region.getTotalIncreaseOfType(view.offset, -1, 'deceased', false), false)}}
+                    <source-loader
+                        :value="totalDeceased"
+                        :has-value="deceasedSource.loaded"
+                        :source="deceasedSource"/>
                 </div>
             </div>
         </div>
@@ -184,7 +221,10 @@
                     {{translate('hospitalisations-per-positive-test', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{hospitalisationsPerPositiveTest}}
+                    <source-loader
+                        :value="hospitalisationsPerPositiveTest"
+                        :has-value="hospitalisationsSource.loaded"
+                        :source="hospitalisationsSource"/>
                 </div>
             </div>
             <div class="region-details__row">
@@ -192,7 +232,10 @@
                     {{translate('deceased-per-positive-test', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{deceasedPerPositiveTest}}
+                    <source-loader
+                        :value="deceasedPerPositiveTest"
+                        :has-value="deceasedSource.loaded"
+                        :source="deceasedSource"/>
                 </div>
             </div>
         </div>

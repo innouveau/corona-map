@@ -32,6 +32,7 @@ class _Region extends _Cache {
             } else {
                 value = total;
             }
+
             if (value !== null) {
                 this.store(offset, days, type, relative, value, 'total');
             }

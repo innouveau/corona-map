@@ -7,8 +7,7 @@
     import query from '@/components/elements/query'
     import dateTools from '@/tools/date';
     import mainViewMap from "./main-view-map";
-    import * as d3 from "d3";
-    import dateTool from "@/tools/date";
+    import sourceTools from "@/tools/source";
 
     export default {
         name: 'standard-view',
@@ -70,47 +69,8 @@
             },
             checkSource() {
                 if (!this.currentSource.loaded) {
-                    this.loadSource(this.currentSource.title).then(() => {
-                        this.$store.commit('sources/updatePropertyOfItem', {item: this.currentSource, property: 'loaded', value: true});
-                    });
+                    sourceTools.load(this.currentSource);
                 }
-            },
-            loadSource(subjectKey) {
-                return new Promise((resolve, reject) => {
-                    d3.csv(this.currentMap.data[subjectKey].source + dateTool.getTimestamp())
-                        .then((result) => {
-                            let adapter, keys, lastValue;
-                            adapter = this.currentMap.data[subjectKey].adapter;
-                            keys = adapter.getKeys(result.columns);
-                            for (let row of result) {
-                                let title, region;
-                                title = row[adapter.regionKey];
-                                region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
-
-                                if (region) {
-                                    lastValue = 0;
-                                    for (let key of keys) {
-                                        let frame, date, value;
-                                        value = Number(row[key]);
-                                        date = adapter.getDateFromKey(key);
-                                        frame = region.report.history.find(f => f.date === date);
-                                        if (frame) {
-                                            frame[subjectKey] = value - lastValue;
-                                        } else {
-                                            //console.error('frame with date ' + date + ' not found for hospitalisations data');
-                                        }
-                                        lastValue = value;
-                                    }
-                                } else {
-                                    //console.error('Region ' + title + ' not found for hospitalisations data');
-                                }
-                            }
-                            resolve();
-                        })
-                        .catch((error) => {
-                            console.error(error);
-                        });
-                })
             }
         },
         mounted() {
