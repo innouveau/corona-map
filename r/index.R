@@ -13,6 +13,7 @@ project_path <- "/Users/jeroen/Documents/_work/innouveau/projects/innouveau/coro
 source(paste0(project_path, "/src/variables.R"))
 source(paste0(project_path, "/src/environment.R"))
 source(paste0(project_path, "/src/fonts.R"))
+source(paste0(project_path, "/src/poller/poller.R"))
 source(paste0(project_path, "/src/data/data-getters.R"))
 source(paste0(project_path, "/src/map/plot-variables.R"))
 source(paste0(project_path, "/src/map/plot.R"))
@@ -24,15 +25,11 @@ source(paste0(project_path, "/src/twitter/tweets/tweets.R"))
 
 # settings
 MODUS.tweet = F
-MODUS.download = T
 
-# init
-if (MODUS.download ) {
-  data_rivm <- read.csv("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", sep=";") %>% filter(!Municipality_code == "")
-} else {
-  data_rivm <- read.csv(paste0(project_path, "/data/test-data/COVID-19_aantallen_gemeente_per_dag.csv"), sep=";") %>% filter(!Municipality_code == "")
-}
-today <- as.Date(last(data_rivm$Date_of_publication))
+
+# today = Sys.Date()
+today = as.Date("2021-02-08")
+data_rivm <- poll("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", today)
 
 
 pivot_total <- get_pivot()

@@ -4,6 +4,7 @@ COLOR.text <- "#000000"
 COLOR.dark <- "#807765"
 
 ICON.hand_pointing_right <- intToUtf8(0x1f449)
+ICON.snow <- intToUtf8(0x26C4)
 
 
 get_plot_settings <- function(type, region_type) {

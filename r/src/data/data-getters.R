@@ -190,7 +190,6 @@ get_change_netherlands <- function() {
 get_change_highest <- function(data) {
   regions <- filter_regions_for_population(data)
   entry <- regions[which.max(regions$change),]
-  print(entry)
   if (entry$change > 0) {
     return (paste0(entry$title, " ", change_to_string(entry$change)))
   } else {
