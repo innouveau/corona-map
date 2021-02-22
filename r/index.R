@@ -24,7 +24,7 @@ source(paste0(project_path, "/src/twitter/tweets/tweets.R"))
 
 
 # settings
-MODUS.tweet = F
+MODUS.tweet = T
 
 today = Sys.Date()
 data_rivm <- poll("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", today)
