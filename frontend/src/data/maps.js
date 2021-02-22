@@ -10,7 +10,7 @@ const caseSettings = {
     lateReporting: ['FR', 'BE', 'PL', 'SE']
 };
 
-const sewageDataUrl = 'https://raw.githubusercontent.com/innouveau/corona-map/master/public/data/sewage/sewage-measurements-netherlands.json';
+const sewageDataUrl = 'https://raw.githubusercontent.com/innouveau/corona-map/master/frontend/public/data/sewage/sewage-measurements-netherlands.json';
 const casesUrl = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv';
 
 const maps = [
