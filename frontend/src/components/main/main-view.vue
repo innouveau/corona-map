@@ -161,18 +161,24 @@
 
         @include mobile() {
 
+            .content {
+                display: block;
+                position: relative;
+
+                .region-details--mobile {
+                    display: block;
+                }
+            }
+        }
+
+        @include header-menu-breakpoint() {
+
             .header-menu {
                 height: 80px;
             }
 
             .content {
-                display: block;
-                position: relative;
                 height: calc(100% - 80px);
-
-                .region-details--mobile {
-                    display: block;
-                }
             }
         }
     }

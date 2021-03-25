@@ -30,6 +30,9 @@
             },
             currentSource() {
                 return this.view.currentSource;
+            },
+            showEmbedButton() {
+                return this.$store.state.ui.presets !== 'radio1';
             }
         },
         methods: {
@@ -75,7 +78,8 @@
                 v-if="true"
                 :view="view"/>
 
-            <embed-button/>
+            <embed-button
+                v-if="showEmbedButton"/>
         </div>
     </div>
 </template>

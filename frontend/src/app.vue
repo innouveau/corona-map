@@ -47,12 +47,16 @@
             },
             block() {
                 return this.currentMap && this.currentMap.block && !this.$store.state.ui.admin;
+            },
+            showHamburger() {
+                return this.$store.state.ui.presets !== 'radio1';
             }
         },
         methods: {
             init() {
                 this.initLanguages();
                 this.pickMap();
+                this.addSource('positiveTests', 0);
                 this.readQuery();
             },
             pickMap() {
@@ -70,16 +74,26 @@
                 this.loadData();
             },
             readQuery() {
-                let string, signalingSystem;
-                if (this.$route.query.signaling) {
-                    string = decodeURI(this.$route.query.signaling);
-                    signalingSystem = this.$store.getters['signalingSystems/getItemByProperty']('title', string, true);
-                    if (signalingSystem) {
-                        this.$store.commit('signalingSystems/setCurrent', signalingSystem);
+                let string, signalingSystem, language;
+                if (this.$route.query.presets && this.$route.query.presets === 'radio1') {
+                    signalingSystem = store.getters['signalingSystems/getItemById'](3);
+                    language = this.$store.getters['languages/getItemByProperty']('iso_code', 'nl', true);
+                    this.$store.commit('sources/updatePropertyOfItem', {item: this.$store.state.sources.all[0], property: 'signalingSystem_id', value: signalingSystem.id});
+                    this.$store.commit('settings/updateProperty', {key: 'gradient', value: false});
+                    this.$store.commit('languages/setCurrent', language);
+                    this.$store.commit('ui/updateProperty', {key: 'presets', value: 'radio1'});
+
+                } else {
+                    if (this.$route.query.signaling) {
+                        string = decodeURI(this.$route.query.signaling);
+                        signalingSystem = this.$store.getters['signalingSystems/getItemByProperty']('title', string, true);
+                        if (signalingSystem) {
+                            this.$store.commit('signalingSystems/setCurrent', signalingSystem);
+                        }
                     }
-                }
-                if (this.$route.query.video) {
-                    this.$store.commit('ui/updateProperty', {key: 'videoMode', value: true});
+                    if (this.$route.query.video) {
+                        this.$store.commit('ui/updateProperty', {key: 'videoMode', value: true});
+                    }
                 }
             },
             initLanguages() {
@@ -177,7 +191,6 @@
                         return true;
                     }
                 };
-
                 return new Promise((resolve, reject) => {
                     d3.csv(this.currentMap.data.positivePcrTests.source + dateTool.getTimestamp())
                         .then((data) => {
@@ -202,7 +215,7 @@
                                     this.addTests(item, adapter);
                                 }
                             }
-                            this.addSource('positiveTests', 0);
+
                             this.$store.commit('sources/updatePropertyOfItem', {item: this.$store.state.sources.all[0], property: 'loaded', value: true});
 
                             if (this.currentMap.data.positiveAntigenTests.status) {
@@ -465,6 +478,7 @@
         </div>
 
         <div
+            v-if="showHamburger"
             @click="openHamburgerMenu()"
             class="icon-button icon-button--without-border hamburger">
             <img src="assets/img/tools/hamburger.svg">

@@ -228,7 +228,7 @@
             border-top: 1px solid #ddd;
         }
 
-        @include mobile() {
+        @include header-menu-breakpoint() {
 
             .title {
                 height: 48px;
@@ -247,17 +247,12 @@
 
                 .title__sub {
                     font-size: 14px;
-                    display: block;
-                    border-right: 1px solid #ddd;
 
                     .date-string {
-                        display: block;
-                        margin-right: 0;
-                        height: auto;
-                        border-right: 0;
+                        padding-right: 0;
 
                         input {
-                            width: 100px;
+                            width: 90px;
                             background: transparent;
                             padding: 3px;
                             font-size: inherit;
@@ -266,13 +261,6 @@
                             &:hover {
                                 background: #ddd;
                             }
-                        }
-                    }
-
-                    .total-infections {
-
-                        .total-infections__n {
-                            background: rgb(252, 203, 3);
                         }
                     }
                 }

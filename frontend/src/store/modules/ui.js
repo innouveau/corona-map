@@ -29,6 +29,9 @@ const state = {
 
     // map tools
     color: 'regular',
+
+    //
+    presets: ''
 };
 
 const getters = {

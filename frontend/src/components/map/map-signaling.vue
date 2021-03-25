@@ -97,6 +97,12 @@
             },
             videoMode() {
                 return this.$store.state.ui.videoMode;
+            },
+            showDownloadButton() {
+                return this.$store.state.ui.presets !== 'radio1';
+            },
+            showSourcePickerFromPresets() {
+                return this.$store.state.ui.presets !== 'radio1';
             }
         },
         methods: {
@@ -268,11 +274,11 @@
             :view="view"/>
 
         <map-source-picker
-            v-if="hasSourcePicker && showSourcePicker"
+            v-if="hasSourcePicker && showSourcePicker && showSourcePickerFromPresets"
             :view="view"/>
 
         <download-image-signaling
-            v-if="showDownload && !videoMode"
+            v-if="showDownload && !videoMode && showDownloadButton"
             :view="view"/>
 
         <div
