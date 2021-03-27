@@ -8,7 +8,7 @@ library(showtext)
 library(dplyr)
 library(rtweet)
 
-project_path <- "/Users/jeroen/Documents/_work/innouveau/projects/innouveau/corona-map/dev/r"
+project_path <- "/Users/jeroenbreen/Documents/work/innouveau/projects/innouveau/corona-map/dev/r"
 
 source(paste0(project_path, "/src/variables.R"))
 source(paste0(project_path, "/src/environment.R"))
@@ -24,7 +24,7 @@ source(paste0(project_path, "/src/twitter/tweets/tweets.R"))
 
 
 # settings
-MODUS.tweet = T
+MODUS.tweet = F
 
 today = Sys.Date()
 data_rivm <- poll("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", today)
