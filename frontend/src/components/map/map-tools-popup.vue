@@ -84,11 +84,11 @@
             <signaling-system-picker
                 :view="view"/>
         </div>
-        <div
-            v-if="!isFreeSignalingSystem"
-            class="map-tools-popup__section">
-            <color-set-picker/>
-        </div>
+<!--        <div-->
+<!--            v-if="!isFreeSignalingSystem"-->
+<!--            class="map-tools-popup__section">-->
+<!--            <color-set-picker/>-->
+<!--        </div>-->
         <div class="map-tools-popup__section">
             <gradient-toggle/>
         </div>
