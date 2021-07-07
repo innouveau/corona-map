@@ -7,7 +7,7 @@ const standardPcrTestAdapter = {
 };
 
 const caseSettings = {
-    lateReporting: ['FR', 'BE', 'PL', 'SE']
+    lateReporting: ['FR', 'BE', 'PL', 'SE', 'UK']
 };
 
 const sewageDataUrl = 'https://raw.githubusercontent.com/innouveau/corona-map/master/frontend/public/data/sewage/sewage-measurements-netherlands.json';
