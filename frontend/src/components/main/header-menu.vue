@@ -59,7 +59,7 @@
                 return this.$store.state.languages.current;
             },
             dateString() {
-                return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'EE dd MMM', this.currentLanguage.iso_code)
+                return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'EE dd MMM yyyy', this.currentLanguage.iso_code)
             },
             offset() {
                 return this.view.offset;
