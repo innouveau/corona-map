@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 const csv = require('csv-parser');
 const fs = require('fs');
-const currentFile = '../../../public/data/maps/slovakia/positive-pcr-tests.csv';
+const currentFile = '../../../frontend/public/data/maps/slovakia/positive-pcr-tests.csv';
 const titleKey = 'Land/regio';
 let scrolled = false;
 
