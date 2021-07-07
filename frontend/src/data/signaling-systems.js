@@ -73,6 +73,84 @@ let signalingSystems = [
             }
         ]
     }, {
+        id: 7,
+        source: 'positiveTests',
+        title: 'ECDC 1-4%',
+        days: 14,
+        population: 100000,
+        thresholds: [
+            {
+                n: 0,
+                color: {
+                    regular: '#8DC63F'
+                }
+            }, {
+                n: 50,
+                color: {
+                    regular: '#8DC63F'
+                }
+            }, {
+                n: 75,
+                color: {
+                    regular: '#FDB913'
+                }
+            }, {
+                n: 200,
+                color: {
+                    regular: '#FDB913'
+                }
+            }, {
+                n: 500,
+                color: {
+                    regular: '#eb4034'
+                }
+            }, {
+                n: Infinity,
+                color: {
+                    regular: '#751f19'
+                }
+            }
+        ]
+    }, {
+        id: 8,
+        source: 'positiveTests',
+        title: 'ECDC >4%',
+        days: 14,
+        population: 100000,
+        thresholds: [
+            {
+                n: 0,
+                color: {
+                    regular: '#8DC63F'
+                }
+            }, {
+                n: 50,
+                color: {
+                    regular: '#FDB913'
+                }
+            }, {
+                n: 75,
+                color: {
+                    regular: '#FDB913'
+                }
+            }, {
+                n: 200,
+                color: {
+                    regular: '#eb4034'
+                }
+            }, {
+                n: 500,
+                color: {
+                    regular: '#eb4034'
+                }
+            }, {
+                n: Infinity,
+                color: {
+                    regular: '#751f19'
+                }
+            }
+        ]
+    }, {
         id: 2,
         source: 'positiveTests',
         title: 'Power of 2 per day',
