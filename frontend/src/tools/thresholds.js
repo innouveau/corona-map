@@ -2,16 +2,11 @@ import store from '@/store/store';
 import interpolate from "color-interpolate";
 import translateTool from '@/tools/translate';
 
-
-
-
-
 const getThreshold = function(cases, source) {
     let signalingSystem = store.getters['signalingSystems/getItemById'](source.signalingSystem_id);
     if (cases === null) {
         return null;
     } else {
-
         for (let threshold of signalingSystem.thresholds) {
             if ((cases < threshold.n) || (cases === 0 && threshold.n === 0)) {
                 return threshold;
@@ -46,7 +41,9 @@ const getNumber = function(threshold, source) {
 };
 
 const getNiceNumberForDays = function(days) {
-    if (days === 7) {
+    if (days === 14) {
+        return '14 days';
+    } else if (days === 7) {
         return 'week';
     } else if (days === 1) {
         return 'dag';
