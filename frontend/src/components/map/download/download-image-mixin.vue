@@ -45,10 +45,11 @@
         },
         methods: {
             getDateStringdashes(view) {
-                return this.getDateString(view).replace(/\s/g , "-").toLowerCase();
+                const date = this.getDateString(view).toLowerCase().replace(/\./g,'');
+                return date.replace(/\s/g , "-");
             },
             getDateString(view) {
-                return this.$store.getters['ui/getDateByOffset'](view.offset * this.currentMap.data.positivePcrTests.interval, 'EE d MMM', this.currentLanguage.iso_code);
+                return this.$store.getters['ui/getDateByOffset'](view.offset * this.currentMap.data.positivePcrTests.interval, 'EEEEEE d MMM yyyy', this.currentLanguage.iso_code);
             },
             prepair(width = this.width, height = this.height) {
                 this.canvas.id = 'image-for-download';
