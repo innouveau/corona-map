@@ -66,6 +66,22 @@
                     source = this.$store.getters['sources/getItemByProperty']('title', this.$route.query.source, true);
                     this.view.currentSource = source;
                 }
+                if (this.$route.query.signaling) {
+                    const signalingId= Number(this.$route.query.signaling);
+                    const signalingSystem = this.$store.getters['signalingSystems/getItemById'](signalingId);
+                    if (signalingSystem) {
+                        this.view.currentSource.signalingSystem_id = signalingSystem.id;
+                    }
+                }
+                if (this.$route.query.gradient) {
+                    if (this.$route.query.gradient === 'false') {
+                        this.$store.commit('settings/updateProperty', {key: 'gradient', value: false});
+                    }
+                }
+                if (this.$route.query.regiontype) {
+                    console.log(this.$route.query.regiontype);
+                    this.$store.commit('ui/updateProperty', {key: 'currentRegionType', value: this.$route.query.regiontype});
+                }
             },
             checkSource() {
                 if (!this.currentSource.loaded) {
