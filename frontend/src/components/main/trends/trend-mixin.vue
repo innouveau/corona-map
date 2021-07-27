@@ -41,14 +41,17 @@
             updateList() {
                 let score = [];
                 this.list = [];
-
                 for (let region of this.regions) {
                     let value = this.getValue(region);
+                    if (!isFinite(value)) {
+                        value = 0;
+                    }
                     score.push({
                         region, value
                     })
                 }
-                this.list = score.sort((a,b) => (a.value > b.value) ? -1 : ((b.value > a.value) ? 1 : 0)).slice(0, 10);
+                score.sort((a,b) => b.value - a.value)
+                this.list = score.slice(0, 10);
             }
         },
         mounted() {
