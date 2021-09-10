@@ -12,10 +12,12 @@
     import regionDetailsHead from "./region-details-head";
     import loader from "@/components/elements/loader";
     import regionDetailsNumbers from "./region-details-numbers";
+    import regionDetailsVaccination from "./vaccination/region-details-vaccination";
 
     export default {
         name: 'region-details',
         components: {
+            regionDetailsVaccination,
             regionDetailsNumbers,
             regionDetailsHead,
             administeredPcrTests,
@@ -88,6 +90,13 @@
             <region-details-head
                 :view="view"
                 :region="regionOfFocus"/>
+        </div>
+
+        <div
+            v-if="regionOfFocus.vaccination.length > 0"
+            class="region-details__section">
+            <region-details-vaccination
+                :vaccination="regionOfFocus.vaccination"/>
         </div>
 
         <div class="region-details__section">

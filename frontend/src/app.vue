@@ -241,18 +241,21 @@
             loadVaccination() {
                 $.getJSON(this.currentMap.data.vaccination.source, (response) => {
                     for (const entry of response) {
-                        const city = this.$store.getters['cities/getItemByProperty']('identifier', entry.Region_code, true);
-                        if (city) {
-                            city.vaccination.push(
-                                {
-                                    ageGroup: entry.Age_group,
-                                    vaccination_coverage_partly: Number(entry.Vaccination_coverage_partly),
-                                    vaccination_coverage_completed: Number(entry.Vaccination_coverage_completed),
-                                }
-                            )
-                        } else {
-                            // todo VR (veiligheidsregios)
-                            // console.log(entry);
+                        const data = {
+                            ageGroup: entry.Age_group,
+                            vaccination_coverage_partly: Number(entry.Vaccination_coverage_partly),
+                            vaccination_coverage_completed: Number(entry.Vaccination_coverage_completed),
+                        }
+                        if (entry.Region_code.indexOf('GM') > -1) {
+                            const city = this.$store.getters['cities/getItemByProperty']('identifier', entry.Region_code, true);
+                            if (city) {
+                                city.vaccination.push(data);
+                            }
+                        } else if (entry.Region_code.indexOf('VR') > -1) {
+                            const safetyRegion = this.$store.getters['safetyRegions/getItemByProperty']('safetyRegion_code', entry.Region_code, true);
+                            if (safetyRegion) {
+                                safetyRegion.vaccination.push(data);
+                            }
                         }
                     }
                 });
