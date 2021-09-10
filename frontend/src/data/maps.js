@@ -90,6 +90,13 @@ const maps = [
                     regionKey: 'Municipality_name'
                 }
             },
+            vaccination: {
+                status: true,
+                source: '/data/maps/nederland/vaccination.json',
+                adapter: {
+
+                }
+            },
             ageGroups: {
                 status: true,
                 source: 'data/maps/nederland/cities-population-agegroup.csv'

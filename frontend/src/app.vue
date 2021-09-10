@@ -220,6 +220,9 @@
                             if (this.currentMap.data.deceased.status) {
                                 this.addSource('deceased', 2);
                             }
+                            if (this.currentMap.data.vaccination.status) {
+                                this.loadVaccination();
+                            }
 
                             if (promises.length > 0) {
                                 Promise.all(promises.map(p => p()))
@@ -234,6 +237,25 @@
                             console.error(error);
                         });
                 })
+            },
+            loadVaccination() {
+                $.getJSON(this.currentMap.data.vaccination.source, (response) => {
+                    for (const entry of response) {
+                        const city = this.$store.getters['cities/getItemByProperty']('identifier', entry.Region_code, true);
+                        if (city) {
+                            city.vaccination.push(
+                                {
+                                    ageGroup: entry.Age_group,
+                                    vaccination_coverage_partly: Number(entry.Vaccination_coverage_partly),
+                                    vaccination_coverage_completed: Number(entry.Vaccination_coverage_completed),
+                                }
+                            )
+                        } else {
+                            // todo VR (veiligheidsregios)
+                            // console.log(entry);
+                        }
+                    }
+                });
             },
             loadStandard(subjectKey) {
                 // return new Promise((resolve, reject) => {
