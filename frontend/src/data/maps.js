@@ -252,7 +252,7 @@ const maps = [
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/europa/europa.json?version=3'
+                source: 'data/maps/europa/europa.json?version=4'
             },
             positivePcrTests: {
                 status: true,
