@@ -220,7 +220,7 @@
                             if (this.currentMap.data.deceased.status) {
                                 this.addSource('deceased', 2);
                             }
-                            if (this.currentMap.data.vaccination.status) {
+                            if (this.currentMap.data.vaccination && this.currentMap.data.vaccination.status) {
                                 this.loadVaccination();
                             }
 

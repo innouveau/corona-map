@@ -75,7 +75,14 @@
             },
             sourceIsPositiveTests() {
                 return this.view.currentSource.key === 'positiveTests'
-            }
+            },
+            safetyRegion() {
+                if (this.regionOfFocus.regionType === 'city' && this.regionOfFocus.safetyRegion_code !== '') {
+                    return store.getters['safetyRegions/getItemByProperty']('safetyRegion_code', this.regionOfFocus.safetyRegion_code, true);
+                } else {
+                    return null;
+                }
+            },
         },
         methods: {}
     }
@@ -93,10 +100,11 @@
         </div>
 
         <div
-            v-if="regionOfFocus.vaccination.length > 0"
+            v-if="regionOfFocus.vaccination && regionOfFocus.vaccination.length > 0"
             class="region-details__section">
             <region-details-vaccination
-                :vaccination="regionOfFocus.vaccination"/>
+                :region="regionOfFocus"
+                :reference="safetyRegion"/>
         </div>
 
         <div class="region-details__section">

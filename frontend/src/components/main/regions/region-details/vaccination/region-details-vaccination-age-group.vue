@@ -6,12 +6,20 @@
             ageGroup: {
                 type: Object,
                 required: true
+            },
+            reference: {
+                type: Object | null,
+                required: true
             }
         },
         computed: {
 
         },
-        methods: {}
+        methods: {
+            isN(n) {
+                return !isNaN(n);
+            }
+        }
     }
 </script>
 
@@ -23,11 +31,21 @@
         </div>
         <div class="region-details-vaccination-age-group__container">
             <div
+                v-if="isN(ageGroup.vaccination_coverage_partly)"
                 :style="{'width': ageGroup.vaccination_coverage_partly + '%'}"
-                class="region-details-vaccination-age-group__bar-partly"/>
+                class="region-details-vaccination-age-group__bar region-details-vaccination-age-group__bar-partly">
+                {{ageGroup.vaccination_coverage_partly}}%
+            </div>
             <div
+                v-if="isN(ageGroup.vaccination_coverage_completed)"
                 :style="{'width': ageGroup.vaccination_coverage_completed + '%'}"
-                class="region-details-vaccination-age-group__bar-fully"/>
+                class="region-details-vaccination-age-group__bar region-details-vaccination-age-group__bar-fully">
+                {{ageGroup.vaccination_coverage_completed}}%
+            </div>
+            <div
+                v-if="reference && isN(reference.vaccination_coverage_completed)"
+                :style="{'left': reference.vaccination_coverage_completed + '%'}"
+                class="region-details-vaccination-age-group__reference"/>
         </div>
     </div>
 </template>
@@ -40,7 +58,7 @@
         display: flex;
         height: 12px;
         font-size: 12px;
-        margin-bottom: 1px;
+        margin-bottom: 6px;
 
         &__label {
             width: 60px;
@@ -56,20 +74,36 @@
             background: #ddd;
         }
 
-        &__bar-partly {
+        &__bar {
             position: absolute;
             left: 0;
             top: 0;
             height: 100%;
-            background: #2351a1;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 3px;
+            align-items: center;
+            color: #fff;
+            font-size: 9px;
+        }
+
+        &__bar-partly {
+            background: #aaa;
         }
 
         &__bar-fully {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
             background: #2d70e3;
+        }
+
+        &__reference {
+            position: absolute;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 4px solid #000;
+            transform: translate(-2px);
         }
     }
 </style>
