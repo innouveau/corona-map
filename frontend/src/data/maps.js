@@ -314,7 +314,7 @@ const maps = [
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/world/world.json?version=4'
+                source: 'data/maps/world/world.json?version=5'
             },
             positivePcrTests: {
                 status: true,
