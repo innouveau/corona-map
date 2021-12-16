@@ -251,7 +251,7 @@ const maps = [
                 ratio: 1.04
             },
             positiveTestGraph: {
-                zoomFactor: 1
+                zoomFactor: 0.2
             },
             excludeRegions: [],
             caseSettings: caseSettings
@@ -309,7 +309,10 @@ const maps = [
                 // ratio: 1.6,
                 zoom: 1.1,
                 ratio: 2
-            }
+            },
+            positiveTestGraph: {
+                zoomFactor: 0.2
+            },
         },
         data: {
             geo: {
