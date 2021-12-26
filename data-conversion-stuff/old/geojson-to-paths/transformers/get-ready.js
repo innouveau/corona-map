@@ -1,4 +1,4 @@
-$.getJSON('europa.json', function( data ) {
+w$.getJSON('europa.json', function( data ) {
     let regions = [];
     let keys = ['FI', 'SE', "UK", "NO", "IT"];
     for (let item of data) {
