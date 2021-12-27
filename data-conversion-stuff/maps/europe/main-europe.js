@@ -14,7 +14,8 @@ const settings = {
 
 const countriesWithNuts2Regions = [
     'NL', 'BE', 'DE', 'FR', 'LU', 'CH', 'AT', 'AD', 'LI', 'CZ', 'IT', 'NO', 'SE', 'FI', 'DK',
-    'RO', 'SK', 'AL', 'UK'
+    'RO', 'SK', 'AL', 'UK',
+    // 'ES'
 ];
 
 // if you want a country to be found, ad its NUTS_ID in the population.csv table
@@ -77,9 +78,6 @@ const addProperties = (populationData, region, item) => {
     region.title = item.properties[settings.titleKey];
     region.identifier = item.properties[settings.titleKey];
     const sourceOfInfo = getRegionByNuts(populationData.population, item.id);
-    if (region.title === 'Spain') {
-        console.log(item.id);
-    }
     if (!sourceOfInfo) {
         return false;
     } else {
