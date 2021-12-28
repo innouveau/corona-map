@@ -6,9 +6,9 @@ const settings = {
     printArrayBrackets: true,
     scaleDownPaths: true,
     removeSmallIslands: true,
-    maxIslands: 16,
+    maxIslands: 48,
     addPathsIfExists: true,
-    threshold: 0.04 // smaller is more detail
+    threshold: 0.005 // smaller is more detail
     //threshold: 0.005 // 0.005 for south america
 };
 let currentSource = sources[0];
