@@ -539,7 +539,65 @@ const maps = [
                 source: ''
             }
         }
-    }
+    },
+    {
+        id: 14,
+        regionType: 'District',
+        module: 'districts',
+        title: 'South-East Asia',
+        ready: true,
+        block: false,
+        settings: {
+            regionTypes: ['district'],
+            pathOrigins: [],
+            generalInfoHasPopulation: true,
+            map: {
+                projection: 'robinson',
+                shiftY: -5,
+                shiftX: -5,
+                // ratio: 1.6,
+                zoom: 1.1,
+                ratio: 2
+            },
+            positiveTestGraph: {
+                zoomFactor: 0.2
+            },
+        },
+        data: {
+            geo: {
+                status: true,
+                source: 'data/maps/world/world.json?version=5'
+            },
+            positivePcrTests: {
+                status: true,
+                source: casesUrl,
+                interval: 1,
+                cumulative: true,
+                adapter: standardPcrTestAdapter
+            },
+            positiveAntigenTests: {
+                status: false
+            },
+            hospitalisations: {
+                status: false
+            },
+            deceased: {
+                status: false
+            },
+            administeredPcrTests: {
+                status: false,
+                source: ''
+            },
+            ageGroups: {
+                status: false,
+                source: ''
+            },
+            sewageMeasurements: {
+                status: false,
+                source: ''
+            }
+        }
+    },
 ];
 
 export default maps;
