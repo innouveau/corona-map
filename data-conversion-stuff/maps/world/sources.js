@@ -1,7 +1,8 @@
 const sourcesSouthEastAsia = [
     'china',
     'russia',
-    'india'
+    'india',
+    'asia'
 ]
 
 const sourcesWorld = [

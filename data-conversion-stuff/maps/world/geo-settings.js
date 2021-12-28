@@ -188,6 +188,31 @@ window.geoSettings = {
             'Vanuatu', 'Wallis and Futuna', 'Akrotiri Sovereign Base Area'],
         include: ['North Korea', 'Turkmenistan', 'Lesotho']
     },
+    asia: {
+        geo: 'data/world/geo.json',
+        titleKey: 'ADMIN',
+        getNutsKey: function(item) {
+            return '';
+        },
+        getRegion: function(item, title) {
+            for (let key in populationDict) {
+                let region = populationDict[key];
+                if (title.toLowerCase() === 'iran' && region.region.toLowerCase() === 'iran') {
+                    return region;
+                } else {
+                    if (title.toLowerCase() !== 'iran' && region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                        return region;
+                    }
+                }
+            }
+            return null;
+        },
+        addCountryCode: null,
+        exclude: ['*'],
+        include: ['North Korea', 'Japan', 'Mongolia', 'Bangladesh', 'Kazakhstan', 'Taiwan', 'Thailand', 'Cambodia', 'Vietnam', 'Indonesia',
+            'Sri Lanka', 'Nepal', 'Burma', 'Laos', 'Philippines', 'Papua New Guinea', 'Bhutan', 'Pakistan', 'Korea', 'Kyrgyzstan', 'Tajikistan',
+            'Afghanistan', 'Uzbekistan']
+    },
     chile: {
         geo: 'data/chile/geo.json',
         titleKey: 'name',

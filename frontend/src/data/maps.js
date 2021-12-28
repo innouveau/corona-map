@@ -552,12 +552,11 @@ const maps = [
             pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
-                projection: 'robinson',
-                shiftY: -5,
-                shiftX: -5,
-                // ratio: 1.6,
-                zoom: 1.1,
-                ratio: 2
+                latitude: 18,
+                longitude: 110,
+                stretch: 0.8,
+                zoom: 0.017,
+                ratio: 1.2
             },
             positiveTestGraph: {
                 zoomFactor: 0.2
@@ -566,7 +565,7 @@ const maps = [
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/world/world.json?version=5'
+                source: 'data/maps/south-east-asia/south-east-asia.json?version=1'
             },
             positivePcrTests: {
                 status: true,

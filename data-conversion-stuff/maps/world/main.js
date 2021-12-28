@@ -34,9 +34,15 @@ const finish = function() {
     console.log(string);
 };
 
-const shouldExclude = function (title) {
-    return geoSettings[currentSource].exclude.indexOf(title.toLowerCase()) > -1 ||
-        geoSettings[currentSource].exclude.indexOf(title) > -1
+const shouldInclude = function (title) {
+    const exclude = geoSettings[currentSource].exclude.map(i => i.toLowerCase());
+    const include = geoSettings[currentSource].include.map(i => i.toLowerCase());
+    if (exclude[0] === '*') {
+        // we exclude all except the set in include
+        return include.indexOf(title.toLowerCase()) > -1;
+    } else {
+        return exclude.indexOf(title.toLowerCase()) === -1;
+    }
 };
 
 
@@ -98,7 +104,7 @@ const handleRegionNotReady = (data) => {
 
 
 
-        if (!shouldExclude(title)) {
+        if (shouldInclude(title)) {
 
             let dictRegion = geoSettings[currentSource].getRegion(item, title);
             if (!dictRegion) {
