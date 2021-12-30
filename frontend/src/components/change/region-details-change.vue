@@ -51,10 +51,10 @@
                 return this.region.hasLateReporting && this.region.getLatestReporting(this.view.offset) > this.view.offset;
             },
             getTotalRelativeIncreaseWeek() {
-                return this.regionOfFocus.getIncreaseOfType(this.view.offset, 7, 'positiveTests', true);
+                return this.regionOfFocus.getTotalIncreaseOfType(this.view.offset, 7, 'positiveTests', true);
             },
             getTotalRelativeIncreasePreviousWeek() {
-                return this.regionOfFocus.getIncreaseOfType((this.view.offset + 7), 7, 'positiveTests', true);
+                return this.regionOfFocus.getTotalIncreaseOfType((this.view.offset + 7), 7, 'positiveTests', true);
             }
         },
         methods: {

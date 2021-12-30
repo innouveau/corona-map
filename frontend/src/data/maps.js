@@ -565,7 +565,7 @@ const maps = [
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/south-east-asia/south-east-asia.json?version=1'
+                source: 'data/maps/south-east-asia/south-east-asia.json?version=2'
             },
             positivePcrTests: {
                 status: true,

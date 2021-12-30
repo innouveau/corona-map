@@ -102,8 +102,6 @@ const handleRegionNotReady = (data) => {
         region.identifier = item.properties[titleKey];
         title = item.properties[titleKey];
 
-
-
         if (shouldInclude(title)) {
 
             let dictRegion = geoSettings[currentSource].getRegion(item, title);

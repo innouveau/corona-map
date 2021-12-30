@@ -15,13 +15,13 @@ const settings = {
 const countriesWithNuts2Regions = [
     'NL', 'BE', 'DE', 'FR', 'LU', 'CH', 'AT', 'AD', 'LI', 'CZ', 'IT', 'NO', 'SE', 'FI', 'DK',
     'RO', 'SK', 'AL', 'UK',
-    // 'ES'
+    'ES',
 ];
 
 // if you want a country to be found, ad its NUTS_ID in the population.csv table
 const countriesAsAWhole = [
     'PT',
-    'ES',
+    // 'ES',
     'PL',
     'IS',
     'EE',

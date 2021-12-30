@@ -200,7 +200,7 @@ window.geoSettings = {
                 if (title.toLowerCase() === 'iran' && region.region.toLowerCase() === 'iran') {
                     return region;
                 } else {
-                    if (title.toLowerCase() !== 'iran' && region.region.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+                    if (title.toLowerCase() !== 'iran' && region.region.toLowerCase() === title.toLowerCase()) {
                         return region;
                     }
                 }
@@ -210,8 +210,8 @@ window.geoSettings = {
         addCountryCode: null,
         exclude: ['*'],
         include: ['North Korea', 'Japan', 'Mongolia', 'Bangladesh', 'Kazakhstan', 'Taiwan', 'Thailand', 'Cambodia', 'Vietnam', 'Indonesia',
-            'Sri Lanka', 'Nepal', 'Burma', 'Laos', 'Philippines', 'Papua New Guinea', 'Bhutan', 'Pakistan', 'Korea', 'Kyrgyzstan', 'Tajikistan',
-            'Afghanistan', 'Uzbekistan']
+            'Sri Lanka', 'Nepal', 'Burma', 'Laos', 'Philippines', 'Papua New Guinea', 'Bhutan', 'Pakistan', 'Korea South', 'Kyrgyzstan', 'Tajikistan',
+            'Afghanistan', 'Uzbekistan', 'India']
     },
     chile: {
         geo: 'data/chile/geo.json',
