@@ -6,6 +6,7 @@ import sewage from '@/components/sewage/sewage'
 import compare from '@/components/compare/compare'
 import timeLine from '@/components/time-line/time-line'
 import change from '@/components/change/change'
+import cumulative from '@/components/_pages/cumulative/cumulative'
 import story from '@/components/story/story'
 import populationTest from '@/components/population-test/population-test'
 import exportPage from '@/components/export/export'
@@ -39,6 +40,10 @@ const routes = [
         path: "/change",
         name: "change",
         component: change,
+    }, {
+        path: "/cumulative",
+        name: "cumulative",
+        component: cumulative,
     }, {
         path: "/story",
         name: "story",

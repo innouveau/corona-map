@@ -9,7 +9,7 @@
     import MapLabels from "./map-labels/map-labels";
     import regionTypePicker from "../main/regions/region-type/region-type-picker";
     import mapSourcePicker from "../main/map-source-picker";
-    import mapMixin from "./map-mixin";
+    import mapMixin from "./map-mixin.js";
 
 
     export default {
@@ -98,12 +98,6 @@
             videoMode() {
                 return this.$store.state.ui.videoMode;
             },
-            showDownloadButton() {
-                return this.$store.state.ui.presets !== 'radio1';
-            },
-            showSourcePickerFromPresets() {
-                return this.$store.state.ui.presets !== 'radio1';
-            }
         },
         methods: {
             init() {
@@ -211,7 +205,7 @@
                     zoom: this.$store.state.settings.zoom,
                     fill: true
                 };
-                canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view.offset);
+                canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view);
             },
             clear() {
                 this.ctx.clearRect(0, 0, this.width, this.height);
@@ -274,11 +268,11 @@
             :view="view"/>
 
         <map-source-picker
-            v-if="hasSourcePicker && showSourcePicker && showSourcePickerFromPresets"
+            v-if="hasSourcePicker && showSourcePicker"
             :view="view"/>
 
         <download-image-signaling
-            v-if="showDownload && !videoMode && showDownloadButton"
+            v-if="showDownload && !videoMode"
             :view="view"/>
 
         <div

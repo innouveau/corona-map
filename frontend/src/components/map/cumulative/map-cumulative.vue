@@ -1,30 +1,23 @@
 <script>
-    import mapMixin from './map-mixin.js'
-    import canvasTools from '@/tools/canvas';
-    import pointerCanvas from "./pointer-canvas";
-    import ChangeLegend from "./map-legend/change-legend";
-    import downloadImageChange from "./download/download-image-change";
+    import mapMixin from './../map-mixin.js'
+    import pointerCanvas from "./../pointer-canvas";
     import regionTypePicker from "@/components/main/regions/region-type/region-type-picker";
+    import canvasTools from '@/tools/canvas';
+    import MapSourcePicker from "../../main/map-source-picker";
 
     export default {
-        name: 'map-change',
+        name: 'map-cumulative',
         components: {
-            downloadImageChange,
-            ChangeLegend,
+            MapSourcePicker,
             pointerCanvas,
             regionTypePicker
         },
         mixins: [mapMixin],
         props: {},
         data() {
-            let id = Math.round(Math.random() * 1000000);
+            const id = Math.round(Math.random() * 1000000);
             return {
                 id,
-            }
-        },
-        computed: {
-            hasSourcePicker() {
-                return false;
             }
         },
         methods: {
@@ -39,25 +32,24 @@
                     zoom: this.$store.state.settings.zoom,
                     fill: true
                 };
-                canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view, 'change');
-            },
+                canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view, 'cumulative');
+            }
         }
     }
 </script>
 
 
 <template>
-    <div class="map-change map">
+    <div class="map-cumulative map">
         <canvas :id="'canvas-' + id"></canvas>
         <pointer-canvas
             :view="view"
             :width="width"
             :height="height"/>
 
-        <download-image-change
+        <map-source-picker
+            v-if="hasSourcePicker"
             :view="view"/>
-
-        <change-legend/>
 
         <region-type-picker
             v-if="hasRegionTypePicker"
@@ -69,7 +61,7 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .map-change {
+    .map-cumulative {
 
     }
 </style>

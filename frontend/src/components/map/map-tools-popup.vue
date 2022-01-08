@@ -58,7 +58,7 @@
                 };
 
                 const draw = () => {
-                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings(), this.$parent.view.offset, 'signaling', false);
+                    canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.getSettings(), this.$parent.view, 'signaling', false);
                     this.finish('frame-' + index).then(()=>{
                         if (this.$parent.view.offset > 0) {
                             this.$parent.view.offset--;

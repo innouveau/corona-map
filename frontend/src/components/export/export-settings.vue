@@ -36,7 +36,7 @@
                 let fileName = 'custom-export-' + this.currentMap.title + '-' + this.getDateStringdashes(this.view);
                 this.prepair(this.settings.canvasWidth, this.settings.canvasHeight);
                 this.addLegend('signaling', true, 1.5, 1.55);
-                canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.downloadSettings, this.view.offset, 'signaling');
+                canvasTools.draw(this.ctx, this.view.currentSource, this.regions, this.downloadSettings, this.view, 'signaling');
                 this.finish(fileName);
             },
         }

@@ -42,8 +42,8 @@
                     let text = this.getDateString(this.view1) + ' - ' + this.getDateString(this.view2);
                     this.addCustomText(text,0.48, 0.12);
                     this.addLegend('signaling', true, 0.03, 0.18, this.view1.currentSource);
-                    canvasTools.draw(this.ctx, this.view1.currentSource, this.regions, this.getSettings(0), this.view1.offset, this.mapType);
-                    canvasTools.draw(this.ctx, this.view2.currentSource, this.regions, this.getSettings(1), this.view2.offset, this.mapType);
+                    canvasTools.draw(this.ctx, this.view1.currentSource, this.regions, this.getSettings(0), this.view1, this.mapType);
+                    canvasTools.draw(this.ctx, this.view2.currentSource, this.regions, this.getSettings(1), this.view2, this.mapType);
                     this.addCreator();
                     this.finish();
                 });

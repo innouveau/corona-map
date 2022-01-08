@@ -35,7 +35,7 @@
                 this.addHead().then(() => {
                     this.addDate(this.views[0], 0.48, 0.12, false);
                     for (let i = 0; i < 3; i++) {
-                        canvasTools.draw(this.ctx, this.views[i].currentSource, this.regions, this.getSettings(i), this.views[i].offset, 'signaling');
+                        canvasTools.draw(this.ctx, this.views[i].currentSource, this.regions, this.getSettings(i), this.views[i], 'signaling');
                         this.addLegend('signaling', true, ((i/3) + 0.03), 0.18, this.views[i].currentSource);
                     }
                     this.addCreator();

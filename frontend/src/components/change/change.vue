@@ -79,7 +79,6 @@
 
                 <div class="standard-view-map__tools">
                     <time-slider
-                        v-if="true"
                         :view="view"/>
                 </div>
             </div>

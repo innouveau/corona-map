@@ -1,33 +1,22 @@
 <script>
-    import headerMenu from "./header-menu";
-    import trends from "./trends/trends";
-    import regionDetails from "./regions/region-details/region-details";
-    import embedPopup from "./embed/embed-popup";
+    import headerMenu from "./../main/header-menu";
     import View from "@/classes/View";
     import query from '@/components/elements/query'
     import dateTools from '@/tools/date';
-    import mainViewMap from "./main-view-map";
     import sourceTools from "@/tools/source";
 
     export default {
-        name: 'standard-view',
+        name: 'page',
         components: {
-            mainViewMap,
-            embedPopup,
-            trends,
             headerMenu,
-            regionDetails
         },
-        props: {},
-        mixins: [query],
-        data() {
-            return {
-                view: new View({
-                    id: 1,
-                    currentSource: this.$store.state.sources.all[0]
-                })
+        props: {
+            view: {
+                type: View,
+                required: true
             }
         },
+        mixins: [query],
         computed: {
             showEmbedPopup() {
                 return this.$store.state.ui.embedPopup;
@@ -108,34 +97,32 @@
             :editable="true"/>
 
         <div class="content">
+            <div class="page__map standard-view-map">
+                <slot v-if="isLoaded" name="map" />
 
-            <main-view-map
-                v-if="isLoaded"
-                :view="view"/>
+                <div v-else>
+                    Loading {{translate(currentSource.title)}}...
+                </div>
 
-            <div
-                v-else
-                class="standard-view-map standard-view-map__placeholder">
-                Loading {{translate(currentSource.title)}}...
+                <div class="map-tools">
+                    <slot name="tools" />
+                </div>
             </div>
 
-            <region-details
-                v-if="currentRegion && isLoaded"
-                :view="view"
-                :region="currentRegion"/>
-
-            <div
-                v-else
-                class="region-details region-details--mobile">
-                Kies eerst een gemeente op de kaart.
+            <div class="page__details">
+                <slot
+                    v-if="currentRegion && isLoaded"
+                    name="details" />
             </div>
 
-            <trends
-                v-if="isLoaded"
-                :view="view"/>
+            <div class="page__trends">
+                <slot v-if="isLoaded" name="trends" />
+
+                <div v-else>
+                    Kies eerst een gemeente op de kaart.
+                </div>
+            </div>
         </div>
-
-        <embed-popup v-if="showEmbedPopup"/>
     </div>
 </template>
 
@@ -150,23 +137,39 @@
             display: flex;
             height: calc(100% - 48px);
 
-            .standard-view-map {
+            .page__map {
                 width: calc(100% - 750px);
+                background: $map-color;
+                position: relative;
+                padding: 16px;
+
+                .map {
+                    height: calc(100% - 82px);
+                }
+
+                .map_tools {
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+
+                    .time-slider, .time-slider-range {
+                        width: calc(100% - 34px);
+                    }
+
+                    .embed-button {
+                        margin-left: 8px;
+                    }
+                }
             }
 
-            .standard-view-map__placeholder {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .trends {
+            .page__trends {
                 width: 300px;
+                padding: 16px;
             }
 
-            .region-details {
-                // 5 * 70 + 32 + scrollbar + 50
+            .page__details {
                 width: 450px;
+                padding: 16px;
             }
 
             .region-details--mobile {
