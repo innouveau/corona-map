@@ -8,7 +8,6 @@ import change from '@/components/_pages/change/change'
 import cumulative from '@/components/_pages/cumulative/cumulative'
 import story from '@/components/story/story'
 import populationTest from '@/components/population-test/population-test'
-import exportPage from '@/components/export/export'
 import weekStats from '@/components/population-test/population-week-stats'
 
 Vue.use(Router);
@@ -50,10 +49,6 @@ const routes = [
         path: "/speed-test",
         name: "populationTest",
         component: populationTest,
-    }, {
-        path: "/export",
-        name: "exportPage",
-        component: exportPage,
     }, {
         path: "/week-stats",
         name: "weekStats",
