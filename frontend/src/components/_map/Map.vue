@@ -2,7 +2,6 @@
     import canvasTools from '@/tools/canvas';
     import pointerCanvas from "@/components/map/pointer-canvas";
     import mapToolsPopup from "@/components/map/map-tools-popup";
-    import mapLegend from "@/components/_map/legend/map-legend";
     import View from "@/classes/View";
     import $ from 'jquery';
     import MapLabels from "@/components/map/map-labels/map-labels";
@@ -16,7 +15,6 @@
         components: {
             searchRegions,
             MapLabels,
-            mapLegend,
             mapToolsPopup,
             pointerCanvas,
             regionTypePicker,
@@ -24,11 +22,6 @@
         },
         props: {
             showTools: {
-                type: Boolean,
-                required: false,
-                default: true
-            },
-            showLegend: {
                 type: Boolean,
                 required: false,
                 default: true
@@ -275,9 +268,7 @@
                 :width="width"
                 :height="height"/>
 
-            <map-legend
-                v-if="showLegend"
-                :view="view"/>
+            <slot name="legend" />
 
             <region-type-picker
                 v-if="hasRegionTypePicker"
@@ -312,7 +303,7 @@
         </div>
 
         <div class="Map__tools">
-            <slot />
+            <slot name="tools" />
         </div>
     </div>
 </template>

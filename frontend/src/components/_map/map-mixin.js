@@ -9,10 +9,6 @@ export default {
             type: Boolean,
             required: true
         },
-        showLegend: {
-            type: Boolean,
-            required: true
-        },
         view: {
             type: View,
             required: true

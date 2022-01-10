@@ -1,66 +1,68 @@
 <script>
-    import View from "@/classes/View";
-    import page from "@/components/_pages/page";
-    import Map from "@/components/_map/Map";
-    import { downloadImage } from "@/tools/download";
-    import timeSlider from "@/components/view/time-slider";
-    import embedButton from "./embed/embed-button";
-    import RegionDetails from "./details/region-details";
-    import Trends from "./trends/trends";
+import View from "@/classes/View";
+import page from "@/components/_pages/page";
+import Map from "@/components/_map/Map";
+import { downloadImage } from "@/tools/download";
+import timeSlider from "@/components/view/time-slider";
+import embedButton from "./embed/embed-button";
+import RegionDetails from "./details/region-details";
+import Trends from "./trends/trends";
+import mapLegend from "@/components/_map/legend/map-legend";
 
-    export default {
-        name: 'main-page',
-        components: {
-            Trends,
-            RegionDetails,
-            page,
-            Map,
-            timeSlider,
-            embedButton,
+export default {
+    name: 'main-page',
+    components: {
+        Trends,
+        RegionDetails,
+        page,
+        Map,
+        mapLegend,
+        timeSlider,
+        embedButton,
+    },
+    props: {},
+    data() {
+        return {
+            initialised: false,
+            view: new View({id: 1, offsetStart: this.$store.state.settings.historyLength})
+        }
+    },
+    computed: {
+        currentRegion() {
+            return this.view.currentRegion;
         },
-        props: {},
-        data() {
-            return {
-                initialised: false,
-                view: new View({id: 1, offsetStart: this.$store.state.settings.historyLength})
-            }
+        showMap() {
+            return this.$store.state.ui.menu === 'map';
         },
-        computed: {
-            currentRegion() {
-                return this.view.currentRegion;
-            },
-            showMap() {
-                return this.$store.state.ui.menu === 'map';
-            },
-            currentSource() {
-                return this.view.currentSource;
-            },
-            showEmbedButton() {
-                return this.$store.state.ui.presets !== 'radio1';
-            }
+        currentSource() {
+            return this.view.currentSource;
         },
-        methods: {
-            init(){
-                // this does render all other components
-                // 1 callstack before the map, so there is
-                // already a feeling something is there to see
-                setTimeout(() => {
-                    this.initialised = true;
-                })
-            },
-            download(payload) {
-                downloadImage("signaling", payload);
-            }
+        showEmbedButton() {
+            return this.$store.state.ui.presets !== 'radio1';
+        }
+    },
+    methods: {
+        init(){
+            // this does render all other components
+            // 1 callstack before the map, so there is
+            // already a feeling something is there to see
+            setTimeout(() => {
+                this.initialised = true;
+            })
         },
-        mounted() {
-            this.init();
-        },
-        watch: {
-            currentSource: function () {
-                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
-            }
+        download(payload) {
+            downloadImage("signaling", payload);
+        }
+    },
+    mounted() {
+        this.init();
+    },
+    watch: {
+        currentSource: function () {
+            this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
         }
     }
+}
 </script>
 
 
@@ -71,10 +73,14 @@
                 v-if="initialised"
                 @download="download"
                 :view="view">
-                <slot>
+                <template v-slot:legend>
+                    <map-legend :view="view"/>
+                </template>
+
+                <template v-slot:tools>
                     <time-slider :view="view"/>
                     <embed-button />
-                </slot>
+                </template>
             </Map>
         </template>
 
