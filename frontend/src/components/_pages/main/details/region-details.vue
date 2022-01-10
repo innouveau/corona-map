@@ -8,7 +8,7 @@
     import ageDistributionGraph from "./case-characteristics/age-distribution-graph";
     import ageDistributionGraphNormalised from "./case-characteristics/age-distribution-graph-normalised/age-distribution-graph-normalised";
     import ageDistributionTools from "./case-characteristics/age-distribution-graph-normalised/age-distribution-tools";
-    import regionRelations from "./../region-type/region-relations";
+    import regionRelations from "@/components/_map/region-type/region-relations";
     import regionDetailsHead from "./region-details-head";
     import loader from "@/components/elements/loader";
     import regionDetailsNumbers from "./region-details-numbers";

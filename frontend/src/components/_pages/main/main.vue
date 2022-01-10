@@ -5,10 +5,12 @@
     import { downloadImage } from "@/tools/download";
     import timeSlider from "@/components/view/time-slider";
     import embedButton from "./embed/embed-button";
+    import RegionDetails from "./details/region-details";
 
     export default {
         name: 'main-page',
         components: {
+            RegionDetails,
             page,
             Map,
             timeSlider,
@@ -22,6 +24,9 @@
             }
         },
         computed: {
+            currentRegion() {
+                return this.view.currentRegion;
+            },
             showMap() {
                 return this.$store.state.ui.menu === 'map';
             },
@@ -72,7 +77,9 @@
         </template>
 
         <template v-slot:details>
-            Details
+            <region-details
+                :view="view"
+                :region="currentRegion" />
         </template>
 
         <template v-slot:trends>
