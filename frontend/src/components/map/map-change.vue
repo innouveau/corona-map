@@ -3,13 +3,11 @@
     import canvasTools from '@/tools/canvas';
     import pointerCanvas from "./pointer-canvas";
     import ChangeLegend from "@/components/_map/legend/change-legend";
-    import downloadImageChange from "./download/download-image-change";
     import regionTypePicker from "@/components/_map/region-type/region-type-picker";
 
     export default {
         name: 'map-change',
         components: {
-            downloadImageChange,
             ChangeLegend,
             pointerCanvas,
             regionTypePicker
@@ -54,8 +52,8 @@
             :width="width"
             :height="height"/>
 
-        <download-image-change
-            :view="view"/>
+<!--        <download-image-change-->
+<!--            :view="view"/>-->
 
         <change-legend/>
 

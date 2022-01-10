@@ -4,13 +4,10 @@
     import MapSignaling from "@/components/_map/Map";
     import HeaderMenu from "@/components/_pages/header/header-menu";
     import ViewTools from "../view/view-tools";
-    import DownloadImageHospitalisations
-        from "../map/download/download-hospitalisations";
 
     export default {
         name: 'hospitalisations',
         components: {
-            DownloadImageHospitalisations,
             ViewTools,
             HeaderMenu,
             MapSignaling,
@@ -68,8 +65,8 @@
             </div>
         </div>
 
-        <download-image-hospitalisations
-            :views="views"/>
+<!--        <download-image-hospitalisations-->
+<!--            :views="views"/>-->
     </div>
 </template>
 

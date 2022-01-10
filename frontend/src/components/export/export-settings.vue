@@ -1,5 +1,5 @@
 <script>
-    import downloadImageMixin from '@/components/map/download/download-image-mixin';
+    import downloadImageMixin from '@/components/_old/download/download-image-mixin';
     import canvasTools from '@/tools/canvas';
     import View from "@/classes/View";
 
