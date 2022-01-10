@@ -1,4 +1,4 @@
-import interpolate from "color-interpolate";
+import { getShadeOfColor } from "./color";
 
 const margin = 0.05;
 const max = Math.sqrt(1);
@@ -42,12 +42,10 @@ const getColorForChange = function(change) {
     factor = getFactorForChange(change);
     if (factor > margin) {
         ratio = Math.min(((factor - margin) / (max - margin)), 1);
-        colormap = interpolate([neutralColor, upColor]);
-        return colormap(ratio);
+        return getShadeOfColor(neutralColor, upColor, ratio);
     } else if (factor < -margin) {
         ratio = Math.min(((factor + margin) / (-max + margin)), 1);
-        colormap = interpolate([neutralColor, downColor]);
-        return colormap(ratio);
+        return getShadeOfColor(neutralColor, downColor, ratio);
     } else {
         return neutralColor;
     }

@@ -2,7 +2,8 @@ import store from '@/store/store';
 import changeTools from '@/tools/change';
 import { getIncreaseOfType } from "@/tools/calculator";
 import { getShadeOfColor } from "@/tools/color";
-import region from "../components/_pages/main/trends/region";
+import { CUMULATIVE_COLOR_SCALE } from "@/data/constants";
+import interpolate from "color-interpolate";
 
 const addBackground = function(ctx, width, height) {
     ctx.rect(0, 0, width, height);
@@ -25,10 +26,27 @@ const draw = function(ctx, source, regionContainers, settings, view, mapType = '
 };
 
 const normalise = (regions) => {
+    let total = 0;
     const max = Math.max(...regions.map(i => i.result.value), 0);
+    const min = Math.min(...regions.map(i => i.result.value), max);
+    const range = (max - min) / 2;
     for (const region of regions) {
-        const shade = Math.round(10 * region.result.value / max) / 10;
-        region.result.color = getShadeOfColor('000', Math.min(shade, 1))
+        total += region.result.value;
+    }
+    const average = total / regions.length;
+    for (const region of regions) {
+        let ratio, range;
+        const value = region.result.value;
+        const offset = Math.abs(value - average);
+        if (value > average) {
+            range = max - average;
+            ratio = offset / range;
+            region.result.color = getShadeOfColor(CUMULATIVE_COLOR_SCALE[1], CUMULATIVE_COLOR_SCALE[2], ratio);
+        } else {
+            range = average - min;
+            ratio = offset / range;
+            region.result.color = getShadeOfColor(CUMULATIVE_COLOR_SCALE[1], CUMULATIVE_COLOR_SCALE[0], ratio);
+        }
     }
 }
 
@@ -61,7 +79,7 @@ const getValue = function(parent, mapType, view, source) {
             const shade = Math.round(10 * increase / max) / 10;
             return {
                 value: increase,
-                color: getShadeOfColor('000', Math.min(shade, 1))
+                color: null
             }
         default:
             return {
