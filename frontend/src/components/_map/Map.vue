@@ -7,7 +7,6 @@
     import MapLabels from "@/components/map/map-labels/map-labels";
     import regionTypePicker from "@/components/_map/region-type/region-type-picker";
     import mapSourcePicker from "@/components/_map/source/map-source-picker";
-    import mapMixin from "./map-mixin.js";
     import searchRegions from "./search/search-regions";
 
     export default {
@@ -52,7 +51,6 @@
                 default: true
             },
         },
-        mixins: [mapMixin],
         data() {
             let id = Math.round(Math.random() * 1000000);
             return {
@@ -96,6 +94,15 @@
             videoMode() {
                 return this.$store.state.ui.videoMode;
             },
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
+            hasRegionTypePicker() {
+                return this.currentMap.settings.regionTypes && this.currentMap.settings.regionTypes.length > 1;
+            },
+            hasSourcePicker() {
+                return this.currentMap.data.hospitalisations.status || this.currentMap.data.deceased.status;
+            }
         },
         methods: {
             init() {
@@ -129,8 +136,8 @@
             },
             measure() {
                 let elementWidth, elementHeight, canvasWidth, canvasHeight, mapRatio, elementRatio, windowWidth;
-                elementWidth = this.$el.clientWidth;
-                elementHeight = this.$el.clientHeight;
+                elementWidth = this.$refs.main.clientWidth;
+                elementHeight = this.$refs.main.clientHeight;
                 elementRatio = elementWidth / elementHeight;
                 mapRatio = this.currentMap.settings.map.ratio;
 
@@ -264,7 +271,7 @@
         <search-regions
             :view="view"/>
 
-        <div class="Map__main">
+        <div class="Map__main" ref="main">
             <canvas :id="'canvas-' + id"></canvas>
 
             <pointer-canvas
@@ -283,8 +290,6 @@
 
                 <slot name="legend" />
             </div>
-
-
 
             <div
                 v-if="showDownload && !videoMode"
