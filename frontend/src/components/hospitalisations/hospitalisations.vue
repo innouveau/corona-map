@@ -2,7 +2,7 @@
     import viewItem from "@/components/view/view-item";
     import View from '@/classes/View';
     import MapSignaling from "@/components/_map/Map";
-    import HeaderMenu from "@/components/_pages/main/header-menu";
+    import HeaderMenu from "@/components/_pages/header/header-menu";
     import ViewTools from "../view/view-tools";
     import DownloadImageHospitalisations
         from "../map/download/download-hospitalisations";

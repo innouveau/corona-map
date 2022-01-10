@@ -1,5 +1,5 @@
 <script>
-    import headerMenu from "@/components/_pages/main/header-menu";
+    import headerMenu from "@/components/_pages/header/header-menu";
     import View from "@/classes/View";
     import query from '@/components/elements/query'
     import dateTools from '@/tools/date';

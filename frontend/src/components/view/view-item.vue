@@ -1,6 +1,6 @@
 <script>
     import mapSignaling from "@/components/_map/Map";
-    import headerMenu from "@/components/_pages/main/header-menu";
+    import headerMenu from "@/components/_pages/header/header-menu";
     import View from "@/classes/View";
     import regionDetailsShort from "@/components/_pages/main/regions/region-details/region-details-short";
     import viewTools from "./view-tools";

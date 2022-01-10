@@ -4,7 +4,7 @@
     import Map from "@/components/_map/Map";
     import { downloadImage } from "@/tools/download";
     import timeSlider from "@/components/view/time-slider";
-    import embedButton from "./embed-button";
+    import embedButton from "./embed/embed-button";
 
     export default {
         name: 'main-page',

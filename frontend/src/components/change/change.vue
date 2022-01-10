@@ -1,6 +1,6 @@
 <script>
     import View from "@/classes/View";
-    import headerMenu from "@/components/_pages/main/header-menu";
+    import headerMenu from "@/components/_pages/header/header-menu";
     import mapChange from "../map/map-change";
     import regionDetailsChange from "./region-details-change";
     import searchRegions from "@/components/_map/search/search-regions";

@@ -1,10 +1,10 @@
 <script>
     import View from "@/classes/View";
-    import headerMenu from "@/components/_pages/main/header-menu";
+    import headerMenu from "@/components/_pages/header/header-menu";
     import mapSignaling from "@/components/_map/Map";
     import searchRegions from "@/components/_map/search/search-regions";
     import timeSlider from "../view/time-slider";
-    import regionTypePicker from "@/components/_pages/main/regions/region-type/region-type-picker";
+    import regionTypePicker from "@/components/_map/region-type/region-type-picker";
     import dateTools from '@/tools/date';
     import populationTestGroup from "./population-test-group";
     import query from '@/components/elements/query'
