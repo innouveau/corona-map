@@ -58,20 +58,11 @@
             </p>
             <div class="buttons">
                 <div
-                        @click="doShowTrends()"
-                        class="button">
+                    @click="doShowTrends()"
+                    class="button">
                     {{translate('show-trend')}}
                 </div>
             </div>
         </div>
     </div>
 </template>
-
-
-<style lang="scss">
-    @import '@/styles/variables.scss';
-
-    .change-trends {
-
-    }
-</style>

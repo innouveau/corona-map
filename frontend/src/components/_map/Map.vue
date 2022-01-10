@@ -272,15 +272,19 @@
                 :width="width"
                 :height="height"/>
 
-            <slot name="legend" />
+            <div class="Map__side-bar">
+                <region-type-picker
+                    v-if="hasRegionTypePicker"
+                    :view="view"/>
 
-            <region-type-picker
-                v-if="hasRegionTypePicker"
-                :view="view"/>
+                <map-source-picker
+                    v-if="hasSourcePicker && showSourcePicker"
+                    :view="view"/>
 
-            <map-source-picker
-                v-if="hasSourcePicker && showSourcePicker"
-                :view="view"/>
+                <slot name="legend" />
+            </div>
+
+
 
             <div
                 v-if="showDownload && !videoMode"
@@ -324,6 +328,39 @@
             margin-bottom: 6px;
         }
 
+        &__side-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            z-index: 2;
+
+            > div {
+                pointer-events: all;
+            }
+
+            .region-type-picker {
+                border-left: 2px solid $map-color-dark;
+                padding-left: 8px;
+                margin-left: 1px;
+                display: flex;
+                align-items: center;
+                color: $map-color-super-dark;
+                margin-bottom: 8px;
+            }
+
+            .map-source-picker {
+                height: 20px;
+                border-left: 2px solid $map-color-dark;
+                padding-left: 8px;
+                margin-left: 1px;
+                display: flex;
+                align-items: center;
+                color: $map-color-super-dark;
+                margin-bottom: 8px;
+            }
+        }
+
         &__tools {
             height: 40px;
             display: flex;
@@ -358,40 +395,6 @@
 
             #pointer-canvas {
                 z-index: 1;
-            }
-
-            .map-legend {
-                position: absolute;
-                left: 0;
-                z-index: 1;
-            }
-
-            .region-type-picker {
-                position: absolute;
-                left: 0;
-                top: 0;
-                height: 20px;
-                border-left: 2px solid $map-color-dark;
-                padding-left: 8px;
-                margin-left: 1px;
-                display: flex;
-                align-items: center;
-                color: $map-color-super-dark;
-                z-index: 2;
-            }
-
-            .map-source-picker {
-                position: absolute;
-                left: 0;
-                top: 24px;
-                height: 20px;
-                border-left: 2px solid $map-color-dark;
-                padding-left: 8px;
-                margin-left: 1px;
-                display: flex;
-                align-items: center;
-                color: $map-color-super-dark;
-                z-index: 2;
             }
 
             .download-image {

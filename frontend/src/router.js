@@ -4,7 +4,7 @@ import Router from "vue-router";
 import main from '@/components/_pages/main/main'
 import compare from '@/components/compare/compare'
 import timeLine from '@/components/time-line/time-line'
-import change from '@/components/change/change'
+import change from '@/components/_pages/change/change'
 import cumulative from '@/components/_pages/cumulative/cumulative'
 import story from '@/components/story/story'
 import populationTest from '@/components/population-test/population-test'

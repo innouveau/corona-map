@@ -23,8 +23,9 @@
                 return this.$store.state.languages.current;
             },
             regions() {
-                let regions = this.$store.getters['ui/regions'];
-                return regions.filter(region => {
+                let regions, filtered;
+                regions = this.$store.getters['ui/regions'];
+                filtered = regions.filter(region => {
                     return region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.data.positivePcrTests.interval) < (1 - changeTools.margin);
                 }).sort((a,b) => {
                     let ac, bc;
@@ -32,6 +33,11 @@
                     bc = b.getChange(this.view.offset, changeTools.daysBack / this.currentMap.data.positivePcrTests.interval);
                     return (ac < bc) ? -1 : ((bc < ac) ? 1 : 0);
                 });
+                if (filtered.length > 10) {
+                    return filtered.slice(0,10);
+                } else {
+                    return filtered;
+                }
             },
             typeLabel() {
                 if (this.currentMap.settings.customRegionLabel) {

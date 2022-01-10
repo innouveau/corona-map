@@ -69,7 +69,7 @@
 <template>
     <div
         :class="{'panel--active': showDetails}"
-        class="region-details-change region-details panel">
+        class="region-details-change region-details">
         <region-details-head
                 :view="view"
                 :region="regionOfFocus"/>
