@@ -3,7 +3,7 @@ import interpolate from "color-interpolate";
 const margin = 0.05;
 const max = Math.sqrt(1);
 const daysBack = 7;
-const colors = ['#FF0000', '#fff', '#014a0b'];
+const colors = ['#FF0000', '#fff', '#07b5fa'];
 
 const sections = [
     {
