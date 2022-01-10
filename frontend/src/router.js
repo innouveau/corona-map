@@ -2,7 +2,6 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import main from '@/components/_pages/main/main-view'
-import sewage from '@/components/sewage/sewage'
 import compare from '@/components/compare/compare'
 import timeLine from '@/components/time-line/time-line'
 import change from '@/components/change/change'
@@ -24,10 +23,6 @@ const routes = [
         path: "/main",
         name: "main",
         redirect: {name: "main"},
-    }, {
-        path: "/riool",
-        name: "riool",
-        component: sewage,
     }, {
         path: "/compare",
         name: "compare",
