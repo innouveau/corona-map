@@ -6,7 +6,6 @@ import compare from '@/components/_pages/compare/compare'
 import timeLine from '@/components/time-line/time-line'
 import change from '@/components/_pages/change/change'
 import cumulative from '@/components/_pages/cumulative/cumulative'
-import story from '@/components/story/story'
 import populationTest from '@/components/population-test/population-test'
 import weekStats from '@/components/population-test/population-week-stats'
 
@@ -37,10 +36,6 @@ const routes = [
         path: "/cumulative",
         name: "cumulative",
         component: cumulative,
-    }, {
-        path: "/story",
-        name: "story",
-        component: story,
     }, {
         path: "/population-test",
         name: "populationTest",
