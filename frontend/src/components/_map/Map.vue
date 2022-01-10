@@ -1,5 +1,4 @@
 <script>
-    import downloadImageSignaling from "@/components/map/download/download-image-signaling";
     import canvasTools from '@/tools/canvas';
     import pointerCanvas from "@/components/map/pointer-canvas";
     import mapToolsPopup from "@/components/map/map-tools-popup";
@@ -8,9 +7,9 @@
     import $ from 'jquery';
     import MapLabels from "@/components/map/map-labels/map-labels";
     import regionTypePicker from "@/components/_pages/main/regions/region-type/region-type-picker";
-    import mapSourcePicker from "@/components/_pages/main/map-source-picker";
-    import mapMixin from "./../map-mixin.js";
-    import searchRegions from "../../_pages/main/regions/search/search-regions";
+    import mapSourcePicker from "@/components/_map/source/map-source-picker";
+    import mapMixin from "./map-mixin.js";
+    import searchRegions from "./search/search-regions";
 
     export default {
         name: 'Map',
@@ -20,7 +19,6 @@
             mapLegend,
             mapToolsPopup,
             pointerCanvas,
-            downloadImageSignaling,
             regionTypePicker,
             mapSourcePicker
         },

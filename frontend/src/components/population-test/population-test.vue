@@ -1,8 +1,8 @@
 <script>
     import View from "@/classes/View";
     import headerMenu from "@/components/_pages/main/header-menu";
-    import mapSignaling from "@/components/_map/maps/Map";
-    import searchRegions from "@/components/_pages/main/regions/search/search-regions";
+    import mapSignaling from "@/components/_map/Map";
+    import searchRegions from "@/components/_map/search/search-regions";
     import timeSlider from "../view/time-slider";
     import regionTypePicker from "@/components/_pages/main/regions/region-type/region-type-picker";
     import dateTools from '@/tools/date';

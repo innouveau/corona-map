@@ -3,7 +3,7 @@
     import pointerCanvas from "./../pointer-canvas";
     import regionTypePicker from "@/components/_pages/main/regions/region-type/region-type-picker";
     import canvasTools from '@/tools/canvas';
-    import MapSourcePicker from "@/components/_pages/main/map-source-picker";
+    import MapSourcePicker from "@/components/_map/source/map-source-picker";
 
     export default {
         name: 'map-cumulative',

@@ -1,7 +1,7 @@
 <script>
     import View from "@/classes/View";
     import page from "@/components/_pages/page";
-    import Map from "@/components/_map/maps/Map";
+    import Map from "@/components/_map/Map";
     import { downloadImage } from "@/tools/download";
     import timeSlider from "@/components/view/time-slider";
     import embedButton from "./embed-button";

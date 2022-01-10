@@ -1,7 +1,7 @@
 <script>
     import View from "@/classes/View";
 
-    import mapSignaling from "@/components/_map/maps/Map";
+    import mapSignaling from "@/components/_map/Map";
     import timeSlider from "@/components/view/time-slider";
     import _Region from "@/classes/region/_Region";
     import Chapter from "@/classes/story/Chapter";

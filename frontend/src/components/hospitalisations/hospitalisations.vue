@@ -1,7 +1,7 @@
 <script>
     import viewItem from "@/components/view/view-item";
     import View from '@/classes/View';
-    import MapSignaling from "@/components/_map/maps/Map";
+    import MapSignaling from "@/components/_map/Map";
     import HeaderMenu from "@/components/_pages/main/header-menu";
     import ViewTools from "../view/view-tools";
     import DownloadImageHospitalisations

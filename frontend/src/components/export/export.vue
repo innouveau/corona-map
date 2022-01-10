@@ -1,7 +1,7 @@
 <script>
     import View from "@/classes/View";
     import exportSettings from "./export-settings";
-    import mapSignaling from "@/components/_map/maps/Map";
+    import mapSignaling from "@/components/_map/Map";
     import timeSlider from "../view/time-slider";
 
     export default {
