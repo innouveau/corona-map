@@ -1,5 +1,5 @@
 <script>
-    import mapMixin from './../map-mixin.js'
+    import mapMixin from '@/components/_map/map-mixin.js'
     import pointerCanvas from "./../pointer-canvas";
     import regionTypePicker from "@/components/_pages/main/regions/region-type/region-type-picker";
     import canvasTools from '@/tools/canvas';

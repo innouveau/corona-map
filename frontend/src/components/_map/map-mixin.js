@@ -1,4 +1,3 @@
-import mapToolsPopup from "./map-tools-popup";
 import View from "@/classes/View";
 import $ from 'jquery';
 

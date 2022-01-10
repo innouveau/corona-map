@@ -103,10 +103,6 @@
                 <div v-else>
                     Loading {{translate(currentSource.title)}}...
                 </div>
-
-                <div class="map-tools">
-                    <slot name="tools" />
-                </div>
             </div>
 
             <div class="page__details">
@@ -142,24 +138,6 @@
                 background: $map-color;
                 position: relative;
                 padding: 16px;
-
-                .map {
-                    height: calc(100% - 82px);
-                }
-
-                .map_tools {
-                    height: 40px;
-                    display: flex;
-                    align-items: center;
-
-                    .time-slider, .time-slider-range {
-                        width: calc(100% - 34px);
-                    }
-
-                    .embed-button {
-                        margin-left: 8px;
-                    }
-                }
             }
 
             .page__trends {

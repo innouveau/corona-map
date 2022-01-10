@@ -1,7 +1,7 @@
 <script>
     import View from "@/classes/View";
     import exportSettings from "./export-settings";
-    import mapSignaling from "@/components/map/map-signaling";
+    import mapSignaling from "@/components/_map/maps/Map";
     import timeSlider from "../view/time-slider";
 
     export default {
@@ -98,7 +98,7 @@
                     position: absolute;
                     border: 1px dotted #000;
 
-                    .map {
+                    .Map {
                         width: 100%;
                         height: 100%;
                     }

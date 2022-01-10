@@ -1,20 +1,21 @@
 <script>
-    import downloadImageSignaling from "./download/download-image-signaling";
+    import downloadImageSignaling from "@/components/map/download/download-image-signaling";
     import canvasTools from '@/tools/canvas';
-    import pointerCanvas from "./pointer-canvas";
-    import mapToolsPopup from "./map-tools-popup";
-    import mapLegend from "./map-legend/map-legend";
+    import pointerCanvas from "@/components/map/pointer-canvas";
+    import mapToolsPopup from "@/components/map/map-tools-popup";
+    import mapLegend from "@/components/_map/legend/map-legend";
     import View from "@/classes/View";
     import $ from 'jquery';
-    import MapLabels from "./map-labels/map-labels";
+    import MapLabels from "@/components/map/map-labels/map-labels";
     import regionTypePicker from "@/components/_pages/main/regions/region-type/region-type-picker";
     import mapSourcePicker from "@/components/_pages/main/map-source-picker";
-    import mapMixin from "./map-mixin.js";
-
+    import mapMixin from "./../map-mixin.js";
+    import searchRegions from "../../_pages/main/regions/search/search-regions";
 
     export default {
-        name: 'map-signaling',
+        name: 'Map',
         components: {
+            searchRegions,
             MapLabels,
             mapLegend,
             mapToolsPopup,
@@ -26,11 +27,13 @@
         props: {
             showTools: {
                 type: Boolean,
-                required: true
+                required: false,
+                default: true
             },
             showLegend: {
                 type: Boolean,
-                required: true
+                required: false,
+                default: true
             },
             view: {
                 type: View,
@@ -212,6 +215,16 @@
             },
             openMapTools() {
                 this.$store.commit('ui/updateProperty', {key: 'mapToolsPopup', value: true});
+            },
+            download() {
+                const payload = {
+                    view: this.view,
+                    regions: this.regions,
+                    ctx: this.ctx,
+                    width: this.width,
+                    height: this.height
+                }
+                this.$emit("download", payload);
             }
         },
         mounted() {
@@ -251,45 +264,58 @@
 
 
 <template>
-    <div class="map">
-        <canvas :id="'canvas-' + id"></canvas>
+    <div class="Map">
 
-        <pointer-canvas
-            :view="view"
-            :width="width"
-            :height="height"/>
-
-        <map-legend
-            v-if="showLegend"
+        <search-regions
             :view="view"/>
 
-        <region-type-picker
-            v-if="hasRegionTypePicker"
-            :view="view"/>
+        <div class="Map__main">
+            <canvas :id="'canvas-' + id"></canvas>
 
-        <map-source-picker
-            v-if="hasSourcePicker && showSourcePicker"
-            :view="view"/>
+            <pointer-canvas
+                :view="view"
+                :width="width"
+                :height="height"/>
 
-        <download-image-signaling
-            v-if="showDownload && !videoMode"
-            :view="view"/>
+            <map-legend
+                v-if="showLegend"
+                :view="view"/>
 
-        <div
-            v-if="showTools && !videoMode"
-            @click="openMapTools()"
-            class="icon-button icon-button--without-border button-open-map-tools">
-            <img src="assets/img/tools/dots.svg">
+            <region-type-picker
+                v-if="hasRegionTypePicker"
+                :view="view"/>
+
+            <map-source-picker
+                v-if="hasSourcePicker && showSourcePicker"
+                :view="view"/>
+
+            <div
+                v-if="showDownload && !videoMode"
+                @click="download"
+                class="download-image icon-button">
+                <img src="assets/img/tools/download.svg" alt="">
+            </div>
+
+            <div
+                v-if="showTools && !videoMode"
+                @click="openMapTools()"
+                class="icon-button icon-button--without-border button-open-map-tools">
+                <img src="assets/img/tools/dots.svg" alt="">
+            </div>
+
+            <map-labels
+                v-if="labels"
+                :style="{'width': width + 'px', 'height': height + 'px'}"
+                :labels="labels"/>
+
+            <map-tools-popup
+                v-if="showMapToolsPopup && showTools"
+                :view="view"/>
         </div>
 
-        <map-labels
-            v-if="labels"
-            :style="{'width': width + 'px', 'height': height + 'px'}"
-            :labels="labels"/>
-
-        <map-tools-popup
-            v-if="showMapToolsPopup && showTools"
-            :view="view"/>
+        <div class="Map__tools">
+            <slot />
+        </div>
     </div>
 </template>
 
@@ -297,80 +323,104 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .map {
-        display: flex;
-        align-items: center;
-        position: relative;
-        justify-content: center;
+    .Map {
+        height: 100%;
 
-        canvas {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            //border: 1px solid #000;
+        .search-regions {
+            height: 36px;
+            margin-bottom: 6px;
         }
 
-        #main-canvas {
-            z-index: 0;
-        }
-
-        #pointer-canvas {
-            z-index: 1;
-        }
-
-        .map-legend {
-            position: absolute;
-            left: 0;
-            z-index: 1;
-        }
-
-        .region-type-picker {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 20px;
-            border-left: 2px solid $map-color-dark;
-            padding-left: 8px;
-            margin-left: 1px;
+        &__tools {
+            height: 40px;
             display: flex;
             align-items: center;
-            color: $map-color-super-dark;
-            z-index: 2;
+
+            .time-slider, .time-slider-range {
+                width: calc(100% - 34px);
+            }
+
+            .embed-button {
+                margin-left: 8px;
+            }
         }
 
-        .map-source-picker {
-            position: absolute;
-            left: 0;
-            top: 24px;
-            height: 20px;
-            border-left: 2px solid $map-color-dark;
-            padding-left: 8px;
-            margin-left: 1px;
+        &__main {
+            height: calc(100% - 82px);
+            position: relative;
             display: flex;
             align-items: center;
-            color: $map-color-super-dark;
-            z-index: 2;
-        }
+            justify-content: center;
 
-        .download-image {
-            position: absolute;
-            left: 0;
-            bottom: 10px;
-            z-index: 1;
-        }
+            canvas {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                //border: 1px solid #000;
+            }
 
-        .button-open-map-tools {
-            position: absolute;
-            right: 0;
-            top: 10px;
-            z-index: 1;
-        }
+            #main-canvas {
+                z-index: 0;
+            }
 
-        .map-tools-popup {
-            position: absolute;
-            right: 0;
-            top: 10px;
-            z-index: 6;
+            #pointer-canvas {
+                z-index: 1;
+            }
+
+            .map-legend {
+                position: absolute;
+                left: 0;
+                z-index: 1;
+            }
+
+            .region-type-picker {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 20px;
+                border-left: 2px solid $map-color-dark;
+                padding-left: 8px;
+                margin-left: 1px;
+                display: flex;
+                align-items: center;
+                color: $map-color-super-dark;
+                z-index: 2;
+            }
+
+            .map-source-picker {
+                position: absolute;
+                left: 0;
+                top: 24px;
+                height: 20px;
+                border-left: 2px solid $map-color-dark;
+                padding-left: 8px;
+                margin-left: 1px;
+                display: flex;
+                align-items: center;
+                color: $map-color-super-dark;
+                z-index: 2;
+            }
+
+            .download-image {
+                position: absolute;
+                left: 0;
+                bottom: 10px;
+                z-index: 1;
+            }
+
+            .button-open-map-tools {
+                position: absolute;
+                right: 0;
+                top: 10px;
+                z-index: 1;
+            }
+
+            .map-tools-popup {
+                position: absolute;
+                right: 0;
+                top: 10px;
+                z-index: 6;
+            }
         }
     }
 </style>

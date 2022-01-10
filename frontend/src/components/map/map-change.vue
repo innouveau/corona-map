@@ -1,8 +1,8 @@
 <script>
-    import mapMixin from './map-mixin.js'
+    import mapMixin from '@/components/_map/map-mixin.js'
     import canvasTools from '@/tools/canvas';
     import pointerCanvas from "./pointer-canvas";
-    import ChangeLegend from "./map-legend/change-legend";
+    import ChangeLegend from "@/components/_map/legend/change-legend";
     import downloadImageChange from "./download/download-image-change";
     import regionTypePicker from "@/components/_pages/main/regions/region-type/region-type-picker";
 

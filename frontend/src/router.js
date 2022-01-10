@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import main from '@/components/_pages/main/main-view'
+import main from '@/components/_pages/main/main'
 import compare from '@/components/compare/compare'
 import timeLine from '@/components/time-line/time-line'
 import change from '@/components/change/change'

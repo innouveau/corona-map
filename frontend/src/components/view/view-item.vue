@@ -1,5 +1,5 @@
 <script>
-    import mapSignaling from "@/components/map/map-signaling";
+    import mapSignaling from "@/components/_map/maps/Map";
     import headerMenu from "@/components/_pages/main/header-menu";
     import View from "@/classes/View";
     import regionDetailsShort from "@/components/_pages/main/regions/region-details/region-details-short";
@@ -111,7 +111,7 @@
                 padding: 8px;
                 position: relative;
 
-                .map {
+                .Map {
                     height: 100%;
                     width: 100%;
                 }
@@ -157,7 +157,7 @@
 
                 .view__map {
 
-                    .map {
+                    .Map {
                         width: 100%;
                     }
 

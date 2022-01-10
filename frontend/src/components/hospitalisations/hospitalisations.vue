@@ -1,7 +1,7 @@
 <script>
     import viewItem from "@/components/view/view-item";
     import View from '@/classes/View';
-    import MapSignaling from "../map/map-signaling";
+    import MapSignaling from "@/components/_map/maps/Map";
     import HeaderMenu from "@/components/_pages/main/header-menu";
     import ViewTools from "../view/view-tools";
     import DownloadImageHospitalisations
@@ -100,7 +100,7 @@
                 width: calc(100% / 3);
                 padding: 20px;
 
-                .map {
+                .Map {
                     height: 100%;
                 }
 

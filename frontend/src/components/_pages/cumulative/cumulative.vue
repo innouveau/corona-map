@@ -3,7 +3,7 @@
     import mapCumulative from "@/components/map/cumulative/map-cumulative";
     import query from '@/components/elements/query'
     import TimeSliderRange from "@/components/view/time-slider-range";
-    import Page from "@/components/base/page";
+    import Page from "@/components/_pages/page";
 
     export default {
         name: 'cumulative',

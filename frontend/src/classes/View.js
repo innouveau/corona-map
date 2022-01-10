@@ -2,7 +2,7 @@ import store from '@/store/store';
 
 class View {
     constructor({
-        id = null,
+        id = 1,
         offset = 0,
         offsetStart = 0,
         currentRegion = null,
