@@ -4,10 +4,14 @@ import query from '@/components/elements/query'
 import Page from "@/components/_pages/page";
 import Map from "@/components/_map/Map";
 import { downloadImage } from "@/tools/download";
+import Region from "@/components/_region/Region";
+import CumulativeDetails from "./details/cumulative-details";
 
 export default {
     name: 'cumulative',
     components: {
+        CumulativeDetails,
+        Region,
         Page,
         Map,
     },
@@ -16,6 +20,11 @@ export default {
     data() {
         return {
             view: new View({id: 1, offsetStart: this.$store.state.settings.historyLength})
+        }
+    },
+    computed: {
+        regionOfFocus() {
+            return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
         }
     },
     methods: {
@@ -37,7 +46,12 @@ export default {
         </template>
 
         <template v-slot:details>
-            Details
+            <Region
+                :view="view">
+                <cumulative-details
+                    :view="view"
+                    :region="regionOfFocus" />
+            </Region>
         </template>
 
         <template v-slot:trends>

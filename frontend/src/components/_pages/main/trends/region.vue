@@ -4,7 +4,7 @@
     import swatch from "@/components/elements/swatch";
 
     export default {
-        name: 'region',
+        name: 'region-with-label',
         components: {
             swatch
         },

@@ -141,11 +141,15 @@
             .page__trends {
                 width: 300px;
                 padding: 16px;
+                height: 100%;
+                overflow: auto;
             }
 
             .page__details {
                 width: 450px;
                 padding: 16px;
+                height: 100%;
+                overflow: auto;
             }
 
             .region-details--mobile {

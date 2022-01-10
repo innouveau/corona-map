@@ -5,10 +5,12 @@ import { downloadImage } from "@/tools/download";
 import RegionDetails from "./details/region-details";
 import Trends from "./trends/trends";
 import Map from "@/components/_map/Map";
+import Region from "@/components/_region/Region";
 
 export default {
     name: 'main-page',
     components: {
+        Region,
         Map,
         Trends,
         RegionDetails,
@@ -58,9 +60,12 @@ export default {
         </template>
 
         <template v-slot:details>
-            <region-details
-                :view="view"
-                :region="currentRegion" />
+            <Region
+                :view="view">
+                <region-details
+                    :view="view"
+                    :region="currentRegion" />
+            </Region>
         </template>
 
         <template v-slot:trends>

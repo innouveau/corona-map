@@ -83,6 +83,10 @@ const dictionary = {
         nl: "over 7 dagen",
         en: "for 7 days"
     },
+    "from": {
+        nl: "van",
+        en: "from"
+    },
     "ggd": {
         nl: "GGD",
         en: "GGD"
@@ -278,6 +282,14 @@ const dictionary = {
     "today": {
         nl: "Vandaag",
         en: "Today"
+    },
+    "till": {
+        nl: "tot",
+        en: "till"
+    },
+    "total": {
+        nl: "Totaal",
+        en: "Total"
     },
     "total-deceased": {
         nl: "Totaal overleden sinds dag 1",

@@ -7,8 +7,6 @@
     import ageDistributionGraph from "./case-characteristics/age-distribution-graph";
     import ageDistributionGraphNormalised from "./case-characteristics/age-distribution-graph-normalised/age-distribution-graph-normalised";
     import ageDistributionTools from "./case-characteristics/age-distribution-graph-normalised/age-distribution-tools";
-    import regionRelations from "@/components/_map/region-type/region-relations";
-    import regionDetailsHead from "./region-details-head";
     import loader from "@/components/elements/loader";
     import regionDetailsNumbers from "./region-details-numbers";
     import regionDetailsVaccination from "./vaccination/region-details-vaccination";
@@ -18,9 +16,7 @@
         components: {
             regionDetailsVaccination,
             regionDetailsNumbers,
-            regionDetailsHead,
             administeredPcrTests,
-            regionRelations,
             ageDistributionTools,
             ageDistributionGraphNormalised,
             loader,
@@ -91,11 +87,6 @@
     <div
         :class="{'panel--active': showDetails}"
         class="region-details">
-        <div class="region-card">
-            <region-details-head
-                :view="view"
-                :region="regionOfFocus"/>
-        </div>
 
         <div
             v-if="regionOfFocus.vaccination && regionOfFocus.vaccination.length > 0"
@@ -122,11 +113,6 @@
         </div>
 
         <div class="region-details__info">
-            <div class="region-details__section">
-                <region-relations
-                    :view="view"
-                    :region="region"/>
-            </div>
 
             <div
                 v-if="sourceIsPositiveTests && hasAgeGroups && (regionOfFocus.regionType === 'ggd' || regionOfFocus.regionType === 'country') && caseDataRequested"
@@ -148,16 +134,6 @@
             <region-details-numbers
                 :view="view"
                 :region="regionOfFocus"/>
-
-<!--            <div-->
-<!--                    v-if="hasSewageTreatmentPlants"-->
-<!--                    class="region-details__section">-->
-<!--                <div class="region-details__row">-->
-<!--                    <sewage-treatment-plants-->
-<!--                        :view="view"-->
-<!--                        :region="regionOfFocus"/>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
     </div>
 </template>

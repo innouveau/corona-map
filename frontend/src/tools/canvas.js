@@ -29,7 +29,6 @@ const normalise = (regions) => {
     let total = 0;
     const max = Math.max(...regions.map(i => i.result.value), 0);
     const min = Math.min(...regions.map(i => i.result.value), max);
-    const range = (max - min) / 2;
     for (const region of regions) {
         total += region.result.value;
     }
@@ -73,10 +72,7 @@ const getValue = function(parent, mapType, view, source) {
             const historyLength = store.state.settings.historyLength;
             const start = historyLength - view.offsetStart;
             const end = historyLength - view.offset;
-            // adjust for range length
-            const max = (end - start) * 60;
             const increase = getIncreaseOfType(parent, start, end, view.currentSource.key, true);
-            const shade = Math.round(10 * increase / max) / 10;
             return {
                 value: increase,
                 color: null
