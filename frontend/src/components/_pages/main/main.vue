@@ -72,7 +72,8 @@ export default {
             <Map
                 v-if="initialised"
                 @download="download"
-                :view="view">
+                :view="view"
+                :map-type="'signaling'">
                 <template v-slot:legend>
                     <map-legend :view="view"/>
                 </template>

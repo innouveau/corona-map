@@ -30,6 +30,10 @@
                 type: View,
                 required: true
             },
+            mapType: {
+                type: String,
+                required: true
+            },
             showDownload: {
                 type: Boolean,
                 required: false,
@@ -199,7 +203,7 @@
                     zoom: this.$store.state.settings.zoom,
                     fill: true
                 };
-                canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view);
+                canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view, this.mapType);
             },
             clear() {
                 this.ctx.clearRect(0, 0, this.width, this.height);
