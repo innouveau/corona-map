@@ -1,29 +1,22 @@
 <script>
 import View from "@/classes/View";
 import page from "@/components/_pages/page";
-import Map from "@/components/_map/Map";
 import { downloadImage } from "@/tools/download";
-import timeSlider from "@/components/view/time-slider";
-import embedButton from "./embed/embed-button";
 import RegionDetails from "./details/region-details";
 import Trends from "./trends/trends";
-import mapLegend from "@/components/_map/legend/map-legend";
+import MapRegular from "@/components/_map/MapRegular";
 
 export default {
     name: 'main-page',
     components: {
+        MapRegular,
         Trends,
         RegionDetails,
         page,
-        Map,
-        mapLegend,
-        timeSlider,
-        embedButton,
     },
     props: {},
     data() {
         return {
-            initialised: false,
             view: new View({id: 1, offsetStart: this.$store.state.settings.historyLength})
         }
     },
@@ -42,20 +35,9 @@ export default {
         }
     },
     methods: {
-        init(){
-            // this does render all other components
-            // 1 callstack before the map, so there is
-            // already a feeling something is there to see
-            setTimeout(() => {
-                this.initialised = true;
-            })
-        },
         download(payload) {
             downloadImage("signaling", payload);
         }
-    },
-    mounted() {
-        this.init();
     },
     watch: {
         currentSource: function () {
@@ -69,20 +51,11 @@ export default {
 <template>
     <page :view="view">
         <template v-slot:map>
-            <Map
-                v-if="initialised"
-                @download="download"
+            <MapRegular
                 :view="view"
-                :map-type="'signaling'">
-                <template v-slot:legend>
-                    <map-legend :view="view"/>
-                </template>
-
-                <template v-slot:tools>
-                    <time-slider :view="view"/>
-                    <embed-button />
-                </template>
-            </Map>
+                :show-legend="true"
+                :show-tools="true"
+                :show-download="false"/>
         </template>
 
         <template v-slot:details>

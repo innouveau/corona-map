@@ -16,10 +16,6 @@
             view: {
                 type: View,
                 required: true
-            },
-            editable: {
-                type: Boolean,
-                required: true
             }
         },
         data() {
@@ -70,35 +66,7 @@
             videoMode() {
                 return this.$store.state.ui.videoMode;
             },
-            disabledDates() {
-                if (this.currentMap.data.positivePcrTests.interval === 1) {
-                    return {
-                        days: []
-                    };
-                } else {
-                    return {
-                        days: [1,2,3,4,5,6]
-                    }
-                }
-            }
         },
-        methods: {
-            updateOffset(value) {
-                let dateString = dateTools.formatDate(value);
-                this.view.offset = dateTools.getOffsetByDate(dateString);
-            },
-            updateDatePicker() {
-                this.date = dateTools.getDateByOffset(this.view.offset);
-            }
-        },
-        watch: {
-            offset: {
-                handler: function() {
-                    this.updateDatePicker();
-                },
-                deep: true
-            }
-        }
     }
 </script>
 
@@ -117,14 +85,7 @@
 
             <div class="title__sub">
                 <div class="date-string">
-                    <datepicker
-                        v-if="editable"
-                        :disabled-dates="disabledDates"
-                        :value="date"
-                        @input="updateOffset"/>
-                    <div v-else class="date-string__string">
-                        {{dateString}}
-                    </div>
+                    {{dateString}}
                 </div>
                 <total-infections
                     v-if="!videoMode"

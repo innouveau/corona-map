@@ -79,21 +79,21 @@
             v-if="isAtEnd && !videoMode"
             @click="rewind()"
             class="icon-button">
-            <img src="assets/img/tools/redo.svg">
+            <img src="assets/img/tools/redo.svg" alt="">
         </div>
 
         <div
             v-if="!isPlaying && !isAtEnd"
             @click="play()"
             class="icon-button">
-            <img src="assets/img/tools/play.svg">
+            <img src="assets/img/tools/play.svg" alt="">
         </div>
 
         <div
             v-if="isPlaying && !videoMode"
             @click="stop()"
             class="icon-button">
-        <img src="assets/img/tools/stop.svg">
+            <img src="assets/img/tools/stop.svg" alt="">
         </div>
 
         <div
@@ -105,13 +105,14 @@
             v-if="!isPlaying && !isAtStart && !videoMode"
             @click="move(-1)"
             class="icon-button">
-            <img src="assets/img/tools/back.svg">
+            <img src="assets/img/tools/back.svg" alt="">
         </div>
+
         <div
             v-if="!isPlaying && !isAtEnd && !videoMode"
             @click="move(1)"
             class="icon-button">
-            <img src="assets/img/tools/forward.svg">
+            <img src="assets/img/tools/forward.svg" alt="">
         </div>
     </div>
 </template>

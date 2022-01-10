@@ -1,12 +1,12 @@
 <script>
-    import viewItem from "@/components/view/view-item";
+    import MapRegular from "@/components/_map/MapRegular";
     import View from "@/classes/View";
     import dateTools from '@/tools/date';
 
     export default {
         name: 'time-line',
         components: {
-            viewItem
+            MapRegular
         },
         data() {
             return {
@@ -55,7 +55,7 @@
 
 <template>
     <div class="time-line">
-        <view-item
+        <MapRegular
             v-if="view"
             :view="view"
             :show-legend="true"

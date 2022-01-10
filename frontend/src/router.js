@@ -2,14 +2,13 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import main from '@/components/_pages/main/main'
-import compare from '@/components/compare/compare'
+import compare from '@/components/_pages/compare/compare'
 import timeLine from '@/components/time-line/time-line'
 import change from '@/components/_pages/change/change'
 import cumulative from '@/components/_pages/cumulative/cumulative'
 import story from '@/components/story/story'
 import populationTest from '@/components/population-test/population-test'
 import exportPage from '@/components/export/export'
-import hospitalisations from '@/components/hospitalisations/hospitalisations'
 import weekStats from '@/components/population-test/population-week-stats'
 
 Vue.use(Router);
@@ -55,10 +54,6 @@ const routes = [
         path: "/export",
         name: "exportPage",
         component: exportPage,
-    }, {
-        path: "/hospitalisations",
-        name: "hospitalisations",
-        component: hospitalisations,
     }, {
         path: "/week-stats",
         name: "weekStats",

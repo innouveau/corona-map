@@ -94,10 +94,15 @@
         display: flex;
         align-items: center;
         border-bottom: 1px solid #ddd;
-        padding: 0 8px;
+        width: 100%;
+
+        .vdp-datepicker {
+            width: 200px;
+        }
 
         .time-slider {
-            width: 300px!important;
+            min-width: 300px;
+            width: calc(100% - 200px);
         }
 
         input {

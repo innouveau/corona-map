@@ -45,11 +45,6 @@
                     return [];
                 }
             },
-            showSourcePicker: {
-                type: Boolean,
-                required: false,
-                default: true
-            },
         },
         data() {
             let id = Math.round(Math.random() * 1000000);
@@ -285,7 +280,7 @@
                     :view="view"/>
 
                 <map-source-picker
-                    v-if="hasSourcePicker && showSourcePicker"
+                    v-if="hasSourcePicker"
                     :view="view"/>
 
                 <slot name="legend" />
