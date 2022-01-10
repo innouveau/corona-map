@@ -90,7 +90,7 @@
 <template>
     <div
         :class="{'panel--active': showDetails}"
-        class="region-details panel">
+        class="region-details">
         <div class="region-card">
             <region-details-head
                 :view="view"

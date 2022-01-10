@@ -6,10 +6,12 @@
     import timeSlider from "@/components/view/time-slider";
     import embedButton from "./embed/embed-button";
     import RegionDetails from "./details/region-details";
+    import Trends from "./trends/trends";
 
     export default {
         name: 'main-page',
         components: {
+            Trends,
             RegionDetails,
             page,
             Map,
@@ -83,7 +85,7 @@
         </template>
 
         <template v-slot:trends>
-            Trends
+            <trends :view="view" />
         </template>
     </page>
 </template>

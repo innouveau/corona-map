@@ -60,7 +60,7 @@
 <template>
     <div
         :class="{'panel--active': isTrendPanel}"
-        class="trends panel">
+        class="trends">
 
         <div v-if="showTrends">
 
