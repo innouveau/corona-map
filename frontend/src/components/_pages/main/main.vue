@@ -4,12 +4,12 @@ import page from "@/components/_pages/page";
 import { downloadImage } from "@/tools/download";
 import RegionDetails from "./details/region-details";
 import Trends from "./trends/trends";
-import MapRegular from "@/components/_map/MapRegular";
+import Map from "@/components/_map/Map";
 
 export default {
     name: 'main-page',
     components: {
-        MapRegular,
+        Map,
         Trends,
         RegionDetails,
         page,
@@ -51,11 +51,10 @@ export default {
 <template>
     <page :view="view">
         <template v-slot:map>
-            <MapRegular
+            <Map
+                @download="download"
                 :view="view"
-                :show-legend="true"
-                :show-tools="true"
-                :show-download="false"/>
+                :map-type="'signaling'" />
         </template>
 
         <template v-slot:details>

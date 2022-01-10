@@ -8,10 +8,18 @@
     import regionTypePicker from "@/components/_map/region-type/region-type-picker";
     import mapSourcePicker from "@/components/_map/source/map-source-picker";
     import searchRegions from "./search/search-regions";
+    import MapLegend from "./legend/map-legend";
+    import MapLegendChange from "./legend/map-legend-change";
+    import ViewTools from "../view/view-tools";
+    import TimeSliderRange from "../view/time-slider-range";
 
     export default {
         name: 'Map',
         components: {
+            TimeSliderRange,
+            ViewTools,
+            MapLegendChange,
+            MapLegend,
             searchRegions,
             MapLabels,
             mapToolsPopup,
@@ -283,7 +291,8 @@
                     v-if="hasSourcePicker"
                     :view="view"/>
 
-                <slot name="legend" />
+                <map-legend v-if="mapType === 'signaling'" :view="view"/>
+                <map-legend-change v-if="mapType === 'change'" :view="view"/>
             </div>
 
             <div
@@ -294,7 +303,7 @@
             </div>
 
             <div
-                v-if="showTools && !videoMode"
+                v-if="mapType === 'signaling' && !videoMode"
                 @click="openMapTools()"
                 class="icon-button icon-button--without-border button-open-map-tools">
                 <img src="assets/img/tools/dots.svg" alt="">
@@ -306,12 +315,13 @@
                 :labels="labels"/>
 
             <map-tools-popup
-                v-if="showMapToolsPopup && showTools"
+                v-if="showMapToolsPopup && mapType === 'signaling'"
                 :view="view"/>
         </div>
 
         <div class="Map__tools">
-            <slot name="tools" />
+            <view-tools v-if="mapType !== 'cumulative'" :view="view" />
+            <time-slider-range v-if="mapType === 'cumulative'" :view="view" />
         </div>
     </div>
 </template>

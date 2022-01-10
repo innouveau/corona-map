@@ -1,7 +1,6 @@
 <script>
 import View from "@/classes/View";
 import query from '@/components/elements/query'
-import TimeSliderRange from "@/components/view/time-slider-range";
 import Page from "@/components/_pages/page";
 import Map from "@/components/_map/Map";
 import { downloadImage } from "@/tools/download";
@@ -11,7 +10,6 @@ export default {
     components: {
         Page,
         Map,
-        TimeSliderRange,
     },
     mixins: [query],
     props: {},
@@ -35,12 +33,7 @@ export default {
             <Map
                 @download="download"
                 :view="view"
-                :map-type="'cumulative'"
-                :show-tools="false">
-                <template v-slot:tools>
-                    <time-slider-range :view="view" />
-                </template>
-            </Map>
+                :map-type="'cumulative'" />
         </template>
 
         <template v-slot:details>

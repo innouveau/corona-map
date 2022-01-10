@@ -1,14 +1,14 @@
 <script>
-    import MapRegular from "@/components/_map/MapRegular";
     import View from "@/classes/View";
     import dateTools from '@/tools/date';
     import headerMenu from "@/components/_pages/header/header-menu";
+    import Map from "@/components/_map/Map";
 
     export default {
         name: 'time-line',
         components: {
+            Map,
             headerMenu,
-            MapRegular
         },
         data() {
             return {
@@ -60,12 +60,11 @@
         <header-menu
             v-if="view"
             :view="view"/>
-        <MapRegular
+
+        <Map
             v-if="view"
             :view="view"
-            :show-legend="true"
-            :show-tools="true"
-            :show-time-tools="true"/>
+            :map-type="'signaling'" />
     </div>
 </template>
 

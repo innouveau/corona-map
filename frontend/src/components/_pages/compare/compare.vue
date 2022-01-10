@@ -1,13 +1,13 @@
 <script>
-import MapRegular from "@/components/_map/MapRegular";
 import dateTools from '@/tools/date';
 import View from '@/classes/View';
 import headerMenu from "@/components/_pages/header/header-menu";
+import Map from "@/components/_map/Map";
 
 export default {
     name: 'compare',
     components: {
-        MapRegular,
+        Map,
         headerMenu
     },
     props: {},
@@ -83,11 +83,9 @@ export default {
                     <header-menu
                         :view="view"/>
                 </div>
-                <MapRegular
+                <Map
                     :view="view"
-                    :show-legend="true"
-                    :show-tools="true"
-                    :show-download="false"/>
+                    :map-type="'signaling'" />
             </div>
 
 

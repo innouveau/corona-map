@@ -1,11 +1,9 @@
 <script>
 import View from "@/classes/View";
 import query from '@/components/elements/query'
-import timeSlider from "@/components/view/time-slider";
 import Page from "@/components/_pages/page";
 import Map from "@/components/_map/Map";
 import { downloadImage } from "@/tools/download";
-import MapLegendChange from "@/components//_map/legend/map-legend-change";
 import RegionDetailsChange from "./details/region-details-change";
 import ChangeTrends from "./trends/change-trends";
 
@@ -14,10 +12,8 @@ export default {
     components: {
         ChangeTrends,
         RegionDetailsChange,
-        MapLegendChange,
         Page,
         Map,
-        timeSlider,
     },
     mixins: [query],
     props: {},
@@ -46,17 +42,7 @@ export default {
             <Map
                 @download="download"
                 :view="view"
-                :map-type="'change'"
-                :show-tools="false">
-
-                <template v-slot:legend>
-                    <map-legend-change :view="view"/>
-                </template>
-
-                <template v-slot:tools>
-                    <time-slider :view="view"/>
-                </template>
-            </Map>
+                :map-type="'change'" />
         </template>
 
         <template v-slot:details>
