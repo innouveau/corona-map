@@ -3,11 +3,11 @@ import Router from "vue-router";
 
 import main from '@/components/_pages/main/main'
 import compare from '@/components/_pages/compare/compare'
-import timeLine from '@/components/time-line/time-line'
+import timeLine from '@/components/_pages/time-line/time-line'
 import change from '@/components/_pages/change/change'
 import cumulative from '@/components/_pages/cumulative/cumulative'
-import populationTest from '@/components/population-test/population-test'
-import weekStats from '@/components/population-test/population-week-stats'
+import populationTest from '@/components/_pages/population-test/population-test'
+import weekStats from '@/components/_pages/population-test/population-week-stats'
 
 Vue.use(Router);
 

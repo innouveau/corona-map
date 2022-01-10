@@ -2,10 +2,12 @@
     import MapRegular from "@/components/_map/MapRegular";
     import View from "@/classes/View";
     import dateTools from '@/tools/date';
+    import headerMenu from "@/components/_pages/header/header-menu";
 
     export default {
         name: 'time-line',
         components: {
+            headerMenu,
             MapRegular
         },
         data() {
@@ -55,6 +57,9 @@
 
 <template>
     <div class="time-line">
+        <header-menu
+            v-if="view"
+            :view="view"/>
         <MapRegular
             v-if="view"
             :view="view"
@@ -71,8 +76,12 @@
     .time-line {
         height: 100%;
 
-        .view-item {
-            height: 100%;
+        .header-menu {
+            height: 48px;
+        }
+
+        .Map {
+            height: calc(100% - 48px);
         }
     }
 </style>

@@ -135,9 +135,7 @@
 
             .page__map {
                 width: calc(100% - 750px);
-                background: $map-color;
                 position: relative;
-                padding: 16px;
             }
 
             .page__trends {

@@ -322,6 +322,8 @@
 
     .Map {
         height: 100%;
+        padding: 16px;
+        background: $map-color;
 
         .search-regions {
             height: 36px;

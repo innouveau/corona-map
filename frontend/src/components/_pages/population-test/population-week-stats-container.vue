@@ -1,8 +1,8 @@
 <script>
     import populationTestRegion from "./population-test-region";
     import View from "@/classes/View";
-    import timeTools from "../view/time-tools";
-    import ViewTools from "../view/view-tools";
+    import timeTools from "@/components/view/time-tools";
+    import ViewTools from "@/components/view/view-tools";
     import RegionsPicker from "./regions-picker";
 
     export default {

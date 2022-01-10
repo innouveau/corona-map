@@ -113,20 +113,19 @@ export default {
             .view-item-container {
                 width: 50%;
                 height: 100%;
-                border-right: 1px solid #fff;
-                background: $map-color;
+                border-right: 1px solid rgba(0,0,0,0.2);
+                overflow: hidden;
 
                 &:last-child {
                     border-right: 0;
                 }
 
                 .header-menu-container {
-                    height: 56px;
+                    height: 48px;
                 }
 
                 .Map {
-                    height: calc(100% - 56px);
-                    padding: 16px;
+                    height: calc(100% - 48px);
 
                     .region-details__container {
                         position: absolute;
