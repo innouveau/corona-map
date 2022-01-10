@@ -1,9 +1,9 @@
 <script>
     import View from "@/classes/View";
-    import headerMenu from "../main/header-menu";
+    import headerMenu from "@/components/_pages/main/header-menu";
     import mapChange from "../map/map-change";
     import regionDetailsChange from "./region-details-change";
-    import searchRegions from "../main/regions/search/search-regions";
+    import searchRegions from "@/components/_pages/main/regions/search/search-regions";
     import timeSlider from "../view/time-slider";
     import changeTrends from "./trends/change-trends";
     import dateTools from '@/tools/date';

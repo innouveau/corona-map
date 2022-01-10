@@ -1,6 +1,6 @@
 <script>
     import View from "@/classes/View";
-    import region from "@/components/main/trends/region";
+    import region from "@/components/_pages/main/trends/region";
     import trendMixin from "./trend-mixin";
 
     export default {

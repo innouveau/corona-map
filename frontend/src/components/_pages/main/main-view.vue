@@ -6,7 +6,7 @@
     import View from "@/classes/View";
     import query from '@/components/elements/query'
     import dateTools from '@/tools/date';
-    import mainViewMap from "./main-view-map";
+    import mainViewMap from "@/components/_pages/main/main-view-map";
     import sourceTools from "@/tools/source";
 
     export default {

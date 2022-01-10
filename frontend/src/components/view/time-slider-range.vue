@@ -28,11 +28,11 @@
             currentMap() {
                 return this.$store.state.maps.current
             },
-            date() {
-                return this.$store.getters['ui/getDateByOffset'](this.view.offset * this.currentMap.data.positivePcrTests.interval);
-            },
         },
         methods: {
+            date(v) {
+                return this.$store.getters['ui/getDateByOffset'](this.reverse(v) * this.currentMap.data.positivePcrTests.interval);
+            },
             reverse(v) {
                 return this.max - v;
             },

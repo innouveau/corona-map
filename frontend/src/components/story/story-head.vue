@@ -6,7 +6,7 @@
     import _Region from "@/classes/region/_Region";
     import Chapter from "@/classes/story/Chapter";
     import Story from "@/classes/story/Story";
-    import regionDetailsShort from "@/components/main/regions/region-details/region-details-short";
+    import regionDetailsShort from "@/components/_pages/main/regions/region-details/region-details-short";
     import positivePcrTests from "@/components/graphs/positive-pcr-tests";
 
     export default {

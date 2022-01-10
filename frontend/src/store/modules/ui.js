@@ -47,7 +47,7 @@ const getters = {
             return '';
         }
     },
-    getDateByOffset: (state) => (offset, dateFormat = 'EE d MMM', iso_code = 'en') => {
+    getDateByOffset: (state) => (offset, dateFormat = 'EE d MMM yyyy', iso_code = 'en') => {
         let today, dateOfFocus, locale;
         today = state.today;
 

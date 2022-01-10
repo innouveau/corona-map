@@ -4,7 +4,7 @@
     import pointerCanvas from "./pointer-canvas";
     import ChangeLegend from "./map-legend/change-legend";
     import downloadImageChange from "./download/download-image-change";
-    import regionTypePicker from "@/components/main/regions/region-type/region-type-picker";
+    import regionTypePicker from "@/components/_pages/main/regions/region-type/region-type-picker";
 
     export default {
         name: 'map-change',

@@ -1,9 +1,9 @@
 <script>
     import mapMixin from './../map-mixin.js'
     import pointerCanvas from "./../pointer-canvas";
-    import regionTypePicker from "@/components/main/regions/region-type/region-type-picker";
+    import regionTypePicker from "@/components/_pages/main/regions/region-type/region-type-picker";
     import canvasTools from '@/tools/canvas';
-    import MapSourcePicker from "../../main/map-source-picker";
+    import MapSourcePicker from "@/components/_pages/main/map-source-picker";
 
     export default {
         name: 'map-cumulative',

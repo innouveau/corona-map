@@ -1,7 +1,7 @@
 <script>
     import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
-    import regionDetailsHead from "../main/regions/region-details/region-details-head";
+    import regionDetailsHead from "@/components/_pages/main/regions/region-details/region-details-head";
     import numberTools from '@/tools/number';
     import changeTools from '@/tools/change';
     import positivePcrTestsChange from "@/components/graphs/positive-pcr-tests-change";

@@ -1,5 +1,5 @@
 <script>
-    import region from "@/components/main/trends/region";
+    import region from "@/components/_pages/main/trends/region";
 
     export default {
         name: 'changed-status-regions',
