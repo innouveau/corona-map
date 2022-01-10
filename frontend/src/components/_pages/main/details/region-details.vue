@@ -4,7 +4,6 @@
 
     import positivePcrTests from "@/components/graphs/positive-pcr-tests";
     import administeredPcrTests from "@/components/graphs/administered-pcr-tests"
-    import sewageTreatmentPlants from "./sewage-treatment-plants/sewage-treatment-plants";
     import ageDistributionGraph from "./case-characteristics/age-distribution-graph";
     import ageDistributionGraphNormalised from "./case-characteristics/age-distribution-graph-normalised/age-distribution-graph-normalised";
     import ageDistributionTools from "./case-characteristics/age-distribution-graph-normalised/age-distribution-tools";
@@ -26,7 +25,6 @@
             ageDistributionGraphNormalised,
             loader,
             ageDistributionGraph,
-            sewageTreatmentPlants,
             positivePcrTests
         },
         props: {
