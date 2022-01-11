@@ -28,8 +28,8 @@ export default {
         }
     },
     methods: {
-        download(payload) {
-            downloadImage("change", payload);
+        download() {
+            downloadImage(this.view, "change");
         }
     }
 }

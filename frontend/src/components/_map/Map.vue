@@ -231,14 +231,7 @@
                 this.$store.commit('ui/updateProperty', {key: 'mapToolsPopup', value: true});
             },
             download() {
-                const payload = {
-                    view: this.view,
-                    regions: this.regions,
-                    ctx: this.ctx,
-                    width: this.width,
-                    height: this.height
-                }
-                this.$emit("download", payload);
+                this.$emit("download");
             },
             checkSource() {
                 if (!this.view.currentSource.loaded) {

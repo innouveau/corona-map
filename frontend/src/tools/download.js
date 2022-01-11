@@ -8,19 +8,19 @@ const imageScale = 1;
 const width = 1014 * imageScale;
 const height = 570 * imageScale;
 
-export const downloadImage = async(payload, mapType) => {
+export const downloadImage = async(view, mapType) => {
     const canvas = prepare();
     const ctx = canvas.getContext("2d");
     await addHead(ctx, mapType)
-    addDate(ctx, payload);
-    canvasTools.draw(ctx, payload.view.currentSource, store.getters['ui/regions'], getSettings(payload,1), payload.view, mapType);
+    addDate(ctx, view);
+    canvasTools.draw(ctx, view.currentSource, store.getters['ui/regions'], getSettings(view,1), view, mapType);
     addCreator(ctx);
-    addLegend(ctx, mapType, store.state.settings.gradient, 0.03, 0.28, payload.view.currentSource);
+    addLegend(ctx, mapType, store.state.settings.gradient, 0.03, 0.28, view.currentSource);
     finish(canvas);
 }
 
-const addDate = (ctx, payload) => {
-    const date = getDateString(payload);
+const addDate = (ctx, view) => {
+    const date = getDateString(view);
     addCustomText(ctx, date, 0.03, 0.195);
 }
 
@@ -43,7 +43,7 @@ const finish = (canvas) => {
     });
 }
 
-const getSettings = (payload, i) => {
+const getSettings = (view, i) => {
     return {
         width: width,
         height: height,
@@ -55,8 +55,8 @@ const getSettings = (payload, i) => {
     }
 }
 
-const getDateString = (payload) => {
-    return store.getters['ui/getDateByOffset'](payload.view.offset, 'EEEEEE d MMM yyyy', store.state.languages.current.iso_code);
+const getDateString = (view) => {
+    return store.getters['ui/getDateByOffset'](view.offset, 'EEEEEE d MMM yyyy', store.state.languages.current.iso_code);
 }
 
 const addHead = (ctx, mapType) => {

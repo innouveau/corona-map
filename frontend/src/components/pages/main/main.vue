@@ -38,10 +38,7 @@ export default {
     },
     methods: {
         download() {
-            const payload = {
-                view: this.view
-            }
-            downloadImage(payload, "signaling");
+            downloadImage(this.view, "signaling");
         }
     },
     watch: {
