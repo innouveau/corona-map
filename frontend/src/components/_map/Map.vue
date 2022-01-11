@@ -12,10 +12,13 @@
     import MapLegendChange from "./legend/map-legend-change";
     import ViewTools from "../view/view-tools";
     import TimeSliderRange from "../view/time-slider-range";
+    import sourceTools from "@/tools/source";
+    import Loader from "../elements/loader";
 
     export default {
         name: 'Map',
         components: {
+            Loader,
             TimeSliderRange,
             ViewTools,
             MapLegendChange,
@@ -105,6 +108,12 @@
             },
             hasSourcePicker() {
                 return this.currentMap.data.hospitalisations.status || this.currentMap.data.deceased.status;
+            },
+            currentSource(){
+                return this.view.currentSource;
+            },
+            isLoaded(){
+                return this.view.currentSource.loaded;
             }
         },
         methods: {
@@ -230,6 +239,16 @@
                     height: this.height
                 }
                 this.$emit("download", payload);
+            },
+            checkSource() {
+                if (!this.view.currentSource.loaded) {
+                    sourceTools.load(this.view.currentSource).then(() => {
+
+                        this.$nextTick(() => {
+                            this.draw();
+                        });
+                    })
+                }
             }
         },
         mounted() {
@@ -239,7 +258,9 @@
         watch: {
             view: {
                 handler: function() {
-                    this.draw();
+                    if (this.view.currentSource.loaded) {
+                        this.draw();
+                    }
                 },
                 deep: true
             },
@@ -262,6 +283,9 @@
                 handler: function() {
                     this.draw();
                 }
+            },
+            currentSource: function () {
+                this.checkSource();
             }
         }
     }
@@ -323,6 +347,8 @@
             <view-tools v-if="mapType !== 'cumulative'" :view="view" />
             <time-slider-range v-if="mapType === 'cumulative'" :view="view" />
         </div>
+
+        <Loader v-if="!isLoaded" :text="'Loading ' + translate(currentSource.title) + '...'"/>
     </div>
 </template>
 
@@ -338,6 +364,14 @@
         .search-regions {
             height: 36px;
             margin-bottom: 6px;
+        }
+
+        &__loading {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
         }
 
         &__side-bar {

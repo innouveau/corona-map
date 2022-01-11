@@ -2,7 +2,12 @@
     export default {
         name: 'loader',
         components: {},
-        props: {},
+        props: {
+            text: {
+                type: String,
+                required: false
+            }
+        },
         computed: {},
         methods: {}
     }
@@ -12,6 +17,9 @@
 <template>
     <div class="loader">
         <div class="spinner"></div>
+        <div v-if="text" class="loader__text">
+            {{text}}
+        </div>
     </div>
 </template>
 
@@ -25,11 +33,18 @@
         top: 0;
         width: 100%;
         height: 100%;
-        z-index: 1;
+        z-index: 10;
         display: flex;
         align-items: center;
         justify-content: center;
         background: $grey-1;
+
+        &__text {
+            position: absolute;
+            left: 50%;
+            top: calc(50% + 70px);
+            transform: translate(-50%, -50%);
+        }
 
         .spinner,
         .spinner:before,

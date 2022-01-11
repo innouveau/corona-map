@@ -3,7 +3,6 @@ import changeTools from '@/tools/change';
 import { getIncreaseOfType } from "@/tools/calculator";
 import { getShadeOfColor } from "@/tools/color";
 import { CUMULATIVE_COLOR_SCALE } from "@/data/constants";
-import interpolate from "color-interpolate";
 
 const addBackground = function(ctx, width, height) {
     ctx.rect(0, 0, width, height);
@@ -19,7 +18,6 @@ const draw = function(ctx, source, regionContainers, settings, view, mapType = '
     if (mapType === "cumulative") {
         normalise(values);
     }
-
     for (let regionData of values) {
         drawRegionContainer(ctx, regionData.region, settings, regionData.result.color) ;
     }

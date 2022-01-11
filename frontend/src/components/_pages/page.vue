@@ -3,7 +3,6 @@
     import View from "@/classes/View";
     import query from '@/components/elements/query'
     import dateTools from '@/tools/date';
-    import sourceTools from "@/tools/source";
 
     export default {
         name: 'page',
@@ -68,24 +67,13 @@
                     }
                 }
                 if (this.$route.query.regiontype) {
-                    console.log(this.$route.query.regiontype);
                     this.$store.commit('ui/updateProperty', {key: 'currentRegionType', value: this.$route.query.regiontype});
-                }
-            },
-            checkSource() {
-                if (!this.currentSource.loaded) {
-                    sourceTools.load(this.currentSource);
                 }
             }
         },
         mounted() {
             this.readQuery();
         },
-        watch: {
-            currentSource: function () {
-                this.checkSource();
-            }
-        }
     }
 </script>
 
@@ -98,11 +86,7 @@
 
         <div class="content">
             <div class="page__map standard-view-map">
-                <slot v-if="isLoaded" name="map" />
-
-                <div v-else>
-                    Loading {{translate(currentSource.title)}}...
-                </div>
+                <slot name="map" />
             </div>
 
             <div class="page__details">
@@ -138,15 +122,16 @@
                 position: relative;
             }
 
-            .page__trends {
-                width: 300px;
+            .page__details {
+                width: 450px;
                 padding: 16px;
                 height: 100%;
                 overflow: auto;
+                border-right: 1px solid rgba(0,0,0,0.2);
             }
 
-            .page__details {
-                width: 450px;
+            .page__trends {
+                width: 300px;
                 padding: 16px;
                 height: 100%;
                 overflow: auto;
