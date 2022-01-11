@@ -228,6 +228,7 @@ class _Region extends _Cache {
         return signalingSystem.days / map.data.positivePcrTests.interval;
     }
 
+    // todo move this functionallity to tools/calculator
     getChange(offset, daysBefore) {
         let before, after, extraOffset;
         extraOffset = 0;
