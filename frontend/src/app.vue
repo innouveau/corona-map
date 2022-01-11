@@ -16,7 +16,7 @@
     import countries from '@/data/countries';
     import ageGroups from '@/data/age-groups';
     import signalingSystems from '@/data/signaling-systems';
-    import HamburgerMenu from "./components/hamburger/hamburger-menu";
+    import HamburgerMenu from "@/components/elements/hamburger/hamburger-menu";
 
 
     export default {

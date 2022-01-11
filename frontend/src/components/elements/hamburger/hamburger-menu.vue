@@ -1,5 +1,6 @@
 <script>
-    import LanguageSwitch from "../elements/language/language-switch";
+    import LanguageSwitch from "@/components/elements/language/language-switch";
+
     export default {
         name: 'hamburger-menu',
         components: {LanguageSwitch},
