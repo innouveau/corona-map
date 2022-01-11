@@ -1,6 +1,6 @@
 <script>
     import View from "@/classes/View";
-    import region from "@/components/_pages/main/trends/region";
+    import region from "@/components/pages/main/trends/region";
 
     export default {
         name: 'cities-with-sewage-treatment-plant',

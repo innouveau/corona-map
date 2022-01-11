@@ -1,7 +1,7 @@
 <script>
     import View from "@/classes/View";
     import dateTools from '@/tools/date';
-    import headerMenu from "@/components/_pages/header/header-menu";
+    import headerMenu from "@/components/pages/header/header-menu";
     import Map from "@/components/_map/Map";
 
     export default {

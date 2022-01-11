@@ -1,6 +1,6 @@
 <script>
 import View from "@/classes/View";
-import page from "@/components/_pages/page";
+import page from "@/components/pages/page";
 import { downloadImage } from "@/tools/download";
 import RegionDetails from "./details/region-details";
 import Trends from "./trends/trends";

@@ -1,17 +1,17 @@
 <script>
 import View from "@/classes/View";
 import query from '@/components/elements/query'
-import Page from "@/components/_pages/page";
+import Page from "@/components/pages/page";
 import Map from "@/components/_map/Map";
 import { downloadImage } from "@/tools/download";
-import Region from "@/components/_region/Region";
-import CumulativeDetails from "./details/cumulative-details";
+import RegionDetailsChange from "./details/region-details-change";
+import ChangeTrends from "./trends/change-trends";
 
 export default {
-    name: 'cumulative',
+    name: 'change',
     components: {
-        CumulativeDetails,
-        Region,
+        ChangeTrends,
+        RegionDetailsChange,
         Page,
         Map,
     },
@@ -23,13 +23,13 @@ export default {
         }
     },
     computed: {
-        regionOfFocus() {
-            return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
+        currentRegion() {
+            return this.view.currentRegion;
         }
     },
     methods: {
         download(payload) {
-            downloadImage("cumulative", payload);
+            downloadImage("change", payload);
         }
     }
 }
@@ -42,20 +42,17 @@ export default {
             <Map
                 @download="download"
                 :view="view"
-                :map-type="'cumulative'" />
+                :map-type="'change'" />
         </template>
 
         <template v-slot:details>
-            <Region
-                :view="view">
-                <cumulative-details
-                    :view="view"
-                    :region="regionOfFocus" />
-            </Region>
+            <region-details-change
+                :view="view"
+                :region="currentRegion" />
         </template>
 
         <template v-slot:trends>
-            Trends
+            <change-trends :view="view" />
         </template>
     </page>
 </template>

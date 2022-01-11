@@ -1,6 +1,6 @@
 <script>
 import View from "@/classes/View";
-import regionDetailsHead from "@/components/_pages/main/details/region-details-head";
+import regionDetailsHead from "@/components/pages/main/details/region-details-head";
 import regionRelations from "@/components/_map/region-type/region-relations";
 
 export default {

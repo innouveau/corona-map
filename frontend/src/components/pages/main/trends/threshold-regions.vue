@@ -1,6 +1,6 @@
 <script>
     import View from "@/classes/View";
-    import city from "@/components/_pages/main/trends/city";
+    import city from "@/components/pages/main/trends/city";
     import swatch from "@/components/elements/swatch";
 
     export default {
