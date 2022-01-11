@@ -4,6 +4,7 @@
     import credits from "@/components/elements/credits";
     import languageSwitch from "@/components/elements/language/language-switch";
     import dateTool from "@/tools/date";
+    import query from '@/components/elements/query'
 
     // data
     import languages from '@/data/languages';
@@ -26,6 +27,7 @@
             languageSwitch,
             credits
         },
+        mixins: [query],
         props: {},
         data() {
             return {
