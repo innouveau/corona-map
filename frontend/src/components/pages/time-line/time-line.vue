@@ -1,57 +1,61 @@
 <script>
-    import View from "@/classes/View";
-    import dateTools from '@/tools/date';
-    import headerMenu from "@/components/pages/header/header-menu";
-    import Map from "@/components/_map/Map";
+import View from "@/classes/View";
+import dateTools from '@/tools/date';
+import headerMenu from "@/components/pages/header/header-menu";
+import Map from "@/components/_map/Map";
+import { downloadImage } from "@/tools/download";
 
-    export default {
-        name: 'time-line',
-        components: {
-            Map,
-            headerMenu,
-        },
-        data() {
-            return {
-                view: null
-            }
-        },
-        props: {},
-        computed: {
-            currentMap() {
-                return this.$store.state.maps.current;
-            },
-            routePath() {
-                return window.location.href.split('#')[0];
-            },
-        },
-        methods: {
-            getDate() {
-                let offset;
-                if (this.$route.query.date) {
-                    offset = dateTools.getOffsetByDate(this.$route.query.date) / this.currentMap.data.positivePcrTests.interval;
-                } else {
-                    offset = 0;
-                }
-                this.view = new View({
-                    id: 1,
-                    offset: offset
-                })
-            },
-            updateQuery() {
-                let url, date;
-                date = dateTools.getDateByOffset(this.view.offset * this.currentMap.data.positivePcrTests.interval);
-                url = this.routePath + '#/timeline?map=' + encodeURI(this.currentMap.title) + '&date=' + date;
-                history.pushState(
-                    {},
-                    null,
-                    url
-                );
-            }
-        },
-        mounted() {
-            this.getDate();
+export default {
+    name: 'time-line',
+    components: {
+        Map,
+        headerMenu,
+    },
+    data() {
+        return {
+            view: null
         }
+    },
+    props: {},
+    computed: {
+        currentMap() {
+            return this.$store.state.maps.current;
+        },
+        routePath() {
+            return window.location.href.split('#')[0];
+        },
+    },
+    methods: {
+        getDate() {
+            let offset;
+            if (this.$route.query.date) {
+                offset = dateTools.getOffsetByDate(this.$route.query.date) / this.currentMap.data.positivePcrTests.interval;
+            } else {
+                offset = 0;
+            }
+            this.view = new View({
+                id: 1,
+                offset: offset
+            })
+        },
+        updateQuery() {
+            let url, date;
+            date = dateTools.getDateByOffset(this.view.offset * this.currentMap.data.positivePcrTests.interval);
+            url = this.routePath + '#/timeline?map=' + encodeURI(this.currentMap.title) + '&date=' + date;
+            history.pushState(
+                {},
+                null,
+                url
+            );
+        },
+        download() {
+            downloadImage(this.view, "signaling");
+        }
+    },
+    mounted() {
+        this.getDate();
     }
+}
 </script>
 
 
@@ -63,6 +67,7 @@
 
         <Map
             v-if="view"
+            @download="download"
             :view="view"
             :map-type="'signaling'" />
     </div>
