@@ -29,7 +29,7 @@ export default {
     },
     methods: {
         download(payload) {
-            downloadImage("cumulative", payload);
+            downloadImage(this.view, "cumulative");
         }
     }
 }

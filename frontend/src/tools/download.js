@@ -9,20 +9,22 @@ const width = 1014 * imageScale;
 const height = 570 * imageScale;
 
 export const downloadImage = async(view, mapType) => {
+    let string;
     const canvas = prepare();
     const ctx = canvas.getContext("2d");
-    await addHead(ctx, mapType)
-    addDate(ctx, view);
+    await addHead(ctx, mapType);
+    if (mapType === "cumulative") {
+        string = getDateString(view.offsetStart) + " - " + getDateString(view.offset);
+    } else {
+        string = getDateString(view.offsetStart)
+    }
+    addCustomText(ctx, string, 0.03, 0.195);
     canvasTools.draw(ctx, view.currentSource, store.getters['ui/regions'], getSettings(view,1), view, mapType);
     addCreator(ctx);
     addLegend(ctx, mapType, store.state.settings.gradient, 0.03, 0.28, view.currentSource);
     finish(canvas);
 }
 
-const addDate = (ctx, view) => {
-    const date = getDateString(view);
-    addCustomText(ctx, date, 0.03, 0.195);
-}
 
 const prepare = () => {
     const canvas = document.createElement('canvas');
@@ -55,8 +57,8 @@ const getSettings = (view, i) => {
     }
 }
 
-const getDateString = (view) => {
-    return store.getters['ui/getDateByOffset'](view.offset, 'EEEEEE d MMM yyyy', store.state.languages.current.iso_code);
+const getDateString = (offset) => {
+    return store.getters['ui/getDateByOffset'](offset, 'EEEEEE d MMM yyyy', store.state.languages.current.iso_code);
 }
 
 const addHead = (ctx, mapType) => {
@@ -96,15 +98,21 @@ const addLegend = (ctx, mapType, gradient, x, y, source) => {
     baseX = x * width;
     baseY = y * height;
     ctx.strokeStyle = '#555';
-    if (mapType === 'change') {
-        addLegendChange(ctx, baseX, baseY);
-    } else {
-        ctx.font = (12 * imageScale) + 'px Arial';
-        if (gradient) {
-            addLegendSignalingGradient(ctx, baseX, baseY, source);
-        } else {
-            addLegendSignaling(ctx, baseX, baseY, source);
-        }
+    switch (mapType) {
+        case "change":
+            addLegendChange(ctx, baseX, baseY);
+            break;
+        case "signaling":
+            ctx.font = (12 * imageScale) + 'px Arial';
+            if (gradient) {
+                addLegendSignalingGradient(ctx, baseX, baseY, source);
+            } else {
+                addLegendSignaling(ctx, baseX, baseY, source);
+            }
+            break;
+        default:
+            //
+            break;
     }
 }
 
