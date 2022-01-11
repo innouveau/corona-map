@@ -1,120 +1,128 @@
 import canvasTools from "@/tools/canvas";
+import store from "@/store/store";
+import thresholdTools from '@/tools/thresholds';
+import changeTools from '@/tools/change';
+import numberTools from '@/tools/number';
 
-export const downloadImage = (payload, mapType) => {
-    // todo
-    console.log("download");
-    // prepair();
-    // addHead().then(() => {
-    //     this.addDate(this.view, 0.03, 0.195);
-    //     canvasTools.draw(payload.ctx, payload.view.currentSource, payload.regions, this.getSettings(1), payload.view, mapType);
-    //     // canvasTools.draw(payload.ctx, payload.view.currentSource, payload.regions, this.getSettings(1), this.view, mapType);
-    //     addCreator(payload);
-    //     addLegend(mapType, true, 0.03, 0.28, payload.view.currentSource);
-    //     finish();
-    // });
+const imageScale = 1;
+const width = 1014 * imageScale;
+const height = 570 * imageScale;
+
+export const downloadImage = async(payload, mapType) => {
+    const canvas = prepare();
+    const ctx = canvas.getContext("2d");
+    await addHead(ctx, mapType)
+    addDate(ctx, payload);
+    canvasTools.draw(ctx, payload.view.currentSource, store.getters['ui/regions'], getSettings(payload,1), payload.view, mapType);
+    addCreator(ctx);
+    addLegend(ctx, mapType, store.state.settings.gradient, 0.03, 0.28, payload.view.currentSource);
+    finish(canvas);
 }
 
-const typeLabel = () => {
-    return '-' + this.getDateStringdashes(this.view);
+const addDate = (ctx, payload) => {
+    const date = getDateString(payload);
+    addCustomText(ctx, date, 0.03, 0.195);
 }
 
-const getSettings = (i) => {
+const prepare = () => {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'image-for-download';
+    canvas.width = width;
+    canvas.height = height;
+    return canvas;
+}
+
+const finish = (canvas) => {
+    const fileName = 'corona-status';
+    const downloadLink = document.createElement('a');
+    downloadLink.setAttribute('download', fileName);
+    canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        downloadLink.setAttribute('href', url);
+        downloadLink.click();
+    });
+}
+
+const getSettings = (payload, i) => {
     return {
-        width: this.width,
-        height: this.height,
-        shiftX: (220 * this.imageScale),
+        width: width,
+        height: height,
+        shiftX: (220 * imageScale),
         shiftY: 0,
-        zoom: this.currentMap.settings.map.zoom * 550 * this.imageScale,
+        zoom: store.state.maps.current.settings.map.zoom * 550 * imageScale,
         key: 'download-compare-' + i,
         fill: true
     }
 }
 
-const getDateStringdashes = (view) => {
-    const date = this.getDateString(view).toLowerCase().replace(/\./g,'');
-    return date.replace(/\s/g , "-");
+const getDateString = (payload) => {
+    return store.getters['ui/getDateByOffset'](payload.view.offset, 'EEEEEE d MMM yyyy', store.state.languages.current.iso_code);
 }
 
-const getDateString = (view) => {
-    return this.$store.getters['ui/getDateByOffset'](view.offset * this.currentMap.data.positivePcrTests.interval, 'EEEEEE d MMM yyyy', this.currentLanguage.iso_code);
-}
-
-const prepair = (width = this.width, height = this.height) => {
-    this.canvas.id = 'image-for-download';
-    this.canvas.width = width;
-    this.canvas.height = height;
-
-    canvasTools.addBackground(this.ctx, width, height);
-}
-
-const addHead = () => {
-    let width, height;
-    width = 559 * this.imageScale;
-    height = 57 * this.imageScale;
+const addHead = (ctx, mapType) => {
     return new Promise((resolve, reject) => {
-        let img = new Image();
-        if (this.mapType === 'change') {
-            img.src = 'assets/img/corona-change.png';
-        } else {
-            img.src = 'assets/img/corona-signaling.png';
+        canvasTools.addBackground(ctx, width, height);
+        const img = new Image();
+        switch (mapType) {
+            case "change":
+                img.src = 'assets/img/corona-change.png';
+                break;
+            default:
+                img.src = 'assets/img/corona-signaling.png';
         }
         img.onload = () => {
-            this.ctx.drawImage(img, (30 * this.imageScale), (36 * this.imageScale), width, height);
+            const width = 559 * imageScale;
+            const height = 57 * imageScale;
+            const x = 30 * imageScale;
+            const y = 36 * imageScale;
+            ctx.drawImage(img, x, y, width, height);
             resolve();
         }
     });
 }
 
-const addDate = (view, x, y, addLine = true) => {
-    let date = this.getDateString(view);
-    this.addCustomText(date, x, y);
-}
-
-const addCustomText = (text, x, y) => {
-    let ctx, xAbs, yAbs;
-    ctx = this.ctx;
-    xAbs = x * this.width;
-    yAbs = y * this.height;
-    ctx.font = 'bold ' + (32 * this.imageScale) + 'px Arial';
+const addCustomText = (ctx, text, x, y) => {
+    let xAbs, yAbs;
+    xAbs = x * width;
+    yAbs = y * height;
+    ctx.font = 'bold ' + (32 * imageScale) + 'px Arial';
     ctx.fillStyle = 'black';
     ctx.textAlign = 'left';
     ctx.fillText(text, xAbs, yAbs);
 }
 
-const addLegend = (mapType, gradient, x, y, source) => {
-    let baseX, baseY, ctx;
-    ctx = this.ctx;
-    baseX = x * this.width;
-    baseY = y * this.height;
+const addLegend = (ctx, mapType, gradient, x, y, source) => {
+    let baseX, baseY;
+    baseX = x * width;
+    baseY = y * height;
     ctx.strokeStyle = '#555';
     if (mapType === 'change') {
-        this.addLegendChange(baseX, baseY);
+        addLegendChange(ctx, baseX, baseY);
     } else {
-        ctx.font = (12 * this.imageScale) + 'px Arial';
+        ctx.font = (12 * imageScale) + 'px Arial';
         if (gradient) {
-            this.addLegendSignalingGradient(baseX, baseY, source);
+            addLegendSignalingGradient(ctx, baseX, baseY, source);
         } else {
-            this.addLegendSignaling(baseX, baseY, source);
+            addLegendSignaling(ctx, baseX, baseY, source);
         }
     }
 }
 
-const addLegendSignalingGradient = (baseX, baseY, source) => {
-    let ctx, index, thresholds, y, width, height, margin;
-    height = 20 *  this.imageScale;
-    margin = this.imageScale;
-    width = 16 *  this.imageScale;
+const addLegendSignalingGradient = (ctx, baseX, baseY, source) => {
+    let index, thresholds, y, width, height, margin;
+    height = 20 *  imageScale;
+    margin = imageScale;
+    width = 16 *  imageScale;
     y = baseY;
-    ctx = this.ctx;
     index = 0;
     thresholds = thresholdTools.getThresholds(source);
     for (let threshold of thresholds) {
         let color1, color2, grd, label;
-        color1 = threshold.color[this.$store.state.ui.color];
+        color1 = threshold.color[store.state.ui.color];
         if (index === 0 || index === thresholds.length - 1) {
             ctx.fillStyle = color1;
         } else {
-            color2 = thresholds[index + 1].color[this.$store.state.ui.color];
+            color2 = thresholds[index + 1].color[store.state.ui.color];
             grd = ctx.createLinearGradient(0, y, 0, (y + height));
             grd.addColorStop(0, color1);
             grd.addColorStop(1, color2);
@@ -128,20 +136,19 @@ const addLegendSignalingGradient = (baseX, baseY, source) => {
         } else {
             label = thresholdTools.getNumber(threshold, source);
         }
-        ctx.fillText(label, baseX + width + (8 * this.imageScale), (y + (18 * this.imageScale)));
+        ctx.fillText(label, baseX + width + (8 * imageScale), (y + (18 * imageScale)));
         y += (height + margin);
         index++;
     }
 }
 
-const addLegendSignaling = (baseX, baseY, source) => {
-    let ctx = this.ctx;
+const addLegendSignaling = (ctx, baseX, baseY, source) => {
     baseX += 8;
     for (let threshold of thresholdTools.getThresholds(source)) {
         let label;
-        ctx.fillStyle = threshold.color[this.$store.state.ui.color];
+        ctx.fillStyle = threshold.color[store.state.ui.color];
         ctx.beginPath();
-        ctx.arc(baseX, baseY, (9 * this.imageScale), 0, (Math.PI * 2), false);
+        ctx.arc(baseX, baseY, (9 * imageScale), 0, (Math.PI * 2), false);
         ctx.stroke();
         ctx.fill();
         ctx.fillStyle = '#544e41';
@@ -150,39 +157,38 @@ const addLegendSignaling = (baseX, baseY, source) => {
         } else {
             label = thresholdTools.getNumber(threshold, source);
         }
-        ctx.fillText(label, baseX + (24 * this.imageScale), (baseY + (7 * this.imageScale)));
-        baseY += (24 * this.imageScale);
+        ctx.fillText(label, baseX + (24 * imageScale), (baseY + (7 * imageScale)));
+        baseY += (24 * imageScale);
     }
 }
 
-const addLegendChange = (baseX, baseY) => {
-    let ctx, index, y;
-    ctx = this.ctx;
-    ctx.font = (12 * this.imageScale) + 'px Arial';
+const addLegendChange = (ctx, baseX, baseY) => {
+    let index, y;
+    ctx.font = (12 * imageScale) + 'px Arial';
     index = 0;
     y = baseY;
     for (let section of changeTools.sections) {
         let colors, grd, height, change, value;
-        height = index === 1 ? (18 *  this.imageScale): (36 *  this.imageScale);
+        height = index === 1 ? (18 *  imageScale): (36 *  imageScale);
         colors = changeTools.getBackgroundForSection(index);
         grd = ctx.createLinearGradient(0, y, 0, (y + height));
         grd.addColorStop(0, colors[0]);
         grd.addColorStop(1, colors[1]);
         ctx.beginPath();
         ctx.fillStyle = grd;
-        ctx.fillRect(baseX, y, (18 *  this.imageScale), height);
-        ctx.strokeRect(baseX, y, (18 *  this.imageScale), height);
+        ctx.fillRect(baseX, y, (18 *  imageScale), height);
+        ctx.strokeRect(baseX, y, (18 *  imageScale), height);
 
         // text top
         change = changeTools.getChangeForFactor(section.range[0]);
         value = numberTools.formatChange(change);
         ctx.fillStyle = '#544e41';
-        ctx.fillText(value, baseX + (24 * this.imageScale), y + (6 * this.imageScale));
+        ctx.fillText(value, baseX + (24 * imageScale), y + (6 * imageScale));
         if (index === changeTools.sections.length - 1) {
             change = changeTools.getChangeForFactor(section.range[1]);
             value = numberTools.formatChange(change);
             ctx.fillStyle = '#544e41';
-            ctx.fillText(value, baseX + (24 * this.imageScale), y + height + (2 * this.imageScale));
+            ctx.fillText(value, baseX + (24 * imageScale), y + height + (2 * imageScale));
         }
 
         index++;
@@ -190,27 +196,8 @@ const addLegendChange = (baseX, baseY) => {
     }
 }
 
-const addCreator = (p) => {
-    let ctx = this.ctx;
-    ctx.font = (20 * this.imageScale) + 'px Arial';
+const addCreator = (ctx) => {
+    ctx.font = (20 * imageScale) + 'px Arial';
     ctx.fillStyle = '#544e41';
-    ctx.fillText('Created by: @innouveau', (30 * this.imageScale),  (545 * this.imageScale));
-}
-
-const finish = (name) => {
-    return new Promise((resolve, reject) => {
-        let fileName;
-        if (name && name.length > 0) {
-            fileName = name;
-        } else {
-            fileName = 'corona-status' + this.typeLabel;
-        }
-        this.downloadLink.setAttribute('download', fileName);
-        this.canvas.toBlob((blob) => {
-            let url = URL.createObjectURL(blob);
-            this.downloadLink.setAttribute('href', url);
-            this.downloadLink.click();
-            resolve();
-        });
-    })
+    ctx.fillText('Created by: @innouveau', (30 * imageScale),  (545 * imageScale));
 }
