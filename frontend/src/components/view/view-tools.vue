@@ -98,6 +98,10 @@
 
         .vdp-datepicker {
             width: 200px;
+
+            .vdp-datepicker__calendar {
+                bottom: 100%;
+            }
         }
 
         .time-slider {
