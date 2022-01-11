@@ -1,6 +1,6 @@
 <script>
     import canvasTools from '@/tools/canvas';
-    import pointerCanvas from "@/components/map/pointer-canvas";
+    import pointerCanvas from "./pointer-canvas";
     import mapToolsPopup from "./tools/map-tools-popup";
     import View from "@/classes/View";
     import $ from 'jquery';
