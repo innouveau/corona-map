@@ -1,7 +1,7 @@
 <script>
     import * as d3 from 'd3';
     import $ from 'jquery';
-    import credits from "@/components/credits";
+    import credits from "@/components/elements/credits";
     import languageSwitch from "@/components/elements/language/language-switch";
     import dateTool from "@/tools/date";
 
