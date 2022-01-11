@@ -1,7 +1,6 @@
 <script>
     import headerMenu from "@/components/pages/header/header-menu";
     import View from "@/classes/View";
-    import dateTools from '@/tools/date';
 
     export default {
         name: 'page',
@@ -12,6 +11,11 @@
             view: {
                 type: View,
                 required: true
+            }
+        },
+        data() {
+            return {
+
             }
         },
         computed: {
@@ -30,47 +34,6 @@
             isLoaded(){
                 return this.currentSource.loaded;
             }
-        },
-        methods: {
-            readQuery() {
-                let region, string, offset, source;
-                if (this.$route.query.region) {
-                    string = decodeURI(this.$route.query.region);
-                    region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', string, true);
-                    if (region) {
-                        this.view.currentRegion = region;
-                    }
-                }
-                if (this.$route.query.date) {
-                    offset = dateTools.getOffsetByDate(this.$route.query.date);
-                    this.view.offset = offset;
-                }
-                if (this.$route.query.admin) {
-                    this.$store.commit('ui/updateProperty', {key: 'admin', value: true});
-                }
-                if (this.$route.query.source) {
-                    source = this.$store.getters['sources/getItemByProperty']('title', this.$route.query.source, true);
-                    this.view.currentSource = source;
-                }
-                if (this.$route.query.signaling) {
-                    const signalingId= Number(this.$route.query.signaling);
-                    const signalingSystem = this.$store.getters['signalingSystems/getItemById'](signalingId);
-                    if (signalingSystem) {
-                        this.view.currentSource.signalingSystem_id = signalingSystem.id;
-                    }
-                }
-                if (this.$route.query.gradient) {
-                    if (this.$route.query.gradient === 'false') {
-                        this.$store.commit('settings/updateProperty', {key: 'gradient', value: false});
-                    }
-                }
-                if (this.$route.query.regiontype) {
-                    this.$store.commit('ui/updateProperty', {key: 'currentRegionType', value: this.$route.query.regiontype});
-                }
-            }
-        },
-        mounted() {
-            this.readQuery();
         },
     }
 </script>

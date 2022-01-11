@@ -5,6 +5,7 @@ import Map from "@/components/_map/Map";
 import { downloadImage } from "@/tools/download";
 import RegionDetailsChange from "./details/region-details-change";
 import ChangeTrends from "./trends/change-trends";
+import query from '@/components/elements/query.js'
 
 export default {
     name: 'change',
@@ -14,6 +15,7 @@ export default {
         Page,
         Map,
     },
+    mixins: [query],
     props: {},
     data() {
         return {

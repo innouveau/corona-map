@@ -15,13 +15,10 @@
             },
         },
         data() {
-            const frameSize = this.view.pcrWeekly ? 7 : 1;
-            const l = this.$store.state.settings.historyLength;
-            const max = (frameSize === 1) ? l : (Math.floor(l / frameSize) * frameSize);
+            const max = this.$store.state.settings.historyLength;
             return {
                 max,
-                frameSize,
-                range: [0, max]
+                range: [max - this.view.offsetStart, max - this.view.offset]
             }
         },
         computed: {
@@ -52,7 +49,7 @@
             v-model="range"
             :min="0"
             :max="max"
-            :interval="frameSize"
+            :interval="1"
             :tooltip-formatter="date"
             :duration="0"/>
     </div>

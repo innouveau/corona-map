@@ -4,7 +4,6 @@
     import credits from "@/components/elements/credits";
     import languageSwitch from "@/components/elements/language/language-switch";
     import dateTool from "@/tools/date";
-    import query from '@/components/elements/query'
 
     // data
     import languages from '@/data/languages';
@@ -27,7 +26,6 @@
             languageSwitch,
             credits
         },
-        mixins: [query],
         props: {},
         data() {
             return {
@@ -59,7 +57,6 @@
                 this.initLanguages();
                 this.pickMap();
                 this.addSource('positiveTests', 0);
-                this.readQuery();
             },
             pickMap() {
                 let map;
@@ -74,22 +71,6 @@
                 }
                 this.$store.commit('ui/updateProperty', {key: 'currentRegionType', value: this.currentMap.settings.regionTypes[0]});
                 this.loadData();
-            },
-            readQuery() {
-                let string, signalingSystem, language;
-                if (this.$route.query.presets && this.$route.query.presets === 'radio1') {
-                    signalingSystem = store.getters['signalingSystems/getItemById'](3);
-                    language = this.$store.getters['languages/getItemByProperty']('iso_code', 'nl', true);
-                    this.$store.commit('sources/updatePropertyOfItem', {item: this.$store.state.sources.all[0], property: 'signalingSystem_id', value: signalingSystem.id});
-                    this.$store.commit('settings/updateProperty', {key: 'gradient', value: false});
-                    this.$store.commit('languages/setCurrent', language);
-                    this.$store.commit('ui/updateProperty', {key: 'presets', value: 'radio1'});
-
-                } else {
-                    if (this.$route.query.video) {
-                        this.$store.commit('ui/updateProperty', {key: 'videoMode', value: true});
-                    }
-                }
             },
             initLanguages() {
                 let language;

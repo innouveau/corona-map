@@ -3,7 +3,6 @@
     import signalingSystemPicker from "./signaling-system-picker";
     import gradientToggle from "./gradient-toggle";
     import vClickOutside from 'v-click-outside';
-    import downloadImageMixin from '@/components/_old/download/download-image-mixin';
     import canvasTools from '@/tools/canvas';
     import View from "@/classes/View";
 
@@ -14,7 +13,6 @@
             signalingSystemPicker,
             gradientToggle
         },
-        mixins: [downloadImageMixin],
         directives: {
             clickOutside: vClickOutside.directive
         },

@@ -6,6 +6,7 @@ import RegionDetails from "./details/region-details";
 import Trends from "./trends/trends";
 import Map from "@/components/_map/Map";
 import Region from "@/components/_region/Region";
+import query from '@/components/elements/query.js'
 
 export default {
     name: 'main-page',
@@ -16,6 +17,7 @@ export default {
         RegionDetails,
         page,
     },
+    mixins: [query],
     props: {},
     data() {
         return {
@@ -65,6 +67,7 @@ export default {
                 <region-details
                     :view="view"
                     :region="currentRegion" />
+                {{currentPage}}
             </Region>
         </template>
 

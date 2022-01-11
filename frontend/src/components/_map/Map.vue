@@ -14,6 +14,7 @@
     import TimeSliderRange from "../view/time-slider-range";
     import sourceTools from "@/tools/source";
     import Loader from "../elements/loader";
+    import dateTools from '@/tools/date';
 
     export default {
         name: 'Map',
@@ -60,7 +61,8 @@
         data() {
             let id = Math.round(Math.random() * 1000000);
             return {
-                id
+                id,
+                readQueryDone: false
             }
         },
         computed: {
@@ -118,17 +120,60 @@
         },
         methods: {
             init() {
+                this.readQuery();
                 this.measure();
                 setTimeout(() => {
                     this.canvas.width = this.width;
                     this.canvas.height = this.height;
                     this.draw();
                     this.addEvents();
+                    this.checkSource();
                 });
 
                 $(window).resize(() => {
                     this.resize();
                 });
+            },
+            readQuery() {
+                let region, offset, source, start;
+                if (this.$route.query.region) {
+                    const regionString = decodeURI(this.$route.query.region);
+                    region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', regionString, true);
+                    if (region) {
+                        this.view.currentRegion = region;
+                    }
+                }
+                if (this.$route.query.date) {
+                    offset = dateTools.getOffsetByDate(this.$route.query.date);
+                    this.view.offset = offset;
+                }
+                if (this.$route.query.start) {
+                    start = dateTools.getOffsetByDate(this.$route.query.start);
+                    this.view.offsetStart = start;
+                }
+                if (this.$route.query.admin) {
+                    this.$store.commit('ui/updateProperty', {key: 'admin', value: true});
+                }
+                if (this.$route.query.source) {
+                    source = this.$store.getters['sources/getItemByProperty']('title', this.$route.query.source, true);
+                    this.view.currentSource = source;
+                }
+                if (this.$route.query.signaling) {
+                    const signalingId = Number(this.$route.query.signaling);
+                    const signalingSystem = this.$store.getters['signalingSystems/getItemById'](signalingId);
+                    if (signalingSystem) {
+                        this.view.currentSource.signalingSystem_id = signalingSystem.id;
+                    }
+                }
+                if (this.$route.query.gradient) {
+                    if (this.$route.query.gradient === 'false') {
+                        this.$store.commit('settings/updateProperty', {key: 'gradient', value: false});
+                    }
+                }
+                if (this.$route.query.regiontype) {
+                    this.$store.commit('ui/updateProperty', {key: 'currentRegionType', value: this.$route.query.regiontype});
+                }
+                this.readQueryDone = true;
             },
             resize() {
                 this.measure();
@@ -212,17 +257,19 @@
                 return null;
             },
             draw() {
-                this.clear();
-                let settings = {
-                    key: 'map-' + this.$store.state.settings.canvasWidth,
-                    width: this.$store.state.settings.canvasWidth,
-                    height: this.$store.state.settings.canvasHeight,
-                    shiftX: 0,
-                    shiftY: 0,
-                    zoom: this.$store.state.settings.zoom,
-                    fill: true
-                };
-                canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view, this.mapType);
+                if (this.view.currentSource.loaded) {
+                    this.clear();
+                    let settings = {
+                        key: 'map-' + this.$store.state.settings.canvasWidth,
+                        width: this.$store.state.settings.canvasWidth,
+                        height: this.$store.state.settings.canvasHeight,
+                        shiftX: 0,
+                        shiftY: 0,
+                        zoom: this.$store.state.settings.zoom,
+                        fill: true
+                    };
+                    canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view, this.mapType);
+                }
             },
             clear() {
                 this.ctx.clearRect(0, 0, this.width, this.height);
@@ -246,14 +293,11 @@
         },
         mounted() {
             this.init();
-
         },
         watch: {
             view: {
                 handler: function() {
-                    if (this.view.currentSource.loaded) {
-                        this.draw();
-                    }
+                    this.draw();
                 },
                 deep: true
             },
@@ -336,7 +380,7 @@
                 :view="view"/>
         </div>
 
-        <div class="Map__tools">
+        <div class="Map__tools" v-if="readQueryDone">
             <view-tools v-if="mapType !== 'cumulative'" :view="view" />
             <time-slider-range v-if="mapType === 'cumulative'" :view="view" />
         </div>

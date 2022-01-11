@@ -5,6 +5,7 @@ import Map from "@/components/_map/Map";
 import { downloadImage } from "@/tools/download";
 import Region from "@/components/_region/Region";
 import CumulativeDetails from "./details/cumulative-details";
+import query from '@/components/elements/query.js'
 
 export default {
     name: 'cumulative',
@@ -14,6 +15,7 @@ export default {
         Page,
         Map,
     },
+    mixins: [query],
     props: {},
     data() {
         return {
