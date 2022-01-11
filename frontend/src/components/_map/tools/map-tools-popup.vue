@@ -1,7 +1,7 @@
 <script>
-    import colorSetPicker from "./map-tools/color-set-picker";
-    import signalingSystemPicker from "./map-tools/signaling-system-picker";
-    import gradientToggle from "./map-tools/gradient-toggle";
+    import colorSetPicker from "./color-set-picker";
+    import signalingSystemPicker from "./signaling-system-picker";
+    import gradientToggle from "./gradient-toggle";
     import vClickOutside from 'v-click-outside';
     import downloadImageMixin from '@/components/_old/download/download-image-mixin';
     import canvasTools from '@/tools/canvas';

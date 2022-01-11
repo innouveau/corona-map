@@ -1,7 +1,7 @@
 <script>
     import canvasTools from '@/tools/canvas';
     import pointerCanvas from "@/components/map/pointer-canvas";
-    import mapToolsPopup from "@/components/map/map-tools-popup";
+    import mapToolsPopup from "./tools/map-tools-popup";
     import View from "@/classes/View";
     import $ from 'jquery';
     import MapLabels from "./labels/map-labels";
