@@ -25,6 +25,11 @@ const draw = function(ctx, source, regionContainers, settings, view, mapType = '
 
 const normalise = (regions) => {
     let total = 0;
+    for (const region of regions) {
+        if (isNaN(region.result.value)) {
+            console.log(region);
+        }
+    }
     const max = Math.max(...regions.map(i => i.result.value), 0);
     const min = Math.min(...regions.map(i => i.result.value), max);
     for (const region of regions) {
