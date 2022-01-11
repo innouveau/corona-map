@@ -1,6 +1,5 @@
 <script>
 import View from "@/classes/View";
-import query from '@/components/elements/query'
 import Page from "@/components/pages/page";
 import Map from "@/components/_map/Map";
 import { downloadImage } from "@/tools/download";
@@ -15,7 +14,6 @@ export default {
         Page,
         Map,
     },
-    mixins: [query],
     props: {},
     data() {
         return {

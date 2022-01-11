@@ -7,7 +7,6 @@
     import regionTypePicker from "@/components/_map/region-type/region-type-picker";
     import dateTools from '@/tools/date';
     import populationTestGroup from "./population-test-group";
-    import query from '@/components/elements/query'
     import PopulationTestRegion from "./population-test-region";
 
     export default {
@@ -22,7 +21,6 @@
             regionTypePicker
         },
         props: {},
-        mixins: [query],
         data() {
             let view = {
                 id: 1,

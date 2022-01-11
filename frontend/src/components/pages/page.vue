@@ -1,7 +1,6 @@
 <script>
     import headerMenu from "@/components/pages/header/header-menu";
     import View from "@/classes/View";
-    import query from '@/components/elements/query'
     import dateTools from '@/tools/date';
 
     export default {
@@ -15,7 +14,6 @@
                 required: true
             }
         },
-        mixins: [query],
         computed: {
             showEmbedPopup() {
                 return this.$store.state.ui.embedPopup;

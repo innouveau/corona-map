@@ -6,6 +6,9 @@
         components: {},
         props: {},
         computed: {
+            currentPage() {
+                return this.$route;
+            },
             hasSourcePicker() {
                 return this.currentMap.data.hospitalisations.status || this.currentMap.data.deceased.status;
             },
