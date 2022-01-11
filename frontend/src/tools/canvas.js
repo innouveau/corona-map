@@ -1,6 +1,6 @@
 import store from '@/store/store';
 import changeTools from '@/tools/change';
-import { getCumulativeForPeriod } from "@/tools/calculator";
+import { getCumulativeForPeriod, getChangeOfType } from "@/tools/calculator";
 import { getShadeOfColor } from "@/tools/color";
 import { CUMULATIVE_COLOR_SCALE } from "@/data/constants";
 
@@ -61,15 +61,14 @@ const getValues = (regionContainers, mapType, view, source) => {
 const getValue = function(parent, mapType, view, source) {
     switch (mapType) {
         case 'change':
-            let change = parent.getChange(view.offset, changeTools.daysBack);
+            const change = getChangeOfType(parent, view.offset, 7, view.currentSource.key);
             return {
                 value: null,
                 color: changeTools.getColorForChange(change)
             }
         case 'cumulative':
-            const historyLength = store.state.settings.historyLength;
-            const start = historyLength - view.offsetStart;
-            const end = historyLength - view.offset;
+            const start = view.offset;
+            const end = view.offsetStart;
             const cumulative = getCumulativeForPeriod(parent, start, end, view.currentSource.key, true);
             return {
                 value: cumulative,
