@@ -1,4 +1,4 @@
-export const getIncreaseOfType = (region, start, end, source, relative) => {
+export const getCumulativeForPeriod = (region, start, end, source, relative) => {
     let totalValue = 0;
     const children = region.regions;
 
@@ -20,6 +20,10 @@ export const getIncreaseOfType = (region, start, end, source, relative) => {
         }
     }
     return relative ? (totalValue * 100000 / region.totalPopulation) : totalValue
+}
+
+export const getChangeOfType = (region, offset, daysBack, source) => {
+
 }
 
 

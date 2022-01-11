@@ -1,6 +1,6 @@
 import store from '@/store/store';
 import changeTools from '@/tools/change';
-import { getIncreaseOfType } from "@/tools/calculator";
+import { getCumulativeForPeriod } from "@/tools/calculator";
 import { getShadeOfColor } from "@/tools/color";
 import { CUMULATIVE_COLOR_SCALE } from "@/data/constants";
 
@@ -70,9 +70,9 @@ const getValue = function(parent, mapType, view, source) {
             const historyLength = store.state.settings.historyLength;
             const start = historyLength - view.offsetStart;
             const end = historyLength - view.offset;
-            const increase = getIncreaseOfType(parent, start, end, view.currentSource.key, true);
+            const cumulative = getCumulativeForPeriod(parent, start, end, view.currentSource.key, true);
             return {
-                value: increase,
+                value: cumulative,
                 color: null
             }
         default:
