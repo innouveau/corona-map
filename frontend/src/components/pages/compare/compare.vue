@@ -23,12 +23,6 @@ export default {
         currentMap() {
             return this.$store.state.maps.current;
         },
-        offset1() {
-            return this.views.length > 0 ? this.views[0].offset : null;
-        },
-        offset2() {
-            return this.views.length > 0 ? this.views[1].offset : null;
-        }
     },
     methods: {
         getDates() {
@@ -85,14 +79,9 @@ export default {
                 </div>
                 <Map
                     :view="view"
-                    :map-type="'signaling'" />
+                    :map-type="'signaling'"
+                    :show-download="false"/>
             </div>
-
-
-<!--            <download-image-double-->
-<!--                v-if="views.length === 2"-->
-<!--                :view1="views[0]"-->
-<!--                :view2="views[1]"/>-->
         </div>
     </div>
 </template>
