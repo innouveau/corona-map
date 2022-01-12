@@ -55,8 +55,18 @@
             currentLanguage() {
                 return this.$store.state.languages.current;
             },
+            isCumulative() {
+                return this.$route.name === "cumulative";
+            },
             dateString() {
-                return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'EE dd MMM yyyy', this.currentLanguage.iso_code)
+                const lang = this.currentLanguage.iso_code
+                const offsetDate = this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'EE dd MMM yyyy', lang);
+                if (this.isCumulative) {
+                    const startDate = this.$store.getters['ui/getDateByOffset']((this.view.offsetStart * this.currentMap.data.positivePcrTests.interval), 'EE dd MMM yyyy', lang);
+                    return startDate + " - " + offsetDate
+                } else {
+                    return offsetDate;
+                }
             },
             offset() {
                 return this.view.offset;
@@ -89,7 +99,7 @@
                     {{dateString}}
                 </div>
                 <total-infections
-                    v-if="!videoMode"
+                    v-if="!videoMode && !isCumulative"
                     :view="view"/>
             </div>
         </div>
