@@ -7,7 +7,9 @@ class SafetyRegion extends _Region {
         safetyRegion_code = '',
         title = '',
         paths = [],
-        report = null
+        report = {
+            history: []
+        },
     }) {
         super();
         this.id = (store.state.safetyRegions.all.length + 1);

@@ -28,9 +28,6 @@
             }
         },
         computed: {
-            hasDays() {
-                return this.testDataInterval === 1;
-            },
             showLateReportingWarning() {
                 return this.region.hasLateReporting && this.region.getLatestReporting(this.view.offset) > this.view.offset;
             },
@@ -73,7 +70,7 @@
         </div>
 
         <div
-            v-if="hasDays && !short"
+            v-if="!short"
             class="region-details__section">
             <div class="region-details__section-head">
                 {{translate('trend-today', true)}}

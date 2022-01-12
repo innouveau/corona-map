@@ -7,7 +7,9 @@ class Province extends _Region{
         province_code = '',
         title = '',
         paths = [],
-        report = null
+        report = {
+            history: []
+        },
     }) {
         super();
         this.id = (store.state.provinces.all.length + 1);

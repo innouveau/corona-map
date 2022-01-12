@@ -88,13 +88,13 @@
         :class="{'panel--active': showDetails}"
         class="region-details">
 
-        <div
-            v-if="regionOfFocus.vaccination && regionOfFocus.vaccination.length > 0"
-            class="region-details__section">
-            <region-details-vaccination
-                :region="regionOfFocus"
-                :reference="safetyRegion"/>
-        </div>
+<!--        <div-->
+<!--            v-if="regionOfFocus.vaccination && regionOfFocus.vaccination.length > 0"-->
+<!--            class="region-details__section">-->
+<!--            <region-details-vaccination-->
+<!--                :region="regionOfFocus"-->
+<!--                :reference="safetyRegion"/>-->
+<!--        </div>-->
 
         <div class="region-details__section">
             <positive-pcr-tests
@@ -114,22 +114,22 @@
 
         <div class="region-details__info">
 
-            <div
-                v-if="sourceIsPositiveTests && hasAgeGroups && (regionOfFocus.regionType === 'ggd' || regionOfFocus.regionType === 'country') && caseDataRequested"
-                class="region-details__section">
-                <div class="region-details__section-header">
-                    {{translate('age-distribution', true)}}
-                </div>
-                <div class="age-distribution-graph__container">
-                    <age-distribution-graph-normalised
-                        v-if="caseDataLoaded"
-                        :view="view"
-                        :region="regionOfFocus"/>
-                    <loader v-else/>
-                </div>
-                <age-distribution-tools
-                    :view="view"/>
-            </div>
+<!--            <div-->
+<!--                v-if="sourceIsPositiveTests && hasAgeGroups && (regionOfFocus.regionType === 'ggd' || regionOfFocus.regionType === 'country') && caseDataRequested"-->
+<!--                class="region-details__section">-->
+<!--                <div class="region-details__section-header">-->
+<!--                    {{translate('age-distribution', true)}}-->
+<!--                </div>-->
+<!--                <div class="age-distribution-graph__container">-->
+<!--                    <age-distribution-graph-normalised-->
+<!--                        v-if="caseDataLoaded"-->
+<!--                        :view="view"-->
+<!--                        :region="regionOfFocus"/>-->
+<!--                    <loader v-else/>-->
+<!--                </div>-->
+<!--                <age-distribution-tools-->
+<!--                    :view="view"/>-->
+<!--            </div>-->
 
             <region-details-numbers
                 :view="view"

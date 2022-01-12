@@ -7,7 +7,9 @@ class GGD extends _Region{
         ggd_code = '',
         title = '',
         paths = [],
-        report = null,
+        report = {
+            history: []
+        },
         ageGroupReport = null
     }) {
         super();

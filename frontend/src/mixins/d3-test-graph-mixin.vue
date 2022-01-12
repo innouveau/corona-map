@@ -3,6 +3,7 @@
     import * as d3 from "d3";
     import d3GraphMixin from '@/mixins/d3-graph-mixin';
     import _Region from '@/classes/region/_Region';
+    import {getDayForSource} from "../tools/calculator";
 
     export default {
         name: 'test-graph-mixin',
@@ -117,13 +118,14 @@
             },
             days() {
                 let report = this.region.report;
+                const l = this.$store.state.settings.historyLength;
                 if (!report) {
                     report = this.region.getTotalReport();
                     this.$store.commit(this.region.module +'/updatePropertyOfItem', {item: this.region, property: 'report', value: report});
                 }
                 return this.frameOffsetPoints.map(offset => {
-                    return report.history.find(day => day.offset === offset);
-                }).filter(day => day !== undefined);
+                    return getDayForSource(this.region, offset, this.view.currentSource.key);
+                });
             },
         },
         methods: {

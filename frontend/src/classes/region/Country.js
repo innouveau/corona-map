@@ -5,7 +5,9 @@ class Country extends _Region {
     constructor({
         id = null,
         title = '',
-        report = null,
+        report = {
+            history: []
+        },
         paths = []
     }) {
         super();
