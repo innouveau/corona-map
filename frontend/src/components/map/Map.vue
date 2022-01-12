@@ -15,10 +15,12 @@
     import sourceTools from "@/tools/source";
     import Loader from "../elements/loader";
     import dateTools from '@/tools/date';
+    import MapLegendCumulative from "./legend/map-legend-cumulative";
 
     export default {
         name: 'Map',
         components: {
+            MapLegendCumulative,
             Loader,
             TimeSliderRange,
             ViewTools,
@@ -354,6 +356,7 @@
 
                 <map-legend v-if="mapType === 'signaling'" :view="view"/>
                 <map-legend-change v-if="mapType === 'change'" :view="view"/>
+                <map-legend-cumulative v-if="mapType === 'cumulative'" :view="view"/>
             </div>
 
             <div
@@ -441,6 +444,10 @@
                 align-items: center;
                 color: $map-color-super-dark;
                 margin-bottom: 8px;
+            }
+
+            .map-legend {
+                margin-top: 16px;
             }
         }
 
