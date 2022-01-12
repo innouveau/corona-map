@@ -30,13 +30,17 @@ export default {
             return Math.round(1000 * this.total / this.region.totalPopulation) / 10 + "%";
         },
         date1() {
-            return this.$store.getters['ui/getDateByOffset'](this.view.offsetStart, 'd/MM/yyyy');
+            return this.$store.getters['ui/getDateByOffset'](this.view.offsetStart, 'dd/MM/yyyy');
         },
         date2() {
-            return this.$store.getters['ui/getDateByOffset'](this.view.offset, 'd/MM/yyyy');
+            return this.$store.getters['ui/getDateByOffset'](this.view.offset, 'dd/MM/yyyy');
         }
     },
-    methods: {}
+    methods: {
+        format(value, addPlus) {
+            return String(numberTools.format(Math.round(value), addPlus))
+        },
+    }
 }
 </script>
 
@@ -44,7 +48,14 @@ export default {
 <template>
     <div class="cumulative-details">
         <div class="region-details__section">
-             {{total}}
+            <div class="region-details__row">
+                <div class="region-details__label">
+                    {{translate('population', true)}}
+                </div>
+                <div class="region-details__value">
+                    {{format(region.totalPopulation, false)}}
+                </div>
+            </div>
         </div>
         <div class="region-details__section">
             <div class="region-details__row">
@@ -52,7 +63,7 @@ export default {
                     {{translate('period', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{date1}} <br> {{date2}}
+                    {{date1}}<br>{{date2}}
                 </div>
             </div>
         </div>
