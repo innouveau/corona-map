@@ -288,6 +288,7 @@
                 return 100000 * (value / this.currentMap.data.positivePcrTests.interval) / this.region.totalPopulation;
             },
             getAbsoluteValue(day, sourceKey) {
+                const l = this.$store.state.settings.historyLength;
                 let total, index;
                 if (this.frameSize === 1) {
                     return day[sourceKey];
@@ -297,7 +298,7 @@
                     index = this.region.report.history.indexOf(day);
                     if (index > -1) {
                         for (let i = index - 6; i < (index + 1); i++) {
-                            let d = this.region.report.history[i];
+                            let d = getDayForSource(this.region, (l - index), this.view.currentSource.key);
                             if (d) {
                                 total += d[sourceKey];
                             } else {
@@ -326,7 +327,8 @@
                     start = day.offset + (maxSteps - 1);
                     for (let i = start; i > (end - 1); i--) {
                         let d, value;
-                        d = this.report.history[(l - 1) - i];
+                        d = getDayForSource(this.region, i, this.view.currentSource.key);
+                        // d = this.report.history[(l - 1) - i];
                         if (sourceKey === 'cumulative') {
                             value = d['positiveTests'] + d['positiveAntigenTests'];
                         } else {
