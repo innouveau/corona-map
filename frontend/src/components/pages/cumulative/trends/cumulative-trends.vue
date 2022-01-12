@@ -25,6 +25,9 @@ export default {
         offsetStart() {
             return this.view.offsetStart;
         },
+        currentSource() {
+            return this.view.currentSource;
+        },
         showTrends() {
             return this.$store.state.ui.showTrends;
         },
@@ -68,7 +71,11 @@ export default {
         },
         offsetStart: {
             handler: function () {
-                console.log("!");
+                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
+            }
+        },
+        currentSource: {
+            handler: function () {
                 this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
             }
         }
