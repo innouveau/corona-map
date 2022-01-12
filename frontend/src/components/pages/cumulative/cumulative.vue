@@ -6,10 +6,12 @@ import { downloadImage } from "@/tools/download";
 import Region from "@/components/region/Region";
 import CumulativeDetails from "./details/cumulative-details";
 import query from '@/components/elements/query.js'
+import CumulativeTrends from "./trends/cumulative-trends";
 
 export default {
     name: 'cumulative',
     components: {
+        CumulativeTrends,
         CumulativeDetails,
         Region,
         Page,
@@ -55,7 +57,7 @@ export default {
         </template>
 
         <template v-slot:trends>
-            Trends
+            <cumulative-trends :view="view" />
         </template>
     </page>
 </template>

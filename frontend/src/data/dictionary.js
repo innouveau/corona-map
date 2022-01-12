@@ -207,6 +207,10 @@ const dictionary = {
         nl: "Percentage",
         en: "Percentage"
     },
+    "period": {
+        nl: "Periode",
+        en: "Period"
+    },
     "population": {
         nl: "Inwoners",
         en: "Population"
