@@ -41,15 +41,16 @@
             currentMap() {
                 return this.$store.state.maps.current
             },
-            hasTests() {
-                return this.currentMap && this.currentMap.settings.hasTests;
-            },
             mapTitle() {
                 let title = this.currentMap.title;
                 if (!this.currentMap.ready) {
                     title += ' (' + this.translate('work-in-progress') + ')';
                 }
                 return title;
+            },
+            pageTitle() {
+                const routeName = this.$route.name;
+                return routeName.charAt(0).toUpperCase() + routeName.slice(1);
             },
             currentLanguage() {
                 return this.$store.state.languages.current;
@@ -76,7 +77,7 @@
         <div class="title">
             <div class="title__main">
                 <div class="title__main-label">
-                    Corona status
+                    Corona {{pageTitle}}
                 </div>
                 <div class="title__map">
                     {{mapTitle}}

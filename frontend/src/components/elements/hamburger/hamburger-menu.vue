@@ -12,6 +12,12 @@
                         title: 'info',
                         route: 'main'
                     }, {
+                        title: 'change',
+                        route: 'change'
+                    }, {
+                        title: 'cumulative',
+                        route: 'cumulative'
+                    }, {
                         title: 'compare',
                         route: 'compare'
                     }, {

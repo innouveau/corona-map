@@ -43,6 +43,10 @@ const dictionary = {
         nl: "Kleursysteem",
         en: "Color system"
     },
+    "cumulative": {
+        nl: "Cumulatief",
+        en: "Cumulative"
+    },
     "days": {
         nl: "Dagen",
         en: "Days"
