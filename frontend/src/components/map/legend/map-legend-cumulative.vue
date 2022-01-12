@@ -1,15 +1,24 @@
 <script>
     import cumulativeTools from "@/tools/change";
     import { CUMULATIVE_COLOR_SCALE } from "@/data/constants";
+    import View from "@/classes/View";
 
     export default {
         name: "map-legend-cumulative",
         components: {},
-        props: {},
+        props: {
+            view: {
+                type: View,
+                required: true
+            }
+        },
         computed: {
             sections() {
                 return cumulativeTools.sections;
             },
+            currentSource() {
+                return this.view.currentSource.key;
+            }
         },
         methods: {
             getBackground(index) {
@@ -33,7 +42,7 @@
                 :style="{'background': getBackground(0)}"
                 class="map-legend-cumulative__color"></div>
             <div class="map-legend-cumulative__label map-legend-cumulative__label--top">
-                Meeste besmettingen over periode
+                Meeste {{currentSource}} over periode
             </div>
         </div>
         <div class="map-legend-cumulative__section">
@@ -41,7 +50,7 @@
                 :style="{'background': getBackground(1)}"
                 class="map-legend-cumulative__color"></div>
             <div class="map-legend-cumulative__label map-legend-cumulative__label--bottom">
-                Minste besmettingen
+                Minste {{currentSource}}
             </div>
         </div>
     </div>

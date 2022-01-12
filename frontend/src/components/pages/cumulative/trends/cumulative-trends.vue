@@ -22,6 +22,9 @@ export default {
         offset() {
             return this.view.offset;
         },
+        offsetStart() {
+            return this.view.offsetStart;
+        },
         showTrends() {
             return this.$store.state.ui.showTrends;
         },
@@ -49,11 +52,23 @@ export default {
     methods: {
         doShowTrends(){
             this.$store.commit('ui/updateProperty', {key: 'showTrends', value: true});
+        },
+        select(region) {
+            if (region.regionType === 'city' || region.regionType === 'district') {
+                this.view.currentRegion = region;
+            }
+            this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
         }
     },
     watch: {
         offset: {
             handler: function () {
+                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
+            }
+        },
+        offsetStart: {
+            handler: function () {
+                console.log("!");
                 this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
             }
         }
@@ -74,6 +89,7 @@ export default {
                 <div class="trends__section-body">
                     <cumulative-trends-region
                         v-for="item in highest"
+                        @select="select"
                         :region="item.region"
                         :value="item.value" />
                 </div>
@@ -86,6 +102,7 @@ export default {
                 <div class="trends__section-body">
                     <cumulative-trends-region
                         v-for="item in lowest"
+                        @select="select"
                         :region="item.region"
                         :value="item.value" />
                 </div>

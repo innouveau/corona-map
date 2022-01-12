@@ -1,5 +1,5 @@
 <script>
-import _Region from "../../../../classes/region/_Region";
+import _Region from "@/classes/region/_Region";
 
 export default {
     name: 'cumulative-trends-region',
@@ -15,13 +15,19 @@ export default {
         }
     },
     computed: {},
-    methods: {}
+    methods: {
+        select() {
+            this.$emit("select", this.region);
+        }
+    }
 }
 </script>
 
 
 <template>
-    <div class="cumulative-trends-region">
+    <div
+        @click="select"
+        class="cumulative-trends-region">
         <div class="cumulative-trends-region__title">
             {{region.title}}
         </div>
@@ -31,6 +37,10 @@ export default {
 
 <style lang="scss">
 .cumulative-trends-region {
+    cursor: pointer;
 
+    &:hover {
+        text-decoration: underline;
+    }
 }
 </style>
