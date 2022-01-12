@@ -1,9 +1,9 @@
 <script>
 import View from "@/classes/View";
 import Page from "@/components/pages/page";
-import Map from "@/components/_map/Map";
+import Map from "@/components/map/Map";
 import { downloadImage } from "@/tools/download";
-import Region from "@/components/_region/Region";
+import Region from "@/components/region/Region";
 import CumulativeDetails from "./details/cumulative-details";
 import query from '@/components/elements/query.js'
 

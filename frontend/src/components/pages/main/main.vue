@@ -4,8 +4,8 @@ import page from "@/components/pages/page";
 import { downloadImage } from "@/tools/download";
 import RegionDetails from "./details/region-details";
 import Trends from "./trends/trends";
-import Map from "@/components/_map/Map";
-import Region from "@/components/_region/Region";
+import Map from "@/components/map/Map";
+import Region from "@/components/region/Region";
 import query from '@/components/elements/query.js'
 
 export default {

@@ -2,7 +2,7 @@
 import View from "@/classes/View";
 import dateTools from '@/tools/date';
 import headerMenu from "@/components/pages/header/header-menu";
-import Map from "@/components/_map/Map";
+import Map from "@/components/map/Map";
 import { downloadImage } from "@/tools/download";
 import query from '@/components/elements/query.js'
 

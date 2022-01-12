@@ -2,7 +2,7 @@
 import dateTools from '@/tools/date';
 import View from '@/classes/View';
 import headerMenu from "@/components/pages/header/header-menu";
-import Map from "@/components/_map/Map";
+import Map from "@/components/map/Map";
 
 export default {
     name: 'compare',

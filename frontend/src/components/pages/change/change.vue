@@ -1,7 +1,7 @@
 <script>
 import View from "@/classes/View";
 import Page from "@/components/pages/page";
-import Map from "@/components/_map/Map";
+import Map from "@/components/map/Map";
 import { downloadImage } from "@/tools/download";
 import RegionDetailsChange from "./details/region-details-change";
 import ChangeTrends from "./trends/change-trends";
