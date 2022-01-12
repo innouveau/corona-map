@@ -3,7 +3,6 @@
     import topRelativeWeek from "./top-relative-week";
     import thresholdRegions from "./threshold-regions";
     import thresholdTools from '@/tools/thresholds';
-    import citiesWithSewageTreatmentPlant from "./cities-with-sewage-treatment-plant";
     import topRelativeDay from "./top-relative-day";
     import TopAbsoluteDay from "./top-absolute-day";
 
@@ -12,7 +11,6 @@
         components: {
             TopAbsoluteDay,
             topRelativeDay,
-            citiesWithSewageTreatmentPlant,
             thresholdRegions,
             topRelativeWeek,
         },

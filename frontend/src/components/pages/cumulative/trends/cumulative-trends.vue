@@ -1,7 +1,7 @@
 <script>
 import View from "@/classes/View";
 import CumulativeTrendsRegion from "./cumulative-trends-region";
-import { getCumulativeForPeriod } from "@/tools/calculator";
+import { getRelativeCumulativeForPeriod } from "@/tools/calculator";
 
 export default {
     name: 'cumulative-trends',
@@ -38,7 +38,7 @@ export default {
                 const end = this.view.offsetStart;
                 return {
                     region,
-                    value: getCumulativeForPeriod(region, start, end, this.view.currentSource.key, true)
+                    value: getRelativeCumulativeForPeriod(region, start, end, this.view.currentSource.key)
                 }
             }).sort((a,b) => {
                 return b.value - a.value;

@@ -67,7 +67,6 @@ export default {
                 <region-details
                     :view="view"
                     :region="currentRegion" />
-                {{currentPage}}
             </Region>
         </template>
 

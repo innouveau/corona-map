@@ -1,7 +1,7 @@
 <script>
 import _Region from "@/classes/region/_Region";
 import View from "@/classes/View";
-import { getCumulativeForPeriod } from "@/tools/calculator";
+import { getAbsoluteCumulativeForPeriod } from "@/tools/calculator";
 import numberTools from '@/tools/number';
 
 export default {
@@ -21,7 +21,7 @@ export default {
         total() {
             const start = this.view.offset;
             const end = this.view.offsetStart;
-            return getCumulativeForPeriod(this.region, start, end, this.view.currentSource.key, false);
+            return getAbsoluteCumulativeForPeriod(this.region, start, end, this.view.currentSource.key);
         },
         totalFormatted() {
             return numberTools.format(this.total, false);

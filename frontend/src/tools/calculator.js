@@ -1,6 +1,6 @@
 import store from '@/store/store';
 
-export const getCumulativeForPeriod = (region, start, end, source, relative) => {
+export const getAbsoluteCumulativeForPeriod = (region, start, end, source) => {
     let totalValue = 0;
     if (region.totalPopulation > 0) {
         if (!region.report) {
@@ -9,10 +9,20 @@ export const getCumulativeForPeriod = (region, start, end, source, relative) => 
         for (let i = start; i < end; i++) {
             totalValue += getAbsoluteValueForDay(region, i, source);
         }
-        return relative ? (totalValue * 100000 / region.totalPopulation) : totalValue
+        return totalValue;
     } else {
         return 0;
     }
+}
+
+export const getRelativeCumulativeForPeriod = (region, start, end, source) => {
+    const value = getAbsoluteCumulativeForPeriod(region, start, end, source);
+    return value * 100000 / region.totalPopulation
+}
+
+export const getRelativeValueForDay = (region, offset, source) => {
+    const value = getAbsoluteValueForDay(region, offset, source);
+    return value * 100000 / region.totalPopulation
 }
 
 export const getAbsoluteValueForDay = (region, offset, source) => {
@@ -45,8 +55,8 @@ export const getAbsoluteValueForDay = (region, offset, source) => {
 }
 
 export const getChangeOfType = (region, offset, daysBack, source) => {
-    const periodNow = getCumulativeForPeriod(region, offset, (offset + daysBack), source, false);
-    const periodBefore = getCumulativeForPeriod(region, (offset + daysBack), (offset + 2 * daysBack), source, false);
+    const periodNow = getAbsoluteCumulativeForPeriod(region, offset, (offset + daysBack), source, false);
+    const periodBefore = getAbsoluteCumulativeForPeriod(region, (offset + daysBack), (offset + 2 * daysBack), source, false);
     return periodNow / periodBefore;
 }
 
