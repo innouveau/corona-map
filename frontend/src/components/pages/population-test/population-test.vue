@@ -3,7 +3,7 @@
     import headerMenu from "@/components/pages/header/header-menu";
     import mapSignaling from "@/components/_map/Map";
     import searchRegions from "@/components/_map/search/search-regions";
-    import timeSlider from "@/components/view/time-slider";
+    import timeSlider from "@/components/time/time-slider/time-slider";
     import regionTypePicker from "@/components/_map/region-type/region-type-picker";
     import dateTools from '@/tools/date';
     import populationTestGroup from "./population-test-group";

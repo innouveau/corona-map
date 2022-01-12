@@ -1,10 +1,10 @@
 <script>
+    import _Region from "@/classes/region/_Region";
     import VueSlider from 'vue-slider-component'
     import 'vue-slider-component/theme/default.css'
     import timeTools from "./time-tools";
     import View from '@/classes/View';
     import timeSliderStops from "./time-slider-stops";
-    import _Region from "../../classes/region/_Region";
     import TimeSliderGraph from "./time-slider-graph";
 
     export default {

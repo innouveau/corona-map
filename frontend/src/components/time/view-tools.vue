@@ -2,8 +2,8 @@
     import Datepicker from 'vuejs-datepicker';
     import View from "@/classes/View";
     import dateTools from '@/tools/date';
-    import timeSlider from "@/components/view/time-slider";
-    import timeSpeed from "./time-speed";
+    import timeSlider from "@/components/time/time-slider/time-slider";
+    import timeSpeed from "./time-speed/time-speed";
 
     export default {
         name: 'view-tools',
@@ -71,17 +71,13 @@
 <template>
     <div class="view-tools">
         <datepicker
-            v-if="!videoMode"
             :value="date"
             :disabled-dates="disabledDates"
             @input="updateOffset"/>
 
-        <time-slider
-            :view="view"/>
+        <time-slider :view="view"/>
 
-        <time-speed
-            v-if="showTimeTools"
-            :view="view"/>
+        <time-speed :view="view"/>
     </div>
 </template>
 
@@ -105,7 +101,7 @@
         }
 
         .time-slider {
-            min-width: 300px;
+            min-width: 250px;
             width: calc(100% - 200px);
         }
 

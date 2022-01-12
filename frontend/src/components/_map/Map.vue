@@ -10,8 +10,8 @@
     import searchRegions from "./search/search-regions";
     import MapLegend from "./legend/map-legend";
     import MapLegendChange from "./legend/map-legend-change";
-    import ViewTools from "../view/view-tools";
-    import TimeSliderRange from "../view/time-slider-range";
+    import ViewTools from "@/components/time/view-tools";
+    import TimeSliderRange from "@/components/time/time-slider/time-slider-range";
     import sourceTools from "@/tools/source";
     import Loader from "../elements/loader";
     import dateTools from '@/tools/date';
