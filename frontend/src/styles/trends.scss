@@ -15,7 +15,7 @@
         margin-bottom: 0;
     }
 
-    .region__container {
+    .region__container, > div {
         display: flex;
         align-items: center;
         border-bottom: 1px solid #ddd;

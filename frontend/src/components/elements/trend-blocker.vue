@@ -17,6 +17,9 @@ export default {
         currentSource() {
             return this.view.currentSource;
         },
+        currentPage() {
+            return this.$route.name;
+        }
     },
     props: {
         view: {
@@ -40,6 +43,10 @@ export default {
             this.hideTrends();
         },
         currentSource: function() {
+            this.hideTrends();
+        },
+        currentPage: function() {
+            console.log("!");
             this.hideTrends();
         }
     }

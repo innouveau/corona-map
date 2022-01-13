@@ -3,6 +3,7 @@ import View from "@/classes/View";
 import region from "@/components/pages/main/trends/region";
 import changeTools from '@/tools/change';
 import numberTools from '@/tools/number';
+import { getChangeOfType } from "@/tools/calculator";
 
 export default {
     name: 'change-trends-regions',
@@ -59,11 +60,11 @@ export default {
     },
     methods: {
         formatChange(region) {
-            const change = region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.data.positivePcrTests.interval);
+            const change = getChangeOfType(region, this.view.offset, 7, this.view.currentSource.key)
             return numberTools.formatChange(change);
         },
         getColor(region) {
-            let change = region.getChange(this.view.offset, changeTools.daysBack / this.currentMap.data.positivePcrTests.interval);
+            const change = getChangeOfType(region, this.view.offset, 7, this.view.currentSource.key)
             return changeTools.getColorForChange(change);
         }
     }

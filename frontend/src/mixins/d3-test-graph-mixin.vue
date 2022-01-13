@@ -256,8 +256,8 @@
                         index = (this.min - day.offset) / this.frameSize;
                         value = this.getAbsoluteValue(day, 'positiveAntigenTests');
                         if (value > 0) {
-                            pcrHeight = this.height - this.getY(day, 'positiveTests',false);
-                            y = this.getY(day, 'positiveAntigenTests',false);
+                            pcrHeight = this.height - this.getY(day, this.view.currentSource.key,false);
+                            y = this.getY(day, this.view.currentSource.key,false);
                             rect = this.lineContainer.append('rect')
                                 .attr('x', (d) => {
                                     return (index - 0.5) * this.step + margin;
@@ -328,12 +328,7 @@
                     for (let i = start; i > (end - 1); i--) {
                         let d, value;
                         d = getDayForSource(this.region, i, this.view.currentSource.key);
-                        // d = this.report.history[(l - 1) - i];
-                        if (sourceKey === 'cumulative') {
-                            value = d['positiveTests'] + d['positiveAntigenTests'];
-                        } else {
-                            value = d[sourceKey];
-                        }
+                        value = d[sourceKey];
                         total += value / this.currentMap.data.positivePcrTests.interval;
                     }
                     average = total / maxSteps;

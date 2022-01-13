@@ -143,6 +143,10 @@ const dictionary = {
         nl: "inw.",
         en: "inh."
     },
+    "in-period": {
+        nl: "over periode",
+        en: "in period"
+    },
     "language": {
         nl: "Taal",
         en: "Language"
@@ -155,6 +159,10 @@ const dictionary = {
         nl: "Deze regio heeft last van vertraagde rapportage. Cijfers kunnen vertekend zijn.",
         en: "This region is suffering from late reporting. Numbers could be distorted by it.",
     },
+    "least": {
+        nl: "Minste",
+        en: "Least",
+    },
     "link": {
         nl: "Link",
         en: "URL"
@@ -166,6 +174,10 @@ const dictionary = {
     "map": {
         nl: "Kaart",
         en: "Map"
+    },
+    "most": {
+        nl: "Meeste",
+        en: "Most"
     },
     "municipality": {
         nl: "Gemeente",

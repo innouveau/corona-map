@@ -42,7 +42,7 @@
                 :style="{'background': getBackground(0)}"
                 class="map-legend-cumulative__color"></div>
             <div class="map-legend-cumulative__label map-legend-cumulative__label--top">
-                Meeste {{currentSource}} over periode
+                {{translate('most', true)}} {{translate(currentSource)}} {{translate('in-period')}}
             </div>
         </div>
         <div class="map-legend-cumulative__section">
@@ -50,7 +50,7 @@
                 :style="{'background': getBackground(1)}"
                 class="map-legend-cumulative__color"></div>
             <div class="map-legend-cumulative__label map-legend-cumulative__label--bottom">
-                Minste {{currentSource}}
+                {{translate('least', true)}} {{translate(currentSource)}}
             </div>
         </div>
     </div>
@@ -80,6 +80,7 @@
                 position: absolute;
                 left: 16px;
                 margin-top: -5px;
+                white-space: nowrap;
 
                 &.map-legend-cumulative__label--top {
                     top: 4px;

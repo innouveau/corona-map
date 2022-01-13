@@ -89,29 +89,33 @@ export default {
         :class="{'panel--active': showTrends}"
         class="cumulative-trends trends">
         <div v-if="showTrends">
-            <div class="trends__section">
-                <div class="trends__section-head">
+            <div class="trends-section">
+                <div class="trends-section__head">
                     Hoogste score over periode
                 </div>
-                <div class="trends__section-body">
-                    <cumulative-trends-region
-                        v-for="item in highest"
-                        @select="select"
-                        :region="item.region"
-                        :value="item.value" />
+                <div class="trends-section__body">
+                    <div class="regions__list">
+                        <cumulative-trends-region
+                            v-for="item in highest"
+                            @select="select"
+                            :region="item.region"
+                            :value="item.value" />
+                    </div>
                 </div>
             </div>
 
-            <div class="trends__section">
-                <div class="trends__section-head">
+            <div class="trends-section">
+                <div class="trends-section__head">
                     Laagste score over periode
                 </div>
-                <div class="trends__section-body">
-                    <cumulative-trends-region
-                        v-for="item in lowest"
-                        @select="select"
-                        :region="item.region"
-                        :value="item.value" />
+                <div class="trends-section__body">
+                    <div class="regions__list">
+                        <cumulative-trends-region
+                            v-for="item in lowest"
+                            @select="select"
+                            :region="item.region"
+                            :value="item.value" />
+                    </div>
                 </div>
             </div>
         </div>

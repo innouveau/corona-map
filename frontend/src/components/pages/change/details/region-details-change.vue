@@ -34,12 +34,6 @@
             formatChange() {
                 return numberTools.formatChange(this.change);
             },
-            factor() {
-                return changeTools.getFactorForChange(this.change);
-            },
-            changeColor() {
-                return changeTools.getColorForChange(this.change);
-            },
             showDetails() {
                 return this.$store.state.ui.menu === 'city';
             },

@@ -9,7 +9,7 @@
         props: {},
         computed: {
             title() {
-                return this.translate('positive-tests', true);
+                return this.translate(this.view.currentSource.key, true);
             },
             mapType() {
                 return 'change';
@@ -26,7 +26,7 @@
                 this.drawDoublingLines();
                 this.drawGrid();
                 if (this.days.length > 0) {
-                    this.drawTestsLine('positiveTests', false, false, '#000');
+                    this.drawTestsLine(this.view.currentSource.key, false, false, '#000');
                 }
                 this.drawDates();
             },
@@ -34,7 +34,7 @@
                 let baseY, doublings, baseOffset, heightGraph, cases;
                 heightGraph = this.height;
                 doublings = [0.25, 0.5, 1, 2, 4];
-                cases = getRelativeCumulativeForPeriod(this.region, this.view.offset, this.view.offset + 7, this.view.currentSource.key);
+                cases = getRelativeCumulativeForPeriod(this.region, this.view.offset + 7, this.view.offset + 14, this.view.currentSource.key);
                 baseY = this.valueToY(cases / 7);
 
                 if (baseY > 0.75 * heightGraph) {
@@ -69,7 +69,7 @@
                 for (let week of weeks) {
                     let cases, y, offset;
                     offset = (this.weeks - week - 1) * 7;
-                    cases = getRelativeCumulativeForPeriod(this.region, this.view.offset, this.view.offset + 7, this.view.currentSource.key);
+                    cases = getRelativeCumulativeForPeriod(this.region, this.view.offset + offset, this.view.offset + offset + 7, this.view.currentSource.key);
                     y = this.valueToY(cases / 7);
                     this.contentContainer.append('rect')
                         .attr('x', week * (this.width / this.weeks))
