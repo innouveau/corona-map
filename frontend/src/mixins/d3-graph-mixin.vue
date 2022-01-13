@@ -74,8 +74,14 @@
                                 .attr('y2', 4)
                                 .attr('stroke', 'rgba(0,0,0,0.5)');
                             g.append('text')
-                                .attr('text-anchor', function(){
-                                    return index === 0 ? 'start' : 'middle';
+                                .attr('text-anchor', function() {
+                                    if (index === 0) {
+                                        return 'start';
+                                    } else if (index === offsets.length - 1) {
+                                        return 'end';
+                                    } else {
+                                        return 'middle';
+                                    }
                                 })
                                 .attr('y', 20)
                                 .text(dateString)
