@@ -1,7 +1,6 @@
 <script>
     import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
-    import regionDetailsHead from "@/components/pages/main/details/region-details-head";
     import numberTools from '@/tools/number';
     import changeTools from '@/tools/change';
     import positivePcrTestsChange from "@/components/graphs/positive-pcr-tests-change";
@@ -10,7 +9,6 @@
         name: 'region-details-change',
         components: {
             positivePcrTestsChange,
-            regionDetailsHead
         },
         props: {
             view: {
@@ -70,9 +68,6 @@
     <div
         :class="{'panel--active': showDetails}"
         class="region-details-change region-details">
-        <region-details-head
-                :view="view"
-                :region="regionOfFocus"/>
         <div class="region-details__info">
             <div class="region-details__section">
                 <div class="region-details__row">

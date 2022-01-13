@@ -1,8 +1,8 @@
 <script>
     import View from "@/classes/View";
     import region from "./region";
-
     import trendMixin from './trend-mixin'
+    import { getAbsoluteValueForDay} from "@/tools/calculator";
 
     export default {
         name: 'top-absolute-day',
@@ -23,7 +23,7 @@
         },
         methods: {
             getValue(region) {
-                return region.getTotalIncreaseOfType(this.view.offset, 1, this.view.currentSource.key, false);
+                return getAbsoluteValueForDay(region, this.view.offset, this.view.currentSource.key);
             }
         }
     }
@@ -31,11 +31,11 @@
 
 
 <template>
-    <div class="section top-absolute-day">
-        <div class="section__header">
-            {{title}}:
+    <div class="trends-section top-absolute-day">
+        <div class="trends-section__head">
+            {{title}}
         </div>
-        <div class="section__body">
+        <div class="trends-section__body">
             <div class="regions__list">
                 <div
                     v-for="item in list"

@@ -42,8 +42,6 @@
 
 <template>
     <div class="trends">
-        <threshold-regions
-            :view="view"/>
         <top-relative-week
             :view="view"/>
         <top-relative-day

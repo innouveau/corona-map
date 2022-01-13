@@ -49,9 +49,6 @@
             date() {
                 return this.$store.getters['ui/dateString']();
             },
-            hasSewageTreatmentPlants() {
-                return this.$store.state.maps.current.data.sewageMeasurements.status;
-            },
             hasAgeGroups() {
                 return this.$store.state.maps.current.data.ageGroups.status;
             },
@@ -69,14 +66,7 @@
             },
             sourceIsPositiveTests() {
                 return this.view.currentSource.key === 'positiveTests'
-            },
-            safetyRegion() {
-                if (this.regionOfFocus.regionType === 'city' && this.regionOfFocus.safetyRegion_code !== '') {
-                    return store.getters['safetyRegions/getItemByProperty']('safetyRegion_code', this.regionOfFocus.safetyRegion_code, true);
-                } else {
-                    return null;
-                }
-            },
+            }
         },
         methods: {}
     }

@@ -4,7 +4,7 @@
     import swatch from "@/components/region/swatch";
 
     export default {
-        name: 'region-with-label',
+        name: 'region',
         components: {
             swatch
         },
@@ -23,7 +23,7 @@
                 return this.$store.state.maps.current;
             },
             isCurrent() {
-                return this.region === this.$store.state[this.currentMap.module].current;
+                return this.view.currentRegion === this.region;
             }
         },
         methods: {
@@ -43,11 +43,7 @@
         @click="selectRegion()"
         :class="{'region--current': isCurrent}"
         class="region">
-        <swatch :threshold="region.getThreshold(0, view.offset, view.currentSource)"/>
-
-        <div class="region__title">
-            {{region.title}}
-        </div>
+        {{region.title}}
     </div>
 </template>
 
@@ -55,50 +51,15 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .regions__list {
-        margin-bottom: 20px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
-        .region__container {
-            display: flex;
-            align-items: center;
-            margin-right: 4px;
-            border-bottom: 1px solid #ddd;
-            padding: 4px 0;
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-    }
-
     .region {
-        display: flex;
-        align-items: center;
-        margin-right: 4px;
         cursor: pointer;
         border-bottom: 1px solid transparent;
+        margin-right: 4px;
+        // font-weight: 700;
+        // background: #ddd;
 
-        .swatch {
-            margin-right: 6px;
-        }
-
-        &__info {
-            padding: 2px 4px 2px 4px;
-            line-height: 1;
-            font-family: "Inconsolata", courier, monospace;
-            font-size: 12px;
-        }
-
-        &:last-child {
-            margin-right: 0;
-        }
-
-        &.region--current {
-            border-bottom: 1px solid #000;
+        &--current {
+            background: yellow;
         }
     }
 </style>

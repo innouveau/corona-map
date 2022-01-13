@@ -2,7 +2,8 @@
     import View from "@/classes/View";
     import region from "@/components/pages/main/trends/region";
     import trendMixin from "./trend-mixin";
-
+    import { getRelativeCumulativeForPeriod } from "@/tools/calculator";
+    
     export default {
         name: 'top-relative-week',
         components: {
@@ -27,7 +28,7 @@
         },
         methods: {
             getValue(region) {
-                return region.getTotalIncreaseOfType(this.view.offset, (7 / this.interval), this.view.currentSource.key, true);
+                return getRelativeCumulativeForPeriod(region, this.view.offset, (this.view.offset + 7), this.view.currentSource.key);
             }
         }
     }
@@ -35,11 +36,11 @@
 
 
 <template>
-    <div class="section top-relative-week">
-        <div class="section__header">
-            {{title}}:
+    <div class="top-relative-week trends-section">
+        <div class="trends-section__head">
+            {{title}}
         </div>
-        <div class="section__body">
+        <div class="trends-section__body">
             <div class="regions__list">
                 <div
                     v-for="item in list"

@@ -2,9 +2,9 @@
     import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
     import numberTools from '@/tools/number';
-
+    import { getRelativeCumulativeForPeriod } from "@/tools/calculator";
     export default {
-        name: 'region-details-head',
+        name: 'region-head',
         components: {},
         props: {
             view: {
@@ -20,8 +20,8 @@
             currentMap() {
                 return this.$store.state.maps.current;
             },
-            increaseThisWeek() {
-                return this.region.getTotalIncreaseOfType(this.view.offset, (7 / this.currentMap.data.positivePcrTests.interval), 'positiveTests', true);
+            weekRelative() {
+                return getRelativeCumulativeForPeriod(this.region, this.view.offset, (this.view.offset + 7), this.view.currentSource.key);
             }
         },
         methods: {
@@ -34,17 +34,13 @@
 
 
 <template>
-    <div class="region-details-head">
-        <div
-            :style="{'background': region.getColor(view.offset, view.currentSource)}"
-            class="dot"></div>
-        <div
-            :title="region.nutsCode"
-            class="region-details__title">
+    <div class="region-head">
+        <div class="region-head__title">
             {{region.title}}
         </div>
-        <div class="region-details__increase">
-            {{format(increaseThisWeek)}} <span class="abs-rel">rel</span>
+        <div class="region-head__increase">
+            {{format(weekRelative)}}
+            <span class="abs-rel">rel</span>
         </div>
     </div>
 </template>
@@ -53,13 +49,15 @@
 <style lang="scss">
     @import '@/styles/variables.scss';
 
-    .region-details-head {
-        font-weight: 700;
+    .region-head {
         font-size: 20px;
         line-height: 1.2;
-        margin-bottom: 12px;
         display: flex;
         align-items: center;
+        font-family: $serif;
+        border-bottom: 2px solid #000;
+        padding-bottom: 12px;
+        font-weight: 700;
 
         .dot {
             width: 12px;
@@ -70,11 +68,11 @@
             flex-shrink: 0;
         }
 
-        .region-details__title {
+        &__title {
             margin-right: 8px;
         }
 
-        .region-details__increase {
+        &__increase {
             font-size: 12px;
             display: flex;
 

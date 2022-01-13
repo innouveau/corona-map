@@ -2,7 +2,6 @@
     import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
     import numberTools from '@/tools/number';
-    import dateTools from '@/tools/date';
     import sourceLoader from "./source-loader";
     import { getAbsoluteCumulativeForPeriod, getRelativeCumulativeForPeriod,
         getAbsoluteValueForDay, getRelativeValueForDay} from "@/tools/calculator";
@@ -32,25 +31,22 @@
                 return this.region.hasLateReporting && this.region.getLatestReporting(this.view.offset) > this.view.offset;
             },
             todayAbsolute() {
-                return getAbsoluteValueForDay(this.region, this.view.offset, "positiveTests");
+                return getAbsoluteValueForDay(this.region, this.view.offset, this.view.currentSource.key);
             },
             todayRelative() {
-                return getRelativeValueForDay(this.region, this.view.offset, "positiveTests");
+                return getRelativeValueForDay(this.region, this.view.offset, this.view.currentSource.key);
             },
             weekAbsolute() {
-                return getAbsoluteCumulativeForPeriod(this.region, this.view.offset, (this.view.offset + 7), "positiveTests");
+                return getAbsoluteCumulativeForPeriod(this.region, this.view.offset, (this.view.offset + 7), this.view.currentSource.key);
             },
             weekRelative() {
-                return getRelativeCumulativeForPeriod(this.region, this.view.offset, (this.view.offset + 7), "positiveTests");
+                return getRelativeCumulativeForPeriod(this.region, this.view.offset, (this.view.offset + 7), this.view.currentSource.key);
             }
         },
         methods: {
             format(value, addPlus) {
                 return String(numberTools.format(Math.round(value), addPlus))
-            },
-            formatPercentage(value, d = 1) {
-                return value.toFixed(d) + '%';
-            },
+            }
         }
     }
 </script>

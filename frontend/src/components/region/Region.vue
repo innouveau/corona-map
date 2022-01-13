@@ -1,6 +1,6 @@
 <script>
 import View from "@/classes/View";
-import regionDetailsHead from "@/components/pages/main/details/region-details-head";
+import regionHead from "./region-head";
 import regionRelations from "@/components/map/region-type/region-relations";
 
 export default {
@@ -13,7 +13,7 @@ export default {
     },
     components: {
         regionRelations,
-        regionDetailsHead
+        regionHead
     },
     computed: {
         regionOfFocus() {
@@ -27,7 +27,7 @@ export default {
 
 <template>
     <div class="Region">
-        <region-details-head
+        <region-head
             :view="view"
             :region="regionOfFocus"/>
 
