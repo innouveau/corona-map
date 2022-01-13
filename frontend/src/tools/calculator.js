@@ -53,7 +53,9 @@ export const getAbsoluteValueForDay = (region, offset, source) => {
                 //console.log("key is missing for " + region.title, offset);
             }
         }
-        region.report.history[index] = {};
+        if (!region.report.history[index]) {
+            region.report.history[index] = {};
+        }
         region.report.history[index].offset = offset;
         region.report.history[index][source] = dayValue;
         return dayValue;
