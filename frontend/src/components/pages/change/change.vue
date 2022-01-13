@@ -6,10 +6,12 @@ import { downloadImage } from "@/tools/download";
 import RegionDetailsChange from "./details/region-details-change";
 import ChangeTrends from "./trends/change-trends";
 import query from '@/components/elements/query.js'
+import Region from "@/components/region/Region";
 
 export default {
     name: 'change',
     components: {
+        Region,
         ChangeTrends,
         RegionDetailsChange,
         Page,
@@ -46,9 +48,13 @@ export default {
         </template>
 
         <template v-slot:details>
-            <region-details-change
-                :view="view"
-                :region="currentRegion" />
+            <Region
+                :view="view">
+                <region-details-change
+                    :view="view"
+                    :region="currentRegion" />
+            </Region>
+
         </template>
 
         <template v-slot:trends>

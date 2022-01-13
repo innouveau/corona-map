@@ -3,7 +3,7 @@
     import region from "@/components/pages/main/trends/region";
     import trendMixin from "./trend-mixin";
     import { getRelativeCumulativeForPeriod } from "@/tools/calculator";
-    
+
     export default {
         name: 'top-relative-week',
         components: {

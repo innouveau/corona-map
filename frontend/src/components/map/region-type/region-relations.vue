@@ -96,5 +96,6 @@
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
+        height: 32px;
     }
 </style>

@@ -15,15 +15,7 @@
                 required: true
             }
         },
-        data() {
-            return {
-
-            }
-        },
         computed: {
-            showEmbedPopup() {
-                return this.$store.state.ui.embedPopup;
-            },
             currentRegion() {
                 return this.view.currentRegion;
             },

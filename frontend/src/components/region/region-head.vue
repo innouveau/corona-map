@@ -53,20 +53,12 @@
         font-size: 20px;
         line-height: 1.2;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         font-family: $serif;
         border-bottom: 2px solid #000;
         padding-bottom: 12px;
         font-weight: 700;
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 10px;
-            flex-grow: 0;
-            flex-shrink: 0;
-        }
+        height: 82px;
 
         &__title {
             margin-right: 8px;
