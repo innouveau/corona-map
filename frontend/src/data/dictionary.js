@@ -83,6 +83,10 @@ const dictionary = {
         nl: "Wilt u gebruik maken van onze kaarten voor print of web; of voor andere vragen, neem dan contact op met: info@innouveau.nl",
         en: "Would you like to use our maps for print or web; or for other questions, please contact: info@innouveau.nl"
     },
+    "for": {
+        nl: "voor",
+        en: "for"
+    },
     "for-7-days": {
         nl: "over 7 dagen",
         en: "for 7 days"

@@ -1,7 +1,7 @@
 <script>
     import View from "@/classes/View";
     import _Region from "@/classes/region/_Region";
-    import swatch from "@/components/elements/swatch";
+    import swatch from "@/components/region/swatch";
 
     export default {
         name: 'region-with-label',
@@ -56,8 +56,6 @@
     @import '@/styles/variables.scss';
 
     .regions__list {
-        display: flex;
-        flex-wrap: wrap;
         margin-bottom: 20px;
 
         &:last-child {
@@ -68,6 +66,8 @@
             display: flex;
             align-items: center;
             margin-right: 4px;
+            border-bottom: 1px solid #ddd;
+            padding: 4px 0;
 
             &:last-child {
                 margin-right: 0;
@@ -81,6 +81,17 @@
         margin-right: 4px;
         cursor: pointer;
         border-bottom: 1px solid transparent;
+
+        .swatch {
+            margin-right: 6px;
+        }
+
+        &__info {
+            padding: 2px 4px 2px 4px;
+            line-height: 1;
+            font-family: "Inconsolata", courier, monospace;
+            font-size: 12px;
+        }
 
         &:last-child {
             margin-right: 0;

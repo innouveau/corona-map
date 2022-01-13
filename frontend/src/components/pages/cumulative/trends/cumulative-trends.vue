@@ -132,11 +132,4 @@ export default {
 
 
 <style lang="scss">
-.trends__section {
-    margin-bottom: 16px;
-}
-
-.trends__section-head {
-    font-weight: 700;
-}
 </style>

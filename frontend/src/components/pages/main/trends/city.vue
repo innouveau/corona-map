@@ -1,6 +1,6 @@
 <script>
     import City from "@/classes/region/City";
-    import swatch from "@/components/elements/swatch";
+    import swatch from "@/components/region/swatch";
 
     export default {
         name: 'city',

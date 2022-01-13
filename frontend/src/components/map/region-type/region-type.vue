@@ -1,5 +1,5 @@
 <script>
-    import swatch from "@/components/elements/swatch";
+    import swatch from "@/components/region/swatch";
     import View from "@/classes/View";
     import ageGroupTool from "@/tools/age-group";
 

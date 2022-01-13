@@ -1,13 +1,13 @@
 <script>
     import View from "@/classes/View";
-    import regionsShrinkage from "./regions-shrinkage";
-    import RegionsGrowth from "./regions-growth";
+    import ChangeTrendsRegions from "./change-trends-regions";
+    import changeTools from '@/tools/change';
+    import { getChangeOfType } from "@/tools/calculator";
 
     export default {
         name: 'change-trends',
         components: {
-            RegionsGrowth,
-            regionsShrinkage
+            ChangeTrendsRegions,
         },
         props: {
             view: {
@@ -16,26 +16,20 @@
             }
         },
         computed: {
-            isTrendPanel() {
-                return this.$store.state.ui.menu === 'trends';
+            set() {
+                const regions = this.$store.getters['ui/regions'];
+                return regions.map(region => {
+                    return {
+                        region,
+                        value: getChangeOfType(region, this.view.offset, 7, this.view.currentSource.key)
+                    }
+                })
             },
-            offset() {
-                return this.view.offset;
+            setTop() {
+                return this.set.filter(item => item.value > (1 + changeTools.margin))
             },
-            showTrends() {
-                return this.$store.state.ui.showTrends;
-            }
-        },
-        methods: {
-            doShowTrends(){
-                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: true});
-            }
-        },
-        watch: {
-            offset: {
-                handler: function () {
-                    this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
-                }
+            setBottom() {
+                return this.set.filter(item => item.value < (1 - changeTools.margin))
             }
         },
     }
@@ -43,26 +37,16 @@
 
 
 <template>
-    <div
-        :class="{'panel--active': showTrends}"
-        class="change-trends trends panel">
-        <div v-if="showTrends">
-            <regions-growth
-                :view="view"/>
-            <regions-shrinkage
-                :view="view"/>
-        </div>
-        <div v-else>
-            <p>
-                {{translate('show-notification')}}
-            </p>
-            <div class="buttons">
-                <div
-                    @click="doShowTrends()"
-                    class="button">
-                    {{translate('show-trend')}}
-                </div>
-            </div>
-        </div>
+    <div class="change-trends trends panel">
+
+        <change-trends-regions
+            :view="view"
+            :direction="'top'"
+            :set="setTop"/>
+
+        <change-trends-regions
+            :view="view"
+            :direction="'bottom'"
+            :set="setBottom"/>
     </div>
 </template>

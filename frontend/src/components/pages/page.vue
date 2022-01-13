@@ -1,10 +1,12 @@
 <script>
     import headerMenu from "@/components/pages/header/header-menu";
     import View from "@/classes/View";
+    import TrendBlocker from "../elements/trend-blocker";
 
     export default {
         name: 'page',
         components: {
+            TrendBlocker,
             headerMenu,
         },
         props: {
@@ -57,11 +59,9 @@
             </div>
 
             <div class="page__trends">
-                <slot v-if="isLoaded" name="trends" />
-
-                <div v-else>
-                    Kies eerst een gemeente op de kaart.
-                </div>
+                <trend-blocker v-if="isLoaded" :view="view">
+                    <slot name="trends" />
+                </trend-blocker>
             </div>
         </div>
     </div>

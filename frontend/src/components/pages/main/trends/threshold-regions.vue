@@ -1,7 +1,7 @@
 <script>
     import View from "@/classes/View";
     import city from "@/components/pages/main/trends/city";
-    import swatch from "@/components/elements/swatch";
+    import swatch from "@/components/region/swatch";
 
     export default {
         name: 'threshold-regions',

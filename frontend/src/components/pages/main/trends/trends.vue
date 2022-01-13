@@ -32,59 +32,26 @@
             offset() {
                 return this.view.offset;
             },
-            showTrends() {
-                return this.$store.state.ui.showTrends;
-            },
             hasDays() {
                 return this.$store.state.maps.current.data.positivePcrTests.interval === 1;
             }
         },
-        methods: {
-            doShowTrends(){
-                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: true});
-            }
-        },
-        watch: {
-            offset: {
-                handler: function () {
-                    this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
-                }
-            }
-        }
     }
 </script>
 
 
 <template>
-    <div
-        :class="{'panel--active': isTrendPanel}"
-        class="trends">
-
-        <div v-if="showTrends">
-
-            <threshold-regions
-                :view="view"/>
-            <top-relative-week
-                :view="view"/>
-            <top-relative-day
-                v-if="hasDays"
-                :view="view"/>
-            <top-absolute-day
-                v-if="hasDays"
-                :view="view"/>
-        </div>
-        <div v-else>
-            <p>
-                {{translate('show-notification')}}
-            </p>
-            <div class="buttons">
-                <div
-                        @click="doShowTrends()"
-                        class="button">
-                    {{translate('show-trend')}}
-                </div>
-            </div>
-        </div>
+    <div class="trends">
+        <threshold-regions
+            :view="view"/>
+        <top-relative-week
+            :view="view"/>
+        <top-relative-day
+            v-if="hasDays"
+            :view="view"/>
+        <top-absolute-day
+            v-if="hasDays"
+            :view="view"/>
     </div>
 </template>
 

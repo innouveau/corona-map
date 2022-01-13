@@ -18,7 +18,6 @@ export default {
         page,
     },
     mixins: [query],
-    props: {},
     data() {
         return {
             view: new View({id: 1, offsetStart: this.$store.state.settings.historyLength})
@@ -27,15 +26,6 @@ export default {
     computed: {
         currentRegion() {
             return this.view.currentRegion;
-        },
-        showMap() {
-            return this.$store.state.ui.menu === 'map';
-        },
-        currentSource() {
-            return this.view.currentSource;
-        },
-        showEmbedButton() {
-            return this.$store.state.ui.presets !== 'radio1';
         }
     },
     methods: {
@@ -43,11 +33,6 @@ export default {
             downloadImage(this.view, "signaling");
         }
     },
-    watch: {
-        currentSource: function () {
-            this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
-        }
-    }
 }
 </script>
 
