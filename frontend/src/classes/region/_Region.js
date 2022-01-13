@@ -8,49 +8,6 @@ class _Region extends _Cache {
         super();
     }
 
-    getTotalIncreaseOfType(offset, days, type, relative) {
-        let regions, total, population, value;
-
-        value = this.getStoredValue(offset, days, type, relative, 'regular');
-
-        if (value !== null) {
-            return value;
-        } else {
-            total = 0;
-            regions = this.regions;
-            if (relative) {
-                population = this.totalPopulation;
-            }
-            for (let region of regions) {
-                let thisValue = region.getIncreaseOfType(offset, days, type, false);
-                if (!isNaN(thisValue)) {
-                    total += thisValue;
-                }
-            }
-            if (relative) {
-                value = 100000 * total / population;
-            } else {
-                value = total;
-            }
-
-            if (value !== null) {
-                this.store(offset, days, type, relative, value, 'total');
-            }
-            return value;
-        }
-    }
-
-    getTotalAsPercentageOfPopulation(offset, type) {
-        let total, population, regions;
-        total = 0;
-        population = this.totalPopulation;
-        regions = this.regions;
-        for (let region of regions) {
-            total += region.getIncreaseOfType(offset, -1, type, false)
-        }
-        return 100 * total / population;
-    }
-
     get totalPopulation() {
         let population, regions;
         population = 0;
@@ -134,38 +91,6 @@ class _Region extends _Cache {
         }
     }
 
-    getTotalReport() {
-        let report, cities, counter;
-        report = {
-            history: []
-        };
-        counter = 0;
-        cities = this.regions;
-        for (let city of cities) {
-            let dayCounter = 0;
-            for (let day of city.report.history) {
-                let copy = {...day};
-                if (counter === 0) {
-                    report.history.push(copy)
-                } else {
-                    report.history[dayCounter].positiveTests += copy.positiveTests;
-                    report.history[dayCounter].positiveAntigenTests += copy.positiveAntigenTests;
-                    report.history[dayCounter].totalAntigenTests += copy.totalAntigenTests;
-                    if (report.history[dayCounter].administeredTests) {
-                        report.history[dayCounter].administeredTests += copy.administeredTests;
-                    }
-                }
-                dayCounter++;
-            }
-            counter++;
-        }
-        return report;
-    }
-
-    get changedStatus(){
-        return this.getThreshold(1) !== this.getThreshold(0);
-    }
-
     get hasLateReporting() {
         let map = store.state.maps.current;
         if (map.settings.caseSettings) {
@@ -180,74 +105,6 @@ class _Region extends _Cache {
         }
     }
 
-    getLatestReporting(offset) {
-        let value = 0;
-        while (value === 0) {
-            value = this.getTotalIncreaseOfType(offset, 1, 'positiveTests', true);
-            offset++;
-        }
-        return offset - 1;
-    }
-
-    getColor(offset, source) {
-        let map, frames, n, threshold;
-        map = store.state.maps.current;
-        frames = this.getFramesForPeriod(source);
-        n = this.getTotalIncreaseOfType(offset, frames, source.key, true);
-        if (map.data.positivePcrTests.status) {
-            if (this.hasLateReporting && offset < 10) {
-                offset = this.getLatestReporting(offset);
-            }
-            threshold = this.getThreshold(0, offset, source);
-            return thresholdTools.thresholdToColor(threshold, n, source);
-        } else {
-            return '#ddd';
-        }
-    }
-
-    getThreshold(delta = 0, offset, source) {
-        let n, frames;
-        frames = this.getFramesForPeriod(source);
-
-        // possible with testDataInterval of 7 and signalingSystem-days of 1
-        if (frames < 1) {
-            return null;
-        } else {
-            n = this.getTotalIncreaseOfType((offset + delta), frames, source.key, true);
-            if (n === null) {
-                return null;
-            }
-            return thresholdTools.getThreshold(n, source);
-        }
-    }
-
-    getFramesForPeriod(source) {
-        let map, signalingSystem;
-        map = store.state.maps.current;
-        signalingSystem = store.getters['signalingSystems/getItemById'](source.signalingSystem_id);
-        return signalingSystem.days / map.data.positivePcrTests.interval;
-    }
-
-    // todo move this functionallity to tools/calculator
-    getChange(offset, daysBefore) {
-        let before, after, extraOffset;
-        extraOffset = 0;
-        if (this.hasLateReporting && offset < 10) {
-            extraOffset = this.getLatestReporting(offset);
-        }
-        before = this.getTotalIncreaseOfType((offset + daysBefore + extraOffset), 7, 'positiveTests', true);
-        after = this.getTotalIncreaseOfType((offset + extraOffset), 7, 'positiveTests', true);
-        if (before === 0) {
-            //if (after === 0) {
-                return 1;
-            //}
-        } else {
-            return after / before;
-        }
-    }
-
-    //
-
     getCentroid(settings) {
         let path, centroid, projected;
         path = this.paths[0];
@@ -258,7 +115,6 @@ class _Region extends _Cache {
             y: projected[1]
         };
     }
-
 }
 
 export default _Region;

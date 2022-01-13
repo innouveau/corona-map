@@ -3,6 +3,7 @@ import changeTools from '@/tools/change';
 import { getRelativeCumulativeForPeriod, getChangeOfType } from "@/tools/calculator";
 import { getShadeOfColor } from "@/tools/color";
 import { CUMULATIVE_COLOR_SCALE } from "@/data/constants";
+import { getColorForRegion } from "@/tools/signaling";
 
 const addBackground = function(ctx, width, height) {
     ctx.rect(0, 0, width, height);
@@ -82,7 +83,8 @@ const getValue = function(parent, mapType, view, source) {
         default:
             return {
                 value: null,
-                color: parent.getColor(view.offset, source)
+                color: getColorForRegion(parent, view)
+                //color: parent.getColor(view.offset, source)
             }
     }
 }

@@ -4,6 +4,7 @@
     import numberTools from '@/tools/number';
     import changeTools from '@/tools/change';
     import positivePcrTestsChange from "@/components/graphs/positive-pcr-tests-change";
+    import {getChangeOfType, getRelativeCumulativeForPeriod} from "@/tools/calculator";
 
     export default {
         name: 'region-details-change',
@@ -28,7 +29,7 @@
                 return this.$store.state.settings.weeks;
             },
             change() {
-                return this.regionOfFocus.getChange(this.view.offset, changeTools.daysBack);
+                return getChangeOfType(this.regionOfFocus, this.view.offset, 7, this.view.currentSource.key);
             },
             formatChange() {
                 return numberTools.formatChange(this.change);
@@ -49,10 +50,10 @@
                 return this.region.hasLateReporting && this.region.getLatestReporting(this.view.offset) > this.view.offset;
             },
             getTotalRelativeIncreaseWeek() {
-                return this.regionOfFocus.getTotalIncreaseOfType(this.view.offset, 7, 'positiveTests', true);
+                return getRelativeCumulativeForPeriod(this.regionOfFocus, this.view.offset, this.view.offset + 7, this.view.currentSource.key)
             },
             getTotalRelativeIncreasePreviousWeek() {
-                return this.regionOfFocus.getTotalIncreaseOfType((this.view.offset + 7), 7, 'positiveTests', true);
+                return getRelativeCumulativeForPeriod(this.regionOfFocus, this.view.offset + 7, this.view.offset + 14, this.view.currentSource.key)
             }
         },
         methods: {
