@@ -7,7 +7,6 @@ export default {
     name: 'cumulative-trends',
     components: {
         CumulativeTrendsRegion
-
     },
     props: {
         view: {
@@ -16,21 +15,6 @@ export default {
         }
     },
     computed: {
-        isTrendPanel() {
-            return this.$store.state.ui.menu === 'trends';
-        },
-        offset() {
-            return this.view.offset;
-        },
-        offsetStart() {
-            return this.view.offsetStart;
-        },
-        currentSource() {
-            return this.view.currentSource;
-        },
-        showTrends() {
-            return this.$store.state.ui.showTrends;
-        },
         list() {
             const regions = this.$store.getters['ui/regions'];
             return regions.map(region => {
@@ -53,31 +37,11 @@ export default {
         }
     },
     methods: {
-        doShowTrends(){
-            this.$store.commit('ui/updateProperty', {key: 'showTrends', value: true});
-        },
         select(region) {
             if (region.regionType === 'city' || region.regionType === 'district') {
                 this.view.currentRegion = region;
             }
             this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
-        }
-    },
-    watch: {
-        offset: {
-            handler: function () {
-                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
-            }
-        },
-        offsetStart: {
-            handler: function () {
-                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
-            }
-        },
-        currentSource: {
-            handler: function () {
-                this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
-            }
         }
     }
 }
@@ -85,49 +49,33 @@ export default {
 
 
 <template>
-    <div
-        :class="{'panel--active': showTrends}"
-        class="cumulative-trends trends">
-        <div v-if="showTrends">
-            <div class="trends-section">
-                <div class="trends-section__head">
-                    Hoogste score over periode
-                </div>
-                <div class="trends-section__body">
-                    <div class="regions__list">
-                        <cumulative-trends-region
-                            v-for="item in highest"
-                            @select="select"
-                            :region="item.region"
-                            :value="item.value" />
-                    </div>
-                </div>
+    <div class="cumulative-trends trends">
+        <div class="trends-section">
+            <div class="trends-section__head">
+                Hoogste score over periode
             </div>
-
-            <div class="trends-section">
-                <div class="trends-section__head">
-                    Laagste score over periode
-                </div>
-                <div class="trends-section__body">
-                    <div class="regions__list">
-                        <cumulative-trends-region
-                            v-for="item in lowest"
-                            @select="select"
-                            :region="item.region"
-                            :value="item.value" />
-                    </div>
+            <div class="trends-section__body">
+                <div class="regions__list">
+                    <cumulative-trends-region
+                        v-for="item in highest"
+                        @select="select"
+                        :region="item.region"
+                        :value="item.value" />
                 </div>
             </div>
         </div>
-        <div v-else>
-            <p>
-                {{translate('show-notification')}}
-            </p>
-            <div class="buttons">
-                <div
-                    @click="doShowTrends()"
-                    class="button">
-                    {{translate('show-trend')}}
+
+        <div class="trends-section">
+            <div class="trends-section__head">
+                Laagste score over periode
+            </div>
+            <div class="trends-section__body">
+                <div class="regions__list">
+                    <cumulative-trends-region
+                        v-for="item in lowest"
+                        @select="select"
+                        :region="item.region"
+                        :value="item.value" />
                 </div>
             </div>
         </div>

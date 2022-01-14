@@ -48,12 +48,15 @@ export default {
         currentSource: function() {
             this.hideTrends();
         },
-        currentPage: function() {
+        currentPage: function(a) {
             this.hideTrends();
         },
         currentRegionType: function() {
             this.hideTrends();
         }
+    },
+    beforeMount() {
+        this.hideTrends();
     }
 }
 </script>
