@@ -19,6 +19,9 @@ export default {
         },
         currentPage() {
             return this.$route.name;
+        },
+        currentRegionType() {
+            return this.$store.state.ui.currentRegionType;
         }
     },
     props: {
@@ -46,7 +49,9 @@ export default {
             this.hideTrends();
         },
         currentPage: function() {
-            console.log("!");
+            this.hideTrends();
+        },
+        currentRegionType: function() {
             this.hideTrends();
         }
     }
