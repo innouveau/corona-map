@@ -1,3 +1,5 @@
+import dateTools from '@/tools/date';
+
 export default {
     name: 'd3-graph-mixin',
     components: {},
