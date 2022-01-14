@@ -44,7 +44,7 @@
         },
         methods: {
             selectPage(page) {
-                this.$router.push({name: page.route});
+                this.$router.push({name: page.route, query: { map: this.$store.state.maps.current.title }});
                 this.close();
             },
             isCurrentPage(page) {

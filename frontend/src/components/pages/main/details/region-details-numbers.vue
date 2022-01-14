@@ -5,6 +5,7 @@
     import sourceLoader from "./source-loader";
     import { getAbsoluteCumulativeForPeriod, getRelativeCumulativeForPeriod,
         getAbsoluteValueForDay, getRelativeValueForDay} from "@/tools/calculator";
+    import {getReportingDelay} from "../../../../tools/calculator";
 
     export default {
         name: 'region-details-numbers',
@@ -28,7 +29,7 @@
         },
         computed: {
             showLateReportingWarning() {
-                return this.region.hasLateReporting && this.region.getLatestReporting(this.view.offset) > this.view.offset;
+                return getReportingDelay(this.region, this.view.offset) > 0;
             },
             todayAbsolute() {
                 return getAbsoluteValueForDay(this.region, this.view.offset, this.view.currentSource.key);

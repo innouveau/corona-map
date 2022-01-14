@@ -5,6 +5,7 @@
     import changeTools from '@/tools/change';
     import positivePcrTestsChange from "@/components/graphs/positive-pcr-tests-change";
     import {getChangeOfType, getRelativeCumulativeForPeriod} from "@/tools/calculator";
+    import {getReportingDelay} from "../../../../tools/calculator";
 
     export default {
         name: 'region-details-change',
@@ -41,7 +42,7 @@
                 return this.$store.state.maps.current;
             },
             showLateReportingWarning() {
-                return this.region.hasLateReporting && this.region.getLatestReporting(this.view.offset) > this.view.offset;
+                return getReportingDelay(this.regionOfFocus, this.view.offset) > 0;
             },
             getTotalRelativeIncreaseWeek() {
                 return getRelativeCumulativeForPeriod(this.regionOfFocus, this.view.offset, this.view.offset + 7, this.view.currentSource.key)

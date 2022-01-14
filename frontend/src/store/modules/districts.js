@@ -29,6 +29,9 @@ const mutations = {
     },
     setCurrent(state, item) {
         _base.mutations.setCurrent(state, item);
+    },
+    delete(state, item) {
+        _base.mutations.delete(state, item);
     }
 };
 

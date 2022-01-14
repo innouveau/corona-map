@@ -2,7 +2,7 @@ import store from '@/store/store';
 
 
 export const getDayForSource = (region, offset, source) => {
-    const index = store.state.settings.historyLength - offset;
+    const index = store.state.settings.historyLength - 1 - offset;
     // trigger the function to calculate the value in case it is a sum of childrens values
     getAbsoluteValueForDay(region, offset, source);
     return region.report.history[index];
@@ -29,16 +29,19 @@ const writeCache = (region, start, end, source, value) => {
 }
 
 export const getAbsoluteCumulativeForPeriod = (region, start, end, source) => {
+    const reportingDelay = getReportingDelay(region, start);
+    const start_adj = reportingDelay > 0 ? start + reportingDelay : start;
+    const end_adj = reportingDelay > 0 ? Math.min(end + reportingDelay, store.state.settings.historyLength - 1) : end;
     let totalValue = 0;
-    const cachedValue = readCache(region, start, end, source);
+    const cachedValue = readCache(region, start_adj, end_adj, source);
     if (cachedValue !== false) {
         return cachedValue;
     } else {
         if (region.totalPopulation > 0) {
-            for (let i = start; i < end; i++) {
+            for (let i = start_adj; i < end_adj; i++) {
                 totalValue += getAbsoluteValueForDay(region, i, source);
             }
-            writeCache(region, start, end, source, totalValue);
+            writeCache(region, start_adj, end_adj, source, totalValue);
             return totalValue;
         } else {
             return 0;
@@ -58,10 +61,10 @@ export const getRelativeValueForDay = (region, offset, source) => {
 }
 
 export const getAbsoluteValueForDay = (region, offset, source) => {
-    const index = store.state.settings.historyLength - offset;
+    const index = store.state.settings.historyLength - 1 - offset;
     if (region.report.history[index] && region.report.history[index].hasOwnProperty(source)) {
         const day = region.report.history[index];
-        const value = day[source]
+        const value = day[source];
         if (!isNaN(value)) {
             return value;
         } else {
@@ -95,8 +98,18 @@ export const getChangeOfType = (region, offset, daysBack, source) => {
     return periodNow / periodBefore;
 }
 
-export const hasLateReporting = (region, offset) => {
-
+export const getReportingDelay = (region, offset) => {
+    if (window.config.enableLateReportingCorrection && region.hasLateReporting && offset < 7) {
+        let value = 0;
+        let i = 0;
+        while (value === 0 && i < 7) {
+            value = getAbsoluteValueForDay(region, offset + i, "positiveTests");
+            i++;
+        }
+        return i - 1;
+    } else {
+        return 0;
+    }
 }
 
 

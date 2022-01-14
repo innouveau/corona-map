@@ -83,12 +83,12 @@
             height: calc(100% - 48px);
 
             .page__map {
-                width: calc(100% - 684px);
+                width: calc(100% - 700px);
                 position: relative;
             }
 
             .page__details {
-                width: 384px;
+                width: 400px;
                 padding: 16px;
                 height: 100%;
                 overflow: auto;

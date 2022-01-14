@@ -110,7 +110,7 @@ export default {
             return this.region.report
         },
         frameOffsetPoints() {
-            let frames = Array.from(Array(this.totalFrames + 1).keys());
+            const frames = Array.from(Array(this.totalFrames + 1).keys());
             return frames.map(frame => {
                 return this.min - (frame * this.frameSize);
             });
@@ -180,14 +180,13 @@ export default {
             return this.widthBefore - (this.step * offset);
         },
         drawTestsLine(sourceKey, smoothened, dotted, color) {
-            let points, lineFunction;
-            points = this.days.map(day => {
+            const points = this.days.map(day => {
                 return {
                     x: this.getX(day),
                     y: this.getY(day, sourceKey, smoothened)
                 }
             });
-            lineFunction = d3.line()
+            const lineFunction = d3.line()
                 .x(function(d) { return d.x; })
                 .y(function(d) { return d.y; });
 

@@ -97,24 +97,17 @@
             },
             loadRegions() {
                 $.getJSON(this.currentMap.data.geo.source, (regions) => {
-                    let promises = [];
                     this.$store.commit(this.currentMap.module + '/init', regions);
-                    // check all sources
                     this.loadPcrTests().then(() => {
+                        const regionsWithNoData = [];
                         this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                        if (this.currentMap.data.ageGroups.status) {
-                            promises.push(this.loadAgeGroupsForCities);
+                        for (const region of this.$store.state[this.currentMap.module].all) {
+                            if (region.report.history.length === 0) {
+                                regionsWithNoData.push(region);
+                            }
                         }
-                        if (promises.length === 0) {
-                            //this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                        } else {
-                            Promise.all(promises.map(p => p()))
-                                .then((result) => {
-                                    //this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                                })
-                                .catch(error => {
-                                    console.error(error)
-                                });
+                        for (const region of regionsWithNoData) {
+                            this.$store.commit(this.currentMap.module + '/delete', region);
                         }
                     })
                 });
@@ -351,16 +344,6 @@
                 last = dates[dates.length - 1];
                 today = new Date(last.dateString);
                 totalLengthOfTestHistory = first.offset;
-                // when cumulative the first day has to be ignored, because we
-                // dont know the value of the day before that to calculate the absolute value
-                if (this.currentMap.data.positivePcrTests.cumulative) {
-                    totalLengthOfTestHistory--;
-                }
-                // need extra buffer to calculate the first week
-                if (this.currentMap.data.positivePcrTests.interval === 1) {
-                    totalLengthOfTestHistory -= 7;
-                }
-
                 this.$store.commit('ui/updateProperty', {key: 'todayInMs', value: today.getTime()});
                 this.$store.commit('ui/updateProperty', {key: 'today', value: today});
                 this.$store.commit('settings/updateProperty', {key: 'historyLength', value: totalLengthOfTestHistory});
@@ -418,13 +401,6 @@
                 } else {
                     report.history = incidents;
                 }
-
-                if (this.currentMap.title === 'Nederland') {
-                    this.addDates(report, data[adapter.titleKey]);
-                }
-
-
-
                 key = data[adapter.titleKey];
                 if (this.$store.state[this.currentMap.module].dict[key]) {
                     region = this.$store.state[this.currentMap.module].dict[key];
@@ -435,26 +411,6 @@
                 } else {
                     //console.log('not found ' + key);
                 }
-            },
-            addDates(report, key) {
-                let startDate, startDateOffset, firstDateInReportOffset;
-                startDate = '2020-01-01';
-                startDateOffset = dateTool.getOffsetByDate(startDate);
-                firstDateInReportOffset = report.history[0].offset;
-
-                for (let offset = (firstDateInReportOffset + 1); offset < (startDateOffset + 1); offset++) {
-                    report.history.unshift({
-                        date: dateTool.getDateByOffset(offset),
-                        offset: offset,
-                        positiveAntigenTests: 0,
-                        positiveTests: 0,
-                        administeredTests: 0,
-                        hospitalisations: 0,
-                        deceased: 0
-                    }
-                    )
-                }
-                this.$store.commit('settings/updateProperty', {key: 'historyLength', value: startDateOffset});
             },
             openHamburgerMenu() {
                 this.$store.commit('ui/updateProperty', {key: 'hamburgerMenu', value: true});
