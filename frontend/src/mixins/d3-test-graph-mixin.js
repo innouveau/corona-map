@@ -116,12 +116,6 @@ export default {
             });
         },
         days() {
-            let report = this.region.report;
-            const l = this.$store.state.settings.historyLength;
-            if (!report) {
-                report = this.region.getTotalReport();
-                this.$store.commit(this.region.module +'/updatePropertyOfItem', {item: this.region, property: 'report', value: report});
-            }
             return this.frameOffsetPoints.map(offset => {
                 return getDayForSource(this.region, offset, this.view.currentSource.key);
             });
