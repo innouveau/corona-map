@@ -8,16 +8,43 @@ export const getDayForSource = (region, offset, source) => {
     return region.report.history[index];
 }
 
+const readCache = (region, start, end, source) => {
+    const key = String(start + "-" + end);
+    if (region.report.cache && region.report.cache[source] && region.report.cache[source].hasOwnProperty(key)) {
+        return region.report.cache[source][key];
+    } else {
+        return false
+    }
+}
+
+const writeCache = (region, start, end, source, value) => {
+    if (!region.report.hasOwnProperty("cache")) {
+        region.report.cache = {};
+    }
+    if (!region.report.cache.hasOwnProperty(source)) {
+        region.report.cache[source] = {};
+    }
+    const key = String(start + "-" + end);
+    region.report.cache[source][key] = value;
+}
+
 export const getAbsoluteCumulativeForPeriod = (region, start, end, source) => {
     let totalValue = 0;
-    if (region.totalPopulation > 0) {
-        for (let i = start; i < end; i++) {
-            totalValue += getAbsoluteValueForDay(region, i, source);
-        }
-        return totalValue;
+    const cachedValue = readCache(region, start, end, source);
+    if (cachedValue !== false) {
+        return cachedValue;
     } else {
-        return 0;
+        if (region.totalPopulation > 0) {
+            for (let i = start; i < end; i++) {
+                totalValue += getAbsoluteValueForDay(region, i, source);
+            }
+            writeCache(region, start, end, source, totalValue);
+            return totalValue;
+        } else {
+            return 0;
+        }
     }
+
 }
 
 export const getRelativeCumulativeForPeriod = (region, start, end, source) => {
