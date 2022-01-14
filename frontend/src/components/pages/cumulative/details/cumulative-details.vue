@@ -70,7 +70,7 @@ export default {
         <div class="region-details__section">
             <div class="region-details__row">
                 <div class="region-details__label">
-                    {{translate('total', true)}}
+                    {{translate('total', true)}} {{translate(view.currentSource.key)}} {{translate('in-period')}}
                 </div>
                 <div class="region-details__value">
                     {{totalFormatted}}
@@ -80,7 +80,7 @@ export default {
         <div class="region-details__section">
             <div class="region-details__row">
                 <div class="region-details__label">
-                    {{translate('relative', true)}}
+                    {{translate('part-of-population', true)}}
                 </div>
                 <div class="region-details__value">
                     {{relative}}

@@ -215,6 +215,10 @@ const dictionary = {
         nl: "Pagina's",
         en: "Pages"
     },
+    "part-of-population": {
+        nl: "Deel van de bevolking",
+        en: "Part of population"
+    },
     "per": {
         nl: "per",
         en: "per"
