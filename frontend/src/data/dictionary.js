@@ -67,6 +67,10 @@ const dictionary = {
         nl: "Beschrijving",
         en: "Description"
     },
+    "details": {
+        nl: "Details",
+        en: "Details",
+    },
     "district": {
         nl: "Stadsdeel",
         en: "District"
@@ -271,6 +275,10 @@ const dictionary = {
         nl: "Zoek of klik op de kaart",
         en: "Search or click on the map"
     },
+    "select-region-first": {
+        nl: "Selecteer eerst een gebied op de kaart",
+        en: "Select a region on the map first"
+    },
     "seven-days-back": {
         nl: "7 dagen geleden",
         en: "7 days back"
@@ -338,6 +346,10 @@ const dictionary = {
     "traffic-light": {
         nl: "Stoplicht",
         en: "Traffic light"
+    },
+    "trends": {
+        nl: "Trends",
+        en: "Trends"
     },
     "total-since-day-1": {
         nl: "Totalen sinds dag 1",

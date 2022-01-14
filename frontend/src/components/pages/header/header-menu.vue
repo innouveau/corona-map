@@ -27,14 +27,11 @@
             buttons() {
                 return [
                     {
-                        label: 'Kaart',
                         value: 'map'
                     }, {
-                        label: 'Trends',
-                        value: 'trends'
+                        value: 'details'
                     }, {
-                        label: 'Detail',
-                        value: 'city'
+                        value: 'trends'
                     }
                 ]
             },
@@ -71,8 +68,8 @@
             offset() {
                 return this.view.offset;
             },
-            isMainPage() {
-                return this.$route.name === 'main' || this.$route.name === 'change';
+            isPanelPage() {
+                return this.$route.name === 'main' || this.$route.name === 'change' || this.$route.name === 'cumulative';
             },
             videoMode() {
                 return this.$store.state.ui.videoMode;
@@ -105,7 +102,7 @@
         </div>
 
         <div
-            v-if="isMainPage"
+            v-if="isPanelPage"
             class="menu">
             <menu-button
                 v-for="button in buttons"

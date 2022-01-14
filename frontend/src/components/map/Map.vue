@@ -226,7 +226,7 @@
                     region = this.getRegionForPoint(x, y);
                     if (region) {
                         this.view.currentRegion = region;
-                        this.$store.commit('ui/updateProperty', {key: 'menu', value: 'city'});
+                        this.$store.commit('ui/updateProperty', {key: 'menu', value: 'details'});
                         this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
                         this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
                     } else {
@@ -400,6 +400,7 @@
         height: 100%;
         padding: 16px;
         background: $map-color;
+        position: relative;
 
         .search-regions {
             height: 36px;

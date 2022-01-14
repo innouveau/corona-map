@@ -52,7 +52,7 @@ export default {
     <div class="cumulative-trends trends">
         <div class="trends-section">
             <div class="trends-section__head">
-                Hoogste score over periode
+                {{translate('most', true)}} {{translate(view.currentSource.key)}} {{translate('in-period')}}
             </div>
             <div class="trends-section__body">
                 <div class="regions__list">
@@ -67,7 +67,7 @@ export default {
 
         <div class="trends-section">
             <div class="trends-section__head">
-                Laagste score over periode
+                {{translate('least', true)}} {{translate(view.currentSource.key)}} {{translate('in-period')}}
             </div>
             <div class="trends-section__body">
                 <div class="regions__list">

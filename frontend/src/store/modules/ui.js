@@ -11,7 +11,7 @@ const state = {
     hamburgerMenu: false,
     searchValue: '',
     hoverValue: '',
-    menu: 'map',
+    menu: 'map', // map | details | trends
     videoMode: false,
     showTrends: false,
 

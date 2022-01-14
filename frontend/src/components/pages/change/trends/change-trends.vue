@@ -37,7 +37,7 @@
 
 
 <template>
-    <div class="change-trends trends panel">
+    <div class="change-trends trends">
 
         <change-trends-regions
             :view="view"

@@ -162,9 +162,15 @@ export default {
             .view__items {
                 display: block;
 
-                .view-item {
+                .view-item-container {
                     width: 100%;
                     height: 50%;
+                    border-right: 0;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
                 }
             }
         }

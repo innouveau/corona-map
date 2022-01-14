@@ -27,6 +27,9 @@
             },
             isLoaded(){
                 return this.currentSource.loaded;
+            },
+            currentMenu() {
+                return this.$store.state.ui.menu;
             }
         },
     }
@@ -40,17 +43,26 @@
             :editable="true"/>
 
         <div class="content">
-            <div class="page__map standard-view-map">
+            <div
+                class="content-section page__map standard-view-map"
+                :class="{'content-section--active': currentMenu === 'map'}">
                 <slot name="map" />
             </div>
 
-            <div class="page__details">
+            <div
+                class="content-section page__details"
+                :class="{'content-section--active': currentMenu === 'details'}">
                 <slot
                     v-if="currentRegion && isLoaded"
                     name="details" />
+                <div v-if="!currentRegion">
+                    {{translate("select-region-first", true)}}
+                </div>
             </div>
 
-            <div class="page__trends">
+            <div
+                class="content-section page__trends"
+                :class="{'content-section--active': currentMenu === 'trends'}">
                 <trend-blocker v-if="isLoaded" :view="view">
                     <slot name="trends" />
                 </trend-blocker>
@@ -102,8 +114,17 @@
                 display: block;
                 position: relative;
 
-                .region-details--mobile {
-                    display: block;
+                .content-section {
+                    width: 100%;
+                    height: 100%;
+                    visibility: hidden;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+
+                    &--active {
+                        visibility: visible;
+                    }
                 }
             }
         }

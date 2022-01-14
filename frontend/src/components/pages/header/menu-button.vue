@@ -32,7 +32,7 @@
         :class="{'menu-button--active': isActive}"
         class="menu-button">
         <div class="menu-button__label">
-            {{button.label}}
+            {{translate(button.value, true)}}
         </div>
     </div>
 </template>

@@ -23,9 +23,6 @@
                     }, {
                         title: 'timeline',
                         route: 'timeline'
-                    }, {
-                        title: 'change',
-                        route: 'change'
                     }
                 ]
             },

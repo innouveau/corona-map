@@ -95,4 +95,8 @@ export const getChangeOfType = (region, offset, daysBack, source) => {
     return periodNow / periodBefore;
 }
 
+export const hasLateReporting = (region, offset) => {
+
+}
+
 

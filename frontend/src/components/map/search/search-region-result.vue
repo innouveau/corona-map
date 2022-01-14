@@ -24,7 +24,7 @@
             select() {
                 this.view.currentRegion = this.region;
                 this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
-                this.$store.commit('ui/updateProperty', {key: 'menu', value: 'city'});
+                this.$store.commit('ui/updateProperty', {key: 'menu', value: 'details'});
             }
         }
     }
