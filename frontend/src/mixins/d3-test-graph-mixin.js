@@ -69,9 +69,9 @@ export default {
                 z = this.zoom / this.frameSize;
             }
             if (this.view.currentSource.key === 'hospitalisations') {
-                z *= 5;
+                z *= 50;
             } else if (this.view.currentSource.key === 'deceased') {
-                z *= 12;
+                z *= 200;
             }
             return z;
         },
