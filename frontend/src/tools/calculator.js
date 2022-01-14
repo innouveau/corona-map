@@ -51,13 +51,21 @@ export const getAbsoluteCumulativeForPeriod = (region, start, end, source) => {
 }
 
 export const getRelativeCumulativeForPeriod = (region, start, end, source) => {
-    const value = getAbsoluteCumulativeForPeriod(region, start, end, source);
-    return value * 100000 / region.totalPopulation
+    if (region.totalPopulation > 0) {
+        const value = getAbsoluteCumulativeForPeriod(region, start, end, source);
+        return value * 100000 / region.totalPopulation;
+    } else {
+        return 0;
+    }
 }
 
 export const getRelativeValueForDay = (region, offset, source) => {
-    const value = getAbsoluteValueForDay(region, offset, source);
-    return value * 100000 / region.totalPopulation
+    if (region.totalPopulation > 0) {
+        const value = getAbsoluteValueForDay(region, offset, source);
+        return value * 100000 / region.totalPopulation;
+    } else {
+        return 0;
+    }
 }
 
 export const getAbsoluteValueForDay = (region, offset, source) => {
