@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './app.vue';
 import store from './store/store';
 import router from './router';
-import translateMixin from '@/mixins/translate';
+import translateMixin from '@/mixins/translate.js';
 
 Vue.mixin(translateMixin);
 

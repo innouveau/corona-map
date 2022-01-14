@@ -1,5 +1,5 @@
 <script>
-    import d3TestGraphMixin from '@/mixins/d3-test-graph-mixin';
+    import d3TestGraphMixin from '@/mixins/d3-test-graph-mixin.js';
 
     export default {
         name: 'positive-pcr-tests',

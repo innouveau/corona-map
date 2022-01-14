@@ -1,5 +1,5 @@
 <script>
-    import d3TestGraphMixin from '@/mixins/d3-test-graph-mixin';
+    import d3TestGraphMixin from '@/mixins/d3-test-graph-mixin.js';
     import * as d3 from "d3";
 
     export default {
