@@ -1,7 +1,7 @@
 import store from '@/store/store';
 
 
-export const getDayForSource = (region, offset, source) => {
+export const getDayForSource = (region, offset, source, ) => {
     const index = store.state.settings.historyLength - 1 - offset;
     // trigger the function to calculate the value in case it is a sum of childrens values
     getAbsoluteValueForDay(region, offset, source);
@@ -68,7 +68,7 @@ export const getRelativeValueForDay = (region, offset, source) => {
     }
 }
 
-export const getAbsoluteValueForDay = (region, offset, source) => {
+export const getAbsoluteValueForDay = (region, offset, source, updateHistory = true) => {
     const index = store.state.settings.historyLength - 1 - offset;
     if (region.report.history[index] && region.report.history[index].hasOwnProperty(source)) {
         const day = region.report.history[index];
@@ -91,11 +91,13 @@ export const getAbsoluteValueForDay = (region, offset, source) => {
                 //console.log("key is missing for " + region.title, offset);
             }
         }
-        if (!region.report.history[index]) {
-            region.report.history[index] = {};
+        if (updateHistory) {
+            if (!region.report.history[index]) {
+                region.report.history[index] = {};
+            }
+            region.report.history[index].offset = offset;
+            region.report.history[index][source] = dayValue;
         }
-        region.report.history[index].offset = offset;
-        region.report.history[index][source] = dayValue;
         return dayValue;
     }
 }
@@ -117,6 +119,33 @@ export const getReportingDelay = (region, offset) => {
         return i - 1;
     } else {
         return 0;
+    }
+}
+
+// this can do the total report in one callstack
+// other functions might trigger watchers on a region
+// multiple times
+export const getHistory = (region, source) => {
+    // meaning it is a city
+    // (instead of an aggregated region like a province)
+    if (region === region.regions[0]) {
+        return region.report.history;
+    } else {
+        const values = [];
+        const l = store.state.settings.historyLength;
+        for (let i = 0; i < l; i++) {
+            const offset = l - 1 - i;
+            const v = getAbsoluteValueForDay(region, offset, source, false);
+            values.push(v);
+        }
+        for (let i = 0; i < l; i++) {
+            if (!region.report.history[i]) {
+                region.report.history[i] = {};
+            }
+            region.report.history[i].offset = l - 1 - i;
+            region.report.history[i][source] = values[i];
+        }
+        return region.report.history;
     }
 }
 

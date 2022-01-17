@@ -16,7 +16,10 @@
             }
         },
         computed: {
-            relativeIncrease() {
+            region() {
+                return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
+            },
+            height() {
                 const source = this.view.currentSource.key;
                 let multiply = 15000;
                 if (source === 'hospitalisations') {
@@ -24,13 +27,7 @@
                 } else if (source === 'deceased') {
                     multiply *= DECEASED_MULTIPLICATION;
                 }
-                return multiply * this.day[source] / this.view.currentRegion.population;
-            },
-            height() {
-                return this.relativeIncrease * 1;
-            },
-            isActive() {
-                return this.view.offset === this.day.offset;
+                return multiply * this.day[source] / this.region.totalPopulation;
             }
         },
         methods: {}
@@ -40,9 +37,8 @@
 
 <template>
     <div
-        :class="{'time-slider-graph-bar--active': isActive}"
         :style="{'height': height + 'px'}"
-        class="time-slider-graph-bar"></div>
+        class="time-slider-graph-bar" />
 </template>
 
 
@@ -53,9 +49,5 @@
         background: rgba(0,0,0,0.15);
         width: 2px;
         flex-grow: 1;
-
-        &.time-slider-graph-bar--active {
-            background: #ccc;
-        }
     }
 </style>

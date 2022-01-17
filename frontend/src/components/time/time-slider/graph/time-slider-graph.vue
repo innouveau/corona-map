@@ -1,6 +1,7 @@
 <script>
     import View from "@/classes/View";
     import timeSliderGraphBar from "./time-slider-graph-bar";
+    import {getHistory} from "@/tools/calculator";
 
     export default {
         name: 'time-slider-graph',
@@ -15,13 +16,12 @@
         },
         computed: {
             region() {
-                return this.view.currentRegion;
+                return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
             },
             days() {
-                return this.region.report.history;
+                return getHistory(this.region, this.view.currentSource.key);
             }
-        },
-        methods: {}
+        }
     }
 </script>
 
@@ -29,7 +29,8 @@
 <template>
     <div class="time-slider-graph">
         <time-slider-graph-bar
-            v-for="day in days"
+            v-for="(day, index) in days"
+            :key="index"
             :view="view"
             :day="day"/>
     </div>
