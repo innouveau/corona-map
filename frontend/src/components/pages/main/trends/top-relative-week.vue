@@ -1,12 +1,22 @@
 <script>
     import View from "@/classes/View";
     import region from "@/components/pages/main/trends/region";
-    import trendMixin from "./trend-mixin";
+    import trendMixin from "./trend-mixin.js";
     import { getRelativeCumulativeForPeriod } from "@/tools/calculator";
+    import trendSection from "@/components/elements/trends/trend-section";
+    import trendSectionHead from "@/components/elements/trends/trend-section-head";
+    import trendSectionBody from "@/components/elements/trends/trend-section-body";
+    import trendList from "@/components/elements/trends/trend-list";
+    import trendRegion from "@/components/region/trend-region";
 
     export default {
         name: 'top-relative-week',
         components: {
+            trendRegion,
+            trendList,
+            trendSectionBody,
+            trendSectionHead,
+            trendSection,
             region
         },
         mixins: [trendMixin],
@@ -36,37 +46,23 @@
 
 
 <template>
-    <div class="top-relative-week trends-section">
-        <div class="trends-section__head">
+    <trend-section>
+        <trend-section-head>
             {{title}}
-        </div>
-        <div class="trends-section__body">
-            <div class="regions__list">
-                <div
+        </trend-section-head>
+        <trend-section-body>
+            <trend-list>
+                <trend-region
                     v-for="item in list"
-                    class="region__container">
-                    <region
-                        :view="view"
-                        :region="item.region"/>
-                    <div class="region__info">
-                        ({{format(item.value)}} <span class="abs-rel">rel</span>)
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    :view="view"
+                    :region="item.region"
+                    :value="item.value"
+                    :unit="'rel'"
+                />
+            </trend-list>
+        </trend-section-body>
+    </trend-section>
 </template>
 
 
-<style lang="scss">
-    @import '@/styles/variables.scss';
-
-    .section {
-        margin-bottom: 20px;
-
-        .section__header {
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
-    }
-</style>
+<style lang="scss"></style>

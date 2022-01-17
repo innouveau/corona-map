@@ -1,12 +1,22 @@
 <script>
     import View from "@/classes/View";
     import region from "./region";
-    import trendMixin from "./trend-mixin";
+    import trendMixin from "./trend-mixin.js";
     import { getRelativeValueForDay} from "@/tools/calculator";
+    import trendSection from "@/components/elements/trends/trend-section";
+    import trendSectionHead from "@/components/elements/trends/trend-section-head";
+    import trendSectionBody from "@/components/elements/trends/trend-section-body";
+    import trendList from "@/components/elements/trends/trend-list";
+    import trendRegion from "@/components/region/trend-region";
 
     export default {
         name: 'top-relative-day',
         components: {
+            trendRegion,
+            trendList,
+            trendSectionBody,
+            trendSectionHead,
+            trendSection,
             region
         },
         mixins: [trendMixin],
@@ -36,32 +46,23 @@
 
 
 <template>
-    <div class="trends-section top-relative-day">
-        <div class="trends-section__head">
+    <trend-section>
+        <trend-section-head>
             {{title}}
-        </div>
-        <div class="trends-section__body">
-            <div class="regions__list">
-                <div
+        </trend-section-head>
+        <trend-section-body>
+            <trend-list>
+                <trend-region
                     v-for="item in list"
-                    class="region__container">
-                    <region
-                        :view="view"
-                        :region="item.region"/>
-                    <div class="region__info">
-                        ({{format(item.value)}} <span class="abs-rel">rel</span>)
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    :view="view"
+                    :region="item.region"
+                    :value="item.value"
+                    :unit="'rel'"
+                />
+            </trend-list>
+        </trend-section-body>
+    </trend-section>
 </template>
 
 
-<style lang="scss">
-    @import '@/styles/variables.scss';
-
-    .top-relative-day {
-
-    }
-</style>
+<style lang="scss"></style>
