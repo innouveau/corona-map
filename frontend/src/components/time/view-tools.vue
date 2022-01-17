@@ -89,7 +89,6 @@
         height: 56px;
         display: flex;
         align-items: center;
-        border-bottom: 1px solid #ddd;
         width: 100%;
 
         .vdp-datepicker {

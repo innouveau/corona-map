@@ -1,11 +1,10 @@
 <script>
-    import _Region from "@/classes/region/_Region";
     import VueSlider from 'vue-slider-component'
     import 'vue-slider-component/theme/default.css'
     import timeTools from "./time-tools";
     import View from '@/classes/View';
     import timeSliderStops from "./time-slider-stops";
-    import TimeSliderGraph from "./time-slider-graph";
+    import TimeSliderGraph from "./graph/time-slider-graph";
 
     export default {
         name: 'time-slider',
@@ -86,7 +85,7 @@
                 :l="historyLength"
                 :view="view"/>
             <time-slider-graph
-                v-if="showGraph && view.currentRegion"
+                v-if="view.currentRegion"
                 :view="view"/>
         </div>
 
@@ -101,7 +100,7 @@
 
     .time-slider {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         pointer-events: none;
         width: 300px;
         height: 32px;
@@ -112,6 +111,7 @@
 
             .vue-slider {
                 margin-right: 20px;
+                padding-bottom: 0!important;
             }
 
             .time-slider-stops {
@@ -128,7 +128,7 @@
                 pointer-events: none;
                 position: absolute;
                 left: 0;
-                top: 0;
+                top: 2px;
                 width: calc(100% - 20px);
                 height: calc(50% - 2px);
                 z-index: 0;

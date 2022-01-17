@@ -33,6 +33,9 @@ export default {
             downloadImage(this.view, "signaling");
         }
     },
+    mounted() {
+
+    }
 }
 </script>
 

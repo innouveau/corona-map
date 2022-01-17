@@ -454,6 +454,7 @@
 
         &__tools {
             height: 40px;
+            margin-top: 20px;
             display: flex;
             align-items: center;
 
@@ -467,7 +468,7 @@
         }
 
         &__main {
-            height: calc(100% - 82px);
+            height: calc(100% - 102px);
             position: relative;
             display: flex;
             align-items: center;

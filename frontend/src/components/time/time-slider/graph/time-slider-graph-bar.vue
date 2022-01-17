@@ -16,7 +16,7 @@
         },
         computed: {
             relativeIncrease() {
-                return 100000 * this.day.positiveTests / this.view.currentRegion.population;
+                return 15000 * this.day.positiveTests / this.view.currentRegion.population;
             },
             height() {
                 return this.relativeIncrease * 1;
