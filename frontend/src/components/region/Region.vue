@@ -1,7 +1,7 @@
 <script>
 import View from "@/classes/View";
 import regionHead from "./region-head";
-import regionRelations from "@/components/map/region-type/region-relations";
+import regionTypePicker from "@/components/elements/region-type/region-type-picker";
 
 export default {
     name: 'Region',
@@ -12,15 +12,14 @@ export default {
         }
     },
     components: {
-        regionRelations,
+        regionTypePicker,
         regionHead
     },
     computed: {
         regionOfFocus() {
             return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
-        },
-    },
-    methods: {}
+        }
+    }
 }
 </script>
 
@@ -32,9 +31,9 @@ export default {
             :region="regionOfFocus"/>
 
         <div class="region-details__section">
-            <region-relations
+            <region-type-picker
                 :view="view"
-                :region="view.currentRegion"/>
+                :type-as-region-title="true"/>
         </div>
 
         <slot/>
@@ -42,8 +41,4 @@ export default {
 </template>
 
 
-<style lang="scss">
-.Region {
-
-}
-</style>
+<style lang="scss"></style>

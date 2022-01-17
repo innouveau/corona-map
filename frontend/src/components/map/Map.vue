@@ -5,7 +5,7 @@
     import View from "@/classes/View";
     import $ from 'jquery';
     import MapLabels from "./labels/map-labels";
-    import regionTypePicker from "@/components/map/region-type/region-type-picker";
+    import regionTypePicker from "@/components/elements/region-type/region-type-picker";
     import mapSourcePicker from "@/components/map/source/map-source-picker";
     import searchRegions from "./search/search-regions";
     import MapLegend from "./legend/map-legend";
