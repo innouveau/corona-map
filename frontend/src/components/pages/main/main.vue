@@ -34,6 +34,19 @@ export default {
         }
     },
     mounted() {
+        if (window.config.enableFadeIn && this.view.offset === 0) {
+            let timer;
+            this.view.offset = 21;
+            this.$store.commit('ui/updateProperty', {key: 'isPlaying', value: true});
+            timer = setInterval(() => {
+                if (this.view.offset > 0) {
+                    this.view.offset--;
+                } else {
+                    this.$store.commit('ui/updateProperty', {key: 'isPlaying', value: false});
+                    clearInterval(timer);
+                }
+            }, 0)
+        }
 
     }
 }
