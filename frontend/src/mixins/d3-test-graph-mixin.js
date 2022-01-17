@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import d3GraphMixin from '@/mixins/d3-graph-mixin.js';
 import _Region from '@/classes/region/_Region';
 import {getDayForSource} from "../tools/calculator";
+import { HOSPITALISATION_MULTIPLICATION, DECEASED_MULTIPLICATION} from "@/data/constants";
 
 export default {
     name: 'test-graph-mixin',
@@ -69,9 +70,9 @@ export default {
                 z = this.zoom / this.frameSize;
             }
             if (this.view.currentSource.key === 'hospitalisations') {
-                z *= 50;
+                z *= HOSPITALISATION_MULTIPLICATION;
             } else if (this.view.currentSource.key === 'deceased') {
-                z *= 200;
+                z *= DECEASED_MULTIPLICATION;
             }
             return z;
         },

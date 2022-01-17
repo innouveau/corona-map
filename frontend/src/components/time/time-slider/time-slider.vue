@@ -85,7 +85,7 @@
                 :l="historyLength"
                 :view="view"/>
             <time-slider-graph
-                v-if="view.currentRegion"
+                v-if="view.currentRegion && view.currentSource.loaded"
                 :view="view"/>
         </div>
 
