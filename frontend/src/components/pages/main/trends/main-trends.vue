@@ -7,7 +7,7 @@
     import TopAbsoluteDay from "./top-absolute-day";
 
     export default {
-        name: 'trends',
+        name: 'main-trends',
         components: {
             TopAbsoluteDay,
             topRelativeDay,
@@ -41,7 +41,7 @@
 
 
 <template>
-    <div class="trends">
+    <div class="main-trends">
         <top-relative-week
             :view="view"/>
         <top-relative-day

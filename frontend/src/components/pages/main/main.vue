@@ -3,7 +3,7 @@ import View from "@/classes/View";
 import page from "@/components/pages/page";
 import { downloadImage } from "@/tools/download";
 import RegionDetails from "./details/region-details";
-import Trends from "./trends/trends";
+import mainTrends from "./trends/main-trends";
 import Map from "@/components/map/Map";
 import Region from "@/components/region/Region";
 import query from '@/components/elements/query.js'
@@ -13,7 +13,7 @@ export default {
     components: {
         Region,
         Map,
-        Trends,
+        mainTrends,
         RegionDetails,
         page,
     },
@@ -56,7 +56,7 @@ export default {
         </template>
 
         <template v-slot:trends>
-            <trends :view="view" />
+            <main-trends :view="view" />
         </template>
     </page>
 </template>
