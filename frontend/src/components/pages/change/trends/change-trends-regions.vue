@@ -1,14 +1,22 @@
 <script>
 import View from "@/classes/View";
-import region from "@/components/pages/main/trends/region";
 import changeTools from '@/tools/change';
 import numberTools from '@/tools/number';
 import { getChangeOfType } from "@/tools/calculator";
+import trendSection from "@/components/elements/trends/trend-section";
+import trendSectionHead from "@/components/elements/trends/trend-section-head";
+import trendSectionBody from "@/components/elements/trends/trend-section-body";
+import trendList from "@/components/elements/trends/trend-list";
+import trendRegion from "@/components/elements/trends/trend-region";
 
 export default {
     name: 'change-trends-regions',
     components: {
-        region
+        trendRegion,
+        trendList,
+        trendSectionBody,
+        trendSectionHead,
+        trendSection
     },
     props: {
         view: {
@@ -73,30 +81,26 @@ export default {
 
 
 <template>
-    <div class="change-trends-regions trends-section">
-        <div class="trends-section__head">
+    <trend-section>
+        <trend-section-head>
             {{title}}
-        </div>
-        <div class="trends-section__body">
-            <div class="regions__list">
-                <div
+        </trend-section-head>
+        <trend-section-body>
+            <trend-list>
+                <trend-region
                     v-for="region in regions"
-                    class="region__container">
-                    <region
-                        :view="view"
-                        :region="region"/>
+                    :view="view"
+                    :region="region">
                     <div
                         :style="{'border-bottom': '2px solid ' + getColor(region)}"
-                        class="region__info">
+                        class="trend-region__change-info">
                         {{formatChange(region)}}
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                </trend-region>
+            </trend-list>
+        </trend-section-body>
+    </trend-section>
 </template>
 
 
-<style lang="scss">
-@import '@/styles/variables.scss';
-</style>
+<style lang="scss"></style>

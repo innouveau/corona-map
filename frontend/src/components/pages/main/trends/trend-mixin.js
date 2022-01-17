@@ -1,3 +1,5 @@
+import numberTools from '@/tools/number';
+
 export default {
     name: 'trend-mixin',
     data() {
@@ -23,9 +25,6 @@ export default {
                 })
             }
             return regions;
-        },
-        interval() {
-            return this.currentMap.data.positivePcrTests.interval;
         }
     },
     methods: {
@@ -43,6 +42,9 @@ export default {
             }
             score.sort((a,b) => b.value - a.value)
             this.list = score.slice(0, 10);
+        },
+        formatted(value) {
+            return numberTools.format(Math.round(value), true);
         }
     },
     mounted() {

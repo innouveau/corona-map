@@ -1,7 +1,6 @@
 <script>
 import _Region from "@/classes/region/_Region";
 import View from "@/classes/View";
-import numberTools from '@/tools/number';
 import { parentRegionToChild, childRegionToParent } from "@/tools/region";
 
 export default {
@@ -14,22 +13,11 @@ export default {
         region: {
             type: _Region,
             required: true
-        },
-        value: {
-            type: Number,
-            required: true
-        },
-        unit: {
-            type: String,
-            required: true
         }
     },
     computed: {
-        formatted() {
-            return numberTools.format(Math.round(this.value), true);
-        },
         isCurrent() {
-            return childRegionToParent(this.view.currentRegion, this.$store.state.ui.currentRegionType) === this.region;
+            return this.view.currentRegion && childRegionToParent(this.view.currentRegion, this.$store.state.ui.currentRegionType) === this.region;
         },
     },
     methods: {
@@ -51,10 +39,7 @@ export default {
             {{region.title}}
         </div>
         <div class="trend-region__info">
-            ({{formatted}}
-            <span class="abs-rel">
-                {{unit}}
-            </span>)
+            <slot/>
         </div>
     </div>
 </template>
@@ -67,24 +52,6 @@ export default {
 
     &__title {
         margin-right: 4px;
-    }
-
-    &__info {
-
-        .abs-rel {
-            color: blue;
-            text-transform: uppercase;
-            font-size: 75%;
-            top: -2px;
-            position: relative;
-            font-weight: 400;
-
-            &.abs-rel--big {
-                margin-left: 2px;
-                top: -6px;
-                font-size: 60%;
-            }
-        }
     }
 
     &--current {

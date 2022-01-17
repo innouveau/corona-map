@@ -1,23 +1,21 @@
 <script>
     import View from "@/classes/View";
-    import region from "./region";
     import trendMixin from './trend-mixin.js';
     import { getAbsoluteValueForDay} from "@/tools/calculator";
     import trendSection from "@/components/elements/trends/trend-section";
     import trendSectionHead from "@/components/elements/trends/trend-section-head";
     import trendSectionBody from "@/components/elements/trends/trend-section-body";
     import trendList from "@/components/elements/trends/trend-list";
-    import TrendRegion from "../../../region/trend-region";
+    import trendRegion from "@/components/elements/trends/trend-region";
 
     export default {
         name: 'top-absolute-day',
         components: {
-            TrendRegion,
+            trendRegion,
             trendList,
             trendSectionBody,
             trendSectionHead,
-            trendSection,
-            region
+            trendSection
         },
         mixins: [trendMixin],
         props: {
@@ -50,10 +48,12 @@
                 <trend-region
                     v-for="item in list"
                     :view="view"
-                    :region="item.region"
-                    :value="item.value"
-                    :unit="'abs'"
-                />
+                    :region="item.region">
+                    ({{formatted(item.value)}}
+                    <span class="abs-rel">
+                        abs
+                    </span>)
+                </trend-region>
             </trend-list>
         </trend-section-body>
     </trend-section>

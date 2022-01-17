@@ -45,3 +45,18 @@ body {
         }
     }
 }
+
+.abs-rel {
+    color: blue;
+    text-transform: uppercase;
+    font-size: 75%;
+    top: -2px;
+    position: relative;
+    font-weight: 400;
+
+    &.abs-rel--big {
+        margin-left: 2px;
+        top: -6px;
+        font-size: 60%;
+    }
+}
