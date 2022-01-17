@@ -18,6 +18,9 @@ export default {
     computed: {
         regionOfFocus() {
             return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
+        },
+        hasMultipleRegionTypes() {
+            return this.$store.state.maps.current.settings.regionTypes.length > 1;
         }
     }
 }
@@ -30,7 +33,9 @@ export default {
             :view="view"
             :region="regionOfFocus"/>
 
-        <div class="region-details__section">
+        <div
+            v-if="hasMultipleRegionTypes"
+            class="region-details__section">
             <region-type-picker
                 :view="view"
                 :type-as-region-title="true"/>
