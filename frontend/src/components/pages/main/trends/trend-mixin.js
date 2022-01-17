@@ -1,5 +1,3 @@
-import numberTools from '@/tools/number';
-
 export default {
     name: 'trend-mixin',
     data() {
@@ -31,9 +29,6 @@ export default {
         }
     },
     methods: {
-        format(value, addPlus) {
-            return numberTools.format(Math.round(value), addPlus);
-        },
         updateList() {
             let score = [];
             this.list = [];

@@ -2,6 +2,7 @@
 import _Region from "@/classes/region/_Region";
 import View from "@/classes/View";
 import numberTools from '@/tools/number';
+import { parentRegionToChild, childRegionToParent } from "@/tools/region";
 
 export default {
     name: 'trend-region',
@@ -28,12 +29,12 @@ export default {
             return numberTools.format(Math.round(this.value), true);
         },
         isCurrent() {
-            return this.view.currentRegion === this.region;
-        }
+            return childRegionToParent(this.view.currentRegion, this.$store.state.ui.currentRegionType) === this.region;
+        },
     },
     methods: {
         select() {
-            this.view.currentRegion = this.region;
+            this.view.currentRegion = parentRegionToChild(this.region);
             this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
         }
     }
@@ -66,6 +67,24 @@ export default {
 
     &__title {
         margin-right: 4px;
+    }
+
+    &__info {
+
+        .abs-rel {
+            color: blue;
+            text-transform: uppercase;
+            font-size: 75%;
+            top: -2px;
+            position: relative;
+            font-weight: 400;
+
+            &.abs-rel--big {
+                margin-left: 2px;
+                top: -6px;
+                font-size: 60%;
+            }
+        }
     }
 
     &--current {
