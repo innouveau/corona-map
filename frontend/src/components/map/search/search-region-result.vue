@@ -1,10 +1,10 @@
 <script>
     import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
+    import { parentRegionToChild } from "@/tools/region";
 
     export default {
         name: 'search-region-result',
-        components: {},
         props: {
             region: {
                 type: _Region,
@@ -15,14 +15,9 @@
                 required: true
             }
         },
-        computed: {
-            currentMap() {
-                return this.$store.state.maps.current;
-            }
-        },
         methods: {
             select() {
-                this.view.currentRegion = this.region;
+                this.view.currentRegion = parentRegionToChild(this.region);
                 this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
                 this.$store.commit('ui/updateProperty', {key: 'menu', value: 'details'});
             }

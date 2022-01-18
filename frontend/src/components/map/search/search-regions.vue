@@ -20,9 +20,8 @@
             hoverValue() {
                 return this.$store.state.ui.hoverValue;
             },
-            regionType() {
+            placeholder() {
                 return this.translate('search-or-click-on-map', true) + '...';
-                //return 'Zoek ' + this.$store.getters['ui/typeLabel'](false).toLowerCase() + ' of klik op de kaart';
             }
         },
         methods: {
@@ -39,7 +38,7 @@
         <input
             :value="searchValue"
             @keyup="updateSearchValue"
-            :placeholder="regionType">
+            :placeholder="placeholder">
         <div
             v-if="hoverValue.length > 0"
             class="hover-value">{{hoverValue}}</div>

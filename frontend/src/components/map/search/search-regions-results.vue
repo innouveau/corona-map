@@ -21,12 +21,14 @@
                 return this.$store.state.maps.current;
             },
             regions() {
-                return this.$store.state[this.currentMap.module].all
+                return this.$store.getters['ui/regions'];
+            },
+            filtered() {
+                return this.regions
                     .filter(region => this.searchValue.length > 0 && region.title.toLowerCase().indexOf(this.searchValue.toLowerCase()) > -1)
                     .sort((a,b) => (a.titleForSorting > b.titleForSorting) ? 1 : ((b.titleForSorting > a.titleForSorting) ? -1 : 0));
             }
-        },
-        methods: {}
+        }
     }
 </script>
 
@@ -37,7 +39,7 @@
             v-if="regions.length > 0"
             class="search-regions-results__results">
             <search-region-result
-                v-for="region in regions"
+                v-for="region in filtered"
                 :region="region"
                 :view="view"/>
         </div>

@@ -1,9 +1,6 @@
 <script>
     export default {
         name: 'credits',
-        components: {},
-        props: {},
-        computed: {},
         methods: {
             close() {
                 this.$store.commit('ui/updateProperty', {key: 'creditsPopup', value: false});
