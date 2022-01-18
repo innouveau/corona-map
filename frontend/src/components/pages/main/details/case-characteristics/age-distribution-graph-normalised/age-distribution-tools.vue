@@ -56,14 +56,14 @@
                     v-model="ageDistributionAbsolute"/> Absolute waardes
             </div>
             <div
-                    @click="move(1)"
-                    class="icon-button">
-                <img src="assets/img/tools/back.svg">
+                @click="move(1)"
+                class="icon-button">
+                <img src="assets/img/tools/back.svg" alt="">
             </div>
             <div
-                    @click="move(7)"
-                    class="icon-button">
-                <img src="assets/img/tools/7xback.svg">
+                @click="move(7)"
+                class="icon-button">
+                <img src="assets/img/tools/7xback.svg" alt="">
             </div>
             <div
                 v-if="view.offset > 6"
