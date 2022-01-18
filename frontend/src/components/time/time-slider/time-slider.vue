@@ -25,11 +25,6 @@
                 default() {
                     return []
                 }
-            },
-            showGraph: {
-                type: Boolean,
-                required: false,
-                default: false
             }
         },
         computed: {
@@ -65,6 +60,9 @@
             },
             isPlaying() {
                 return this.$store.state.ui.isPlaying;
+            },
+            showGraph() {
+                return this.view.currentRegion && this.view.currentSource.loaded && !this.isPlaying && this.$store.state.ui.currentRegionType === this.currentMap.settings.regionTypes[0];
             }
         },
         methods: {}
@@ -88,7 +86,7 @@
                 :l="historyLength"
                 :view="view"/>
             <time-slider-graph
-                v-if="view.currentRegion && view.currentSource.loaded && !isPlaying"
+                v-if="showGraph"
                 :view="view"/>
         </div>
 
