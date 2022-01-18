@@ -1,9 +1,9 @@
 <script>
-    import LanguageSwitch from "@/components/elements/language/language-switch";
+    import LanguageSwitch from "./language/language-switch";
 
     export default {
         name: 'hamburger-menu',
-        components: {LanguageSwitch},
+        components: { LanguageSwitch },
         props: {},
         computed: {
             pages() {
