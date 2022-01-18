@@ -5,7 +5,7 @@ import Map from "@/components/map/Map";
 import { downloadImage } from "@/tools/download";
 import RegionDetailsChange from "./details/region-details-change";
 import ChangeTrends from "./trends/change-trends";
-import query from '@/components/elements/query.js'
+import query from '@/mixins/query.js'
 import Region from "@/components/region/Region";
 
 export default {

@@ -6,7 +6,7 @@ import RegionDetails from "./details/region-details";
 import mainTrends from "./trends/main-trends";
 import Map from "@/components/map/Map";
 import Region from "@/components/region/Region";
-import query from '@/components/elements/query.js'
+import query from '@/mixins/query.js'
 
 export default {
     name: 'main-page',

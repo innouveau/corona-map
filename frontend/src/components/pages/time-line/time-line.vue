@@ -4,7 +4,7 @@ import dateTools from '@/tools/date';
 import headerMenu from "@/components/pages/header/header-menu";
 import Map from "@/components/map/Map";
 import { downloadImage } from "@/tools/download";
-import query from '@/components/elements/query.js'
+import query from '@/mixins/query.js'
 
 export default {
     name: 'time-line',
