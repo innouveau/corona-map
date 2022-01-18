@@ -16,6 +16,7 @@
     import Loader from "../elements/loader";
     import dateTools from '@/tools/date';
     import MapLegendCumulative from "./legend/map-legend-cumulative";
+    import {childRegionToParent} from "../../tools/region";
 
     export default {
         name: 'Map',
@@ -236,12 +237,12 @@
             },
             addHoverEvent() {
                 this.canvas.addEventListener('mousemove', (event) => {
-                    let x, y, region;
-                    x = event.offsetX;
-                    y = event.offsetY;
-                    region = this.getRegionForPoint(x, y);
+                    const x = event.offsetX;
+                    const y = event.offsetY;
+                    const region = this.getRegionForPoint(x, y);
                     if (region) {
-                        this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: region.title});
+                        const levelRegion = childRegionToParent(region, this.$store.state.ui.currentRegionType);
+                        this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: levelRegion.title});
                     } else {
                         this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
                     }
