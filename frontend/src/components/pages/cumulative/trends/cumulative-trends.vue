@@ -1,12 +1,20 @@
 <script>
 import View from "@/classes/View";
-import CumulativeTrendsRegion from "./cumulative-trends-region";
 import { getRelativeCumulativeForPeriod } from "@/tools/calculator";
+import trendSection from "@/components/elements/trends/trend-section";
+import trendSectionHead from "@/components/elements/trends/trend-section-head";
+import trendSectionBody from "@/components/elements/trends/trend-section-body";
+import trendList from "@/components/elements/trends/trend-list";
+import trendRegion from "@/components/elements/trends/trend-region";
 
 export default {
     name: 'cumulative-trends',
     components: {
-        CumulativeTrendsRegion
+        trendRegion,
+        trendList,
+        trendSectionBody,
+        trendSectionHead,
+        trendSection
     },
     props: {
         view: {
@@ -35,14 +43,6 @@ export default {
             const reversed = this.list.reverse();
             return reversed.slice(0,10);
         }
-    },
-    methods: {
-        select(region) {
-            if (region.regionType === 'city' || region.regionType === 'district') {
-                this.view.currentRegion = region;
-            }
-            this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
-        }
     }
 }
 </script>
@@ -50,35 +50,35 @@ export default {
 
 <template>
     <div class="cumulative-trends trends">
-        <div class="trends-section">
-            <div class="trends-section__head">
+        <trend-section>
+            <trend-section-head>
                 {{translate('most', true)}} {{translate(view.currentSource.key)}} {{translate('in-period')}}
-            </div>
-            <div class="trends-section__body">
-                <div class="regions__list">
-                    <cumulative-trends-region
+            </trend-section-head>
+            <trend-section-body>
+                <trend-list>
+                    <trend-region
                         v-for="item in highest"
-                        @select="select"
-                        :region="item.region"
-                        :value="item.value" />
-                </div>
-            </div>
-        </div>
+                        :view="view"
+                        :region="item.region">
+                    </trend-region>
+                </trend-list>
+            </trend-section-body>
+        </trend-section>
 
-        <div class="trends-section">
-            <div class="trends-section__head">
+        <trend-section>
+            <trend-section-head>
                 {{translate('least', true)}} {{translate(view.currentSource.key)}} {{translate('in-period')}}
-            </div>
-            <div class="trends-section__body">
-                <div class="regions__list">
-                    <cumulative-trends-region
+            </trend-section-head>
+            <trend-section-body>
+                <trend-list>
+                    <trend-region
                         v-for="item in lowest"
-                        @select="select"
-                        :region="item.region"
-                        :value="item.value" />
-                </div>
-            </div>
-        </div>
+                        :view="view"
+                        :region="item.region">
+                    </trend-region>
+                </trend-list>
+            </trend-section-body>
+        </trend-section>
     </div>
 </template>
 
