@@ -1,16 +1,15 @@
 <script>
     import menuButton from "./menu-button";
-    import totalInfections from "@/components/elements/total-infections";
-    import Datepicker from 'vuejs-datepicker';
-    import dateTools from '@/tools/date';
+    import dayScore from "./day-score";
     import View from "@/classes/View";
+    import HeaderMenuTitle from "./header-menu-title";
 
     export default {
         name: 'header-menu',
         components: {
-            totalInfections,
-            menuButton,
-            Datepicker
+            HeaderMenuTitle,
+            dayScore,
+            menuButton
         },
         props: {
             view: {
@@ -20,12 +19,7 @@
         },
         data() {
             return {
-                date: dateTools.getDateByOffset(this.view.offset * this.$store.state.maps.current.data.positivePcrTests.interval)
-            }
-        },
-        computed: {
-            buttons() {
-                return [
+                buttons: [
                     {
                         value: 'map'
                     }, {
@@ -34,20 +28,11 @@
                         value: 'trends'
                     }
                 ]
-            },
+            }
+        },
+        computed: {
             currentMap() {
                 return this.$store.state.maps.current
-            },
-            mapTitle() {
-                let title = this.currentMap.title;
-                if (!this.currentMap.ready) {
-                    title += ' (' + this.translate('work-in-progress') + ')';
-                }
-                return title;
-            },
-            pageTitle() {
-                const routeName = this.$route.name;
-                return routeName.charAt(0).toUpperCase() + routeName.slice(1);
             },
             currentLanguage() {
                 return this.$store.state.languages.current;
@@ -57,16 +42,13 @@
             },
             dateString() {
                 const lang = this.currentLanguage.iso_code
-                const offsetDate = this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'EE dd MMM yyyy', lang);
                 if (this.isCumulative) {
-                    const startDate = this.$store.getters['ui/getDateByOffset']((this.view.offsetStart * this.currentMap.data.positivePcrTests.interval), 'EE dd MMM yyyy', lang);
+                    const offsetDate = this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'dd MMM yyyy', lang);
+                    const startDate = this.$store.getters['ui/getDateByOffset']((this.view.offsetStart * this.currentMap.data.positivePcrTests.interval), 'dd MMM yyyy', lang);
                     return startDate + " - " + offsetDate
                 } else {
-                    return offsetDate;
+                    return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'EE dd MMM yyyy', lang);
                 }
-            },
-            offset() {
-                return this.view.offset;
             },
             isPanelPage() {
                 return this.$route.name === 'main' || this.$route.name === 'change' || this.$route.name === 'cumulative';
@@ -74,36 +56,35 @@
             videoMode() {
                 return this.$store.state.ui.videoMode;
             },
-        },
+            isPlaying() {
+                return this.$store.state.ui.isPlaying;
+            }
+        }
     }
 </script>
 
 
 <template>
-    <div class="header-menu">
-        <div class="title">
-            <div class="title__main">
-                <div class="title__main-label">
-                    Corona {{pageTitle}}
-                </div>
-                <div class="title__map">
-                    {{mapTitle}}
-                </div>
-            </div>
+    <div
+        :class="{'header-menu--cumulative': isCumulative }"
+        class="header-menu">
+        <div class="header-menu__main">
+            <header-menu-title />
 
-            <div class="title__sub">
-                <div class="date-string">
+            <div class="header-menu__data">
+                <div class="header-menu__date">
                     {{dateString}}
                 </div>
-                <total-infections
-                    v-if="!videoMode && !isCumulative"
+
+                <day-score
+                    v-if="!videoMode && !isCumulative && view.currentSource.loaded && !isPlaying"
                     :view="view"/>
             </div>
         </div>
 
         <div
             v-if="isPanelPage"
-            class="menu">
+            class="header-menu__navigation">
             <menu-button
                 v-for="button in buttons"
                 :button="button"/>
@@ -113,131 +94,81 @@
 
 
 <style lang="scss">
-    @import '@/styles/variables.scss';
+@import '@/styles/variables.scss';
 
-    .header-menu {
+.header-menu {
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 5;
+
+    &__main {
+        height: 48px;
+        display: flex;
         align-items: center;
+    }
+
+    &__data {
+        display: flex;
+        font-size: 16px;
+        font-family: $monospace;
+        white-space: nowrap;
+    }
+
+    &__date {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        border-right: 1px solid #ddd;
+        padding: 8px 12px;
+    }
+
+    &__navigation {
+        height: 32px;
+        display: none;
         background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        position: relative;
-        z-index: 5;
+        border-top: 1px solid #ddd;
+    }
 
-        .title {
+    @include header-menu-breakpoint() {
+
+        &__main {
             height: 48px;
+            padding-right: 44px;
+        }
+
+        .header-menu-title {
+            width: 50%;
+        }
+
+        &__data {
+            width: 50%;
+            display: block;
+            font-size: 12px;
+            border-right: 1px solid #ddd;
+            height: 100%;
+        }
+
+        &__date {
+            width: 100%;
+            height: 50%;
+            border-right: 0;
+            border-bottom: 1px solid #ddd;
+            padding: 4px 8px;
+        }
+
+        &__navigation {
             display: flex;
-            align-items: center;
-
-            .title__main {
-                font-size: 22px;
-                margin-right: 12px;
-                display: flex;
-                align-items: center;
-                font-family: $serif;
-                border-right: 1px solid #ddd;
-                padding: 8px 16px;
-                height: 100%;
-                white-space: nowrap;
-
-                .title__map {
-                    margin-left: 8px;
-                    font-weight: 700;
-                }
-            }
-
-            .title__sub {
-                font-size: 18px;
-                display: flex;
-                height: 100%;
-
-                .date-string {
-                    display: flex;
-                    align-items: center;
-                    font-family: $monospace;
-                    margin-right: 4px;
-                    border-right: 1px solid #ddd;
-                    height: 100%;
-                    padding-right: 8px;
-
-                    .date-string__string {
-                        white-space: nowrap;
-                    }
-
-                    input {
-                        width: 120px;
-                        background: transparent;
-                        padding: 3px;
-                        font-size: inherit;
-                        cursor: pointer;
-                        color: #000;
-
-                        &:hover {
-                            background: #ddd;
-                        }
-                    }
-                }
-
-                .total-infections {
-                    display: flex;
-                    align-items: center;
-
-                    .total-infections__n {
-                        padding: 2px 8px;
-                        border-radius: 2px;
-                        font-family: $monospace;
-                        display: flex;
-                    }
-                }
-            }
         }
 
-        .menu {
-            height: 32px;
-            display: none;
-            background: #fff;
-            border-top: 1px solid #ddd;
-        }
+        &--cumulative {
 
-        @include header-menu-breakpoint() {
-
-            .title {
-                height: 48px;
-                padding-right: 60px;
-
-                .title__main {
-                    font-size: 16px;
-                    line-height: 1.2;
-                    margin-right: 6px;
-                    display: block;
-
-                    .title__map {
-                        margin-left: 0;
-                    }
-                }
-
-                .title__sub {
-                    font-size: 14px;
-
-                    .date-string {
-                        padding-right: 0;
-
-                        input {
-                            width: 90px;
-                            background: transparent;
-                            padding: 3px;
-                            font-size: inherit;
-                            cursor: pointer;
-
-                            &:hover {
-                                background: #ddd;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .menu {
-                display: flex;
+            .header-menu__date {
+                height: 100%;
+                white-space: normal;
             }
         }
     }
+}
 </style>
