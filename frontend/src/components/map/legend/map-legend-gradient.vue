@@ -1,11 +1,9 @@
 <script>
     import thresholdTools from '@/tools/thresholds';
     import View from "@/classes/View";
-    import P100p7 from "../../elements/p100p7";
 
     export default {
         name: 'map-legend-gradient',
-        components: {P100p7},
         props: {
             view: {
                 type: View,
