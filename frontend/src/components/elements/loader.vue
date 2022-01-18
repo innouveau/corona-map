@@ -1,15 +1,12 @@
 <script>
     export default {
         name: 'loader',
-        components: {},
         props: {
             text: {
                 type: String,
                 required: false
             }
-        },
-        computed: {},
-        methods: {}
+        }
     }
 </script>
 

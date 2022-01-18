@@ -3,7 +3,6 @@
 
     export default {
         name: 'translate',
-        components: {},
         props: {
             word: {
                 type: String,
@@ -19,8 +18,7 @@
             translated() {
                 return translateTool.translate(this.word, this.n);
             }
-        },
-        methods: {}
+        }
     }
 </script>
 
@@ -32,10 +30,4 @@
 </template>
 
 
-<style lang="scss">
-    @import '@/styles/variables.scss';
-
-    .translate {
-
-    }
-</style>
+<style lang="scss"></style>

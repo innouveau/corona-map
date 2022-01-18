@@ -3,7 +3,6 @@ import View from "@/classes/View";
 
 export default {
     name: 'trend-blocker',
-    components: {},
     computed: {
         displayTrends() {
             return this.$store.state.ui.showTrends;
