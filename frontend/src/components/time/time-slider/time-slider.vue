@@ -62,6 +62,9 @@
                 } else {
                     return Math.floor(this.historyLength / this.frameSize) * this.frameSize;
                 }
+            },
+            isPlaying() {
+                return this.$store.state.ui.isPlaying;
             }
         },
         methods: {}
@@ -85,7 +88,7 @@
                 :l="historyLength"
                 :view="view"/>
             <time-slider-graph
-                v-if="view.currentRegion && view.currentSource.loaded"
+                v-if="view.currentRegion && view.currentSource.loaded && !isPlaying"
                 :view="view"/>
         </div>
 
