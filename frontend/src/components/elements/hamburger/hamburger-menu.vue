@@ -51,7 +51,7 @@
                 return this.currentPage === page.route;
             },
             selectMap(map) {
-                let url = this.routePath + '#/timeline/?map=' + map.title;
+                let url = this.routePath + '#/?map=' + map.title;
                 window.open(url);
                 this.close();
             },
