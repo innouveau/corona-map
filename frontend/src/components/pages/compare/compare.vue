@@ -3,12 +3,20 @@ import dateTools from '@/tools/date';
 import View from '@/classes/View';
 import headerMenu from "@/components/pages/header/header-menu";
 import Map from "@/components/map/Map";
+import RegionDetails from "@/components/pages/main/details/region-details";
+import RegionDetailsNumbers from "@/components/pages/main/details/region-details-numbers";
+import RegionContainer from "@/components/region/region-container";
+import Region from "../../region/Region";
 
 export default {
     name: 'compare',
     components: {
+        Region,
         Map,
-        headerMenu
+        headerMenu,
+        RegionContainer,
+        RegionDetailsNumbers,
+        RegionDetails,
     },
     props: {},
     data(){
@@ -22,7 +30,7 @@ export default {
         },
         currentMap() {
             return this.$store.state.maps.current;
-        },
+        }
     },
     methods: {
         getDates() {
@@ -77,10 +85,20 @@ export default {
                     <header-menu
                         :view="view"/>
                 </div>
-                <Map
-                    :view="view"
-                    :map-type="'signaling'"
-                    :show-download="false"/>
+                <div class="map-container">
+                    <Map
+                        :view="view"
+                        :map-type="'signaling'"
+                        :show-download="false"/>
+                    <region-container :view="view">
+                        <Region :view="view">
+                            <region-details-numbers
+                                :view="view"
+                                :region="view.currentRegion"
+                                :compact="true"/>
+                        </Region>
+                    </region-container>
+                </div>
             </div>
         </div>
     </div>
@@ -111,8 +129,9 @@ export default {
                     height: 48px;
                 }
 
-                .Map {
+                .map-container {
                     height: calc(100% - 48px);
+                    position: relative;
 
                     .region-details__container {
                         position: absolute;

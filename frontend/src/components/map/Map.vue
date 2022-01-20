@@ -423,7 +423,7 @@
             pointer-events: none;
             z-index: 2;
 
-            > div {
+            > div:not(.map-legend) {
                 pointer-events: all;
             }
 

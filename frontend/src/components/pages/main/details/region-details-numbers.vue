@@ -21,7 +21,7 @@
                 type: _Region,
                 required: true
             },
-            short: {
+            compact: {
                 type: Boolean,
                 required: false,
                 default: false
@@ -67,7 +67,7 @@
         </div>
 
         <div
-            v-if="!short"
+            v-if="!compact"
             class="region-details__section">
             <div class="region-details__section-head">
                 {{translate('trend-today', true)}}
@@ -100,7 +100,7 @@
                 {{translate('trend-week', true)}}
             </div>
             <div
-                v-if="!short"
+                v-if="!compact"
                 class="region-details__row">
                 <div class="region-details__label">
                     {{translate('increase', true)}} {{translate('last-7-days')}}

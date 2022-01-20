@@ -5,10 +5,18 @@ import headerMenu from "@/components/pages/header/header-menu";
 import Map from "@/components/map/Map";
 import { downloadImage } from "@/tools/download";
 import query from '@/mixins/query.js'
+import Region from "../../region/Region";
+import RegionDetails from "@/components/pages/main/details/region-details";
+import RegionDetailsNumbers from "@/components/pages/main/details/region-details-numbers";
+import RegionContainer from "@/components/region/region-container";
 
 export default {
     name: 'time-line',
     components: {
+        RegionContainer,
+        RegionDetailsNumbers,
+        RegionDetails,
+        Region,
         Map,
         headerMenu,
     },
@@ -23,6 +31,11 @@ export default {
         download() {
             downloadImage(this.view, "signaling");
         }
+    },
+    computed: {
+        currentRegion() {
+            return this.view.currentRegion;
+        }
     }
 }
 </script>
@@ -34,11 +47,21 @@ export default {
             v-if="view"
             :view="view"/>
 
-        <Map
-            v-if="view"
-            @download="download"
-            :view="view"
-            :map-type="'signaling'" />
+        <div class="map-container">
+            <Map
+                v-if="view"
+                @download="download"
+                :view="view"
+                :map-type="'signaling'" />
+            <region-container :view="view">
+                <Region :view="view">
+                    <region-details-numbers
+                        :view="view"
+                        :region="currentRegion"
+                        :compact="true"/>
+                </Region>
+            </region-container>
+        </div>
     </div>
 </template>
 
@@ -53,7 +76,8 @@ export default {
             height: 48px;
         }
 
-        .Map {
+        .map-container {
+            position: relative;
             height: calc(100% - 48px);
         }
     }
