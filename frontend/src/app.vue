@@ -105,7 +105,7 @@
                             }
                         }
                         for (const region of regionsWithNoData) {
-                            this.$store.commit(this.currentMap.module + '/delete', region);
+                            this.$store.commit(this.currentMap.module + '/noData', region);
                         }
                     })
                 });

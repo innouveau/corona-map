@@ -479,7 +479,7 @@
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
-                //border: 1px solid #000;
+                // border: 1px solid #000;
             }
 
             #main-canvas {

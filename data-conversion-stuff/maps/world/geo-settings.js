@@ -209,9 +209,21 @@ window.geoSettings = {
         },
         addCountryCode: null,
         exclude: ['*'],
-        include: ['North Korea', 'Japan', 'Mongolia', 'Bangladesh', 'Kazakhstan', 'Taiwan', 'Thailand', 'Cambodia', 'Vietnam', 'Indonesia',
-            'Sri Lanka', 'Nepal', 'Burma', 'Laos', 'Philippines', 'Papua New Guinea', 'Bhutan', 'Pakistan', 'Korea South', 'Kyrgyzstan', 'Tajikistan',
-            'Afghanistan', 'Uzbekistan', 'India']
+        include: ['North Korea', 'Japan',
+            //'Mongolia',
+            'Bangladesh',
+            //'Kazakhstan',
+            'Taiwan', 'Thailand', 'Cambodia', 'Vietnam', 'Indonesia',
+            'Sri Lanka', 'Nepal', 'Burma', 'Laos', 'Philippines', 'Papua New Guinea', 'Bhutan',
+            //'Pakistan',
+            'Korea South',
+            //'Kyrgyzstan',
+            //'Tajikistan',
+            //'Afghanistan',
+            //'Uzbekistan',
+            'North Korea'
+            //'India'
+        ]
     },
     chile: {
         geo: 'data/chile/geo.json',

@@ -39,7 +39,7 @@ const maps = [
                 ratio: 0.91
             },
             positiveTestGraph: {
-                zoomFactor: 0.2
+                zoomFactor: 0.075
             }
         },
         data: {
@@ -252,7 +252,7 @@ const maps = [
                 ratio: 1.04
             },
             positiveTestGraph: {
-                zoomFactor: 0.2
+                zoomFactor: 0.15
             },
             excludeRegions: [],
             caseSettings: caseSettings
@@ -510,7 +510,7 @@ const maps = [
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/south-america/south-america.json'
+                source: 'data/maps/south-america/south-america.json?version=2'
             },
             positivePcrTests: {
                 status: true,
@@ -554,14 +554,14 @@ const maps = [
             pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
-                latitude: 18,
+                latitude: 20,
                 longitude: 110,
                 stretch: 0.8,
-                zoom: 0.017,
-                ratio: 1.2
+                zoom: 0.014,
+                ratio: 1
             },
             positiveTestGraph: {
-                zoomFactor: 5
+                zoomFactor: 1
             },
         },
         data: {

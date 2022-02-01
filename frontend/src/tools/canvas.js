@@ -64,28 +64,34 @@ const getValues = (regionContainers, mapType, view, source) => {
     return result;
 }
 
-const getValue = function(parent, mapType, view, source) {
-    switch (mapType) {
-        case 'change':
-            const change = getChangeOfType(parent, view.offset, 7, view.currentSource.key);
-            return {
-                value: null,
-                color: changeTools.getColorForChange(change)
-            }
-        case 'cumulative':
-            const start = view.offset;
-            const end = view.offsetStart;
-            const cumulative = getRelativeCumulativeForPeriod(parent, start, end, view.currentSource.key);
-            return {
-                value: cumulative,
-                color: null
-            }
-        default:
-            return {
-                value: null,
-                color: getColorForRegion(parent, view)
-                //color: parent.getColor(view.offset, source)
-            }
+const getValue = function(parent, mapType, view) {
+    if (parent.noData === true) {
+        return {
+            value: null,
+            color: '#888'
+        }
+    } else {
+        switch (mapType) {
+            case 'change':
+                const change = getChangeOfType(parent, view.offset, 7, view.currentSource.key);
+                return {
+                    value: null,
+                    color: changeTools.getColorForChange(change)
+                }
+            case 'cumulative':
+                const start = view.offset;
+                const end = view.offsetStart;
+                const cumulative = getRelativeCumulativeForPeriod(parent, start, end, view.currentSource.key);
+                return {
+                    value: cumulative,
+                    color: null
+                }
+            default:
+                return {
+                    value: null,
+                    color: getColorForRegion(parent, view)
+                }
+        }
     }
 }
 

@@ -28,6 +28,7 @@ class District extends _RegionWithTestData {
         this.area = area;
         this.paths = paths.map(path => new Path(path));
         this.report = report;
+        this.noData = false;
     }
 
 }

@@ -32,6 +32,9 @@ const mutations = {
     },
     delete(state, item) {
         _base.mutations.delete(state, item);
+    },
+    noData(state, item) {
+        _base.mutations.updatePropertyOfItem(state, item, "noData", true);
     }
 };
 
