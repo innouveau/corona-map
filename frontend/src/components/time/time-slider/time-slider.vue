@@ -105,35 +105,25 @@
         pointer-events: none;
         width: 300px;
         height: 32px;
+    }
 
-        .vue-slider__container {
-            width: calc(100% - 120px);
-            position: relative;
+    .vue-slider__container {
+        width: calc(100% - 120px);
+        position: relative;
 
-            .vue-slider {
-                margin-right: 20px;
-                padding-bottom: 0!important;
-            }
+        .vue-slider {
+            margin-right: 20px;
+            padding-bottom: 0!important;
+        }
 
-            .time-slider-stops {
-                pointer-events: none;
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: calc(100% - 20px);
-                height: 100%;
-                z-index: 1;
-            }
-
-            .time-slider-graph {
-                pointer-events: none;
-                position: absolute;
-                left: 0;
-                top: 2px;
-                width: calc(100% - 20px);
-                height: calc(50% - 2px);
-                z-index: 0;
-            }
+        .time-slider-stops {
+            pointer-events: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: calc(100% - 20px);
+            height: 100%;
+            z-index: 1;
         }
     }
 </style>

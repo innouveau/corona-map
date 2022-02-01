@@ -2,10 +2,12 @@
     import VueSlider from 'vue-slider-component'
     import 'vue-slider-component/theme/default.css'
     import View from '@/classes/View';
+    import TimeSliderGraph from "./graph/time-slider-graph";
 
     export default {
         name: 'time-slider-range',
         components: {
+            TimeSliderGraph,
             VueSlider
         },
         props: {
@@ -25,6 +27,12 @@
             currentMap() {
                 return this.$store.state.maps.current
             },
+            isPlaying() {
+                return this.$store.state.ui.isPlaying;
+            },
+            showGraph() {
+                return this.view.currentRegion && this.view.currentSource.loaded && !this.isPlaying && this.$store.state.ui.currentRegionType === this.currentMap.settings.regionTypes[0];
+            }
         },
         methods: {
             date(v) {
@@ -44,6 +52,7 @@
 
 <template>
     <div class="time-slider-range">
+        <div class="time-slider-range__container">
         <vue-slider
             @drag-end="update"
             v-model="range"
@@ -52,6 +61,11 @@
             :interval="1"
             :tooltip-formatter="date"
             :duration="0"/>
+
+            <time-slider-graph
+                v-if="showGraph"
+                :view="view"/>
+        </div>
     </div>
 </template>
 
@@ -61,5 +75,9 @@
 
     .time-slider-range {
         width: calc(100% - 20px);
+
+        &__container {
+            position: relative;
+        }
     }
 </style>

@@ -43,5 +43,12 @@
     .time-slider-graph {
         display: flex;
         align-items: flex-end;
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: calc(100% - 20px);
+        height: calc(50% - 2px);
+        z-index: 0;
     }
 </style>
