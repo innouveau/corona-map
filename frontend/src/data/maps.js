@@ -107,6 +107,65 @@ const maps = [
             }
         }
     },
+    {
+        id: 15,
+        ready: true,
+        block: false,
+        title: 'Vaccinatie',
+        module: 'districts',
+        regionLabel: 'wijken',
+        story_id: null,
+        settings: {
+            regionTypes: ['districts'],
+            pathOrigins: [
+                // {
+                //     type: 'country',
+                //     paths: 'city'
+                // }
+            ],
+            generalInfoHasPopulation: false,
+            map: {
+                latitude: 52.15,
+                longitude: 5.34,
+                stretch: 0.62,
+                zoom: 0.345,
+                ratio: 0.91
+            },
+            positiveTestGraph: {
+                zoomFactor: 0.075
+            }
+        },
+        data: {
+            geo: {
+                status: true,
+                source: 'data/maps/nederland/districts.json?version=1'
+            },
+            positivePcrTests: {
+                status: false,
+            },
+            positiveAntigenTests: {
+                status: false
+            },
+            administeredPcrTests: {
+                status: false,
+            },
+            hospitalisations: {
+                status: false,
+            },
+            deceased: {
+                status: false,
+            },
+            vaccination: {
+                status: false,
+            },
+            ageGroups: {
+                status: true,
+            },
+            sewageMeasurements: {
+                status: true,
+            }
+        }
+    },
     // {
     //     id: 2,
     //     ready: true,
