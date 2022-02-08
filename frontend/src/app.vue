@@ -54,7 +54,8 @@
             init() {
                 this.initLanguages();
                 this.pickMap();
-                this.addSource('positiveTests', 0);
+                this.loadStaticData();
+                this.loadDynamicData();
             },
             pickMap() {
                 let map;
@@ -68,7 +69,6 @@
                     this.$store.commit('maps/setCurrent', this.$store.state.maps.all[0]);
                 }
                 this.$store.commit('ui/updateProperty', {key: 'currentRegionType', value: this.currentMap.settings.regionTypes[0]});
-                this.loadData();
             },
             initLanguages() {
                 let language;
@@ -81,7 +81,7 @@
                 }
                 this.$store.commit('languages/setCurrent', language);
             },
-            loadData() {
+            loadStaticData() {
                 this.$store.commit('stories/init', stories);
                 this.$store.commit('signalingSystems/init', signalingSystems);
                 this.$store.commit('signalingSystems/setCurrent', this.$store.state.signalingSystems.all[0]);
@@ -91,80 +91,63 @@
                 this.$store.commit('provinces/init', provinces);
                 this.$store.commit('regios/init', regios);
                 this.$store.commit('ageGroups/init', ageGroups);
-                this.loadRegions();
             },
-            loadRegions() {
-                $.getJSON(this.currentMap.data.geo.source, (regions) => {
-                    this.$store.commit(this.currentMap.module + '/init', regions);
-                    this.loadPcrTests().then(() => {
-                        const regionsWithNoData = [];
-                        this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                        for (const region of this.$store.state[this.currentMap.module].all) {
-                            if (region.report.history.length === 0) {
-                                regionsWithNoData.push(region);
-                            }
-                        }
-                        for (const region of regionsWithNoData) {
-                            this.$store.commit(this.currentMap.module + '/noData', region);
-                        }
-                    })
-                });
-            },
-            loadAntigenTests() {
-                return new Promise((resolve, reject) => {
-                    d3.csv(this.currentMap.data.positiveAntigenTests.source + dateTool.getTimestamp())
-                        .then((result) => {
-                            let adapter, positiveAntigenTestsKeys;
-                            adapter = this.currentMap.data.positiveAntigenTests.adapter;
-                            positiveAntigenTestsKeys = result.columns.filter(column => adapter.getPositiveKeys(column));
-                            for (let row of result) {
-                                let title, region;
-                                title = row.region;
-                                region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
-                                if (region) {
-                                    for (let positiveAntigenTestsKey of positiveAntigenTestsKeys) {
-                                        let frame, date, positiveAntigenTestsValue,
-                                            totalAntigenTestsKey, totalAntigenTestsValue;
-                                        positiveAntigenTestsValue = Number(row[positiveAntigenTestsKey]);
-                                        date = adapter.getDateFromKey(positiveAntigenTestsKey);
-                                        frame = region.report.history.find(f => f.date === date);
-                                        if (frame) {
-                                            totalAntigenTestsKey = adapter.getTotalKeyFromDate(date);
-                                            totalAntigenTestsValue = Number(row[totalAntigenTestsKey]);
-                                            frame.positiveAntigenTests = positiveAntigenTestsValue;
-                                            frame.totalAntigenTests = totalAntigenTestsValue;
-                                        } else {
-                                            console.error('frame with date ' + date + ' not found for antigen data');
-                                        }
-                                    }
-                                } else {
-                                    console.error('Region ' + title + ' not found for antigen data');
-                                }
+            async loadDynamicData() {
+                await this.loadGeoData();
+                await this.loadSources();
 
-                            }
-                            resolve();
-                        })
-                        .catch((error) => {
-                            console.error(error);
-                        });
+
+                // $.getJSON(this.currentMap.data.geo.source, (regions) => {
+                //     this.$store.commit(this.currentMap.module + '/init', regions);
+                //     if (this.currentMap.data.positivePcrTests.status) {
+                //         this.loadPcrTests().then(() => {
+                //             const regionsWithNoData = [];
+                //             this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
+                //             for (const region of this.$store.state[this.currentMap.module].all) {
+                //                 if (region.report.history.length === 0) {
+                //                     regionsWithNoData.push(region);
+                //                 }
+                //             }
+                //             for (const region of regionsWithNoData) {
+                //                 this.$store.commit(this.currentMap.module + '/noData', region);
+                //             }
+                //         })
+                //     } else {
+                //         this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
+                //     }
+                // });
+            },
+            loadGeoData() {
+                return new Promise((resolve, reject) => {
+                    $.getJSON(this.currentMap.data.geo.source, (regions) => {
+                        this.$store.commit(this.currentMap.module + '/init', regions);
+                        resolve();
+                    }).catch((error) => {
+                        reject(error);
+                    })
                 })
             },
-            loadPcrTests() {
-                const addTestsForRegions = (item) => {
-                    if (this.currentMap.settings.excludeRegions) {
-                        let identifier = item[this.currentMap.data.positivePcrTests.adapter.titleKey];
-                        return this.currentMap.settings.excludeRegions.indexOf(identifier) === -1;
-                    } else {
-                        return true;
+            async loadSources() {
+                const sources = [];
+                for (const key in this.currentMap.data.sources) {
+                    const settings = this.currentMap.data.sources[key];
+                    sources.push({ key, settings });
+                }
+                for (const source of sources) {
+                    if (source.settings.loadInitially) {
+                        await this.loadSource(source);
                     }
-                };
+                    this.addSource(source.key);
+                }
+            },
+            loadSource(source) {
                 return new Promise((resolve, reject) => {
-                    d3.csv(this.currentMap.data.positivePcrTests.source + dateTool.getTimestamp())
+                    d3.csv(source.settings.url + dateTool.getTimestamp())
                         .then((data) => {
-                            let adapter, promises;
-                            promises = [];
-                            if (this.currentMap.data.positivePcrTests.adapter) {
-                                adapter = this.currentMap.data.positivePcrTests.adapter;
+                            console.log(data);
+                            let adapter;
+                            if (source.settings.adapter) {
+                                adapter = source.settings.adapter;
                             } else {
                                 adapter = {
                                     titleKey: 'Municipality_code',
@@ -178,140 +161,27 @@
 
                             this.getDate(data.columns, adapter);
                             for (let item of data) {
-                                if (addTestsForRegions(item)) {
-                                    this.addTests(item, adapter);
-                                }
+                                this.addTests(item, adapter);
                             }
-
-                            this.$store.commit('sources/updatePropertyOfItem', {item: this.$store.state.sources.all[0], property: 'loaded', value: true});
-
-                            if (this.currentMap.data.positiveAntigenTests.status) {
-                                promises.push(this.loadAntigenTests);
-                            }
-                            if (this.currentMap.data.hospitalisations.status) {
-                                this.addSource('hospitalisations', 1);
-                            }
-                            if (this.currentMap.data.deceased.status) {
-                                this.addSource('deceased', 2);
-                            }
-                            if (this.currentMap.data.vaccination && this.currentMap.data.vaccination.status) {
-                                this.loadVaccination();
-                            }
-
-                            if (promises.length > 0) {
-                                Promise.all(promises.map(p => p()))
-                                    .then((result) => {
-                                        resolve();
-                                    })
-                            } else {
-                                resolve();
-                            }
+                            // todo
+                            // this.$store.commit('sources/updatePropertyOfItem', {item: this.$store.state.sources.all[0], property: 'loaded', value: true});
                         })
                         .catch((error) => {
                             console.error(error);
                         });
                 })
             },
-            loadVaccination() {
-                $.getJSON(this.currentMap.data.vaccination.source, (response) => {
-                    for (const entry of response) {
-                        const data = {
-                            ageGroup: entry.Age_group,
-                            vaccination_coverage_partly: Number(entry.Vaccination_coverage_partly),
-                            vaccination_coverage_completed: Number(entry.Vaccination_coverage_completed),
-                        }
-                        if (entry.Region_code.indexOf('GM') > -1) {
-                            const city = this.$store.getters['cities/getItemByProperty']('identifier', entry.Region_code, true);
-                            if (city) {
-                                city.vaccination.push(data);
-                            }
-                        } else if (entry.Region_code.indexOf('VR') > -1) {
-                            const safetyRegion = this.$store.getters['safetyRegions/getItemByProperty']('safetyRegion_code', entry.Region_code, true);
-                            if (safetyRegion) {
-                                safetyRegion.vaccination.push(data);
-                            }
-                        }
-                    }
-                });
-            },
-            loadStandard(subjectKey) {
-                // return new Promise((resolve, reject) => {
-                //     d3.csv(this.currentMap.data[subjectKey].source + dateTool.getTimestamp())
-                //         .then((result) => {
-                //             let adapter, keys, lastValue;
-                //             adapter = this.currentMap.data[subjectKey].adapter;
-                //             keys = adapter.getKeys(result.columns);
-                //             for (let row of result) {
-                //                 let title, region;
-                //                 title = row[adapter.regionKey];
-                //                 region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', title, true);
-                //
-                //                 if (region) {
-                //                     lastValue = 0;
-                //                     for (let key of keys) {
-                //                         let frame, date, value;
-                //                         value = Number(row[key]);
-                //                         date = adapter.getDateFromKey(key);
-                //                         frame = region.report.history.find(f => f.date === date);
-                //                         if (frame) {
-                //                             frame[subjectKey] = value - lastValue;
-                //                         } else {
-                //                             //console.error('frame with date ' + date + ' not found for hospitalisations data');
-                //                         }
-                //                         lastValue = value;
-                //                     }
-                //                 } else {
-                //                     //console.error('Region ' + title + ' not found for hospitalisations data');
-                //                 }
-                //             }
-                //             resolve();
-                //         })
-                //         .catch((error) => {
-                //             console.error(error);
-                //         });
-                // })
-            },
-            addSource(subjectKey, order) {
-                let signalingSystem, source;
-                signalingSystem = this.$store.state.signalingSystems.all.find(s => s.source === subjectKey);
-                source = {
-                    key: subjectKey,
-                    title: subjectKey,
+            addSource(key) {
+                const signalingSystem = this.$store.state.signalingSystems.all.find(s => s.source === key);
+                const source = {
+                    key: key,
+                    title: key,
                     signalingSystem_id: signalingSystem.id,
-                    order
+                    order: this.$store.state.sources.all.length
                 };
+                //
                 this.$store.commit('sources/create', source);
-            },
-            loadAgeGroupsForCities() {
-                return new Promise((resolve, reject) => {
-                    d3.csv(this.currentMap.data.ageGroups.source + dateTool.getTimestamp())
-                        .then((result) => {
-                            for (let item of result) {
-                                let city = this.$store.getters['cities/getItemByProperty']('identifier', item.Gemeentecode, true);
-                                if (city) {
-                                    let cityAgeGroups = ageGroups.map(ageGroup => {
-                                        let key = ageGroup.title;
-                                        if (key === '10-19') {
-                                            key = 'okt-19';
-                                        }
-                                        return {
-                                            title: ageGroup.title,
-                                            population: Number(item[key])
-                                        }
-                                    });
-                                    this.$store.commit('cities/updatePropertyOfItem', {
-                                        item: city,
-                                        property: 'ageGroups',
-                                        value: cityAgeGroups
-                                    });
-                                }
-                            }
-                            resolve();
-                        })
-                        .catch((error) => {
-                            console.error(error);
-                        });
-                });
+                /// ldsjflsdj
             },
             getDate(columns, adapter) {
                 let dates, today, first, last, totalLengthOfTestHistory;

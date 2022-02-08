@@ -47,63 +47,43 @@ const maps = [
                 status: true,
                 source: 'data/maps/nederland/cities.json?version=2022'
             },
-            positivePcrTests: {
-                status: true,
-                source: (window.config.dataUrl + 'data/municipality-totals.csv'),
-                interval: 1,
-                cumulative: true
-            },
-            positiveAntigenTests: {
-                status: false
-            },
-            administeredPcrTests: {
-                status: false,
-                source: ''
-            },
-            hospitalisations: {
-                status: true,
-                source: (window.config.dataUrl + 'data/municipality-hospitalisations.csv'),
-                interval: 1,
-                cumulative: true,
-                adapter: {
-                    getKeys(columns) {
-                        return columns.filter(c => c.indexOf('20') > -1);
-                    },
-                    getDateFromKey(key) {
-                        return key;
-                    },
-                    regionKey: 'Municipality_name'
+            sources: {
+                positiveTests: {
+                    loadInitially: true,
+                    url: (window.config.dataUrl + 'data/municipality-totals.csv'),
+                    interval: 1,
+                    cumulative: true
+                },
+                hospitalisations: {
+                    loadInitially: false,
+                    url: (window.config.dataUrl + 'data/municipality-hospitalisations.csv'),
+                    interval: 1,
+                    cumulative: true,
+                    adapter: {
+                        getKeys(columns) {
+                            return columns.filter(c => c.indexOf('20') > -1);
+                        },
+                        getDateFromKey(key) {
+                            return key;
+                        },
+                        regionKey: 'Municipality_name'
+                    }
+                },
+                deceased: {
+                    loadInitially: false,
+                    url: (window.config.dataUrl + 'data/municipality-deaths.csv'),
+                    interval: 1,
+                    cumulative: true,
+                    adapter: {
+                        getKeys(columns) {
+                            return columns.filter(c => c.indexOf('20') > -1);
+                        },
+                        getDateFromKey(key) {
+                            return key;
+                        },
+                        regionKey: 'Municipality_name'
+                    }
                 }
-            },
-            deceased: {
-                status: true,
-                source: (window.config.dataUrl + 'data/municipality-deaths.csv'),
-                interval: 1,
-                cumulative: true,
-                adapter: {
-                    getKeys(columns) {
-                        return columns.filter(c => c.indexOf('20') > -1);
-                    },
-                    getDateFromKey(key) {
-                        return key;
-                    },
-                    regionKey: 'Municipality_name'
-                }
-            },
-            vaccination: {
-                status: true,
-                source: '/data/maps/nederland/vaccination.json',
-                adapter: {
-
-                }
-            },
-            ageGroups: {
-                status: true,
-                source: 'data/maps/nederland/cities-population-agegroup.csv'
-            },
-            sewageMeasurements: {
-                status: true,
-                source: sewageDataUrl
             }
         }
     },
@@ -313,7 +293,6 @@ const maps = [
             positiveTestGraph: {
                 zoomFactor: 0.15
             },
-            excludeRegions: [],
             caseSettings: caseSettings
         },
         data: {
@@ -563,7 +542,6 @@ const maps = [
             positiveTestGraph: {
                 zoomFactor: 0.9
             },
-            excludeRegions: [],
             caseSettings: caseSettings
         },
         data: {
@@ -573,7 +551,7 @@ const maps = [
             },
             positivePcrTests: {
                 status: true,
-                source: casesUrl,
+                url: casesUrl,
                 interval: 1,
                 cumulative: true,
                 adapter: standardPcrTestAdapter
