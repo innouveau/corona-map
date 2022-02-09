@@ -37,8 +37,6 @@ const caseSettings = {
     lateReporting: ['FR', 'BE', 'PL', 'SE', 'UK']
 };
 
-
-
 const maps = [
     {
         id: 1,
@@ -107,13 +105,8 @@ const maps = [
         regionLabel: 'wijken',
         story_id: null,
         settings: {
-            regionTypes: ['districts'],
-            pathOrigins: [
-                // {
-                //     type: 'country',
-                //     paths: 'city'
-                // }
-            ],
+            regionTypes: ['district'],
+            pathOrigins: [],
             generalInfoHasPopulation: false,
             map: {
                 latitude: 52.15,
@@ -131,29 +124,8 @@ const maps = [
                 status: true,
                 source: 'data/maps/nederland/districts.json?version=1'
             },
-            positivePcrTests: {
-                status: false,
-            },
-            positiveAntigenTests: {
-                status: false
-            },
-            administeredPcrTests: {
-                status: false,
-            },
-            hospitalisations: {
-                status: false,
-            },
-            deceased: {
-                status: false,
-            },
-            vaccination: {
-                status: false,
-            },
-            ageGroups: {
-                status: true,
-            },
-            sewageMeasurements: {
-                status: true,
+            sources: {
+
             }
         }
     },

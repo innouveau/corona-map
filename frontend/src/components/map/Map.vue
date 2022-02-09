@@ -118,7 +118,10 @@
                 return this.view.currentSource;
             },
             isLoaded(){
-                return this.view.currentSource.loaded;
+                return this.view.currentSource && this.view.currentSource.loaded;
+            },
+            isLoading() {
+                return this.view.currentSource && !this.view.currentSource.loaded;
             }
         },
         methods: {
@@ -260,19 +263,17 @@
                 return null;
             },
             draw() {
-                if (this.view.currentSource.loaded) {
-                    this.clear();
-                    let settings = {
-                        key: 'map-' + this.$store.state.settings.canvasWidth,
-                        width: this.$store.state.settings.canvasWidth,
-                        height: this.$store.state.settings.canvasHeight,
-                        shiftX: 0,
-                        shiftY: 0,
-                        zoom: this.$store.state.settings.zoom,
-                        fill: true
-                    };
-                    canvasTools.draw(this.ctx, this.view.currentSource, this.containerRegions, settings, this.view, this.mapType);
-                }
+                this.clear();
+                let settings = {
+                    key: 'map-' + this.$store.state.settings.canvasWidth,
+                    width: this.$store.state.settings.canvasWidth,
+                    height: this.$store.state.settings.canvasHeight,
+                    shiftX: 0,
+                    shiftY: 0,
+                    zoom: this.$store.state.settings.zoom,
+                    fill: true
+                };
+                canvasTools.draw(this.ctx, this.containerRegions, settings, this.view, this.mapType);
             },
             clear() {
                 this.ctx.clearRect(0, 0, this.width, this.height);
@@ -284,7 +285,7 @@
                 this.$emit("download");
             },
             checkSource() {
-                if (!this.view.currentSource.loaded) {
+                if (this.view.currentSource && !this.view.currentSource.loaded) {
                     const key = this.view.currentSource.key;
                     const sourceData = this.currentMap.data.sources[key];
                     loadSource(this.currentMap, {...sourceData, key }).then(() => {
@@ -347,7 +348,9 @@
                 :width="width"
                 :height="height"/>
 
-            <div class="Map__side-bar">
+            <div
+                v-if="currentSource"
+                class="Map__side-bar">
                 <region-type-picker
                     v-if="hasRegionTypePicker"
                     :view="view"/>
@@ -386,11 +389,11 @@
         </div>
 
         <div class="Map__tools" v-if="readQueryDone">
-            <view-tools v-if="mapType !== 'cumulative'" :view="view" />
+            <view-tools v-if="currentSource && mapType !== 'cumulative'" :view="view" />
             <time-slider-range v-if="mapType === 'cumulative'" :view="view" />
         </div>
 
-        <Loader v-if="!isLoaded" :text="'Loading ' + translate(currentSource.title) + '...'"/>
+        <Loader v-if="isLoading" :text="'Loading ' + translate(currentSource.title) + '...'"/>
     </div>
 </template>
 

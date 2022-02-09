@@ -106,7 +106,7 @@ const getters = {
             return null;
         }
     },
-    regions(state, getters, rootState, rootGetters) {
+    regions(state, getters, rootState) {
         switch(state.currentRegionType) {
             case 'district':
                 return rootState.districts.all;

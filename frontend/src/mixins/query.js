@@ -30,14 +30,16 @@ export default {
             const language = this.currentLanguage.iso_code;
             // read in page.vue
             const date = dateTools.getDateByOffset(this.view.offset);
-            const source = this.view.currentSource.key;
+            const source = this.view.currentSource ? this.view.currentSource.key : null;
             const region = this.currentRegion ? encodeURI(this.currentRegion.title) : "";
             const regiontype = this.$store.state.ui.currentRegionType;
             // signaling
             // gradient
 
             query += "map=" + map;
-            query += "&source=" + source;
+            if (source) {
+                query += "&source=" + source;
+            }
             query += '&language=' + language;
             query += '&regiontype=' + regiontype;
             if (this.currentRegion) {

@@ -94,7 +94,6 @@
                 await this.loadGeoData();
                 await loadSources(this.currentMap);
                 this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                console.log(this.$store.state);
             },
             loadGeoData() {
                 return new Promise((resolve, reject) => {

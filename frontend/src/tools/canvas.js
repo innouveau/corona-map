@@ -11,11 +11,11 @@ const addBackground = function(ctx, width, height) {
     ctx.fill();
 };
 
-const draw = function(ctx, source, regionContainers, settings, view, mapType = 'signaling', border = true) {
+const draw = function(ctx, regionContainers, settings, view, mapType = 'signaling', border = true) {
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = settings.borderStyle ? settings.borderStyle : 'rgba(0,0,0,0.3)';
 
-    const values = getValues(regionContainers, mapType, view, source);
+    const values = getValues(regionContainers, mapType, view);
     if (mapType === "cumulative") {
         normalise(values);
     }
@@ -53,19 +53,19 @@ const normalise = (regions) => {
     }
 }
 
-const getValues = (regionContainers, mapType, view, source) => {
+const getValues = (regionContainers, mapType, view) => {
     const result = [];
     for (const region of regionContainers) {
         result.push({
             region: region,
-            result: getValue(region, mapType, view, source)
+            result: getValue(region, mapType, view)
         });
     }
     return result;
 }
 
 const getValue = function(parent, mapType, view) {
-    if (parent.noData === true) {
+    if (!view.currentSource || parent.noData === true) {
         return {
             value: null,
             color: '#888'

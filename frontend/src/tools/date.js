@@ -19,9 +19,14 @@ const getDateByOffset = function(offset) {
     if (offsetToDateDict[offset]) {
         return offsetToDateDict[offset];
     } else {
-        let dateString = getDateFromOffsetCalculated(offset);
-        addDateOffset(dateString, offset);
-        return dateString;
+        if (!offsetToDateDict[0]) {
+            // no data available probably
+            return 'no-date';
+        } else {
+            let dateString = getDateFromOffsetCalculated(offset);
+            addDateOffset(dateString, offset);
+            return dateString;
+        }
     }
 };
 

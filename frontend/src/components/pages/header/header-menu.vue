@@ -72,12 +72,14 @@
             <header-menu-title />
 
             <div class="header-menu__data">
-                <div class="header-menu__date">
+                <div
+                    v-if="view.currentSource"
+                    class="header-menu__date">
                     {{dateString}}
                 </div>
 
                 <day-score
-                    v-if="!videoMode && !isCumulative && view.currentSource.loaded && !isPlaying"
+                    v-if="!videoMode && !isCumulative && view.currentSource && view.currentSource.loaded && !isPlaying"
                     :view="view"/>
             </div>
         </div>

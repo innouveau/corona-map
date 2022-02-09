@@ -41,7 +41,9 @@
             :placeholder="placeholder">
         <div
             v-if="hoverValue.length > 0"
-            class="hover-value">{{hoverValue}}</div>
+            class="hover-value">
+            {{hoverValue}}
+        </div>
         <search-regions-results
             :view="view"/>
     </div>

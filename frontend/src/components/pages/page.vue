@@ -22,11 +22,8 @@
             currentMap() {
                 return this.$store.state.maps.current;
             },
-            currentSource() {
-                return this.view.currentSource;
-            },
             isLoaded(){
-                return this.currentSource.loaded;
+                return this.view.currentSource && this.view.currentSource.loaded;
             },
             currentMenu() {
                 return this.$store.state.ui.menu;
