@@ -274,9 +274,9 @@ export default {
             let value;
             // for the graph we always use 100000, independent from the signaling system
             if (sourceKey !== 'cumulative') {
-                value = day[sourceKey]
+                value = day.source[sourceKey]
             } else {
-                value = day['positiveTests'] + day['positiveAntigenTests'];
+                value = day.source['positiveTests'];
             }
             return 100000 * (value / this.currentMap.data.sources.positiveTests.interval) / this.region.totalPopulation;
         },
@@ -284,7 +284,7 @@ export default {
             const l = this.$store.state.settings.historyLength;
             let total, index;
             if (this.frameSize === 1) {
-                return day[sourceKey];
+                return day.source[sourceKey];
             } else {
                 // get sum of 7 days
                 total = 0;
@@ -293,7 +293,7 @@ export default {
                     for (let i = index - 6; i < (index + 1); i++) {
                         let d = getDayForSource(this.region, (l - index), this.view.currentSource.key);
                         if (d) {
-                            total += d[sourceKey];
+                            total += d.source[sourceKey];
                         } else {
                             console.error('coud not find day with index ' + index + ' for region ' + this.region.title);
                         }
@@ -321,7 +321,7 @@ export default {
                 for (let i = start; i > (end - 1); i--) {
                     let d, value;
                     d = getDayForSource(this.region, i, this.view.currentSource.key);
-                    value = d[sourceKey];
+                    value = d.source[sourceKey];
                     total += value / this.currentMap.data.sources.positiveTests.interval;
                 }
                 average = total / maxSteps;

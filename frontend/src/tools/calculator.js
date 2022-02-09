@@ -70,9 +70,9 @@ export const getRelativeValueForDay = (region, offset, source) => {
 
 export const getAbsoluteValueForDay = (region, offset, source, updateHistory = true) => {
     const index = store.state.settings.historyLength - 1 - offset;
-    if (region.report.history[index] && region.report.history[index].hasOwnProperty(source)) {
+    if (region.report.history[index] && region.report.history[index].source.hasOwnProperty(source)) {
         const day = region.report.history[index];
-        const value = day[source];
+        const value = day.source[source];
         if (!isNaN(value)) {
             return value;
         } else {
@@ -82,8 +82,8 @@ export const getAbsoluteValueForDay = (region, offset, source, updateHistory = t
         let dayValue = 0;
         const children = region.regions;
         for (const child of children) {
-            if (child.report.history[index] && child.report.history[index].hasOwnProperty(source)) {
-                const value = child.report.history[index][source];
+            if (child.report.history[index] && child.report.history[index].source.hasOwnProperty(source)) {
+                const value = child.report.history[index].source[source];
                 if (!isNaN(value)) {
                     dayValue += value;
                 }
@@ -96,7 +96,7 @@ export const getAbsoluteValueForDay = (region, offset, source, updateHistory = t
                 region.report.history[index] = {};
             }
             region.report.history[index].offset = offset;
-            region.report.history[index][source] = dayValue;
+            region.report.history[index].source[source] = dayValue;
         }
         return dayValue;
     }
@@ -143,7 +143,7 @@ export const getHistory = (region, source) => {
                 region.report.history[i] = {};
             }
             region.report.history[i].offset = l - 1 - i;
-            region.report.history[i][source] = values[i];
+            region.report.history[i].source[source] = values[i];
         }
         return region.report.history;
     }
