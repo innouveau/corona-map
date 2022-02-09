@@ -1,11 +1,10 @@
 <script>
-    import * as d3 from 'd3';
     import $ from 'jquery';
     import credits from "@/components/elements/credits";
-    import dateTool from "@/tools/date";
+    import HamburgerMenu from "@/components/elements/hamburger/hamburger-menu";
     import { loadSources } from "@/tools/timeline";
 
-    // data
+    // static data
     import languages from '@/data/languages';
     import maps from '@/data/maps';
     import stories from '@/data/stories';
@@ -16,8 +15,6 @@
     import countries from '@/data/countries';
     import ageGroups from '@/data/age-groups';
     import signalingSystems from '@/data/signaling-systems';
-    import HamburgerMenu from "@/components/elements/hamburger/hamburger-menu";
-
 
     export default {
         name: 'app',
@@ -98,26 +95,6 @@
                 await loadSources(this.currentMap);
                 this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
                 console.log(this.$store.state);
-
-                // $.getJSON(this.currentMap.data.geo.source, (regions) => {
-                //     this.$store.commit(this.currentMap.module + '/init', regions);
-                //     if (this.currentMap.data.positivePcrTests.status) {
-                //         this.loadPcrTests().then(() => {
-                //             const regionsWithNoData = [];
-                //             this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                //             for (const region of this.$store.state[this.currentMap.module].all) {
-                //                 if (region.report.history.length === 0) {
-                //                     regionsWithNoData.push(region);
-                //                 }
-                //             }
-                //             for (const region of regionsWithNoData) {
-                //                 this.$store.commit(this.currentMap.module + '/noData', region);
-                //             }
-                //         })
-                //     } else {
-                //         this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-                //     }
-                // });
             },
             loadGeoData() {
                 return new Promise((resolve, reject) => {
