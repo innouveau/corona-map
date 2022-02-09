@@ -54,7 +54,7 @@ const loadSource = async(map, source) => {
                 const adapter = getAdapter(source);
 
                 if (!historyConstructed) {
-                    constructTimeline(data.columns, adapter);
+                    constructTimeline(source, data.columns, adapter);
                 }
 
                 for (let regionData of data) {
@@ -113,6 +113,8 @@ const addSourceItem = (map, source, regionData, adapter) => {
                     const day = report.history[i];
                     day.source[source.key] = correctedHistory[i];
                 }
+                // delete the first day, since its cumulative we dont know the netto value
+                report.history.splice(0, 1);
             }
             store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'report', value: report});
             if (!map.settings.generalInfoHasPopulation) {
@@ -128,7 +130,8 @@ const addSourceItem = (map, source, regionData, adapter) => {
     }
 }
 
-const constructTimeline = (columns, adapter) => {
+const constructTimeline = (source, columns, adapter) => {
+    let totalLengthOfTestHistory;
     for (let column of columns) {
         if (adapter.findColumn(column)) {
             let dateString;
@@ -163,10 +166,15 @@ const constructTimeline = (columns, adapter) => {
     }
 
     // do some administration
-    const first = timeline[0];
     const last = timeline[timeline.length - 1];
     const today = new Date(last.dateString);
-    const totalLengthOfTestHistory = timeline.length;
+
+    if (source.settings.cumulative) {
+        // the first day will be deleted everywhere
+        totalLengthOfTestHistory = timeline.length - 1;
+    } else {
+        totalLengthOfTestHistory = timeline.length;
+    }
     store.commit('ui/updateProperty', {key: 'todayInMs', value: today.getTime()});
     store.commit('ui/updateProperty', {key: 'today', value: today});
     store.commit('settings/updateProperty', {key: 'historyLength', value: totalLengthOfTestHistory});
