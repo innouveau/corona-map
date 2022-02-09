@@ -357,7 +357,7 @@ let signalingSystems = [
         source: 'deceased',
         title: 'Deceased',
         days: 7,
-        population: 100000,
+        population: 100,
         thresholds: [
             {
                 n: 0,
@@ -382,6 +382,56 @@ let signalingSystems = [
                     colorblind1: 'rgb(0, 0, 0)',
                     colorblind2: 'rgb(0, 0, 0)',
                     variant3: 'rgb(0, 0, 0)'
+                }
+            }
+        ]
+    }, {
+        id: 9,
+        source: 'vaccination',
+        title: 'Vaccinated',
+        days: 7,
+        population: 100000,
+        thresholds: [
+            {
+                n: 0,
+                color: {
+                    regular: 'rgba(177,26,45,255)',
+                }
+            },
+            {
+                n: 60,
+                color: {
+                    regular: 'rgba(177,26,45,255)',
+                }
+            },
+            {
+                n: 70,
+                color: {
+                    regular: 'rgba(253,218,200,255)',
+                }
+            },
+            {
+                n: 80,
+                color: {
+                    regular: '#d2e5f0',
+                }
+            },
+            {
+                n: 90,
+                color: {
+                    regular: '#93c4dd',
+                }
+            },
+            {
+                n: 100,
+                color: {
+                    regular: '#4393c3',
+                }
+            },
+            {
+                n: Infinity,
+                color: {
+                    regular: 'rgb(0, 0, 0)',
                 }
             }
         ]

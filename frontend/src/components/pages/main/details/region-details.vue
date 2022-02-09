@@ -56,10 +56,10 @@
                 return this.$store.state.settings.weeks;
             },
             framesBefore() {
-                return this.weeks * 7 / this.currentMap.data.sources.positiveTests.interval;
+                return this.weeks * 7 / this.currentMap.settings.interval;
             },
             step() {
-                return this.$store.state.settings.step * this.currentMap.data.sources.positiveTests.interval;
+                return this.$store.state.settings.step * this.currentMap.settings.interval;
             },
             sourceIsPositiveTests() {
                 return this.view.currentSource.key === 'positiveTests'

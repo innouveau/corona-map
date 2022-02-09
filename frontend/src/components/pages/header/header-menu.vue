@@ -43,11 +43,11 @@
             dateString() {
                 const lang = this.currentLanguage.iso_code
                 if (this.isCumulative) {
-                    const offsetDate = this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.sources.positiveTests.interval), 'dd MMM yyyy', lang);
-                    const startDate = this.$store.getters['ui/getDateByOffset']((this.view.offsetStart * this.currentMap.data.sources.positiveTests.interval), 'dd MMM yyyy', lang);
+                    const offsetDate = this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.settings.interval), 'dd MMM yyyy', lang);
+                    const startDate = this.$store.getters['ui/getDateByOffset']((this.view.offsetStart * this.currentMap.settings.interval), 'dd MMM yyyy', lang);
                     return startDate + " - " + offsetDate
                 } else {
-                    return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.sources.positiveTests.interval), 'EE dd MMM yyyy', lang);
+                    return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.settings.interval), 'EE dd MMM yyyy', lang);
                 }
             },
             isPanelPage() {
@@ -58,6 +58,11 @@
             },
             isPlaying() {
                 return this.$store.state.ui.isPlaying;
+            },
+            showDayScore() {
+                return !this.videoMode && !this.isCumulative &&
+                    this.view.currentSource && this.view.currentSource.loaded &&
+                    !this.isPlaying && this.view.currentSource.key !== 'vaccination';
             }
         }
     }
@@ -79,7 +84,7 @@
                 </div>
 
                 <day-score
-                    v-if="!videoMode && !isCumulative && view.currentSource && view.currentSource.loaded && !isPlaying"
+                    v-if="showDayScore"
                     :view="view"/>
             </div>
         </div>

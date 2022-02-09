@@ -27,7 +27,6 @@ const standardSources = {
         loadInitially: true,
             status: true,
             url: casesUrl,
-            interval: 1,
             cumulative: true,
             adapter: datagraverAdapter
     }
@@ -64,7 +63,8 @@ const maps = [
             },
             positiveTestGraph: {
                 zoomFactor: 0.075
-            }
+            },
+            interval: 1
         },
         data: {
             geo: {
@@ -116,8 +116,9 @@ const maps = [
                 ratio: 0.91
             },
             positiveTestGraph: {
-                zoomFactor: 0.075
-            }
+                zoomFactor: 7
+            },
+            interval: 7
         },
         data: {
             geo: {
@@ -125,22 +126,21 @@ const maps = [
                 source: 'data/maps/nederland/districts.json?version=1'
             },
             sources: {
-                // vaccination: {
-                //     loadInitially: true,
-                //     url: 'https://data.rivm.nl/covid-19/COVID-19_vaccinatiegraad_per_wijk_per_week.csv',
-                //     interval: 7,
-                //     cumulative: false,
-                //     adapter: {
-                //         titleKey: 'Region_code',
-                //         valuePrefix: '',
-                //         isValueColumn: function(column) {
-                //             return column.indexOf('20') > -1;
-                //         },
-                //         getDateFromColumn: function(column) {
-                //             return column;
-                //         }
-                //     }
-                // },
+                vaccination: {
+                    loadInitially: true,
+                    url: 'data/maps/nederland/vaccination-data.csv',
+                    cumulative: false,
+                    adapter: {
+                        titleKey: 'regionCode',
+                        valuePrefix: '',
+                        isValueColumn: function(column) {
+                            return column.indexOf('20') > -1;
+                        },
+                        getDateFromColumn: function(column) {
+                            return column;
+                        }
+                    }
+                },
             }
         }
     },
@@ -165,7 +165,8 @@ const maps = [
                 stretch: 0.62,
                 zoom: 0.12,
                 ratio: 1.15
-            }
+            },
+            interval: 1
         },
         data: {
             geo: {
@@ -195,7 +196,8 @@ const maps = [
             positiveTestGraph: {
                 zoomFactor: 0.15
             },
-            caseSettings: caseSettings
+            caseSettings: caseSettings,
+            interval: 1
         },
         data: {
             geo: {
@@ -227,6 +229,7 @@ const maps = [
             positiveTestGraph: {
                 zoomFactor: 0.2
             },
+            interval: 1
         },
         data: {
             geo: {
@@ -256,7 +259,8 @@ const maps = [
             },
             positiveTestGraph: {
                 zoomFactor: 0.3
-            }
+            },
+            interval: 1
         },
         data: {
             geo: {
@@ -349,7 +353,8 @@ const maps = [
             positiveTestGraph: {
                 zoomFactor: 0.9
             },
-            caseSettings: caseSettings
+            caseSettings: caseSettings,
+            interval: 1
         },
         data: {
             geo: {
@@ -380,6 +385,7 @@ const maps = [
             positiveTestGraph: {
                 zoomFactor: 1
             },
+            interval: 1
         },
         data: {
             geo: {

@@ -278,7 +278,7 @@ export default {
             } else {
                 value = day.source['positiveTests'];
             }
-            return 100000 * (value / this.currentMap.data.sources.positiveTests.interval) / this.region.totalPopulation;
+            return 100000 * (value / this.currentMap.settings.interval) / this.region.totalPopulation;
         },
         getAbsoluteValue(day, sourceKey) {
             const l = this.$store.state.settings.historyLength;
@@ -322,7 +322,7 @@ export default {
                     let d, value;
                     d = getDayForSource(this.region, i, this.view.currentSource.key);
                     value = d.source[sourceKey];
-                    total += value / this.currentMap.data.sources.positiveTests.interval;
+                    total += value / this.currentMap.settings.interval;
                 }
                 average = total / maxSteps;
                 relativeValue = 100000 * average / this.region.totalPopulation;

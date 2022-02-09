@@ -367,6 +367,10 @@ const dictionary = {
         nl: "Het tonen van trends maakt de user interface wat langzaam, daarom staan ze standaard uit",
         en: "Showing trends does make the user interface a bit slow, they are disabled by default"
     },
+    "vaccination": {
+        nl: "Gevaccineerd",
+        en: "Vaccinated"
+    },
     "with-more-than": {
         nl: "Met meer dan",
         en: "With more than"

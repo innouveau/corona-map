@@ -46,12 +46,23 @@ export const loadSource = async(map, source) => {
                 }
                 const sourceItem = store.getters["sources/getItemByProperty"]("title", source.key);
                 store.commit('sources/updatePropertyOfItem', {item: sourceItem, property: 'loaded', value: true});
+                if (source.loadInitially) {
+                    checkForEmptyData(map, source);
+                }
                 resolve();
             })
             .catch((error) => {
                 reject(error);
             });
     })
+}
+
+const checkForEmptyData = (map, source) => {
+    for (const region of store.state[map.module].all) {
+        if (region.report.history.length === 0) {
+            store.commit(map.module + "/noData", region);
+        }
+    }
 }
 
 const addSourceItem = (map, source, regionData) => {

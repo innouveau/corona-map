@@ -36,7 +36,7 @@
         },
         methods: {
             date(v) {
-                return this.$store.getters['ui/getDateByOffset'](this.reverse(v) * this.currentMap.data.sources.positiveTests.interval);
+                return this.$store.getters['ui/getDateByOffset'](this.reverse(v) * this.currentMap.settings.interval);
             },
             reverse(v) {
                 return this.max - v;

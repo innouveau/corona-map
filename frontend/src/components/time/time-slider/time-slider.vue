@@ -40,7 +40,7 @@
                 return this.$store.state.settings.historyLength;
             },
             date() {
-                return this.$store.getters['ui/getDateByOffset'](this.view.offset * this.currentMap.data.sources.positiveTests.interval);
+                return this.$store.getters['ui/getDateByOffset'](this.view.offset * this.currentMap.settings.interval);
             },
             currentMap() {
                 return this.$store.state.maps.current
