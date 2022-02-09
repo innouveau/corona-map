@@ -36,7 +36,7 @@
                 return this.view.offset;
             },
             disabledDates() {
-                if (this.currentMap.data.positivePcrTests.interval === 1) {
+                if (this.currentMap.data.sources.positiveTests.interval === 1) {
                     return {
                         days: []
                     };
@@ -53,7 +53,7 @@
         methods: {
             updateOffset(value) {
                 let dateString = dateTools.formatDate(value);
-                this.view.offset = dateTools.getOffsetByDate(dateString) / this.currentMap.data.positivePcrTests.interval;
+                this.view.offset = dateTools.getOffsetByDate(dateString) / this.currentMap.data.sources.positiveTests.interval;
             },
             updateDate() {
                 this.date = dateTools.getDateByOffset(this.view.offset);

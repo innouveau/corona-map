@@ -23,7 +23,7 @@
                 }
                 this.drawGrid();
                 if (this.days.length > 0) {
-                    if (this.currentMap.data.positivePcrTests.interval === 1) {
+                    if (this.currentMap.data.sources.positiveTests.interval === 1) {
                         this.drawPcrTestsBars(this.view.currentSource.key, 'rgba(0,0,0,0.15)');
                         this.drawTestsLine(this.view.currentSource.key, true, false, '#000');
                     } else {

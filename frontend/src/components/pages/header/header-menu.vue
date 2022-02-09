@@ -43,11 +43,11 @@
             dateString() {
                 const lang = this.currentLanguage.iso_code
                 if (this.isCumulative) {
-                    const offsetDate = this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'dd MMM yyyy', lang);
-                    const startDate = this.$store.getters['ui/getDateByOffset']((this.view.offsetStart * this.currentMap.data.positivePcrTests.interval), 'dd MMM yyyy', lang);
+                    const offsetDate = this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.sources.positiveTests.interval), 'dd MMM yyyy', lang);
+                    const startDate = this.$store.getters['ui/getDateByOffset']((this.view.offsetStart * this.currentMap.data.sources.positiveTests.interval), 'dd MMM yyyy', lang);
                     return startDate + " - " + offsetDate
                 } else {
-                    return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.positivePcrTests.interval), 'EE dd MMM yyyy', lang);
+                    return this.$store.getters['ui/getDateByOffset']((this.view.offset * this.currentMap.data.sources.positiveTests.interval), 'EE dd MMM yyyy', lang);
                 }
             },
             isPanelPage() {

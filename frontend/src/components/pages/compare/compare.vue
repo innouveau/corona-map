@@ -60,8 +60,8 @@ export default {
         },
         updateQuery() {
             let url, date1, date2;
-            date1 = dateTools.getDateByOffset(this.views[0].offset * this.currentMap.data.positivePcrTests.interval);
-            date2 = dateTools.getDateByOffset(this.views[1].offset * this.currentMap.data.positivePcrTests.interval);
+            date1 = dateTools.getDateByOffset(this.views[0].offset * this.currentMap.data.sources.positiveTests.interval);
+            date2 = dateTools.getDateByOffset(this.views[1].offset * this.currentMap.data.sources.positiveTests.interval);
             url = this.routePath + '#/compare?map=' + encodeURI(this.currentMap.title) + '&date1=' + date1 + '&date2=' + date2;
             history.pushState(
                 {},
