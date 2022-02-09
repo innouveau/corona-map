@@ -112,7 +112,7 @@
                 return this.currentMap.settings.regionTypes && this.currentMap.settings.regionTypes.length > 1;
             },
             hasSourcePicker() {
-                return this.currentMap.data.hospitalisations.status || this.currentMap.data.deceased.status;
+                return this.$store.state.sources.all.length > 1;
             },
             currentSource(){
                 return this.view.currentSource;
