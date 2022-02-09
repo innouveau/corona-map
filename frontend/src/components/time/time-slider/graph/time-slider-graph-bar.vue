@@ -27,7 +27,7 @@
                 } else if (source === 'deceased') {
                     multiply *= DECEASED_MULTIPLICATION;
                 }
-                return multiply * this.day[source] / this.region.totalPopulation;
+                return multiply * this.day.source[source] / this.region.totalPopulation;
             }
         },
         methods: {}
