@@ -1,8 +1,11 @@
 const datagraverAdapter = {
     titleKey: 'Land/regio',
-    positiveTestsKey: '',
-    findColumn: function(column) {
+    valuePrefix: '',
+    isValueColumn: function(column) {
         return column.indexOf('20') > -1;
+    },
+    getDateFromColumn: function(column) {
+        return column;
     }
 };
 
@@ -12,8 +15,21 @@ const mzelstAdapter = {
     isValueColumn: function(column) {
         return column.indexOf('20') > -1;
     },
-    getDateFromColumn(column) {
+    getDateFromColumn: function(column) {
         return column;
+    }
+}
+
+const casesUrl = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv';
+
+const standardSources = {
+    positiveTests: {
+        loadInitially: true,
+            status: true,
+            url: casesUrl,
+            interval: 1,
+            cumulative: true,
+            adapter: datagraverAdapter
     }
 }
 
@@ -21,7 +37,7 @@ const caseSettings = {
     lateReporting: ['FR', 'BE', 'PL', 'SE', 'UK']
 };
 
-const casesUrl = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv';
+
 
 const maps = [
     {
@@ -141,75 +157,6 @@ const maps = [
             }
         }
     },
-    // {
-    //     id: 2,
-    //     ready: true,
-    //     block: false,
-    //     regionType: 'District',
-    //     module: 'districts',
-    //     title: 'Amsterdam',
-    //     settings: {
-    //         regionTypes: ['district', 'ggd'],
-    //         pathOrigins: [
-    //             {
-    //                 type: 'ggd',
-    //                 paths: 'district'
-    //             }
-    //         ],
-    //         generalInfoHasPopulation: false,
-    //         map: {
-    //             latitude: 52.32,
-    //             longitude: 4.86,
-    //             stretch: 0.62,
-    //             zoom: 3.5,
-    //             ratio: 1.1
-    //         },
-    //         positiveTestGraph: {
-    //             zoomFactor: 0.66
-    //         }
-    //     },
-    //     data: {
-    //         geo: {
-    //             status: true,
-    //             source: 'data/maps/amsterdam/amsterdam.json'
-    //         },
-    //         positivePcrTests: {
-    //             status: true,
-    //             source: 'data/maps/amsterdam/amsterdam-tests.csv',
-    //             interval: 7,
-    //             cumulative: false,
-    //             adapter: {
-    //                 titleKey: 'Municipality_code',
-    //                 positiveTestsKey: 'Total_reported.',
-    //                 administeredTestsKey: 'Total_administered.',
-    //                 findColumn: function(column) {
-    //                     return column.indexOf('Total_reported.') > -1;
-    //                 }
-    //             }
-    //         },
-    //         positiveAntigenTests: {
-    //             status: false
-    //         },
-    //         hospitalisations: {
-    //             status: false
-    //         },
-    //         deceased: {
-    //             status: false
-    //         },
-    //         administeredPcrTests: {
-    //             status: true,
-    //             source: 'data/maps/amsterdam/amsterdam-tests.csv'
-    //         },
-    //         ageGroups: {
-    //             status: false,
-    //             source: ''
-    //         },
-    //         sewageMeasurements: {
-    //             status: false,
-    //             source: ''
-    //         }
-    //     }
-    // },
     {
         id: 4,
         ready: true,
@@ -238,34 +185,7 @@ const maps = [
                 status: true,
                 source: 'data/maps/nl-de/nl-de.json'
             },
-            positivePcrTests: {
-                status: true,
-                source: casesUrl,
-                interval: 1,
-                cumulative: true,
-                adapter: datagraverAdapter
-            },
-            positiveAntigenTests: {
-                status: false
-            },
-            hospitalisations: {
-                status: false
-            },
-            deceased: {
-                status: false
-            },
-            administeredPcrTests: {
-                status: false,
-                source: ''
-            },
-            ageGroups: {
-                status: false,
-                source: ''
-            },
-            sewageMeasurements: {
-                status: false,
-                source: ''
-            }
+            sources: standardSources
         }
     }, {
         id: 5,
@@ -295,34 +215,7 @@ const maps = [
                 status: true,
                 source: 'data/maps/europa/europa.json?version=5'
             },
-            positivePcrTests: {
-                status: true,
-                source: casesUrl,
-                interval: 1,
-                cumulative: true,
-                adapter: datagraverAdapter
-            },
-            positiveAntigenTests: {
-                status: false
-            },
-            hospitalisations: {
-                status: false
-            },
-            deceased: {
-                status: false
-            },
-            administeredPcrTests: {
-                status: false,
-                source: ''
-            },
-            ageGroups: {
-                status: false,
-                source: ''
-            },
-            sewageMeasurements: {
-                status: false,
-                source: ''
-            }
+            sources: standardSources
         }
     },
     {
@@ -353,34 +246,7 @@ const maps = [
                 status: true,
                 source: 'data/maps/world/world.json?version=5'
             },
-            positivePcrTests: {
-                status: true,
-                source: casesUrl,
-                interval: 1,
-                cumulative: true,
-                adapter: datagraverAdapter
-            },
-            positiveAntigenTests: {
-                status: false
-            },
-            hospitalisations: {
-                status: false
-            },
-            deceased: {
-                status: false
-            },
-            administeredPcrTests: {
-                status: false,
-                source: ''
-            },
-            ageGroups: {
-                status: false,
-                source: ''
-            },
-            sewageMeasurements: {
-                status: false,
-                source: ''
-            }
+            sources: standardSources
         }
     },
     {
@@ -410,34 +276,7 @@ const maps = [
                 status: true,
                 source: 'data/maps/usa/usa.json'
             },
-            positivePcrTests: {
-                status: true,
-                source: casesUrl,
-                interval: 1,
-                cumulative: true,
-                adapter: datagraverAdapter
-            },
-            positiveAntigenTests: {
-                status: false
-            },
-            hospitalisations: {
-                status: false
-            },
-            deceased: {
-                status: false
-            },
-            administeredPcrTests: {
-                status: false,
-                source: ''
-            },
-            ageGroups: {
-                status: false,
-                source: ''
-            },
-            sewageMeasurements: {
-                status: false,
-                source: ''
-            }
+            sources: standardSources
         }
     },
     // {
@@ -500,20 +339,6 @@ const maps = [
     //                 }
     //             }
     //         },
-    //         hospitalisations: {
-    //             status: false
-    //         },
-    //         deceased: {
-    //             status: false
-    //         },
-    //         ageGroups: {
-    //             status: false,
-    //             source: ''
-    //         },
-    //         sewageMeasurements: {
-    //             status: false,
-    //             source: ''
-    //         }
     //     }
     // },
     {
@@ -544,34 +369,7 @@ const maps = [
                 status: true,
                 source: 'data/maps/south-america/south-america.json?version=2'
             },
-            positivePcrTests: {
-                status: true,
-                url: casesUrl,
-                interval: 1,
-                cumulative: true,
-                adapter: datagraverAdapter
-            },
-            positiveAntigenTests: {
-                status: false
-            },
-            hospitalisations: {
-                status: false
-            },
-            deceased: {
-                status: false
-            },
-            administeredPcrTests: {
-                status: false,
-                source: ''
-            },
-            ageGroups: {
-                status: false,
-                source: ''
-            },
-            sewageMeasurements: {
-                status: false,
-                source: ''
-            }
+            sources: standardSources
         }
     },
     {
@@ -601,34 +399,7 @@ const maps = [
                 status: true,
                 source: 'data/maps/south-east-asia/south-east-asia.json?version=2'
             },
-            positivePcrTests: {
-                status: true,
-                source: casesUrl,
-                interval: 1,
-                cumulative: true,
-                adapter: datagraverAdapter
-            },
-            positiveAntigenTests: {
-                status: false
-            },
-            hospitalisations: {
-                status: false
-            },
-            deceased: {
-                status: false
-            },
-            administeredPcrTests: {
-                status: false,
-                source: ''
-            },
-            ageGroups: {
-                status: false,
-                source: ''
-            },
-            sewageMeasurements: {
-                status: false,
-                source: ''
-            }
+            sources: standardSources
         }
     },
 ];
