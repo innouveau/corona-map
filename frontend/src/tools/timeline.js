@@ -166,7 +166,7 @@ const constructTimeline = (columns, adapter) => {
     const first = timeline[0];
     const last = timeline[timeline.length - 1];
     const today = new Date(last.dateString);
-    const totalLengthOfTestHistory = first.offset;
+    const totalLengthOfTestHistory = timeline.length;
     store.commit('ui/updateProperty', {key: 'todayInMs', value: today.getTime()});
     store.commit('ui/updateProperty', {key: 'today', value: today});
     store.commit('settings/updateProperty', {key: 'historyLength', value: totalLengthOfTestHistory});
