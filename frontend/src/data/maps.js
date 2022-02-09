@@ -125,7 +125,22 @@ const maps = [
                 source: 'data/maps/nederland/districts.json?version=1'
             },
             sources: {
-
+                // vaccination: {
+                //     loadInitially: true,
+                //     url: 'https://data.rivm.nl/covid-19/COVID-19_vaccinatiegraad_per_wijk_per_week.csv',
+                //     interval: 7,
+                //     cumulative: false,
+                //     adapter: {
+                //         titleKey: 'Region_code',
+                //         valuePrefix: '',
+                //         isValueColumn: function(column) {
+                //             return column.indexOf('20') > -1;
+                //         },
+                //         getDateFromColumn: function(column) {
+                //             return column;
+                //         }
+                //     }
+                // },
             }
         }
     },
