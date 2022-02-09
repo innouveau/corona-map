@@ -12,11 +12,11 @@
     import MapLegendChange from "./legend/map-legend-change";
     import ViewTools from "@/components/time/view-tools";
     import TimeSliderRange from "@/components/time/time-slider/time-slider-range";
-    import sourceTools from "@/tools/source";
     import Loader from "../elements/loader";
     import dateTools from '@/tools/date';
     import MapLegendCumulative from "./legend/map-legend-cumulative";
     import {childRegionToParent} from "../../tools/region";
+    import { loadSource } from "@/tools/timeline";
 
     export default {
         name: 'Map',
@@ -285,8 +285,9 @@
             },
             checkSource() {
                 if (!this.view.currentSource.loaded) {
-                    sourceTools.load(this.view.currentSource).then(() => {
-
+                    const key = this.view.currentSource.key;
+                    const sourceData = this.currentMap.data.sources[key];
+                    loadSource(this.currentMap, {...sourceData, key }).then(() => {
                         this.$nextTick(() => {
                             this.draw();
                         });

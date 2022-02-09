@@ -1,10 +1,21 @@
-const standardPcrTestAdapter = {
+const datagraverAdapter = {
     titleKey: 'Land/regio',
     positiveTestsKey: '',
     findColumn: function(column) {
         return column.indexOf('20') > -1;
     }
 };
+
+const mzelstAdapter = {
+    titleKey: 'Municipality_code',
+    valuePrefix: '',
+    isValueColumn: function(column) {
+        return column.indexOf('20') > -1;
+    },
+    getDateFromColumn(column) {
+        return column;
+    }
+}
 
 const caseSettings = {
     lateReporting: ['FR', 'BE', 'PL', 'SE', 'UK']
@@ -51,37 +62,22 @@ const maps = [
                     loadInitially: true,
                     url: (window.config.dataUrl + 'data/municipality-totals.csv'),
                     interval: 1,
-                    cumulative: true
+                    cumulative: true,
+                    adapter: mzelstAdapter
                 },
                 hospitalisations: {
                     loadInitially: false,
                     url: (window.config.dataUrl + 'data/municipality-hospitalisations.csv'),
                     interval: 1,
                     cumulative: true,
-                    adapter: {
-                        getKeys(columns) {
-                            return columns.filter(c => c.indexOf('20') > -1);
-                        },
-                        getDateFromKey(key) {
-                            return key;
-                        },
-                        regionKey: 'Municipality_name'
-                    }
+                    adapter: mzelstAdapter
                 },
                 deceased: {
                     loadInitially: false,
                     url: (window.config.dataUrl + 'data/municipality-deaths.csv'),
                     interval: 1,
                     cumulative: true,
-                    adapter: {
-                        getKeys(columns) {
-                            return columns.filter(c => c.indexOf('20') > -1);
-                        },
-                        getDateFromKey(key) {
-                            return key;
-                        },
-                        regionKey: 'Municipality_name'
-                    }
+                    adapter: mzelstAdapter
                 }
             }
         }
@@ -247,7 +243,7 @@ const maps = [
                 source: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardPcrTestAdapter
+                adapter: datagraverAdapter
             },
             positiveAntigenTests: {
                 status: false
@@ -304,7 +300,7 @@ const maps = [
                 source: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardPcrTestAdapter
+                adapter: datagraverAdapter
             },
             positiveAntigenTests: {
                 status: false
@@ -362,7 +358,7 @@ const maps = [
                 source: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardPcrTestAdapter
+                adapter: datagraverAdapter
             },
             positiveAntigenTests: {
                 status: false
@@ -419,7 +415,7 @@ const maps = [
                 source: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardPcrTestAdapter
+                adapter: datagraverAdapter
             },
             positiveAntigenTests: {
                 status: false
@@ -482,7 +478,7 @@ const maps = [
     //             source: 'data/maps/slovakia/positive-pcr-tests.csv',
     //             interval: 1,
     //             cumulative: true,
-    //             adapter: standardPcrTestAdapter
+    //             adapter: datagraverAdapter
     //         },
     //         administeredPcrTests: {
     //             status: false,
@@ -553,7 +549,7 @@ const maps = [
                 url: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardPcrTestAdapter
+                adapter: datagraverAdapter
             },
             positiveAntigenTests: {
                 status: false
@@ -610,7 +606,7 @@ const maps = [
                 source: casesUrl,
                 interval: 1,
                 cumulative: true,
-                adapter: standardPcrTestAdapter
+                adapter: datagraverAdapter
             },
             positiveAntigenTests: {
                 status: false

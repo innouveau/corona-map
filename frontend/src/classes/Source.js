@@ -5,6 +5,7 @@ class Source {
         key = '',
         title = '',
         signalingSystem_id = null,
+        url = "",
         order = 0
     }) {
         this.id = (store.state.sources.all.length + 1);
@@ -12,6 +13,7 @@ class Source {
         this.title = title;
         this.signalingSystem_id = signalingSystem_id;
         this.order = order;
+        this.url = url;
         this.loaded = false;
     }
 }

@@ -1,6 +1,6 @@
 <script>
     import Source from "@/classes/Source";
-    import sourceTools from "@/tools/source";
+    import { loadSource } from "@/tools/timeline";
 
     export default {
         name: 'source-loader',
@@ -24,12 +24,20 @@
                 loading: false
             }
         },
-        computed: {},
+        computed: {
+            currentMap() {
+                return this.$store.state.maps.current;
+            },
+        },
         methods: {
             loadSource() {
                 this.loading = true;
-                sourceTools.load(this.source).then(() => {
-                    this.loading = false;
+                const key = this.source.key;
+                const sourceData = this.currentMap.data.sources[key];
+                loadSource(this.currentMap, {...sourceData, key }).then(() => {
+                    this.$nextTick(() => {
+                        this.draw();
+                    });
                 })
             }
         }

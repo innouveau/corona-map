@@ -10,11 +10,11 @@ export const loadSources = async (map) => {
     const sources = [];
     for (const key in map.data.sources) {
         const settings = map.data.sources[key];
-        sources.push({ key, settings });
+        sources.push({ ...settings, key });
     }
     for (const source of sources) {
         addSource(source.key);
-        if (source.settings.loadInitially) {
+        if (source.loadInitially) {
             await loadSource(map, source);
         }
     }
@@ -32,33 +32,17 @@ const addSource = (key) => {
     store.commit('sources/create', source);
 }
 
-const getAdapter = (source) => {
-    if (source.settings.adapter) {
-        return source.settings.adapter;
-    } else {
-        return {
-            titleKey: 'Municipality_code',
-            positiveTestsKey: '',
-            administeredTestsKey: 'Total_administered.',
-            findColumn: function(column) {
-                return column.indexOf('20') > -1;
-            }
-        }
-    }
-}
-
-const loadSource = async(map, source) => {
+export const loadSource = async(map, source) => {
     return new Promise((resolve, reject) => {
-        d3.csv(source.settings.url + dateTool.getTimestamp())
+        d3.csv(source.url + dateTool.getTimestamp())
             .then((data) => {
-                const adapter = getAdapter(source);
 
                 if (!historyConstructed) {
-                    constructTimeline(source, data.columns, adapter);
+                    constructTimeline(source, data.columns);
                 }
 
                 for (let regionData of data) {
-                    addSourceItem(map, source, regionData, adapter);
+                    addSourceItem(map, source, regionData);
                 }
                 const sourceItem = store.getters["sources/getItemByProperty"]("title", source.key);
                 store.commit('sources/updatePropertyOfItem', {item: sourceItem, property: 'loaded', value: true});
@@ -70,14 +54,13 @@ const loadSource = async(map, source) => {
     })
 }
 
-const addSourceItem = (map, source, regionData, adapter) => {
+const addSourceItem = (map, source, regionData) => {
+    const adapter = source.adapter;
     const titleKey = regionData[adapter.titleKey];
     if (store.state[map.module].dict[titleKey]) {
         const region = store.state[map.module].dict[titleKey];
         if (region) {
-            const report = {
-                history: []
-            };
+            const history = [];
 
             for (let timelineDay of timeline) {
                 const regionDay = {
@@ -85,22 +68,21 @@ const addSourceItem = (map, source, regionData, adapter) => {
                     offset: timelineDay.offset,
                     source: {}
                 };
-                const key = timelineDay.sourceKeys.positiveTests;
-
+                const key = timelineDay.sourceKey;
                 if (regionData[key]) {
-                    regionDay.source.positiveTests = Number(regionData[key]);
+                    regionDay.source[source.key] = Number(regionData[key]);
                 }
-                report.history.push(regionDay);
+                history.push(regionDay);
             }
 
             // correct for cumulative input
-            if (source.settings.cumulative) {
-                const l = report.history.length;
+            if (source.cumulative) {
+                const l = history.length;
                 const correctedHistory = [];
                 for (let i = 0; i < l; i++) {
-                    const day = report.history[i];
+                    const day = history[i];
                     if (i > 0) {
-                        const dayBefore = report.history[i - 1]
+                        const dayBefore = history[i - 1]
                         const currentValue = day.source[source.key];
                         const dayBeforeValue = dayBefore.source[source.key];
                         const nettoValue = currentValue - dayBeforeValue;
@@ -110,15 +92,25 @@ const addSourceItem = (map, source, regionData, adapter) => {
                     }
                 }
                 for (let i = 0; i < l; i++) {
-                    const day = report.history[i];
+                    const day = history[i];
                     day.source[source.key] = correctedHistory[i];
                 }
                 // delete the first day, since its cumulative we dont know the netto value
-                report.history.splice(0, 1);
+                history.splice(0, 1);
             }
-            store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'report', value: report});
-            if (!map.settings.generalInfoHasPopulation) {
-                store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'population', value: numberTools.convertToNumber(regionData.population)});
+
+            if (region.report.history.length === 0) {
+                store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'report', value: { history }});
+                if (!map.settings.generalInfoHasPopulation) {
+                    store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'population', value: numberTools.convertToNumber(regionData.population)});
+                }
+            } else {
+                for (const historyDay of history) {
+                    const regionDay = region.report.history.find(d => d.offset === historyDay.offset);
+                    if (regionDay) {
+                        regionDay.source[source.key] = historyDay.source[source.key];
+                    }
+                }
             }
         } else {
             // console.log('not found ' + titleKey);
@@ -130,21 +122,14 @@ const addSourceItem = (map, source, regionData, adapter) => {
     }
 }
 
-const constructTimeline = (source, columns, adapter) => {
+const constructTimeline = (source, columns) => {
+    const adapter = source.adapter;
     let totalLengthOfTestHistory;
     for (let column of columns) {
-        if (adapter.findColumn(column)) {
-            let dateString;
-            if (adapter.positiveTestsKey.length > 0) {
-                dateString = column.split(adapter.positiveTestsKey)[1];
-            } else {
-                dateString = column;
-            }
+        if (adapter.isValueColumn(column)) {
+            const dateString = adapter.getDateFromColumn(column);
             timeline.push({
-                sourceKeys: {
-                    // todo improve this
-                    positiveTests: column,
-                },
+                sourceKey: column,
                 dateString,
                 ms: new Date(dateString).getTime()
             });
@@ -169,7 +154,7 @@ const constructTimeline = (source, columns, adapter) => {
     const last = timeline[timeline.length - 1];
     const today = new Date(last.dateString);
 
-    if (source.settings.cumulative) {
+    if (source.cumulative) {
         // the first day will be deleted everywhere
         totalLengthOfTestHistory = timeline.length - 1;
     } else {
@@ -178,4 +163,5 @@ const constructTimeline = (source, columns, adapter) => {
     store.commit('ui/updateProperty', {key: 'todayInMs', value: today.getTime()});
     store.commit('ui/updateProperty', {key: 'today', value: today});
     store.commit('settings/updateProperty', {key: 'historyLength', value: totalLengthOfTestHistory});
+    historyConstructed = true;
 }
