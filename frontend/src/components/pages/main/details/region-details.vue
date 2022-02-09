@@ -49,9 +49,6 @@
             date() {
                 return this.$store.getters['ui/dateString']();
             },
-            hasAgeGroups() {
-                return this.$store.state.maps.current.data.ageGroups.status;
-            },
             currentMap() {
                 return this.$store.state.maps.current;
             },
@@ -93,13 +90,6 @@
                 :frames-before="framesBefore"
                 :step="step"
                 :height="300"/>
-
-            <administered-pcr-tests
-                v-if="currentMap.data.administeredPcrTests.status"
-                :view="view"
-                :region="regionOfFocus"
-                :frames-before="framesBefore"
-                :step="step"/>
         </div>
 
         <div class="region-details__info">
