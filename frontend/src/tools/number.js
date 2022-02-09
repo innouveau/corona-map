@@ -18,7 +18,17 @@ const formatChange = function(value) {
     }
 };
 
+const convertToNumber = function(value) {
+    let number = Number(value);
+    if (!isNaN(number)) {
+        return number;
+    } else {
+        return null;
+    }
+};
+
 export default {
     format,
-    formatChange
+    formatChange,
+    convertToNumber
 };

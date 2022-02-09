@@ -3,6 +3,7 @@
     import $ from 'jquery';
     import credits from "@/components/elements/credits";
     import dateTool from "@/tools/date";
+    import { loadSources } from "@/tools/timeline";
 
     // data
     import languages from '@/data/languages';
@@ -94,8 +95,9 @@
             },
             async loadDynamicData() {
                 await this.loadGeoData();
-                await this.loadSources();
-
+                await loadSources(this.currentMap);
+                this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
+                console.log(this.$store.state);
 
                 // $.getJSON(this.currentMap.data.geo.source, (regions) => {
                 //     this.$store.commit(this.currentMap.module + '/init', regions);
@@ -126,159 +128,6 @@
                         reject(error);
                     })
                 })
-            },
-            async loadSources() {
-                const sources = [];
-                for (const key in this.currentMap.data.sources) {
-                    const settings = this.currentMap.data.sources[key];
-                    sources.push({ key, settings });
-                }
-                for (const source of sources) {
-                    if (source.settings.loadInitially) {
-                        await this.loadSource(source);
-                    }
-                    this.addSource(source.key);
-                }
-            },
-            loadSource(source) {
-                return new Promise((resolve, reject) => {
-                    d3.csv(source.settings.url + dateTool.getTimestamp())
-                        .then((data) => {
-                            console.log(data);
-                            let adapter;
-                            if (source.settings.adapter) {
-                                adapter = source.settings.adapter;
-                            } else {
-                                adapter = {
-                                    titleKey: 'Municipality_code',
-                                    positiveTestsKey: '',
-                                    administeredTestsKey: 'Total_administered.',
-                                    findColumn: function(column) {
-                                        return column.indexOf('20') > -1;
-                                    }
-                                }
-                            }
-
-                            this.getDate(data.columns, adapter);
-                            for (let item of data) {
-                                this.addTests(item, adapter);
-                            }
-                            // todo
-                            // this.$store.commit('sources/updatePropertyOfItem', {item: this.$store.state.sources.all[0], property: 'loaded', value: true});
-                        })
-                        .catch((error) => {
-                            console.error(error);
-                        });
-                })
-            },
-            addSource(key) {
-                const signalingSystem = this.$store.state.signalingSystems.all.find(s => s.source === key);
-                const source = {
-                    key: key,
-                    title: key,
-                    signalingSystem_id: signalingSystem.id,
-                    order: this.$store.state.sources.all.length
-                };
-                //
-                this.$store.commit('sources/create', source);
-                /// ldsjflsdj
-            },
-            getDate(columns, adapter) {
-                let dates, today, first, last, totalLengthOfTestHistory;
-                dates = [];
-                for (let column of columns) {
-                    if (adapter.findColumn(column)) {
-                        let dateString, date;
-                        if (adapter.positiveTestsKey.length > 0) {
-                            dateString = column.split(adapter.positiveTestsKey)[1];
-                        } else {
-                            dateString = column;
-                        }
-                        dates.push({
-                            positiveTestsKey: column,
-                            administeredTestsKey: (adapter.administeredTestsKey + dateString),
-                            dateString,
-                            ms: new Date(dateString).getTime()
-                        });
-                    }
-                }
-                dates = dates.sort((a,b) => (a.ms > b.ms) ? 1 : ((b.ms > a.ms) ? -1 : 0));
-                for (let date of dates) {
-                    let offset = dates.length - dates.indexOf(date) - 1;
-                    date.offset = offset;
-                    dateTool.addDateOffset(date.dateString, offset)
-                }
-                first = dates[0];
-                last = dates[dates.length - 1];
-                today = new Date(last.dateString);
-                totalLengthOfTestHistory = first.offset;
-                this.$store.commit('ui/updateProperty', {key: 'todayInMs', value: today.getTime()});
-                this.$store.commit('ui/updateProperty', {key: 'today', value: today});
-                this.$store.commit('settings/updateProperty', {key: 'historyLength', value: totalLengthOfTestHistory});
-                this.dateKeys = dates;
-            },
-            addTests(data, adapter) {
-                let key, region, report, incidents;
-                incidents = [];
-                const convertToNumber = function(value) {
-                    let numb = Number(value);
-                    if (!isNaN(numb)) {
-                        return numb;
-                    } else {
-                        return null;
-                    }
-                };
-
-                report = {
-                    history: []
-                };
-
-                for (let dateKey of this.dateKeys) {
-                    let positiveTests, administeredTests, day;
-                    day = {
-                        // ms: new Date(dateKey.dateString).getTime(),
-                        date: dateKey.dateString,
-                        offset: dateKey.offset,
-                        positiveTests: null,
-                        positiveAntigenTests: 0,
-                        administeredTests: null
-                    };
-                    if (data[dateKey.positiveTestsKey]) {
-                        positiveTests = Number(data[dateKey.positiveTestsKey]);
-                        day.positiveTests = positiveTests;
-                        if (this.currentMap.data.administeredPcrTests.status) {
-                            administeredTests = Number(data[dateKey.administeredTestsKey]);
-                            day.administeredTests = administeredTests;
-                        }
-                    }
-                    incidents.push(day);
-                }
-                if (this.currentMap.data.positivePcrTests.cumulative) {
-                    for (let i = 0, l = incidents.length; i < l; i++) {
-                        if (i > 0) {
-                            let positiveTests = incidents[i].positiveTests - incidents[i - 1].positiveTests;
-                            report.history.push({
-                                // ms: incidents[i].ms,
-                                date: incidents[i].date,
-                                offset: incidents[i].offset,
-                                positiveAntigenTests: incidents[i].positiveAntigenTests,
-                                positiveTests
-                            });
-                        }
-                    }
-                } else {
-                    report.history = incidents;
-                }
-                key = data[adapter.titleKey];
-                if (this.$store.state[this.currentMap.module].dict[key]) {
-                    region = this.$store.state[this.currentMap.module].dict[key];
-                    this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'report', value: report});
-                    if (!this.currentMap.settings.generalInfoHasPopulation) {
-                        this.$store.commit(this.currentMap.module + '/updatePropertyOfItem', {item: region, property: 'population', value: convertToNumber(data.population)});
-                    }
-                } else {
-                    //console.log('not found ' + key);
-                }
             },
             openHamburgerMenu() {
                 this.$store.commit('ui/updateProperty', {key: 'hamburgerMenu', value: true});
