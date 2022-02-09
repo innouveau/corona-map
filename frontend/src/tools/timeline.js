@@ -94,16 +94,24 @@ const addSourceItem = (map, source, regionData, adapter) => {
             }
 
             // correct for cumulative input
-            if (source.cumulative) {
+            if (source.settings.cumulative) {
                 const l = report.history.length;
+                const correctedHistory = [];
                 for (let i = 0; i < l; i++) {
                     const day = report.history[i];
                     if (i > 0) {
                         const dayBefore = report.history[i - 1]
-                        day.source[source.key] = day.source[source.key] - dayBefore.source[source.key];
+                        const currentValue = day.source[source.key];
+                        const dayBeforeValue = dayBefore.source[source.key];
+                        const nettoValue = currentValue - dayBeforeValue;
+                        correctedHistory.push(nettoValue);
                     } else {
-                        day.source[source.key] = null;
+                        correctedHistory.push(null)
                     }
+                }
+                for (let i = 0; i < l; i++) {
+                    const day = report.history[i];
+                    day.source[source.key] = correctedHistory[i];
                 }
             }
             store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'report', value: report});
@@ -111,11 +119,11 @@ const addSourceItem = (map, source, regionData, adapter) => {
                 store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'population', value: numberTools.convertToNumber(regionData.population)});
             }
         } else {
-            console.log('not found ' + titleKey);
+            // console.log('not found ' + titleKey);
         }
     } else {
         if (titleKey.length > 0) {
-            console.log('not found ' + titleKey);
+            // console.log('not found ' + titleKey);
         }
     }
 }
