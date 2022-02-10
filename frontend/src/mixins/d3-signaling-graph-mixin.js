@@ -64,14 +64,16 @@ export default {
         },
         appliedZoom() {
             let z;
+            const sourceKey = this.view.currentSource.key;
             if (this.currentMap.settings.positiveTestGraph && this.currentMap.settings.positiveTestGraph.zoomFactor) {
                 z = this.zoom * this.currentMap.settings.positiveTestGraph.zoomFactor / this.frameSize;
             } else {
                 z = this.zoom / this.frameSize;
             }
-            if (this.view.currentSource.key === 'hospitalisations') {
+
+            if (sourceKey === 'hospitalisations') {
                 z *= HOSPITALISATION_MULTIPLICATION;
-            } else if (this.view.currentSource.key === 'deceased') {
+            } else if (sourceKey === 'deceased') {
                 z *= DECEASED_MULTIPLICATION;
             }
             return z;
@@ -303,14 +305,22 @@ export default {
             }
         },
         getY(day, sourceKey, smoothened) {
-            let end, start, total, average, relativeValue, l,
+            let end, start, total, average, value, l,
                 steps, maxSteps;
             if (!smoothened) {
-                if (this.frameSize === 1) {
-                    relativeValue = this.getRelativeOfType(day, sourceKey);
+                if (sourceKey === 'vaccination') {
+                    // 7 is because of the `/ this.signalingSystem.days` in drawThresholds()
+                    // normally this is to translate a week value to a day value
+                    // but for vaccination this does not make sense
+                    value = this.getAbsoluteValue(day, sourceKey) / 7;
                 } else {
-                    relativeValue = 100000 * this.getAbsoluteValue(day, sourceKey) / this.region.totalPopulation;
+                    if (this.frameSize === 1) {
+                        value = this.getRelativeOfType(day, sourceKey);
+                    } else {
+                        value = 100000 * this.getAbsoluteValue(day, sourceKey) / this.region.totalPopulation;
+                    }
                 }
+
             } else {
                 total = 0;
                 steps = 7;
@@ -325,9 +335,9 @@ export default {
                     total += value / this.currentMap.settings.interval;
                 }
                 average = total / maxSteps;
-                relativeValue = 100000 * average / this.region.totalPopulation;
+                value = 100000 * average / this.region.totalPopulation;
             }
-            return this.valueToY(relativeValue);
+            return this.valueToY(value);
         },
         valueToY(value) {
             return this.height - (value * this.appliedZoom);

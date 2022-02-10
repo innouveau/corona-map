@@ -38,7 +38,9 @@
         <div class="region-head__title">
             {{region.title}}
         </div>
-        <div class="region-head__increase">
+        <div
+            v-if="view.currentSource.key !== 'vaccination'"
+            class="region-head__increase">
             {{format(weekRelative)}}
             <span class="abs-rel">rel</span>
         </div>
