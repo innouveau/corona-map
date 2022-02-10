@@ -57,7 +57,7 @@ d3.csv(url)
             }
             region.timeline.push(day);
         }
-        print(regions);
+        // print(regions);
     })
     .catch((error) => {
         console.error(error);

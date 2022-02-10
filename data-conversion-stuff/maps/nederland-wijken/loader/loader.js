@@ -1,6 +1,7 @@
 const regions = [];
 
 const handleItems = (set) => {
+    console.log(set[0].geometry);
     for (const item of set) {
         handleItem(item);
     }
@@ -17,18 +18,7 @@ const getPaths = (item) => {
 
     const paths = [];
 
-    if (geometry.length === 1) {
-        for (const area of geometry) {
-            const set = [];
-            for (const coordinate of area) {
-                set.push({
-                    x: coordinate[0],
-                    y: coordinate[1]
-                })
-            }
-            paths.push(set);
-        }
-    } else {
+    if (item.geometry.type === "MultiPolygon") {
         for (const area of geometry) {
             const set = [];
             for (const coordinate of area[0]) {
@@ -39,7 +29,20 @@ const getPaths = (item) => {
             }
             paths.push(set);
         }
+    } else {
+        for (const area of geometry) {
+            const set = [];
+            for (const coordinate of area) {
+                set.push({
+                    x: coordinate[0],
+                    y: coordinate[1]
+                })
+            }
+            paths.push(set);
+        }
     }
+
+
     return paths;
 }
 
@@ -47,6 +50,9 @@ const getPaths = (item) => {
 const handleItem = (item) => {
     const identifier = item.id;
     const title = item.properties.statnaam;
+    if (title === "Ouddorp") {
+        console.log(item.geometry);
+    }
     const region = {
         regionType: "district",
         country_id: 1,
