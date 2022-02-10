@@ -7,24 +7,48 @@
         props: {},
         computed: {
             pages() {
-                return [
-                    {
-                        title: 'info',
-                        route: 'main'
-                    }, {
-                        title: 'change',
-                        route: 'change'
-                    }, {
-                        title: 'cumulative',
-                        route: 'cumulative'
-                    }, {
-                        title: 'compare',
-                        route: 'compare'
-                    }, {
-                        title: 'timeline',
-                        route: 'timeline'
-                    }
-                ]
+                if (this.isVaccination) {
+                    return [
+                        {
+                            title: 'info',
+                            route: 'main'
+                        },  {
+                            title: 'change',
+                            route: 'change'
+                        }, {
+                            title: 'compare',
+                            route: 'compare'
+                        }, {
+                            title: 'timeline',
+                            route: 'timeline'
+                        }
+                    ]
+                } else {
+                    return [
+                        {
+                            title: 'info',
+                            route: 'main'
+                        }, {
+                            title: 'change',
+                            route: 'change'
+                        }, {
+                            title: 'cumulative',
+                            route: 'cumulative'
+                        }, {
+                            title: 'compare',
+                            route: 'compare'
+                        }, {
+                            title: 'timeline',
+                            route: 'timeline'
+                        }
+                    ]
+                }
+
+            },
+            isVaccination() {
+                // here we dont have the view, so we use the map
+                // not the cleanest way...
+                return this.$store.state.maps.current && this.$store.state.maps.current.id === 15;
             },
             currentPage() {
                 return this.$route.name;

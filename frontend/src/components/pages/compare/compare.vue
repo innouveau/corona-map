@@ -47,8 +47,8 @@ export default {
             } else {
                 date2 = dateTools.formatDate(today);
             }
-            offset1 = dateTools.getOffsetByDate(date1) / this.$store.state.maps.current.data.positivePcrTests.interval;
-            offset2 = dateTools.getOffsetByDate(date2) / this.$store.state.maps.current.data.positivePcrTests.interval;
+            offset1 = dateTools.getOffsetByDate(date1) / this.currentMap.settings.interval;
+            offset2 = dateTools.getOffsetByDate(date2) / this.currentMap.settings.interval;
             this.views.push(new View ({
                 id: 1,
                 offset: offset1
