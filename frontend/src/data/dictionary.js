@@ -47,6 +47,10 @@ const dictionary = {
         nl: "Cumulatief",
         en: "Cumulative"
     },
+    "current": {
+        nl: "Huidig",
+        en: "Current"
+    },
     "days": {
         nl: "Dagen",
         en: "Days"

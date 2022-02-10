@@ -42,6 +42,9 @@
             },
             weekRelative() {
                 return getRelativeCumulativeForPeriod(this.region, this.view.offset, (this.view.offset + 7), this.view.currentSource.key);
+            },
+            isVaccinatinon() {
+                return this.view.currentSource.key === "vaccination";
             }
         },
         methods: {
@@ -66,67 +69,82 @@
             </div>
         </div>
 
-        <div
-            v-if="!compact"
-            class="region-details__section">
-            <div class="region-details__section-head">
-                {{translate('trend-today', true)}}
-            </div>
-            <div
-
-                class="region-details__row">
-                <div class="region-details__label">
-                    {{translate('increase', true)}} {{translate('today')}}
-                    <span v-if="showLateReportingWarning">*</span>
-                </div>
-                <div class="region-details__value">
-                    {{format(todayAbsolute)}}
-                    <span class="abs-rel abs-rel--big">abs</span>
-                </div>
-            </div>
-            <div class="region-details__row">
-                <div class="region-details__label">
-                    {{translate('relative', true)}} {{translate('increase')}} {{translate('today')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
-                    <span v-if="showLateReportingWarning">*</span>
-                </div>
-                <div class="region-details__value">
-                    {{format(todayRelative, true)}}
-                    <span class="abs-rel abs-rel--big">rel</span>
+        <div v-if="isVaccinatinon">
+            <div class="region-details__section">
+                <div class="region-details__row">
+                    <div class="region-details__label">
+                        {{translate('current', true)}}
+                    </div>
+                    <div class="region-details__value">
+                        {{todayAbsolute}}%
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="region-details__section">
-            <div class="region-details__section-head">
-                {{translate('trend-week', true)}}
-            </div>
+
+        <div v-else>
             <div
                 v-if="!compact"
-                class="region-details__row">
-                <div class="region-details__label">
-                    {{translate('increase', true)}} {{translate('last-7-days')}}
-                    <span v-if="showLateReportingWarning">*</span>
+                class="region-details__section">
+                <div class="region-details__section-head">
+                    {{translate('trend-today', true)}}
                 </div>
-                <div class="region-details__value">
-                    {{format(weekAbsolute, true)}}
-                    <span class="abs-rel abs-rel--big">abs</span>
+                <div
+
+                    class="region-details__row">
+                    <div class="region-details__label">
+                        {{translate('increase', true)}} {{translate('today')}}
+                        <span v-if="showLateReportingWarning">*</span>
+                    </div>
+                    <div class="region-details__value">
+                        {{format(todayAbsolute)}}
+                        <span class="abs-rel abs-rel--big">abs</span>
+                    </div>
+                </div>
+                <div class="region-details__row">
+                    <div class="region-details__label">
+                        {{translate('relative', true)}} {{translate('increase')}} {{translate('today')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
+                        <span v-if="showLateReportingWarning">*</span>
+                    </div>
+                    <div class="region-details__value">
+                        {{format(todayRelative, true)}}
+                        <span class="abs-rel abs-rel--big">rel</span>
+                    </div>
                 </div>
             </div>
-            <div class="region-details__row">
-                <div class="region-details__label">
-                    {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
+            <div class="region-details__section">
+                <div class="region-details__section-head">
+                    {{translate('trend-week', true)}}
                 </div>
-                <div class="region-details__value">
-                    {{format(weekRelative, true)}}
-                    <span class="abs-rel abs-rel--big">rel</span>
+                <div
+                    v-if="!compact"
+                    class="region-details__row">
+                    <div class="region-details__label">
+                        {{translate('increase', true)}} {{translate('last-7-days')}}
+                        <span v-if="showLateReportingWarning">*</span>
+                    </div>
+                    <div class="region-details__value">
+                        {{format(weekAbsolute, true)}}
+                        <span class="abs-rel abs-rel--big">abs</span>
+                    </div>
+                </div>
+                <div class="region-details__row">
+                    <div class="region-details__label">
+                        {{translate('relative', true)}} {{translate('increase')}} {{translate('last-7-days')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
+                    </div>
+                    <div class="region-details__value">
+                        {{format(weekRelative, true)}}
+                        <span class="abs-rel abs-rel--big">rel</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="region-details__section">
-            <div
-                v-if="showLateReportingWarning"
-                class="region-details__row">
-                <div class="region-details__label">
-                    * {{translate('late-reporting-warning', true)}}
+            <div class="region-details__section">
+                <div
+                    v-if="showLateReportingWarning"
+                    class="region-details__row">
+                    <div class="region-details__label">
+                        * {{translate('late-reporting-warning', true)}}
+                    </div>
                 </div>
             </div>
         </div>
