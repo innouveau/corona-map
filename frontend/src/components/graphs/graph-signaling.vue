@@ -1,10 +1,10 @@
 <script>
-    import d3TestGraphMixin from '@/mixins/d3-test-graph-mixin.js';
+    import d3SignalingGraphMixin from '@/mixins/d3-signaling-graph-mixin.js';
 
     export default {
         name: 'graph-signaling',
         components: {},
-        mixins: [d3TestGraphMixin],
+        mixins: [d3SignalingGraphMixin],
         computed: {
             title() {
                 return this.translate('positive-tests', true);
@@ -24,11 +24,11 @@
                 this.drawGrid();
                 if (this.days.length > 0) {
                     if (this.currentMap.settings.interval === 1) {
-                        this.drawPcrTestsBars(this.view.currentSource.key, 'rgba(0,0,0,0.15)');
-                        this.drawTestsLine(this.view.currentSource.key, true, false, '#000');
+                        this.drawSignalingBars(this.view.currentSource.key, 'rgba(0,0,0,0.15)');
+                        this.drawSignalingLine(this.view.currentSource.key, true, false, '#000');
                     } else {
-                        this.drawTestsLine(this.view.currentSource.key, false, false, '#000');
                         this.drawTestsDots(this.view.currentSource.key, false, '#000');
+                        this.drawSignalingLine(this.view.currentSource.key, false, false, '#000');
                     }
 
                 }

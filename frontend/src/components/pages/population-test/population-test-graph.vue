@@ -1,11 +1,11 @@
 <script>
-    import d3TestGraphMixin from '@/mixins/d3-test-graph-mixin.js';
+    import d3SignalingGraphMixin from '@/mixins/d3-signaling-graph-mixin.js';
 
     export default {
         name: 'population-test-graph',
         components: {},
         props: {},
-        mixins: [d3TestGraphMixin],
+        mixins: [d3SignalingGraphMixin],
         data() {
             return {
                 mapType: 'population-test-graph'
@@ -22,10 +22,10 @@
                 this.drawBackground('#f5eedc');
                 this.drawGrid();
                 if (this.days.length > 0) {
-                    this.drawPcrTestsBars('positiveTests','rgba(0,0,0,0.15)');
+                    this.drawSignalingBars('positiveTests','rgba(0,0,0,0.15)');
                     this.drawAntigenTestsBars('rgba(255,0,0,0.5)');
-                    // this.drawTestsLine('positiveAntigenTests', true, false, '#ff0000');
-                    // this.drawTestsLine('positiveTests', true, false, '#000');
+                    // this.drawSignalingLine('positiveAntigenTests', true, false, '#ff0000');
+                    // this.drawSignalingLine('positiveTests', true, false, '#000');
                 }
                 this.drawDates();
             }

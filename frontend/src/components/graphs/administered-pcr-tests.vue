@@ -1,11 +1,11 @@
 <script>
-    import d3TestGraphMixin from '@/mixins/d3-test-graph-mixin.js';
+    import d3SignalingGraphMixin from '@/mixins/d3-signaling-graph-mixin.js';
     import * as d3 from "d3";
 
     export default {
         name: 'administered-pcr-tests',
         components: {},
-        mixins: [d3TestGraphMixin],
+        mixins: [d3SignalingGraphMixin],
         props: {
 
             stepWide: {

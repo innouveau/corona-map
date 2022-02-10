@@ -1,11 +1,11 @@
 <script>
-    import d3TestGraphMixin from '@/mixins/d3-test-graph-mixin.js';
+    import d3SignalingGraphMixin from '@/mixins/d3-signaling-graph-mixin.js';
     import {getRelativeCumulativeForPeriod} from "../../tools/calculator";
 
     export default {
         name: 'positive-pcr-tests-change',
         components: {},
-        mixins: [d3TestGraphMixin],
+        mixins: [d3SignalingGraphMixin],
         props: {},
         computed: {
             title() {
@@ -26,7 +26,7 @@
                 this.drawDoublingLines();
                 this.drawGrid();
                 if (this.days.length > 0) {
-                    this.drawTestsLine(this.view.currentSource.key, false, false, '#000');
+                    this.drawSignalingLine(this.view.currentSource.key, false, false, '#000');
                 }
                 this.drawDates();
             },

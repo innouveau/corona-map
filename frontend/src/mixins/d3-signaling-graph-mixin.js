@@ -6,7 +6,7 @@ import {getDayForSource} from "../tools/calculator";
 import { HOSPITALISATION_MULTIPLICATION, DECEASED_MULTIPLICATION} from "@/data/constants";
 
 export default {
-    name: 'test-graph-mixin',
+    name: 'signaling-graph-mixin',
     components: {},
     mixins: [d3GraphMixin],
     props: {
@@ -180,7 +180,7 @@ export default {
             let offset = day.offset - this.offset;
             return this.widthBefore - (this.step * offset);
         },
-        drawTestsLine(sourceKey, smoothened, dotted, color) {
+        drawSignalingLine(sourceKey, smoothened, dotted, color) {
             const points = this.days.map(day => {
                 return {
                     x: this.getX(day),
@@ -213,7 +213,7 @@ export default {
                     .attr('fill', color);
             }
         },
-        drawPcrTestsBars(sourceKey, color) {
+        drawSignalingBars(sourceKey, color) {
             let index, margin;
             margin = 1;
             for (let day of this.days) {
