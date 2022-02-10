@@ -2,7 +2,7 @@
     import d3TestGraphMixin from '@/mixins/d3-test-graph-mixin.js';
 
     export default {
-        name: 'positive-pcr-tests',
+        name: 'graph-signaling',
         components: {},
         mixins: [d3TestGraphMixin],
         computed: {

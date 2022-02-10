@@ -1,7 +1,7 @@
 <script>
     import _Region from "@/classes/region/_Region";
     import View from "@/classes/View";
-    import positivePcrTests from "@/components/graphs/positive-pcr-tests";
+    import graphSignaling from "@/components/graphs/graph-signaling";
     import administeredPcrTests from "@/components/graphs/administered-pcr-tests"
     import ageDistributionGraph from "./case-characteristics/age-distribution-graph";
     import ageDistributionGraphNormalised from "./case-characteristics/age-distribution-graph-normalised/age-distribution-graph-normalised";
@@ -9,7 +9,6 @@
     import loader from "@/components/elements/loader";
     import regionDetailsNumbers from "./region-details-numbers";
     import regionDetailsVaccination from "./vaccination/region-details-vaccination";
-    import {getReportingDelay} from "../../../../tools/calculator";
 
     export default {
         name: 'region-details',
@@ -21,7 +20,7 @@
             ageDistributionGraphNormalised,
             loader,
             ageDistributionGraph,
-            positivePcrTests
+            graphSignaling
         },
         props: {
             view: {
@@ -76,7 +75,7 @@
         class="region-details">
 
         <div class="region-details__section">
-            <positive-pcr-tests
+            <graph-signaling
                 :view="view"
                 :region="regionOfFocus"
                 :frames-before="framesBefore"
