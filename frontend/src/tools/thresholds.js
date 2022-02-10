@@ -53,6 +53,8 @@ const getNiceNumberForDays = function(days) {
 const getNiceNumberForPopulation = function(number) {
     if (number === 100000) {
         return '100.000';
+    } else {
+        return number;
     }
 };
 

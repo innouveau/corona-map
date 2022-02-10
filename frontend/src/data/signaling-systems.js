@@ -357,7 +357,7 @@ let signalingSystems = [
         source: 'deceased',
         title: 'Deceased',
         days: 7,
-        population: 100,
+        population: 100000,
         thresholds: [
             {
                 n: 0,
@@ -390,49 +390,65 @@ let signalingSystems = [
         source: 'vaccination',
         title: 'Vaccinated',
         days: 7,
-        population: 100000,
+        population: 100,
         thresholds: [
             {
                 n: 0,
                 color: {
-                    regular: 'rgba(177,26,45,255)',
+                    regular: '#b91a2c',
                 }
             },
             {
                 n: 60,
                 color: {
-                    regular: 'rgba(177,26,45,255)',
+                    regular: '#b91a2c',
                 }
-            },
-            {
+            },     {
+                n: 65,
+                color: {
+                    regular: '#d3604e',
+                }
+            }, {
                 n: 70,
                 color: {
-                    regular: 'rgba(253,218,200,255)',
+                    regular: '#f4a683',
+                }
+            }, {
+                n: 75,
+                color: {
+                    regular: '#ffd8c8',
                 }
             },
             {
                 n: 80,
                 color: {
-                    regular: '#d2e5f0',
+                    regular: '#d2e5ef',
+                }
+            },
+            {
+                n: 85,
+                color: {
+                    regular: '#95c3da',
                 }
             },
             {
                 n: 90,
                 color: {
-                    regular: '#93c4dd',
-                }
+                    regular: '#4194be',
+                },
             },
             {
                 n: 100,
                 color: {
-                    regular: '#4393c3',
+                    regular: '#4194be',
                 }
             },
             {
                 n: Infinity,
                 color: {
                     regular: 'rgb(0, 0, 0)',
-                }
+                },
+                label: "No data"
             }
         ]
     }

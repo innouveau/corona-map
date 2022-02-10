@@ -11,8 +11,7 @@ export const getColorForRegion = (region, view) => {
     if (source.key === 'vaccination') {
         value = getAbsoluteValueForDay(region, view.offset, view.currentSource.key);
         if (value > 100) {
-            console.log("!");
-            return "#ddd";
+            return "#000";
         }
     } else {
         value = getRelativeCumulativeForPeriod(region, view.offset, view.offset + days, view.currentSource.key);

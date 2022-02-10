@@ -113,7 +113,8 @@ const addSourceItem = (map, source, regionData) => {
             if (region.report.history.length === 0) {
                 store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'report', value: { history }});
                 if (!map.settings.generalInfoHasPopulation) {
-                    store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'population', value: numberTools.convertToNumber(regionData.population)});
+                    const populationKey = adapter.hasOwnProperty("populationKey") ? adapter.populationKey : "population";
+                    store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'population', value: numberTools.convertToNumber(regionData[populationKey])});
                 }
             } else {
                 for (const historyDay of history) {

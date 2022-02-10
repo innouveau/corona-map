@@ -128,10 +128,11 @@ const maps = [
             sources: {
                 vaccination: {
                     loadInitially: true,
-                    url: 'data/maps/nederland/vaccination-data.csv',
+                    url: window.config.dataUrl + 'data/vaccination-neighborhood-completed.csv',
                     cumulative: false,
                     adapter: {
-                        titleKey: 'regionCode',
+                        titleKey: 'Region_code',
+                        populationKey: 'Populatie_merged',
                         valuePrefix: '',
                         isValueColumn: function(column) {
                             return column.indexOf('20') > -1;

@@ -21,13 +21,16 @@
             },
             height() {
                 const source = this.view.currentSource.key;
-                let multiply = 15000;
-                if (source === 'hospitalisations') {
-                    multiply *= HOSPITALISATION_MULTIPLICATION;
-                } else if (source === 'deceased') {
-                    multiply *= DECEASED_MULTIPLICATION;
+                if (source === 'vaccination') {
+                    return 0.5 * this.day.source[source];
+                } else {
+                    let multiply = 15000;
+                    if (source === 'hospitalisations') {
+                        multiply *= HOSPITALISATION_MULTIPLICATION;
+                    } else if (source === 'deceased') {
+                        multiply *= DECEASED_MULTIPLICATION;
+                    }
                 }
-                return multiply * this.day.source[source] / this.region.totalPopulation;
             }
         },
         methods: {}
