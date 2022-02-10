@@ -3,10 +3,12 @@
     import topRelativeWeek from "./top-relative-week";
     import topRelativeDay from "./top-relative-day";
     import topAbsoluteDay from "./top-absolute-day";
+    import ListVaccination from "./vaccination/list-vaccination";
 
     export default {
         name: 'main-trends',
         components: {
+            ListVaccination,
             topAbsoluteDay,
             topRelativeDay,
             topRelativeWeek,
@@ -19,7 +21,10 @@
         },
         computed: {
             hasDays() {
-                return this.$store.state.maps.current.data.positivePcrTests.interval === 1;
+                return this.$store.state.maps.current.settings.interval === 1;
+            },
+            isVaccination() {
+                return this.view.currentSource.key === 'vaccination';
             }
         },
     }
@@ -28,14 +33,21 @@
 
 <template>
     <div class="main-trends">
-        <top-relative-week
-            :view="view"/>
-        <top-relative-day
-            v-if="hasDays"
-            :view="view"/>
-        <top-absolute-day
-            v-if="hasDays"
-            :view="view"/>
+        <div v-if="isVaccination">
+            <list-vaccination :view="view" :direction="'top'" />
+            <list-vaccination :view="view" :direction="'bottom'" />
+        </div>
+
+        <div v-else>
+            <top-relative-week
+                :view="view"/>
+            <top-relative-day
+                v-if="hasDays"
+                :view="view"/>
+            <top-absolute-day
+                v-if="hasDays"
+                :view="view"/>
+        </div>
     </div>
 </template>
 

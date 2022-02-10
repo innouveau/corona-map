@@ -7,6 +7,13 @@ export default {
             list: []
         }
     },
+    props: {
+        direction: {
+            type: String,
+            required: true,
+            default: 'top'
+        },
+    },
     computed: {
         currentRegionType() {
             return this.$store.state.ui.currentRegionType;
@@ -15,7 +22,7 @@ export default {
             return this.$store.state.maps.current;
         },
         regions() {
-            let regions = this.$store.getters['ui/regions'];
+            let regions = this.$store.getters['ui/regions'].filter(region => !region.noData);
             // check if the country has regions in this map
             if (this.currentRegionType === 'country') {
                 regions = regions.filter(country => {
@@ -40,7 +47,9 @@ export default {
                     region, value
                 })
             }
-            score.sort((a,b) => b.value - a.value)
+            score.sort((a,b) => {
+                return this.direction === 'top' ? b.value - a.value : a.value - b.value;
+            })
             this.list = score.slice(0, 10);
         },
         formatted(value) {

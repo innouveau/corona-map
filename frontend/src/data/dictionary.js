@@ -375,6 +375,14 @@ const dictionary = {
         nl: "Gevaccineerd",
         en: "Vaccinated"
     },
+    "vaccinated-top": {
+        nl: "Hoogste vaccinatie-graad",
+        en: "Highest vaccination rate"
+    },
+    "vaccinated-bottom": {
+        nl: "Laagste vaccinatie-graad",
+        en: "Lowest vaccination rate"
+    },
     "with-more-than": {
         nl: "Met meer dan",
         en: "With more than"
