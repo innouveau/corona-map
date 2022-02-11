@@ -383,6 +383,10 @@ const dictionary = {
         nl: "Laagste vaccinatie-graad",
         en: "Lowest vaccination rate"
     },
+    "vaccination-change-note": {
+        nl: "Verandering is per periode van 7 weken",
+        en: "Change per periode of 7 weeks"
+    },
     "with-more-than": {
         nl: "Met meer dan",
         en: "With more than"

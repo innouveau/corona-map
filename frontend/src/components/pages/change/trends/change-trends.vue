@@ -30,6 +30,9 @@
             },
             setBottom() {
                 return this.set.filter(item => item.value < (1 - changeTools.margin))
+            },
+            isVaccination() {
+                return this.view.currentSource.key === 'vaccination';
             }
         },
     }
@@ -45,6 +48,7 @@
             :set="setTop"/>
 
         <change-trends-regions
+            v-if="!isVaccination"
             :view="view"
             :direction="'bottom'"
             :set="setBottom"/>

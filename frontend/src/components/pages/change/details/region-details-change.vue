@@ -49,6 +49,9 @@
             },
             getTotalRelativeIncreasePreviousWeek() {
                 return getRelativeCumulativeForPeriod(this.regionOfFocus, this.view.offset + 7, this.view.offset + 14, this.view.currentSource.key)
+            },
+            isVaccination() {
+                return this.view.currentSource.key === 'vaccination';
             }
         },
         methods: {
@@ -75,7 +78,7 @@
                     </div>
                 </div>
             </div>
-            <div class="region-details__section">
+            <div v-if="!isVaccination" class="region-details__section">
                 <div class="region-details__row">
                     <div class="region-details__label">
                         {{translate('relative', true)}} {{translate('increase')}} {{translate('for-7-days')}} {{translate('seven-days-back')}} ({{translate('per')}} 100.000 {{translate('inhabitants-short')}})
@@ -103,6 +106,11 @@
                         {{formatChange}}
                     </div>
                 </div>
+            </div>
+            <div
+                v-if="isVaccination"
+                class="region-details__section">
+                * {{translate('vaccination-change-note', true)}}
             </div>
             <div
                     v-if="showLateReportingWarning"
