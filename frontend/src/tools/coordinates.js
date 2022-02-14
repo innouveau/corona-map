@@ -19,11 +19,14 @@ const project = function(point, settings) {
 };
 
 const getLeft = function(longitude, settings) {
-    return (longitude - store.state.maps.current.settings.map.longitude) * store.state.maps.current.settings.map.stretch * settings.zoom + (0.5 * settings.width) + settings.shiftX;
+    const base = 0.5 * settings.width * settings.navigation.position.x;
+    return (longitude - store.state.maps.current.settings.map.longitude) * store.state.maps.current.settings.map.stretch * settings.zoom * settings.navigation.zoom + base + settings.shiftX;
 };
 
 const getTop = function(latitude, settings) {
-    return (0.5 * settings.height) - (latitude - store.state.maps.current.settings.map.latitude) * settings.zoom + settings.shiftY;
+    const base = 0.5 * settings.height * settings.navigation.position.y
+    const y = latitude - store.state.maps.current.settings.map.latitude;
+    return base - y * settings.zoom * settings.navigation.zoom + settings.shiftY;
 };
 
 export default {

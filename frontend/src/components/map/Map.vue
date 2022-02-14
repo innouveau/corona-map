@@ -16,6 +16,7 @@
     import dateTools from '@/tools/date';
     import MapLegendCumulative from "./legend/map-legend-cumulative";
     import {childRegionToParent} from "../../tools/region";
+    import mapNavigation from "./navigation/map-navigation";
     import { loadSource } from "@/tools/timeline";
 
     export default {
@@ -32,7 +33,8 @@
             mapToolsPopup,
             pointerCanvas,
             regionTypePicker,
-            mapSourcePicker
+            mapSourcePicker,
+            mapNavigation,
         },
         props: {
             showTools: {
@@ -122,6 +124,12 @@
             },
             isLoading() {
                 return this.view.currentSource && !this.view.currentSource.loaded;
+            },
+            navigation() {
+                return this.$store.state.maps.navigation;
+            },
+            mapRenderKey() {
+                return 'map-' + this.$store.state.settings.canvasWidth + '-' + this.navigation.zoom + this.navigation.position.x + '-' + this.navigation.position.y;
             }
         },
         methods: {
@@ -255,7 +263,7 @@
                 let reversed = this.regions.slice().reverse();
                 for (let region of reversed) {
                     for (let path of region.paths) {
-                        if (this.ctx.isPointInPath(path.storedPaths['map-' + this.$store.state.settings.canvasWidth], x, y)) {
+                        if (this.ctx.isPointInPath(path.storedPaths[this.mapRenderKey], x, y)) {
                             return region;
                         }
                     }
@@ -265,15 +273,16 @@
             draw() {
                 this.clear();
                 let settings = {
-                    key: 'map-' + this.$store.state.settings.canvasWidth,
+                    key: this.mapRenderKey,
                     width: this.$store.state.settings.canvasWidth,
                     height: this.$store.state.settings.canvasHeight,
                     shiftX: 0,
                     shiftY: 0,
                     zoom: this.$store.state.settings.zoom,
+                    navigation: this.navigation,
                     fill: true
                 };
-                canvasTools.draw(this.ctx, this.containerRegions, settings, this.view, this.mapType);
+                canvasTools.draw(this.ctx, this.containerRegions, settings, this.view, this.mapType, true);
             },
             clear() {
                 this.ctx.clearRect(0, 0, this.width, this.height);
@@ -306,29 +315,27 @@
                 },
                 deep: true
             },
-            currentRegionType: {
-                handler: function() {
-                    this.draw();
-                }
+            currentRegionType: function () {
+                this.draw();
             },
-            color: {
-                handler: function() {
-                    this.draw();
-                }
+            color: function () {
+                this.draw();
             },
-            signalingSystem: {
-                handler: function() {
-                    this.draw();
-                }
+            signalingSystem: function () {
+                this.draw();
             },
-            gradient: {
+            gradient: function () {
+                this.draw();
+            },
+            navigation: {
                 handler: function() {
                     this.draw();
-                }
+                },
+                deep: true
             },
             currentSource: function () {
                 this.checkSource();
-            }
+            },
         }
     }
 </script>
@@ -386,6 +393,8 @@
             <map-tools-popup
                 v-if="showMapToolsPopup && mapType === 'signaling'"
                 :view="view"/>
+
+            <map-navigation />
         </div>
 
         <div class="Map__tools" v-if="readQueryDone">
@@ -514,6 +523,12 @@
                 top: 10px;
                 z-index: 6;
             }
+        }
+
+        .map-navigation {
+            position: absolute;
+            right: 0;
+            top: 56px;
         }
     }
 </style>
