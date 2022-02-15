@@ -58,7 +58,7 @@ export default {
             return this.$store.getters['ui/regions'];
         },
         mapRenderKey() {
-            return 'map-' + this.$store.state.settings.canvasWidth + '-' + this.navigation.zoom + this.navigation.position.x + '-' + this.navigation.position.y;
+            return 'map-' + this.sizes.canvas.width + '-' + this.navigation.zoom + this.navigation.position.x + '-' + this.navigation.position.y;
         }
     },
     methods: {
@@ -219,26 +219,17 @@ export default {
 
 
 <template>
-    <div
-        draggable="false"
-        class="canvas-container">
-        <canvas :id="'canvas-' + id"></canvas>
-    </div>
+    <canvas :id="'canvas-' + id"></canvas>
 </template>
 
 
 <style lang="scss" scoped>
-.canvas-container {
-    position: relative;
+canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    canvas {
-        width: 100%;
-        height: 100%;
-    }
 }
 </style>

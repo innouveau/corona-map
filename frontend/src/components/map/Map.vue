@@ -13,7 +13,6 @@
     import Loader from "../elements/loader";
     import MapLegendCumulative from "./legend/map-legend-cumulative";
     import mapNavigation from "./navigation/map-navigation";
-    import { loadSource } from "@/tools/timeline";
     import MapCanvas from "./map-canvas";
     import MapNavigationPositionDrag from "./navigation/map-navigation-position-drag";
 
@@ -160,12 +159,9 @@
         <div class="Map__main" ref="main">
             <map-canvas :view="view" :map-type="mapType"/>
 
-            <map-navigation-position-drag v-show="panModus" />
+            <pointer-canvas :view="view" />
 
-<!--            <pointer-canvas-->
-<!--                :view="view"-->
-<!--                :width="width"-->
-<!--                :height="height"/>-->
+            <map-navigation-position-drag v-show="panModus" />
 
             <div
                 v-if="currentSource"

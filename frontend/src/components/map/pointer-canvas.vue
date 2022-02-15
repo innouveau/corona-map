@@ -10,19 +10,10 @@
                 type: View,
                 required: true
             },
-            width: {
-                type: Number,
-                required: true
-            },
-            height: {
-                type: Number,
-                required: true
-            }
         },
         data() {
-            let id = Math.round(Math.random() * 1000000);
             return {
-                id
+                id: Math.round(Math.random() * 1000000)
             }
         },
         computed: {
@@ -41,28 +32,41 @@
             currentRegion() {
                 return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
             },
-            settings() {
-                return {
-                    key: 'map-' + this.$store.state.settings.canvasWidth,
-                    width: this.$store.state.settings.canvasWidth,
-                    height: this.$store.state.settings.canvasHeight,
-                    shiftX: 0,
-                    shiftY: 0,
-                    zoom: this.$store.state.settings.zoom,
-                    fill: false
-                }
+            sizes() {
+                return this.$store.state.settings.sizes;
+            },
+            navigation() {
+                return this.$store.state.settings.navigation;
+            },
+            mapRenderKey() {
+                return 'map-' + this.sizes.canvas.width + '-' + this.navigation.zoom + this.navigation.position.x + '-' + this.navigation.position.y;
             }
         },
         methods: {
             showCurrentRegion() {
+                console.log("!");
                 this.clear();
                 if (this.currentRegion) {
                     this.ctx.strokeStyle = '#fff';
-                    canvasTools.drawRegionContainer(this.ctx, this.currentRegion, this.settings, this.view.offset, null, this.view.currentSource);
+                    const settings = {
+                        key: this.mapRenderKey,
+                        container: this.sizes.container,
+                        canvas: this.sizes.canvas,
+                        scale: this.$store.state.settings.scale,
+                        map: this.currentMap.settings.map,
+                        navigation: this.navigation,
+                        fill: false,
+                        border: true,
+                        shiftPrint: {
+                            x: 0,
+                            y: 0
+                        }
+                    }
+                    canvasTools.drawRegionContainer(this.ctx, this.currentRegion, settings, "transparent");
                 }
             },
             clear() {
-                this.ctx.clearRect(0, 0, this.width, this.height);
+                this.ctx.clearRect(0, 0, this.sizes.container.width, this.sizes.container.height);
             }
         },
         watch: {
@@ -78,15 +82,21 @@
     <canvas
         :id="'pointer-canvas-' + id"
         class="pointer-canvas"
-        :width="width"
-        :height="height"></canvas>
+        :width="sizes.container.width"
+        :height="sizes.container.height" />
 </template>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '@/styles/variables.scss';
 
-    .pointer-canvas {
+    canvas {
         pointer-events: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
     }
 </style>
