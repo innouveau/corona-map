@@ -93,6 +93,11 @@ const mutations = {
     },
     togglePanModus(state) {
         state.panModus = !state.panModus;
+    },
+    navigateTo(state, navigation) {
+        state.navigation.position.x = navigation.position.x;
+        state.navigation.position.y = navigation.position.y;
+        state.navigation.zoom = navigation.zoom;
     }
 };
 

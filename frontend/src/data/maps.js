@@ -113,7 +113,29 @@ const maps = [
                 longitude: 5.34,
                 stretch: 0.62,
                 zoom: 0.345,
-                ratio: 0.91
+                ratio: 0.91,
+                bookmarks: [
+                    {
+                        title: "Amsterdam",
+                        navigation: { "zoom": 9, "position": { "x": 626, "y": 479 } }
+                    },
+                    {
+                        title: "Den Haag",
+                        navigation: { "zoom": 11, "position": { "x": 1802, "y": -286 } }
+                    },
+                    {
+                        title: "Rotterdam",
+                        navigation: { "zoom": 11, "position": { "x": 1479, "y": -710 } }
+                    },
+                    {
+                        title: "Utrecht",
+                        navigation: { "zoom": 12, "position": { "x": 436, "y": -283 } }
+                    },
+                    {
+                        title: "Urk",
+                        navigation: { "zoom": 6, "position": { "x": -450, "y": 726 } }
+                    }
+                ]
             },
             positiveTestGraph: {
                 zoomFactor: 7

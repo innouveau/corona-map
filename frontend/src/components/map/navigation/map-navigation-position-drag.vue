@@ -34,7 +34,7 @@ export default {
         onMove(moveEvent) {
             clearTimeout(this.timer);
             this.timer = setTimeout(() => {
-                const max = 100;
+                const max = 200;
                 const deltaX = moveEvent.clientX - this.startPosition.x;
                 const deltaY = moveEvent.clientY - this.startPosition.y;
                 if (Math.abs(deltaX) < max && Math.abs(deltaY) < max) {

@@ -44,7 +44,6 @@
         },
         methods: {
             showCurrentRegion() {
-                console.log("!");
                 this.clear();
                 if (this.currentRegion) {
                     this.ctx.strokeStyle = '#fff';
@@ -72,7 +71,13 @@
         watch: {
             currentRegion: function () {
                 this.showCurrentRegion();
-            }
+            },
+            navigation: {
+                handler: function() {
+                    this.showCurrentRegion();
+                },
+                deep: true
+            },
         }
     }
 </script>

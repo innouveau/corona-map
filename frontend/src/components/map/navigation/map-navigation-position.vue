@@ -18,7 +18,7 @@ export default {
 <template>
     <div class="map-navigation-position map-navigation__section">
         <h3>
-            Move:
+            Move
         </h3>
         <button
             @click="togglePanModus"

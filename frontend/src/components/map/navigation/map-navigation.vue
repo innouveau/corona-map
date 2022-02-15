@@ -2,11 +2,18 @@
 import mapNavigationZoom from "./map-navigation-zoom";
 import mapNavigationPosition from "./map-navigation-position";
 import mapNavigationReset from "./map-navigation-reset";
+import Bookmarks from "./bookmarks/bookmarks";
 
 export default {
     name: 'map-navigation',
     components: {
+        Bookmarks,
         mapNavigationReset, mapNavigationZoom, mapNavigationPosition
+    },
+    computed: {
+        hasBookmarks() {
+            return this.$store.state.maps.current.settings.map.hasOwnProperty("bookmarks");
+        }
     }
 }
 </script>
@@ -17,6 +24,7 @@ export default {
         <map-navigation-zoom />
         <map-navigation-position />
         <map-navigation-reset />
+        <bookmarks v-if="hasBookmarks" />
     </div>
 </template>
 
