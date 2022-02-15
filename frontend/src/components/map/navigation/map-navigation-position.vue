@@ -2,17 +2,13 @@
 export default {
     name: 'map-navigation-position',
     methods: {
-        up() {
-            this.$store.commit('settings/navigateUp');
-        },
-        down() {
-            this.$store.commit('settings/navigateDown');
-        },
-        left() {
-            this.$store.commit('settings/navigateLeft');
-        },
-        right() {
-            this.$store.commit('settings/navigateRight');
+        togglePanModus() {
+            this.$store.commit("settings/togglePanModus")
+        }
+    },
+    computed: {
+        panModus() {
+            return this.$store.state.settings.panModus;
         }
     }
 }
@@ -21,16 +17,26 @@ export default {
 
 <template>
     <div class="map-navigation-position map-navigation__section">
-        <button @click="up">↑</button>
-        <button @click="down">↓</button>
-        <button @click="left">←</button>
-        <button @click="right">→</button>
+        <h3>
+            Move:
+        </h3>
+        <button
+            @click="togglePanModus"
+            :class="{ 'button--active': panModus }">
+            Move mode
+        </button>
+
+        <div class="map-navigation__hint">
+            Drag map<br>when mode active
+        </div>
     </div>
 </template>
 
 
 <style lang="scss">
 .map-navigation-position {
-
+    .button--active {
+        background: #7ab6ff;
+    }
 }
 </style>

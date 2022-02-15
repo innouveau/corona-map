@@ -14,8 +14,6 @@ export default {
 
 <template>
     <div class="map-navigation">
-        {{ $store.state.settings.navigation.position.x }}<br>
-        {{ $store.state.settings.navigation.position.y }}
         <map-navigation-zoom />
         <map-navigation-position />
         <map-navigation-reset />
@@ -24,24 +22,54 @@ export default {
 
 
 <style lang="scss">
+@import '@/styles/variables.scss';
+
 .map-navigation {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+
+    &__hint {
+        margin-left: 4px;
+        line-height: 1.1;
+        font-style: italic;
+    }
 
     &__section {
-        padding: 8px;
-        border: 1px solid #888;
-        border-radius: 8px;
-        margin-bottom: 8px;
         display: flex;
-        flex-direction: column;
+        align-items: center;
         gap: 4px;
+        padding: 0 12px;
+        border-right: 1px solid #888;
+        height: 100%;
+
+        h3 {
+            margin: 0 8px 0 0;
+        }
 
         button {
             background: #fff;
             border: 1px solid #888;
+            color: #555;
+            font-size: 11px;
+            cursor: pointer;
+            white-space: nowrap;
+            padding: 4px 8px;
+        }
+
+        &:first-child {
+            padding-left: 0;
         }
 
         &:last-child {
-            margin-bottom: 0;
+            border-right: 0;
+        }
+    }
+
+    @include mobile() {
+
+        &__hint {
+            display: none;
         }
     }
 }

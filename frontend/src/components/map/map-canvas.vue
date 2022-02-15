@@ -180,7 +180,7 @@ export default {
                     });
                 })
             }
-        }
+        },
     },
     mounted() {
         this.init();
@@ -219,7 +219,9 @@ export default {
 
 
 <template>
-    <div class="canvas-container">
+    <div
+        draggable="false"
+        class="canvas-container">
         <canvas :id="'canvas-' + id"></canvas>
     </div>
 </template>

@@ -16,26 +16,38 @@ export default {
         dragStart(event) {
             this.reset(event);
         },
-        reset(event) {
-            this.startPosition.x = event.clientX;
-            this.startPosition.y = event.clientY;
-        },
         drag(event) {
+            this.onMove(event);
+        },
+        touchStart(event) {
+            const touch = event.changedTouches[0];
+            this.reset(touch);
+        },
+        touch(event) {
+            const touch = event.changedTouches[0];
+            this.onMove(touch);
+        },
+        reset(moveEvent) {
+            this.startPosition.x = moveEvent.clientX;
+            this.startPosition.y = moveEvent.clientY;
+        },
+        onMove(moveEvent) {
             clearTimeout(this.timer);
             this.timer = setTimeout(() => {
                 const max = 100;
-                const deltaX = event.clientX - this.startPosition.x;
-                const deltaY = event.clientY - this.startPosition.y;
+                const deltaX = moveEvent.clientX - this.startPosition.x;
+                const deltaY = moveEvent.clientY - this.startPosition.y;
                 if (Math.abs(deltaX) < max && Math.abs(deltaY) < max) {
                     this.$store.commit('settings/move', { x: deltaX, y: deltaY });
-                    this.reset(event);
+                    this.reset(moveEvent);
                 }
             }, 1)
-        },
-        dragend(event) {
-            this.startPosition.x = 0;
-            this.startPosition.y = 0;
         }
+    },
+    mounted() {
+        this.$el.addEventListener('touchstart', this.touchStart);
+        this.$el.addEventListener('touchmove', this.touch);
+
     }
 }
 </script>
@@ -45,7 +57,6 @@ export default {
     <div
         @dragstart="dragStart"
         @drag="drag"
-        @dragend="dragend"
         draggable="true"
         class="map-navigation-position-drag">
     </div>
@@ -60,6 +71,7 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
-    cursor: move;
+    cursor: pointer;
+    // background: rgba(255,0,0,0.1);
 }
 </style>

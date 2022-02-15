@@ -12,7 +12,7 @@ export default {
 
 <template>
     <div class="map-navigation-reset map-navigation__section">
-        <button @click="reset">×</button>
+        <button @click="reset">Reset</button>
     </div>
 </template>
 

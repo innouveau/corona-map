@@ -89,6 +89,9 @@
             currentSource(){
                 return this.view.currentSource;
             },
+            panModus() {
+                return this.$store.state.settings.panModus;
+            }
         },
         methods: {
             readQuery() {
@@ -152,10 +155,12 @@
         <search-regions
             :view="view"/>
 
+        <map-navigation />
+
         <div class="Map__main" ref="main">
             <map-canvas :view="view" :map-type="mapType"/>
 
-            <map-navigation-position-drag />
+            <map-navigation-position-drag v-show="panModus" />
 
 <!--            <pointer-canvas-->
 <!--                :view="view"-->
@@ -195,8 +200,6 @@
             <map-tools-popup
                 v-if="showMapToolsPopup && mapType === 'signaling'"
                 :view="view"/>
-
-            <map-navigation />
         </div>
 
         <div class="Map__tools" v-if="readQueryDone">
@@ -283,8 +286,12 @@
             }
         }
 
+        .map-navigation {
+            height: 40px;
+        }
+
         &__main {
-            height: calc(100% - 102px);
+            height: calc(100% - 142px);
             position: relative;
             display: flex;
             align-items: center;
@@ -318,12 +325,6 @@
                 top: 10px;
                 z-index: 6;
             }
-        }
-
-        .map-navigation {
-            position: absolute;
-            right: 0;
-            top: 56px;
         }
     }
 </style>

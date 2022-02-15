@@ -27,8 +27,14 @@ export default {
 
 <template>
     <div class="map-navigation-zoom map-navigation__section">
+        <h3>
+            Zoom:
+        </h3>
         <button @click="zoomIn">+</button>
         <button @click="zoomOut">-</button>
+        <div class="map-navigation__hint">
+            Or use<br>scroll wheel
+        </div>
     </div>
 </template>
 

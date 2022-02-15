@@ -19,6 +19,7 @@ const state = {
             y: 0
         }
     },
+    panModus: false,
     mapRatio: 0.89,
     step: 10,
     weeks: 5, // weeks
@@ -89,6 +90,9 @@ const mutations = {
     move(state, delta) {
         state.navigation.position.x += delta.x;
         state.navigation.position.y += delta.y;
+    },
+    togglePanModus(state) {
+        state.panModus = !state.panModus;
     }
 };
 
