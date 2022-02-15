@@ -1,9 +1,7 @@
 <script>
-    import canvasTools from '@/tools/canvas';
     import pointerCanvas from "./pointer-canvas";
     import mapToolsPopup from "./tools/map-tools-popup";
     import View from "@/classes/View";
-    import $ from 'jquery';
     import MapLabels from "./labels/map-labels";
     import regionTypePicker from "@/components/elements/region-type/region-type-picker";
     import mapSourcePicker from "@/components/map/source/map-source-picker";
@@ -13,15 +11,15 @@
     import ViewTools from "@/components/time/view-tools";
     import TimeSliderRange from "@/components/time/time-slider/time-slider-range";
     import Loader from "../elements/loader";
-    import dateTools from '@/tools/date';
     import MapLegendCumulative from "./legend/map-legend-cumulative";
-    import {childRegionToParent} from "../../tools/region";
     import mapNavigation from "./navigation/map-navigation";
     import { loadSource } from "@/tools/timeline";
+    import MapCanvas from "./map-canvas";
 
     export default {
         name: 'Map',
         components: {
+            MapCanvas,
             MapLegendCumulative,
             Loader,
             TimeSliderRange,
@@ -55,51 +53,15 @@
                 required: false,
                 default: true
             },
-            labels: {
-                type: Array,
-                required: false,
-                default: () => {
-                    return [];
-                }
-            },
         },
         data() {
-            let id = Math.round(Math.random() * 1000000);
             return {
-                id,
                 readQueryDone: false
             }
         },
         computed: {
-            width() {
-                return this.$store.state.settings.canvasWidth;
-            },
-            height() {
-                return this.$store.state.settings.canvasHeight;
-            },
-            containerRegions() {
-                return this.$store.getters['ui/regions'];
-            },
-            regions() {
-                return this.$store.state[this.currentMap.module].all;
-            },
-            canvas() {
-                return document.getElementById('canvas-' + this.id);
-            },
-            ctx() {
-                return this.canvas.getContext('2d');
-            },
             currentRegionType() {
                 return this.$store.state.ui.currentRegionType;
-            },
-            color() {
-                return this.$store.state.ui.color;
-            },
-            signalingSystem() {
-                return this.$store.state.signalingSystems.current;
-            },
-            gradient() {
-                return this.$store.state.settings.gradient;
             },
             showMapToolsPopup() {
                 return this.$store.state.ui.mapToolsPopup;
@@ -116,38 +78,17 @@
             hasSourcePicker() {
                 return this.$store.state.sources.all.length > 1;
             },
-            currentSource(){
-                return this.view.currentSource;
-            },
             isLoaded(){
                 return this.view.currentSource && this.view.currentSource.loaded;
             },
             isLoading() {
                 return this.view.currentSource && !this.view.currentSource.loaded;
             },
-            navigation() {
-                return this.$store.state.maps.navigation;
+            currentSource(){
+                return this.view.currentSource;
             },
-            mapRenderKey() {
-                return 'map-' + this.$store.state.settings.canvasWidth + '-' + this.navigation.zoom + this.navigation.position.x + '-' + this.navigation.position.y;
-            }
         },
         methods: {
-            init() {
-                this.readQuery();
-                this.measure();
-                setTimeout(() => {
-                    this.canvas.width = this.width;
-                    this.canvas.height = this.height;
-                    this.draw();
-                    this.addEvents();
-                    this.checkSource();
-                });
-
-                $(window).resize(() => {
-                    this.resize();
-                });
-            },
             readQuery() {
                 let region, offset, source, start;
                 if (this.$route.query.region) {
@@ -189,153 +130,15 @@
                 }
                 this.readQueryDone = true;
             },
-            resize() {
-                this.measure();
-                setTimeout(() => {
-                    this.clearCache();
-                    this.canvas.width = this.width;
-                    this.canvas.height = this.height;
-                    this.draw();
-                });
-            },
-            clearCache() {
-                for (let region of this.$store.state[this.currentMap.module].all) {
-                    for (let path of region.paths) {
-                        path.storedPaths = {};
-                    }
-                }
-            },
-            measure() {
-                let elementWidth, elementHeight, canvasWidth, canvasHeight, mapRatio, elementRatio, windowWidth;
-                elementWidth = this.$refs.main.clientWidth;
-                elementHeight = this.$refs.main.clientHeight;
-                elementRatio = elementWidth / elementHeight;
-                mapRatio = this.currentMap.settings.map.ratio;
-
-                if (mapRatio > elementRatio) {
-                    canvasWidth = elementWidth;
-                    canvasHeight = canvasWidth / mapRatio;
-                } else {
-                    canvasHeight = elementHeight;
-                    canvasWidth = canvasHeight * mapRatio;
-                }
-
-
-                this.$store.commit('settings/updateProperty', {key: 'canvasWidth', value: Math.round(canvasWidth)});
-                this.$store.commit('settings/updateProperty', {key: 'canvasHeight', value: Math.round(canvasHeight)});
-                this.$store.commit('settings/updateProperty', {key: 'zoom', value: (canvasHeight * this.currentMap.settings.map.zoom)});
-
-            },
-            addEvents() {
-                this.addClickEvent();
-                this.addHoverEvent();
-            },
-            addClickEvent() {
-                this.canvas.addEventListener('click', (event) => {
-                    let x, y, region;
-                    x = event.offsetX;
-                    y = event.offsetY;
-                    region = this.getRegionForPoint(x, y);
-                    if (region) {
-                        this.view.currentRegion = region;
-                        this.$store.commit('ui/updateProperty', {key: 'menu', value: 'details'});
-                        this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
-                        this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
-                    } else {
-                        this.view.currentRegion = region;
-                    }
-                }, false);
-            },
-            addHoverEvent() {
-                this.canvas.addEventListener('mousemove', (event) => {
-                    const x = event.offsetX;
-                    const y = event.offsetY;
-                    const region = this.getRegionForPoint(x, y);
-                    if (region) {
-                        const levelRegion = childRegionToParent(region, this.$store.state.ui.currentRegionType);
-                        this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: levelRegion.title});
-                    } else {
-                        this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
-                    }
-                }, false);
-            },
-            getRegionForPoint(x, y) {
-                let reversed = this.regions.slice().reverse();
-                for (let region of reversed) {
-                    for (let path of region.paths) {
-                        if (this.ctx.isPointInPath(path.storedPaths[this.mapRenderKey], x, y)) {
-                            return region;
-                        }
-                    }
-                }
-                return null;
-            },
-            draw() {
-                this.clear();
-                let settings = {
-                    key: this.mapRenderKey,
-                    width: this.$store.state.settings.canvasWidth,
-                    height: this.$store.state.settings.canvasHeight,
-                    shiftX: 0,
-                    shiftY: 0,
-                    zoom: this.$store.state.settings.zoom,
-                    navigation: this.navigation,
-                    fill: true
-                };
-                canvasTools.draw(this.ctx, this.containerRegions, settings, this.view, this.mapType, true);
-            },
-            clear() {
-                this.ctx.clearRect(0, 0, this.width, this.height);
-            },
             openMapTools() {
                 this.$store.commit('ui/updateProperty', {key: 'mapToolsPopup', value: true});
             },
             download() {
                 this.$emit("download");
             },
-            checkSource() {
-                if (this.view.currentSource && !this.view.currentSource.loaded) {
-                    const key = this.view.currentSource.key;
-                    const sourceData = this.currentMap.data.sources[key];
-                    loadSource(this.currentMap, {...sourceData, key }).then(() => {
-                        this.$nextTick(() => {
-                            this.draw();
-                        });
-                    })
-                }
-            }
         },
         mounted() {
-            this.init();
-        },
-        watch: {
-            view: {
-                handler: function() {
-                    this.draw();
-                },
-                deep: true
-            },
-            currentRegionType: function () {
-                this.draw();
-            },
-            color: function () {
-                this.draw();
-            },
-            signalingSystem: function () {
-                this.draw();
-            },
-            gradient: function () {
-                this.draw();
-            },
-            navigation: {
-                handler: function() {
-                    this.draw();
-                },
-                deep: true
-            },
-            currentSource: function () {
-                this.checkSource();
-            },
+            this.readQuery();
         }
     }
 </script>
@@ -348,12 +151,12 @@
             :view="view"/>
 
         <div class="Map__main" ref="main">
-            <canvas :id="'canvas-' + id"></canvas>
+            <map-canvas :view="view" :map-type="mapType"/>
 
-            <pointer-canvas
-                :view="view"
-                :width="width"
-                :height="height"/>
+<!--            <pointer-canvas-->
+<!--                :view="view"-->
+<!--                :width="width"-->
+<!--                :height="height"/>-->
 
             <div
                 v-if="currentSource"
@@ -384,11 +187,6 @@
                 class="icon-button icon-button--without-border button-open-map-tools">
                 <img src="assets/img/tools/dots.svg" alt="">
             </div>
-
-            <map-labels
-                v-if="labels"
-                :style="{'width': width + 'px', 'height': height + 'px'}"
-                :labels="labels"/>
 
             <map-tools-popup
                 v-if="showMapToolsPopup && mapType === 'signaling'"
@@ -487,13 +285,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-
-            canvas {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                // border: 1px solid #000;
-            }
 
             #main-canvas {
                 z-index: 0;

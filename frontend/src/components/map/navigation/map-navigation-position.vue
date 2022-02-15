@@ -3,16 +3,16 @@ export default {
     name: 'map-navigation-position',
     methods: {
         up() {
-            this.$store.commit('maps/up');
+            this.$store.commit('settings/navigateUp');
         },
         down() {
-            this.$store.commit('maps/down');
+            this.$store.commit('settings/navigateDown');
         },
         left() {
-            this.$store.commit('maps/left');
+            this.$store.commit('settings/navigateLeft');
         },
         right() {
-            this.$store.commit('maps/right');
+            this.$store.commit('settings/navigateRight');
         }
     }
 }

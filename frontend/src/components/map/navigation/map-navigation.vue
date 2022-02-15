@@ -1,12 +1,13 @@
 <script>
 import mapNavigationZoom from "./map-navigation-zoom";
 import mapNavigationPosition from "./map-navigation-position";
+import mapNavigationReset from "./map-navigation-reset";
 
 export default {
     name: 'map-navigation',
     components: {
-        mapNavigationZoom, mapNavigationPosition
-    },
+        mapNavigationReset, mapNavigationZoom, mapNavigationPosition
+    }
 }
 </script>
 
@@ -15,6 +16,7 @@ export default {
     <div class="map-navigation">
         <map-navigation-zoom />
         <map-navigation-position />
+        <map-navigation-reset />
     </div>
 </template>
 

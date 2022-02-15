@@ -5,23 +5,23 @@ import { getShadeOfColor } from "@/tools/color";
 import { CUMULATIVE_COLOR_SCALE } from "@/data/constants";
 import { getColorForRegion } from "@/tools/signaling";
 
-const addBackground = function(ctx, width, height) {
-    ctx.rect(0, 0, width, height);
-    ctx.fillStyle = '#f5eedc';
-    ctx.fill();
-};
-
-const draw = function(ctx, regionContainers, settings, view, mapType = 'signaling', border = true) {
+const draw = function(ctx, regions, settings, view, mapType) {
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = settings.borderStyle ? settings.borderStyle : 'rgba(0,0,0,0.3)';
 
-    const values = getValues(regionContainers, mapType, view);
+    const values = getValues(regions, mapType, view);
     if (mapType === "cumulative") {
         normalise(values);
     }
     for (let regionData of values) {
         drawRegionContainer(ctx, regionData.region, settings, regionData.result.color) ;
     }
+};
+
+const addBackground = function(ctx, width, height) {
+    ctx.rect(0, 0, width, height);
+    ctx.fillStyle = '#f5eedc';
+    ctx.fill();
 };
 
 const normalise = (regions) => {

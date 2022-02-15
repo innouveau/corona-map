@@ -3,10 +3,10 @@ export default {
     name: 'map-navigation-zoom',
     methods: {
         zoomIn() {
-            this.$store.commit('maps/zoomIn');
+            this.$store.commit('settings/zoomIn');
         },
         zoomOut() {
-            this.$store.commit('maps/zoomOut');
+            this.$store.commit('settings/zoomOut');
         }
     }
 }

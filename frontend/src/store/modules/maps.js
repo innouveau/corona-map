@@ -7,13 +7,6 @@ const Model = Map;
 const state = {
     all: [],
     current: null,
-    navigation: {
-        zoom: 1,
-        position: {
-            x: 1,
-            y: 1
-        }
-    }
 };
 
 const getters = {
@@ -32,24 +25,6 @@ const mutations = {
     setCurrent(state, item) {
         _base.mutations.setCurrent(state, item);
     },
-    zoomIn(state) {
-        state.navigation.zoom *= 1.1;
-    },
-    zoomOut(state) {
-        state.navigation.zoom /= 1.1;
-    },
-    up(state) {
-        state.navigation.position.y *= 1.1;
-    },
-    down(state) {
-        state.navigation.position.y /= 1.1;
-    },
-    left(state) {
-        state.navigation.position.x *= 1.1;
-    },
-    right(state) {
-        state.navigation.position.x /= 1.1;
-    }
 };
 
 export default {
