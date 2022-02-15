@@ -49,6 +49,9 @@ export default {
         currentMap() {
             return this.$store.state.maps.current;
         },
+        currentRegionType() {
+            return this.$store.state.ui.currentRegionType;
+        },
         currentSource(){
             return this.view.currentSource;
         },
@@ -151,22 +154,24 @@ export default {
             return null;
         },
         draw() {
-            this.clear();
-            const settings = {
-                key: this.mapRenderKey,
-                container: this.sizes.container,
-                canvas: this.sizes.canvas,
-                scale: this.$store.state.settings.scale,
-                map: this.currentMap.settings.map,
-                navigation: this.navigation,
-                fill: true,
-                border: true,
-                shiftPrint: {
-                    x: 0,
-                    y: 0
-                }
-            };
-            canvasTools.draw(this.ctx, this.regions, settings, this.view, this.mapType);
+            if (this.currentSource.loaded) {
+                this.clear();
+                const settings = {
+                    key: this.mapRenderKey,
+                    container: this.sizes.container,
+                    canvas: this.sizes.canvas,
+                    scale: this.$store.state.settings.scale,
+                    map: this.currentMap.settings.map,
+                    navigation: this.navigation,
+                    fill: true,
+                    border: true,
+                    shiftPrint: {
+                        x: 0,
+                        y: 0
+                    }
+                };
+                canvasTools.draw(this.ctx, this.regions, settings, this.view, this.mapType);
+            }
         },
         clear() {
             this.ctx.clearRect(0, 0, this.sizes.container.width, this.sizes.container.height);

@@ -62,9 +62,6 @@
             }
         },
         computed: {
-            currentRegionType() {
-                return this.$store.state.ui.currentRegionType;
-            },
             showMapToolsPopup() {
                 return this.$store.state.ui.mapToolsPopup;
             },

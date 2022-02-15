@@ -93,7 +93,10 @@ export const getAbsoluteValueForDay = (region, offset, source, updateHistory = t
         }
         if (updateHistory) {
             if (!region.report.history[index]) {
-                region.report.history[index] = {};
+                region.report.history[index] = {
+                    offset: 0,
+                    source: {}
+                };
             }
             region.report.history[index].offset = offset;
             region.report.history[index].source[source] = dayValue;
