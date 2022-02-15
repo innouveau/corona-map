@@ -15,10 +15,12 @@
     import mapNavigation from "./navigation/map-navigation";
     import { loadSource } from "@/tools/timeline";
     import MapCanvas from "./map-canvas";
+    import MapNavigationPositionDrag from "./navigation/map-navigation-position-drag";
 
     export default {
         name: 'Map',
         components: {
+            MapNavigationPositionDrag,
             MapCanvas,
             MapLegendCumulative,
             Loader,
@@ -152,6 +154,8 @@
 
         <div class="Map__main" ref="main">
             <map-canvas :view="view" :map-type="mapType"/>
+
+            <map-navigation-position-drag />
 
 <!--            <pointer-canvas-->
 <!--                :view="view"-->

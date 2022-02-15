@@ -85,6 +85,10 @@ const mutations = {
                 state.navigation.zoom = max;
             }
         }
+    },
+    move(state, delta) {
+        state.navigation.position.x += delta.x;
+        state.navigation.position.y += delta.y;
     }
 };
 

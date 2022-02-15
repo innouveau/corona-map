@@ -4,10 +4,11 @@ import { childRegionToParent } from "../../tools/region";
 import canvasTools from '@/tools/canvas';
 import View from "@/classes/View";
 import mapNavigationZoomScroll from "@/components/map/navigation/map-navigation-zoom.scroll.js"
+import MapNavigationPositionDrag from "./navigation/map-navigation-position-drag";
 
 export default {
     name: 'map-canvas',
-    components: {},
+    components: {MapNavigationPositionDrag},
     mixins: [mapNavigationZoomScroll],
     props: {
         view: {
@@ -226,6 +227,7 @@ export default {
 
 <style lang="scss" scoped>
 .canvas-container {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;

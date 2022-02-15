@@ -23,7 +23,7 @@ const getLeft = function(longitude, settings) {
     const center = 0.5 * settings.container.width;
     const relativePoint = longitude - settings.map.longitude;
     const translatedPoint = relativePoint * multiplier
-    const shiftByNavigation = settings.navigation.position.x * multiplier;
+    const shiftByNavigation = settings.navigation.position.x;
     return center + translatedPoint + shiftByNavigation;
     // settings.shiftPrint.x;
 };
@@ -33,7 +33,7 @@ const getTop = function(latitude, settings) {
     const center = 0.5 * settings.container.height;
     const relativePoint = latitude - settings.map.latitude;
     const translatedPoint = relativePoint * multiplier;
-    const shiftByNavigation = settings.navigation.position.y * multiplier;
+    const shiftByNavigation = settings.navigation.position.y;
     return center - translatedPoint + shiftByNavigation;
     //settings.shiftPrint.y;
 };

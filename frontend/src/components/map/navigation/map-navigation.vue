@@ -14,6 +14,8 @@ export default {
 
 <template>
     <div class="map-navigation">
+        {{ $store.state.settings.navigation.position.x }}<br>
+        {{ $store.state.settings.navigation.position.y }}
         <map-navigation-zoom />
         <map-navigation-position />
         <map-navigation-reset />
