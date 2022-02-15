@@ -2,12 +2,13 @@
 import $ from "jquery";
 import { childRegionToParent } from "../../tools/region";
 import canvasTools from '@/tools/canvas';
-import dateTools from '@/tools/date';
 import View from "@/classes/View";
+import mapNavigationZoomScroll from "@/components/map/navigation/map-navigation-zoom.scroll.js"
 
 export default {
     name: 'map-canvas',
     components: {},
+    mixins: [mapNavigationZoomScroll],
     props: {
         view: {
             type: View,
@@ -97,18 +98,10 @@ export default {
         resize() {
             this.measure();
             setTimeout(() => {
-                this.clearCache();
-                this.canvas.width = this.width;
-                this.canvas.height = this.height;
+                this.canvas.width = this.sizes.container.width;
+                this.canvas.height = this.sizes.container.height;
                 this.draw();
             });
-        },
-        clearCache() {
-            for (let region of this.$store.state[this.currentMap.module].all) {
-                for (let path of region.paths) {
-                    path.storedPaths = {};
-                }
-            }
         },
         addEvents() {
             this.addClickEvent();

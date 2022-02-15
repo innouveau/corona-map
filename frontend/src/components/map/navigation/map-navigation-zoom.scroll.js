@@ -1,13 +1,6 @@
-<script>
 export default {
-    name: 'map-navigation-zoom',
+    name: 'map-navigation-zoom-scroll',
     methods: {
-        zoomIn() {
-            this.$store.commit('settings/zoomIn');
-        },
-        zoomOut() {
-            this.$store.commit('settings/zoomOut');
-        },
         handleScroll(event) {
             const max = 400;
             const scrollDistance = Math.min(Math.abs(event.deltaY), max);
@@ -23,18 +16,3 @@ export default {
         this.$el.removeEventListener('wheel', this.handleScroll);
     },
 }
-</script>
-
-<template>
-    <div class="map-navigation-zoom map-navigation__section">
-        <button @click="zoomIn">+</button>
-        <button @click="zoomOut">-</button>
-    </div>
-</template>
-
-
-<style lang="scss">
-.map-navigation-zoom {
-
-}
-</style>

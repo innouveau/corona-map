@@ -13,7 +13,7 @@ const state = {
         }
     },
     navigation: {
-        zoom: 1.5,
+        zoom: 1,
         position: {
             x: 0,
             y: 0
@@ -71,6 +71,20 @@ const mutations = {
         state.navigation.position.x = 0;
         state.navigation.position.y = 0;
         state.navigation.zoom = 1;
+    },
+    zoom(state, factor) {
+        const min = 0.5;
+        const max = 10;
+        const result = state.navigation.zoom * factor;
+        if (result >= min && result <= max) {
+            state.navigation.zoom = result;
+        } else {
+            if (result < min) {
+                state.navigation.zoom = min;
+            } else if (result > max) {
+                state.navigation.zoom = max;
+            }
+        }
     }
 };
 
