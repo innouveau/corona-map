@@ -66,7 +66,7 @@ export default {
 <style lang="scss">
 .map-navigation-position-drag {
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
