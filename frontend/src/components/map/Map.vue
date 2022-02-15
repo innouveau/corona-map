@@ -15,6 +15,7 @@
     import mapNavigation from "./navigation/map-navigation";
     import MapCanvas from "./map-canvas";
     import MapNavigationPositionDrag from "./navigation/map-navigation-position-drag";
+    import dateTools from "@/tools/date";
 
     export default {
         name: 'Map',

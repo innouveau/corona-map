@@ -5,6 +5,7 @@ import canvasTools from '@/tools/canvas';
 import View from "@/classes/View";
 import mapNavigationZoomScroll from "@/components/map/navigation/map-navigation-zoom.scroll.js"
 import MapNavigationPositionDrag from "./navigation/map-navigation-position-drag";
+import { loadSource } from "@/tools/timeline";
 
 export default {
     name: 'map-canvas',
