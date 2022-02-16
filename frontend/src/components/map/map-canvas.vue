@@ -6,11 +6,12 @@ import View from "@/classes/View";
 import mapNavigationZoomScroll from "@/components/map/navigation/map-navigation-zoom.scroll.js"
 import MapNavigationPositionDrag from "./navigation/map-navigation-position-drag";
 import { loadSource } from "@/tools/timeline";
+import mapMixin from "./map-mixin.js";
 
 export default {
     name: 'map-canvas',
     components: {MapNavigationPositionDrag},
-    mixins: [mapNavigationZoomScroll],
+    mixins: [mapNavigationZoomScroll, mapMixin],
     props: {
         view: {
             type: View,
@@ -21,22 +22,10 @@ export default {
             required: true
         },
     },
-    data() {
-        return {
-            id: Math.round(Math.random() * 1000000)
-        }
-    },
     computed: {
-        sizes() {
-            return this.$store.state.settings.sizes;
-        },
         canvas() {
             return document.getElementById('canvas-' + this.id);
         },
-        ctx() {
-            return this.canvas.getContext('2d');
-        },
-        //
         color() {
             return this.$store.state.ui.color;
         },
@@ -46,24 +35,15 @@ export default {
         gradient() {
             return this.$store.state.settings.gradient;
         },
-        currentMap() {
-            return this.$store.state.maps.current;
-        },
         currentRegionType() {
             return this.$store.state.ui.currentRegionType;
         },
         currentSource(){
             return this.view.currentSource;
         },
-        navigation() {
-            return this.$store.state.settings.navigation;
-        },
         regions() {
             return this.$store.getters['ui/regions'];
         },
-        mapRenderKey() {
-            return 'map-' + this.sizes.canvas.width + '-' + this.navigation.zoom + this.navigation.position.x + '-' + this.navigation.position.y;
-        }
     },
     methods: {
         init() {
@@ -173,9 +153,6 @@ export default {
                 canvasTools.draw(this.ctx, this.regions, settings, this.view, this.mapType);
             }
         },
-        clear() {
-            this.ctx.clearRect(0, 0, this.sizes.container.width, this.sizes.container.height);
-        },
         checkSource() {
             if (this.view.currentSource && !this.view.currentSource.loaded) {
                 const key = this.view.currentSource.key;
@@ -209,12 +186,6 @@ export default {
         },
         gradient: function () {
             this.draw();
-        },
-        navigation: {
-            handler: function() {
-                this.draw();
-            },
-            deep: true
         },
         currentSource: function () {
             this.checkSource();

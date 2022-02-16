@@ -103,7 +103,7 @@ const maps = [
         title: 'Vaccinatie',
         story_id: null,
         settings: {
-            regionTypes: ['district', 'municipality'],
+            regionTypes: ['district', 'municipality', 'ggd', 'province'],
             pathOrigins: [],
             generalInfoHasPopulation: false,
             map: {

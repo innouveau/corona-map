@@ -1,46 +1,28 @@
 <script>
     import canvasTools from '@/tools/canvas';
     import View from "@/classes/View";
+    import mapMixin from "./map-mixin.js";
 
     export default {
         name: 'pointer-canvas',
         components: {},
+        mixins: [mapMixin],
         props: {
             view: {
                 type: View,
                 required: true
             },
         },
-        data() {
-            return {
-                id: Math.round(Math.random() * 1000000)
-            }
-        },
         computed: {
-            canvas() {
-                return document.getElementById('pointer-canvas-' + this.id);
-            },
-            ctx() {
-                return this.canvas.getContext('2d');
-            },
             hoverValue() {
                 return this.$store.state.ui.hoverValue;
-            },
-            currentMap() {
-                return this.$store.state.maps.current;
             },
             currentRegion() {
                 return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
             },
-            sizes() {
-                return this.$store.state.settings.sizes;
+            canvas() {
+                return document.getElementById('pointer-canvas-' + this.id);
             },
-            navigation() {
-                return this.$store.state.settings.navigation;
-            },
-            mapRenderKey() {
-                return 'map-' + this.sizes.canvas.width + '-' + this.navigation.zoom + this.navigation.position.x + '-' + this.navigation.position.y;
-            }
         },
         methods: {
             showCurrentRegion() {
@@ -64,19 +46,10 @@
                     canvasTools.drawRegionContainer(this.ctx, this.currentRegion, settings, "transparent");
                 }
             },
-            clear() {
-                this.ctx.clearRect(0, 0, this.sizes.container.width, this.sizes.container.height);
-            }
         },
         watch: {
             currentRegion: function () {
                 this.showCurrentRegion();
-            },
-            navigation: {
-                handler: function() {
-                    this.showCurrentRegion();
-                },
-                deep: true
             },
         }
     }
