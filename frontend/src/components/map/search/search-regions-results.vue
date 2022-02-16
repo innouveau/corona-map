@@ -21,7 +21,7 @@
                 return this.$store.state.maps.current;
             },
             regions() {
-                return this.$store.getters['ui/regions'];
+                return this.$store.getters['regions/regionsForRegionType'];
             },
             filtered() {
                 return this.regions

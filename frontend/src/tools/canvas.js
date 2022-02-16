@@ -4,17 +4,18 @@ import { getRelativeCumulativeForPeriod, getChangeOfType } from "@/tools/calcula
 import { getShadeOfColor } from "@/tools/color";
 import { CUMULATIVE_COLOR_SCALE } from "@/data/constants";
 import { getColorForRegion } from "@/tools/signaling";
+import {getPathsForRegion} from "./relations";
+import Path from "@/classes/region/geo/Path";
 
 const draw = function(ctx, regions, settings, view, mapType) {
     ctx.lineWidth = 0.5;
     ctx.strokeStyle = settings.borderStyle ? settings.borderStyle : 'rgba(0,0,0,0.3)';
-
     const values = getValues(regions, mapType, view);
     if (mapType === "cumulative") {
         normalise(values);
     }
     for (let regionData of values) {
-        drawRegionContainer(ctx, regionData.region, settings, regionData.result.color) ;
+        drawRegion(ctx, regionData.region, settings, regionData.result.color) ;
     }
 };
 
@@ -53,13 +54,21 @@ const normalise = (regions) => {
     }
 }
 
-const getValues = (regionContainers, mapType, view) => {
+const getValues = (regions, mapType, view) => {
     const result = [];
-    for (const region of regionContainers) {
-        result.push({
-            region: region,
-            result: getValue(region, mapType, view)
-        });
+    for (const region of regions) {
+        // todo this is temp
+        if (!region.baseRegion) {
+            result.push({
+                region,
+                result: 0
+            })
+        } else {
+            result.push({
+                region,
+                result: getValue(region, mapType, view)
+            });
+        }
     }
     return result;
 }
@@ -121,7 +130,16 @@ const drawRegionContainer = function(ctx, parent, settings, color) {
     }
 };
 
-const drawRegion = function(ctx, region, settings) {
+const drawRegion = function(ctx, region, settings, color) {
+    let paths;
+    ctx.fillStyle = color;
+    ctx.globalAlpha = 1;
+    if (!region.baseRegion) {
+        if (!region.paths) {
+            const data = getPathsForRegion(region);
+            region.paths = data.map(path => new Path(path));
+        }
+    }
     for (let path of region.paths) {
         drawPath(ctx, path, settings);
     }

@@ -17,7 +17,7 @@
         },
         computed: {
             set() {
-                const regions = this.$store.getters['ui/regions'];
+                const regions = this.$store.getters['regions/regionsForRegionType'];
                 return regions.map(region => {
                     return {
                         region,

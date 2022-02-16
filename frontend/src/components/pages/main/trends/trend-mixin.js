@@ -22,7 +22,7 @@ export default {
             return this.$store.state.maps.current;
         },
         regions() {
-            let regions = this.$store.getters['ui/regions'].filter(region => !region.noData);
+            let regions = this.$store.getters['regions/regionsForRegionType'].filter(region => !region.noData);
             // check if the country has regions in this map
             if (this.currentRegionType === 'country') {
                 regions = regions.filter(country => {

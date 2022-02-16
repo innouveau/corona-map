@@ -50,7 +50,7 @@
         },
         methods: {
             getRegions(threshold) {
-                let regions = this.$store.getters['ui/regions'];
+                let regions = this.$store.getters['regions/regionsForRegionType'];
 
                 const getTotalRelativeIncreaseWeek = (region) => {
                     return region.getTotalIncreaseOfType(this.view.offset, 7, 'positiveTests', true);

@@ -20,6 +20,7 @@ class Region {
         this.paths = paths.map(path => new Path(path));
         this.report = report;
         this.noData = false;
+        this.baseRegion = true;
     }
     get titleForSorting() {
         return stringTool.titleForSorting(this.title);

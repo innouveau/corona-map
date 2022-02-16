@@ -1,5 +1,6 @@
 import _base from './_base-module';
 import Region from '@/classes/region/Region';
+import { getRegions } from "@/tools/relations"
 
 const state = {
     all: [],
@@ -8,7 +9,15 @@ const state = {
 };
 
 const getters = {
-    ..._base.getters
+    ..._base.getters,
+    regionsForRegionType(state, getters, rootState) {
+        // the base setting
+        if (rootState.ui.currentRegionType === rootState.maps.current.settings.regionTypes[0]) {
+            return state.all;
+        } else {
+            return getRegions(rootState.ui.currentRegionType);
+        }
+    },
 };
 
 const actions = {};

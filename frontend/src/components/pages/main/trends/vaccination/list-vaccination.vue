@@ -35,7 +35,7 @@ export default {
     },
     computed: {
         regions() {
-            return this.$store.getters['ui/regions'].filter((region) => {
+            return this.$store.getters['regions/regionsForRegionType'].filter((region) => {
                 return !region.noData && getAbsoluteValueForDay(region, this.view.offset, this.view.currentSource.key) !== 9999;
             });
         }

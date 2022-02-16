@@ -24,7 +24,7 @@ export default {
     },
     computed: {
         list() {
-            const regions = this.$store.getters['ui/regions'];
+            const regions = this.$store.getters['regions/regionsForRegionType'];
             return regions.map(region => {
                 const start = this.view.offset;
                 const end = this.view.offsetStart;

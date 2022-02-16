@@ -107,7 +107,7 @@
                 }
             },
             regions() {
-                return this.$store.getters['ui/regions'];
+                return this.$store.getters['regions/regionsForRegionType'];
             },
             country() {
                 return this.$store.state.countries.all.find(c => {

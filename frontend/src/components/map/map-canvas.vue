@@ -42,7 +42,7 @@ export default {
             return this.view.currentSource;
         },
         regions() {
-            return this.$store.getters['ui/regions'];
+            return this.$store.getters['regions/regionsForRegionType'];
         },
     },
     methods: {
