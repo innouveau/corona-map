@@ -1,5 +1,5 @@
 <script>
-import _Region from "@/classes/region/_Region";
+import Region from "@/classes/region/Region";
 import View from "@/classes/View";
 import { parentRegionToChild, childRegionToParent } from "@/tools/region";
 
@@ -11,7 +11,7 @@ export default {
             required: true
         },
         region: {
-            type: _Region,
+            type: Region,
             required: true
         }
     },

@@ -129,27 +129,30 @@ export const getReportingDelay = (region, offset) => {
 // other functions might trigger watchers on a region
 // multiple times
 export const getHistory = (region, source) => {
-    // meaning it is a city
-    // (instead of an aggregated region like a province)
-    if (region === region.regions[0]) {
-        return region.report.history;
-    } else {
-        const values = [];
-        const l = store.state.settings.historyLength;
-        for (let i = 0; i < l; i++) {
-            const offset = l - 1 - i;
-            const v = getAbsoluteValueForDay(region, offset, source, false);
-            values.push(v);
-        }
-        for (let i = 0; i < l; i++) {
-            if (!region.report.history[i]) {
-                region.report.history[i] = {};
-            }
-            region.report.history[i].offset = l - 1 - i;
-            region.report.history[i].source[source] = values[i];
-        }
-        return region.report.history;
-    }
+    // TODO
+    return region.report.history;
+
+    // // meaning it is a city
+    // // (instead of an aggregated region like a province)
+    // if (region === region.regions[0]) {
+    //     return region.report.history;
+    // } else {
+    //     const values = [];
+    //     const l = store.state.settings.historyLength;
+    //     for (let i = 0; i < l; i++) {
+    //         const offset = l - 1 - i;
+    //         const v = getAbsoluteValueForDay(region, offset, source, false);
+    //         values.push(v);
+    //     }
+    //     for (let i = 0; i < l; i++) {
+    //         if (!region.report.history[i]) {
+    //             region.report.history[i] = {};
+    //         }
+    //         region.report.history[i].offset = l - 1 - i;
+    //         region.report.history[i].source[source] = values[i];
+    //     }
+    //     return region.report.history;
+    // }
 }
 
 

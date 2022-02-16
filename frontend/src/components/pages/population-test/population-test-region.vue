@@ -1,5 +1,5 @@
 <script>
-    import _Region from "@/classes/region/_Region";
+    import Region from "@/classes/region/Region";
     import View from "@/classes/View";
     import populationTestGraph from "./population-test-graph";
     import populationTestNumbers from "./population-test-numbers";
@@ -13,7 +13,7 @@
         },
         props: {
             region: {
-                type: _Region,
+                type: Region,
                 required: true
             },
             view: {

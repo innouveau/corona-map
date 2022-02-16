@@ -107,20 +107,8 @@ const getters = {
         }
     },
     regions(state, getters, rootState) {
-        switch(state.currentRegionType) {
-            case 'district':
-                return rootState.districts.all;
-            case 'city':
-                return rootState.cities.all;
-            case 'ggd':
-                return rootState.ggds.all;
-            case 'safety-region':
-                return rootState.safetyRegions.all;
-            case 'province':
-                return rootState.provinces.all;
-            case 'country':
-                return rootState.countries.all;
-        }
+        // TODO
+        return rootState.regions.all;
     },
     typeLabel: (state) => (plural = true) => {
         switch(state.currentRegionType) {

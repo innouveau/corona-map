@@ -58,9 +58,9 @@ export const loadSource = async(map, source) => {
 }
 
 const checkForEmptyData = (map, source) => {
-    for (const region of store.state[map.module].all) {
+    for (const region of store.state.regions.all) {
         if (region.report.history.length === 0) {
-            store.commit(map.module + "/noData", region);
+            store.commit("regions/noData", region);
         }
     }
 }
@@ -68,8 +68,8 @@ const checkForEmptyData = (map, source) => {
 const addSourceItem = (map, source, regionData) => {
     const adapter = source.adapter;
     const titleKey = regionData[adapter.titleKey];
-    if (store.state[map.module].dict[titleKey]) {
-        const region = store.state[map.module].dict[titleKey];
+    if (store.state.regions.dict[titleKey]) {
+        const region = store.state.regions.dict[titleKey];
         if (region) {
             const history = [];
 
@@ -111,10 +111,10 @@ const addSourceItem = (map, source, regionData) => {
             }
 
             if (region.report.history.length === 0) {
-                store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'report', value: { history }});
+                store.commit( 'regions/updatePropertyOfItem', {item: region, property: 'report', value: { history }});
                 if (!map.settings.generalInfoHasPopulation) {
                     const populationKey = adapter.hasOwnProperty("populationKey") ? adapter.populationKey : "population";
-                    store.commit(map.module + '/updatePropertyOfItem', {item: region, property: 'population', value: numberTools.convertToNumber(regionData[populationKey])});
+                    store.commit( 'regions/updatePropertyOfItem', {item: region, property: 'population', value: numberTools.convertToNumber(regionData[populationKey])});
                 }
             } else {
                 for (const historyDay of history) {

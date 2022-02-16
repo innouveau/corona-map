@@ -95,7 +95,7 @@
                 let region, offset, source, start;
                 if (this.$route.query.region) {
                     const regionString = decodeURI(this.$route.query.region);
-                    region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', regionString, true);
+                    region = this.$store.getters['regions/getItemByProperty']('title', regionString, true);
                     if (region) {
                         this.view.currentRegion = region;
                     }

@@ -14,7 +14,7 @@
         },
         computed: {
             regions() {
-                return this.$store.state[this.$store.state.maps.current.module].all;
+                return this.$store.state.regions.all;
             },
             value() {
                 let n = 0;

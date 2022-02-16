@@ -1,4 +1,4 @@
-const provinces = [{
+window.regions = [{
     "id": 1,
     "title": "Groningen",
     "province_code": "PV20",
@@ -4299,5 +4299,3 @@ const provinces = [{
     ]
 }
 ];
-
-export default provinces;

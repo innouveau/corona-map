@@ -101,11 +101,9 @@ const maps = [
         ready: true,
         block: false,
         title: 'Vaccinatie',
-        module: 'districts',
-        regionLabel: 'wijken',
         story_id: null,
         settings: {
-            regionTypes: ['district'],
+            regionTypes: ['district', 'municipality'],
             pathOrigins: [],
             generalInfoHasPopulation: false,
             map: {

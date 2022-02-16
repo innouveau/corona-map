@@ -8,13 +8,7 @@ import signalingSystems from './modules/signaling-systems';
 import maps from './modules/maps';
 import stories from './modules/stories';
 import views from './modules/views';
-import countries from './modules/countries';
-import cities from './modules/cities';
-import districts from './modules/districts';
-import ggds from './modules/ggds';
-import safetyRegions from './modules/safety-regions';
-import provinces from './modules/provinces';
-import regios from './modules/regios';
+import regions from './modules/regions';
 import sewageTreatmentPlants from './modules/sewage-treatment-plants';
 import ageGroups from './modules/age-groups';
 import settings from './modules/settings';
@@ -37,7 +31,7 @@ const store = new Vuex.Store({
         languages,
         signalingSystems, sources,
         maps, stories, views,
-        countries, cities, districts, ggds, safetyRegions, provinces, regios,
+        regions,
         sewageTreatmentPlants,
         ageGroups,
         settings, ui

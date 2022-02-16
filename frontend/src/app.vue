@@ -8,12 +8,6 @@
     import languages from '@/data/languages';
     import maps from '@/data/maps';
     import stories from '@/data/stories';
-    import ggds from '@/data/ggds';
-    import safetyRegions from '@/data/safety-regions';
-    import provinces from '@/data/provinces';
-    import regios from '@/data/regios';
-    import countries from '@/data/countries';
-    import ageGroups from '@/data/age-groups';
     import signalingSystems from '@/data/signaling-systems';
 
     export default {
@@ -83,12 +77,6 @@
                 this.$store.commit('stories/init', stories);
                 this.$store.commit('signalingSystems/init', signalingSystems);
                 this.$store.commit('signalingSystems/setCurrent', this.$store.state.signalingSystems.all[0]);
-                this.$store.commit('countries/init', countries);
-                this.$store.commit('ggds/init', ggds);
-                this.$store.commit('safetyRegions/init', safetyRegions);
-                this.$store.commit('provinces/init', provinces);
-                this.$store.commit('regios/init', regios);
-                this.$store.commit('ageGroups/init', ageGroups);
             },
             async loadDynamicData() {
                 await this.loadGeoData();
@@ -98,7 +86,7 @@
             loadGeoData() {
                 return new Promise((resolve, reject) => {
                     $.getJSON(this.currentMap.data.geo.source, (regions) => {
-                        this.$store.commit(this.currentMap.module + '/init', regions);
+                        this.$store.commit('regions/init', regions);
                         resolve();
                     }).catch((error) => {
                         reject(error);

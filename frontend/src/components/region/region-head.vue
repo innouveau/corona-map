@@ -1,5 +1,5 @@
 <script>
-    import _Region from "@/classes/region/_Region";
+    import Region from "@/classes/region/Region";
     import View from "@/classes/View";
     import numberTools from '@/tools/number';
     import { getRelativeCumulativeForPeriod } from "@/tools/calculator";
@@ -12,7 +12,7 @@
                 required: true
             },
             region: {
-                type: _Region,
+                type: Region,
                 required: true
             }
         },

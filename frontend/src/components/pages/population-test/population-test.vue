@@ -127,7 +127,7 @@
                 let labels = [];
                 for (let group of this.groups) {
                     for (let item of group.regions) {
-                        let region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', item.title, true);
+                        let region = this.$store.getters['regions/getItemByProperty']('title', item.title, true);
                         labels.push({
                             region,
                             color: group.color,
@@ -144,7 +144,7 @@
                 let region, string, offset;
                 if (this.$route.query.region) {
                     string = decodeURI(this.$route.query.region);
-                    region = this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', string, true);
+                    region = this.$store.getters['regions/getItemByProperty']('title', string, true);
                     if (region) {
                         this.view.currentRegion = region;
                     }

@@ -142,7 +142,7 @@ export default {
             }, false);
         },
         getRegionForPoint(x, y) {
-            const regions = this.$store.state[this.currentMap.module].all;
+            const regions = this.$store.state.regions.all;
             let reversed = regions.slice().reverse();
             for (let region of reversed) {
                 for (let path of region.paths) {

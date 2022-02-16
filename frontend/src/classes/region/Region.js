@@ -1,21 +1,40 @@
+import Path from './geo/Path';
 import store from '@/store/store';
-import thresholdTools from "@/tools/thresholds";
-import coordinatesTool from "@/tools/coordinates";
-import _Cache from "./_Cache";
+import stringTool from '@/tools/string';
 
-class _Region extends _Cache {
-    constructor(_region) {
-        super();
+class Region {
+    constructor({
+        id = null,
+        code = '',
+        title = '',
+        population = 0,
+        paths = [],
+        report = {
+            history: []
+        }
+    }) {
+        this.id = id ? id : (store.state.regions.all.length + 1);
+        this.code = code;
+        this.title = title;
+        this.population = population;
+        this.paths = paths.map(path => new Path(path));
+        this.report = report;
+        this.noData = false;
+    }
+    get titleForSorting() {
+        return stringTool.titleForSorting(this.title);
     }
 
     get totalPopulation() {
-        let population, regions;
-        population = 0;
-        regions = this.regions;
-        for (let region of regions) {
-            population += region.population;
-        }
-        return population;
+        // TODO
+        return this.population;
+        // let population, regions;
+        // population = 0;
+        // regions = this.regions;
+        // for (let region of regions) {
+        //     population += region.population;
+        // }
+        // return population;
     }
 
     get regions() {
@@ -25,19 +44,19 @@ class _Region extends _Cache {
             case 'district':
                 return [this];
             case 'ggd':
-                return store.state[module].all.filter(city => {
+                return store.state.regions.all.filter(city => {
                     return city.ggd_code === this.ggd_code;
                 });
             case 'safety-region':
-                return store.state[module].all.filter(city => {
+                return store.state.regions.all.filter(city => {
                     return city.safetyRegion_code === this.safetyRegion_code;
                 });
             case 'province':
-                return store.state[module].all.filter(city => {
+                return store.state.regions.all.filter(city => {
                     return city.province_code === this.province_code;
                 });
             case 'country':
-                return store.state[module].all.filter(city => {
+                return store.state.regions.all.filter(city => {
                     return city.country_id === this.id;
                 });
         }
@@ -117,4 +136,4 @@ class _Region extends _Cache {
     }
 }
 
-export default _Region;
+export default Region;

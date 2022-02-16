@@ -21,7 +21,7 @@
             },
             regions() {
                 return this.group.regions.map(region => {
-                    return this.$store.getters[this.currentMap.module + '/getItemByProperty']('title', region.title, true);
+                    return this.$store.getters['regions/getItemByProperty']('title', region.title, true);
                 })
             }
         },

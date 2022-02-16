@@ -1,5 +1,5 @@
 import _base from './_base-module';
-import City from '@/classes/region/City';
+import Region from '@/classes/region/Region';
 
 const state = {
     all: [],
@@ -16,12 +16,10 @@ const actions = {};
 const mutations = {
     init(state, set) {
         state.all = [];
-        for (let item of set) {
-            if (item) {
-                let c = new City(item);
-                state.all.push(c);
-                state.dict[c.identifier] = c;
-            }
+        for (const item of set) {
+            const region = new Region(item);
+            state.all.push(region);
+            state.dict[region.code] = region;
         }
     },
     updatePropertyOfItem(state, payload) {

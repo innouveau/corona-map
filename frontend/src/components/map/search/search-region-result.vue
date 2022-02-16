@@ -1,5 +1,5 @@
 <script>
-    import _Region from "@/classes/region/_Region";
+    import Region from "@/classes/region/Region";
     import View from "@/classes/View";
     import { parentRegionToChild } from "@/tools/region";
 
@@ -7,7 +7,7 @@
         name: 'search-region-result',
         props: {
             region: {
-                type: _Region,
+                type: Region,
                 required: true
             },
             view: {

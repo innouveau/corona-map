@@ -26,7 +26,7 @@ export default {
             // check if the country has regions in this map
             if (this.currentRegionType === 'country') {
                 regions = regions.filter(country => {
-                    return this.$store.state[this.currentMap.module].all.filter(r => {
+                    return this.$store.state.regions.all.filter(r => {
                         return r.country_id === country.id;
                     }).length > 0;
                 })

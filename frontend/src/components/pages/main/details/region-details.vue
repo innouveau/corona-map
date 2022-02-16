@@ -1,26 +1,18 @@
 <script>
-    import _Region from "@/classes/region/_Region";
+    import Region from "@/classes/region/Region";
     import View from "@/classes/View";
     import graphSignaling from "@/components/graphs/graph-signaling";
     import administeredPcrTests from "@/components/graphs/administered-pcr-tests"
-    import ageDistributionGraph from "./case-characteristics/age-distribution-graph";
-    import ageDistributionGraphNormalised from "./case-characteristics/age-distribution-graph-normalised/age-distribution-graph-normalised";
-    import ageDistributionTools from "./case-characteristics/age-distribution-graph-normalised/age-distribution-tools";
     import loader from "@/components/elements/loader";
     import regionDetailsNumbers from "./region-details-numbers";
-    import regionDetailsVaccination from "./vaccination/region-details-vaccination";
 
     export default {
         name: 'region-details',
         components: {
-            regionDetailsVaccination,
             regionDetailsNumbers,
             administeredPcrTests,
-            ageDistributionTools,
-            ageDistributionGraphNormalised,
+            graphSignaling,
             loader,
-            ageDistributionGraph,
-            graphSignaling
         },
         props: {
             view: {
@@ -28,7 +20,7 @@
                 required: true
             },
             region: {
-                type: _Region,
+                type: Region,
                 required: true
             }
         },
