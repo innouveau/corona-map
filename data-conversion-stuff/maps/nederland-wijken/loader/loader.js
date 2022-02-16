@@ -48,6 +48,7 @@ const getPaths = (item) => {
 
 
 const handleItem = (item) => {
+    console.log(item);
     const identifier = item.id;
     const title = item.properties.statnaam;
     if (title === "Ouddorp") {
