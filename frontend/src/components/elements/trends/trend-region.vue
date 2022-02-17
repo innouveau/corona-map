@@ -1,7 +1,6 @@
 <script>
-import Region from "@/classes/region/Region";
 import View from "@/classes/View";
-import { parentRegionToChild, childRegionToParent } from "@/tools/region";
+import { getBaseRegions } from "@/tools/relations";
 
 export default {
     name: 'trend-region',
@@ -16,13 +15,16 @@ export default {
         }
     },
     computed: {
+        baseRegion() {
+            return getBaseRegions(this.region, this.$store.state.ui.currentRegionType)[0];
+        },
         isCurrent() {
-            return this.view.currentRegion && childRegionToParent(this.view.currentRegion, this.$store.state.ui.currentRegionType) === this.region;
+            return this.view.currentRegion && this.baseRegion === this.view.currentRegion;
         },
     },
     methods: {
         select() {
-            this.view.currentRegion = parentRegionToChild(this.region);
+            this.view.currentRegion = this.baseRegion;
             this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
         }
     }

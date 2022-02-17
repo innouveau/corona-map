@@ -10,7 +10,7 @@ export default {
     props: {
         direction: {
             type: String,
-            required: true,
+            required: false,
             default: 'top'
         },
     },
@@ -22,16 +22,7 @@ export default {
             return this.$store.state.maps.current;
         },
         regions() {
-            let regions = this.$store.getters['regions/regionsForRegionType'].filter(region => !region.noData);
-            // check if the country has regions in this map
-            if (this.currentRegionType === 'country') {
-                regions = regions.filter(country => {
-                    return this.$store.state.regions.all.filter(r => {
-                        return r.country_id === country.id;
-                    }).length > 0;
-                })
-            }
-            return regions;
+            return this.$store.getters['regions/regionsForRegionType'].filter(region => !region.noData);
         }
     },
     methods: {
