@@ -3,6 +3,7 @@ import View from "@/classes/View";
 import d3GraphMixin from '@/mixins/d3-graph-mixin.js';
 import { getDayForSource } from "@/tools/calculator";
 import { HOSPITALISATION_MULTIPLICATION, DECEASED_MULTIPLICATION} from "@/data/constants";
+import {getTotalPopulation} from "../tools/calculator";
 
 export default {
     name: 'signaling-graph-mixin',
@@ -122,6 +123,9 @@ export default {
                 return getDayForSource(this.region, offset, this.view.currentSource.key);
             });
         },
+        population() {
+            return getTotalPopulation(this.region);
+        }
     },
     methods: {
         init() {
@@ -279,7 +283,7 @@ export default {
             } else {
                 value = day.source['positiveTests'];
             }
-            return 100000 * (value / this.currentMap.settings.interval) / this.region.totalPopulation;
+            return 100000 * (value / this.currentMap.settings.interval) / this.population;
         },
         getAbsoluteValue(day, sourceKey) {
             const l = this.$store.state.settings.historyLength;
@@ -316,7 +320,7 @@ export default {
                     if (this.frameSize === 1) {
                         value = this.getRelativeOfType(day, sourceKey);
                     } else {
-                        value = 100000 * this.getAbsoluteValue(day, sourceKey) / this.region.totalPopulation;
+                        value = 100000 * this.getAbsoluteValue(day, sourceKey) / this.population;
                     }
                 }
 
@@ -334,7 +338,7 @@ export default {
                     total += value / this.currentMap.settings.interval;
                 }
                 average = total / maxSteps;
-                value = 100000 * average / this.region.totalPopulation;
+                value = 100000 * average / this.population;
             }
             return this.valueToY(value);
         },
