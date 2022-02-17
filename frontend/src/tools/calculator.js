@@ -76,11 +76,15 @@ export const getRelativeCumulativeForPeriod = (region, start, end, source) => {
 
 export const getRelativeValueForDay = (region, offset, source) => {
     const totalPopulation = getTotalPopulation(region);
-    if (totalPopulation > 0) {
-        const value = getAbsoluteValueForDay(region, offset, source);
-        return value * 100000 / totalPopulation;
+    const value = getAbsoluteValueForDay(region, offset, source);
+    if (value === null) {
+        return null;
     } else {
-        return 0;
+        if (totalPopulation > 0) {
+            return value * 100000 / totalPopulation;
+        } else {
+            return 0;
+        }
     }
 }
 
@@ -104,8 +108,6 @@ export const getAbsoluteValueForDay = (region, offset, source, updateHistory = t
                 if (!isNaN(value)) {
                     dayValue += value;
                 }
-            } else {
-                console.log("key is missing for " + region.title, offset);
             }
         }
         if (updateHistory) {

@@ -94,6 +94,8 @@ const addSourceItem = (map, source, regionData) => {
                         // 9999 is the code for no info
                         if (value !== 9999) {
                             value = (value / 100) * population;
+                        } else {
+                            value = null;
                         }
                     }
                     regionDay.source[source.key] = value;
