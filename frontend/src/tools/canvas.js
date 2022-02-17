@@ -57,24 +57,16 @@ const normalise = (regions) => {
 const getValues = (regions, mapType, view) => {
     const result = [];
     for (const region of regions) {
-        // todo this is temp
-        if (!region.baseRegion) {
-            result.push({
-                region,
-                result: 0
-            })
-        } else {
-            result.push({
-                region,
-                result: getValue(region, mapType, view)
-            });
-        }
+        result.push({
+            region,
+            result: getValue(region, mapType, view)
+        });
     }
     return result;
 }
 
-const getValue = function(parent, mapType, view) {
-    if (!view.currentSource || parent.noData === true) {
+const getValue = function(region, mapType, view) {
+    if (!view.currentSource || region.noData === true) {
         return {
             value: null,
             color: '#888'
@@ -82,7 +74,7 @@ const getValue = function(parent, mapType, view) {
     } else {
         switch (mapType) {
             case 'change':
-                const change = getChangeOfType(parent, view.offset, 7, view.currentSource.key);
+                const change = getChangeOfType(region, view.offset, 7, view.currentSource.key);
                 return {
                     value: null,
                     color: changeTools.getColorForChange(change)
@@ -90,7 +82,7 @@ const getValue = function(parent, mapType, view) {
             case 'cumulative':
                 const start = view.offset;
                 const end = view.offsetStart;
-                const cumulative = getRelativeCumulativeForPeriod(parent, start, end, view.currentSource.key);
+                const cumulative = getRelativeCumulativeForPeriod(region, start, end, view.currentSource.key);
                 return {
                     value: cumulative,
                     color: null
@@ -98,37 +90,37 @@ const getValue = function(parent, mapType, view) {
             default:
                 return {
                     value: null,
-                    color: getColorForRegion(parent, view)
+                    color: getColorForRegion(region, view)
                 }
         }
     }
 }
 
-const drawRegionContainer = function(ctx, parent, settings, color) {
-    let currentMap, regionType, pathsOriginSetting, pathsOrigin, children;
-    currentMap = store.state.maps.current;
-    regionType = parent.regionType;
-    ctx.fillStyle = color;
-
-
-    if (currentMap.settings.map.discreteRegions && currentMap.settings.map.discreteRegions.indexOf(parent.title) > -1) {
-        ctx.globalAlpha = 0.25;
-    } else {
-        ctx.globalAlpha = 1;
-    }
-
-    pathsOriginSetting = currentMap.settings.pathOrigins.find(region => region.type === regionType);
-    if (pathsOriginSetting) {
-        pathsOrigin = pathsOriginSetting.paths;
-        settings.hideStroke = true;
-    } else {
-        pathsOrigin = 'self';
-    }
-    children = parent.getRegionsForPaths(pathsOrigin);
-    for (let child of children) {
-        drawRegion(ctx, child, settings);
-    }
-};
+// const drawRegionContainer = function(ctx, parent, settings, color) {
+//     let currentMap, regionType, pathsOriginSetting, pathsOrigin, children;
+//     currentMap = store.state.maps.current;
+//     regionType = parent.regionType;
+//     ctx.fillStyle = color;
+//
+//
+//     if (currentMap.settings.map.discreteRegions && currentMap.settings.map.discreteRegions.indexOf(parent.title) > -1) {
+//         ctx.globalAlpha = 0.25;
+//     } else {
+//         ctx.globalAlpha = 1;
+//     }
+//
+//     pathsOriginSetting = currentMap.settings.pathOrigins.find(region => region.type === regionType);
+//     if (pathsOriginSetting) {
+//         pathsOrigin = pathsOriginSetting.paths;
+//         settings.hideStroke = true;
+//     } else {
+//         pathsOrigin = 'self';
+//     }
+//     children = parent.getRegionsForPaths(pathsOrigin);
+//     for (let child of children) {
+//         drawRegion(ctx, child, settings);
+//     }
+// };
 
 const drawRegion = function(ctx, region, settings, color) {
     let paths;
@@ -160,6 +152,5 @@ const drawPath = function(ctx, path, settings) {
 export default {
     addBackground,
     draw,
-    drawRegionContainer,
     drawRegion
 }

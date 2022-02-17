@@ -79,29 +79,31 @@ export const getAbsoluteValueForDay = (region, offset, source, updateHistory = t
             return 0;
         }
     } else {
-        let dayValue = 0;
-        const children = region.regions;
-        for (const child of children) {
-            if (child.report.history[index] && child.report.history[index].source.hasOwnProperty(source)) {
-                const value = child.report.history[index].source[source];
-                if (!isNaN(value)) {
-                    dayValue += value;
-                }
-            } else {
-                //console.log("key is missing for " + region.title, offset);
-            }
-        }
-        if (updateHistory) {
-            if (!region.report.history[index]) {
-                region.report.history[index] = {
-                    offset: 0,
-                    source: {}
-                };
-            }
-            region.report.history[index].offset = offset;
-            region.report.history[index].source[source] = dayValue;
-        }
-        return dayValue;
+        // todo
+        return 0;
+        // let dayValue = 0;
+        // const children = region.regions;
+        // for (const child of children) {
+        //     if (child.report.history[index] && child.report.history[index].source.hasOwnProperty(source)) {
+        //         const value = child.report.history[index].source[source];
+        //         if (!isNaN(value)) {
+        //             dayValue += value;
+        //         }
+        //     } else {
+        //         //console.log("key is missing for " + region.title, offset);
+        //     }
+        // }
+        // if (updateHistory) {
+        //     if (!region.report.history[index]) {
+        //         region.report.history[index] = {
+        //             offset: 0,
+        //             source: {}
+        //         };
+        //     }
+        //     region.report.history[index].offset = offset;
+        //     region.report.history[index].source[source] = dayValue;
+        // }
+        // return dayValue;
     }
 }
 
