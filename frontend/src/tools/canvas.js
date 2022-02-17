@@ -96,34 +96,7 @@ const getValue = function(region, mapType, view) {
     }
 }
 
-// const drawRegionContainer = function(ctx, parent, settings, color) {
-//     let currentMap, regionType, pathsOriginSetting, pathsOrigin, children;
-//     currentMap = store.state.maps.current;
-//     regionType = parent.regionType;
-//     ctx.fillStyle = color;
-//
-//
-//     if (currentMap.settings.map.discreteRegions && currentMap.settings.map.discreteRegions.indexOf(parent.title) > -1) {
-//         ctx.globalAlpha = 0.25;
-//     } else {
-//         ctx.globalAlpha = 1;
-//     }
-//
-//     pathsOriginSetting = currentMap.settings.pathOrigins.find(region => region.type === regionType);
-//     if (pathsOriginSetting) {
-//         pathsOrigin = pathsOriginSetting.paths;
-//         settings.hideStroke = true;
-//     } else {
-//         pathsOrigin = 'self';
-//     }
-//     children = parent.getRegionsForPaths(pathsOrigin);
-//     for (let child of children) {
-//         drawRegion(ctx, child, settings);
-//     }
-// };
-
 const drawRegion = function(ctx, region, settings, color) {
-    let paths;
     ctx.fillStyle = color;
     ctx.globalAlpha = 1;
     if (!region.baseRegion) {

@@ -2,7 +2,7 @@
     import canvasTools from '@/tools/canvas';
     import View from "@/classes/View";
     import mapMixin from "./map-mixin.js";
-    import { getRegionFromBaseRegion } from "@/tools/relations";
+    import { getCurrentRegion } from "@/tools/relations";
 
     export default {
         name: 'pointer-canvas',
@@ -19,7 +19,7 @@
                 return this.$store.state.ui.hoverValue;
             },
             currentRegion() {
-                return getRegionFromBaseRegion(this.view.currentRegion, this.$store.state.ui.currentRegionType);
+                return getCurrentRegion(this.view.currentRegion);
             },
             canvas() {
                 return document.getElementById('pointer-canvas-' + this.id);
