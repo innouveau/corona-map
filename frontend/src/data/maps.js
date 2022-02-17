@@ -39,11 +39,7 @@ const caseSettings = {
 const maps = [
     {
         id: 1,
-        ready: true,
-        block: false,
         title: 'Nederland',
-        module: 'cities',
-        regionLabel: 'gemeentes',
         story_id: 1,
         settings: {
             regionTypes: ['municipality','ggd', 'safety-region', 'province', 'country'],
@@ -98,10 +94,7 @@ const maps = [
     },
     {
         id: 15,
-        ready: true,
-        block: false,
         title: 'Vaccinatie',
-        story_id: null,
         settings: {
             regionTypes: ['district', 'municipality', 'ggd', 'province', 'country'],
             pathOrigins: [],
@@ -200,9 +193,6 @@ const maps = [
     }, {
         id: 5,
         ready: true,
-        block: false,
-        regionType: 'District',
-        module: 'districts',
         title: 'Europe',
         settings: {
             regionTypes: ['district'],
@@ -231,11 +221,7 @@ const maps = [
     },
     {
         id: 6,
-        regionType: 'District',
-        module: 'districts',
         title: 'World',
-        ready: true,
-        block: false,
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
@@ -263,10 +249,6 @@ const maps = [
     },
     {
         id: 7,
-        ready: true,
-        block: false,
-        regionType: 'District',
-        module: 'districts',
         title: 'USA',
         settings: {
             regionTypes: ['district'],
@@ -292,74 +274,8 @@ const maps = [
             sources: standardSources
         }
     },
-    // {
-    //     id: 12,
-    //     ready: true,
-    //     block: false,
-    //     regionType: 'District',
-    //     module: 'cities',
-    //     title: 'Slovakia',
-    //     settings: {
-    //         regionTypes: ['city', 'country'],
-    //         pathOrigins: [
-    //             {
-    //                 type: 'country',
-    //                 paths: 'city'
-    //             }
-    //         ],
-    //         generalInfoHasPopulation: true,
-    //         map: {
-    //             latitude: 48.95,
-    //             longitude: 19.3,
-    //             stretch: 0.65,
-    //             zoom: 0.235,
-    //             ratio: 1.5,
-    //             discreteRegions: []
-    //         },
-    //         positiveTestGraph: {
-    //             zoomFactor: 0.2
-    //         }
-    //     },
-    //     data: {
-    //         geo: {
-    //             status: true,
-    //             source: 'data/maps/slovakia/slovakia.json'
-    //         },
-    //         positivePcrTests: {
-    //             status: true,
-    //             source: 'data/maps/slovakia/positive-pcr-tests.csv',
-    //             interval: 1,
-    //             cumulative: true,
-    //             adapter: datagraverAdapter
-    //         },
-    //         administeredPcrTests: {
-    //             status: false,
-    //             source: ''
-    //         },
-    //         positiveAntigenTests: {
-    //             status: true,
-    //             source: 'data/maps/slovakia/positive-antigen-tests.csv',
-    //             adapter: {
-    //                 titleKey: 'region',
-    //                 getPositiveKeys: function(column) {
-    //                     return column.indexOf('positive') > -1;
-    //                 },
-    //                 getTotalKeyFromDate:function(date) {
-    //                     return date + '_total';
-    //                 },
-    //                 getDateFromKey: function(column) {
-    //                     return column.split('_')[0];
-    //                 }
-    //             }
-    //         },
-    //     }
-    // },
     {
         id: 13,
-        ready: true,
-        block: false,
-        regionType: 'District',
-        module: 'districts',
         title: 'South America',
         settings: {
             regionTypes: ['district'],
@@ -388,11 +304,7 @@ const maps = [
     },
     {
         id: 14,
-        regionType: 'District',
-        module: 'districts',
         title: 'South-East Asia',
-        ready: true,
-        block: false,
         settings: {
             regionTypes: ['district'],
             pathOrigins: [],
