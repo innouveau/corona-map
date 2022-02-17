@@ -28,11 +28,6 @@ export default {
         }
     },
     watch: {
-        navigation: {
-            handler: function() {
-                this.draw();
-            },
-            deep: true
-        },
+
     }
 }

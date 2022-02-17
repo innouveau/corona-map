@@ -190,6 +190,12 @@ export default {
         currentSource: function () {
             this.checkSource();
         },
+        navigation: {
+            handler: function() {
+                this.draw();
+            },
+            deep: true
+        },
     }
 }
 </script>
