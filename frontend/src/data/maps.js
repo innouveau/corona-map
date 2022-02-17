@@ -150,6 +150,7 @@ const maps = [
                     loadInitially: true,
                     url: window.config.dataUrl + 'data/vaccination-neighborhood-completed.csv',
                     cumulative: false,
+                    percentage: true,
                     adapter: {
                         titleKey: 'Region_code',
                         populationKey: 'Populatie_merged',

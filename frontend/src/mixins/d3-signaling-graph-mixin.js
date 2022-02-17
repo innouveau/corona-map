@@ -315,7 +315,7 @@ export default {
                     // 7 is because of the `/ this.signalingSystem.days` in drawThresholds()
                     // normally this is to translate a week value to a day value
                     // but for vaccination this does not make sense
-                    value = this.getAbsoluteValue(day, sourceKey) / 7;
+                    value = 100 * (this.getAbsoluteValue(day, sourceKey) / 7) / this.population;
                 } else {
                     if (this.frameSize === 1) {
                         value = this.getRelativeOfType(day, sourceKey);
@@ -323,7 +323,6 @@ export default {
                         value = 100000 * this.getAbsoluteValue(day, sourceKey) / this.population;
                     }
                 }
-
             } else {
                 total = 0;
                 steps = 7;

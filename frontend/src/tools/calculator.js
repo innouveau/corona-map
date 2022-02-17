@@ -85,10 +85,11 @@ export const getRelativeValueForDay = (region, offset, source) => {
 }
 
 export const getAbsoluteValueForDay = (region, offset, source, updateHistory = true) => {
+    let value;
     const index = store.state.settings.historyLength - 1 - offset;
     if (region.report && region.report.history[index] && region.report.history[index].source.hasOwnProperty(source)) {
         const day = region.report.history[index];
-        const value = day.source[source];
+        value = day.source[source];
         if (!isNaN(value)) {
             return value;
         } else {
@@ -99,7 +100,7 @@ export const getAbsoluteValueForDay = (region, offset, source, updateHistory = t
         const children = getBaseRegions(region, store.state.ui.currentRegionType);
         for (const child of children) {
             if (child.report && child.report.history[index] && child.report.history[index].source.hasOwnProperty(source)) {
-                const value = child.report.history[index].source[source];
+                value = child.report.history[index].source[source];
                 if (!isNaN(value)) {
                     dayValue += value;
                 }

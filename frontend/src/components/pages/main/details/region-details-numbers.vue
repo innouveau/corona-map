@@ -37,6 +37,9 @@
             todayRelative() {
                 return getRelativeValueForDay(this.region, this.view.offset, this.view.currentSource.key);
             },
+            percentage() {
+                return Math.round(this.todayRelative / 1000);
+            },
             weekAbsolute() {
                 return getAbsoluteCumulativeForPeriod(this.region, this.view.offset, (this.view.offset + 7), this.view.currentSource.key);
             },
@@ -79,7 +82,7 @@
                         {{translate('current', true)}}
                     </div>
                     <div class="region-details__value">
-                        {{todayAbsolute}}%
+                        {{percentage}}%
                     </div>
                 </div>
             </div>

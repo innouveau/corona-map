@@ -23,7 +23,8 @@
             height() {
                 const source = this.view.currentSource.key;
                 if (source === 'vaccination') {
-                    return 0.5 * this.day.source[source];
+                    const scale = 0.5;
+                    return scale * 100 * this.day.source[source] / this.view.currentRegion.population;
                 } else {
                     let multiply = 15000;
                     if (source === 'hospitalisations') {

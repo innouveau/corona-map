@@ -71,6 +71,14 @@ const addSourceItem = (map, source, regionData) => {
     if (store.state.regions.dict[titleKey]) {
         const region = store.state.regions.dict[titleKey];
         if (region) {
+            let population;
+            if (!map.settings.generalInfoHasPopulation) {
+                const populationKey = adapter.hasOwnProperty("populationKey") ? adapter.populationKey : "population";
+                population = numberTools.convertToNumber(regionData[populationKey]);
+                store.commit( 'regions/updatePropertyOfItem', {item: region, property: 'population', value: population});
+            } else {
+                population = region.population;
+            }
             const history = [];
 
             for (let timelineDay of timeline) {
@@ -81,7 +89,14 @@ const addSourceItem = (map, source, regionData) => {
                 };
                 const key = timelineDay.sourceKey;
                 if (regionData[key]) {
-                    regionDay.source[source.key] = Number(regionData[key]);
+                    let value = Number(regionData[key]);
+                    if (source.percentage) {
+                        // 9999 is the code for no info
+                        if (value !== 9999) {
+                            value = (value / 100) * population;
+                        }
+                    }
+                    regionDay.source[source.key] = value;
                 }
                 history.push(regionDay);
             }
@@ -112,10 +127,6 @@ const addSourceItem = (map, source, regionData) => {
 
             if (region.report.history.length === 0) {
                 store.commit( 'regions/updatePropertyOfItem', {item: region, property: 'report', value: { history }});
-                if (!map.settings.generalInfoHasPopulation) {
-                    const populationKey = adapter.hasOwnProperty("populationKey") ? adapter.populationKey : "population";
-                    store.commit( 'regions/updatePropertyOfItem', {item: region, property: 'population', value: numberTools.convertToNumber(regionData[populationKey])});
-                }
             } else {
                 for (const historyDay of history) {
                     const regionDay = region.report.history.find(d => d.offset === historyDay.offset);
