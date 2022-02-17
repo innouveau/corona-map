@@ -1,5 +1,0 @@
-- use `geojson-to-paths`
-- in `main.js`: flag `addPathsIfExists` for merging multiple Bratislava and multiple Košice
-- remove `I` from Košice I in slovakia.json
-- rename `Topoľčany` in slovakia.json
-- put `Košice - okolie` on top to prevent overlapping in slovakia.json
