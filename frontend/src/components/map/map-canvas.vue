@@ -94,10 +94,10 @@ export default {
         },
         addClickEvent() {
             this.canvas.addEventListener('click', (event) => {
-                let x, y, region;
-                x = event.offsetX;
-                y = event.offsetY;
-                region = this.getRegionForPoint(x, y);
+                const x = event.offsetX;
+                const y = event.offsetY;
+                const region = this.getRegionForPoint(x, y);
+                console.log(region);
                 if (region) {
                     this.view.currentRegion = region;
                     this.$store.commit('ui/updateProperty', {key: 'menu', value: 'details'});

@@ -20,10 +20,16 @@ export const getCurrentRegion = (baseRegion) => {
 }
 
 export const getRegionFromBaseRegion = (baseRegion, regionType) => {
-    if (regionType === store.state.maps.current.settings.regionTypes[0]) {
+    let municipalityCode;
+    const baseType = store.state.maps.current.settings.regionTypes[0];
+    if (regionType === baseType) {
         return baseRegion;
     } else {
-        const municipalityCode = districtToMunicipalityLookup[baseRegion.code];
+        if (baseType === "municipality") {
+            municipalityCode = baseRegion.code;
+        } else {
+            municipalityCode = districtToMunicipalityLookup[baseRegion.code];
+        }
         if (regionType === "municipality") {
             return municipalities.find(m => m.code === municipalityCode);
         } else {
@@ -46,50 +52,60 @@ export const getRegionFromBaseRegion = (baseRegion, regionType) => {
 }
 
 export const getBaseRegions = (region, regionType) => {
-    const codes = [];
+    const baseType = store.state.maps.current.settings.regionTypes[0];
     const regions = [];
-    if (regionType === "country") {
-        return store.state.regions.all;
-    } else if (regionType === "municipality") {
-        for (const key in districtToMunicipalityLookup) {
-            if (districtToMunicipalityLookup[key] === region.code) {
-                codes.push(key);
-            }
-        }
+    let codes = [];
+
+    if (baseType === regionType) {
+        return region;
     } else {
-        let lookup;
-        const municipalityCodes = [];
-        switch(regionType) {
-            case "ggd":
-                lookup = municipalityToGgdLookup;
-                break;
-            case "safety-region":
-                lookup = municipalityToSafetyRegionLookup;
-                break;
-            case "province":
-                lookup = municipalityToProvinceLookup;
-                break;
-        }
-        for (const key in lookup) {
-            if (lookup[key] === region.code) {
-                municipalityCodes.push(key);
-            }
-        }
-        for (const key in districtToMunicipalityLookup) {
-            for (const municipalityCode of municipalityCodes) {
-                if (districtToMunicipalityLookup[key] === municipalityCode) {
+        if (regionType === "country") {
+            return store.state.regions.all;
+        } else if (regionType === "municipality") {
+            for (const key in districtToMunicipalityLookup) {
+                if (districtToMunicipalityLookup[key] === region.code) {
                     codes.push(key);
                 }
             }
+        } else {
+            let lookup;
+            const municipalityCodes = [];
+            switch(regionType) {
+                case "ggd":
+                    lookup = municipalityToGgdLookup;
+                    break;
+                case "safety-region":
+                    lookup = municipalityToSafetyRegionLookup;
+                    break;
+                case "province":
+                    lookup = municipalityToProvinceLookup;
+                    break;
+            }
+            for (const key in lookup) {
+                if (lookup[key] === region.code) {
+                    municipalityCodes.push(key);
+                }
+            }
+            if (baseType === "municipality") {
+                codes = municipalityCodes
+            } else {
+                for (const key in districtToMunicipalityLookup) {
+                    for (const municipalityCode of municipalityCodes) {
+                        if (districtToMunicipalityLookup[key] === municipalityCode) {
+                            codes.push(key);
+                        }
+                    }
+                }
+            }
         }
-    }
-    for (const code of codes) {
-        const region = store.state.regions.dict[code];
-        if (region) {
-            regions.push(region);
+        for (const code of codes) {
+            const region = store.state.regions.dict[code];
+            if (region) {
+                regions.push(region);
+            }
         }
+        return regions;
     }
-    return regions;
 }
 
 export const getRegions = (regionType) => {

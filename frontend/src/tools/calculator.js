@@ -1,4 +1,5 @@
 import store from '@/store/store';
+import { getBaseRegions } from "./relations";
 
 
 export const getDayForSource = (region, offset, source, ) => {
@@ -10,7 +11,7 @@ export const getDayForSource = (region, offset, source, ) => {
 
 const readCache = (region, start, end, source) => {
     const key = String(start + "-" + end);
-    if (region.report.cache && region.report.cache[source] && region.report.cache[source].hasOwnProperty(key)) {
+    if (region.report && region.report.cache && region.report.cache[source] && region.report.cache[source].hasOwnProperty(key)) {
         return region.report.cache[source][key];
     } else {
         return false
@@ -37,7 +38,8 @@ export const getAbsoluteCumulativeForPeriod = (region, start, end, source) => {
     if (cachedValue !== false) {
         return cachedValue;
     } else {
-        if (region.totalPopulation > 0) {
+        const totalPopulation = getTotalPopulation(region);
+        if (totalPopulation > 0) {
             for (let i = start_adj; i < end_adj; i++) {
                 totalValue += getAbsoluteValueForDay(region, i, source);
             }
@@ -47,22 +49,36 @@ export const getAbsoluteCumulativeForPeriod = (region, start, end, source) => {
             return 0;
         }
     }
+}
 
+export const getTotalPopulation = (region) => {
+    if (region.baseRegion) {
+        return region.population;
+    } else {
+        let population = 0;
+        const children = getBaseRegions(region, store.state.ui.currentRegionType);
+        for (const child of children) {
+            population += child.population;
+        }
+        return population;
+    }
 }
 
 export const getRelativeCumulativeForPeriod = (region, start, end, source) => {
-    if (region.totalPopulation > 0) {
+    const totalPopulation = getTotalPopulation(region);
+    if (totalPopulation > 0) {
         const value = getAbsoluteCumulativeForPeriod(region, start, end, source);
-        return value * 100000 / region.totalPopulation;
+        return value * 100000 / totalPopulation;
     } else {
         return 0;
     }
 }
 
 export const getRelativeValueForDay = (region, offset, source) => {
-    if (region.totalPopulation > 0) {
+    const totalPopulation = getTotalPopulation(region);
+    if (totalPopulation > 0) {
         const value = getAbsoluteValueForDay(region, offset, source);
-        return value * 100000 / region.totalPopulation;
+        return value * 100000 / totalPopulation;
     } else {
         return 0;
     }
@@ -70,7 +86,7 @@ export const getRelativeValueForDay = (region, offset, source) => {
 
 export const getAbsoluteValueForDay = (region, offset, source, updateHistory = true) => {
     const index = store.state.settings.historyLength - 1 - offset;
-    if (region.report.history[index] && region.report.history[index].source.hasOwnProperty(source)) {
+    if (region.report && region.report.history[index] && region.report.history[index].source.hasOwnProperty(source)) {
         const day = region.report.history[index];
         const value = day.source[source];
         if (!isNaN(value)) {
@@ -79,31 +95,32 @@ export const getAbsoluteValueForDay = (region, offset, source, updateHistory = t
             return 0;
         }
     } else {
-        // todo
-        return 0;
-        // let dayValue = 0;
-        // const children = region.regions;
-        // for (const child of children) {
-        //     if (child.report.history[index] && child.report.history[index].source.hasOwnProperty(source)) {
-        //         const value = child.report.history[index].source[source];
-        //         if (!isNaN(value)) {
-        //             dayValue += value;
-        //         }
-        //     } else {
-        //         //console.log("key is missing for " + region.title, offset);
-        //     }
-        // }
-        // if (updateHistory) {
-        //     if (!region.report.history[index]) {
-        //         region.report.history[index] = {
-        //             offset: 0,
-        //             source: {}
-        //         };
-        //     }
-        //     region.report.history[index].offset = offset;
-        //     region.report.history[index].source[source] = dayValue;
-        // }
-        // return dayValue;
+        let dayValue = 0;
+        const children = getBaseRegions(region, store.state.ui.currentRegionType);
+        for (const child of children) {
+            if (child.report && child.report.history[index] && child.report.history[index].source.hasOwnProperty(source)) {
+                const value = child.report.history[index].source[source];
+                if (!isNaN(value)) {
+                    dayValue += value;
+                }
+            } else {
+                console.log("key is missing for " + region.title, offset);
+            }
+        }
+        if (updateHistory) {
+            if (!region.report) {
+                region.report = { history: [], cache: {} }
+            }
+            if (!region.report.history[index]) {
+                region.report.history[index] = {
+                    offset: 0,
+                    source: {}
+                };
+            }
+            region.report.history[index].offset = offset;
+            region.report.history[index].source[source] = dayValue;
+        }
+        return dayValue;
     }
 }
 

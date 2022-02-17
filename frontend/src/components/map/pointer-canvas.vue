@@ -49,9 +49,9 @@
             },
         },
         watch: {
-            currentRegion: function () {
-                this.showCurrentRegion();
-            },
+            // currentRegion: function () {
+            //     this.showCurrentRegion();
+            // },
         }
     }
 </script>

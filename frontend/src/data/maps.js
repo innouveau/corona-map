@@ -46,7 +46,7 @@ const maps = [
         regionLabel: 'gemeentes',
         story_id: 1,
         settings: {
-            regionTypes: ['city','ggd', 'safety-region', 'province', 'country'],
+            regionTypes: ['municipality','ggd', 'safety-region', 'province', 'country'],
             pathOrigins: [
                 {
                     type: 'country',
