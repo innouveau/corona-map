@@ -7,6 +7,7 @@ import MapNavigationPositionDrag from "./navigation/map-navigation-position-drag
 import { loadSource } from "@/tools/timeline";
 import mapMixin from "./map-mixin.js";
 import { getRegionFromBaseRegion } from "@/tools/relations";
+import {getBaseRegions, getRegions} from "../../tools/relations";
 
 export default {
     name: 'map-canvas',
@@ -97,14 +98,14 @@ export default {
                 const x = event.offsetX;
                 const y = event.offsetY;
                 const region = this.getRegionForPoint(x, y);
-                console.log(region);
                 if (region) {
-                    this.view.currentRegion = region;
+                    const baseRegion = getBaseRegions(region, this.$store.state.ui.currentRegionType)[0];
+                    this.view.currentRegion = baseRegion;
                     this.$store.commit('ui/updateProperty', {key: 'menu', value: 'details'});
                     this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
                     this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
                 } else {
-                    this.view.currentRegion = region;
+                    this.view.currentRegion = null;
                 }
             }, false);
         },
@@ -114,19 +115,14 @@ export default {
                 const y = event.offsetY;
                 const region = this.getRegionForPoint(x, y);
                 if (region) {
-                    const levelRegion = getRegionFromBaseRegion(region, this.$store.state.ui.currentRegionType);
-                    if (levelRegion) {
-                        this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: levelRegion.title});
-                    } else {
-                        this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
-                    }
+                    this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: region.title});
                 } else {
                     this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
                 }
             }, false);
         },
         getRegionForPoint(x, y) {
-            const regions = this.$store.state.regions.all
+            const regions = getRegions(this.$store.state.ui.currentRegionType);
             let reversed = regions.slice().reverse();
             for (const region of reversed) {
                 for (const path of region.paths) {

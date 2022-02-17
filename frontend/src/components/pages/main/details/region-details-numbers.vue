@@ -5,6 +5,7 @@
     import { getAbsoluteCumulativeForPeriod, getRelativeCumulativeForPeriod,
         getAbsoluteValueForDay, getRelativeValueForDay} from "@/tools/calculator";
     import {getReportingDelay} from "@/tools/calculator";
+    import { getTotalPopulation } from "@/tools/calculator";
 
     export default {
         name: 'region-details-numbers',
@@ -44,6 +45,9 @@
             },
             isVaccinatinon() {
                 return this.view.currentSource.key === "vaccination";
+            },
+            totalPopulation() {
+                return getTotalPopulation(this.region);
             }
         },
         methods: {
@@ -63,7 +67,7 @@
                     {{translate('population', true)}}
                 </div>
                 <div class="region-details__value">
-                    {{format(region.totalPopulation, false)}}
+                    {{format(totalPopulation, false)}}
                 </div>
             </div>
         </div>

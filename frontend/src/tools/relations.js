@@ -57,7 +57,7 @@ export const getBaseRegions = (region, regionType) => {
     let codes = [];
 
     if (baseType === regionType) {
-        return region;
+        return [region];
     } else {
         if (regionType === "country") {
             return store.state.regions.all;
@@ -109,17 +109,22 @@ export const getBaseRegions = (region, regionType) => {
 }
 
 export const getRegions = (regionType) => {
-    switch(regionType) {
-        case "municipality":
-            return municipalities;
-        case "ggd":
-            return ggds;
-        case "safety-region":
-            return safetyRegions;
-        case "province":
-            return provinces;
-        case "country":
-            return countries;
+    const baseType = store.state.maps.current.settings.regionTypes[0];
+    if (baseType === regionType) {
+        return store.state.regions.all;
+    } else {
+        switch(regionType) {
+            case "municipality":
+                return municipalities;
+            case "ggd":
+                return ggds;
+            case "safety-region":
+                return safetyRegions;
+            case "province":
+                return provinces;
+            case "country":
+                return countries;
+        }
     }
 }
 
