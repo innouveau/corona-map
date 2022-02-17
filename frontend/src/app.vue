@@ -85,8 +85,8 @@
             },
             loadGeoData() {
                 return new Promise((resolve, reject) => {
-                    $.getJSON(this.currentMap.data.geo.source, (regions) => {
-                        this.$store.commit('regions/init', regions);
+                    $.getJSON(this.currentMap.data.geo.source, (result) => {
+                        this.$store.commit('regions/init', result);
                         resolve();
                     }).catch((error) => {
                         reject(error);
