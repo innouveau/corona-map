@@ -227,11 +227,14 @@ const maps = [
             pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
-                projection: 'robinson',
+                // projection: 'robinson',
+                latitude: 0,
+                longitude: 0,
+                stretch: 0.65,
                 shiftY: -5,
                 shiftX: -5,
                 // ratio: 1.6,
-                zoom: 1.1,
+                zoom: 0.009,
                 ratio: 2
             },
             positiveTestGraph: {
