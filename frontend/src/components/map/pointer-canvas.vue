@@ -2,6 +2,7 @@
     import canvasTools from '@/tools/canvas';
     import View from "@/classes/View";
     import mapMixin from "./map-mixin.js";
+    import { getRegionFromBaseRegion } from "@/tools/relations";
 
     export default {
         name: 'pointer-canvas',
@@ -18,7 +19,7 @@
                 return this.$store.state.ui.hoverValue;
             },
             currentRegion() {
-                return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
+                return getRegionFromBaseRegion(this.view.currentRegion, this.$store.state.ui.currentRegionType);
             },
             canvas() {
                 return document.getElementById('pointer-canvas-' + this.id);
@@ -43,7 +44,7 @@
                             y: 0
                         }
                     }
-                    canvasTools.drawRegionContainer(this.ctx, this.currentRegion, settings, "transparent");
+                    canvasTools.drawRegion(this.ctx, this.currentRegion, settings, "transparent");
                 }
             },
         },

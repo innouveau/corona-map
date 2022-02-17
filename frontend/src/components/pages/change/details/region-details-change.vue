@@ -2,10 +2,10 @@
     import Region from "@/classes/region/Region";
     import View from "@/classes/View";
     import numberTools from '@/tools/number';
-    import changeTools from '@/tools/change';
     import positivePcrTestsChange from "@/components/graphs/positive-pcr-tests-change";
-    import {getChangeOfType, getRelativeCumulativeForPeriod} from "@/tools/calculator";
-    import {getReportingDelay} from "../../../../tools/calculator";
+    import { getChangeOfType, getRelativeCumulativeForPeriod } from "@/tools/calculator";
+    import { getReportingDelay } from "@/tools/calculator";
+    import { getCurrentRegion } from "@/tools/relations";
 
     export default {
         name: 'region-details-change',
@@ -18,13 +18,13 @@
                 required: true
             },
             region: {
-                type: Region,
+                type: Object,
                 required: true
             }
         },
         computed: {
             regionOfFocus() {
-                return this.$store.getters['ui/getRegionOfFocus'](this.region);
+                return getCurrentRegion(this.region);
             },
             weeks() {
                 return this.$store.state.settings.weeks;

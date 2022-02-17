@@ -1,16 +1,16 @@
 <script>
 import $ from "jquery";
-import { childRegionToParent } from "../../tools/region";
 import canvasTools from '@/tools/canvas';
 import View from "@/classes/View";
 import mapNavigationZoomScroll from "@/components/map/navigation/map-navigation-zoom.scroll.js"
 import MapNavigationPositionDrag from "./navigation/map-navigation-position-drag";
 import { loadSource } from "@/tools/timeline";
 import mapMixin from "./map-mixin.js";
+import { getRegionFromBaseRegion } from "@/tools/relations";
 
 export default {
     name: 'map-canvas',
-    components: {MapNavigationPositionDrag},
+    components: { MapNavigationPositionDrag },
     mixins: [mapNavigationZoomScroll, mapMixin],
     props: {
         view: {
@@ -114,18 +114,22 @@ export default {
                 const y = event.offsetY;
                 const region = this.getRegionForPoint(x, y);
                 if (region) {
-                    const levelRegion = childRegionToParent(region, this.$store.state.ui.currentRegionType);
-                    this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: levelRegion.title});
+                    const levelRegion = getRegionFromBaseRegion(region, this.$store.state.ui.currentRegionType);
+                    if (levelRegion) {
+                        this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: levelRegion.title});
+                    } else {
+                        this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
+                    }
                 } else {
                     this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
                 }
             }, false);
         },
         getRegionForPoint(x, y) {
-            const regions = this.$store.state.regions.all;
+            const regions = this.$store.state.regions.all
             let reversed = regions.slice().reverse();
-            for (let region of reversed) {
-                for (let path of region.paths) {
+            for (const region of reversed) {
+                for (const path of region.paths) {
                     if (this.ctx.isPointInPath(path.storedPaths[this.mapRenderKey], x, y)) {
                         return region;
                     }

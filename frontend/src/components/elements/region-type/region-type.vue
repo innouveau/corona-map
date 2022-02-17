@@ -1,7 +1,7 @@
 <script>
 import swatch from "@/components/region/swatch";
 import View from "@/classes/View";
-import { childRegionToParent } from "@/tools/region";
+import { getRegionFromBaseRegion } from "@/tools/relations";
 
 export default {
     name: 'region-type',
@@ -28,9 +28,9 @@ export default {
         },
         title() {
             if (this.typeAsRegionTitle) {
-                const region = this.view.currentRegion;
-                const levelRegion = childRegionToParent(region, this.type);
-                return levelRegion ? levelRegion.title : '';
+                const baseRegion = this.view.currentRegion;
+                const region = getRegionFromBaseRegion(baseRegion, this.type);
+                return region ? region.title : '';
             } else {
                 return this.translate(this.type, true);
             }

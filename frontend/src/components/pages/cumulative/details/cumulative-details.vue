@@ -13,7 +13,7 @@ export default {
             required: true
         },
         region: {
-            type: Region,
+            type: Object,
             required: true
         }
     },

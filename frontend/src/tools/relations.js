@@ -15,6 +15,36 @@ import countryPaths from "@/data/relations/paths/countries";
 
 import store from "@/store/store";
 
+export const getCurrentRegion = (baseRegion) => {
+    return getRegionFromBaseRegion(baseRegion, store.state.ui.currentRegionType);
+}
+
+export const getRegionFromBaseRegion = (baseRegion, regionType) => {
+    if (regionType === store.state.maps.current.settings.regionTypes[0]) {
+        return baseRegion;
+    } else {
+        const municipalityCode = districtToMunicipalityLookup[baseRegion.code];
+        if (regionType === "municipality") {
+            return municipalities.find(m => m.code === municipalityCode);
+        } else {
+            let code;
+            switch(regionType) {
+                case "ggd":
+                    code = municipalityToGgdLookup[municipalityCode];
+                    return ggds.find(r => r.code === code);
+                case "safety-region":
+                    code = municipalityToSafetyRegionLookup[municipalityCode];
+                    return safetyRegions.find(r => r.code === code);
+                case "province":
+                    code = municipalityToProvinceLookup[municipalityCode];
+                    return provinces.find(r => r.code === code);
+                case "country":
+                    return countries[0];
+            }
+        }
+    }
+}
+
 export const getBaseRegions = (region, regionType) => {
     const codes = [];
     const regions = [];

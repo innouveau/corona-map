@@ -1,11 +1,10 @@
 <script>
-    import Region from "@/classes/region/Region";
     import View from "@/classes/View";
     import numberTools from '@/tools/number';
     import sourceLoader from "./source-loader";
     import { getAbsoluteCumulativeForPeriod, getRelativeCumulativeForPeriod,
         getAbsoluteValueForDay, getRelativeValueForDay} from "@/tools/calculator";
-    import {getReportingDelay} from "../../../../tools/calculator";
+    import {getReportingDelay} from "@/tools/calculator";
 
     export default {
         name: 'region-details-numbers',
@@ -18,7 +17,7 @@
                 required: true
             },
             region: {
-                type: Region,
+                type: Object,
                 required: true
             },
             compact: {

@@ -1,8 +1,8 @@
 <script>
-    import Region from "@/classes/region/Region";
     import View from "@/classes/View";
     import numberTools from '@/tools/number';
     import { getRelativeCumulativeForPeriod } from "@/tools/calculator";
+
     export default {
         name: 'region-head',
         components: {},
@@ -12,7 +12,7 @@
                 required: true
             },
             region: {
-                type: Region,
+                type: Object,
                 required: true
             }
         },

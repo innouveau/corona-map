@@ -1,6 +1,7 @@
 <script>
     import View from "@/classes/View";
     import { HOSPITALISATION_MULTIPLICATION, DECEASED_MULTIPLICATION} from "@/data/constants";
+    import { getCurrentRegion } from "@/tools/relations";
 
     export default {
         name: 'time-slider-graph-bar',
@@ -17,7 +18,7 @@
         },
         computed: {
             region() {
-                return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
+                return getCurrentRegion(this.view.currentRegion);
             },
             height() {
                 const source = this.view.currentSource.key;

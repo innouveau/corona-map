@@ -7,6 +7,7 @@ import Region from "@/components/region/Region";
 import CumulativeDetails from "./details/cumulative-details";
 import query from '@/mixins/query.js'
 import CumulativeTrends from "./trends/cumulative-trends";
+import { getCurrentRegion } from "@/tools/relations";
 
 export default {
     name: 'cumulative',
@@ -26,7 +27,7 @@ export default {
     },
     computed: {
         regionOfFocus() {
-            return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
+            return getCurrentRegion(this.view.currentRegion);
         }
     },
     methods: {

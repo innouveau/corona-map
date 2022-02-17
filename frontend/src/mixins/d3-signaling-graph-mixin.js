@@ -1,8 +1,7 @@
-import View from "@/classes/View";
 import * as d3 from "d3";
+import View from "@/classes/View";
 import d3GraphMixin from '@/mixins/d3-graph-mixin.js';
-import Region from '@/classes/region/Region';
-import {getDayForSource} from "../tools/calculator";
+import { getDayForSource } from "@/tools/calculator";
 import { HOSPITALISATION_MULTIPLICATION, DECEASED_MULTIPLICATION} from "@/data/constants";
 
 export default {
@@ -11,7 +10,7 @@ export default {
     mixins: [d3GraphMixin],
     props: {
         region: {
-            type: Region,
+            type: Object,
             required: true
         },
         view: {

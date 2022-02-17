@@ -9,17 +9,11 @@ class Path {
     }
 
     create(settings) {
-        let path, pathWithoutStart, translatedPath, map;
-        map = store.state.maps.current;
-        path = new Path2D();
-        if (map.block && !store.state.ui.admin) {
-            translatedPath = this.box.map(point => point.getTranslated(settings));
-        } else {
-            translatedPath = this.getTranslatedPath(settings);
-        }
+        const path = new Path2D();
+        const translatedPath = this.getTranslatedPath(settings);
         path.moveTo(...translatedPath[0]);
-        pathWithoutStart = translatedPath.slice(1);
-        for (let point of pathWithoutStart) {
+        const pathWithoutStart = translatedPath.slice(1);
+        for (const point of pathWithoutStart) {
             path.lineTo(...point);
         }
         this.storedPaths[settings.key] = path;

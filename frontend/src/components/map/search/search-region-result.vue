@@ -7,7 +7,7 @@
         name: 'search-region-result',
         props: {
             region: {
-                type: Region,
+                type: Object,
                 required: true
             },
             view: {

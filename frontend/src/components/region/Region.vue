@@ -2,6 +2,7 @@
 import View from "@/classes/View";
 import regionHead from "./region-head";
 import regionTypePicker from "@/components/elements/region-type/region-type-picker";
+import { getCurrentRegion } from "@/tools/relations";
 
 export default {
     name: 'Region',
@@ -17,7 +18,7 @@ export default {
     },
     computed: {
         regionOfFocus() {
-            return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
+            return getCurrentRegion(this.view.currentRegion);
         },
         hasMultipleRegionTypes() {
             return this.$store.state.maps.current.settings.regionTypes.length > 1;

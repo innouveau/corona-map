@@ -5,6 +5,7 @@
     import administeredPcrTests from "@/components/graphs/administered-pcr-tests"
     import loader from "@/components/elements/loader";
     import regionDetailsNumbers from "./region-details-numbers";
+    import { getCurrentRegion } from "@/tools/relations";
 
     export default {
         name: 'region-details',
@@ -20,13 +21,13 @@
                 required: true
             },
             region: {
-                type: Region,
+                type: Object,
                 required: true
             }
         },
         computed: {
             regionOfFocus() {
-                return this.$store.getters['ui/getRegionOfFocus'](this.region);
+                return getCurrentRegion(this.region);
             },
             showDetails() {
                 return this.$store.state.ui.menu === 'city';

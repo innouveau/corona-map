@@ -87,29 +87,6 @@ const getters = {
                 return 'countries';
         }
     },
-    getRegionOfFocus:(state, getters, rootState, rootGetters) => (region) => {
-        if (region) {
-            switch(state.currentRegionType) {
-                case 'district':
-                case 'city':
-                    return region;
-                case 'ggd':
-                    return rootGetters['ggds/getItemByProperty']('ggd_code', region.ggd_code, true);
-                case 'safety-region':
-                    return rootGetters['safetyRegions/getItemByProperty']('safetyRegion_code', region.safetyRegion_code, true);
-                case 'province':
-                    return rootGetters['provinces/getItemByProperty']('province_code', region.province_code, true);
-                case 'country':
-                return rootGetters['countries/getItemById'](region.country_id);
-            }
-        } else {
-            return null;
-        }
-    },
-    regions(state, getters, rootState) {
-        // TODO
-        return rootState.regions.all;
-    },
     typeLabel: (state) => (plural = true) => {
         switch(state.currentRegionType) {
             case 'district':

@@ -1,7 +1,8 @@
 <script>
     import View from "@/classes/View";
     import timeSliderGraphBar from "./time-slider-graph-bar";
-    import {getHistory} from "@/tools/calculator";
+    import { getHistory } from "@/tools/calculator";
+    import { getCurrentRegion } from "@/tools/relations";
 
     export default {
         name: 'time-slider-graph',
@@ -16,7 +17,7 @@
         },
         computed: {
             region() {
-                return this.$store.getters['ui/getRegionOfFocus'](this.view.currentRegion);
+                return getCurrentRegion(this.view.currentRegion);
             },
             days() {
                 return getHistory(this.region, this.view.currentSource.key);
