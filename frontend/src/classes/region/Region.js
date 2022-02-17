@@ -6,6 +6,7 @@ class Region {
     constructor({
         id = null,
         code = '',
+        nutsCode = '',
         title = '',
         population = 0,
         paths = [],
@@ -15,6 +16,7 @@ class Region {
     }) {
         this.id = id ? id : (store.state.regions.all.length + 1);
         this.code = code;
+        this.nutsCode = nutsCode;
         this.title = title;
         this.population = population;
         this.paths = paths.map(path => new Path(path));
@@ -24,91 +26,6 @@ class Region {
     }
     get titleForSorting() {
         return stringTool.titleForSorting(this.title);
-    }
-
-    get totalPopulation() {
-        // TODO
-        return this.population;
-        // let population, regions;
-        // population = 0;
-        // regions = this.regions;
-        // for (let region of regions) {
-        //     population += region.population;
-        // }
-        // return population;
-    }
-
-    get regions() {
-        let module = store.state.maps.current.module;
-        switch(this.regionType) {
-            case 'city':
-            case 'district':
-                return [this];
-            case 'ggd':
-                return store.state.regions.all.filter(city => {
-                    return city.ggd_code === this.ggd_code;
-                });
-            case 'safety-region':
-                return store.state.regions.all.filter(city => {
-                    return city.safetyRegion_code === this.safetyRegion_code;
-                });
-            case 'province':
-                return store.state.regions.all.filter(city => {
-                    return city.province_code === this.province_code;
-                });
-            case 'country':
-                return store.state.regions.all.filter(city => {
-                    return city.country_id === this.id;
-                });
-        }
-    }
-
-    getGgds() {
-        switch(this.regionType) {
-            case 'ggd':
-                return [this];
-            case 'country':
-                return store.state.ggds.all;
-            default:
-                return [];
-        }
-    }
-
-    getRegionsForPaths(pathsOrigin) {
-        if (pathsOrigin === 'self') {
-            return [this];
-        } else {
-            // find paths at another level (pathsOrigin)
-            let identifier;
-            switch (this.regionType) {
-                case 'city':
-                case 'district':
-                    return [this];
-                case 'ggd':
-                    identifier = 'ggd_code';
-                    break;
-                case 'safety-region':
-                    identifier = 'safetyRegion_code';
-                    break;
-                case 'province':
-                    identifier = 'province_code';
-                    break;
-            }
-            switch (pathsOrigin) {
-                case 'district':
-                    return store.state.districts.all.filter(district => {
-                        return district[identifier] === this[identifier];
-                    });
-                case 'city':
-                    return store.state.cities.all.filter(city => {
-                        return city[identifier] === this[identifier];
-                    });
-                case 'province':
-                    return store.state.provinces.all.filter(province => {
-                        return province[identifier] === this[identifier];
-                    });
-            }
-        }
     }
 
     get hasLateReporting() {
