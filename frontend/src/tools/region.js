@@ -18,5 +18,9 @@ export const childRegionToParent = (region, level) => {
 }
 
 export const parentRegionToChild = (region) => {
-    return region.regions[0];
+    if (region.baseRegion) {
+        return region;
+    } else {
+        return region.regions[0];
+    }
 }
