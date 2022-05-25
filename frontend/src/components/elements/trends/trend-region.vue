@@ -3,49 +3,57 @@ import View from "@/classes/View";
 import { getBaseRegions } from "@/tools/relations";
 
 export default {
-    name: 'trend-region',
+    name: "trend-region",
     props: {
         view: {
             type: View,
-            required: true
+            required: true,
         },
         region: {
             type: Object,
-            required: true
-        }
+            required: true,
+        },
     },
     computed: {
         baseRegion() {
-            return getBaseRegions(this.region, this.$store.state.ui.currentRegionType)[0];
+            return getBaseRegions(
+                this.region,
+                this.$store.state.ui.currentRegionType
+            )[0];
         },
         isCurrent() {
-            return this.view.currentRegion && this.baseRegion === this.view.currentRegion;
+            return (
+                this.view.currentRegion &&
+                this.baseRegion === this.view.currentRegion
+            );
         },
     },
     methods: {
         select() {
             this.view.currentRegion = this.baseRegion;
-            this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
-        }
-    }
-}
+            this.$store.commit("ui/updateProperty", {
+                key: "searchValue",
+                value: "",
+            });
+        },
+    },
+};
 </script>
-
 
 <template>
     <div
         @click="select"
-        :class="{'trend-region--current': isCurrent }"
-        class="trend-region">
+        :class="{ 'trend-region--current': isCurrent }"
+        class="trend-region"
+    >
         <div class="trend-region__title">
-            {{region.title}}
+            {{ region.title }}
         </div>
         <div class="trend-region__info">
-            <slot/>
+            <slot />
         </div>
     </div>
 </template>
-
 
 <style lang="scss">
 .trend-region {

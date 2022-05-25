@@ -1,10 +1,8 @@
 import Point from "./Point";
-import store from '@/store/store';
-
 
 class Path {
     constructor(path) {
-        this.path = path.map(point => new Point(point));
+        this.path = path.map((point) => new Point(point));
         this.storedPaths = {};
     }
 
@@ -20,7 +18,7 @@ class Path {
     }
 
     getTranslatedPath(settings) {
-        return this.path.map(point => point.getTranslated(settings));
+        return this.path.map((point) => point.getTranslated(settings));
     }
 
     export() {
@@ -34,24 +32,24 @@ class Path {
         y1 = null;
         y2 = null;
         for (let point of this.path) {
-            if ( x1 === null || point.x < x1) {
+            if (x1 === null || point.x < x1) {
                 x1 = point.x;
             }
-            if ( x2 === null || point.x > x2) {
+            if (x2 === null || point.x > x2) {
                 x2 = point.x;
             }
-            if ( y1 === null || point.y < y1) {
+            if (y1 === null || point.y < y1) {
                 y1 = point.y;
             }
-            if ( y2 === null || point.y > y2) {
+            if (y2 === null || point.y > y2) {
                 y2 = point.y;
             }
         }
         return [
-            new Point({x: x1, y: y1}),
-            new Point({x: x2, y: y1}),
-            new Point({x: x2, y: y2}),
-            new Point({x: x1, y: y2})
+            new Point({ x: x1, y: y1 }),
+            new Point({ x: x2, y: y1 }),
+            new Point({ x: x2, y: y2 }),
+            new Point({ x: x1, y: y2 }),
         ];
     }
 
@@ -59,8 +57,8 @@ class Path {
         let box = this.box;
         return {
             x: (box[0].x + box[1].x) / 2,
-            y: (box[1].y + box[2].y) / 2
-        }
+            y: (box[1].y + box[2].y) / 2,
+        };
     }
 }
 

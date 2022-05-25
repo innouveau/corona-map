@@ -1,12 +1,12 @@
 <script>
 export default {
-    name: 'bookmark',
+    name: "bookmark",
     components: {},
     props: {
         bookmark: {
             type: Object,
-            required: true
-        }
+            required: true,
+        },
     },
     methods: {
         navigate() {
@@ -16,29 +16,29 @@ export default {
                     zoom: navigation.zoom,
                     position: {
                         // measurement done on screen with scale = 250
-                        x: navigation.position.x * (this.$store.state.settings.scale / 250),
-                        y: navigation.position.y * (this.$store.state.settings.scale / 250),
-                    }
-                }
-            }
+                        x:
+                            navigation.position.x *
+                            (this.$store.state.settings.scale / 250),
+                        y:
+                            navigation.position.y *
+                            (this.$store.state.settings.scale / 250),
+                    },
+                };
+            };
 
             const navigation = scaleNavigation(this.bookmark.navigation);
 
-            this.$store.commit("settings/navigateTo", navigation)
-        }
-    }
-}
+            this.$store.commit("settings/navigateTo", navigation);
+        },
+    },
+};
 </script>
 
-
 <template>
-    <div
-        @click="navigate"
-        class="bookmark">
+    <div @click="navigate" class="bookmark">
         {{ bookmark.title }}
     </div>
 </template>
-
 
 <style lang="scss">
 .bookmark {

@@ -1,11 +1,11 @@
 class SignalingSystem {
     constructor({
         id = null,
-        source = '',
-        title = '',
+        source = "",
+        title = "",
         days = 7,
         population = 100000,
-        thresholds= []
+        thresholds = [],
     }) {
         this.id = id;
         this.source = source;

@@ -3,14 +3,16 @@ const getters = {
         return state.all;
     },
     getItemById: (state) => (id) => {
-        let result = state.all.find(item => item.id === id);
+        let result = state.all.find((item) => item.id === id);
         return result ? result : null;
     },
     getItemByProperty: (state) => (property, value, ignoreCase) => {
         if (ignoreCase) {
-            return state.all.find(item => item[property].toLowerCase() === value.toLowerCase());
+            return state.all.find(
+                (item) => item[property].toLowerCase() === value.toLowerCase()
+            );
         } else {
-            return state.all.find(item => item[property] === value);
+            return state.all.find((item) => item[property] === value);
         }
     },
     getSetByIds: (state) => (ids) => {
@@ -18,7 +20,7 @@ const getters = {
         // or the ids, see #693
         let set = [];
         for (let id of ids) {
-            let theItem = state.all.find(item => item.id === id);
+            let theItem = state.all.find((item) => item.id === id);
             if (theItem) {
                 set.push(theItem);
             }
@@ -27,7 +29,7 @@ const getters = {
     },
     getLastItem(state) {
         return state.all[state.all.length - 1];
-    }
+    },
 };
 
 const actions = {};
@@ -67,7 +69,7 @@ const mutations = {
         });
     },
     delete(state, item) {
-        state.all = state.all.filter(function(thisItem) {
+        state.all = state.all.filter(function (thisItem) {
             return thisItem.id !== item.id;
         });
     },
@@ -77,11 +79,11 @@ const mutations = {
     reset(state) {
         state.all = [];
         state.current = null;
-    }
+    },
 };
 
 export default {
     getters,
     actions,
-    mutations
-}
+    mutations,
+};

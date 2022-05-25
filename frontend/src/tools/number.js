@@ -1,24 +1,24 @@
-const format = function(value, addPlus = true) {
+const format = function (value, addPlus = true) {
     if (value > 0) {
         let v = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        return addPlus ? ('+' + v) : v;
+        return addPlus ? "+" + v : v;
     } else {
         return value;
     }
 };
 
-const formatChange = function(value) {
+const formatChange = function (value) {
     let pct = Math.round(value * 100) - 100;
     if (pct > 0) {
-        return '+' + pct + '%';
+        return "+" + pct + "%";
     } else if (pct === 0) {
-        return '0%';
+        return "0%";
     } else {
-        return pct + '%';
+        return pct + "%";
     }
 };
 
-const convertToNumber = function(value) {
+const convertToNumber = function (value) {
     let number = Number(value);
     if (!isNaN(number)) {
         return number;
@@ -30,5 +30,5 @@ const convertToNumber = function(value) {
 export default {
     format,
     formatChange,
-    convertToNumber
+    convertToNumber,
 };

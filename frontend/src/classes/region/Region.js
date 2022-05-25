@@ -1,25 +1,25 @@
-import Path from './geo/Path';
-import store from '@/store/store';
-import stringTool from '@/tools/string';
+import Path from "./geo/Path";
+import store from "@/store/store";
+import stringTool from "@/tools/string";
 
 class Region {
     constructor({
         id = null,
-        code = '',
-        nutsCode = '',
-        title = '',
+        code = "",
+        nutsCode = "",
+        title = "",
         population = 0,
         paths = [],
         report = {
-            history: []
-        }
+            history: [],
+        },
     }) {
-        this.id = id ? id : (store.state.regions.all.length + 1);
+        this.id = id ? id : store.state.regions.all.length + 1;
         this.code = code;
         this.nutsCode = nutsCode;
         this.title = title;
         this.population = population;
-        this.paths = paths.map(path => new Path(path));
+        this.paths = paths.map((path) => new Path(path));
         this.report = report;
         this.noData = false;
         this.baseRegion = true;
@@ -49,7 +49,7 @@ class Region {
         projected = coordinatesTool.project(centroid, settings);
         return {
             x: projected[0],
-            y: projected[1]
+            y: projected[1],
         };
     }
 }

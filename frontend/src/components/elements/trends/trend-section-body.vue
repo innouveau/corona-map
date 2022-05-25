@@ -1,9 +1,8 @@
 <script>
 export default {
-    name: 'trend-section-body'
-}
+    name: "trend-section-body",
+};
 </script>
-
 
 <template>
     <div class="trend-section-body">
@@ -11,9 +10,7 @@ export default {
     </div>
 </template>
 
-
 <style lang="scss">
 .trend-section-body {
-
 }
 </style>

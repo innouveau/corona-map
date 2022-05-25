@@ -1,16 +1,14 @@
 <script>
 export default {
-    name: 'trend-list'
-}
+    name: "trend-list",
+};
 </script>
-
 
 <template>
     <div class="trend-list">
         <slot />
     </div>
 </template>
-
 
 <style lang="scss">
 .trend-list {

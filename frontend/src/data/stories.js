@@ -2,31 +2,31 @@ const stories = [
     {
         id: 1,
         title: {
-            nl: 'Jaaroverzicht 2020 Corona in Nederland',
-            en: 'How the Netherlands ended up in its Second Wave'
+            nl: "Jaaroverzicht 2020 Corona in Nederland",
+            en: "How the Netherlands ended up in its Second Wave",
         },
         subtitle: {
-            nl: 'The good, the bad and the ugly:<br>2 lockdowns, ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛, duimen draaien, een huwelijk en de pret-tester...',
-            en: ''
+            nl: "The good, the bad and the ugly:<br>2 lockdowns, ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛, duimen draaien, een huwelijk en de pret-tester...",
+            en: "",
         },
-        image: 'assets/img/stories/netherlands/persconferentie-31-maart.jpg',
+        image: "assets/img/stories/netherlands/persconferentie-31-maart.jpg",
         hasAgeGroups: true,
         chapters: [
             {
                 title: {
-                    nl: 'Berichten uit China',
-                    en: ''
+                    nl: "Berichten uit China",
+                    en: "",
                 },
-                date: '2020-01-22',
+                date: "2020-01-22",
                 dateTitle: {
-                    nl: 'Januari en februari',
-                    en: ''
+                    nl: "Januari en februari",
+                    en: "",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -52,23 +52,24 @@ const stories = [
                             </div>
                         </p>
                         `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'De eerste melding in Nederland',
-                    en: ''
+                    en: ``,
                 },
-                date: '2020-02-27',
+            },
+            {
+                title: {
+                    nl: "De eerste melding in Nederland",
+                    en: "",
+                },
+                date: "2020-02-27",
                 dateTitle: {
-                    nl: 'Eind februari',
-                    en: ''
+                    nl: "Eind februari",
+                    en: "",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -99,23 +100,24 @@ const stories = [
                             </div>
                         </p>
                         `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Beelden uit Italië',
-                    en: ''
+                    en: ``,
                 },
-                date: '2020-02-27',
+            },
+            {
+                title: {
+                    nl: "Beelden uit Italië",
+                    en: "",
+                },
+                date: "2020-02-27",
                 dateTitle: {
-                    nl: 'Begin maart',
-                    en: ''
+                    nl: "Begin maart",
+                    en: "",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -147,23 +149,24 @@ const stories = [
                             </div>
                         </p>
                         `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Groepsimmuniteit',
-                    en: ''
+                    en: ``,
                 },
-                date: '2020-03-16',
+            },
+            {
+                title: {
+                    nl: "Groepsimmuniteit",
+                    en: "",
+                },
+                date: "2020-03-16",
                 dateTitle: {
-                    nl: 'Maart',
-                    en: ''
+                    nl: "Maart",
+                    en: "",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -203,23 +206,24 @@ const stories = [
                             te zijn weggelakt</a>.
                         </p>
                         `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Intelligente Lockdown',
-                    en: ''
+                    en: ``,
                 },
-                date: '2020-03-23',
+            },
+            {
+                title: {
+                    nl: "Intelligente Lockdown",
+                    en: "",
+                },
+                date: "2020-03-23",
                 dateTitle: {
-                    nl: 'Eind maart',
-                    en: ''
+                    nl: "Eind maart",
+                    en: "",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -248,23 +252,24 @@ const stories = [
                             </div>
                         </p>
                         `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Onduidelijkheid over tactiek',
-                    en: ''
+                    en: ``,
                 },
-                date: '2020-04-21',
+            },
+            {
+                title: {
+                    nl: "Onduidelijkheid over tactiek",
+                    en: "",
+                },
+                date: "2020-04-21",
                 dateTitle: {
-                    nl: 'April',
-                    en: 'April'
+                    nl: "April",
+                    en: "April",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -304,23 +309,24 @@ const stories = [
                             </div>
                         </p>
                         `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Nederland gaat weer open',
-                    en: "Netherlands is opening again"
+                    en: ``,
                 },
-                date: '2020-07-17',
+            },
+            {
+                title: {
+                    nl: "Nederland gaat weer open",
+                    en: "Netherlands is opening again",
+                },
+                date: "2020-07-17",
                 dateTitle: {
-                    nl: 'Juni/juli',
-                    en: ""
+                    nl: "Juni/juli",
+                    en: "",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -350,23 +356,24 @@ const stories = [
                             </div>
                         </p>
                     `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Geen zicht op verkeer vanuit het buitenland',
-                    en: ""
+                    en: ``,
                 },
-                date: '2020-08-01',
+            },
+            {
+                title: {
+                    nl: "Geen zicht op verkeer vanuit het buitenland",
+                    en: "",
+                },
+                date: "2020-08-01",
                 dateTitle: {
-                    nl: 'Zomervakantie',
-                    en: ""
+                    nl: "Zomervakantie",
+                    en: "",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -402,23 +409,24 @@ const stories = [
                             </div>
                         </p>
                     `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Bron en contactonderzoek kan het niet meer bijbenen.',
-                    en: "Contact tracing is collapsing"
+                    en: ``,
                 },
-                date: '2020-08-07',
+            },
+            {
+                title: {
+                    nl: "Bron en contactonderzoek kan het niet meer bijbenen.",
+                    en: "Contact tracing is collapsing",
+                },
+                date: "2020-08-07",
                 dateTitle: {
-                    nl: 'Augustus',
-                    en: "August"
+                    nl: "Augustus",
+                    en: "August",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -450,23 +458,24 @@ const stories = [
                             </div>
                         </p>
                     `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Grapperhaus overtreedt eigen coronaregels',
-                    en: "Minister Grapperhaus violates own corona rules"
+                    en: ``,
                 },
-                date: '2020-08-20',
+            },
+            {
+                title: {
+                    nl: "Grapperhaus overtreedt eigen coronaregels",
+                    en: "Minister Grapperhaus violates own corona rules",
+                },
+                date: "2020-08-20",
                 dateTitle: {
-                    nl: 'Eind augustus',
-                    en: "End of august"
+                    nl: "Eind augustus",
+                    en: "End of august",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -490,23 +499,24 @@ const stories = [
                             </div>
                         </p>
                     `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Shielding',
-                    en: ""
+                    en: ``,
                 },
-                date: '2020-09-08',
+            },
+            {
+                title: {
+                    nl: "Shielding",
+                    en: "",
+                },
+                date: "2020-09-08",
                 dateTitle: {
-                    nl: 'Begin september',
-                    en: "Beginning of september"
+                    nl: "Begin september",
+                    en: "Beginning of september",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -547,23 +557,24 @@ const stories = [
                             </div>
                         </p>
                     `,
-                    en: ``
-                }
-            }, {
+                    en: ``,
+                },
+            },
+            {
                 title: {
                     nl: "Economisch belangen blijken opschaling testen in de weg te hebben gezeten",
-                    en: ""
+                    en: "",
                 },
-                date: '2020-09-08',
+                date: "2020-09-08",
                 dateTitle: {
-                    nl: 'juni - september',
-                    en: "june - september"
+                    nl: "juni - september",
+                    en: "june - september",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -596,23 +607,24 @@ const stories = [
                             GGD-woordvoerder Sonja Kloppenburg).
                         </p>            
                         `,
-                    en: ``
-                }
-            }, {
-                title: {
-                    nl: 'Den Haag en regio kijken naar elkaar, niemand grijpt in',
-                    en: ""
+                    en: ``,
                 },
-                date: '2020-09-24',
+            },
+            {
+                title: {
+                    nl: "Den Haag en regio kijken naar elkaar, niemand grijpt in",
+                    en: "",
+                },
+                date: "2020-09-24",
                 dateTitle: {
-                    nl: 'Eind september',
-                    en: "End of september"
+                    nl: "Eind september",
+                    en: "End of september",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -641,23 +653,24 @@ const stories = [
                             waar dit geen onderdeel is van de aanpak.
                         </p>
                     `,
-                    en: ``
-                }
-            }, {
+                    en: ``,
+                },
+            },
+            {
                 title: {
                     nl: "Een 'Halve' lockdown",
-                    en: "The '50% Lockdown'"
+                    en: "The '50% Lockdown'",
                 },
-                date: '2020-10-13',
+                date: "2020-10-13",
                 dateTitle: {
-                    nl: 'Oktober',
-                    en: "October"
+                    nl: "Oktober",
+                    en: "October",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -691,23 +704,24 @@ const stories = [
                             en gaat over, tot wat hij een 'halve lockdown' noemt.
                         </p>
                     `,
-                    en: ``
-                }
-            }, {
+                    en: ``,
+                },
+            },
+            {
                 title: {
                     nl: "Kerst in lockdown",
-                    en: ""
+                    en: "",
                 },
-                date: '2020-12-14',
+                date: "2020-12-14",
                 dateTitle: {
-                    nl: 'December',
-                    en: "December"
+                    nl: "December",
+                    en: "December",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -747,11 +761,11 @@ const stories = [
                             wijzen er op, dat 2021 nog een lange weg is, terug naar het oude normaal.
                         </p>
                     `,
-                    en: ``
-                }
-            }
-        ]
-    }
+                    en: ``,
+                },
+            },
+        ],
+    },
 ];
 
 export default stories;

@@ -1,17 +1,17 @@
 <script>
 import Bookmark from "./bookmark";
 export default {
-    name: 'bookmarks',
-    components: {Bookmark},
+    name: "bookmarks",
+    components: { Bookmark },
     data() {
         return {
-            dropdown: false
-        }
+            dropdown: false,
+        };
     },
     computed: {
         bookmarks() {
             return this.$store.state.maps.current.settings.map.bookmarks;
-        }
+        },
     },
     methods: {
         toggle() {
@@ -19,29 +19,24 @@ export default {
         },
         close() {
             this.dropdown = false;
-        }
-    }
-}
+        },
+    },
+};
 </script>
-
 
 <template>
     <div class="bookmarks map-navigation__section">
-        <h3 @click="toggle">
-            Bookmarks <span>▼</span>
-        </h3>
-        <menu
-            v-if="dropdown"
-            class="bookmarks__dropdown">
+        <h3 @click="toggle">Bookmarks <span>▼</span></h3>
+        <menu v-if="dropdown" class="bookmarks__dropdown">
             <bookmark
                 v-for="(bookmark, index) in bookmarks"
                 :key="index"
                 @close="close"
-                :bookmark="bookmark" />
+                :bookmark="bookmark"
+            />
         </menu>
     </div>
 </template>
-
 
 <style lang="scss">
 .bookmarks {
@@ -63,7 +58,7 @@ export default {
         width: 100px;
         background: #fff;
         z-index: 10;
-        box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
     }
 }
 </style>

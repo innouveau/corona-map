@@ -1,7 +1,5 @@
 class Day {
-    constructor(day) {
-
-    }
+    constructor(day) {}
 }
 
 export default Day;

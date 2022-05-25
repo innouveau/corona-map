@@ -3,12 +3,12 @@ class Map {
         id = null,
         ready = true,
         block = false,
-        title = '',
-        module = '',
-        regionLabel = '',
+        title = "",
+        module = "",
+        regionLabel = "",
         settings = {},
         data = {},
-        story_id = null
+        story_id = null,
     }) {
         this.id = id;
         this.ready = ready;

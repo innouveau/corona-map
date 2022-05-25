@@ -1,13 +1,13 @@
 export default {
-    name: 'map-mixin',
+    name: "map-mixin",
     data() {
         return {
-            id: Math.round(Math.random() * 1000000)
-        }
+            id: Math.round(Math.random() * 1000000),
+        };
     },
     computed: {
         ctx() {
-            return this.canvas.getContext('2d');
+            return this.canvas.getContext("2d");
         },
         currentMap() {
             return this.$store.state.maps.current;
@@ -19,15 +19,26 @@ export default {
             return this.$store.state.settings.navigation;
         },
         mapRenderKey() {
-            return 'map-' + this.sizes.canvas.width + '-' + this.navigation.zoom + this.navigation.position.x + '-' + this.navigation.position.y;
-        }
+            return (
+                "map-" +
+                this.sizes.canvas.width +
+                "-" +
+                this.navigation.zoom +
+                this.navigation.position.x +
+                "-" +
+                this.navigation.position.y
+            );
+        },
     },
     methods: {
         clear() {
-            this.ctx.clearRect(0, 0, this.sizes.container.width, this.sizes.container.height);
-        }
+            this.ctx.clearRect(
+                0,
+                0,
+                this.sizes.container.width,
+                this.sizes.container.height
+            );
+        },
     },
-    watch: {
-
-    }
-}
+    watch: {},
+};

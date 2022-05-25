@@ -1,15 +1,18 @@
-import dateTools from '@/tools/date';
-import store from '@/store/store';
+import dateTools from "@/tools/date";
+import store from "@/store/store";
 
 class Chapter {
-    constructor({
-        title = '',
-        date = '',
-        dateTitle = '',
-        selection = {},
-        content = '',
-        ui = {}
-    }, story) {
+    constructor(
+        {
+            title = "",
+            date = "",
+            dateTitle = "",
+            selection = {},
+            content = "",
+            ui = {},
+        },
+        story
+    ) {
         this.story = story;
         this.title = title;
         this.date = date;
@@ -50,7 +53,10 @@ class Chapter {
         percentage = (scroll - this.ui.top) / (this.ui.bottom - this.ui.top);
         nextChapter = this.next;
         if (nextChapter) {
-            return this.offset - Math.round(percentage * (this.offset - nextChapter.offset ));
+            return (
+                this.offset -
+                Math.round(percentage * (this.offset - nextChapter.offset))
+            );
         } else {
             return this.offset;
         }
@@ -60,12 +66,14 @@ class Chapter {
         let percentage, nextChapter;
         nextChapter = this.next;
         if (nextChapter) {
-            percentage = (this.offset - offset) / (nextChapter.offset - this.offset);
-            return Math.round(this.ui.top + (percentage * (this.ui.top - this.ui.bottom)));
+            percentage =
+                (this.offset - offset) / (nextChapter.offset - this.offset);
+            return Math.round(
+                this.ui.top + percentage * (this.ui.top - this.ui.bottom)
+            );
         } else {
             return this.ui.top;
         }
-
     }
 }
 

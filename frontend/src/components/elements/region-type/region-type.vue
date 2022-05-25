@@ -4,23 +4,23 @@ import View from "@/classes/View";
 import { getRegionFromBaseRegion } from "@/tools/relations";
 
 export default {
-    name: 'region-type',
+    name: "region-type",
     components: {
-        swatch
+        swatch,
     },
     props: {
         view: {
             type: View,
-            required: true
+            required: true,
         },
         type: {
             type: String,
-            required: true
+            required: true,
         },
         typeAsRegionTitle: {
             type: Boolean,
-            required: true
-        }
+            required: true,
+        },
     },
     computed: {
         isActive() {
@@ -30,62 +30,63 @@ export default {
             if (this.typeAsRegionTitle) {
                 const baseRegion = this.view.currentRegion;
                 const region = getRegionFromBaseRegion(baseRegion, this.type);
-                return region ? region.title : '';
+                return region ? region.title : "";
             } else {
                 return this.translate(this.type, true);
             }
-        }
+        },
     },
     methods: {
         select() {
-            this.$store.commit('ui/updateProperty', {key: 'currentRegionType', value: this.type});
-        }
-    }
-}
+            this.$store.commit("ui/updateProperty", {
+                key: "currentRegionType",
+                value: this.type,
+            });
+        },
+    },
+};
 </script>
-
 
 <template>
     <div
         @click="select"
         :class="{
-            'region-type--current': isActive
+            'region-type--current': isActive,
         }"
-        class="region-type">
-        {{title}}
+        class="region-type"
+    >
+        {{ title }}
     </div>
 </template>
 
-
 <style lang="scss">
-    @import '@/styles/variables.scss';
+@import "@/styles/variables.scss";
 
-    .region-type {
-        position: relative;
-        cursor: pointer;
-        margin-right: 16px;
-        height: 16px;
-        font-size: 10px;
+.region-type {
+    position: relative;
+    cursor: pointer;
+    margin-right: 16px;
+    height: 16px;
+    font-size: 10px;
+
+    &:after {
+        content: "»";
+        position: absolute;
+        right: -11px;
+        top: calc(50% - 1px);
+        transform: translateY(-50%);
+    }
+
+    &:last-child {
+        margin-right: 0;
 
         &:after {
-            content: '»';
-            position: absolute;
-            right: -11px;
-            top: calc(50% - 1px);
-            transform: translateY(-50%);
-        }
-
-        &:last-child {
-            margin-right: 0;
-
-            &:after {
-                display: none;
-            }
-        }
-
-        &.region-type--current {
-
-            border-bottom: 1px solid $map-color-dark;
+            display: none;
         }
     }
+
+    &.region-type--current {
+        border-bottom: 1px solid $map-color-dark;
+    }
+}
 </style>

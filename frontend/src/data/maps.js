@@ -1,53 +1,60 @@
 const datagraverAdapter = {
-    titleKey: 'Land/regio',
-    valuePrefix: '',
-    isValueColumn: function(column) {
-        return column.indexOf('20') > -1;
+    titleKey: "Land/regio",
+    valuePrefix: "",
+    isValueColumn: function (column) {
+        return column.indexOf("20") > -1;
     },
-    getDateFromColumn: function(column) {
+    getDateFromColumn: function (column) {
         return column;
-    }
+    },
 };
 
 const mzelstAdapter = {
-    titleKey: 'Municipality_code',
-    valuePrefix: '',
-    isValueColumn: function(column) {
-        return column.indexOf('20') > -1;
+    titleKey: "Municipality_code",
+    valuePrefix: "",
+    isValueColumn: function (column) {
+        return column.indexOf("20") > -1;
     },
-    getDateFromColumn: function(column) {
+    getDateFromColumn: function (column) {
         return column;
-    }
-}
+    },
+};
 
-const casesUrl = 'https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv';
+const casesUrl =
+    "https://raw.githubusercontent.com/Datagraver/Covid-19-base/main/cases.csv";
 
 const standardSources = {
     positiveTests: {
         loadInitially: true,
-            status: true,
-            url: casesUrl,
-            cumulative: true,
-            adapter: datagraverAdapter
-    }
-}
+        status: true,
+        url: casesUrl,
+        cumulative: true,
+        adapter: datagraverAdapter,
+    },
+};
 
 const caseSettings = {
-    lateReporting: ['FR', 'BE', 'PL', 'SE', 'UK']
+    lateReporting: ["FR", "BE", "PL", "SE", "UK"],
 };
 
 const maps = [
     {
         id: 1,
-        title: 'Nederland',
+        title: "Nederland",
         story_id: 1,
         settings: {
-            regionTypes: ['municipality','ggd', 'safety-region', 'province', 'country'],
+            regionTypes: [
+                "municipality",
+                "ggd",
+                "safety-region",
+                "province",
+                "country",
+            ],
             pathOrigins: [
                 {
-                    type: 'country',
-                    paths: 'city'
-                }
+                    type: "country",
+                    paths: "city",
+                },
             ],
             generalInfoHasPopulation: false,
             map: {
@@ -55,48 +62,56 @@ const maps = [
                 longitude: 5.34,
                 stretch: 0.62,
                 zoom: 0.345,
-                ratio: 0.91
+                ratio: 0.91,
             },
             positiveTestGraph: {
-                zoomFactor: 0.075
+                zoomFactor: 0.075,
             },
-            interval: 1
+            interval: 1,
         },
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/nederland/cities.json?version=2022weesp'
+                source: "data/maps/nederland/cities.json?version=2022weesp",
             },
             sources: {
                 positiveTests: {
                     loadInitially: true,
-                    url: (window.config.dataUrl + 'data/municipality-totals.csv'),
+                    url: window.config.dataUrl + "data/municipality-totals.csv",
                     interval: 1,
                     cumulative: true,
-                    adapter: mzelstAdapter
+                    adapter: mzelstAdapter,
                 },
                 hospitalisations: {
                     loadInitially: false,
-                    url: (window.config.dataUrl + 'data/municipality-hospitalisations.csv'),
+                    url:
+                        window.config.dataUrl +
+                        "data/municipality-hospitalisations.csv",
                     interval: 1,
                     cumulative: true,
-                    adapter: mzelstAdapter
+                    adapter: mzelstAdapter,
                 },
                 deceased: {
                     loadInitially: false,
-                    url: (window.config.dataUrl + 'data/municipality-deaths.csv'),
+                    url: window.config.dataUrl + "data/municipality-deaths.csv",
                     interval: 1,
                     cumulative: true,
-                    adapter: mzelstAdapter
-                }
-            }
-        }
+                    adapter: mzelstAdapter,
+                },
+            },
+        },
     },
     {
         id: 15,
-        title: 'Vaccinatie',
+        title: "Vaccinatie",
         settings: {
-            regionTypes: ['district', 'municipality', 'ggd', 'province', 'country'],
+            regionTypes: [
+                "district",
+                "municipality",
+                "ggd",
+                "province",
+                "country",
+            ],
             pathOrigins: [],
             generalInfoHasPopulation: false,
             map: {
@@ -108,70 +123,78 @@ const maps = [
                 bookmarks: [
                     {
                         title: "Amsterdam",
-                        navigation: { "zoom": 9, "position": { "x": 626, "y": 479 } }
+                        navigation: { zoom: 9, position: { x: 626, y: 479 } },
                     },
                     {
                         title: "Den Haag",
-                        navigation: { "zoom": 11, "position": { "x": 1802, "y": -286 } }
+                        navigation: {
+                            zoom: 11,
+                            position: { x: 1802, y: -286 },
+                        },
                     },
                     {
                         title: "Rotterdam",
-                        navigation: { "zoom": 11, "position": { "x": 1479, "y": -710 } }
+                        navigation: {
+                            zoom: 11,
+                            position: { x: 1479, y: -710 },
+                        },
                     },
                     {
                         title: "Utrecht",
-                        navigation: { "zoom": 12, "position": { "x": 436, "y": -283 } }
+                        navigation: { zoom: 12, position: { x: 436, y: -283 } },
                     },
                     {
                         title: "Urk",
-                        navigation: { "zoom": 6, "position": { "x": -450, "y": 726 } }
-                    }
-                ]
+                        navigation: { zoom: 6, position: { x: -450, y: 726 } },
+                    },
+                ],
             },
             positiveTestGraph: {
-                zoomFactor: 7
+                zoomFactor: 7,
             },
-            interval: 7
+            interval: 7,
         },
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/nederland/districts.json?version=1'
+                source: "data/maps/nederland/districts.json?version=1",
             },
             sources: {
                 vaccination: {
                     loadInitially: true,
-                    url: window.config.dataUrl + 'data/vaccination-neighborhood-completed.csv',
+                    url:
+                        window.config.dataUrl +
+                        "data/vaccination-neighborhood-completed.csv",
                     cumulative: false,
                     percentage: true,
                     adapter: {
-                        titleKey: 'Region_code',
-                        populationKey: 'Populatie_merged',
-                        valuePrefix: '',
-                        isValueColumn: function(column) {
-                            return column.indexOf('20') > -1;
+                        titleKey: "Region_code",
+                        populationKey: "Populatie_merged",
+                        valuePrefix: "",
+                        isValueColumn: function (column) {
+                            return column.indexOf("20") > -1;
                         },
-                        getDateFromColumn: function(column) {
+                        getDateFromColumn: function (column) {
                             return column;
-                        }
-                    }
+                        },
+                    },
                 },
-            }
-        }
+            },
+        },
     },
     {
         id: 4,
         ready: true,
         block: false,
-        regionType: 'District',
-        module: 'districts',
-        title: 'NL-DE',
+        regionType: "District",
+        module: "districts",
+        title: "NL-DE",
         settings: {
             customRegionLabel: {
-                nl: 'Gebieden',
-                en: 'Regions'
+                nl: "Gebieden",
+                en: "Regions",
             },
-            regionTypes: ['district'],
+            regionTypes: ["district"],
             pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
@@ -179,23 +202,24 @@ const maps = [
                 longitude: 10.16,
                 stretch: 0.62,
                 zoom: 0.12,
-                ratio: 1.15
+                ratio: 1.15,
             },
-            interval: 1
+            interval: 1,
         },
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/nl-de/nl-de.json'
+                source: "data/maps/nl-de/nl-de.json",
             },
-            sources: standardSources
-        }
-    }, {
+            sources: standardSources,
+        },
+    },
+    {
         id: 5,
         ready: true,
-        title: 'Europe',
+        title: "Europe",
         settings: {
-            regionTypes: ['district'],
+            regionTypes: ["district"],
             pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
@@ -203,27 +227,27 @@ const maps = [
                 longitude: 5,
                 stretch: 0.65,
                 zoom: 0.027,
-                ratio: 1.04
+                ratio: 1.04,
             },
             positiveTestGraph: {
-                zoomFactor: 0.15
+                zoomFactor: 0.15,
             },
             caseSettings: caseSettings,
-            interval: 1
+            interval: 1,
         },
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/europa/europa.json?version=5'
+                source: "data/maps/europa/europa.json?version=5",
             },
-            sources: standardSources
-        }
+            sources: standardSources,
+        },
     },
     {
         id: 6,
-        title: 'World',
+        title: "World",
         settings: {
-            regionTypes: ['district'],
+            regionTypes: ["district"],
             pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
@@ -235,26 +259,26 @@ const maps = [
                 shiftX: -5,
                 // ratio: 1.6,
                 zoom: 0.009,
-                ratio: 2
+                ratio: 2,
             },
             positiveTestGraph: {
-                zoomFactor: 0.2
+                zoomFactor: 0.2,
             },
-            interval: 1
+            interval: 1,
         },
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/world/world.json?version=5'
+                source: "data/maps/world/world.json?version=5",
             },
-            sources: standardSources
-        }
+            sources: standardSources,
+        },
     },
     {
         id: 7,
-        title: 'USA',
+        title: "USA",
         settings: {
-            regionTypes: ['district'],
+            regionTypes: ["district"],
             pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
@@ -265,23 +289,23 @@ const maps = [
                 stretch: 0.7,
             },
             positiveTestGraph: {
-                zoomFactor: 0.3
+                zoomFactor: 0.3,
             },
-            interval: 1
+            interval: 1,
         },
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/usa/usa.json'
+                source: "data/maps/usa/usa.json",
             },
-            sources: standardSources
-        }
+            sources: standardSources,
+        },
     },
     {
         id: 13,
-        title: 'South America',
+        title: "South America",
         settings: {
-            regionTypes: ['district'],
+            regionTypes: ["district"],
             pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
@@ -289,27 +313,27 @@ const maps = [
                 longitude: -60,
                 stretch: 0.8,
                 zoom: 0.014,
-                ratio: 0.65
+                ratio: 0.65,
             },
             positiveTestGraph: {
-                zoomFactor: 0.9
+                zoomFactor: 0.9,
             },
             caseSettings: caseSettings,
-            interval: 1
+            interval: 1,
         },
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/south-america/south-america.json?version=2'
+                source: "data/maps/south-america/south-america.json?version=2",
             },
-            sources: standardSources
-        }
+            sources: standardSources,
+        },
     },
     {
         id: 14,
-        title: 'South-East Asia',
+        title: "South-East Asia",
         settings: {
-            regionTypes: ['district'],
+            regionTypes: ["district"],
             pathOrigins: [],
             generalInfoHasPopulation: true,
             map: {
@@ -317,20 +341,20 @@ const maps = [
                 longitude: 110,
                 stretch: 0.8,
                 zoom: 0.014,
-                ratio: 1
+                ratio: 1,
             },
             positiveTestGraph: {
-                zoomFactor: 1
+                zoomFactor: 1,
             },
-            interval: 1
+            interval: 1,
         },
         data: {
             geo: {
                 status: true,
-                source: 'data/maps/south-east-asia/south-east-asia.json?version=2'
+                source: "data/maps/south-east-asia/south-east-asia.json?version=2",
             },
-            sources: standardSources
-        }
+            sources: standardSources,
+        },
     },
 ];
 

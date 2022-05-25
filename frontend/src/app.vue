@@ -1,125 +1,146 @@
 <script>
-    import $ from 'jquery';
-    import credits from "@/components/elements/credits";
-    import HamburgerMenu from "@/components/elements/hamburger/hamburger-menu";
-    import { loadSources } from "@/tools/timeline";
+import $ from "jquery";
+import credits from "@/components/elements/credits";
+import HamburgerMenu from "@/components/elements/hamburger/hamburger-menu";
+import { loadSources } from "@/tools/timeline";
 
-    // static data
-    import languages from '@/data/languages';
-    import maps from '@/data/maps';
-    import stories from '@/data/stories';
-    import signalingSystems from '@/data/signaling-systems';
+// static data
+import languages from "@/data/languages";
+import maps from "@/data/maps";
+import stories from "@/data/stories";
+import signalingSystems from "@/data/signaling-systems";
 
-    export default {
-        name: 'app',
-        components: {
-            HamburgerMenu,
-            credits
+export default {
+    name: "app",
+    components: {
+        HamburgerMenu,
+        credits,
+    },
+    props: {},
+    data() {
+        return {
+            dateKeys: null,
+        };
+    },
+    computed: {
+        dataLoaded() {
+            return this.$store.state.dataLoaded;
         },
-        props: {},
-        data() {
-            return {
-                dateKeys: null
+        currentMap() {
+            return this.$store.state.maps.current;
+        },
+        showCredits() {
+            return this.$store.state.ui.creditsPopup;
+        },
+        videoMode() {
+            return this.$store.state.ui.videoMode;
+        },
+        block() {
+            return (
+                this.currentMap &&
+                this.currentMap.block &&
+                !this.$store.state.ui.admin
+            );
+        },
+        showHamburger() {
+            return this.$store.state.ui.presets !== "radio1";
+        },
+    },
+    methods: {
+        init() {
+            this.initLanguages();
+            this.pickMap();
+            this.loadStaticData();
+            this.loadDynamicData();
+        },
+        pickMap() {
+            let map;
+            this.$store.commit("maps/init", maps);
+            if (this.$route.query.map) {
+                map = this.$store.getters["maps/getItemByProperty"](
+                    "title",
+                    this.$route.query.map,
+                    true
+                );
             }
-        },
-        computed: {
-            dataLoaded() {
-                return this.$store.state.dataLoaded;
-            },
-            currentMap() {
-                return this.$store.state.maps.current;
-            },
-            showCredits() {
-                return this.$store.state.ui.creditsPopup;
-            },
-            videoMode() {
-                return this.$store.state.ui.videoMode;
-            },
-            block() {
-                return this.currentMap && this.currentMap.block && !this.$store.state.ui.admin;
-            },
-            showHamburger() {
-                return this.$store.state.ui.presets !== 'radio1';
+            if (map) {
+                this.$store.commit("maps/setCurrent", map);
+            } else {
+                this.$store.commit(
+                    "maps/setCurrent",
+                    this.$store.state.maps.all[0]
+                );
             }
+            this.$store.commit("ui/updateProperty", {
+                key: "currentRegionType",
+                value: this.currentMap.settings.regionTypes[0],
+            });
         },
-        methods: {
-            init() {
-                this.initLanguages();
-                this.pickMap();
-                this.loadStaticData();
-                this.loadDynamicData();
-            },
-            pickMap() {
-                let map;
-                this.$store.commit('maps/init', maps);
-                if (this.$route.query.map) {
-                    map = this.$store.getters['maps/getItemByProperty']('title', this.$route.query.map, true);
-                }
-                if (map) {
-                    this.$store.commit('maps/setCurrent', map);
-                } else {
-                    this.$store.commit('maps/setCurrent', this.$store.state.maps.all[0]);
-                }
-                this.$store.commit('ui/updateProperty', {key: 'currentRegionType', value: this.currentMap.settings.regionTypes[0]});
-            },
-            initLanguages() {
-                let language;
-                this.$store.commit('languages/init', languages);
-                if (this.$route.query.language) {
-                    language = this.$store.getters['languages/getItemByProperty']('iso_code', this.$route.query.language, true);
-                }
-                if (!language) {
-                    language = this.$store.state.languages.all[0];
-                }
-                this.$store.commit('languages/setCurrent', language);
-            },
-            loadStaticData() {
-                this.$store.commit('stories/init', stories);
-                this.$store.commit('signalingSystems/init', signalingSystems);
-                this.$store.commit('signalingSystems/setCurrent', this.$store.state.signalingSystems.all[0]);
-            },
-            async loadDynamicData() {
-                await this.loadGeoData();
-                await loadSources(this.currentMap);
-                this.$store.commit('updateProperty', {key: 'dataLoaded', value: true});
-            },
-            loadGeoData() {
-                return new Promise((resolve, reject) => {
-                    $.getJSON(this.currentMap.data.geo.source, (result) => {
-                        this.$store.commit('regions/init', result);
-                        resolve();
-                    }).catch((error) => {
-                        reject(error);
-                    })
-                })
-            },
-            openHamburgerMenu() {
-                this.$store.commit('ui/updateProperty', {key: 'hamburgerMenu', value: true});
+        initLanguages() {
+            let language;
+            this.$store.commit("languages/init", languages);
+            if (this.$route.query.language) {
+                language = this.$store.getters["languages/getItemByProperty"](
+                    "iso_code",
+                    this.$route.query.language,
+                    true
+                );
             }
+            if (!language) {
+                language = this.$store.state.languages.all[0];
+            }
+            this.$store.commit("languages/setCurrent", language);
         },
-        mounted() {
-            this.init();
-        }
-    }
+        loadStaticData() {
+            this.$store.commit("stories/init", stories);
+            this.$store.commit("signalingSystems/init", signalingSystems);
+            this.$store.commit(
+                "signalingSystems/setCurrent",
+                this.$store.state.signalingSystems.all[0]
+            );
+        },
+        async loadDynamicData() {
+            await this.loadGeoData();
+            await loadSources(this.currentMap);
+            this.$store.commit("updateProperty", {
+                key: "dataLoaded",
+                value: true,
+            });
+        },
+        loadGeoData() {
+            return new Promise((resolve, reject) => {
+                $.getJSON(this.currentMap.data.geo.source, (result) => {
+                    this.$store.commit("regions/init", result);
+                    resolve();
+                }).catch((error) => {
+                    reject(error);
+                });
+            });
+        },
+        openHamburgerMenu() {
+            this.$store.commit("ui/updateProperty", {
+                key: "hamburgerMenu",
+                value: true,
+            });
+        },
+    },
+    mounted() {
+        this.init();
+    },
+};
 </script>
 
-
 <template>
-    <div
-        :class="{'map--blocked': block}"
-        class="app">
-        <router-view v-if="dataLoaded"/>
-        <div
-            class="loading"
-            v-else>
-            Loading data...
-        </div>
+    <div :class="{ 'map--blocked': block }" class="app">
+        <router-view v-if="dataLoaded" />
+        <div class="loading" v-else>Loading data...</div>
 
         <div
             v-if="showHamburger"
             @click="openHamburgerMenu()"
-            class="icon-button icon-button--without-border hamburger">
-            <img src="assets/img/tools/hamburger.svg">
+            class="icon-button icon-button--without-border hamburger"
+        >
+            <img src="assets/img/tools/hamburger.svg" />
         </div>
 
         <div class="author">
@@ -128,47 +149,46 @@
             </a>
         </div>
 
-        <hamburger-menu/>
-        <credits v-if="showCredits"/>
+        <hamburger-menu />
+        <credits v-if="showCredits" />
     </div>
 </template>
 
-
 <style lang="scss">
-    @import '@/styles/index.scss';
-    @import '@/styles/variables.scss';
+@import "@/styles/index.scss";
+@import "@/styles/variables.scss";
 
-    .app {
-        overflow: hidden;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
+.app {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         height: 100%;
+    }
 
-        .loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
+    .author {
+        position: fixed;
+        right: 8px;
+        bottom: 12px;
+        z-index: 10;
 
-        .author {
-            position: fixed;
-            right: 8px;
-            bottom: 12px;
-            z-index: 10;
-
-            a {
-                color: #000;
-            }
-        }
-
-        .hamburger {
-            position: fixed;
-            right: 8px;
-            top: 12px;
-            z-index: 10;
+        a {
+            color: #000;
         }
     }
+
+    .hamburger {
+        position: fixed;
+        right: 8px;
+        top: 12px;
+        z-index: 10;
+    }
+}
 </style>

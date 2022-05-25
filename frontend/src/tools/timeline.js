@@ -18,25 +18,26 @@ export const loadSources = async (map) => {
             await loadSource(map, source);
         }
     }
-}
+};
 
 const addSource = (key) => {
-    const signalingSystem = store.state.signalingSystems.all.find(s => s.source === key);
+    const signalingSystem = store.state.signalingSystems.all.find(
+        (s) => s.source === key
+    );
     const source = {
         key: key,
         title: key,
         signalingSystem_id: signalingSystem.id,
         // todo
-        order: store.state.sources.all.length
+        order: store.state.sources.all.length,
     };
-    store.commit('sources/create', source);
-}
+    store.commit("sources/create", source);
+};
 
-export const loadSource = async(map, source) => {
+export const loadSource = async (map, source) => {
     return new Promise((resolve, reject) => {
         d3.csv(source.url + dateTool.getTimestamp())
             .then((data) => {
-
                 if (!historyConstructed) {
                     constructTimeline(source, data.columns);
                 }
@@ -44,8 +45,15 @@ export const loadSource = async(map, source) => {
                 for (let regionData of data) {
                     addSourceItem(map, source, regionData);
                 }
-                const sourceItem = store.getters["sources/getItemByProperty"]("title", source.key);
-                store.commit('sources/updatePropertyOfItem', {item: sourceItem, property: 'loaded', value: true});
+                const sourceItem = store.getters["sources/getItemByProperty"](
+                    "title",
+                    source.key
+                );
+                store.commit("sources/updatePropertyOfItem", {
+                    item: sourceItem,
+                    property: "loaded",
+                    value: true,
+                });
                 if (source.loadInitially) {
                     checkForEmptyData(map, source);
                 }
@@ -54,8 +62,8 @@ export const loadSource = async(map, source) => {
             .catch((error) => {
                 reject(error);
             });
-    })
-}
+    });
+};
 
 const checkForEmptyData = (map, source) => {
     for (const region of store.state.regions.all) {
@@ -63,7 +71,7 @@ const checkForEmptyData = (map, source) => {
             store.commit("regions/noData", region);
         }
     }
-}
+};
 
 const addSourceItem = (map, source, regionData) => {
     const adapter = source.adapter;
@@ -73,9 +81,17 @@ const addSourceItem = (map, source, regionData) => {
         if (region) {
             let population;
             if (!map.settings.generalInfoHasPopulation) {
-                const populationKey = adapter.hasOwnProperty("populationKey") ? adapter.populationKey : "population";
-                population = numberTools.convertToNumber(regionData[populationKey]);
-                store.commit( 'regions/updatePropertyOfItem', {item: region, property: 'population', value: population});
+                const populationKey = adapter.hasOwnProperty("populationKey")
+                    ? adapter.populationKey
+                    : "population";
+                population = numberTools.convertToNumber(
+                    regionData[populationKey]
+                );
+                store.commit("regions/updatePropertyOfItem", {
+                    item: region,
+                    property: "population",
+                    value: population,
+                });
             } else {
                 population = region.population;
             }
@@ -85,7 +101,7 @@ const addSourceItem = (map, source, regionData) => {
                 const regionDay = {
                     date: timelineDay.dateString,
                     offset: timelineDay.offset,
-                    source: {}
+                    source: {},
                 };
                 const key = timelineDay.sourceKey;
                 if (regionData[key]) {
@@ -110,13 +126,13 @@ const addSourceItem = (map, source, regionData) => {
                 for (let i = 0; i < l; i++) {
                     const day = history[i];
                     if (i > 0) {
-                        const dayBefore = history[i - 1]
+                        const dayBefore = history[i - 1];
                         const currentValue = day.source[source.key];
                         const dayBeforeValue = dayBefore.source[source.key];
                         const nettoValue = currentValue - dayBeforeValue;
                         correctedHistory.push(nettoValue);
                     } else {
-                        correctedHistory.push(null)
+                        correctedHistory.push(null);
                     }
                 }
                 for (let i = 0; i < l; i++) {
@@ -128,12 +144,19 @@ const addSourceItem = (map, source, regionData) => {
             }
 
             if (region.report.history.length === 0) {
-                store.commit( 'regions/updatePropertyOfItem', {item: region, property: 'report', value: { history }});
+                store.commit("regions/updatePropertyOfItem", {
+                    item: region,
+                    property: "report",
+                    value: { history },
+                });
             } else {
                 for (const historyDay of history) {
-                    const regionDay = region.report.history.find(d => d.offset === historyDay.offset);
+                    const regionDay = region.report.history.find(
+                        (d) => d.offset === historyDay.offset
+                    );
                     if (regionDay) {
-                        regionDay.source[source.key] = historyDay.source[source.key];
+                        regionDay.source[source.key] =
+                            historyDay.source[source.key];
                     }
                 }
             }
@@ -145,7 +168,7 @@ const addSourceItem = (map, source, regionData) => {
             // console.log('not found ' + titleKey);
         }
     }
-}
+};
 
 const constructTimeline = (source, columns) => {
     const adapter = source.adapter;
@@ -156,23 +179,25 @@ const constructTimeline = (source, columns) => {
             timeline.push({
                 sourceKey: column,
                 dateString,
-                ms: new Date(dateString).getTime()
+                ms: new Date(dateString).getTime(),
             });
         }
     }
     // sort to be sure the order is correct
-    timeline = timeline.sort((a,b) => (a.ms > b.ms) ? 1 : ((b.ms > a.ms) ? -1 : 0));
+    timeline = timeline.sort((a, b) =>
+        a.ms > b.ms ? 1 : b.ms > a.ms ? -1 : 0
+    );
     // remove the ms value afterwards
     timeline = timeline.map((day) => {
         const d = { ...day };
         delete d.ms;
         return d;
-    })
+    });
     // add offset
     for (let day of timeline) {
         let offset = timeline.length - timeline.indexOf(day) - 1;
         day.offset = offset;
-        dateTool.addDateOffset(day.dateString, offset)
+        dateTool.addDateOffset(day.dateString, offset);
     }
 
     // do some administration
@@ -186,8 +211,14 @@ const constructTimeline = (source, columns) => {
         totalLengthOfTestHistory = timeline.length;
     }
 
-    store.commit('ui/updateProperty', {key: 'todayInMs', value: today.getTime()});
-    store.commit('ui/updateProperty', {key: 'today', value: today});
-    store.commit('settings/updateProperty', {key: 'historyLength', value: totalLengthOfTestHistory});
+    store.commit("ui/updateProperty", {
+        key: "todayInMs",
+        value: today.getTime(),
+    });
+    store.commit("ui/updateProperty", { key: "today", value: today });
+    store.commit("settings/updateProperty", {
+        key: "historyLength",
+        value: totalLengthOfTestHistory,
+    });
     historyConstructed = true;
-}
+};

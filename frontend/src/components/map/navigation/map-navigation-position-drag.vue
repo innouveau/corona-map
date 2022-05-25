@@ -1,16 +1,16 @@
 <script>
 export default {
-    name: 'map-navigation-position-drag',
+    name: "map-navigation-position-drag",
     components: {},
     computed: {},
     data() {
         return {
             startPosition: {
                 x: 0,
-                y: 0
+                y: 0,
             },
-            timer: null
-        }
+            timer: null,
+        };
     },
     methods: {
         dragStart(event) {
@@ -38,30 +38,30 @@ export default {
                 const deltaX = moveEvent.clientX - this.startPosition.x;
                 const deltaY = moveEvent.clientY - this.startPosition.y;
                 if (Math.abs(deltaX) < max && Math.abs(deltaY) < max) {
-                    this.$store.commit('settings/move', { x: deltaX, y: deltaY });
+                    this.$store.commit("settings/move", {
+                        x: deltaX,
+                        y: deltaY,
+                    });
                     this.reset(moveEvent);
                 }
-            }, 1)
-        }
+            }, 1);
+        },
     },
     mounted() {
-        this.$el.addEventListener('touchstart', this.touchStart);
-        this.$el.addEventListener('touchmove', this.touch);
-
-    }
-}
+        this.$el.addEventListener("touchstart", this.touchStart);
+        this.$el.addEventListener("touchmove", this.touch);
+    },
+};
 </script>
-
 
 <template>
     <div
         @dragstart="dragStart"
         @drag="drag"
         draggable="true"
-        class="map-navigation-position-drag">
-    </div>
+        class="map-navigation-position-drag"
+    ></div>
 </template>
-
 
 <style lang="scss">
 .map-navigation-position-drag {

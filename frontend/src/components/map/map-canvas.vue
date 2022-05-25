@@ -1,31 +1,31 @@
 <script>
 import $ from "jquery";
-import canvasTools from '@/tools/canvas';
+import canvasTools from "@/tools/canvas";
 import View from "@/classes/View";
-import mapNavigationZoomScroll from "@/components/map/navigation/map-navigation-zoom.scroll.js"
+import mapNavigationZoomScroll from "@/components/map/navigation/map-navigation-zoom.scroll.js";
 import MapNavigationPositionDrag from "./navigation/map-navigation-position-drag";
 import { loadSource } from "@/tools/timeline";
 import mapMixin from "./map-mixin.js";
 import { getRegionFromBaseRegion } from "@/tools/relations";
-import {getBaseRegions, getRegions} from "../../tools/relations";
+import { getBaseRegions, getRegions } from "../../tools/relations";
 
 export default {
-    name: 'map-canvas',
+    name: "map-canvas",
     components: { MapNavigationPositionDrag },
     mixins: [mapNavigationZoomScroll, mapMixin],
     props: {
         view: {
             type: View,
-            required: true
+            required: true,
         },
         mapType: {
             type: String,
-            required: true
+            required: true,
         },
     },
     computed: {
         canvas() {
-            return document.getElementById('canvas-' + this.id);
+            return document.getElementById("canvas-" + this.id);
         },
         color() {
             return this.$store.state.ui.color;
@@ -39,11 +39,11 @@ export default {
         currentRegionType() {
             return this.$store.state.ui.currentRegionType;
         },
-        currentSource(){
+        currentSource() {
             return this.view.currentSource;
         },
         regions() {
-            return this.$store.getters['regions/regionsForRegionType'];
+            return this.$store.getters["regions/regionsForRegionType"];
         },
     },
     methods: {
@@ -77,9 +77,9 @@ export default {
                 canvas.width = Math.round(container.height * mapRatio);
             }
             const scale = canvas.height * this.currentMap.settings.map.zoom;
-            this.$store.commit('settings/setSizeCanvas', canvas);
-            this.$store.commit('settings/setSizeContainer', container);
-            this.$store.commit('settings/setScale', scale);
+            this.$store.commit("settings/setSizeCanvas", canvas);
+            this.$store.commit("settings/setSizeContainer", container);
+            this.$store.commit("settings/setScale", scale);
         },
         resize() {
             this.measure();
@@ -94,39 +94,71 @@ export default {
             this.addHoverEvent();
         },
         addClickEvent() {
-            this.canvas.addEventListener('click', (event) => {
-                const x = event.offsetX;
-                const y = event.offsetY;
-                const region = this.getRegionForPoint(x, y);
-                if (region) {
-                    const baseRegion = getBaseRegions(region, this.$store.state.ui.currentRegionType)[0];
-                    this.view.currentRegion = baseRegion;
-                    this.$store.commit('ui/updateProperty', {key: 'menu', value: 'details'});
-                    this.$store.commit('ui/updateProperty', {key: 'searchValue', value: ''});
-                    this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
-                } else {
-                    this.view.currentRegion = null;
-                }
-            }, false);
+            this.canvas.addEventListener(
+                "click",
+                (event) => {
+                    const x = event.offsetX;
+                    const y = event.offsetY;
+                    const region = this.getRegionForPoint(x, y);
+                    if (region) {
+                        const baseRegion = getBaseRegions(
+                            region,
+                            this.$store.state.ui.currentRegionType
+                        )[0];
+                        this.view.currentRegion = baseRegion;
+                        this.$store.commit("ui/updateProperty", {
+                            key: "menu",
+                            value: "details",
+                        });
+                        this.$store.commit("ui/updateProperty", {
+                            key: "searchValue",
+                            value: "",
+                        });
+                        this.$store.commit("ui/updateProperty", {
+                            key: "hoverValue",
+                            value: "",
+                        });
+                    } else {
+                        this.view.currentRegion = null;
+                    }
+                },
+                false
+            );
         },
         addHoverEvent() {
-            this.canvas.addEventListener('mousemove', (event) => {
-                const x = event.offsetX;
-                const y = event.offsetY;
-                const region = this.getRegionForPoint(x, y);
-                if (region) {
-                    this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: region.title});
-                } else {
-                    this.$store.commit('ui/updateProperty', {key: 'hoverValue', value: ''});
-                }
-            }, false);
+            this.canvas.addEventListener(
+                "mousemove",
+                (event) => {
+                    const x = event.offsetX;
+                    const y = event.offsetY;
+                    const region = this.getRegionForPoint(x, y);
+                    if (region) {
+                        this.$store.commit("ui/updateProperty", {
+                            key: "hoverValue",
+                            value: region.title,
+                        });
+                    } else {
+                        this.$store.commit("ui/updateProperty", {
+                            key: "hoverValue",
+                            value: "",
+                        });
+                    }
+                },
+                false
+            );
         },
         getRegionForPoint(x, y) {
             const regions = getRegions(this.$store.state.ui.currentRegionType);
             let reversed = regions.slice().reverse();
             for (const region of reversed) {
                 for (const path of region.paths) {
-                    if (this.ctx.isPointInPath(path.storedPaths[this.mapRenderKey], x, y)) {
+                    if (
+                        this.ctx.isPointInPath(
+                            path.storedPaths[this.mapRenderKey],
+                            x,
+                            y
+                        )
+                    ) {
                         return region;
                     }
                 }
@@ -147,21 +179,27 @@ export default {
                     border: true,
                     shiftPrint: {
                         x: 0,
-                        y: 0
-                    }
+                        y: 0,
+                    },
                 };
-                canvasTools.draw(this.ctx, this.regions, settings, this.view, this.mapType);
+                canvasTools.draw(
+                    this.ctx,
+                    this.regions,
+                    settings,
+                    this.view,
+                    this.mapType
+                );
             }
         },
         checkSource() {
             if (this.view.currentSource && !this.view.currentSource.loaded) {
                 const key = this.view.currentSource.key;
                 const sourceData = this.currentMap.data.sources[key];
-                loadSource(this.currentMap, {...sourceData, key }).then(() => {
+                loadSource(this.currentMap, { ...sourceData, key }).then(() => {
                     this.$nextTick(() => {
                         this.draw();
                     });
-                })
+                });
             }
         },
     },
@@ -170,10 +208,10 @@ export default {
     },
     watch: {
         view: {
-            handler: function() {
+            handler: function () {
                 this.draw();
             },
-            deep: true
+            deep: true,
         },
         currentRegionType: function () {
             this.draw();
@@ -191,20 +229,18 @@ export default {
             this.checkSource();
         },
         navigation: {
-            handler: function() {
+            handler: function () {
                 this.draw();
             },
-            deep: true
+            deep: true,
         },
-    }
-}
+    },
+};
 </script>
-
 
 <template>
     <canvas :id="'canvas-' + id"></canvas>
 </template>
-
 
 <style lang="scss" scoped>
 canvas {

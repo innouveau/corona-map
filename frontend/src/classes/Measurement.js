@@ -1,12 +1,15 @@
-import dateTools from '@/tools/date';
+import dateTools from "@/tools/date";
 
 class Measurement {
-    constructor({
-        date = '',
-        RNA_per_ml = 0,
-        RNA_flow_per_100000 = 0,
-        representative_measurement = false
-    }, sewageTreatmentPlant) {
+    constructor(
+        {
+            date = "",
+            RNA_per_ml = 0,
+            RNA_flow_per_100000 = 0,
+            representative_measurement = false,
+        },
+        sewageTreatmentPlant
+    ) {
         this.sewageTreatmentPlant = sewageTreatmentPlant;
         this.date = date;
         this.dateOffset = dateTools.getOffsetByDate(date);

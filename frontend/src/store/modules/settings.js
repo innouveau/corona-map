@@ -1,4 +1,4 @@
-import _base from './_base-module';
+import _base from "./_base-module";
 
 const state = {
     scale: 0,
@@ -9,15 +9,15 @@ const state = {
         },
         canvas: {
             width: 0,
-            height: 0
-        }
+            height: 0,
+        },
     },
     navigation: {
         zoom: 1,
         position: {
             x: 0,
-            y: 0
-        }
+            y: 0,
+        },
     },
     panModus: false,
     mapRatio: 0.89,
@@ -25,11 +25,11 @@ const state = {
     weeks: 5, // weeks
     historyLength: 0,
     gradient: true,
-    ageDistributionAbsolute: false
+    ageDistributionAbsolute: false,
 };
 
 const getters = {
-    ..._base.getters
+    ..._base.getters,
 };
 
 const actions = {};
@@ -97,7 +97,7 @@ const mutations = {
         state.navigation.position.x = navigation.position.x;
         state.navigation.position.y = navigation.position.y;
         state.navigation.zoom = navigation.zoom;
-    }
+    },
 };
 
 export default {
@@ -105,5 +105,5 @@ export default {
     state,
     getters,
     actions,
-    mutations
-}
+    mutations,
+};

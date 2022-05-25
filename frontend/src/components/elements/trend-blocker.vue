@@ -2,7 +2,7 @@
 import View from "@/classes/View";
 
 export default {
-    name: 'trend-blocker',
+    name: "trend-blocker",
     computed: {
         displayTrends() {
             return this.$store.state.ui.showTrends;
@@ -21,45 +21,50 @@ export default {
         },
         currentRegionType() {
             return this.$store.state.ui.currentRegionType;
-        }
+        },
     },
     props: {
         view: {
             type: View,
-            required: true
-        }
+            required: true,
+        },
     },
     methods: {
         showTrends() {
-            this.$store.commit('ui/updateProperty', {key: 'showTrends', value: true});
+            this.$store.commit("ui/updateProperty", {
+                key: "showTrends",
+                value: true,
+            });
         },
         hideTrends() {
-            this.$store.commit('ui/updateProperty', {key: 'showTrends', value: false});
-        }
+            this.$store.commit("ui/updateProperty", {
+                key: "showTrends",
+                value: false,
+            });
+        },
     },
     watch: {
-        offset: function() {
+        offset: function () {
             this.hideTrends();
         },
-        offsetStart: function() {
+        offsetStart: function () {
             this.hideTrends();
         },
-        currentSource: function() {
+        currentSource: function () {
             this.hideTrends();
         },
-        currentPage: function(a) {
+        currentPage: function (a) {
             this.hideTrends();
         },
-        currentRegionType: function() {
+        currentRegionType: function () {
             this.hideTrends();
-        }
+        },
     },
     beforeMount() {
         this.hideTrends();
-    }
-}
+    },
+};
 </script>
-
 
 <template>
     <div class="trend-blocker">
@@ -67,18 +72,15 @@ export default {
 
         <div v-else>
             <p>
-                {{translate('show-notification')}}
+                {{ translate("show-notification") }}
             </p>
             <div class="buttons">
-                <div
-                    @click="showTrends()"
-                    class="button">
-                    {{translate('show-trend')}}
+                <div @click="showTrends()" class="button">
+                    {{ translate("show-trend") }}
                 </div>
             </div>
         </div>
     </div>
 </template>
-
 
 <style lang="scss"></style>

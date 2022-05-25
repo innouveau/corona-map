@@ -1,30 +1,30 @@
-import _base from './_base-module';
-import Language from '@/classes/Language';
+import _base from "./_base-module";
+import Language from "@/classes/Language";
 
 const Model = Language;
 
 const state = {
     all: [],
-    current: null
+    current: null,
 };
 
 const getters = {
     ..._base.getters,
     getCurrentIsoCode(state) {
-        return state.current ? state.current.iso_code : 'nl';
-    }
+        return state.current ? state.current.iso_code : "nl";
+    },
 };
 
 const actions = {
-    create(context, item){
+    create(context, item) {
         return _base.actions.create(context, item);
     },
-    update(context, item){
+    update(context, item) {
         return _base.actions.update(context, item);
     },
-    delete(context, item){
+    delete(context, item) {
         return _base.actions.delete(context, item);
-    }
+    },
 };
 
 const mutations = {
@@ -32,10 +32,10 @@ const mutations = {
         return _base.mutations.init(state, set, Model);
     },
     setCurrent(state, item) {
-        return _base.mutations.setCurrent(state, item)
+        return _base.mutations.setCurrent(state, item);
     },
     unsetCurrent(state) {
-        return _base.mutations.unsetCurrent(state)
+        return _base.mutations.unsetCurrent(state);
     },
     create(state, item) {
         return _base.mutations.create(state, item, Model);
@@ -51,7 +51,7 @@ const mutations = {
     },
     reset(state) {
         return _base.mutations.reset(state);
-    }
+    },
 };
 
 export default {
@@ -59,5 +59,5 @@ export default {
     state,
     getters,
     actions,
-    mutations
-}
+    mutations,
+};

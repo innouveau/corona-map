@@ -1,11 +1,11 @@
-import {format} from "date-fns";
-import {nl} from "date-fns/locale";
+import { format } from "date-fns";
+import { nl } from "date-fns/locale";
 
 const dayLength = 1000 * 3600 * 24;
 const dateToOffsetDict = {};
 const offsetToDateDict = {};
 
-const getOffsetByDate = function(dateString) {
+const getOffsetByDate = function (dateString) {
     if (dateToOffsetDict[dateString]) {
         return dateToOffsetDict[dateString];
     } else {
@@ -15,13 +15,13 @@ const getOffsetByDate = function(dateString) {
     }
 };
 
-const getDateByOffset = function(offset) {
+const getDateByOffset = function (offset) {
     if (offsetToDateDict[offset]) {
         return offsetToDateDict[offset];
     } else {
         if (!offsetToDateDict[0]) {
             // no data available probably
-            return 'no-date';
+            return "no-date";
         } else {
             let dateString = getDateFromOffsetCalculated(offset);
             addDateOffset(dateString, offset);
@@ -30,24 +30,24 @@ const getDateByOffset = function(offset) {
     }
 };
 
-const formatDate = function(date, dateFormat = 'yyyy-MM-dd') {
+const formatDate = function (date, dateFormat = "yyyy-MM-dd") {
     if (date) {
-        return format(date, dateFormat, {locale: nl} );
+        return format(date, dateFormat, { locale: nl });
     } else {
-        return '';
+        return "";
     }
 };
 
-const getTimestamp = function() {
-    return '?time=' + new Date().getTime();
+const getTimestamp = function () {
+    return "?time=" + new Date().getTime();
 };
 
-const addDateOffset = function(dateString, offset) {
+const addDateOffset = function (dateString, offset) {
     dateToOffsetDict[dateString] = offset;
     offsetToDateDict[offset] = dateString;
 };
 
-const getOffsetFromDateCalculated = function(dateString) {
+const getOffsetFromDateCalculated = function (dateString) {
     let msRequested, msToday, today;
     msRequested = new Date(dateString).getTime();
     today = getDateByOffset(0);
@@ -55,11 +55,11 @@ const getOffsetFromDateCalculated = function(dateString) {
     return (msToday - msRequested) / dayLength;
 };
 
-const getDateFromOffsetCalculated = function(offset) {
+const getDateFromOffsetCalculated = function (offset) {
     let today, msToday, msRequested, date;
     today = getDateByOffset(0);
     msToday = new Date(today).getTime();
-    msRequested = msToday + (dayLength * offset);
+    msRequested = msToday + dayLength * offset;
     date = new Date(msRequested);
     return formatDate(date);
 };
@@ -69,5 +69,5 @@ export default {
     getDateByOffset,
     formatDate,
     getTimestamp,
-    addDateOffset
-}
+    addDateOffset,
+};

@@ -1,16 +1,16 @@
 import Measurement from "./Measurement";
-import store from '@/store/store';
+import store from "@/store/store";
 
 class SewageTreatmentPlant {
     constructor({
         sewageTreatementPlant_id = null,
-        name = '',
-        city_code = '',
-        district_code = '',
-        securityRegion_code = '',
-        securityRegion_name = '',
+        name = "",
+        city_code = "",
+        district_code = "",
+        securityRegion_code = "",
+        securityRegion_name = "",
         capacity = 0,
-        measurements = []
+        measurements = [],
     }) {
         this.sewageTreatementPlant_id = sewageTreatementPlant_id;
         this.name = name;
@@ -19,11 +19,13 @@ class SewageTreatmentPlant {
         this.securityRegion_code = securityRegion_code;
         this.securityRegion_name = securityRegion_name;
         this.capacity = capacity;
-        this.measurements = measurements.map(m => new Measurement(m, this));
+        this.measurements = measurements.map((m) => new Measurement(m, this));
     }
 
     get city() {
-        return store.state.cities.all.find(c => c.identifier === this.city_code);
+        return store.state.cities.all.find(
+            (c) => c.identifier === this.city_code
+        );
     }
 
     get population() {
@@ -46,13 +48,13 @@ class SewageTreatmentPlant {
     }
 
     get siblings() {
-        return store.state.sewageTreatmentPlants.all.filter(s => {
+        return store.state.sewageTreatmentPlants.all.filter((s) => {
             return s.city_code === this.city_code;
-        })
+        });
     }
 
     getMeasurementByOffset(offset) {
-        return this.measurements.find(m => m.dateOffset === offset);
+        return this.measurements.find((m) => m.dateOffset === offset);
     }
 
     get calculatedMeasurementsCalculatedPerCapacity() {
@@ -85,23 +87,36 @@ class SewageTreatmentPlant {
                     value = null;
                     unreliable = null;
                 } else {
-                    let range, step, nextMeasurement, share, difference, nextValue, lastMeasurementValue;
+                    let range,
+                        step,
+                        nextMeasurement,
+                        share,
+                        difference,
+                        nextValue,
+                        lastMeasurementValue;
                     nextMeasurement = lastMeasurement.next;
                     if (nextMeasurement) {
                         if (calculatedPerCapacity) {
-                            nextValue = nextMeasurement.valueCalculatedPerCapacity;
-                            lastMeasurementValue = lastMeasurement.valueCalculatedPerCapacity;
+                            nextValue =
+                                nextMeasurement.valueCalculatedPerCapacity;
+                            lastMeasurementValue =
+                                lastMeasurement.valueCalculatedPerCapacity;
                         } else {
                             nextValue = nextMeasurement.valueFlowPer100000;
-                            lastMeasurementValue = lastMeasurement.valueFlowPer100000;
+                            lastMeasurementValue =
+                                lastMeasurement.valueFlowPer100000;
                         }
 
-                        range = lastMeasurement.dateOffset - nextMeasurement.dateOffset;
+                        range =
+                            lastMeasurement.dateOffset -
+                            nextMeasurement.dateOffset;
                         step = i - nextMeasurement.dateOffset;
                         share = step / range;
                         difference = lastMeasurementValue - nextValue;
                         value = nextValue + share * difference;
-                        unreliable = nextMeasurement.unreliable || lastMeasurement.unreliable;
+                        unreliable =
+                            nextMeasurement.unreliable ||
+                            lastMeasurement.unreliable;
                     } else {
                         // after last measurement
                         value = null;
@@ -115,7 +130,7 @@ class SewageTreatmentPlant {
                 value,
                 interpreted: !measurement,
                 unreliable: unreliable,
-                source: measurement
+                source: measurement,
             });
             if (measurement) {
                 lastMeasurement = measurement;

@@ -1,7 +1,7 @@
-import dateTools from '@/tools/date';
+import dateTools from "@/tools/date";
 
 export default {
-    name: 'query',
+    name: "query",
     components: {},
     props: {},
     computed: {
@@ -9,7 +9,10 @@ export default {
             return this.$route.name;
         },
         hasSourcePicker() {
-            return this.currentMap.data.hospitalisations.status || this.currentMap.data.deceased.status;
+            return (
+                this.currentMap.data.hospitalisations.status ||
+                this.currentMap.data.deceased.status
+            );
         },
         currentMap() {
             return this.$store.state.maps.current;
@@ -21,7 +24,7 @@ export default {
             return this.view.currentRegion;
         },
         routePath() {
-            return window.location.href.split('?')[0];
+            return window.location.href.split("?")[0];
         },
         query() {
             let query = "?";
@@ -30,8 +33,12 @@ export default {
             const language = this.currentLanguage.iso_code;
             // read in page.vue
             const date = dateTools.getDateByOffset(this.view.offset);
-            const source = this.view.currentSource ? this.view.currentSource.key : null;
-            const region = this.currentRegion ? encodeURI(this.currentRegion.title) : "";
+            const source = this.view.currentSource
+                ? this.view.currentSource.key
+                : null;
+            const region = this.currentRegion
+                ? encodeURI(this.currentRegion.title)
+                : "";
             const regiontype = this.$store.state.ui.currentRegionType;
             // signaling
             // gradient
@@ -40,8 +47,8 @@ export default {
             if (source) {
                 query += "&source=" + source;
             }
-            query += '&language=' + language;
-            query += '&regiontype=' + regiontype;
+            query += "&language=" + language;
+            query += "&regiontype=" + regiontype;
             if (this.currentRegion) {
                 query += "&region=" + region;
             }
@@ -56,20 +63,16 @@ export default {
         },
         url() {
             return this.routePath + this.query;
-        }
+        },
     },
     methods: {
         updateQuery() {
-            history.pushState(
-                {},
-                null,
-                this.url
-            );
-        }
+            history.pushState({}, null, this.url);
+        },
     },
     watch: {
         query: function () {
             this.updateQuery();
-        }
-    }
-}
+        },
+    },
+};

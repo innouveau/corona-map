@@ -5,19 +5,22 @@ import mapNavigationReset from "./map-navigation-reset";
 import Bookmarks from "./bookmarks/bookmarks";
 
 export default {
-    name: 'map-navigation',
+    name: "map-navigation",
     components: {
         Bookmarks,
-        mapNavigationReset, mapNavigationZoom, mapNavigationPosition
+        mapNavigationReset,
+        mapNavigationZoom,
+        mapNavigationPosition,
     },
     computed: {
         hasBookmarks() {
-            return this.$store.state.maps.current.settings.map.hasOwnProperty("bookmarks");
-        }
-    }
-}
+            return this.$store.state.maps.current.settings.map.hasOwnProperty(
+                "bookmarks"
+            );
+        },
+    },
+};
 </script>
-
 
 <template>
     <div class="map-navigation">
@@ -28,9 +31,8 @@ export default {
     </div>
 </template>
 
-
 <style lang="scss">
-@import '@/styles/variables.scss';
+@import "@/styles/variables.scss";
 
 .map-navigation {
     display: flex;
@@ -75,7 +77,6 @@ export default {
     }
 
     @include mobile() {
-
         &__hint {
             display: none;
         }

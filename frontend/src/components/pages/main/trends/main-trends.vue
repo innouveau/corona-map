@@ -1,35 +1,34 @@
 <script>
-    import View from "@/classes/View";
-    import topRelativeWeek from "./top-relative-week";
-    import topRelativeDay from "./top-relative-day";
-    import topAbsoluteDay from "./top-absolute-day";
-    import ListVaccination from "./vaccination/list-vaccination";
+import View from "@/classes/View";
+import topRelativeWeek from "./top-relative-week";
+import topRelativeDay from "./top-relative-day";
+import topAbsoluteDay from "./top-absolute-day";
+import ListVaccination from "./vaccination/list-vaccination";
 
-    export default {
-        name: 'main-trends',
-        components: {
-            ListVaccination,
-            topAbsoluteDay,
-            topRelativeDay,
-            topRelativeWeek,
+export default {
+    name: "main-trends",
+    components: {
+        ListVaccination,
+        topAbsoluteDay,
+        topRelativeDay,
+        topRelativeWeek,
+    },
+    props: {
+        view: {
+            type: View,
+            required: true,
         },
-        props: {
-            view: {
-                type: View,
-                required: true
-            }
+    },
+    computed: {
+        hasDays() {
+            return this.$store.state.maps.current.settings.interval === 1;
         },
-        computed: {
-            hasDays() {
-                return this.$store.state.maps.current.settings.interval === 1;
-            },
-            isVaccination() {
-                return this.view.currentSource.key === 'vaccination';
-            }
+        isVaccination() {
+            return this.view.currentSource.key === "vaccination";
         },
-    }
+    },
+};
 </script>
-
 
 <template>
     <div class="main-trends">
@@ -39,19 +38,13 @@
         </div>
 
         <div v-else>
-            <top-relative-week
-                :view="view"/>
-            <top-relative-day
-                v-if="hasDays"
-                :view="view"/>
-            <top-absolute-day
-                v-if="hasDays"
-                :view="view"/>
+            <top-relative-week :view="view" />
+            <top-relative-day v-if="hasDays" :view="view" />
+            <top-absolute-day v-if="hasDays" :view="view" />
         </div>
     </div>
 </template>
 
-
 <style lang="scss">
-    @import '@/styles/variables.scss';
+@import "@/styles/variables.scss";
 </style>

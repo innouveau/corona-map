@@ -5,46 +5,40 @@ import regionTypePicker from "@/components/elements/region-type/region-type-pick
 import { getCurrentRegion } from "@/tools/relations";
 
 export default {
-    name: 'Region',
+    name: "Region",
     props: {
         view: {
             type: View,
-            required: true
-        }
+            required: true,
+        },
     },
     components: {
         regionTypePicker,
-        regionHead
+        regionHead,
     },
     computed: {
         regionOfFocus() {
             return getCurrentRegion(this.view.currentRegion);
         },
         hasMultipleRegionTypes() {
-            return this.$store.state.maps.current.settings.regionTypes.length > 1;
-        }
-    }
-}
+            return (
+                this.$store.state.maps.current.settings.regionTypes.length > 1
+            );
+        },
+    },
+};
 </script>
-
 
 <template>
     <div class="Region">
-        <region-head
-            :view="view"
-            :region="regionOfFocus"/>
+        <region-head :view="view" :region="regionOfFocus" />
 
-        <div
-            v-if="hasMultipleRegionTypes"
-            class="region-details__section">
-            <region-type-picker
-                :view="view"
-                :type-as-region-title="true"/>
+        <div v-if="hasMultipleRegionTypes" class="region-details__section">
+            <region-type-picker :view="view" :type-as-region-title="true" />
         </div>
 
-        <slot/>
+        <slot />
     </div>
 </template>
-
 
 <style lang="scss"></style>

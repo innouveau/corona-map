@@ -2,31 +2,31 @@ const stories = [
     {
         id: 1,
         title: {
-            nl: 'Jaaroverzicht 2020 Corona in Nederland',
-            en: 'How the Netherlands ended up in its Second Wave'
+            nl: "Jaaroverzicht 2020 Corona in Nederland",
+            en: "How the Netherlands ended up in its Second Wave",
         },
         subtitle: {
-            nl: 'Drie golven, mondkapjes, laat ingrijpen en een huwelijk...',
-            en: 'Pieces of the puzzle: chaos and lack of leadership'
+            nl: "Drie golven, mondkapjes, laat ingrijpen en een huwelijk...",
+            en: "Pieces of the puzzle: chaos and lack of leadership",
         },
-        image: 'assets/img/stories/netherlands/persconferentie-31-maart.jpg',
+        image: "assets/img/stories/netherlands/persconferentie-31-maart.jpg",
         hasAgeGroups: true,
         chapters: [
             {
                 title: {
-                    nl: 'Onduidelijkheid over tactiek',
-                    en: 'Uncertainty about tactics'
+                    nl: "Onduidelijkheid over tactiek",
+                    en: "Uncertainty about tactics",
                 },
-                date: '2020-04-21',
+                date: "2020-04-21",
                 dateTitle: {
-                    nl: 'April',
-                    en: 'April'
+                    nl: "April",
+                    en: "April",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -72,23 +72,24 @@ const stories = [
                             April 21st (bottom tweet).
                         </p>
                         <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Did the Netherlands try to use children to create herd immunity?<br><br>“So we want to keep people getting infected, including children who visit daycares?”<br><br>“Yes, possibly through children ... who will infect each other ... They might infect a father or mother”<a href="https://t.co/g476otObBL">pic.twitter.com/g476otObBL</a></p>&mdash; Dr Zoë Hyde (@DrZoeHyde) <a href="https://twitter.com/DrZoeHyde/status/1321017142578352129?ref_src=twsrc%5Etfw">October 27, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    `
-                }
-            }, {
-                title: {
-                    nl: 'Oppositie vraagt om helderheid tactiek',
-                    en: 'Opposition demands clarity tactics'
+                    `,
                 },
-                date: '2020-05-07',
+            },
+            {
+                title: {
+                    nl: "Oppositie vraagt om helderheid tactiek",
+                    en: "Opposition demands clarity tactics",
+                },
+                date: "2020-05-07",
                 dateTitle: {
-                    nl: 'Mei',
-                    en: 'May'
+                    nl: "Mei",
+                    en: "May",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -155,24 +156,24 @@ const stories = [
                             50 infections per 100,000 inhabitants per 7 days. This 
                             is the red on the map and in the chart. Black stands for >100).
                         </p>
-                    `
-                }
+                    `,
+                },
             },
             {
                 title: {
                     nl: "Nederlands standpunt over mondkapjes",
-                    en: "Dutch position on face masks"
+                    en: "Dutch position on face masks",
                 },
-                date: '2020-06-25',
+                date: "2020-06-25",
                 dateTitle: {
-                    nl: 'Juni',
-                    en: "June"
+                    nl: "Juni",
+                    en: "June",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -208,24 +209,24 @@ const stories = [
                             position on use of face masks.
                         </p>
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/u3D9OrTYTrA?start=25" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    `
-                }
+                    `,
+                },
             },
             {
                 title: {
-                    nl: 'Nederland gaat weer open',
-                    en: "Netherlands is opening again"
+                    nl: "Nederland gaat weer open",
+                    en: "Netherlands is opening again",
                 },
-                date: '2020-07-17',
+                date: "2020-07-17",
                 dateTitle: {
-                    nl: 'Juni/juli',
-                    en: "June/July"
+                    nl: "Juni/juli",
+                    en: "June/July",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -261,23 +262,24 @@ const stories = [
                         </p>
                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Zo. De laatste stapels gelezen en getekend. En dan nu even vakantie en tijd voor thuis. Iedereen een mooie zomer gewenst.☀️ <a href="https://t.co/LAzIgN5ODL">pic.twitter.com/LAzIgN5ODL</a></p>&mdash; Hugo de Jonge (@hugodejonge) <a href="https://twitter.com/hugodejonge/status/1284109468368875521?ref_src=twsrc%5Etfw">July 17, 2020</a></blockquote>
 
-                    `
-                }
-            }, {
-                title: {
-                    nl: 'Geen zicht op verkeer vanuit het buitenland',
-                    en: "No sight on traffic from abroad"
+                    `,
                 },
-                date: '2020-08-01',
+            },
+            {
+                title: {
+                    nl: "Geen zicht op verkeer vanuit het buitenland",
+                    en: "No sight on traffic from abroad",
+                },
+                date: "2020-08-01",
                 dateTitle: {
-                    nl: 'Zomervakantie',
-                    en: "Summer vacations"
+                    nl: "Zomervakantie",
+                    en: "Summer vacations",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -316,23 +318,24 @@ const stories = [
                         </p>
                          <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Jan Kluytmans, de eigenwijze microbioloog die in Brabant alarm sloeg, vindt dat adviseurs van het kabinet nu aan &#39;paniekvoetbal&#39; doen. <a href="https://t.co/s15XWbs2VV">https://t.co/s15XWbs2VV</a> via <a href="https://twitter.com/martenvdw?ref_src=twsrc%5Etfw">@martenvdw</a> En vertelt over zijn ervaringen. <a href="https://twitter.com/hashtag/coronamaatregelen?src=hash&amp;ref_src=twsrc%5Etfw">#coronamaatregelen</a></p>&mdash; Wilma Kieskamp (@wilmakieskamp) <a href="https://twitter.com/wilmakieskamp/status/1288045609698701312?ref_src=twsrc%5Etfw">July 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-                    `
-                }
-            }, {
-                title: {
-                    nl: 'Bron en contactonderzoek kan het niet meer bijbenen.',
-                    en: "Contact tracing is collapsing"
+                    `,
                 },
-                date: '2020-08-07',
+            },
+            {
+                title: {
+                    nl: "Bron en contactonderzoek kan het niet meer bijbenen.",
+                    en: "Contact tracing is collapsing",
+                },
+                date: "2020-08-07",
                 dateTitle: {
-                    nl: 'Augustus',
-                    en: "August"
+                    nl: "Augustus",
+                    en: "August",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -360,23 +363,24 @@ const stories = [
                            <a href="https://www.parool.nl/amsterdam/ggd-amsterdam-beperkt-bron-en-contactonderzoek-door-tekort-personeel~bbc2385d/" target="_blank">is temporarily limiting (dutch)</a>
                            its contact tracing due to too many reported cases.
                         </p>
-                    `
-                }
-            }, {
-                title: {
-                    nl: 'Brandbrief Red Team',
-                    en: "Letter of urgence from Red Team"
+                    `,
                 },
-                date: '2020-08-10',
+            },
+            {
+                title: {
+                    nl: "Brandbrief Red Team",
+                    en: "Letter of urgence from Red Team",
+                },
+                date: "2020-08-10",
                 dateTitle: {
-                    nl: '10 Augustus',
-                    en: "August 10th"
+                    nl: "10 Augustus",
+                    en: "August 10th",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -392,23 +396,24 @@ const stories = [
                             A second call from Red Team to government to intervene.
                             See <a href="https://www.volkskrant.nl/nieuws-achtergrond/experts-in-brandbrief-onduidelijk-coronabeleid-kabinet-maakt-dat-meer-mensen-de-regels-negeren~b2bdaee3/" target="_blank">https://www.volkskrant.nl/nieuws-achtergrond/experts-i... (dutch)</a>
                         </p>
-                    `
-                }
-            }, {
-                title: {
-                    nl: 'Grapperhaus overtreedt eigen coronaregels',
-                    en: "Minister Grapperhaus violates own corona rules"
+                    `,
                 },
-                date: '2020-08-20',
+            },
+            {
+                title: {
+                    nl: "Grapperhaus overtreedt eigen coronaregels",
+                    en: "Minister Grapperhaus violates own corona rules",
+                },
+                date: "2020-08-20",
                 dateTitle: {
-                    nl: 'Eind augustus',
-                    en: "End of august"
+                    nl: "Eind augustus",
+                    en: "End of august",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -441,23 +446,24 @@ const stories = [
                          </p>
                         <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Ai ai... meer foto’s van bruiloft Grapperhaus laten minister handenschuddend en knuffelend zien <a href="https://twitter.com/hashtag/exit?src=hash&amp;ref_src=twsrc%5Etfw">#exit</a> <a href="https://t.co/hHjUEmMUVJ">https://t.co/hHjUEmMUVJ</a> <a href="https://t.co/Sx5IQ7dQhg">pic.twitter.com/Sx5IQ7dQhg</a></p>&mdash; Lammert de Bruin (@lammert) <a href="https://twitter.com/lammert/status/1301035182628184065?ref_src=twsrc%5Etfw">September 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-                    `
-                }
-            }, {
-                title: {
-                    nl: 'Sleutelfiguren zien nog geen reden om in te grijpen',
-                    en: "Key figures still see no reason to intervene"
+                    `,
                 },
-                date: '2020-09-08',
+            },
+            {
+                title: {
+                    nl: "Sleutelfiguren zien nog geen reden om in te grijpen",
+                    en: "Key figures still see no reason to intervene",
+                },
+                date: "2020-09-08",
                 dateTitle: {
-                    nl: 'Begin september',
-                    en: "Beginning of september"
+                    nl: "Begin september",
+                    en: "Beginning of september",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -507,23 +513,24 @@ const stories = [
                         <p>
                             Apparently the idea of <i>shielding</i> still prevails.
                         </p>
-                    `
-                }
-            }, {
+                    `,
+                },
+            },
+            {
                 title: {
                     nl: "Economisch belangen blijken opschaling testen in de weg te hebben gezeten",
-                    en: ""
+                    en: "",
                 },
-                date: '2020-09-08',
+                date: "2020-09-08",
                 dateTitle: {
-                    nl: 'juni - september',
-                    en: "june - september"
+                    nl: "juni - september",
+                    en: "june - september",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -531,23 +538,24 @@ const stories = [
                     `,
                     en: `
                     <blockquote class="twitter-tweet"><p lang="nl" dir="ltr">Het huidige tekort aan coronatesten was te voorzien. Arts-microbiologen in het Outbreak Management Team, lieten het economisch belang van hun beroepsgroep zwaarder wegen dan de volksgezondheid. Dat blijkt uit een reconstructie. <a href="https://t.co/g0Z6h7w2OA">https://t.co/g0Z6h7w2OA</a></p>&mdash; Jan-Hein Strop (@janheinstrop) <a href="https://twitter.com/janheinstrop/status/1304312103596175360?ref_src=twsrc%5Etfw">September 11, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    `
-                }
-            }, {
-                title: {
-                    nl: 'Den Haag en regio kijken naar elkaar, niemand grijpt in',
-                    en: "Local and central government looking at each other, none interven"
+                    `,
                 },
-                date: '2020-09-24',
+            },
+            {
+                title: {
+                    nl: "Den Haag en regio kijken naar elkaar, niemand grijpt in",
+                    en: "Local and central government looking at each other, none interven",
+                },
+                date: "2020-09-24",
                 dateTitle: {
-                    nl: 'Eind september',
-                    en: "End of september"
+                    nl: "Eind september",
+                    en: "End of september",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -588,23 +596,24 @@ const stories = [
                             unprecedented values.
                         </p>
                        <iframe width="560" height="315" src="https://www.youtube.com/embed/r171tx44NZw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    `
-                }
-            }, {
+                    `,
+                },
+            },
+            {
                 title: {
                     nl: "Een 'Halve' lockdown",
-                    en: "The '50% Lockdown'"
+                    en: "The '50% Lockdown'",
                 },
-                date: '2020-10-13',
+                date: "2020-10-13",
                 dateTitle: {
-                    nl: 'Oktober',
-                    en: "October"
+                    nl: "Oktober",
+                    en: "October",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -658,23 +667,24 @@ const stories = [
                             Rutte still thinks he can turn the tide just half a lockdown (dutch):
                         </p>
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/vx9Fd5b7gr0?start=140" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    `
-                }
-            }, {
+                    `,
+                },
+            },
+            {
                 title: {
                     nl: "Dan toch de lockdown",
-                    en: "Finally lockdown"
+                    en: "Finally lockdown",
                 },
-                date: '2020-12-14',
+                date: "2020-12-14",
                 dateTitle: {
-                    nl: 'November',
-                    en: "November"
+                    nl: "November",
+                    en: "November",
                 },
                 selection: {
                     tests: {
-                        module: 'cities',
-                        title: 'Amsterdam'
-                    }
+                        module: "cities",
+                        title: "Amsterdam",
+                    },
                 },
                 content: {
                     nl: `
@@ -689,11 +699,11 @@ const stories = [
                         <p>
                             Then finally the lockdown is there.
                        </p>
-                    `
-                }
-            }
-        ]
-    }
+                    `,
+                },
+            },
+        ],
+    },
 ];
 
 export default stories;

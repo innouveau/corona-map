@@ -1,15 +1,15 @@
 <script>
 export default {
-    name: 'header-menu-title',
+    name: "header-menu-title",
     components: {},
     computed: {
         currentMap() {
-            return this.$store.state.maps.current
+            return this.$store.state.maps.current;
         },
         mapTitle() {
             let title = this.currentMap.title;
             if (!this.currentMap.ready) {
-                title += ' (' + this.translate('work-in-progress') + ')';
+                title += " (" + this.translate("work-in-progress") + ")";
             }
             return title;
         },
@@ -18,25 +18,21 @@ export default {
             return routeName.charAt(0).toUpperCase() + routeName.slice(1);
         },
     },
-    methods: {}
-}
+    methods: {},
+};
 </script>
-
 
 <template>
     <div class="header-menu-title">
-        <div class="header-menu-title__page">
-            Corona {{pageTitle}}
-        </div>
+        <div class="header-menu-title__page">Corona {{ pageTitle }}</div>
         <div class="header-menu-title__map">
-            {{mapTitle}}
+            {{ mapTitle }}
         </div>
     </div>
 </template>
 
-
 <style lang="scss">
-@import '@/styles/variables.scss';
+@import "@/styles/variables.scss";
 
 .header-menu-title {
     font-size: 20px;

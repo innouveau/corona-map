@@ -1,4 +1,4 @@
-import store from '@/store/store';
+import store from "@/store/store";
 
 class View {
     constructor({
@@ -7,7 +7,7 @@ class View {
         offsetStart = 0,
         currentRegion = null,
         currentSource = store.state.sources.all[0],
-        pcrWeekly = false
+        pcrWeekly = false,
     }) {
         this.id = id;
         this.offset = offset;

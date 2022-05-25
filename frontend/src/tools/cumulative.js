@@ -7,15 +7,17 @@ const colors = CUMULATIVE_COLOR_SCALE;
 
 const sections = [
     {
-        range: [max, margin]
-    }, {
+        range: [max, margin],
+    },
+    {
         range: [margin, -margin],
-    }, {
+    },
+    {
         range: [-margin, -max],
-    }
+    },
 ];
 
-const getBackgroundForSection = function(index) {
+const getBackgroundForSection = function (index) {
     switch (index) {
         case 0:
             return [colors[0], colors[1]];

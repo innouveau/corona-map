@@ -1,9 +1,5 @@
 class Case {
-    constructor({
-
-    }) {
-
-    }
+    constructor({}) {}
 }
 
 export default Case;

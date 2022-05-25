@@ -1,18 +1,21 @@
-import _base from './_base-module';
-import Region from '@/classes/region/Region';
-import { getRegions } from "@/tools/relations"
+import _base from "./_base-module";
+import Region from "@/classes/region/Region";
+import { getRegions } from "@/tools/relations";
 
 const state = {
     all: [],
     dict: {},
-    current: null
+    current: null,
 };
 
 const getters = {
     ..._base.getters,
     regionsForRegionType(state, getters, rootState) {
         // the base setting
-        if (rootState.ui.currentRegionType === rootState.maps.current.settings.regionTypes[0]) {
+        if (
+            rootState.ui.currentRegionType ===
+            rootState.maps.current.settings.regionTypes[0]
+        ) {
             return state.all;
         } else {
             return getRegions(rootState.ui.currentRegionType);
@@ -32,7 +35,12 @@ const mutations = {
         }
     },
     updatePropertyOfItem(state, payload) {
-        _base.mutations.updatePropertyOfItem(state, payload.item, payload.property, payload.value);
+        _base.mutations.updatePropertyOfItem(
+            state,
+            payload.item,
+            payload.property,
+            payload.value
+        );
     },
     setCurrent(state, item) {
         _base.mutations.setCurrent(state, item);
@@ -42,7 +50,7 @@ const mutations = {
     },
     noData(state, item) {
         _base.mutations.updatePropertyOfItem(state, item, "noData", true);
-    }
+    },
 };
 
 export default {
@@ -50,5 +58,5 @@ export default {
     state,
     getters,
     actions,
-    mutations
-}
+    mutations,
+};

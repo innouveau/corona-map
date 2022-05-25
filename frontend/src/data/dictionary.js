@@ -1,408 +1,408 @@
 const dictionary = {
-    "absolute": {
+    absolute: {
         nl: "Absoluut",
-        en: "Absolute"
+        en: "Absolute",
     },
     "age-distribution": {
         nl: "Leeftijdsverdeling",
-        en: "Age distribution"
+        en: "Age distribution",
     },
-    "and": {
+    and: {
         nl: "en",
-        en: "and"
+        en: "and",
     },
-    "change": {
+    change: {
         nl: "Verandering",
-        en: "Change"
+        en: "Change",
     },
-    "city": {
+    city: {
         nl: "Stad",
-        en: "City"
+        en: "City",
     },
-    "close": {
+    close: {
         nl: "Sluiten",
-        en: "Close"
+        en: "Close",
     },
-    "compare": {
+    compare: {
         nl: "Vergelijken",
-        en: "Compare"
+        en: "Compare",
     },
-    "country": {
+    country: {
         nl: "Land",
-        en: "Country"
+        en: "Country",
     },
-    "countries": {
+    countries: {
         nl: "Landen",
-        en: "Countries"
+        en: "Countries",
     },
     "color-blindness": {
         nl: "Kleurenblind",
-        en: "Color blind"
+        en: "Color blind",
     },
     "color-set": {
         nl: "Kleursysteem",
-        en: "Color system"
+        en: "Color system",
     },
-    "cumulative": {
+    cumulative: {
         nl: "Cumulatief",
-        en: "Cumulative"
+        en: "Cumulative",
     },
-    "current": {
+    current: {
         nl: "Huidig",
-        en: "Current"
+        en: "Current",
     },
-    "days": {
+    days: {
         nl: "Dagen",
-        en: "Days"
+        en: "Days",
     },
     "data-positive-tests": {
         nl: "Data positieve testen",
-        en: "Data positive tests"
+        en: "Data positive tests",
     },
-    "deceased": {
+    deceased: {
         nl: "Overledenen",
-        en: "Deceased"
+        en: "Deceased",
     },
     "deceased-per-positive-test": {
         nl: "Overledenen per positieve test",
-        en: "Deceased per positive test"
+        en: "Deceased per positive test",
     },
-    "description": {
+    description: {
         nl: "Beschrijving",
-        en: "Description"
+        en: "Description",
     },
-    "details": {
+    details: {
         nl: "Details",
         en: "Details",
     },
-    "district": {
+    district: {
         nl: "Stadsdeel",
-        en: "District"
+        en: "District",
     },
-    "districts": {
+    districts: {
         nl: "Stadsdelen",
-        en: "Districts"
+        en: "Districts",
     },
     "follow-or-feedback": {
         nl: "Volg of feedback",
-        en: "Follow or feedback"
+        en: "Follow or feedback",
     },
     "footer-text": {
         nl: "Wilt u gebruik maken van onze kaarten voor print of web; of voor andere vragen, neem dan contact op met: info@innouveau.nl",
-        en: "Would you like to use our maps for print or web; or for other questions, please contact: info@innouveau.nl"
+        en: "Would you like to use our maps for print or web; or for other questions, please contact: info@innouveau.nl",
     },
-    "for": {
+    for: {
         nl: "voor",
-        en: "for"
+        en: "for",
     },
     "for-7-days": {
         nl: "over 7 dagen",
-        en: "for 7 days"
+        en: "for 7 days",
     },
-    "from": {
+    from: {
         nl: "van",
-        en: "from"
+        en: "from",
     },
-    "ggd": {
+    ggd: {
         nl: "GGD",
-        en: "GGD"
+        en: "GGD",
     },
-    "ggds": {
+    ggds: {
         nl: "GGD'en",
-        en: "GGDs"
+        en: "GGDs",
     },
-    "gradient": {
+    gradient: {
         nl: "Kleurverloop",
-        en: "Gradient"
+        en: "Gradient",
     },
     "gradient-1": {
         nl: "Kleurverloop 1",
-        en: "Gradient 1"
+        en: "Gradient 1",
     },
     "gradient-2": {
         nl: "Kleurverloop 2",
-        en: "Gradient 2"
+        en: "Gradient 2",
     },
     "help-with-data": {
         nl: "voor hulp en ter beschikking stellen van alle data.",
-        en: "for help and providing all the data."
+        en: "for help and providing all the data.",
     },
-    "hospitalisations": {
+    hospitalisations: {
         nl: "Ziekenhuisopnames",
-        en: "Hospitalisations"
+        en: "Hospitalisations",
     },
     "hospitalisations-per-positive-test": {
         nl: "Ziekenhuisopnames per positieve test",
-        en: "Hospitalisations per positive test"
+        en: "Hospitalisations per positive test",
     },
-    "info": {
+    info: {
         nl: "Info",
-        en: "Info"
+        en: "Info",
     },
-    "increase": {
+    increase: {
         nl: "Toename",
-        en: "Increase"
+        en: "Increase",
     },
-    "inhabitants": {
+    inhabitants: {
         nl: "inwoners",
-        en: "inhabitants"
+        en: "inhabitants",
     },
     "inhabitants-short": {
         nl: "inw.",
-        en: "inh."
+        en: "inh.",
     },
     "in-period": {
         nl: "over periode",
-        en: "in period"
+        en: "in period",
     },
-    "language": {
+    language: {
         nl: "Taal",
-        en: "Language"
+        en: "Language",
     },
     "last-7-days": {
         nl: "Laatste 7 dagen",
-        en: "Last 7 days"
+        en: "Last 7 days",
     },
     "late-reporting-warning": {
         nl: "Deze regio heeft last van vertraagde rapportage. Cijfers kunnen vertekend zijn.",
         en: "This region is suffering from late reporting. Numbers could be distorted by it.",
     },
-    "least": {
+    least: {
         nl: "Minste",
         en: "Least",
     },
-    "link": {
+    link: {
         nl: "Link",
-        en: "URL"
+        en: "URL",
     },
     "made-by": {
         nl: "Deze kaart is gemaakt door",
-        en: "This appication is made by"
+        en: "This appication is made by",
     },
-    "map": {
+    map: {
         nl: "Kaart",
-        en: "Map"
+        en: "Map",
     },
-    "most": {
+    most: {
         nl: "Meeste",
-        en: "Most"
+        en: "Most",
     },
-    "municipality": {
+    municipality: {
         nl: "Gemeente",
-        en: "Municipality"
+        en: "Municipality",
     },
-    "municipalities": {
+    municipalities: {
         nl: "Gemeentes",
-        en: "Municipalities"
+        en: "Municipalities",
     },
-    "number": {
+    number: {
         nl: "Aantal",
-        en: "Number of"
+        en: "Number of",
     },
-    "notes": {
+    notes: {
         nl: "Opmerkingen",
-        en: "Notes"
+        en: "Notes",
     },
     "not-without": {
         nl: "Maar was niet mogelijk zonder de hulp van o.a.",
-        en: "But was not possible without the help of a.o."
+        en: "But was not possible without the help of a.o.",
     },
-    "organisation": {
+    organisation: {
         nl: "Organisatie",
-        en: "Organisation"
+        en: "Organisation",
     },
     "or-mor": {
         nl: "of meer",
-        en: "or more"
+        en: "or more",
     },
     "other-maps": {
         nl: "Andere kaarten",
-        en: "Other maps"
+        en: "Other maps",
     },
-    "pages": {
+    pages: {
         nl: "Pagina's",
-        en: "Pages"
+        en: "Pages",
     },
     "part-of-population": {
         nl: "Deel van de bevolking",
-        en: "Part of population"
+        en: "Part of population",
     },
-    "per": {
+    per: {
         nl: "per",
-        en: "per"
+        en: "per",
     },
-    "percentage": {
+    percentage: {
         nl: "Percentage",
-        en: "Percentage"
+        en: "Percentage",
     },
-    "period": {
+    period: {
         nl: "Periode",
-        en: "Period"
+        en: "Period",
     },
-    "population": {
+    population: {
         nl: "Inwoners",
-        en: "Population"
+        en: "Population",
     },
     "positive-tests": {
         nl: "Positieven",
-        en: "Positives"
+        en: "Positives",
     },
-    "positiveTests": {
+    positiveTests: {
         nl: "Positieven",
-        en: "Positives"
+        en: "Positives",
     },
-    "province": {
+    province: {
         nl: "Provincie",
-        en: "Province"
+        en: "Province",
     },
-    "provinces": {
+    provinces: {
         nl: "Provincies",
-        en: "Provinces"
+        en: "Provinces",
     },
     "ratios-since-july-1": {
         nl: "Ratio's sinds 1 juli",
-        en: "Ratios since july 1st"
+        en: "Ratios since july 1st",
     },
-    "relative": {
+    relative: {
         nl: "Relatieve",
-        en: "Relative"
+        en: "Relative",
     },
     "safety-region": {
         nl: "Veiligheidsregio",
-        en: "Safety region"
+        en: "Safety region",
     },
     "safety-regions": {
         nl: "Veiligheidsregio's",
-        en: "Safety regions"
+        en: "Safety regions",
     },
     "search-or-click-on-map": {
         nl: "Zoek of klik op de kaart",
-        en: "Search or click on the map"
+        en: "Search or click on the map",
     },
     "select-region-first": {
         nl: "Selecteer eerst een gebied op de kaart",
-        en: "Select a region on the map first"
+        en: "Select a region on the map first",
     },
     "seven-days-back": {
         nl: "7 dagen geleden",
-        en: "7 days back"
+        en: "7 days back",
     },
     "show-trend": {
         nl: "Toon trends",
-        en: "Show trends"
+        en: "Show trends",
     },
     "signal-value": {
         nl: "Signaalwaarde",
-        en: "Signal value"
+        en: "Signal value",
     },
-    'signaling-system': {
-        nl: 'Signaal systeem',
-        en: 'Signaling system'
+    "signaling-system": {
+        nl: "Signaal systeem",
+        en: "Signaling system",
     },
     "source-of-application": {
         nl: "Broncode van deze applicatie",
-        en: "Source code of this application"
+        en: "Source code of this application",
     },
-    "sources": {
+    sources: {
         nl: "Bronnen",
-        en: "Sources"
+        en: "Sources",
     },
-    "speed": {
+    speed: {
         nl: "Snelheid",
-        en: "Speed"
+        en: "Speed",
     },
     "test-results": {
         nl: "Test resultaten",
-        en: "Test results"
+        en: "Test results",
     },
-    "timeline": {
+    timeline: {
         nl: "Tijdlijn",
-        en: "Timeline"
+        en: "Timeline",
     },
-    "today": {
+    today: {
         nl: "Vandaag",
-        en: "Today"
+        en: "Today",
     },
-    "till": {
+    till: {
         nl: "tot",
-        en: "till"
+        en: "till",
     },
-    "total": {
+    total: {
         nl: "Totaal",
-        en: "Total"
+        en: "Total",
     },
     "total-deceased": {
         nl: "Totaal overleden sinds dag 1",
-        en: "Total deceased since day 1"
+        en: "Total deceased since day 1",
     },
     "total-hospitalisations": {
         nl: "Totaal ziekenhuisopnames sinds dag 1",
-        en: "Total hospitalisations since day 1"
+        en: "Total hospitalisations since day 1",
     },
     "total-infections": {
         nl: "Totaal positieve tests sinds dag 1",
-        en: "Total of positive tests since day 1"
+        en: "Total of positive tests since day 1",
     },
     "total-infections-percentage-of-population": {
         nl: "Totaal positieve tests sinds dag 1 als pct vd bevolking",
-        en: "Total of positive tests since day 1 as perc of population"
+        en: "Total of positive tests since day 1 as perc of population",
     },
     "traffic-light": {
         nl: "Stoplicht",
-        en: "Traffic light"
+        en: "Traffic light",
     },
-    "trends": {
+    trends: {
         nl: "Trends",
-        en: "Trends"
+        en: "Trends",
     },
     "total-since-day-1": {
         nl: "Totalen sinds dag 1",
-        en: "Totals since day 1"
+        en: "Totals since day 1",
     },
     "trend-today": {
         nl: "Trend vandaag",
-        en: "Trend today"
+        en: "Trend today",
     },
     "trend-week": {
         nl: "Trend deze week",
-        en: "Trend this week"
+        en: "Trend this week",
     },
     "show-notification": {
         nl: "Het tonen van trends maakt de user interface wat langzaam, daarom staan ze standaard uit",
-        en: "Showing trends does make the user interface a bit slow, they are disabled by default"
+        en: "Showing trends does make the user interface a bit slow, they are disabled by default",
     },
-    "vaccination": {
+    vaccination: {
         nl: "Gevaccineerd",
-        en: "Vaccinated"
+        en: "Vaccinated",
     },
     "vaccinated-top": {
         nl: "Hoogste vaccinatie-graad",
-        en: "Highest vaccination rate"
+        en: "Highest vaccination rate",
     },
     "vaccinated-bottom": {
         nl: "Laagste vaccinatie-graad",
-        en: "Lowest vaccination rate"
+        en: "Lowest vaccination rate",
     },
     "vaccination-change-note": {
         nl: "Verandering is per periode van 7 weken",
-        en: "Change per periode of 7 weeks"
+        en: "Change per periode of 7 weeks",
     },
     "with-more-than": {
         nl: "Met meer dan",
-        en: "With more than"
+        en: "With more than",
     },
     "with-growth": {
         nl: "Met groei",
-        en: "With growth"
+        en: "With growth",
     },
     "with-shrinkage": {
         nl: "Met krimp",
-        en: "With shrinkage"
+        en: "With shrinkage",
     },
     "work-in-progress": {
         nl: "Not niet klaar",
-        en: "Work in progress"
-    }
+        en: "Work in progress",
+    },
 };
 
 export default dictionary;

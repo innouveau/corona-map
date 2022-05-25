@@ -2,11 +2,11 @@ import districtToMunicipalityLookup from "@/data/relations/lookups/district-to-m
 import municipalityToGgdLookup from "@/data/relations/lookups/municipality-to-ggd";
 import municipalityToSafetyRegionLookup from "@/data/relations/lookups/municipality-to-safety-region";
 import municipalityToProvinceLookup from "@/data/relations/lookups/municipality-to-province";
-import municipalities from "@/data/relations/regions/municipalities"
-import ggds from "@/data/relations/regions/ggds"
-import safetyRegions from "@/data/relations/regions/safety-regions"
-import provinces from "@/data/relations/regions/provinces"
-import countries from "@/data/relations/regions/countries"
+import municipalities from "@/data/relations/regions/municipalities";
+import ggds from "@/data/relations/regions/ggds";
+import safetyRegions from "@/data/relations/regions/safety-regions";
+import provinces from "@/data/relations/regions/provinces";
+import countries from "@/data/relations/regions/countries";
 import municipalityPaths from "@/data/relations/paths/municipalities";
 import ggdPaths from "@/data/relations/paths/ggds";
 import safetyRegionPaths from "@/data/relations/paths/safety-regions";
@@ -16,8 +16,11 @@ import countryPaths from "@/data/relations/paths/countries";
 import store from "@/store/store";
 
 export const getCurrentRegion = (baseRegion) => {
-    return getRegionFromBaseRegion(baseRegion, store.state.ui.currentRegionType);
-}
+    return getRegionFromBaseRegion(
+        baseRegion,
+        store.state.ui.currentRegionType
+    );
+};
 
 export const getRegionFromBaseRegion = (baseRegion, regionType) => {
     let municipalityCode;
@@ -31,25 +34,25 @@ export const getRegionFromBaseRegion = (baseRegion, regionType) => {
             municipalityCode = districtToMunicipalityLookup[baseRegion.code];
         }
         if (regionType === "municipality") {
-            return municipalities.find(m => m.code === municipalityCode);
+            return municipalities.find((m) => m.code === municipalityCode);
         } else {
             let code;
-            switch(regionType) {
+            switch (regionType) {
                 case "ggd":
                     code = municipalityToGgdLookup[municipalityCode];
-                    return ggds.find(r => r.code === code);
+                    return ggds.find((r) => r.code === code);
                 case "safety-region":
                     code = municipalityToSafetyRegionLookup[municipalityCode];
-                    return safetyRegions.find(r => r.code === code);
+                    return safetyRegions.find((r) => r.code === code);
                 case "province":
                     code = municipalityToProvinceLookup[municipalityCode];
-                    return provinces.find(r => r.code === code);
+                    return provinces.find((r) => r.code === code);
                 case "country":
                     return countries[0];
             }
         }
     }
-}
+};
 
 export const getBaseRegions = (region, regionType) => {
     const baseType = store.state.maps.current.settings.regionTypes[0];
@@ -70,7 +73,7 @@ export const getBaseRegions = (region, regionType) => {
         } else {
             let lookup;
             const municipalityCodes = [];
-            switch(regionType) {
+            switch (regionType) {
                 case "ggd":
                     lookup = municipalityToGgdLookup;
                     break;
@@ -87,11 +90,14 @@ export const getBaseRegions = (region, regionType) => {
                 }
             }
             if (baseType === "municipality") {
-                codes = municipalityCodes
+                codes = municipalityCodes;
             } else {
                 for (const key in districtToMunicipalityLookup) {
                     for (const municipalityCode of municipalityCodes) {
-                        if (districtToMunicipalityLookup[key] === municipalityCode) {
+                        if (
+                            districtToMunicipalityLookup[key] ===
+                            municipalityCode
+                        ) {
                             codes.push(key);
                         }
                     }
@@ -106,14 +112,14 @@ export const getBaseRegions = (region, regionType) => {
         }
         return regions;
     }
-}
+};
 
 export const getRegions = (regionType) => {
     const baseType = store.state.maps.current.settings.regionTypes[0];
     if (baseType === regionType) {
         return store.state.regions.all;
     } else {
-        switch(regionType) {
+        switch (regionType) {
             case "municipality":
                 return municipalities;
             case "ggd":
@@ -126,11 +132,11 @@ export const getRegions = (regionType) => {
                 return countries;
         }
     }
-}
+};
 
 export const getPathsForRegion = (region) => {
-    let lookup
-    switch(region.regionType) {
+    let lookup;
+    switch (region.regionType) {
         case "municipality":
             lookup = municipalityPaths;
             break;
@@ -148,10 +154,10 @@ export const getPathsForRegion = (region) => {
             break;
     }
     return lookup[region.code];
-}
+};
 
 const municipalityToRelationCode = (code, regionType) => {
-    switch(regionType) {
+    switch (regionType) {
         case "ggd":
             return municipalityToGgdLookup[code];
         case "safety-region":
@@ -159,4 +165,4 @@ const municipalityToRelationCode = (code, regionType) => {
         case "province":
             return municipalityToProvinceLookup[code];
     }
-}
+};

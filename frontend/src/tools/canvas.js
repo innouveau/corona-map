@@ -1,27 +1,32 @@
-import store from '@/store/store';
-import changeTools from '@/tools/change';
-import { getRelativeCumulativeForPeriod, getChangeOfType } from "@/tools/calculator";
+import store from "@/store/store";
+import changeTools from "@/tools/change";
+import {
+    getRelativeCumulativeForPeriod,
+    getChangeOfType,
+} from "@/tools/calculator";
 import { getShadeOfColor } from "@/tools/color";
 import { CUMULATIVE_COLOR_SCALE } from "@/data/constants";
 import { getColorForRegion } from "@/tools/signaling";
-import {getPathsForRegion} from "./relations";
+import { getPathsForRegion } from "./relations";
 import Path from "@/classes/region/geo/Path";
 
-const draw = function(ctx, regions, settings, view, mapType) {
+const draw = function (ctx, regions, settings, view, mapType) {
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = settings.borderStyle ? settings.borderStyle : 'rgba(0,0,0,0.3)';
+    ctx.strokeStyle = settings.borderStyle
+        ? settings.borderStyle
+        : "rgba(0,0,0,0.3)";
     const values = getValues(regions, mapType, view);
     if (mapType === "cumulative") {
         normalise(values);
     }
     for (let regionData of values) {
-        drawRegion(ctx, regionData.region, settings, regionData.result.color) ;
+        drawRegion(ctx, regionData.region, settings, regionData.result.color);
     }
 };
 
-const addBackground = function(ctx, width, height) {
+const addBackground = function (ctx, width, height) {
     ctx.rect(0, 0, width, height);
-    ctx.fillStyle = '#f5eedc';
+    ctx.fillStyle = "#f5eedc";
     ctx.fill();
 };
 
@@ -32,8 +37,8 @@ const normalise = (regions) => {
             console.log(region);
         }
     }
-    const max = Math.max(...regions.map(i => i.result.value), 0);
-    const min = Math.min(...regions.map(i => i.result.value), max);
+    const max = Math.max(...regions.map((i) => i.result.value), 0);
+    const min = Math.min(...regions.map((i) => i.result.value), max);
     for (const region of regions) {
         total += region.result.value;
     }
@@ -45,64 +50,82 @@ const normalise = (regions) => {
         if (value > average) {
             range = max - average;
             ratio = offset / range;
-            region.result.color = getShadeOfColor(CUMULATIVE_COLOR_SCALE[1], CUMULATIVE_COLOR_SCALE[2], ratio);
+            region.result.color = getShadeOfColor(
+                CUMULATIVE_COLOR_SCALE[1],
+                CUMULATIVE_COLOR_SCALE[2],
+                ratio
+            );
         } else {
             range = average - min;
             ratio = offset / range;
-            region.result.color = getShadeOfColor(CUMULATIVE_COLOR_SCALE[1], CUMULATIVE_COLOR_SCALE[0], ratio);
+            region.result.color = getShadeOfColor(
+                CUMULATIVE_COLOR_SCALE[1],
+                CUMULATIVE_COLOR_SCALE[0],
+                ratio
+            );
         }
     }
-}
+};
 
 const getValues = (regions, mapType, view) => {
     const result = [];
     for (const region of regions) {
         result.push({
             region,
-            result: getValue(region, mapType, view)
+            result: getValue(region, mapType, view),
         });
     }
     return result;
-}
+};
 
-const getValue = function(region, mapType, view) {
+const getValue = function (region, mapType, view) {
     if (!view.currentSource || region.noData === true) {
         return {
             value: null,
-            color: '#888'
-        }
+            color: "#888",
+        };
     } else {
         switch (mapType) {
-            case 'change':
-                const change = getChangeOfType(region, view.offset, 7, view.currentSource.key);
+            case "change":
+                const change = getChangeOfType(
+                    region,
+                    view.offset,
+                    7,
+                    view.currentSource.key
+                );
                 return {
                     value: null,
-                    color: changeTools.getColorForChange(change)
-                }
-            case 'cumulative':
+                    color: changeTools.getColorForChange(change),
+                };
+            case "cumulative":
                 const start = view.offset;
                 const end = view.offsetStart;
-                const cumulative = getRelativeCumulativeForPeriod(region, start, end, view.currentSource.key);
+                const cumulative = getRelativeCumulativeForPeriod(
+                    region,
+                    start,
+                    end,
+                    view.currentSource.key
+                );
                 return {
                     value: cumulative,
-                    color: null
-                }
+                    color: null,
+                };
             default:
                 return {
                     value: null,
-                    color: getColorForRegion(region, view)
-                }
+                    color: getColorForRegion(region, view),
+                };
         }
     }
-}
+};
 
-const drawRegion = function(ctx, region, settings, color) {
+const drawRegion = function (ctx, region, settings, color) {
     ctx.fillStyle = color;
     ctx.globalAlpha = 1;
     if (!region.baseRegion) {
         if (!region.paths) {
             const data = getPathsForRegion(region);
-            region.paths = data.map(path => new Path(path));
+            region.paths = data.map((path) => new Path(path));
         }
     }
     for (let path of region.paths) {
@@ -110,7 +133,7 @@ const drawRegion = function(ctx, region, settings, color) {
     }
 };
 
-const drawPath = function(ctx, path, settings) {
+const drawPath = function (ctx, path, settings) {
     if (!path.storedPaths[settings.key]) {
         path.create(settings);
     }
@@ -125,5 +148,5 @@ const drawPath = function(ctx, path, settings) {
 export default {
     addBackground,
     draw,
-    drawRegion
-}
+    drawRegion,
+};

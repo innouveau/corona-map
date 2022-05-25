@@ -1,16 +1,14 @@
 <script>
 export default {
-    name: 'trend-section-head'
-}
+    name: "trend-section-head",
+};
 </script>
-
 
 <template>
     <div class="trend-section-head">
         <slot />
     </div>
 </template>
-
 
 <style lang="scss">
 .trend-section-head {

@@ -1,17 +1,17 @@
-import numberTools from '@/tools/number';
+import numberTools from "@/tools/number";
 
 export default {
-    name: 'trend-mixin',
+    name: "trend-mixin",
     data() {
         return {
-            list: []
-        }
+            list: [],
+        };
     },
     props: {
         direction: {
             type: String,
             required: false,
-            default: 'top'
+            default: "top",
         },
     },
     computed: {
@@ -22,8 +22,10 @@ export default {
             return this.$store.state.maps.current;
         },
         regions() {
-            return this.$store.getters['regions/regionsForRegionType'].filter(region => !region.noData);
-        }
+            return this.$store.getters["regions/regionsForRegionType"].filter(
+                (region) => !region.noData
+            );
+        },
     },
     methods: {
         updateList() {
@@ -35,17 +37,20 @@ export default {
                     value = 0;
                 }
                 score.push({
-                    region, value
-                })
+                    region,
+                    value,
+                });
             }
-            score.sort((a,b) => {
-                return this.direction === 'top' ? b.value - a.value : a.value - b.value;
-            })
+            score.sort((a, b) => {
+                return this.direction === "top"
+                    ? b.value - a.value
+                    : a.value - b.value;
+            });
             this.list = score.slice(0, 10);
         },
         formatted(value) {
             return numberTools.format(Math.round(value), true);
-        }
+        },
     },
     mounted() {
         this.updateList();
@@ -54,7 +59,7 @@ export default {
         currentRegionType: {
             handler: function () {
                 this.updateList();
-            }
-        }
-    }
-}
+            },
+        },
+    },
+};

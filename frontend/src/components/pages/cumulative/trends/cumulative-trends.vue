@@ -8,58 +8,67 @@ import trendList from "@/components/elements/trends/trend-list";
 import trendRegion from "@/components/elements/trends/trend-region";
 
 export default {
-    name: 'cumulative-trends',
+    name: "cumulative-trends",
     components: {
         trendRegion,
         trendList,
         trendSectionBody,
         trendSectionHead,
-        trendSection
+        trendSection,
     },
     props: {
         view: {
             type: View,
-            required: true
-        }
+            required: true,
+        },
     },
     computed: {
         list() {
-            const regions = this.$store.getters['regions/regionsForRegionType'];
-            return regions.map(region => {
-                const start = this.view.offset;
-                const end = this.view.offsetStart;
-                return {
-                    region,
-                    value: getRelativeCumulativeForPeriod(region, start, end, this.view.currentSource.key)
-                }
-            }).sort((a,b) => {
-                return b.value - a.value;
-            });
+            const regions = this.$store.getters["regions/regionsForRegionType"];
+            return regions
+                .map((region) => {
+                    const start = this.view.offset;
+                    const end = this.view.offsetStart;
+                    return {
+                        region,
+                        value: getRelativeCumulativeForPeriod(
+                            region,
+                            start,
+                            end,
+                            this.view.currentSource.key
+                        ),
+                    };
+                })
+                .sort((a, b) => {
+                    return b.value - a.value;
+                });
         },
         highest() {
-            return this.list.slice(0,10);
+            return this.list.slice(0, 10);
         },
         lowest() {
             const reversed = this.list.reverse();
-            return reversed.slice(0,10);
-        }
-    }
-}
+            return reversed.slice(0, 10);
+        },
+    },
+};
 </script>
-
 
 <template>
     <div class="cumulative-trends trends">
         <trend-section>
             <trend-section-head>
-                {{translate('most', true)}} {{translate(view.currentSource.key)}} {{translate('in-period')}}
+                {{ translate("most", true) }}
+                {{ translate(view.currentSource.key) }}
+                {{ translate("in-period") }}
             </trend-section-head>
             <trend-section-body>
                 <trend-list>
                     <trend-region
                         v-for="item in highest"
                         :view="view"
-                        :region="item.region">
+                        :region="item.region"
+                    >
                     </trend-region>
                 </trend-list>
             </trend-section-body>
@@ -67,14 +76,17 @@ export default {
 
         <trend-section>
             <trend-section-head>
-                {{translate('least', true)}} {{translate(view.currentSource.key)}} {{translate('in-period')}}
+                {{ translate("least", true) }}
+                {{ translate(view.currentSource.key) }}
+                {{ translate("in-period") }}
             </trend-section-head>
             <trend-section-body>
                 <trend-list>
                     <trend-region
                         v-for="item in lowest"
                         :view="view"
-                        :region="item.region">
+                        :region="item.region"
+                    >
                     </trend-region>
                 </trend-list>
             </trend-section-body>
@@ -82,6 +94,4 @@ export default {
     </div>
 </template>
 
-
-<style lang="scss">
-</style>
+<style lang="scss"></style>

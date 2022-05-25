@@ -1,6 +1,6 @@
 <script>
-import dateTools from '@/tools/date';
-import View from '@/classes/View';
+import dateTools from "@/tools/date";
+import View from "@/classes/View";
 import headerMenu from "@/components/pages/header/header-menu";
 import Map from "@/components/map/Map";
 import RegionDetails from "@/components/pages/main/details/region-details";
@@ -9,7 +9,7 @@ import RegionContainer from "@/components/region/region-container";
 import Region from "../../region/Region";
 
 export default {
-    name: 'compare',
+    name: "compare",
     components: {
         Region,
         Map,
@@ -19,18 +19,18 @@ export default {
         RegionDetails,
     },
     props: {},
-    data(){
+    data() {
         return {
-            views: []
-        }
+            views: [],
+        };
     },
     computed: {
         routePath() {
-            return window.location.href.split('#')[0];
+            return window.location.href.split("#")[0];
         },
         currentMap() {
             return this.$store.state.maps.current;
-        }
+        },
     },
     methods: {
         getDates() {
@@ -47,55 +47,70 @@ export default {
             } else {
                 date2 = dateTools.formatDate(today);
             }
-            offset1 = dateTools.getOffsetByDate(date1) / this.currentMap.settings.interval;
-            offset2 = dateTools.getOffsetByDate(date2) / this.currentMap.settings.interval;
-            this.views.push(new View ({
-                id: 1,
-                offset: offset1
-            }));
-            this.views.push(new View ({
-                id: 1,
-                offset: offset2
-            }));
+            offset1 =
+                dateTools.getOffsetByDate(date1) /
+                this.currentMap.settings.interval;
+            offset2 =
+                dateTools.getOffsetByDate(date2) /
+                this.currentMap.settings.interval;
+            this.views.push(
+                new View({
+                    id: 1,
+                    offset: offset1,
+                })
+            );
+            this.views.push(
+                new View({
+                    id: 1,
+                    offset: offset2,
+                })
+            );
         },
         updateQuery() {
             let url, date1, date2;
-            date1 = dateTools.getDateByOffset(this.views[0].offset * this.currentMap.settings.interval);
-            date2 = dateTools.getDateByOffset(this.views[1].offset * this.currentMap.settings.interval);
-            url = this.routePath + '#/compare?map=' + encodeURI(this.currentMap.title) + '&date1=' + date1 + '&date2=' + date2;
-            history.pushState(
-                {},
-                null,
-                url
+            date1 = dateTools.getDateByOffset(
+                this.views[0].offset * this.currentMap.settings.interval
             );
-        }
+            date2 = dateTools.getDateByOffset(
+                this.views[1].offset * this.currentMap.settings.interval
+            );
+            url =
+                this.routePath +
+                "#/compare?map=" +
+                encodeURI(this.currentMap.title) +
+                "&date1=" +
+                date1 +
+                "&date2=" +
+                date2;
+            history.pushState({}, null, url);
+        },
     },
     mounted() {
         this.getDates();
-    }
-}
+    },
+};
 </script>
-
 
 <template>
     <div class="compare">
         <div class="view__items">
             <div v-for="(view, index) in views" class="view-item-container">
                 <div class="header-menu-container">
-                    <header-menu
-                        :view="view"/>
+                    <header-menu :view="view" />
                 </div>
                 <div class="map-container">
                     <Map
                         :view="view"
                         :map-type="'signaling'"
-                        :show-download="false"/>
+                        :show-download="false"
+                    />
                     <region-container :view="view">
                         <Region :view="view">
                             <region-details-numbers
                                 :view="view"
                                 :region="view.currentRegion"
-                                :compact="true"/>
+                                :compact="true"
+                            />
                         </Region>
                     </region-container>
                 </div>
@@ -104,63 +119,60 @@ export default {
     </div>
 </template>
 
-
 <style lang="scss">
-    @import '@/styles/variables.scss';
+@import "@/styles/variables.scss";
 
-    .compare {
+.compare {
+    height: 100%;
+
+    .view__items {
         height: 100%;
+        display: flex;
 
-        .view__items {
+        .view-item-container {
+            width: 50%;
             height: 100%;
-            display: flex;
+            border-right: 1px solid rgba(0, 0, 0, 0.2);
+            overflow: hidden;
 
-            .view-item-container {
-                width: 50%;
-                height: 100%;
-                border-right: 1px solid rgba(0,0,0,0.2);
-                overflow: hidden;
+            &:last-child {
+                border-right: 0;
+            }
 
-                &:last-child {
-                    border-right: 0;
-                }
+            .header-menu-container {
+                height: 48px;
+            }
 
-                .header-menu-container {
-                    height: 48px;
-                }
+            .map-container {
+                height: calc(100% - 48px);
+                position: relative;
 
-                .map-container {
-                    height: calc(100% - 48px);
-                    position: relative;
+                .region-details__container {
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    width: 200px;
+                    z-index: 10;
 
-                    .region-details__container {
-                        position: absolute;
-                        right: 10px;
-                        top: 10px;
-                        width: 200px;
-                        z-index: 10;
+                    .region-card {
+                        padding: 12px;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                        margin-bottom: 20px;
+                        border-radius: 6px;
+                        background: #fdfcf8;
 
-                        .region-card {
-                            padding: 12px;
-                            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                            margin-bottom: 20px;
-                            border-radius: 6px;
-                            background: #FDFCF8;
+                        .region-details__section {
+                            padding: 6px 0;
 
-                            .region-details__section {
-                                padding: 6px 0;
+                            .region-details__row {
+                                .region-details__label {
+                                    width: 60%;
+                                    font-size: 11px;
+                                }
 
-                                .region-details__row {
-
-                                    .region-details__label {
-                                        width: 60%;
-                                        font-size: 11px;
-                                    }
-
-                                    .region-details__value {
-                                        width: 40%;
-                                        font-size: 13px;
-                                    }
+                                .region-details__value {
+                                    width: 40%;
+                                    font-size: 13px;
                                 }
                             }
                         }
@@ -168,30 +180,30 @@ export default {
                 }
             }
         }
+    }
 
-        .download-image {
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-            z-index: 1;
-        }
+    .download-image {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        z-index: 1;
+    }
 
-        @include mobile() {
+    @include mobile() {
+        .view__items {
+            display: block;
 
-            .view__items {
-                display: block;
+            .view-item-container {
+                width: 100%;
+                height: 50%;
+                border-right: 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
-                .view-item-container {
-                    width: 100%;
-                    height: 50%;
-                    border-right: 0;
-                    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-                    &:last-child {
-                        border-bottom: 0;
-                    }
+                &:last-child {
+                    border-bottom: 0;
                 }
             }
         }
     }
+}
 </style>

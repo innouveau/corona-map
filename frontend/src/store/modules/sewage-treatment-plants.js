@@ -1,16 +1,14 @@
-import _base from './_base-module';
-import SewageTreatmentPlant from '@/classes/SewageTreatmentPlant';
-
-
+import _base from "./_base-module";
+import SewageTreatmentPlant from "@/classes/SewageTreatmentPlant";
 
 const state = {
     all: [],
     dict: {},
-    current: null
+    current: null,
 };
 
 const getters = {
-    ..._base.getters
+    ..._base.getters,
 };
 
 const actions = {};
@@ -27,8 +25,13 @@ const mutations = {
         }
     },
     updatePropertyOfItem(state, payload) {
-        _base.mutations.updatePropertyOfItem(state, payload.item, payload.property, payload.value);
-    }
+        _base.mutations.updatePropertyOfItem(
+            state,
+            payload.item,
+            payload.property,
+            payload.value
+        );
+    },
 };
 
 export default {
@@ -36,5 +39,5 @@ export default {
     state,
     getters,
     actions,
-    mutations
-}
+    mutations,
+};

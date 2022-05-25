@@ -1,30 +1,30 @@
-import _base from './_base-module';
-import Source from '@/classes/Source';
+import _base from "./_base-module";
+import Source from "@/classes/Source";
 
 const Model = Source;
 
 const state = {
     all: [],
-    current: null
+    current: null,
 };
 
 const getters = {
     ..._base.getters,
     getStandardSource(state) {
-        return state.all.find(s => s.key === 'positiveTests')
-    }
+        return state.all.find((s) => s.key === "positiveTests");
+    },
 };
 
 const actions = {
-    create(context, item){
+    create(context, item) {
         return _base.actions.create(context, item);
     },
-    update(context, item){
+    update(context, item) {
         return _base.actions.update(context, item);
     },
-    delete(context, item){
+    delete(context, item) {
         return _base.actions.delete(context, item);
-    }
+    },
 };
 
 const mutations = {
@@ -32,10 +32,10 @@ const mutations = {
         return _base.mutations.init(state, set, Model);
     },
     setCurrent(state, item) {
-        return _base.mutations.setCurrent(state, item)
+        return _base.mutations.setCurrent(state, item);
     },
     unsetCurrent(state) {
-        return _base.mutations.unsetCurrent(state)
+        return _base.mutations.unsetCurrent(state);
     },
     create(state, item) {
         return _base.mutations.create(state, item, Model);
@@ -53,8 +53,13 @@ const mutations = {
         return _base.mutations.reset(state);
     },
     updatePropertyOfItem(state, payload) {
-        _base.mutations.updatePropertyOfItem(state, payload.item, payload.property, payload.value);
-    }
+        _base.mutations.updatePropertyOfItem(
+            state,
+            payload.item,
+            payload.property,
+            payload.value
+        );
+    },
 };
 
 export default {
@@ -62,5 +67,5 @@ export default {
     state,
     getters,
     actions,
-    mutations
-}
+    mutations,
+};

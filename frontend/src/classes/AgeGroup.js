@@ -1,10 +1,5 @@
 class AgeGroup {
-    constructor({
-        id = null,
-        title = '',
-        color = '',
-        active = true
-    }) {
+    constructor({ id = null, title = "", color = "", active = true }) {
         this.id = id;
         this.title = title;
         this.color = color;

@@ -1,4 +1,4 @@
-const titleForSorting = function(title) {
+const titleForSorting = function (title) {
     if (title[0] === "'") {
         return title.substring(3).toLowerCase();
     } else {
@@ -7,5 +7,5 @@ const titleForSorting = function(title) {
 };
 
 export default {
-    titleForSorting
-}
+    titleForSorting,
+};

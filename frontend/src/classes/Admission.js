@@ -1,8 +1,5 @@
 class Admission {
-    constructor({
-        date = '',
-        n = 0
-    }) {
+    constructor({ date = "", n = 0 }) {
         this.date = date;
         this.n = n;
     }
