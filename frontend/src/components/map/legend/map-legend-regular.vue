@@ -16,7 +16,7 @@ export default {
             return this.$store.state.ui.color;
         },
         signalingSystem() {
-            return store.getters["signalingSystems/getItemById"](
+            return this.$store.getters["signalingSystems/getItemById"](
                 this.view.currentSource.signalingSystem_id
             );
         },
@@ -41,7 +41,11 @@ export default {
 
 <template>
     <div class="map-legend-regular">
-        <div v-for="threshold in thresholds" class="threshold">
+        <div
+            v-for="(threshold, index) in thresholds"
+            :key="index"
+            class="threshold"
+        >
             <div
                 :style="{ 'background-color': threshold.color[colorSetting] }"
                 class="threshold__swatch"

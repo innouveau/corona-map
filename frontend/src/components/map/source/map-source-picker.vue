@@ -35,7 +35,8 @@ export default {
 <template>
     <div class="map-source-picker">
         <div
-            v-for="source in sources"
+            v-for="(source, index) in sources"
+            :key="index"
             @click="pickSource(source)"
             :class="{ 'map-source-picker__button--active': isActive(source) }"
             class="map-source-picker__button"

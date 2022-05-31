@@ -109,7 +109,11 @@ export default {
         </div>
 
         <div v-if="isPanelPage" class="header-menu__navigation">
-            <menu-button v-for="button in buttons" :button="button" />
+            <menu-button
+                v-for="(button, index) in buttons"
+                :key="index"
+                :button="button"
+            />
         </div>
     </div>
 </template>

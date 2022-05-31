@@ -12,7 +12,7 @@ export default {
     },
     computed: {
         signalingSystem() {
-            return store.getters["signalingSystems/getItemById"](
+            return this.$store.getters["signalingSystems/getItemById"](
                 this.view.currentSource.signalingSystem_id
             );
         },
@@ -57,7 +57,11 @@ export default {
 
 <template>
     <div class="map-legend-gradient">
-        <div v-for="(threshold, index) in thresholds" class="threshold">
+        <div
+            v-for="(threshold, index) in thresholds"
+            :key="index"
+            class="threshold"
+        >
             <div
                 :style="{ background: getBackground(threshold) }"
                 class="threshold__swatch"

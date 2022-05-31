@@ -139,7 +139,8 @@ export default {
                     </div>
                     <div class="hamburger-menu__section-body">
                         <div
-                            v-for="page in pages"
+                            v-for="(page, index) in pages"
+                            :key="index"
                             @click="selectPage(page)"
                             :class="{
                                 'hamburger-menu__button--active':
@@ -157,7 +158,8 @@ export default {
                     </div>
                     <div class="hamburger-menu__section-body">
                         <div
-                            v-for="map in maps"
+                            v-for="(map, index) in maps"
+                            :key="index"
                             @click="selectMap(map)"
                             :class="{
                                 'hamburger-menu__button--active':

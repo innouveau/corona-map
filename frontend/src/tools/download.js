@@ -82,7 +82,7 @@ const getDateString = (offset) => {
 };
 
 const addHead = (ctx, mapType) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         canvasTools.addBackground(ctx, width, height);
         const img = new Image();
         switch (mapType) {

@@ -200,7 +200,7 @@ export const getReportingDelay = (region, offset) => {
 // this can do the total report in one callstack
 // other functions might trigger watchers on a region
 // multiple times
-export const getHistory = (region, source) => {
+export const getHistory = (region) => {
     // TODO
     return region.report.history;
 

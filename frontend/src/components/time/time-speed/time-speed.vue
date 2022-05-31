@@ -20,6 +20,8 @@ export default {
                         return 2;
                     case 100:
                         return 3;
+                    default:
+                        return 1;
                 }
             },
             set(value) {

@@ -1,11 +1,6 @@
 <script>
-import translate from "@/components/elements/translate";
-
 export default {
     name: "gradient-toggle",
-    components: {
-        translate,
-    },
     props: {},
     computed: {
         gradient() {

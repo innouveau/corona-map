@@ -36,7 +36,7 @@ const state = {
 const getters = {
     ..._base.getters,
     dateString:
-        (state, getters, rootState, rootGetters) =>
+        (state, getters, rootState) =>
         (dateFormat = "EE d MMM") => {
             let today, offset, dateOfFocus;
             today = state.today;

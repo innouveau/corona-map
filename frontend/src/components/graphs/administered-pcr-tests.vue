@@ -107,11 +107,10 @@ export default {
             return height - value * height;
         },
         drawMaxLine() {
-            let y, normValue, normColor, normString1, normString2;
+            let y, normValue, normString1, normString2;
             normString1 = "WHO";
             normString2 = "richtlijn";
             normValue = 5;
-            normColor = "red";
             y = this.getY(normValue);
 
             this.contentContainer
@@ -140,7 +139,7 @@ export default {
         this.redraw();
     },
     watch: {
-        region: function (newValue, oldValue) {
+        region: function () {
             if (this.region) {
                 setTimeout(() => {
                     this.redraw();
@@ -148,14 +147,14 @@ export default {
             }
         },
         offset: {
-            handler: function (newValue) {
+            handler: function () {
                 setTimeout(() => {
                     this.redraw();
                 });
             },
         },
         colorSet: {
-            handler: function (newValue) {
+            handler: function () {
                 setTimeout(() => {
                     this.redraw();
                 });

@@ -1,5 +1,4 @@
 <script>
-import Region from "@/classes/region/Region";
 import View from "@/classes/View";
 import populationTestGraph from "./population-test-graph";
 import populationTestNumbers from "./population-test-numbers";

@@ -155,14 +155,3 @@ export const getPathsForRegion = (region) => {
     }
     return lookup[region.code];
 };
-
-const municipalityToRelationCode = (code, regionType) => {
-    switch (regionType) {
-        case "ggd":
-            return municipalityToGgdLookup[code];
-        case "safety-region":
-            return municipalityToSafetyRegionLookup[code];
-        case "province":
-            return municipalityToProvinceLookup[code];
-    }
-};

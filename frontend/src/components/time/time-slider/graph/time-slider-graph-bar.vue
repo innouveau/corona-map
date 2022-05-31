@@ -38,10 +38,13 @@ export default {
                 } else if (source === "deceased") {
                     multiply *= DECEASED_MULTIPLICATION;
                 }
+                return (
+                    (multiply * this.day.source[source]) /
+                    this.view.currentRegion.population
+                );
             }
         },
     },
-    methods: {},
 };
 </script>
 

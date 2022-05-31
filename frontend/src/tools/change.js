@@ -37,7 +37,7 @@ const getChangeForFactor = function (factor) {
 };
 
 const getColorForChange = function (change) {
-    let upColor, downColor, neutralColor, ratio, colormap, factor;
+    let upColor, downColor, neutralColor, ratio, factor;
     upColor = colors[0];
     neutralColor = colors[1];
     downColor = colors[2];

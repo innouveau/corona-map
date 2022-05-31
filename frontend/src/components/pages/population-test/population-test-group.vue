@@ -40,7 +40,8 @@ export default {
         </div>
         <div class="population-test-group__regions">
             <population-test-region
-                v-for="region in regions"
+                v-for="(region, index) in regions"
+                :key="index"
                 :region="region"
                 :view="view"
                 :group="group"

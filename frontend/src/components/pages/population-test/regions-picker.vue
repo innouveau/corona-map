@@ -32,7 +32,8 @@ export default {
 <template>
     <div class="regions-picker">
         <div
-            v-for="region in regions"
+            v-for="(region, index) in regions"
+            :key="index"
             @click="updateRegion(region)"
             :class="{ 'regions-picker__region--active': isActive(region) }"
             class="regions-picker__region"

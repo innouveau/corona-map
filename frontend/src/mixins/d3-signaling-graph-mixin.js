@@ -188,7 +188,7 @@ export default {
 
             for (let threshold of thresholds) {
                 if (threshold.n > 0) {
-                    let height, x, y;
+                    let height, y;
                     if (threshold.n !== Infinity) {
                         height =
                             (this.appliedZoom * threshold.n) /
@@ -271,7 +271,7 @@ export default {
                     y = this.getY(day, sourceKey, false);
                     rect = this.lineContainer
                         .append("rect")
-                        .attr("x", (d) => {
+                        .attr("x", () => {
                             return (index - 0.5) * this.step + margin;
                         })
                         .attr("y", y)
@@ -289,8 +289,7 @@ export default {
             }
         },
         drawAntigenTestsBars(color) {
-            let size, index, margin;
-            size = 1;
+            let index, margin;
             margin = 1;
             for (let day of this.days) {
                 let value, rect, y, pcrHeight;
@@ -304,7 +303,7 @@ export default {
                         y = this.getY(day, this.view.currentSource.key, false);
                         rect = this.lineContainer
                             .append("rect")
-                            .attr("x", (d) => {
+                            .attr("x", () => {
                                 return (index - 0.5) * this.step + margin;
                             })
                             .attr("y", y - pcrHeight)
@@ -415,7 +414,7 @@ export default {
         this.init();
     },
     watch: {
-        region: function (newValue, oldValue) {
+        region: function () {
             if (this.region) {
                 setTimeout(() => {
                     this.redraw();
@@ -423,14 +422,14 @@ export default {
             }
         },
         offset: {
-            handler: function (newValue) {
+            handler: function () {
                 setTimeout(() => {
                     this.redraw();
                 });
             },
         },
         colorSet: {
-            handler: function (newValue) {
+            handler: function () {
                 setTimeout(() => {
                     this.redraw();
                 });

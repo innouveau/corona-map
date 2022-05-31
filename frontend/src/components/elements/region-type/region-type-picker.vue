@@ -30,7 +30,8 @@ export default {
     <div class="region-type-picker">
         <div v-if="types.length > 1" class="region-type-picker__container">
             <region-type
-                v-for="type in types"
+                v-for="(type, index) in types"
+                :key="index"
                 :view="view"
                 :type="type"
                 :type-as-region-title="typeAsRegionTitle"

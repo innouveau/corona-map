@@ -48,7 +48,8 @@ export default {
     <div class="search-regions-results">
         <div v-if="regions.length > 0" class="search-regions-results__results">
             <search-region-result
-                v-for="region in filtered"
+                v-for="(region, index) in filtered"
+                :key="index"
                 :region="region"
                 :view="view"
             />

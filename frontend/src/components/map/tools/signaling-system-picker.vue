@@ -43,7 +43,8 @@ export default {
         </div>
         <div class="map-tools-popup__body">
             <div
-                v-for="signalingSystem in signalingSystems"
+                v-for="(signalingSystem, index) in signalingSystems"
+                :key="index"
                 @click="select(signalingSystem)"
                 :class="{
                     'map-tools-popup__button--active':

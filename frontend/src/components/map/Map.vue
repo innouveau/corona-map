@@ -2,7 +2,6 @@
 import pointerCanvas from "./pointer-canvas";
 import mapToolsPopup from "./tools/map-tools-popup";
 import View from "@/classes/View";
-import MapLabels from "./labels/map-labels";
 import regionTypePicker from "@/components/elements/region-type/region-type-picker";
 import mapSourcePicker from "@/components/map/source/map-source-picker";
 import searchRegions from "./search/search-regions";
@@ -29,7 +28,6 @@ export default {
         MapLegendChange,
         MapLegend,
         searchRegions,
-        MapLabels,
         mapToolsPopup,
         pointerCanvas,
         regionTypePicker,

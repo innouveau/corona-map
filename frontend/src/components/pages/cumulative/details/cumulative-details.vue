@@ -1,5 +1,4 @@
 <script>
-import Region from "@/classes/region/Region";
 import View from "@/classes/View";
 import { getAbsoluteCumulativeForPeriod } from "@/tools/calculator";
 import numberTools from "@/tools/number";

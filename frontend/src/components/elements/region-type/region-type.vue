@@ -1,13 +1,9 @@
 <script>
-import swatch from "@/components/region/swatch";
 import View from "@/classes/View";
 import { getRegionFromBaseRegion } from "@/tools/relations";
 
 export default {
     name: "region-type",
-    components: {
-        swatch,
-    },
     props: {
         view: {
             type: View,

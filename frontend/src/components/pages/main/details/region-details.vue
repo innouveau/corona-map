@@ -1,9 +1,6 @@
 <script>
-import Region from "@/classes/region/Region";
 import View from "@/classes/View";
 import graphSignaling from "@/components/graphs/graph-signaling";
-import administeredPcrTests from "@/components/graphs/administered-pcr-tests";
-import loader from "@/components/elements/loader";
 import regionDetailsNumbers from "./region-details-numbers";
 import { getCurrentRegion } from "@/tools/relations";
 
@@ -11,9 +8,7 @@ export default {
     name: "region-details",
     components: {
         regionDetailsNumbers,
-        administeredPcrTests,
         graphSignaling,
-        loader,
     },
     props: {
         view: {

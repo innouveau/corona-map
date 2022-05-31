@@ -4,7 +4,6 @@ import headerMenu from "@/components/pages/header/header-menu";
 import mapSignaling from "@/components/map/Map";
 import searchRegions from "@/components/map/search/search-regions";
 import timeSlider from "@/components/time/time-slider/time-slider";
-import regionTypePicker from "@/components/elements/region-type/region-type-picker";
 import dateTools from "@/tools/date";
 import populationTestGroup from "./population-test-group";
 import PopulationTestRegion from "./population-test-region";
@@ -18,7 +17,6 @@ export default {
         searchRegions,
         mapSignaling,
         headerMenu,
-        regionTypePicker,
     },
     props: {},
     data() {
@@ -210,7 +208,8 @@ export default {
                     :group="selectionGroup"
                 />
                 <population-test-group
-                    v-for="group in groups"
+                    v-for="(group, index) in groups"
+                    :key="index"
                     :group="group"
                     :view="view"
                 />

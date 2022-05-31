@@ -1,6 +1,7 @@
 import Path from "./geo/Path";
 import store from "@/store/store";
 import stringTool from "@/tools/string";
+import coordinatesTool from "@/tools/coordinates";
 
 class Region {
     constructor({

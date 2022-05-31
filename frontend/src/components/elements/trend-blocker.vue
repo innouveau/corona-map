@@ -53,7 +53,7 @@ export default {
         currentSource: function () {
             this.hideTrends();
         },
-        currentPage: function (a) {
+        currentPage: function () {
             this.hideTrends();
         },
         currentRegionType: function () {

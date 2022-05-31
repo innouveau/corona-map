@@ -1,4 +1,3 @@
-import store from "@/store/store";
 import changeTools from "@/tools/change";
 import {
     getRelativeCumulativeForPeriod,

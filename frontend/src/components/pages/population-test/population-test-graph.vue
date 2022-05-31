@@ -35,7 +35,7 @@ export default {
     },
     watch: {
         offset: {
-            handler: function (newValue) {
+            handler: function () {
                 setTimeout(() => {
                     this.redraw();
                 });

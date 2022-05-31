@@ -1,5 +1,4 @@
 <script>
-import Region from "@/classes/region/Region";
 import View from "@/classes/View";
 import numberTools from "@/tools/number";
 
@@ -68,7 +67,11 @@ export default {
                 </div>
             </div>
             <div class="population-test-numbers__body"></div>
-            <div v-for="frame in frames" class="population-test-numbers__row">
+            <div
+                v-for="(frame, index) in frames"
+                :key="index"
+                class="population-test-numbers__row"
+            >
                 <div
                     class="population-test-numbers__cell population-test-numbers__frame-date"
                 >

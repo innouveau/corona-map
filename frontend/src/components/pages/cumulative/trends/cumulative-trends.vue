@@ -47,7 +47,7 @@ export default {
             return this.list.slice(0, 10);
         },
         lowest() {
-            const reversed = this.list.reverse();
+            const reversed = [...this.list].reverse();
             return reversed.slice(0, 10);
         },
     },
@@ -65,7 +65,8 @@ export default {
             <trend-section-body>
                 <trend-list>
                     <trend-region
-                        v-for="item in highest"
+                        v-for="(item, index) in highest"
+                        :key="index"
                         :view="view"
                         :region="item.region"
                     >
@@ -83,7 +84,8 @@ export default {
             <trend-section-body>
                 <trend-list>
                     <trend-region
-                        v-for="item in lowest"
+                        v-for="(item, index) in lowest"
+                        :key="index"
                         :view="view"
                         :region="item.region"
                     >

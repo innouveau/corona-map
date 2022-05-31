@@ -61,7 +61,8 @@ export default {
         <trend-section-body>
             <trend-list>
                 <trend-region
-                    v-for="item in list"
+                    v-for="(item, index) in list"
+                    :key="index"
                     :view="view"
                     :region="item.region"
                 >

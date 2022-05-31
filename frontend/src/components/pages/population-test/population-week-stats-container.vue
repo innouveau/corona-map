@@ -1,7 +1,6 @@
 <script>
 import populationTestRegion from "./population-test-region";
 import View from "@/classes/View";
-import timeTools from "@/components/time/time-slider/time-tools";
 import ViewTools from "@/components/time/view-tools";
 import RegionsPicker from "./regions-picker";
 
@@ -10,7 +9,6 @@ export default {
     components: {
         RegionsPicker,
         ViewTools,
-        timeTools,
         populationTestRegion,
     },
     data() {
@@ -50,7 +48,8 @@ export default {
 
         <div class="population-week-stats-container__body">
             <population-test-region
-                v-for="region in activeRegions"
+                v-for="(region, index) in activeRegions"
+                :key="index"
                 :region="region"
                 :view="view"
                 :group="group"

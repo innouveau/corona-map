@@ -34,7 +34,7 @@ export default {
         },
     },
     methods: {
-        download(payload) {
+        download() {
             downloadImage(this.view, "cumulative");
         },
     },

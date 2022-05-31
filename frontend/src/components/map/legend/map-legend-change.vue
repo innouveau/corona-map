@@ -34,6 +34,7 @@ export default {
     <div class="map-legend-change map-legend">
         <div
             v-for="(section, index) in sections"
+            :key="index"
             class="map-legend-change__section"
         >
             <div

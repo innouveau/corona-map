@@ -3,7 +3,6 @@ import dateTools from "@/tools/date";
 import View from "@/classes/View";
 import headerMenu from "@/components/pages/header/header-menu";
 import Map from "@/components/map/Map";
-import RegionDetails from "@/components/pages/main/details/region-details";
 import RegionDetailsNumbers from "@/components/pages/main/details/region-details-numbers";
 import RegionContainer from "@/components/region/region-container";
 import Region from "../../region/Region";
@@ -16,7 +15,6 @@ export default {
         headerMenu,
         RegionContainer,
         RegionDetailsNumbers,
-        RegionDetails,
     },
     props: {},
     data() {
@@ -94,7 +92,11 @@ export default {
 <template>
     <div class="compare">
         <div class="view__items">
-            <div v-for="(view, index) in views" class="view-item-container">
+            <div
+                v-for="(view, index) in views"
+                :key="index"
+                class="view-item-container"
+            >
                 <div class="header-menu-container">
                     <header-menu :view="view" />
                 </div>

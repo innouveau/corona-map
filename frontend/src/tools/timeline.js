@@ -65,7 +65,7 @@ export const loadSource = async (map, source) => {
     });
 };
 
-const checkForEmptyData = (map, source) => {
+const checkForEmptyData = () => {
     for (const region of store.state.regions.all) {
         if (region.report.history.length === 0) {
             store.commit("regions/noData", region);

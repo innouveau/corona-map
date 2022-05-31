@@ -44,7 +44,8 @@ export default {
         </div>
         <div class="map-tools-popup__body">
             <div
-                v-for="colorSet in colorSets"
+                v-for="(colorSet, index) in colorSets"
+                :key="index"
                 @click="select(colorSet)"
                 :class="{
                     'map-tools-popup__button--active': isActive(colorSet),

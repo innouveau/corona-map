@@ -1,16 +1,8 @@
 import dateTools from "@/tools/date";
-import store from "@/store/store";
 
 class Chapter {
     constructor(
-        {
-            title = "",
-            date = "",
-            dateTitle = "",
-            selection = {},
-            content = "",
-            ui = {},
-        },
+        { title = "", date = "", dateTitle = "", selection = {}, content = "" },
         story
     ) {
         this.story = story;

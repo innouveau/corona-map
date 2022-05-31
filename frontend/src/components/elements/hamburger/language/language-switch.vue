@@ -25,7 +25,8 @@ export default {
         </div>
         <div class="language-switch__buttons">
             <language-button
-                v-for="language in languages"
+                v-for="(language, index) in languages"
+                :key="index"
                 :language="language"
             />
         </div>

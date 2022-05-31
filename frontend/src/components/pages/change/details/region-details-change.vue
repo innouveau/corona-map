@@ -1,5 +1,4 @@
 <script>
-import Region from "@/classes/region/Region";
 import View from "@/classes/View";
 import numberTools from "@/tools/number";
 import positivePcrTestsChange from "@/components/graphs/positive-pcr-tests-change";

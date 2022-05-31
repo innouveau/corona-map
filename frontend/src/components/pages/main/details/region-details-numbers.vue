@@ -1,7 +1,6 @@
 <script>
 import View from "@/classes/View";
 import numberTools from "@/tools/number";
-import sourceLoader from "./source-loader";
 import {
     getAbsoluteCumulativeForPeriod,
     getRelativeCumulativeForPeriod,
@@ -13,9 +12,6 @@ import { getTotalPopulation } from "@/tools/calculator";
 
 export default {
     name: "region-details-numbers",
-    components: {
-        sourceLoader,
-    },
     props: {
         view: {
             type: View,

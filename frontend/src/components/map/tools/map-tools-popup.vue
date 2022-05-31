@@ -1,5 +1,4 @@
 <script>
-import colorSetPicker from "./color-set-picker";
 import signalingSystemPicker from "./signaling-system-picker";
 import gradientToggle from "./gradient-toggle";
 import vClickOutside from "v-click-outside";
@@ -9,7 +8,6 @@ import View from "@/classes/View";
 export default {
     name: "map-tools-popup",
     components: {
-        colorSetPicker,
         signalingSystemPicker,
         gradientToggle,
     },

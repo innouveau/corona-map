@@ -27,7 +27,8 @@ export default {
 <template>
     <div class="time-slider-stops">
         <time-slider-stop
-            v-for="stop in stops"
+            v-for="(stop, index) in stops"
+            :key="index"
             :stop="stop"
             :l="l"
             :view="view"

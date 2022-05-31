@@ -3,15 +3,12 @@ import $ from "jquery";
 import canvasTools from "@/tools/canvas";
 import View from "@/classes/View";
 import mapNavigationZoomScroll from "@/components/map/navigation/map-navigation-zoom.scroll.js";
-import MapNavigationPositionDrag from "./navigation/map-navigation-position-drag";
 import { loadSource } from "@/tools/timeline";
 import mapMixin from "./map-mixin.js";
-import { getRegionFromBaseRegion } from "@/tools/relations";
-import { getBaseRegions, getRegions } from "../../tools/relations";
+import { getBaseRegions, getRegions } from "@/tools/relations";
 
 export default {
     name: "map-canvas",
-    components: { MapNavigationPositionDrag },
     mixins: [mapNavigationZoomScroll, mapMixin],
     props: {
         view: {

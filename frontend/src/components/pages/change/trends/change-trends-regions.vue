@@ -37,7 +37,7 @@ export default {
             return this.$store.state.maps.current;
         },
         regions() {
-            let sorted = this.set
+            let sorted = [...this.set]
                 .sort((a, b) => {
                     return this.direction === "top"
                         ? b.value - a.value
@@ -106,7 +106,8 @@ export default {
         <trend-section-body>
             <trend-list>
                 <trend-region
-                    v-for="region in regions"
+                    v-for="(region, index) in regions"
+                    :key="index"
                     :view="view"
                     :region="region"
                 >
