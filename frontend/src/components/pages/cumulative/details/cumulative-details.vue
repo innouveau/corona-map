@@ -1,6 +1,9 @@
 <script>
 import View from "@/classes/View";
-import { getAbsoluteCumulativeForPeriod } from "@/tools/calculator";
+import {
+    getAbsoluteCumulativeForPeriod,
+    getTotalPopulation,
+} from "@/tools/calculator";
 import numberTools from "@/tools/number";
 
 export default {
@@ -32,8 +35,7 @@ export default {
         },
         relative() {
             return (
-                Math.round((1000 * this.total) / this.region.totalPopulation) /
-                    10 +
+                Math.round((1000 * this.total) / this.totalPopulation) / 10 +
                 "%"
             );
         },
@@ -48,6 +50,9 @@ export default {
                 this.view.offset,
                 "dd/MM/yyyy"
             );
+        },
+        totalPopulation() {
+            return getTotalPopulation(this.region);
         },
     },
     methods: {
@@ -66,7 +71,7 @@ export default {
                     {{ translate("population", true) }}
                 </div>
                 <div class="region-details__value">
-                    {{ format(region.totalPopulation, false) }}
+                    {{ format(totalPopulation, false) }}
                 </div>
             </div>
         </div>
